@@ -1,4 +1,3 @@
-CC=/scratch/2/t2hx/dep/openmpi/bin/mpicc
 BINS=inc_nb/inc_nb inc_b/inc_b inc_bsnbr/inc_bsnbr inc_put/inc_put inc_get/inc_get a2a_nb/a2a_nb a2a_man/a2a_man a2a_b/a2a_b o2o_bsnbr/o2o_bsnbr o2o_nb/o2o_nb bdc_b/bdc_b bdc_nb/bdc_nb ring_bsnbr/ring_bsnbr ring_nb/ring_nb null_dummy/null_dummy checker/checker ping-pong_b/ping-pong_b ardc_b/ardc_b ardc_nb/ardc_nb barrier/barrier pw-ping-pong_b/pw-ping-pong_b
 
 all: $(BINS)
