@@ -443,7 +443,7 @@ def main():
         for app in apps:
             #print_runtime(app.stdout,ro_mode,ro_file)
             if app.stderr!='':
-                 print_runtime('  '+str(round(time.time()-run_start_time,5))+'s: encountered an expectation in '
+                 print_runtime('  '+str(round(time.time()-run_start_time,5))+'s: encountered an exception in '
                         +str(app.id_num),ro_mode,ro_file)
                  print_runtime(app.stderr,ro_mode,ro_file)
         

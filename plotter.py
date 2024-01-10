@@ -199,7 +199,7 @@ def read_data(base_directory,num_nodes):
                 
         local_df=pd.DataFrame(columns=meta_cols)
         local_df.loc[idx]=samples_list
-        meta_df=meta_df.append(local_df,ignore_index=True)  
+        meta_df = pd.concat([meta_df, local_df], ignore_index=True)
         
         if vic_app!='inc' and vic_app!='bdc':
             read_df=pd.read_csv(data_path,names=dura_cols[1:-1],header=None,skiprows=1)
@@ -208,8 +208,8 @@ def read_data(base_directory,num_nodes):
         else:
             read_df=pd.read_csv(data_path,names=dura_cols[1:],header=None,skiprows=1)
             read_df[dura_cols[0]]=idx
-            
-        dura_df=dura_df.append(read_df,ignore_index=True)
+
+        dura_df = pd.concat([dura_df, read_df], ignore_index=True)             
     
     #add order to msg_size cols
     vic_msg_sizes_list=meta_df['vic_msg_size'].unique()
@@ -458,15 +458,14 @@ def main():
             raise Exception('Violins need only 1 y-argument.')
         
         #prepare plot dataframe
-        plot_df=pd.merge(m_df,d_df,on='idx')
-        
+        plot_df=pd.merge(m_df,d_df,on='idx')              
         #select rows
         plot_df=plot_df.loc[(plot_df['all_split']==split) & (plot_df['all_mode']==all_mode) &
                             (plot_df['vic_name']==vic_name) & (plot_df['vic_msg_size']==msg_size) &
                             (plot_df['agg_name'].isin(agg_names))]
         
         #select cols
-        plot_df=plot_df[x_list+y_list]
+        plot_df=plot_df[x_list+y_list]        
         
         plot_df['agg_name']=plot_df['agg_name'].cat.remove_unused_categories()
         
@@ -485,7 +484,7 @@ def main():
         
         q99_df=plot_df.groupby([x],as_index=False).quantile(0.99)
         q99s=q99_df[y].to_list()
-             
+                     
         ax=sns.violinplot(data=plot_df,x=x,y=y,cut=0,scale='width')
         
         if not (('incast' in agg_names) and ('all-to-all' in agg_names)):
