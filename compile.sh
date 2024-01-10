@@ -6,7 +6,7 @@ RED=$(tput setaf 1)
 NC=$(tput sgr0)
 
 pushd apps/internals
-    make
+    CC=$CC make
     if [ ! -f "a2a_b/a2a_b" ]; then
         echo "${RED}[Error] internals compilation failed, please check error messages above.${NC}"
         exit 1

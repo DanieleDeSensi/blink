@@ -13,3 +13,5 @@ CC=mpicc # MPI Compiler
 NG_CONFIGURE_FLAGS="HRT_ARCH=6 --with-mpi=/leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/"
 
 #export LD_LIBRAY_PATH=$LD_LIBRARY_PATH:/users/desensi/amd-blis/lib/lp64/
+
+module load openmpi
