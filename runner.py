@@ -381,8 +381,11 @@ def main():
             break;
         
         #clean tmp directory
-        for file in os.listdir('./tmp'):
-            os.unlink('./tmp/'+file)
+        try:
+            for file in os.listdir('./tmp'):
+                os.unlink('./tmp/'+file)
+        except FileNotFoundError:
+            pass
         
         #execute schedule
         print_runtime(' Run '+str(runs+1)+':',ro_mode,ro_file)
