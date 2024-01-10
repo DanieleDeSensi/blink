@@ -11,5 +11,5 @@ class wl_manager:
     def schedule_job(self,node_list,ppn,cmd):
         num_nodes=len(node_list)
         node_list_string=','.join(node_list)
-        slurm_string=('srun --nodelist ' + node_list_string + ' -n ' + str(ppn*num_nodes) + ' ' + cmd)
+        slurm_string=('srun --nodelist ' + node_list_string + ' -n ' + str(ppn*num_nodes) + ' -N ' + str(num_nodes) + ' ' + cmd)
         return slurm_string
