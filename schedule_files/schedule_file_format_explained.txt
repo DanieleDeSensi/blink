@@ -1,0 +1,14 @@
+# path: path to class of application
+# args: string of arguments, get passed to object of class on initalisation
+# collection-flag: '1' if data should be collected from the app, '0' otherwise
+# start: point in time when  app should be started time (0 if at beginning of run), if empty assumes 0
+# end: point in time when app should be killed, if empty app won't be killed (framework might run infinetly if app doesn't terminate on its own), if 'f' app will be killed after all other apps not specifiyng 'f' have terminated or were killed.
+# first line must be delimiter, if line is empty default ',' is used
+# format with ',' as delimiter: path,args,collection-flag,start,end
+# example (lines 10,11 and 12):
+
+,
+./apps/internals/a2a_b/a2a_b_class.py,-msgsize 1048576 -iter 100 -grty 1,1,5,
+./apps/internals/inc_b/inc_b_class.py,-msgsize 131072 -endl -iter 1 -grty 1,0,0,f
+
+# executes the a2a_b benchmark and collect data from it after 5 seconds, while inc_b is running since it was started at 0 and will terminate after a2a_b has finished
