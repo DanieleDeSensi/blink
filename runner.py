@@ -170,7 +170,7 @@ def main():
     parser=argparse.ArgumentParser(description='Runner of framework.')
     parser.add_argument('wl_manager',help='Path to workload manager class.')
     parser.add_argument('schedule_file',help='Path to file that specifies test schedule parameters.')
-    parser.add_argument('node_file',help='Path to node list file.')
+    parser.add_argument('node_file',help='Path to node list file. If \'auto\' is specified, nodes are allocated automatically (it assumes Slurm is available).')
     parser.add_argument('-am','--allocationmode',help='Way of allocating nodes (default: linear)',
         default='l',choices=['l','c','r','i','+r'])
     parser.add_argument('-as','--allocationsplit',
@@ -206,6 +206,10 @@ def main():
     data_path=args.datapath
     
     random.seed(args.seed)
+
+    if node_file == "auto":
+        node_file = "node_files/auto_node_file.txt"
+        subprocess.call(["scontrol", "show", "hostnames"], stdout=open(node_file, "w"))
     
     #runner_id is current time
     runner_id=(schedule_file_path.split('/')[-1]+'__'

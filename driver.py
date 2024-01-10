@@ -1,3 +1,4 @@
+import subprocess
 import datetime
 import argparse
 import os
@@ -8,7 +9,7 @@ def main():
     parser=argparse.ArgumentParser(description='Driver to create script that runs runner.')
     parser.add_argument('wl_manager',help='Path to workload manager class.')
     parser.add_argument('driver_schedules_file',help='Path to file that holds different schedules.')
-    parser.add_argument('node_file',help='File that specifies nodes.')
+    parser.add_argument('node_file',help='Path to node list file. If \'auto\' is specified, nodes are allocated automatically (it assumes Slurm is available).')
     parser.add_argument('-sn','--scriptname',help='Name of script',
                             default='script_'+datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S'))
     parser.add_argument('-sp','--splits',help='List of splits, format: "AA:BB,CC:DD,EE:FF"',default='20:80,50:50,80:20')
@@ -35,6 +36,10 @@ def main():
     node_file=args.node_file
     name='./scripts/'+args.scriptname
     ppn=args.ppn
+
+    if node_file == "auto":
+        node_file = "node_files/auto_node_file.txt"
+        subprocess.call(["scontrol", "show", "hostnames"], stdout=open(node_file, "w"))
 
     #runner args, non modified
     runner_args=(' -mn '+str(args.minruns)+' -mx '+str(args.maxruns)+' -t '+str(args.timeout)
