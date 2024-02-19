@@ -11,6 +11,7 @@
 #                        (i.e., 1 if the application is the victim, 0 otherwise)    
 #     - start: After how many second from the start of the benchmark the application should start.
 #              If not specified, the benchmark assumes a 0 (i.e., it starts at the beginning of the benchmark).
+#              This can be used, e.g., to make sure that the aggressor starts before the victim.
 #     - end: After how many second from the start of the benchmark the application should start. 
 #            If empty, the framework will never kill the application.
 #            If 'f', the application will be killed only after all the other applications (excluding those 

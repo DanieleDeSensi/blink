@@ -168,7 +168,7 @@ def print_runtime(obj,mode,ro_file):
 def main():
     pre_start_time=time.time()
     parser=argparse.ArgumentParser(description='Runner of framework.')
-    parser.add_argument('schedule_file',help='Path to file that specifies test schedule parameters.')
+    parser.add_argument('test_bench',help='The file specifying which apps mix to run.')
     parser.add_argument('node_file',help='Path to node list file. If \'auto\' is specified, nodes are allocated automatically (it assumes Slurm is available).')
     parser.add_argument('-am','--allocationmode',help='Way of allocating nodes (default: linear)',
         default='l',choices=['l','c','r','i','+r'])
@@ -190,7 +190,7 @@ def main():
     
     #argument namespace to variables
     import_path_wlm="./conf/wl_manager/" + os.environ["BLINK_WL_MANAGER"] + ".py"
-    schedule_file_path=args.schedule_file
+    test_bench_path=args.test_bench
     node_file=args.node_file
     allocation_mode=args.allocationmode
     allocation_split=args.allocationsplit    
@@ -211,7 +211,7 @@ def main():
         subprocess.call(["scontrol", "show", "hostnames"], stdout=open(node_file, "w"))
     
     #runner_id is current time
-    runner_id=(schedule_file_path.split('/')[-1]+'__'
+    runner_id=(test_bench_path.split('/')[-1]+'__'
         +allocation_mode+'_'+allocation_split+'__'
         +datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S'))
     data_directory=data_path+'/'+runner_id
@@ -239,14 +239,14 @@ def main():
     print_runtime('\nApps:',ro_mode,ro_file)
     
     #read schedule file and import app classes
-    with open(schedule_file_path,'r') as schedule_file:
+    with open(test_bench_path,'r') as test_bench:
         #get delimiter from first line
-        first_line=schedule_file.readline()
+        first_line=test_bench.readline()
         file_delimiter=first_line[:-1]
         if file_delimiter=='':
             file_delimiter=',' #default for delimiter  
         
-        for line in schedule_file:
+        for line in test_bench:
             line_list=[x.strip() for x in line.split(file_delimiter)]
             
             #path to class

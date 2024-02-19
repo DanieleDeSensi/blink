@@ -3,15 +3,13 @@ import subprocess
 import datetime
 import argparse
 import os
-import stat
 import importlib.util
 
 def main():
     parser = argparse.ArgumentParser(
         description='Generates the script to be used to run the experiments (called \'generated_script.sh\').')
-    parser.add_argument('wl_manager', help='Path to workload manager class.')
     parser.add_argument(
-        'schedule_file', help='Path to file that holds different schedules.')
+        'test_bench', help='The file specifying which apps mix to run.')
     parser.add_argument(
         'node_file', help='Path to node list file. If \'auto\' is specified, nodes are allocated automatically (it assumes Slurm is available).')
     #parser.add_argument('-sn', '--scriptname', help='Name of script',
@@ -43,8 +41,8 @@ def main():
                         default='stdout', choices=['stdout', 'none', 'file', '+file'])
     args = parser.parse_args()
 
-    wlm_path = args.wl_manager
-    schedule_file_path = args.schedule_file
+    wlm_path="./conf/wl_manager/" + os.environ["BLINK_WL_MANAGER"] + ".py"
+    test_bench_path = args.test_bench
     node_file = args.node_file
     #name = './scripts/' + args.scriptname + '.sh'
     name = "generated_script.sh"
@@ -66,7 +64,7 @@ def main():
     splits = args.splits.split(',')
 
     # read schedule file to get list of schedules
-    with open(schedule_file_path, 'r') as file:
+    with open(test_bench_path, 'r') as file:
         schedules = []
         for line in file:
             schedules += [line.strip()]
@@ -82,16 +80,8 @@ def main():
     wlmanager = mod_wlm.wl_manager()
 
     # call write script function in wlm-class
-    wlmanager.write_script(wlm_path, runner_args, schedules,
+    wlmanager.write_script(runner_args, schedules,
                            nams, name, splits, node_file, ppn)
-
-
-    '''
-    st = os.stat(name)
-    os.chmod(name, st.st_mode | stat.S_IEXEC)
-    process = subprocess.Popen(name, shell=True, stdout=subprocess.PIPE)
-    process.wait()
-    '''
 
 if __name__ == '__main__':
     main()

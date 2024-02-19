@@ -2,12 +2,12 @@ import os
 
 class wl_manager:
     # Generates a script that can be used to run all the benchmarks specified in the schedule.
-    def write_script(self, wlm_path, runner_args, schedules, nams, name, splits, node_file, ppn):
+    def write_script(self, runner_args, schedules, nams, name, splits, node_file, ppn):
         script=open(name,'w+')
         script.write('#!/bin/bash\nfor schedule in '+' '.join(schedules)+'\ndo\n')
         script.write('\tfor nam in '+' '.join(nams)+'\n\tdo\n')
         script.write('\t\tfor split in '+' '.join(splits)+'\n\t\tdo\n')
-        script.write('\t\tpython3 runner.py '+wlm_path+' "$schedule" '+node_file+' -am "$nam" -as "$split"'+runner_args+' -p '+str(ppn))
+        script.write('\t\tpython3 runner.py "$schedule" '+node_file+' -am "$nam" -as "$split"'+runner_args+' -p '+str(ppn))
         script.write('\n\t\tdone\n\tdone\ndone')
         script.close()
 
