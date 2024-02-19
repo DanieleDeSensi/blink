@@ -326,7 +326,7 @@ def main():
 
     parser=argparse.ArgumentParser(description='Plots for pairing testing.')
     parser.add_argument('plot',help='Type of plot.',
-                        choices=['violin','heatmap','trend','overview'])
+                        choices=['violin','heatmap','trend','overview','box'])
     parser.add_argument('basedir',help='Path to base directory of data.')
     parser.add_argument('-x','--x_list',help='Data to be used on x axis of plot (comma seperated list).')
     parser.add_argument('-y','--y_list',help='Data to be used on y axis of plot (comma seperated list).')
@@ -343,6 +343,7 @@ def main():
     parser.add_argument('-a','--aggressors',help='Aggressor applications (comma seperated list).',default='isolated,all-to-all')
     parser.add_argument('-ms','--msgsize',help='Message size to plot.',default='16KiB')
     parser.add_argument('-am','--allmode',help='Allocation mode to plot.',default='random')
+    parser.add_argument('--ylim',help='Upper y limit.',default=None)
     
     args=parser.parse_args()
     
@@ -450,7 +451,7 @@ def main():
         
         over_df.to_csv('./overview.csv',float_format='%.3e')
         
-    elif plot=='violin':
+    elif plot=='violin' or plot=='box':
     
         if len(x_list)>1:
             raise Exception('Violins need only 1 x-argument.')
@@ -485,7 +486,13 @@ def main():
         q99_df=plot_df.groupby([x],as_index=False).quantile(0.99)
         q99s=q99_df[y].to_list()
                      
-        ax=sns.violinplot(data=plot_df,x=x,y=y,cut=0,scale='width')
+        if plot=='violin':
+            ax=sns.violinplot(data=plot_df,x=x,y=y,cut=0,scale='width')
+        elif plot=='box':
+            ax=sns.boxplot(data=plot_df,x=x,y=y,notch=True,showmeans=True)
+        
+        if args.ylim is not None:
+            ax.set(ylim=(0, int(args.ylim)))
         
         if not (('incast' in agg_names) and ('all-to-all' in agg_names)):
             new_labels=[]
@@ -520,15 +527,15 @@ def main():
         d_df=d_df[['idx',data_col]]
 
         if metric != 'lci': #lci already aggregated
-            if agg_mode=='avg':
+            if args.aggregation=='avg':
                 d_df=d_df.groupby(['idx'],as_index=False).mean()
-            elif agg_mode=='min':
+            elif args.aggregation=='min':
                 d_df=d_df.groupby(['idx'],as_index=False).min()
-            elif agg_mode=='max':
+            elif args.aggregation=='max':
                 d_df=d_df.groupby(['idx'],as_index=False).max()
-            elif agg_mode=='median':
+            elif args.aggregation=='median':
                 d_df=d_df.groupby(['idx'],as_index=False).quantile(0.5)
-            elif agg_mode=='q99':
+            elif args.aggregation=='q99':
                 d_df=d_df.groupby(['idx'],as_index=False).quantile(0.99)
                     
         m_df=m_df[['idx']+x_list+y_list]
@@ -558,6 +565,7 @@ def main():
             norm=LogNorm(vmin=v_min,vmax=v_max)
             annot_fmt='.2f'
             
+            print(plot_df)
             plot_df*=(10**6) #to micro seconds 
             unit='us'
                

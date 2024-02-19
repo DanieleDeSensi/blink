@@ -1,12 +1,10 @@
 #!/bin/bash
-SYSTEM="leonardo"
+SYSTEM="local"
 
-case $SYSTEM in
-  leonardo)
-    source conf/leonardo.sh
-    ;;
-
-  *)
-    echo -n "Unknown SYSTEM "$SYSTEM
-    ;;
-esac
+if [ -f conf/${SYSTEM}.sh ]; then
+    source conf/${SYSTEM}.sh
+    return 0
+else
+    echo "Unknown SYSTEM "$SYSTEM
+    exit 1
+fi

@@ -57,8 +57,8 @@ def check_CI(container_list,alpha,beta,converge_all,run):
             check=(check and container.converged)
     return check
     
-def schedule_job(job,wlmanager,ppn):
-    cmd_string=wlmanager.schedule_job(job.node_list,ppn,job.run_app())
+def run_job(job,wlmanager,ppn):
+    cmd_string=wlmanager.run_job(job.node_list,ppn,job.run_app())
     cmd=shlex.split(cmd_string)
     process=subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=False)
     job.set_process(process)
@@ -401,7 +401,7 @@ def main():
         for app_id, action_type, action_time in schedule:
             time.sleep(action_time-current_time)
             if action_type=='s':
-                schedule_job(apps[app_id],wlmanager,ppn)
+                run_job(apps[app_id],wlmanager,ppn)
                 print_runtime('  '+str(round(time.time()-run_start_time,5))+'s: started '+str(app_id),ro_mode,ro_file)
             elif action_type=='k':
                 end_job(apps[app_id])

@@ -1,5 +1,8 @@
+import os
+
 class wl_manager:
-    def write_script(self,wlm_path,runner_args,schedules,nams,name,splits,node_file,ppn):
+    # Generates a script that can be used to run all the benchmarks specified in the schedule.
+    def write_script(self, wlm_path, runner_args, schedules, nams, name, splits, node_file, ppn):
         script=open(name+'.sh','w+')
         script.write('#!/bin/bash\nfor schedule in '+' '.join(schedules)+'\ndo\n')
         script.write('\tfor nam in '+' '.join(nams)+'\n\tdo\n')
@@ -8,11 +11,14 @@ class wl_manager:
         script.write('\n\t\tdone\n\tdone\ndone')
         script.close()
 
-    def schedule_job(self,node_list,ppn,cmd):
+    # Returns a string that can be used to run command 'cmd'
+    # on the nodes in 'node_list' with 'ppn' processes per node.
+    def run_job(self, node_list, ppn, cmd):
         num_nodes=len(node_list)
         node_list_string=','.join(node_list)
-        SF_string=('/scratch/2/t2hx/dep/openmpi/bin/mpirun -mca plm_rsh_no_tree_spawn 1'+
-            ' --map-by node -mca btl openib,self,sm -mca btl_openib_if_include mlx4_0 -H '+node_list_string+
-            ' -mca orte_base_help_aggregate 0  -np '+str(ppn*num_nodes)+' '+cmd)
-        local_string='mpirun -host '+node_list_string+' -np '+str(ppn*num_nodes)+' --map-by node --oversubscribe '+cmd
-        return SF_string
+        return os.environ["MPIRUN"] + " " + \
+               os.environ["MPIRUN_MAP_BY_NODE_FLAG"] + " " + \
+               os.environ["MPIRUN_ADDITIONAL_FLAGS"] + " " + \
+               os.environ["MPIRUN_PINNING_FLAG"] + " " + \
+               os.environ["MPIRUN_HOSTNAMES_FLAG"] + node_list_string + " " + \
+               "-np " + str(ppn*num_nodes) + " " + cmd

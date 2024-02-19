@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import subprocess
 import datetime
 import argparse
@@ -8,7 +10,7 @@ def main():
 
     parser=argparse.ArgumentParser(description='Driver to create script that runs runner.')
     parser.add_argument('wl_manager',help='Path to workload manager class.')
-    parser.add_argument('driver_schedules_file',help='Path to file that holds different schedules.')
+    parser.add_argument('schedule_file',help='Path to file that holds different schedules.')
     parser.add_argument('node_file',help='Path to node list file. If \'auto\' is specified, nodes are allocated automatically (it assumes Slurm is available).')
     parser.add_argument('-sn','--scriptname',help='Name of script',
                             default='script_'+datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S'))
@@ -32,7 +34,7 @@ def main():
 
     #driver args
     wlm_path=args.wl_manager
-    driver_schedules_file_path=args.driver_schedules_file
+    schedule_file_path=args.schedule_file
     node_file=args.node_file
     name='./scripts/'+args.scriptname
     ppn=args.ppn
@@ -52,7 +54,7 @@ def main():
     splits=args.splits.split(',')
     
     #read driver schedule file to get list of schedules
-    with open(driver_schedules_file_path,'r') as file:
+    with open(schedule_file_path,'r') as file:
         schedules=[]
         for line in file:
             schedules+=[line.strip()]

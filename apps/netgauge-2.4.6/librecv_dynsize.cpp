@@ -253,7 +253,11 @@ int DYN_Recv(MPI_Datatype datatype, int src, int tag, MPI_Comm comm,
     MPI_Probe(src, tag, comm, &stat);
     MPI_Get_count(&stat, datatype, count);
     MPI_Aint extent;
+#if MPI_VERSION >= 3
+    MPI_Type_get_extent(datatype, NULL, &extent);
+#else
     MPI_Type_extent(datatype, &extent);
+#endif
     *buf = malloc(extent**count);
     MPI_Request req;
     MPI_Irecv(*buf, *count, datatype, src, tag, comm, &req);
@@ -269,7 +273,11 @@ int DYN_Recv(MPI_Datatype datatype, int src, int tag, MPI_Comm comm,
     MPI_Probe(src, tag, comm, &stat);
     MPI_Get_count(&stat, datatype, count);
     MPI_Aint extent;
+#if MPI_VERSION >= 3
+    MPI_Type_get_extent(datatype, NULL, &extent);
+#else
     MPI_Type_extent(datatype, &extent);
+#endif
     *buf = malloc(extent**count);
     MPI_Request req;
     MPI_Irecv(*buf, *count, datatype, src, tag, comm, &req);
@@ -285,7 +293,11 @@ int DYN_Recv(MPI_Datatype datatype, int src, int tag, MPI_Comm comm,
     MPI_Probe(src, tag, comm, &stat);
     MPI_Get_count(&stat, datatype, count);
     MPI_Aint extent;
+#if MPI_VERSION >= 3
+    MPI_Type_get_extent(datatype, NULL, &extent);
+#else
     MPI_Type_extent(datatype, &extent);
+#endif
     *buf = malloc(extent**count);
     MPI_Request req;
     MPI_Irecv(*buf, *count, datatype, src, tag, comm, &req);
@@ -301,7 +313,11 @@ int DYN_Recv(MPI_Datatype datatype, int src, int tag, MPI_Comm comm,
     MPI_Probe(src, tag, comm, &stat);
     MPI_Get_count(&stat, datatype, count);
     MPI_Aint extent;
+#if MPI_VERSION >= 3
+    MPI_Type_get_extent(datatype, NULL, &extent);
+#else
     MPI_Type_extent(datatype, &extent);
+#endif
     *buf = malloc(extent**count);
     MPI_Request req;
     MPI_Irecv(*buf, *count, datatype, src, tag, comm, &req);
@@ -336,7 +352,11 @@ int DYN_Irecv(MPI_Datatype datatype, int src, int tag, MPI_Comm comm,
     if(*flag) {
       MPI_Get_count(&stat, datatype, count);
       MPI_Aint extent;
-      MPI_Type_extent(datatype, &extent);
+#if MPI_VERSION >= 3
+    MPI_Type_get_extent(datatype, NULL, &extent);
+#else
+    MPI_Type_extent(datatype, &extent);
+#endif
       *buf = malloc(extent**count);
       MPI_Irecv(*buf, *count, datatype, src, tag, comm, req);
     }
@@ -351,7 +371,11 @@ int DYN_Irecv(MPI_Datatype datatype, int src, int tag, MPI_Comm comm,
     if(*flag) {
       MPI_Get_count(&stat, datatype, count);
       MPI_Aint extent;
-      MPI_Type_extent(datatype, &extent);
+#if MPI_VERSION >= 3
+    MPI_Type_get_extent(datatype, NULL, &extent);
+#else
+    MPI_Type_extent(datatype, &extent);
+#endif
       *buf = malloc(extent**count);
       MPI_Irecv(*buf, *count, datatype, src, tag, comm, req);
     }
@@ -366,7 +390,11 @@ int DYN_Irecv(MPI_Datatype datatype, int src, int tag, MPI_Comm comm,
     if(*flag) {
       MPI_Get_count(&stat, datatype, count);
       MPI_Aint extent;
-      MPI_Type_extent(datatype, &extent);
+#if MPI_VERSION >= 3
+    MPI_Type_get_extent(datatype, NULL, &extent);
+#else
+    MPI_Type_extent(datatype, &extent);
+#endif
       *buf = malloc(extent**count);
       MPI_Irecv(*buf, *count, datatype, src, tag, comm, req);
     }
@@ -381,7 +409,11 @@ int DYN_Irecv(MPI_Datatype datatype, int src, int tag, MPI_Comm comm,
     if(*flag) {
       MPI_Get_count(&stat, datatype, count);
       MPI_Aint extent;
-      MPI_Type_extent(datatype, &extent);
+#if MPI_VERSION >= 3
+    MPI_Type_get_extent(datatype, NULL, &extent);
+#else
+    MPI_Type_extent(datatype, &extent);
+#endif
       *buf = malloc(extent**count);
       MPI_Irecv(*buf, *count, datatype, src, tag, comm, req);
     }
@@ -409,7 +441,11 @@ int DYN_Recv(MPI_Datatype datatype, int src, int tag, MPI_Comm comm,
   MPI_Probe(src, tag, comm, &stat);
   MPI_Get_count(&stat, datatype, count);
   MPI_Aint extent;
-  MPI_Type_extent(datatype, &extent);
+#if MPI_VERSION >= 3
+    MPI_Type_get_extent(datatype, NULL, &extent);
+#else
+    MPI_Type_extent(datatype, &extent);
+#endif
   *buf = malloc(extent**count);
   MPI_Request req;
   MPI_Irecv(*buf, *count, datatype, src, tag, comm, &req);
@@ -425,7 +461,11 @@ int DYN_Irecv(MPI_Datatype datatype, int src, int tag, MPI_Comm comm,
   if(*flag) {
     MPI_Get_count(&stat, datatype, count);
     MPI_Aint extent;
+#if MPI_VERSION >= 3
+    MPI_Type_get_extent(datatype, NULL, &extent);
+#else
     MPI_Type_extent(datatype, &extent);
+#endif
     *buf = malloc(extent**count);
     MPI_Irecv(*buf, *count, datatype, src, tag, comm, req);
   }
@@ -452,7 +492,11 @@ int DYN_Recv(MPI_Datatype datatype, int src, int tag, MPI_Comm comm,
   MPI_Mprobe(src, tag, comm, &msg, &stat);
   MPI_Get_count(&stat, datatype, count);
   MPI_Aint extent;
-  MPI_Type_extent(datatype, &extent);
+#if MPI_VERSION >= 3
+    MPI_Type_get_extent(datatype, NULL, &extent);
+#else
+    MPI_Type_extent(datatype, &extent);
+#endif
   *buf = malloc(extent**count);
   MPI_Request req;
   MPI_Imrecv(*buf, *count, datatype, &msg, &req);
@@ -470,7 +514,11 @@ int DYN_Irecv(MPI_Datatype datatype, int src, int tag, MPI_Comm comm,
   if(*flag) {
     MPI_Get_count(&stat, datatype, count);
     MPI_Aint extent;
+#if MPI_VERSION >= 3
+    MPI_Type_get_extent(datatype, NULL, &extent);
+#else
     MPI_Type_extent(datatype, &extent);
+#endif
     *buf = malloc(extent**count);
     MPI_Imrecv(*buf, *count, datatype, &msg, req);
   }
