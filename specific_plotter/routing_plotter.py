@@ -84,7 +84,7 @@ def violins(df):
 
 def main():    
     #assume data has already been backed up by plotter.py once
-    backup_directory='./plotter_backup'
+    backup_directory='./plots/postprocessed_files/'
     df_S=get_data(backup_directory+'/pairings_SSSP')
     df_M=get_data(backup_directory+'/pairings_MH')
     

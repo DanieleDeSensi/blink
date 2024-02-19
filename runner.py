@@ -168,7 +168,6 @@ def print_runtime(obj,mode,ro_file):
 def main():
     pre_start_time=time.time()
     parser=argparse.ArgumentParser(description='Runner of framework.')
-    parser.add_argument('wl_manager',help='Path to workload manager class.')
     parser.add_argument('schedule_file',help='Path to file that specifies test schedule parameters.')
     parser.add_argument('node_file',help='Path to node list file. If \'auto\' is specified, nodes are allocated automatically (it assumes Slurm is available).')
     parser.add_argument('-am','--allocationmode',help='Way of allocating nodes (default: linear)',
@@ -190,7 +189,7 @@ def main():
     args=parser.parse_args()
     
     #argument namespace to variables
-    import_path_wlm=args.wl_manager
+    import_path_wlm="./conf/wl_manager/" + os.environ["BLINK_WL_MANAGER"] + ".py"
     schedule_file_path=args.schedule_file
     node_file=args.node_file
     allocation_mode=args.allocationmode

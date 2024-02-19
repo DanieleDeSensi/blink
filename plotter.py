@@ -372,7 +372,7 @@ def main():
 
     base_directory=args.basedir
     backup_name=base_directory.split('/')[-1]
-    backup_directory='./plotter_backup/'+backup_name
+    backup_directory='./plots/postprocessed_files/'+backup_name
     
     if args.plotname is None:
         form_split=':'.join([str(int(float(x))) for x in split.split(':')])

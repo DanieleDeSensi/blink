@@ -15,7 +15,7 @@ popd
 
 # Compile netgauge
 pushd apps/netgauge-2.4.6
-    ./configure ${NG_CONFIGURE_FLAGS}
+    ./configure ${BLINK_NG_CONFIGURE_FLAGS}
     make
     if [ ! -f "netgauge" ]; then
         echo "${RED}[Error] netgauge compilation failed, please check error messages above.${NC}"
