@@ -133,7 +133,7 @@ int main(int argc, char** argv){
     int measure_granularity=1;
     max_samples=1000;
     
-    warm_up_iters=100;
+    warm_up_iters=5;
     int max_iters=1;
     bool endless=false;
     
