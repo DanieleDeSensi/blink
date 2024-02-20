@@ -1,12 +1,12 @@
 class microbench:
     # data parameters:
     num_metrics = 5  # (int) specifies how many datapoints are collected
-    data_labels = ['Avg-Duration', 'Min-Duration', 'Max-Duration', 'Median-Duration',
-                   'MainRank-Duration']  # (list (of length num_metrics) of strings)
+    # avg, min, max, median time across all the ranks (per iteration). We also report the time (per iteration) of the main rank.
+    data_labels = ['Avg-Duration', 'Min-Duration', 'Max-Duration', 'Median-Duration', 'MainRank-Duration']  # (list (of length num_metrics) of strings)
     # (list (of length num_metrics) of strings)
     data_units = ['s', 's', 's', 's', 's']
     # Convergence mask (list (of length num_metrics) of bools)
-    conv_mask = [True, True, True, True, True]
+    conv_mask = [True, False, False, False, False] # I want to stop once the Avg-Duration converged
 
     # execution functions:
     def __init__(self, id_num, collect_flag, args):
