@@ -92,8 +92,8 @@ static void write_results()
 
     // We need to first gather all the data
     MPI_Gather(tmp_buf, num_samples, MPI_DOUBLE, all_data, num_samples, MPI_DOUBLE, master_rank, MPI_COMM_WORLD);
-
-    if(my_rank == master_rank){
+    
+    if(my_rank == master_rank){   
         for(i = 0; i < num_samples; i++){
             int j;
             duration_sum = 0;

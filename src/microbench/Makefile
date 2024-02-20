@@ -14,7 +14,7 @@ CFLAGS = -lm
 # Targets
 all: $(BINS)
 
-$(BIN_DIR)/%: $(SRC_DIR)/%.c
+$(BIN_DIR)/%: $(SRC_DIR)/%.c $(SRC_DIR)/common.h
 	$(CC) -o $@ $< $(CFLAGS)
 
 clean:
