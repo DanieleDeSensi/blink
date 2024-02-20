@@ -397,8 +397,8 @@ def main():
     data_container_list = []
     for app in apps:
         if app.collect_flag:
-            for i in range(app.num_metrics):
-                data_container_list += [data_container(app.id_num, app.conv_mask[i], app.data_labels[i], app.data_units[i])]
+            for i in range(len(app.metadata)):
+                data_container_list += [data_container(app.id_num, app.metadata[i]["conv"], app.metadata[i]["name"], app.metadata[i]["unit"])]
 
     # end of preps
     print_runtime('\nPreparing took '+str(round(time.time() -
@@ -509,7 +509,7 @@ def main():
         data_collection_start_time = time.time()
         j = 0
         for app in apps:
-            if (app.num_metrics > 0) and app.collect_flag:
+            if (len(app.metadata) > 0) and app.collect_flag:
                 data_list_of_list = app.read_data()
                 for data_list in data_list_of_list:
                     data_container_list[j].data += data_list

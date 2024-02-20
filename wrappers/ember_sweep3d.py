@@ -1,43 +1,15 @@
-class app:
-    # data parameters:
-    # (string) path to executable
-    path_to_executable = './src/ember/mpi/sweep3d/sweep3d'
-    num_metrics = 3  # (int) specifies how many datapoints are collected
-    # (list (of length num_metrics) of strings)
-    data_labels = ['Time', 'MaxData_xchanged/rank', 'Throughput/rank']
-    # (list (of length num_metrics) of strings)
-    data_units = ['s', 'KB/rank', 'MB/s/Rank']
-    conv_mask = [True, False, False]
+import os
+import base
 
-    # execution functions:
-    def __init__(self, id_num, collect_flag, args):
-        self.id_num = id_num
-        self.args = args
-        self.collect_flag = collect_flag
-        if len(self.data_labels) != self.num_metrics:
-            raise Exception('Class with id '+str(id_num) +
-                            ': shape mismatch of data_labels array')
-        if len(self.data_units) != self.num_metrics:
-            raise Exception('Class with id '+str(id_num) +
-                            ': shape mismatch of data_units array')
-        if len(self.conv_mask) != self.num_metrics:
-            raise Exception('Class with id '+str(id_num) +
-                            ': shape mismatch of convergence_mask')
+class app(base):
+    metadata = [
+        {'name': 'Time'                 , 'unit': 's'        , 'conv': True},
+        {'name': 'MaxData_xchanged/rank', 'unit': 'KB/rank'  , 'conv': False},
+        {'name': 'Throughput/rank'      , 'unit': 'MB/s/Rank', 'conv': False}
+    ]
 
-    def set_process(self, process):
-        self.process = process
-
-    def set_output(self, stdout, stderr):
-        self.stdout = stdout.decode('utf-8')
-        self.stderr = stderr.decode('utf-8')
-
-    def set_nodes(self, node_list):
-        self.node_list = node_list
-        self.num_nodes = len(node_list)
-
-    # customizable functions:
-    def run_app(self):  # return string on how to call app
-        return self.path_to_executable+' '+self.args
+    def get_binary_path(self):
+        return os.environ["BLINK_ROOT"] + '/src/ember/mpi/sweep3d/sweep3d'
 
     def read_data(self):  # return list (size num_metrics) of variable size lists
         data_list = [None]*self.num_metrics

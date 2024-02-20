@@ -1,49 +1,30 @@
+import base
 import os
 
-class app:
-    # data parameters:
-    num_metrics = 8  # (int) specifies how many datapoints are collected
-    data_labels = ['matrix_structure', 'FE_assambly', 'WAXPY',
-                   'DOT', 'MATVEC', 'CG_total', 'CG_per_iteration',
-                   'total']  # (list (of length num_metrics) of strings)
-    data_units = ['s']*8  # (list (of length num_metrics) of strings)
-    conv_mask = [True]*8
+class app(base):
+    exists = True
 
-    # execution functions:
-    def __init__(self, id_num, collect_flag, args):
-        self.id_num = id_num
-        self.args = args
-        self.collect_flag = collect_flag
-        if len(self.data_labels) != self.num_metrics:
-            raise Exception('Class with id '+str(id_num) +
-                            ': shape mismatch of data_labels array')
-        if len(self.data_units) != self.num_metrics:
-            raise Exception('Class with id '+str(id_num) +
-                            ': shape mismatch of data_units array')
-        if len(self.conv_mask) != self.num_metrics:
-            raise Exception('Class with id '+str(id_num) +
-                            ': shape mismatch of convergence_mask')
+    metadata = [
+        {'name': 'matrix_structure', 'unit': 's', 'conv': False},
+        {'name': 'FE_assambly'     , 'unit': 's', 'conv': False},
+        {'name': 'WAXPY'           , 'unit': 's', 'conv': False},
+        {'name': 'DOT'             , 'unit': 's', 'conv': False},
+        {'name': 'MATVEC'          , 'unit': 's', 'conv': False},
+        {'name': 'CG_total'        , 'unit': 's', 'conv': False},
+        {'name': 'CG_per_iteration', 'unit': 's', 'conv': False},
+        {'name': 'total'           , 'unit': 's', 'conv': True}
+    ]
 
-    def set_process(self, process):
-        self.process = process
-
-    def set_output(self, stdout, stderr):
-        self.stdout = stdout.decode('utf-8')
-        self.stderr = stderr.decode('utf-8')
-
-    def set_nodes(self, node_list):
-        self.node_list = node_list
-        self.num_nodes = len(node_list)
-
-    # customizable functions:
-    def run_app(self):  # return string on how to call app
-        if "BLINK_MINIFE_PATH" in os.environ and os.environ["BLINK_MINIFE_PATH"] != '':
-            return os.environ["BLINK_MINIFE_PATH"]+' '+self.args
+    def get_binary_path(self):
+        env_name = "BLINK_MINIFE_PATH"
+        if env_name not in os.environ or os.environ[env_name] == "":
+            self.exists = False
+            return None
         else:
-            return ""
+            return os.environ[env_name]
 
     def read_data(self):  # return list (size num_metrics) of variable size lists
-        if "BLINK_MINIFE_PATH" in os.environ and os.environ["BLINK_MINIFE_PATH"] != '':
+        if self.exists:
             path = None
             for file in os.listdir():
                 if file[:6] == 'miniFE':

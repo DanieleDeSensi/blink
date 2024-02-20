@@ -1,45 +1,17 @@
-class app:
+import os
+import base
 
-    # data parameters:
-    path_to_executable = './src/emberr/mpi/incast/incast'
-    num_metrics = 3  # (int) specifies how many datapoints are collected
-    # (list (of length num_metrics) of strings)
-    data_labels = ['Time', 'Msg-Throughput', 'Throughput']
-    # (list (of length num_metrics) of strings)
-    data_units = ['s', 'Msg/s', 'MB/s']
-    conv_mask = [True, False, False]
+class app(base):
+    metadata = [
+        {'name': 'Time'          , 'unit': 's'    , 'conv': True },
+        {'name': 'Msg-Throughput', 'unit': 'Msg/s', 'conv': False},
+        {'name': 'Throughput'    , 'unit': 'MB/s' , 'conv': False}
+    ]
 
-    # execution functions:
-    def __init__(self, id_num, collect_flag, args):
-        self.id_num = id_num
-        self.args = args
-        self.collect_flag = collect_flag
-        if len(self.data_labels) != self.num_metrics:
-            raise Exception('Class with id '+str(id_num) +
-                            ': shape mismatch of data_labels array')
-        if len(self.data_units) != self.num_metrics:
-            raise Exception('Class with id '+str(id_num) +
-                            ': shape mismatch of data_units array')
-        if len(self.conv_mask) != self.num_metrics:
-            raise Exception('Class with id '+str(id_num) +
-                            ': shape mismatch of convergence_mask')
-
-    def set_process(self, process):
-        self.process = process
-
-    def set_output(self, stdout, stderr):
-        self.stdout = stdout.decode('utf-8')
-        self.stderr = stderr.decode('utf-8')
-
-    def set_nodes(self, node_list):
-        self.node_list = node_list
-        self.num_nodes = len(node_list)
-
-    # customizable functions:
-    def run_app(self):  # return string on how to call app
-        return self.path_to_executable+' '+self.args
-
-    def read_data(self):  # return list (size num_metrics) of variable size lists
+    def get_binary_path(self):
+        return os.environ["BLINK_ROOT"] + '/src/emberr/mpi/incast/incast'
+    
+    def read_data(self):
         data_list = [None]*self.num_metrics
         data_line = self.stdout.splitlines()[-1].split()
         for i in range(self.num_metrics):

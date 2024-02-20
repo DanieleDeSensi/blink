@@ -1,0 +1,1 @@
+This folder contains the Python scripts used to run different applications and benchmarks and to parse its output so that it can be plotted by the plotting scripts provided by the framework.

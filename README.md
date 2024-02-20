@@ -13,8 +13,7 @@ MUST BE CALLED FROM THE ROOT OF THE REPO!!!
 
 ## Repository structure
 This repository contains the following files and directories:
-- apps: Contains the Python code to launch the applications and benchmarks supported by the framework and to parse their output.
-        It also contains the source code of some of those applications and benchmarks.
+
 - apps_mix: Contains the files describing the mix of applications and benchmarks that can be concurrently run by the framework.
 - compile.sh: Script to compile the applications and benchmarks.
 - conf: Contains the configuration files for the different systems.
@@ -29,6 +28,7 @@ This repository contains the following files and directories:
 - specific_plotter: Contains additional visualization scripts.
 - src: Contains the microbenchmarks code.
 - test_suites: Contains the test suites to be run by the framework.
+- wrappers: Contains the Python code to launch the applications and benchmarks supported by the framework and to parse their output.
 
 Example: \
 `$ python3 runner.py wl_manager/MPI_wlm.py schedule_files/pairings/pw-ping-pong_b_1MiB_a2a_b_128KiB node_files/SF_all_nodes_ordered -am r -as 10:90`\
