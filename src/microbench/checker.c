@@ -1,4 +1,3 @@
-#define _GNU_SOURCE
 #include <mpi.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,8 +7,8 @@
 #include <math.h>
 #include <signal.h>
 #include <stdbool.h>
-#include <sched.h>
-#include "../common.h"
+#include <sys/time.h>
+#include "common.h"
 
 int main(int argc, char** argv){
 
@@ -40,7 +39,7 @@ int main(int argc, char** argv){
     double burst_pause=0.0;
     bool burst_pause_rand=false;
     
-    int i,j,k;
+    int i,k;
 
     /*read cmd line args*/
     for(i=1;i<argc;i++){
@@ -94,30 +93,20 @@ int main(int argc, char** argv){
         master_rank=rand()%w_size;
     }
     
-    /*pin to core*/
-    cpu_set_t mask;
-    CPU_ZERO(&mask);
-    CPU_SET(1, &mask);
-    sched_setaffinity(0, sizeof(mask), &mask);
-    
     /*allocate buffers*/
     int send_buf_size, recv_buf_size;
     unsigned char *send_buf;
     unsigned char *recv_buf;
-    MPI_Request *send_requests;
-    MPI_Request *recv_requests;
-    
-    send_buf_size=w_size*msg_size;
-    recv_buf_size=w_size*msg_size;
+
+    send_buf_size=msg_size*w_size;
+    recv_buf_size=msg_size*w_size;
     
     send_buf=malloc(send_buf_size);
     recv_buf=malloc(recv_buf_size);
-    send_requests=(MPI_Request*)malloc(sizeof(MPI_Request)*w_size*measure_granularity);
-    recv_requests=(MPI_Request*)malloc(sizeof(MPI_Request)*w_size*measure_granularity);
     durations=(double *)malloc(sizeof(double)*max_samples);
     results=(double *)malloc(sizeof(double)*w_size);
     
-    if(send_buf==NULL || recv_buf==NULL || durations==NULL || results==NULL || send_requests==NULL || recv_requests==NULL){
+    if(send_buf==NULL || recv_buf==NULL || durations==NULL || results==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
         exit(-1);
     }
@@ -130,14 +119,13 @@ int main(int argc, char** argv){
     /*print basic info to stdout*/
     if(my_rank==master_rank){
         if(endless){
-            printf("All-to-all with %d processes, receiver rank: %d, msg-size: %d, test iterations: endless.\n"
-                    ,w_size,master_rank,msg_size);
+            printf("All-to-all with %d processes, msg-size: %d, test iterations: endless.\n"
+                    ,w_size,msg_size);
         }else{
-            printf("All-to-all with %d processes, receiver rank: %d, msg-size: %d, test iterations: %d.\n"
-                    ,w_size,master_rank,msg_size,max_iters);
+            printf("All-to-all with %d processes, msg-size: %d, test iterations: %d.\n"
+                    ,w_size,msg_size,max_iters);
         }
     }
-    
     /*measured iterations*/
     double burst_start_time;
     double measure_start_time;
@@ -146,31 +134,63 @@ int main(int argc, char** argv){
     bool burst_cont=false;
     curr_iters=0;
     
+    //-----------------
+    char *path_temp;
+    time_t t = time(NULL);
+    struct tm *tm = localtime(&t);
+    char s[64];
+    strftime(s, sizeof(s), "%c", tm);
+    FILE *fd_temp=fopen(s,"w");
+    if(my_rank==master_rank){ 
+                    struct timeval time_now;
+                    gettimeofday(&time_now, NULL);
+                    struct tm *time_str_tm;
+                    time_str_tm = gmtime(&time_now.tv_sec);
+                    if(endless){
+                        fprintf(fd_temp, "endless, %i B, %i iter, %i grty\n",msg_size,max_iters,measure_granularity);
+                    }else{
+                        fprintf(fd_temp, "limited, %i B, %i iter, %i grty\n",msg_size,max_iters,measure_granularity);
+                    }
+                    fprintf(fd_temp, "%02i:%02i:%02i:%06li\n---------------\n"
+                       , time_str_tm->tm_hour
+                       , time_str_tm->tm_min
+                       , time_str_tm->tm_sec
+                       , time_now.tv_usec);
+                    fflush(fd_temp);
+    }
+    //-----------------
+
     MPI_Barrier(MPI_COMM_WORLD);
     do{
         for(k=0;k<max_iters+warm_up_iters;k++){
             if(burst_length_rand){ /*randomized burst length*/
                 burst_length=rand_expo(burst_length_mean);
-            }        
+            }
             burst_start_time=MPI_Wtime();
             do{
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
-                    for(j=0;j<w_size;j++){
-                        MPI_Irecv(&recv_buf[j*msg_size],msg_size,MPI_BYTE, MPI_ANY_SOURCE
-                                    ,j,MPI_COMM_WORLD,&recv_requests[i*w_size+j]);
-                    }
-                    for(j=0;j<w_size;j++){
-                        MPI_Isend(&send_buf[j*msg_size],msg_size,MPI_BYTE,j
-                                    ,my_rank,MPI_COMM_WORLD,&send_requests[i*w_size+j]);
-                    }
+                    MPI_Alltoall(send_buf,msg_size,MPI_BYTE,recv_buf,msg_size,MPI_BYTE,MPI_COMM_WORLD);
                 }
-                MPI_Waitall(w_size*measure_granularity,send_requests,MPI_STATUSES_IGNORE);
-                MPI_Waitall(w_size*measure_granularity,recv_requests,MPI_STATUSES_IGNORE);
-                
                 durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
                 curr_iters++;
+                //-----------------
+                if(my_rank==master_rank){ 
+                    struct timeval time_now;
+                    gettimeofday(&time_now, NULL);
+                    struct tm *time_str_tm;
+                    time_str_tm = gmtime(&time_now.tv_sec);
+                    fprintf(fd_temp, "%02i:%02i:%02i:%06li | %i | %i\n"
+                       , time_str_tm->tm_hour
+                       , time_str_tm->tm_min
+                       , time_str_tm->tm_sec
+                       , time_now.tv_usec
+                       , w_size
+                       , curr_iters);
+                    fflush(fd_temp);
+                }
+                //-----------------
                 if(burst_length!=0){ /*bcast needed for synch if bursts timed*/
                     if(my_rank==master_rank){ /*master decides if burst should be continued*/
                         burst_cont=((MPI_Wtime()-burst_start_time)<burst_length);
@@ -186,27 +206,20 @@ int main(int argc, char** argv){
             }
         }
     }while(endless);
-    
-    /*
-    int l;
-    printf("%d\n",my_rank);
-    for(l=0;l<recv_buf_size;l++){
-        printf("%02X ", recv_buf[l]);
-    }
-    printf("\n");
-    */
 
     /*write results to file*/
     MPI_Barrier(MPI_COMM_WORLD);
     write_results();
     
+    //-----------------
+    fclose(fd_temp);
+    //-----------------
+    
     /*free allocated buffers*/
     free(durations);
     free(results);
-    free(recv_buf);
     free(send_buf);
-    free(send_requests);
-    free(recv_requests);
+    free(recv_buf);
     
     /*exit MPI library*/
     MPI_Finalize();

@@ -5,9 +5,9 @@ GREEN=$(tput setaf 2)
 RED=$(tput setaf 1)
 NC=$(tput sgr0)
 
-pushd apps/internals
+pushd src/microbench
     CC=$CC make
-    if [ ! -f "a2a_b/a2a_b" ]; then
+    if [ ! -f "bin/a2a_b" ]; then
         echo "${RED}[Error] internals compilation failed, please check error messages above.${NC}"
         exit 1
     fi

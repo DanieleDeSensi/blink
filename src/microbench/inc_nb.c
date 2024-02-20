@@ -9,7 +9,7 @@
 #include <signal.h>
 #include <stdbool.h>
 #include <sched.h>
-#include "../common.h"
+#include "common.h"
 
 int main(int argc, char** argv){
 
@@ -104,19 +104,20 @@ int main(int argc, char** argv){
     int send_buf_size, recv_buf_size;
     unsigned char *send_buf;
     unsigned char *recv_buf;
-    MPI_Win rma_win;
+    MPI_Request *send_requests;
+    MPI_Request *recv_requests;
     
     send_buf_size=msg_size;
-    recv_buf_size=w_size*msg_size*measure_granularity;
+    recv_buf_size=(w_size-1)*msg_size;
     
     send_buf=malloc(send_buf_size);
     recv_buf=malloc(recv_buf_size);
+    send_requests=(MPI_Request*)malloc(sizeof(MPI_Request)*(measure_granularity));
+    recv_requests=(MPI_Request*)malloc(sizeof(MPI_Request)*(w_size-1)*measure_granularity);
     durations=(double *)malloc(sizeof(double)*max_samples);
     results=(double *)malloc(sizeof(double)*w_size);
     
-    MPI_Win_create(send_buf,send_buf_size,1,MPI_INFO_NULL,MPI_COMM_WORLD,&rma_win);
-    
-    if(send_buf==NULL || recv_buf==NULL || durations==NULL || results==NULL || rma_win==NULL){
+    if(send_buf==NULL || recv_buf==NULL || durations==NULL || results==NULL || send_requests==NULL || recv_requests==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
         exit(-1);
     }
@@ -138,7 +139,7 @@ int main(int argc, char** argv){
                     ,w_size,master_rank,msg_size,max_iters);
         }
     }
-
+    
     /*measured iterations*/
     double burst_start_time;
     double measure_start_time;
@@ -157,18 +158,21 @@ int main(int argc, char** argv){
             do{
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
-                MPI_Win_fence(0,rma_win);
-                if(my_rank==master_rank){
-                    for(i=0;i<measure_granularity;i++){    
-                        for(j=0;j<w_size;j++){
-                                if(j!=master_rank){
-                                    MPI_Get(&recv_buf[j*msg_size*measure_granularity+i*msg_size], 
-                                        msg_size, MPI_BYTE, j, 0, msg_size, MPI_BYTE, rma_win);
-                            }
+                for(i=0;i<measure_granularity;i++){
+                    if (my_rank==master_rank){
+                        for(j=0;j<w_size-1;j++){
+                            MPI_Irecv(&recv_buf[j*msg_size],recv_buf_size,MPI_BYTE, MPI_ANY_SOURCE
+                                    ,MPI_ANY_TAG, MPI_COMM_WORLD,&recv_requests[i*(w_size-1)+j]);
                         }
+                    }else{
+                        MPI_Isend(send_buf,msg_size,MPI_BYTE,master_rank,my_rank,MPI_COMM_WORLD, &send_requests[i]);
                     }
                 }
-                MPI_Win_fence(0,rma_win);
+                if (my_rank==master_rank){
+                    MPI_Waitall((w_size-1)*measure_granularity,recv_requests,MPI_STATUSES_IGNORE);
+                }else{
+                    MPI_Waitall(measure_granularity,send_requests,MPI_STATUSES_IGNORE);
+                }
                 durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
                 curr_iters++;
                 if(burst_length!=0){ /*bcast needed for synch if bursts timed*/
@@ -192,11 +196,12 @@ int main(int argc, char** argv){
     write_results();
     
     /*free allocated buffers*/
-    MPI_Win_free(&rma_win);
     free(durations);
     free(results);
     free(recv_buf);
     free(send_buf);
+    free(send_requests);
+    free(recv_requests);
     
     /*exit MPI library*/
     MPI_Finalize();

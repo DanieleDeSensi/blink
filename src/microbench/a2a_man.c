@@ -9,7 +9,7 @@
 #include <signal.h>
 #include <stdbool.h>
 #include <sched.h>
-#include "../common.h"
+#include "common.h"
 
 int main(int argc, char** argv){
 
@@ -104,34 +104,36 @@ int main(int argc, char** argv){
     int send_buf_size, recv_buf_size;
     unsigned char *send_buf;
     unsigned char *recv_buf;
+    MPI_Request *send_requests;
+    MPI_Request *recv_requests;
     
-    send_buf_size=msg_size;
-    recv_buf_size=(w_size-1)*msg_size;
+    send_buf_size=w_size*msg_size;
+    recv_buf_size=w_size*msg_size;
     
     send_buf=malloc(send_buf_size);
     recv_buf=malloc(recv_buf_size);
+    send_requests=(MPI_Request*)malloc(sizeof(MPI_Request)*w_size*measure_granularity);
+    recv_requests=(MPI_Request*)malloc(sizeof(MPI_Request)*w_size*measure_granularity);
     durations=(double *)malloc(sizeof(double)*max_samples);
     results=(double *)malloc(sizeof(double)*w_size);
     
-    if(send_buf==NULL || recv_buf==NULL || durations==NULL || results==NULL){
+    if(send_buf==NULL || recv_buf==NULL || durations==NULL || results==NULL || send_requests==NULL || recv_requests==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
         exit(-1);
     }
     
     /*fill send buffer with dummies*/
-    if(my_rank!=master_rank){
-        for(i=0;i<send_buf_size;i++){
-            send_buf[i]='a';
-        }
+    for(i=0;i<send_buf_size;i++){
+        send_buf[i]='a';
     }
     
     /*print basic info to stdout*/
     if(my_rank==master_rank){
         if(endless){
-            printf("Incast with %d processes, receiver rank: %d, msg-size: %d, test iterations: endless.\n"
+            printf("All-to-all with %d processes, receiver rank: %d, msg-size: %d, test iterations: endless.\n"
                     ,w_size,master_rank,msg_size);
         }else{
-            printf("Incast with %d processes, receiver rank: %d, msg-size: %d, test iterations: %d.\n"
+            printf("All-to-all with %d processes, receiver rank: %d, msg-size: %d, test iterations: %d.\n"
                     ,w_size,master_rank,msg_size,max_iters);
         }
     }
@@ -155,15 +157,18 @@ int main(int argc, char** argv){
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
-                    if (my_rank==master_rank){
-                        for(j=0;j<w_size-1;j++){
-                            MPI_Recv(&recv_buf[j*msg_size],recv_buf_size,MPI_BYTE, MPI_ANY_SOURCE
-                                    ,MPI_ANY_TAG, MPI_COMM_WORLD,MPI_STATUS_IGNORE);
-                        }
-                    }else{
-                        MPI_Send(send_buf,msg_size,MPI_BYTE,master_rank,my_rank,MPI_COMM_WORLD);
+                    for(j=0;j<w_size;j++){
+                        MPI_Irecv(&recv_buf[j*msg_size],msg_size,MPI_BYTE, MPI_ANY_SOURCE
+                                    ,j,MPI_COMM_WORLD,&recv_requests[i*w_size+j]);
+                    }
+                    for(j=0;j<w_size;j++){
+                        MPI_Isend(&send_buf[j*msg_size],msg_size,MPI_BYTE,j
+                                    ,my_rank,MPI_COMM_WORLD,&send_requests[i*w_size+j]);
                     }
                 }
+                MPI_Waitall(w_size*measure_granularity,send_requests,MPI_STATUSES_IGNORE);
+                MPI_Waitall(w_size*measure_granularity,recv_requests,MPI_STATUSES_IGNORE);
+                
                 durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
                 curr_iters++;
                 if(burst_length!=0){ /*bcast needed for synch if bursts timed*/
@@ -181,6 +186,15 @@ int main(int argc, char** argv){
             }
         }
     }while(endless);
+    
+    /*
+    int l;
+    printf("%d\n",my_rank);
+    for(l=0;l<recv_buf_size;l++){
+        printf("%02X ", recv_buf[l]);
+    }
+    printf("\n");
+    */
 
     /*write results to file*/
     MPI_Barrier(MPI_COMM_WORLD);
@@ -191,6 +205,8 @@ int main(int argc, char** argv){
     free(results);
     free(recv_buf);
     free(send_buf);
+    free(send_requests);
+    free(recv_requests);
     
     /*exit MPI library*/
     MPI_Finalize();

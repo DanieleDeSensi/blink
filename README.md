@@ -27,6 +27,7 @@ This repository contains the following files and directories:
 - run.sh: Generates the bash script to run a specific test suite and runs it.
 - runner.py: The main script of the framework. It runs the applications and benchmarks and collects the data.
 - specific_plotter: Contains additional visualization scripts.
+- src: Contains the microbenchmarks code.
 - test_suites: Contains the test suites to be run by the framework.
 
 Example: \

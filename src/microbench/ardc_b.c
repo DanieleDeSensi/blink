@@ -9,7 +9,7 @@
 #include <signal.h>
 #include <stdbool.h>
 #include <sched.h>
-#include "../common.h"
+#include "common.h"
 
 int main(int argc, char** argv){
 
@@ -40,10 +40,7 @@ int main(int argc, char** argv){
     double burst_pause=0.0;
     bool burst_pause_rand=false;
     
-    char *comm_mode="offpair";
-    int target_offset=1;
-    
-    int i,k;
+    int i,j,k;
 
     /*read cmd line args*/
     for(i=1;i<argc;i++){
@@ -52,12 +49,6 @@ int main(int argc, char** argv){
             master_rank=atoi(argv[i]);
         }else if(strcmp(argv[i],"-mrand")==0){
             master_rand=true;
-        }else if(strcmp(argv[i],"-offset")==0){
-            ++i;
-            target_offset=atoi(argv[i]);
-        }else if(strcmp(argv[i],"-mode")==0){
-            ++i;
-            comm_mode=argv[i];
         }else if(strcmp(argv[i],"-msgsize")==0){
             ++i;
             msg_size=atoi(argv[i]);
@@ -110,64 +101,46 @@ int main(int argc, char** argv){
     sched_setaffinity(0, sizeof(mask), &mask);
     
     /*allocate buffers*/
+    int msg_size_ints;
     int send_buf_size, recv_buf_size;
-    unsigned char *send_buf;
-    unsigned char *recv_buf;
-    int *targets;
-    MPI_Request *recv_requests;
-    MPI_Request *send_requests;
+    int *send_buf;
+    int *recv_buf;
     
+    if(msg_size%sizeof(int)!=0){
+        if(my_rank==master_rank){
+                fprintf(stderr, "Msg-size (%d) must be divisible by size of int (%ld)",msg_size,sizeof(int));
+                exit(-1);
+        }
+    }
+    
+    msg_size_ints=msg_size/sizeof(int);
     send_buf_size=msg_size;
-    recv_buf_size=measure_granularity*msg_size;
+    recv_buf_size=msg_size;
     
-    send_buf=malloc(send_buf_size);
-    recv_buf=malloc(recv_buf_size);
-    targets=(int*)malloc(sizeof(int)*w_size);
+    send_buf=(int*)malloc(send_buf_size);
+    recv_buf=(int*)malloc(recv_buf_size);
     durations=(double *)malloc(sizeof(double)*max_samples);
     results=(double *)malloc(sizeof(double)*w_size);
-    recv_requests=(MPI_Request*)malloc(sizeof(MPI_Request)*measure_granularity);
-    send_requests=(MPI_Request*)malloc(sizeof(MPI_Request)*measure_granularity);
     
-    if(send_buf==NULL || recv_buf==NULL || recv_requests==NULL || targets==NULL || durations==NULL || results==NULL 
-            || send_requests==NULL){
+    if(send_buf==NULL || recv_buf==NULL || durations==NULL || results==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
         exit(-1);
     }
     
     /*fill send buffer with dummies*/
-    for(i=0;i<send_buf_size;i++){
-        send_buf[i]='a';
+    for(i=0;i<msg_size_ints;i++){
+        send_buf[i]=1;
     }
-    
-    /*setup target mode*/
-    if(strcmp(comm_mode,"perm")==0){
-        for(i=0;i<w_size;i++){
-            targets[i]=i;
-        }
-        permute(targets,w_size);
-    }else if(strcmp(comm_mode,"rot")==0){
-        for(i=0;i<w_size;i++){
-            targets[i]=mod(i+target_offset,w_size);
-        }
-    }else if(strcmp(comm_mode,"offpair")==0){
-        offset_pairs(targets,w_size,target_offset);
-    }else if(strcmp(comm_mode,"rpair")==0){
-        random_pairs(targets,w_size);
-    }else{
-        if(my_rank==master_rank){
-            fprintf(stderr,"Unknown communication mode: %s\n",comm_mode);
-            exit(-1);
-        }
-    }
+
     
     /*print basic info to stdout*/
     if(my_rank==master_rank){
         if(endless){
-            printf("One-to-one with %d processes, mode: %s, msg-size: %d, test iterations: endless.\n"
-                    ,w_size,comm_mode,msg_size);
+            printf("All-reduce with %d processes, receiver rank: %d, msg-size: %d, test iterations: endless.\n"
+                    ,w_size,master_rank,msg_size);
         }else{
-            printf("One-to-one with %d processes, mode: %s, msg-size: %d, test iterations: %d.\n"
-                    ,w_size,comm_mode,msg_size,max_iters);
+            printf("All-reduce with %d processes, receiver rank: %d, msg-size: %d, test iterations: %d.\n"
+                    ,w_size,master_rank,msg_size,max_iters);
         }
     }
     
@@ -190,13 +163,8 @@ int main(int argc, char** argv){
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
-                    MPI_Irecv(&recv_buf[i*msg_size],recv_buf_size,MPI_BYTE,MPI_ANY_SOURCE
-                        ,MPI_ANY_TAG,MPI_COMM_WORLD,&recv_requests[i]);
-                    MPI_Isend(send_buf,msg_size,MPI_BYTE,targets[my_rank]
-                        ,my_rank,MPI_COMM_WORLD,&send_requests[i]);
+                    MPI_Allreduce(send_buf,recv_buf,msg_size_ints,MPI_INT,MPI_SUM,MPI_COMM_WORLD);
                 }
-                MPI_Waitall(measure_granularity,send_requests,MPI_STATUS_IGNORE);
-                MPI_Waitall(measure_granularity,recv_requests,MPI_STATUS_IGNORE);
                 durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
                 curr_iters++;
                 if(burst_length!=0){ /*bcast needed for synch if bursts timed*/
@@ -220,13 +188,10 @@ int main(int argc, char** argv){
     write_results();
     
     /*free allocated buffers*/
-    free(targets);
     free(durations);
     free(results);
-    free(send_buf);
     free(recv_buf);
-    free(send_requests);
-    free(recv_requests);
+    free(send_buf);
     
     /*exit MPI library*/
     MPI_Finalize();

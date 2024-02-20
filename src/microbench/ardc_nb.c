@@ -9,7 +9,7 @@
 #include <signal.h>
 #include <stdbool.h>
 #include <sched.h>
-#include "../common.h"
+#include "common.h"
 
 int main(int argc, char** argv){
 
@@ -40,7 +40,7 @@ int main(int argc, char** argv){
     double burst_pause=0.0;
     bool burst_pause_rand=false;
     
-    int i,k;
+    int i,j,k;
 
     /*read cmd line args*/
     for(i=1;i<argc;i++){
@@ -101,34 +101,47 @@ int main(int argc, char** argv){
     sched_setaffinity(0, sizeof(mask), &mask);
     
     /*allocate buffers*/
-    int buf_size;
-    unsigned char *buf;
+    int msg_size_ints;
+    int send_buf_size, recv_buf_size;
+    int *send_buf;
+    int *recv_buf;
+    MPI_Request *requests;
     
-    buf_size=msg_size*measure_granularity;;
+    if(msg_size%sizeof(int)!=0){
+        if(my_rank==master_rank){
+                fprintf(stderr, "Msg-size (%d) must be divisible by size of int (%ld)",msg_size,sizeof(int));
+                exit(-1);
+        }
+    }
     
-    buf=malloc(buf_size);
+    msg_size_ints=msg_size/sizeof(int);
+    send_buf_size=msg_size;
+    recv_buf_size=msg_size;
+    
+    send_buf=(int*)malloc(send_buf_size);
+    recv_buf=(int*)malloc(recv_buf_size);
     durations=(double *)malloc(sizeof(double)*max_samples);
     results=(double *)malloc(sizeof(double)*w_size);
+    requests=(MPI_Request*)malloc(sizeof(MPI_Request)*measure_granularity);
     
-    if(buf==NULL || durations==NULL || results==NULL){
+    if(send_buf==NULL || recv_buf==NULL || requests==NULL || durations==NULL || results==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
         exit(-1);
     }
     
     /*fill send buffer with dummies*/
-    if(my_rank==master_rank){
-        for(i=0;i<buf_size;i++){
-            buf[i]='a';
-        }
+    for(i=0;i<msg_size_ints;i++){
+        send_buf[i]=1;
     }
+
     
     /*print basic info to stdout*/
     if(my_rank==master_rank){
         if(endless){
-            printf("Broadcast with %d processes, sender rank: %d, msg-size: %d, test iterations: endless.\n"
+            printf("All-reduce with %d processes, receiver rank: %d, msg-size: %d, test iterations: endless.\n"
                     ,w_size,master_rank,msg_size);
         }else{
-            printf("Broadcast with %d processes, sender rank: %d, msg-size: %d, test iterations: %d.\n"
+            printf("All-reduce with %d processes, receiver rank: %d, msg-size: %d, test iterations: %d.\n"
                     ,w_size,master_rank,msg_size,max_iters);
         }
     }
@@ -152,8 +165,9 @@ int main(int argc, char** argv){
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
-			        MPI_Bcast(&buf[i*msg_size],msg_size,MPI_BYTE,master_rank,MPI_COMM_WORLD);
-		        }
+                    MPI_Iallreduce(send_buf,recv_buf,msg_size_ints,MPI_INT,MPI_SUM,MPI_COMM_WORLD,&requests[i]);
+                }
+                MPI_Waitall(measure_granularity,requests,MPI_STATUSES_IGNORE);
                 durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
                 curr_iters++;
                 if(burst_length!=0){ /*bcast needed for synch if bursts timed*/
@@ -179,7 +193,9 @@ int main(int argc, char** argv){
     /*free allocated buffers*/
     free(durations);
     free(results);
-    free(buf);
+    free(send_buf);
+    free(recv_buf);
+    free(requests);
     
     /*exit MPI library*/
     MPI_Finalize();

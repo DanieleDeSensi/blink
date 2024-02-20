@@ -9,7 +9,7 @@
 #include <signal.h>
 #include <stdbool.h>
 #include <sched.h>
-#include "../common.h"
+#include "common.h"
 
 int main(int argc, char** argv){
 
@@ -101,51 +101,44 @@ int main(int argc, char** argv){
     sched_setaffinity(0, sizeof(mask), &mask);
     
     /*allocate buffers*/
-    int msg_size_ints;
     int send_buf_size, recv_buf_size;
-    int *send_buf;
-    int *recv_buf;
-    MPI_Request *requests;
+    unsigned char *send_buf;
+    unsigned char *recv_buf;
+    MPI_Win rma_win;
     
-    if(msg_size%sizeof(int)!=0){
-        if(my_rank==master_rank){
-                fprintf(stderr, "Msg-size (%d) must be divisible by size of int (%ld)",msg_size,sizeof(int));
-                exit(-1);
-        }
-    }
-    
-    msg_size_ints=msg_size/sizeof(int);
     send_buf_size=msg_size;
-    recv_buf_size=msg_size;
+    recv_buf_size=w_size*msg_size*measure_granularity;
     
-    send_buf=(int*)malloc(send_buf_size);
-    recv_buf=(int*)malloc(recv_buf_size);
+    send_buf=malloc(send_buf_size);
+    recv_buf=malloc(recv_buf_size);
     durations=(double *)malloc(sizeof(double)*max_samples);
     results=(double *)malloc(sizeof(double)*w_size);
-    requests=(MPI_Request*)malloc(sizeof(MPI_Request)*measure_granularity);
     
-    if(send_buf==NULL || recv_buf==NULL || requests==NULL || durations==NULL || results==NULL){
+    MPI_Win_create(send_buf,send_buf_size,1,MPI_INFO_NULL,MPI_COMM_WORLD,&rma_win);
+    
+    if(send_buf==NULL || recv_buf==NULL || durations==NULL || results==NULL || rma_win==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
         exit(-1);
     }
     
     /*fill send buffer with dummies*/
-    for(i=0;i<msg_size_ints;i++){
-        send_buf[i]=1;
+    if(my_rank!=master_rank){
+        for(i=0;i<send_buf_size;i++){
+            send_buf[i]='a';
+        }
     }
-
     
     /*print basic info to stdout*/
     if(my_rank==master_rank){
         if(endless){
-            printf("All-reduce with %d processes, receiver rank: %d, msg-size: %d, test iterations: endless.\n"
+            printf("Incast with %d processes, receiver rank: %d, msg-size: %d, test iterations: endless.\n"
                     ,w_size,master_rank,msg_size);
         }else{
-            printf("All-reduce with %d processes, receiver rank: %d, msg-size: %d, test iterations: %d.\n"
+            printf("Incast with %d processes, receiver rank: %d, msg-size: %d, test iterations: %d.\n"
                     ,w_size,master_rank,msg_size,max_iters);
         }
     }
-    
+
     /*measured iterations*/
     double burst_start_time;
     double measure_start_time;
@@ -164,10 +157,18 @@ int main(int argc, char** argv){
             do{
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
-                for(i=0;i<measure_granularity;i++){
-                    MPI_Iallreduce(send_buf,recv_buf,msg_size_ints,MPI_INT,MPI_SUM,MPI_COMM_WORLD,&requests[i]);
+                MPI_Win_fence(0,rma_win);
+                if(my_rank==master_rank){
+                    for(i=0;i<measure_granularity;i++){    
+                        for(j=0;j<w_size;j++){
+                                if(j!=master_rank){
+                                    MPI_Get(&recv_buf[j*msg_size*measure_granularity+i*msg_size], 
+                                        msg_size, MPI_BYTE, j, 0, msg_size, MPI_BYTE, rma_win);
+                            }
+                        }
+                    }
                 }
-                MPI_Waitall(measure_granularity,requests,MPI_STATUSES_IGNORE);
+                MPI_Win_fence(0,rma_win);
                 durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
                 curr_iters++;
                 if(burst_length!=0){ /*bcast needed for synch if bursts timed*/
@@ -191,11 +192,11 @@ int main(int argc, char** argv){
     write_results();
     
     /*free allocated buffers*/
+    MPI_Win_free(&rma_win);
     free(durations);
     free(results);
-    free(send_buf);
     free(recv_buf);
-    free(requests);
+    free(send_buf);
     
     /*exit MPI library*/
     MPI_Finalize();
