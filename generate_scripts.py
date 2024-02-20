@@ -39,6 +39,9 @@ def main():
     parser.add_argument('-ro', '--runtimeout',
                         help='Place where runtime feedback is printed (default: stdout, +file means to file and stdout),',
                         default='stdout', choices=['stdout', 'none', 'file', '+file'])
+    parser.add_argument('-n', '--numnodes', help='Number of nodes on which to run the applications. It must be smaller or equal than the number of nodes specified in node_file',
+                         type=int, required=True)
+    parser.add_argument('-e', '--extrainfo', help='Extra info specifying details of this specific execution (will be stored in the description.csv file)', type=str)
     args = parser.parse_args()
 
     wlm_path="./conf/wl_manager/" + os.environ["BLINK_WL_MANAGER"] + ".py"
@@ -54,7 +57,10 @@ def main():
                         stdout=open(node_file, "w"))
 
     # runner args, non modified
-    runner_args = (' -mn '+str(args.minruns)+' -mx '+str(args.maxruns)+' -t '+str(args.timeout)
+    extra = ""
+    if args.extrainfo:
+        extra = " -e " + args.extrainfo
+    runner_args = (' -n ' + str(args.numnodes) + extra + ' -mn '+str(args.minruns)+' -mx '+str(args.maxruns)+' -t '+str(args.timeout)
                    + ' -a '+str(args.alpha)+' -b '+str(args.beta)+' -of '+args.outformat+' -ro '+args.runtimeout)
     if args.convergeall:
         runner_args = runner_args+' -ca'

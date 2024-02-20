@@ -1,5 +1,8 @@
 #!/bin/bash
 source conf.sh
-./generate_scripts.py $@
 SCRIPT_NAME=generated_script.sh
-bash -x ${SCRIPT_NAME}
+rm -f ${SCRIPT_NAME}
+./generate_scripts.py $@
+if [ -f ${SCRIPT_NAME} ]; then
+    bash -x ${SCRIPT_NAME}
+fi

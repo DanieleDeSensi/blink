@@ -239,6 +239,7 @@ def main():
     converge_all = args.convergeall
     ro_mode = args.runtimeout
     data_path = args.datapath
+    num_nodes = args.numnodes
 
     random.seed(args.seed)
 
@@ -255,18 +256,25 @@ def main():
             desc_file.write('test_bench,numnodes,allocation_mode,allocation_split,ppn,out_format,extra,path\n')        
     
     # runner_id is current time
-    runner_id = (os.environ["BLINK_SYSTEM"] + "/" + datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S'))
-    data_directory = data_path + '/' + runner_id
+    while True:
+        runner_id = (os.environ["BLINK_SYSTEM"] + "/" + datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S'))
+        data_directory = data_path + '/' + runner_id
+        if not os.path.exists(data_directory):
+            os.makedirs(data_directory)
+            break
+    
 
     # Append info to description.csv file
     with open(data_path + '/description.csv', 'a+') as desc_file:
-        desc_file.write(test_bench_path + ',' + args.numnodes + ',' + allocation_mode + ',' +
-                        allocation_split + ',' + ',' + str(ppn) + ',' + ',' + out_format + ',' + args.extrainfo + ',' + runner_id + '\n')
-
-    os.makedirs(data_directory)
+        extra = ""
+        if args.extrainfo:
+            extra = args.extrainfo
+        desc_file.write(test_bench_path + ',' + str(args.numnodes) + ',' + allocation_mode + ',' +
+                        allocation_split + ',' + ',' + str(ppn) + ',' + out_format + ',' + extra + ',' + runner_id + '\n')
+           
 
     # prepare runtime feedback output
-    ro_file_path = data_directory+'/r_'+runner_id
+    ro_file_path = data_directory+'/runtime'
     if ro_mode == 'file' or ro_mode == '+file':
         ro_file = open(ro_file_path, 'w')
     else:
@@ -363,12 +371,12 @@ def main():
 
     # assign nodes to apps
     nodes_frame = pandas.read_csv(node_file, header=None, keep_default_na=False, dtype=str)
-    num_nodes = nodes_frame.size
+    #num_elems = nodes_frame.size
     num_cols = nodes_frame.shape[1]
-    if args.numnodes % num_cols:
+    if num_nodes % num_cols:
         raise Exception('Number of nodes must be a multiple of columns in '+node_file+'.')
     else:
-        nodes_frame.head(args.numnodes // num_cols)
+        nodes_frame.head(num_nodes // num_cols)
 
     if allocation_mode == 'c':  # custom allocation, doesn't need splits
         if num_cols != num_apps:
@@ -541,9 +549,8 @@ def main():
 
     # create logs
     log_start_time = time.time()
-    log_data(out_format, data_directory+'/d_'+runner_id, data_container_list)
-    log_meta_data(out_format, data_directory+'/md_' +
-                  runner_id, data_container_list, runs)
+    log_data(out_format, data_directory+'/data', data_container_list)
+    log_meta_data(out_format, data_directory+'/metadata', data_container_list, runs)
     print_runtime('Writing data & meta-data took ' +
                   str(round(time.time()-log_start_time, 5))+'s.', ro_mode, ro_file)
 

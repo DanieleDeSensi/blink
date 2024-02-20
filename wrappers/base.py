@@ -24,7 +24,7 @@ class base:
     def run_app(self):  # return string on how to call app
         path = self.get_binary_path()
         if path is not None:
-            return self.path_to_executable + ' ' + self.args
+            return path + ' ' + self.args
         else:
             return ""
         
