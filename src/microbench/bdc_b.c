@@ -108,9 +108,8 @@ int main(int argc, char** argv){
     
     buf=malloc(buf_size);
     durations=(double *)malloc(sizeof(double)*max_samples);
-    results=(double *)malloc(sizeof(double)*w_size);
     
-    if(buf==NULL || durations==NULL || results==NULL){
+    if(buf==NULL || durations==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
         exit(-1);
     }
@@ -178,7 +177,6 @@ int main(int argc, char** argv){
     
     /*free allocated buffers*/
     free(durations);
-    free(results);
     free(buf);
     
     /*exit MPI library*/

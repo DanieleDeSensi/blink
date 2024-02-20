@@ -17,7 +17,7 @@ def main():
     parser.add_argument(
         '-sp', '--splits', help='List of splits, format: "AA:BB,CC:DD,EE:FF"', default='20:80,50:50,80:20')
     parser.add_argument('-am', '--allocation_modes',
-                        help='List of allocation modes, format: "x,y,z"', default='l,r,i,+r')
+                        help='List of allocation modes, format: "x,y,z"', default='l,r,i')
     # runner arguments
     parser.add_argument('-mn', '--minruns',
                         help='Minimum number of runs.', default=1, type=int)

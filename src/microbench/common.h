@@ -38,14 +38,13 @@ int compare_doubles(const void *p1, const void *p2)
 }
 
 /*global variables because of signal handling*/
-int my_rank;
-int w_size;
-int master_rank;
-int curr_iters;
-int warm_up_iters;
-int max_samples;
-double *durations;
-double *results;
+static int my_rank;
+static int w_size;
+static int master_rank;
+static int curr_iters;
+static int warm_up_iters;
+static int max_samples;
+static double *durations;
 
 static void write_results()
 {
@@ -53,52 +52,74 @@ static void write_results()
     double duration_median;
     int num_samples;
     int i, j;
-    int start_index;
+    int start_index;    
+    double *tmp_buf = NULL;
+    int tmp_buf_created = 0;
 
     if (curr_iters - warm_up_iters > max_samples)
     {
         num_samples = max_samples;
         start_index = curr_iters % max_samples;
+        tmp_buf = (double *)malloc(sizeof(double)*num_samples);
+        tmp_buf_created = 1;
     }
     else
     {
         num_samples = curr_iters - warm_up_iters;
         start_index = warm_up_iters;
+        tmp_buf = &(durations[start_index]);
     }
+
+    double *all_data =  (double *)malloc(sizeof(double)*num_samples*w_size);
+    double *sorting_buf = (double*)malloc(sizeof(double)*w_size);
+    
+    if(all_data == NULL || sorting_buf == NULL){
+        fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
+        exit(-1);
+    }
+
+    // Copy the data from the durations buffer to tmp_buf (so that it is in the proper order)
+    if(tmp_buf_created){
+        memcpy(tmp_buf, &(durations[start_index]), sizeof(double)*(max_samples - start_index));
+        memcpy(&tmp_buf[max_samples - start_index], durations, sizeof(double)*start_index);
+    }
+
     /*print file header*/
     if (my_rank == master_rank)
     {
         printf("Average,Minimum,Maximum,Median,MainRank\n");
     }
 
-    /*gather+sort to get avg,min,max,median for all every saved iteration*/
-    for (i = start_index; i < start_index + num_samples; i++)
-    {
-        MPI_Gather(&durations[i % max_samples], 1, MPI_DOUBLE, results, 1, MPI_DOUBLE, master_rank, MPI_COMM_WORLD);
-        if (my_rank == master_rank)
-        {
-            qsort(results, w_size, sizeof(double), compare_doubles);
+    // We need to first gather all the data
+    MPI_Gather(tmp_buf, num_samples, MPI_DOUBLE, all_data, num_samples, MPI_DOUBLE, master_rank, MPI_COMM_WORLD);
+
+    if(my_rank == master_rank){
+        for(i = 0; i < num_samples; i++){
+            int j;
             duration_sum = 0;
-            for (j = 0; j < w_size; j++)
-            {
-                duration_sum += results[j];
+            for(j = 0; j < w_size; j++){
+                sorting_buf[j] = all_data[i*w_size + j];
+                duration_sum += sorting_buf[j];
             }
+            qsort(sorting_buf, w_size, sizeof(double), compare_doubles);
             if (w_size % 2 == 0)
             { /*even: then median as mean of middle values*/
-                duration_median = (results[(w_size - 1) / 2] + results[w_size / 2]) / 2;
+                duration_median = (sorting_buf[(w_size - 1) / 2] + sorting_buf[w_size / 2]) / 2;
             }
             else
             { /*odd: else median as middle value*/
-                duration_median = results[(w_size - 1) / 2];
+                duration_median = sorting_buf[(w_size - 1) / 2];
             }
-            printf("%.9f,%.9f,%.9f,%.9f,%.9f\n", duration_sum / w_size, results[0], results[w_size - 1], duration_median, durations[i % max_samples]);
+            printf("%.9f,%.9f,%.9f,%.9f,%.9f\n", duration_sum / w_size, sorting_buf[0], sorting_buf[w_size - 1], duration_median, tmp_buf[i]);
         }
-    }
 
-    if (my_rank == master_rank)
-    {
         printf("Ran %d iterations. Measured %d iterations.\n", curr_iters, num_samples);
         fflush(stdout);
+    }
+    free(sorting_buf);
+    free(all_data);   
+    if(tmp_buf_created){
+        free(tmp_buf);
     }
 }
 

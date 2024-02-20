@@ -8,7 +8,7 @@ NC=$(tput sgr0)
 # Compile microbench
 pushd src/microbench
     CC=$CC make
-    if [ ! -f "bin/a2a_b" ]; then
+    if [ $? -ne 0 ]; then
         echo "${RED}[Error] internals compilation failed, please check error messages above.${NC}"
         exit 1
     fi
@@ -18,9 +18,13 @@ popd
 pushd src/netgauge-2.4.6
     if [ ! -f "Makefile" ]; then
         ./configure ${BLINK_NG_CONFIGURE_FLAGS}
+        if [ $? -ne 0 ]; then
+            echo "${RED}[Error] netgauge compilation failed, please check error messages above.${NC}"
+            exit 1
+        fi
     fi
     make
-    if [ ! -f "netgauge" ]; then
+    if [ $? -ne 0 ]; then
         echo "${RED}[Error] netgauge compilation failed, please check error messages above.${NC}"
         exit 1
     fi
@@ -35,7 +39,7 @@ popd
 # Compile ember
 pushd src/ember
     ./make_script.sh all
-    if [ ! -f "mpi/halo3d/halo3d" ]; then
+    if [ $? -ne 0 ]; then
         echo "${RED}[Error] internals compilation failed, please check error messages above.${NC}"
         exit 1
     fi

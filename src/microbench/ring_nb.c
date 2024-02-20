@@ -119,12 +119,10 @@ int main(int argc, char** argv){
     recv_buf=malloc(recv_buf_size);
     targets=(int*)malloc(sizeof(int)*w_size);
     durations=(double *)malloc(sizeof(double)*max_samples);
-    results=(double *)malloc(sizeof(double)*w_size);
     recv_requests=(MPI_Request*)malloc(sizeof(MPI_Request)*2*measure_granularity);
     send_requests=(MPI_Request*)malloc(2*sizeof(MPI_Request)*measure_granularity);
     
-    if(send_buf==NULL || recv_buf==NULL || recv_requests==NULL || targets==NULL || durations==NULL || results==NULL
-            || send_requests==NULL){
+    if(send_buf==NULL || recv_buf==NULL || recv_requests==NULL || targets==NULL || durations==NULL || send_requests==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
         exit(-1);
     }
@@ -213,7 +211,6 @@ int main(int argc, char** argv){
     /*free allocated buffers*/
     free(targets);
     free(durations);
-    free(results);
     free(send_buf);
     free(recv_buf);
     free(recv_requests);

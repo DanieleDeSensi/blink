@@ -104,9 +104,8 @@ int main(int argc, char** argv){
     send_buf=malloc(send_buf_size);
     recv_buf=malloc(recv_buf_size);
     durations=(double *)malloc(sizeof(double)*max_samples);
-    results=(double *)malloc(sizeof(double)*w_size);
     
-    if(send_buf==NULL || recv_buf==NULL || durations==NULL || results==NULL){
+    if(send_buf==NULL || recv_buf==NULL || durations==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
         exit(-1);
     }
@@ -217,7 +216,6 @@ int main(int argc, char** argv){
     
     /*free allocated buffers*/
     free(durations);
-    free(results);
     free(send_buf);
     free(recv_buf);
     

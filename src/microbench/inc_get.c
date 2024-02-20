@@ -112,11 +112,10 @@ int main(int argc, char** argv){
     send_buf=malloc(send_buf_size);
     recv_buf=malloc(recv_buf_size);
     durations=(double *)malloc(sizeof(double)*max_samples);
-    results=(double *)malloc(sizeof(double)*w_size);
     
     MPI_Win_create(send_buf,send_buf_size,1,MPI_INFO_NULL,MPI_COMM_WORLD,&rma_win);
     
-    if(send_buf==NULL || recv_buf==NULL || durations==NULL || results==NULL || rma_win==NULL){
+    if(send_buf==NULL || recv_buf==NULL || durations==NULL || rma_win==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
         exit(-1);
     }
@@ -194,7 +193,6 @@ int main(int argc, char** argv){
     /*free allocated buffers*/
     MPI_Win_free(&rma_win);
     free(durations);
-    free(results);
     free(recv_buf);
     free(send_buf);
     
