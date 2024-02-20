@@ -32,7 +32,7 @@ class app(base):
         else:
             return os.environ[env_name]
 
-    def read_data(self):  # return list (size num_metrics) of variable size lists
+    def read_data(self):
         if self.exists:
             output = self.stdout
             lines = output.split('\n')

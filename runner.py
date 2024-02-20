@@ -192,10 +192,10 @@ def print_runtime(obj, mode, ro_file):
 def main():
     pre_start_time = time.time()
     parser = argparse.ArgumentParser(description='Runner of framework.')
-    parser.add_argument(
-        'test_bench', help='The file specifying which apps mix to run.')
-    parser.add_argument(
-        'node_file', help='Path to node list file. If \'auto\' is specified, nodes are allocated automatically (it assumes Slurm is available).')
+    parser.add_argument('test_bench', help='The file specifying which apps mix to run.')
+    parser.add_argument('node_file', help='Path to node list file. If \'auto\' is specified, nodes are allocated automatically (it assumes Slurm is available).')
+    parser.add_argument('-n', '--numnodes', help='Number of nodes on which to run the applications. It must be smaller or equal than the number of nodes specified in node_file',
+                         type=int, required=True)
     parser.add_argument('-am', '--allocationmode', help='Way of allocating nodes (default: linear)',
                         default='l', choices=['l', 'c', 'r', 'i', '+r'])
     parser.add_argument('-as', '--allocationsplit',
@@ -218,10 +218,9 @@ def main():
                         default='csv', choices=['csv', 'hdf'])
     parser.add_argument('-ro', '--runtimeout', help='Place where runtime feedback is printed',
                         default='stdout', choices=['stdout', 'none', 'file', '+file'])
-    parser.add_argument(
-        '-s', '--seed', help='Seed for randomness', default=1, type=int)
-    parser.add_argument('-d', '--datapath',
-                        help='Seed for randomness', default='./data')
+    parser.add_argument('-s', '--seed', help='Seed for randomness', default=1, type=int)
+    parser.add_argument('-d', '--datapath', help='Path where data is written', default='./data')
+    parser.add_argument('-e', '--extrainfo', help='Extra info specifying details of this specific execution (will be stored in the description.csv file)', type=str)
     args = parser.parse_args()
 
     # argument namespace to variables
@@ -244,15 +243,26 @@ def main():
     random.seed(args.seed)
 
     if node_file == "auto":
+        if not "BLINK_WL_MANAGER" in os.environ or os.environ["BLINK_WL_MANAGER"] != "slurm":
+            raise Exception("auto node file can only be used if slurm is used as workload manager.")
         node_file = "node_files/auto_node_file.txt"
-        subprocess.call(["scontrol", "show", "hostnames"],
-                        stdout=open(node_file, "w"))
+        subprocess.call(["scontrol", "show", "hostnames"], stdout=open(node_file, "w"))
 
+    
+    # Create header in description.csv
+    if not os.path.isfile(data_path + "/description.csv"):
+        with open(data_path + '/description.csv', 'w') as desc_file:
+            desc_file.write('test_bench,numnodes,allocation_mode,allocation_split,ppn,out_format,extra,path\n')        
+    
     # runner_id is current time
-    runner_id = (test_bench_path.split('/')[-1]+'__'
-                 + allocation_mode+'_'+allocation_split+'__'
-                 + datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S'))
-    data_directory = data_path+'/'+runner_id
+    runner_id = (os.environ["BLINK_SYSTEM"] + "/" + datetime.datetime.now().strftime('%Y-%m-%d_%H:%M:%S'))
+    data_directory = data_path + '/' + runner_id
+
+    # Append info to description.csv file
+    with open(data_path + '/description.csv', 'a+') as desc_file:
+        desc_file.write(test_bench_path + ',' + args.numnodes + ',' + allocation_mode + ',' +
+                        allocation_split + ',' + ',' + str(ppn) + ',' + ',' + out_format + ',' + args.extrainfo + ',' + runner_id + '\n')
+
     os.makedirs(data_directory)
 
     # prepare runtime feedback output
@@ -352,10 +362,13 @@ def main():
     wlmanager = mod_wlm.wl_manager()
 
     # assign nodes to apps
-    nodes_frame = pandas.read_csv(
-        node_file, header=None, keep_default_na=False, dtype=str)
+    nodes_frame = pandas.read_csv(node_file, header=None, keep_default_na=False, dtype=str)
     num_nodes = nodes_frame.size
     num_cols = nodes_frame.shape[1]
+    if args.numnodes % num_cols:
+        raise Exception('Number of nodes must be a multiple of columns in '+node_file+'.')
+    else:
+        nodes_frame.head(args.numnodes // num_cols)
 
     if allocation_mode == 'c':  # custom allocation, doesn't need splits
         if num_cols != num_apps:
