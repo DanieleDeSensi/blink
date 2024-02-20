@@ -14,7 +14,7 @@ pushd src/microbench
 popd
 
 # Compile netgauge
-pushd apps/netgauge-2.4.6
+pushd src/netgauge-2.4.6
     ./configure ${BLINK_NG_CONFIGURE_FLAGS}
     make
     if [ ! -f "netgauge" ]; then
