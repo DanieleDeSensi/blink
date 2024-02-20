@@ -63,6 +63,8 @@ def check_CI(container_list, alpha, beta, converge_all, run):
 
 def run_job(job, wlmanager, ppn):
     cmd_string = wlmanager.run_job(job.node_list, ppn, job.run_app())
+    if not cmd_string or cmd_string == "":
+        cmd_string = "echo a > /dev/null"
     cmd = shlex.split(cmd_string)
     process = subprocess.Popen(
         cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)

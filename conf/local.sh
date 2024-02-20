@@ -1,3 +1,7 @@
+# Modules load and any other needed command
+#module load openmpi
+
+# Mandatory variables to compile/run microbenchmarks
 export CC=mpicc # MPI Compiler
 export BLINK_MPIRUN="mpirun" # Command for running MPI applications
 export BLINK_MPIRUN_MAP_BY_NODE_FLAG="--map-by node" # Flag to force ranks to be mapped by node (srun)
@@ -11,3 +15,8 @@ export BLINK_NET_NOISE_CONC=1 # How many concurrent connections to run to measur
 export BLINK_BW_SATURATING_SIZE=16777216 # How many bytes to send to get max bw
 export BLINK_NG_CONFIGURE_FLAGS="HRT_ARCH=6"
 export BLINK_WL_MANAGER=mpi
+
+# Optional variables specifying binary paths for applications
+export BLINK_AMG_PATH=""
+export BLINK_G500_PATH=""
+export BLINK_MINIFE_PATH=""

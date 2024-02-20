@@ -1,3 +1,7 @@
+# Modules load and any other needed command
+#module load openmpi
+
+# Mandatory variables to compile/run microbenchmarks
 export CC=mpicc # MPI Compiler
 export BLINK_MPIRUN="/scratch/2/t2hx/dep/openmpi/bin/mpirun" # Command for running MPI applications
 export BLINK_MPIRUN_MAP_BY_NODE_FLAG="--map-by node" # Flag to force ranks to be mapped by node (srun)
@@ -12,6 +16,7 @@ export BLINK_BW_SATURATING_SIZE=16777216 # How many bytes to send to get max bw
 export BLINK_NG_CONFIGURE_FLAGS="HRT_ARCH=6 --with-mpi=/leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/"
 export BLINK_WL_MANAGER=mpi
 
-#export LD_LIBRAY_PATH=$LD_LIBRARY_PATH:/users/desensi/amd-blis/lib/lp64/
-
-module load openmpi
+# Optional variables specifying binary paths for applications
+export BLINK_AMG_PATH="/scratch/2/t2hx/AMG/test/amg"
+export BLINK_G500_PATH="/scratch/2/t2hx/graph500/mpi/runnable"
+export BLINK_MINIFE_PATH="/scratch/2/t2hx/miniFE/ref/src/miniFE.x"
