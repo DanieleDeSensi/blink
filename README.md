@@ -7,6 +7,10 @@ This framework is designed to run multiple applications and/or benchmarks togeth
 - pandas
 - seaborn
 
+## How to use the framework
+
+MUST BE CALLED FROM THE ROOT OF THE REPO!!! 
+
 ## Repository structure
 This repository contains the following files and directories:
 - apps: Contains the Python code to launch the applications and benchmarks supported by the framework and to parse their output.

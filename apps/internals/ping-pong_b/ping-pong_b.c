@@ -9,77 +9,7 @@
 #include <signal.h>
 #include <stdbool.h>
 #include <sched.h>
-
-/*draw a exponentially distributed number with expectation=mean*/
-static double rand_expo(double mean){
-    double lambda=1.0/mean;
-    double u=rand()/(RAND_MAX+1.0);
-    return -log(1-u)/lambda;
-}
-
-/*sleep seconds given as double*/
-static int dsleep(double t){
-    struct timespec t1, t2;
-    t1.tv_sec=(long)t;
-    t1.tv_nsec=(t-t1.tv_sec)*1000000000L;
-    return nanosleep(&t1,&t2);
-}
-
-/*mathematical mod without negativ numbers*/
-static int mod(int a,int b){
-    int c=a%b;
-    if(c<0) c+=b;
-    return c;
-}
-
-/*global variables because of signal handling*/
-int my_rank;
-int w_size;
-int master_rank;
-int curr_iters;
-int warm_up_iters;
-int max_samples;
-double *durations;
-
-static void write_results(){
-    double duration_sum;
-    double duration_median;
-    int num_samples; 
-    int i,j;
-    int start_index;
-    
-    if(curr_iters-warm_up_iters>max_samples){
-        num_samples=max_samples;
-        start_index=curr_iters%max_samples;
-    }else{
-        num_samples=curr_iters-warm_up_iters;
-        start_index=warm_up_iters;
-    }
-    /*print file header*/
-    if(my_rank==master_rank){
-        printf("Duration\n");
-    }
-    
-    /*gather+sort to get avg,min,max,median for all every saved iteration*/
-    for(i=start_index;i<start_index+num_samples;i++){
-        if(my_rank==master_rank){
-            printf("%.9f\n"
-                ,durations[i%max_samples]);
-        }
-    }
-    
-    if(my_rank==master_rank){
-        printf("Ran %d iterations. Measured %d iterations.\n",curr_iters,num_samples);
-        fflush(stdout);
-    }
-}
-
-/*signal handler*/
-void sig_handler(int sig){
-    write_results();
-    MPI_Finalize();
-    exit(0);
-}
+#include "../common.h"
 
 int main(int argc, char** argv){
     /*init MPI world*/
