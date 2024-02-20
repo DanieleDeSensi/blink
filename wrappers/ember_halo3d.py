@@ -18,3 +18,8 @@ class app(base):
             data_list[i]=[float(data_line[i])]    
         return data_list
         
+    def get_bench_name(self):
+        return "Ember - Halo3D"
+    
+    def get_bench_input(self, args):
+        return ""

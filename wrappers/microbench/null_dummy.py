@@ -12,3 +12,6 @@ class app(microbench):
     def read_data(self):  # return list (size num_metrics) of variable size lists
         data_list = []
         return data_list
+    
+    def get_bench_name(self):
+        return "Isolated"

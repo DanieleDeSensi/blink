@@ -10,3 +10,5 @@ Three main components need to be defined (e.g., look at g500.py)
 3. read_data: A function that parses the output of the application (either from self.stdout or from a file) and returns a list of lists, where each list
    contains the values of the metrics defined in metadata (one element per sample).
    The order of the outer lists must be the same as specified in metadata.
+4. get_bench_name: A function returning a string representing the name of the benchmark. This string will be used to label the plots.
+5. get_bench_input: A function returning a string representing the input of the benchmark. This string will be used to label the plots.

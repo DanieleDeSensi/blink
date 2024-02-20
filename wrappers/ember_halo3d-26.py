@@ -17,3 +17,9 @@ class app(base):
         for i in range(self.num_metrics):
             data_list[i] = [float(data_line[i])]
         return data_list
+
+    def get_bench_name(self):
+        return "Ember - Halo3D-26"
+    
+    def get_bench_input(self, args):
+        return ""

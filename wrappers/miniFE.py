@@ -42,3 +42,9 @@ class app(base):
             return data
         else:
             return [[0]*self.num_metrics]
+
+    def get_bench_name(self):
+        return "MiniFE"
+    
+    def get_bench_input(self, args):
+        return ""

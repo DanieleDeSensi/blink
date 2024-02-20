@@ -16,18 +16,28 @@ class base:
         self.node_list = node_list
         self.num_nodes = len(node_list)
 
-    # customizable functions:
+    # Function that MUST be overriden
     # If None is returned, the application will not be executed
     def get_binary_path(self):
         return None
+    
+    # Returns a list (one element per metric) of lists (one element per measurement) of values
+    def read_data(self):
+        return []
+    
+    # Returns a human-readable string representing the benchmark name
+    def get_bench_name(self):
+        return ""
+    
+    # Returns a human-readable string representing the benchmark input description
+    def get_bench_input(self, args):
+        return ""
 
+    # Functions that CAN be overriden
     def run_app(self):  # return string on how to call app
         path = self.get_binary_path()
         if path is not None:
             return path + ' ' + self.args
         else:
-            return ""
-        
-    # Returns a list (one element per metric) of lists (one element per measurement) of values
-    def read_data(self):
-        return []
+            return ""        
+

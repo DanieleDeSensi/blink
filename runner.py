@@ -192,7 +192,7 @@ def print_runtime(obj, mode, ro_file):
 def main():
     pre_start_time = time.time()
     parser = argparse.ArgumentParser(description='Runner of framework.')
-    parser.add_argument('test_bench', help='The file specifying which apps mix to run.')
+    parser.add_argument('app_mix', help='The file specifying which apps mix to run.')
     parser.add_argument('node_file', help='Path to node list file. If \'auto\' is specified, nodes are allocated automatically (it assumes Slurm is available).')
     parser.add_argument('-n', '--numnodes', help='Number of nodes on which to run the applications. It must be smaller or equal than the number of nodes specified in node_file',
                          type=int, required=True)
@@ -253,7 +253,7 @@ def main():
     # Create header in description.csv
     if not os.path.isfile(data_path + "/description.csv"):
         with open(data_path + '/description.csv', 'w') as desc_file:
-            desc_file.write('test_bench,numnodes,allocation_mode,allocation_split,ppn,out_format,extra,path\n')        
+            desc_file.write('app_mix,numnodes,allocation_mode,allocation_split,ppn,out_format,extra,path\n')        
     
     # runner_id is current time
     while True:
@@ -270,7 +270,7 @@ def main():
         if args.extrainfo:
             extra = args.extrainfo
         desc_file.write(test_bench_path + ',' + str(args.numnodes) + ',' + allocation_mode + ',' +
-                        allocation_split + ',' + ',' + str(ppn) + ',' + out_format + ',' + extra + ',' + runner_id + '\n')
+                        allocation_split + ',' + str(ppn) + ',' + out_format + ',' + extra + ',' + runner_id + '\n')
            
 
     # prepare runtime feedback output

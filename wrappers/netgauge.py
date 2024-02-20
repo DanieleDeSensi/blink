@@ -24,3 +24,9 @@ class app(base):
             data[0] += [data1]
             data[1] += [data2]
         return data
+
+    def get_bench_name(self):
+        return "Netgauge - EBB"
+    
+    def get_bench_input(self, args):
+        return ""

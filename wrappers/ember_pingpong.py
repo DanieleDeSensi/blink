@@ -20,3 +20,9 @@ class app(base):
         for i in range(self.num_metrics):
             data_list[i] = [float(data_line[i])]
         return data_list
+    
+    def get_bench_name(self):
+        return "Ember - PingPong"
+    
+    def get_bench_input(self, args):
+        return ""

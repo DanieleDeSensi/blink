@@ -19,3 +19,10 @@ class microbench(base):
             tmp_list += [[float(x) for x in line.split(',')]]
         data_list = [list(x) for x in zip(*tmp_list)]
         return data_list
+
+    def get_bench_input(self, args):
+        if "-msgsize" not in args:
+            return ""
+        else:
+            args_values = args.split(" ") 
+            return args_values[args_values.index('-msgsize') + 1]
