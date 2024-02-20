@@ -1,6 +1,5 @@
 
-CC=/scratch/2/t2hx/dep/openmpi/bin/mpicc
-CFLAGS=-O3 -std=c99
+CFLAGS=-O3 
 LIBS=
 
 sweep3d: sweep3d.c
