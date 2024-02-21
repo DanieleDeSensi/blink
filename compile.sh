@@ -7,45 +7,65 @@ NC=$(tput sgr0)
 
 # Compile microbench
 pushd src/microbench
-    CC=$CC make
+    CC=${BLINK_CC} make
     if [ $? -ne 0 ]; then
         echo "${RED}[Error] internals compilation failed, please check error messages above.${NC}"
         exit 1
     fi
 popd
 
-# Download GPU microbench
-if [ ! -d "src/microbench-gpu" ]; then
-    git clone git@github.com:HicrestLaboratory/interconnect-banchmark.git src/microbench-gpu
-    if [ $? -ne 0 ]; then
-        echo "${RED}[Error] GPU microbench clone failed, please check error messages above.${NC}"
-    fi
-fi
-# Compile GPU microbench
-pushd src/microbench-gpu
-    git checkout ${BLINK_GPU_MICROBENCH_COMMIT}
-    MAKEFILE_NAME="Makefile.${BLINK_SYSTEM^^}"
-    if [ -f ${MAKEFILE_NAME} ]; then
-        make -f ${MAKEFILE_NAME}
+
+if [ "$BLINK_GPU_BENCH" = "true" ]; then
+    # Download GPU microbench
+    if [ ! -d "src/microbench-gpu" ]; then
+        git clone git@github.com:HicrestLaboratory/interconnect-banchmark.git src/microbench-gpu
         if [ $? -ne 0 ]; then
-            echo "${RED}[Error] GPU microbench compilation failed, please check error messages above.${NC}"
+            echo "${RED}[Error] GPU microbench clone failed, please check error messages above.${NC}"
+        fi
+    fi
+    # Compile GPU microbench
+    pushd src/microbench-gpu
+        git checkout ${BLINK_GPU_MICROBENCH_COMMIT}
+        MAKEFILE_NAME="Makefile.${BLINK_SYSTEM^^}"
+        if [ -f ${MAKEFILE_NAME} ]; then
+            make -f ${MAKEFILE_NAME}
+            if [ $? -ne 0 ]; then
+                echo "${RED}[Error] GPU microbench compilation failed, please check error messages above.${NC}"
+                exit 1
+            fi
+        else
+            echo "${RED}[Warning] GPU microbench not supported on this system (${BLINK_SYSTEM}).${NC}"
+        fi
+    popd
+
+    # Download nccl-tests
+    if [ ! -d "src/nccl-tests" ]; then
+        git clone https://github.com/NVIDIA/nccl-tests src/nccl-tests
+        if [ $? -ne 0 ]; then
+            echo "${RED}[Error] nccl-tests clone failed, please check error messages above.${NC}"
+        fi
+    fi
+    # Compile nccl-tests
+    pushd src/nccl-tests
+        git checkout ${BLINK_NCCL_TESTS_COMMIT}
+        make MPI=1 MPI_HOME=${BLINK_MPI_HOME} CUDA_HOME=${BLINK_CUDA_HOME} NCCL_HOME=${BLINK_NCCL_HOME}
+        if [ $? -ne 0 ]; then
+            echo "${RED}[Error] nccl-tests compilation failed, please check error messages above.${NC}"
             exit 1
         fi
-    else
-        echo "${RED}[Warning] GPU microbench not supported on this system (${BLINK_SYSTEM}).${NC}"
-    fi
-popd
+    popd
+fi
 
 # Compile netgauge
 pushd src/netgauge-2.4.6
     if [ ! -f "Makefile" ]; then
-        ./configure ${BLINK_NG_CONFIGURE_FLAGS}
+        CC=${BLINK_CC} ./configure ${BLINK_NG_CONFIGURE_FLAGS}
         if [ $? -ne 0 ]; then
             echo "${RED}[Error] netgauge compilation failed, please check error messages above.${NC}"
             exit 1
         fi
     fi
-    make
+    CC=${BLINK_CC} make
     if [ $? -ne 0 ]; then
         echo "${RED}[Error] netgauge compilation failed, please check error messages above.${NC}"
         exit 1
@@ -60,7 +80,7 @@ popd
 
 # Compile ember
 pushd src/ember
-    ./make_script.sh all
+    CC=${BLINK_CC} ./make_script.sh all
     if [ $? -ne 0 ]; then
         echo "${RED}[Error] internals compilation failed, please check error messages above.${NC}"
         exit 1

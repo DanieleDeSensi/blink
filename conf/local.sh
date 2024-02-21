@@ -2,7 +2,11 @@
 #module load openmpi
 
 # Mandatory variables to compile/run microbenchmarks
-export CC=mpicc # MPI Compiler
+export BLINK_CC=mpicc # MPI Compiler
+export BLINK_GPU_BENCH="false" # Shall we run GPU interconnect tests?
+export BLINK_CUDA_HOME=""
+export BLINK_NCCL_HOME=""
+export BLINK_MPI_HOME=""
 export BLINK_MPIRUN="mpirun" # Command for running MPI applications
 export BLINK_MPIRUN_MAP_BY_NODE_FLAG="--map-by node" # Flag to force ranks to be mapped by node (srun)
 export BLINK_MPIRUN_HOSTNAMES_FLAG="-H" # Flag for specifying the hostnames
