@@ -3,13 +3,6 @@ import os
 sys.path.append(os.environ["BLINK_ROOT"] + "/wrappers")
 from base import base
 
-def sizeof_fmt(num, suffix='B'):
-    for unit in ['','Ki','Mi','Gi','Ti','Pi','Ei','Zi']:
-        if abs(num) < 1024.0:
-            return "%.0f%s%s" % (num, unit, suffix)
-        num /= 1024.0
-    return "%f%s%s" % (num, 'Yi', suffix)
-
 class microbench(base):
     metadata = [
         {'name': 'Avg-Duration'     , 'unit': 's', 'conv': True },

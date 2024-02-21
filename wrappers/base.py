@@ -1,4 +1,12 @@
 # Base class (don't modify this file)
+
+def sizeof_fmt(num, suffix='B'):
+    for unit in ['','Ki','Mi','Gi','Ti','Pi','Ei','Zi']:
+        if abs(num) < 1024.0:
+            return "%.0f%s%s" % (num, unit, suffix)
+        num /= 1024.0
+    return "%f%s%s" % (num, 'Yi', suffix)
+
 class base:
     def __init__(self, id_num, collect_flag, args):
         self.id_num = id_num
