@@ -26,7 +26,7 @@ class app(base):
                 if l[0] != "#":
                     l = ' '.join(l.strip().split()) # Replace multiple whitespaces with one
                     fields = l.split(' ')
-                    return fields[5:11]
+                    return [[float(fields[5])], [float(fields[6])], [float(fields[7])], [float(fields[9])], [float(fields[10])], [float(fields[11])]]
     
         return [[0]*self.num_metrics]
 

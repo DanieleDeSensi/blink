@@ -1,5 +1,7 @@
 # Modules load and any other needed command
 module load openmpi
+module load nvhpc
+module load nccl
 
 # Mandatory variables to compile/run microbenchmarks
 export BLINK_CC=mpicc # MPI Compiler
