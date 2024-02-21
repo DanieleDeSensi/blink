@@ -226,7 +226,7 @@ def main():
     # argument namespace to variables
     import_path_wlm = "./conf/wl_manager/" + \
         os.environ["BLINK_WL_MANAGER"] + ".py"
-    test_bench_path = args.test_bench
+    app_mix_path = args.app_mix
     node_file = args.node_file
     allocation_mode = args.allocationmode
     allocation_split = args.allocationsplit
@@ -253,7 +253,7 @@ def main():
     # Create header in description.csv
     if not os.path.isfile(data_path + "/description.csv"):
         with open(data_path + '/description.csv', 'w') as desc_file:
-            desc_file.write('app_mix,numnodes,allocation_mode,allocation_split,ppn,out_format,extra,path\n')        
+            desc_file.write('app_mix,system,numnodes,allocation_mode,allocation_split,ppn,out_format,extra,path\n')        
     
     # runner_id is current time
     while True:
@@ -269,7 +269,7 @@ def main():
         extra = ""
         if args.extrainfo:
             extra = args.extrainfo
-        desc_file.write(test_bench_path + ',' + str(args.numnodes) + ',' + allocation_mode + ',' +
+        desc_file.write(app_mix_path + ',' + os.environ["BLINK_SYSTEM"] + ',' + str(args.numnodes) + ',' + allocation_mode + ',' +
                         allocation_split + ',' + str(ppn) + ',' + out_format + ',' + extra + ',' + data_directory + '\n')
            
 
@@ -295,7 +295,7 @@ def main():
     print_runtime('\nApps:', ro_mode, ro_file)
 
     # read schedule file and import app classes
-    with open(test_bench_path, 'r') as test_bench:
+    with open(app_mix_path, 'r') as test_bench:
         # get delimiter from first line
         first_line = test_bench.readline()
         file_delimiter = first_line[:-1]

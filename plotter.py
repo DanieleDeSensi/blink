@@ -11,9 +11,7 @@ import argparse
 import csv
 import importlib.util
 
-
 matplotlib.rc('pdf', fonttype=42) # To avoid issues with camera-ready submission
-
 
 # Extracts victim and aggressor from an app mix file
 # Assumes only two applications are specified in the mix, 
@@ -23,13 +21,14 @@ def extract_info(app_mix):
     aggressor_line = ""
     with open(app_mix) as mix_file:
         lines = mix_file.readlines()
-        if len(lines) != 3:
+        if len(lines) > 3:
             raise Exception("Error: app mix file " + app_mix + " has more (or less) than 3 lines")
             
         sep = lines[0].strip()
         if lines[0] == "":
             sep = ","
-        for appi in [1, 2]:
+        app_lines_idxs = np.arange(1, len(lines))
+        for appi in app_lines_idxs:
             l = lines[appi].strip()
             end = l.split(sep)[-1]
             if end == "f": # Aggressor
@@ -43,11 +42,12 @@ def extract_info(app_mix):
     d["victim_collection"] = victim_line.split(sep)[2]
     d["victim_start"] = victim_line.split(sep)[3]
     d["victim_end"] = victim_line.split(sep)[4]
-    d["aggressor_wrapper"] = aggressor_line.split(sep)[0]
-    d["aggressor_args"] = aggressor_line.split(sep)[1]
-    d["aggressor_collection"] = aggressor_line.split(sep)[2]
-    d["aggressor_start"] = aggressor_line.split(sep)[3]
-    d["aggressor_end"] = aggressor_line.split(sep)[4]
+    if aggressor_line != "":
+        d["aggressor_wrapper"] = aggressor_line.split(sep)[0]
+        d["aggressor_args"] = aggressor_line.split(sep)[1]
+        d["aggressor_collection"] = aggressor_line.split(sep)[2]
+        d["aggressor_start"] = aggressor_line.split(sep)[3]
+        d["aggressor_end"] = aggressor_line.split(sep)[4]
     return d
 
 def get_input_and_full_name_from_args(wrapper_path, args):
@@ -97,6 +97,7 @@ def load_data_trend(victim_inputs, data_filename, metric):
 def metric_to_human_readable(metric):
     metric_expanded = {}
     metric_expanded["Avg-Duration"] = "Runtime"
+    metric_expanded["MainRank-Duration"] = "Runtime"
     # See get_title in data_container in runner.py to check how the header of the data.csv files is created
     # It is composed of appid_metric_unit
     # The appid is the id of the application in the mix, starting from 0
@@ -106,12 +107,12 @@ def metric_to_human_readable(metric):
     return metric_expanded[metric] + " (" + unit + ")"
 
 # Plots one violin for each victim+aggressor combination, for the given metric
-def plot_violin(df, victim_fullname, metric, outname):
+def plot_violin(df, title, metric, outname):
     # Setup the violin
     ax = sns.violinplot(data=df, cut=0)
 
     # Set the title and labels
-    ax.set_title(victim_fullname)
+    ax.set_title(title)
     ax.set_ylabel(metric_to_human_readable(metric))
 
     # Add 99th quantile as a black x
@@ -124,12 +125,12 @@ def plot_violin(df, victim_fullname, metric, outname):
     plt.clf()      
 
 # Plots one box for each victim+aggressor combination, for the given metric
-def plot_box(df, victim_fullname, metric, outname):
+def plot_box(df, title, metric, outname):
     # Setup the violin
     ax = sns.boxplot(data=df)
 
     # Set the title and labels
-    ax.set_title(victim_fullname)
+    ax.set_title(title)
     ax.set_ylabel(metric_to_human_readable(metric))
 
     # Add 99th quantile as a black x
@@ -143,12 +144,12 @@ def plot_box(df, victim_fullname, metric, outname):
 
 # Plots one line for each victim+aggressor combination, for the given metric
 # Time/iteration on the x-axis
-def plot_line(df, victim_fullname, metric, outname):
+def plot_line(df, title, metric, outname):
     # Setup the violin
     ax = sns.lineplot(data=df)
 
     # Set the title and labels
-    ax.set_title(victim_fullname)
+    ax.set_title(title)
     ax.set_xlabel("Iteration")
     ax.set_ylabel(metric_to_human_readable(metric))
 
@@ -159,12 +160,12 @@ def plot_line(df, victim_fullname, metric, outname):
 
 # Plots the trend of victim performance for different inputs
 # Time/iteration on the x-axis
-def plot_trend_line(df, victim_fullname, metric, outname):
+def plot_trend_line(df, title, metric, outname):
     # Setup the plot
     ax = sns.lineplot(data=df, x="Input", y=metric, marker="o")
 
     # Set the title and labels
-    ax.set_title(victim_fullname)
+    ax.set_title(title)
     ax.set_xlabel("Input")
     ax.set_ylabel(metric_to_human_readable(metric))
 
@@ -178,21 +179,30 @@ def main():
     parser.add_argument('-d', '--data_folder', help='Main data folder.', default="data")
     parser.add_argument('-s', '--system', help='System name.', required=True)
     parser.add_argument('-v', '--victim_info', help='Victim info in the format name:input_name (e.g. ardc_b:128B). The name must match the filename of the Python wrapper.', required=True)
-    parser.add_argument('-a', '--aggressors_info', help='Comma-separated list of aggressors name:input_name (e.g. a2a:128,inc:1024). Names must match the filename of the Python wrapper.', default="null_dummy")
+    parser.add_argument('-a', '--aggressors_info', help='Comma-separated list of aggressors name:input_name (e.g. a2a:128,inc:1024). Names must match the filename of the Python wrapper.')
     parser.add_argument('-n', '--num_nodes', help='The number of nodes the mix was executed on (total).', required=True)
     parser.add_argument('-am', '--allocation_mode', help='The allocation mode the mix was executed with.', required=True)
     parser.add_argument('-sp', '--allocation_split', help='The allocation split the mix was executed with.', required=True)
     parser.add_argument('-e', '--extra', help='Any extra info about the execution.', default="")
     parser.add_argument('-m', '--metrics', help='Comma-separated string of metrics to plot.', default="0_Avg-Duration_s")
+    parser.add_argument('-o', '--outfile', help='Path of output files.')
 
     args = parser.parse_args()
 
     os.environ["BLINK_ROOT"] = os.path.dirname(os.path.abspath(__file__)) # Set BLINK_ROOT to the directory of this script
     data_filename = {}
     victim_fullname = ""
-    out_file_prefix = "./plots" + os.path.sep + args.system + os.path.sep + args.victim_info +  "_" + args.aggressors_info + "_" + args.num_nodes + "_" + args.allocation_mode + "_" + args.allocation_split
-    if args.extra:
-        out_file_prefix += "_" + args.extra    
+    victim_name_h = ""
+    if args.outfile:
+        out_file_prefix = args.outfile
+    else:
+        if args.aggressors_info:
+            agg_str = "_" + args.aggressors_info
+        else:
+            agg_str = ""
+        out_file_prefix = "./plots" + os.path.sep + args.system + os.path.sep + args.victim_info + agg_str + "_" + args.num_nodes + "_" + args.allocation_mode + "_" + args.allocation_split
+        if args.extra:
+            out_file_prefix += "_" + args.extra    
     if not os.path.exists(out_file_prefix): 
         os.makedirs(out_file_prefix)
     
@@ -203,7 +213,7 @@ def main():
     # performance of the victim for different inputs.
     # Otherwise, we plot the combination of the victim and aggressors.
     victim_inputs = []
-    if args.victim_info.count(",") > 0 and args.aggressors_info.count(",") == 0:
+    if args.victim_info.count(",") > 0 and (not args.aggressors_info or args.aggressors_info.count(",") == 0):
         plot_trend_inputs = True
         # Trend for the different inputs of the victim
         # Check that is always the same victim
@@ -227,35 +237,41 @@ def main():
             
     # Parse the aggressor info
     aggressors_input = {}
-    for a in args.aggressors_info.split(","):
-        if ":" in a:
-            name, input = a.split(":")
-        else:
-            name = a
-            input = ""
-        aggressors_input[name] = input
+    if args.aggressors_info:
+        for a in args.aggressors_info.split(","):
+            if ":" in a:
+                name, input = a.split(":")
+            else:
+                name = a
+                input = ""
+            aggressors_input[name] = input
         
     # Read the description file to find the data files
     with open(args.data_folder + "/description.csv", mode='r') as infile:
         reader = csv.DictReader(infile)    
         for line in reader:
-            row = {key: value for key, value in line.items()}            
+            row = {key: value for key, value in line.items()}       
+            
             # Check if the fields in the description match the ones in the arguments
-            if row["path"].split("/")[1] == args.system and row["numnodes"] == args.num_nodes and \
+            if row["system"] == args.system and row["numnodes"] == args.num_nodes and \
                row["allocation_mode"] == args.allocation_mode and row["allocation_split"] == args.allocation_split and \
-               row["extra"] == args.extra:
-                
+               row["extra"] == args.extra:                               
                 # Check if the mix matches the victim and aggressor
                 info = extract_info(row["app_mix"])                
-                # Get the bench name from the Python wrapper filename
-                victim_shortname = info["victim_wrapper"].split("/")[-1][:-3]
-                aggressor_shortname = info["aggressor_wrapper"].split("/")[-1][:-3]
-                # Load the Python wrapper to get the full name and the input name
+                # Get the bench name from the Python wrapper filename and load the python wrapper to get the full name and the input name
+                victim_shortname = info["victim_wrapper"].split("/")[-1][:-3]                
                 (victim_fn, victim_in) = get_input_and_full_name_from_args(info["victim_wrapper"], info["victim_args"])
-                (aggressor_fn, aggressor_in) = get_input_and_full_name_from_args(info["aggressor_wrapper"], info["aggressor_args"])
+
+                aggressors_found = False
+                if "aggressor_wrapper" in info:
+                    aggressor_shortname = info["aggressor_wrapper"].split("/")[-1][:-3]
+                    (aggressor_fn, aggressor_in) = get_input_and_full_name_from_args(info["aggressor_wrapper"], info["aggressor_args"])
+                    aggressors_found = (args.aggressors_info) and aggressor_shortname in aggressors_input and aggressor_in == aggressors_input[aggressor_shortname]
+                else:
+                    aggressors_found = (args.aggressors_info is None)
+
                 # Check if aggressor and victim match the ones in the mix
-                if victim_shortname == victim_name and victim_in in victim_inputs and \
-                   aggressor_shortname in aggressors_input and aggressor_in == aggressors_input[aggressor_shortname]:
+                if (victim_shortname == victim_name) and (victim_in in victim_inputs) and aggressors_found:
                     if plot_trend_inputs:
                         key = victim_in
                         data_filename[key] = row["path"] + "/data.csv"
@@ -264,6 +280,7 @@ def main():
                         if aggressor_in != "":
                             key += ":" + aggressor_in
                         data_filename[key] = (row["path"] + "/data.csv", aggressor_fn)
+                    victim_name_h = victim_fn
                     victim_fullname = victim_fn # Store the fullname to be used later as label
                     if victim_in != "":
                         victim_fullname += " (" + victim_in + ")"
@@ -285,7 +302,7 @@ def main():
         if plot_trend_inputs:
             # Lines
             df = load_data_trend(victim_inputs, data_filename, metric)
-            plot_trend_line(df, victim_fullname, metric, outname)   
+            plot_trend_line(df, victim_name_h, metric, outname)  
         else:
             df = load_data_distribution(args.aggressors_info, data_filename, metric)
             # Violins        

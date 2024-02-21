@@ -159,7 +159,9 @@ int main(int argc, char** argv){
             }        
             burst_start_time=MPI_Wtime();
             do{
-                MPI_Barrier(MPI_COMM_WORLD);
+                if(burst_length){ // If no bursts, no need to do the barrier before (received will be most likely already waiting on the recv)
+                    MPI_Barrier(MPI_COMM_WORLD);
+                }
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
                     if(my_rank==master_rank){
@@ -172,9 +174,7 @@ int main(int argc, char** argv){
                         MPI_Send(send_buf,msg_size,MPI_BYTE,master_rank,my_rank,MPI_COMM_WORLD);
                     }
                 }
-                if(my_rank==master_rank){
-                    durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
-                }
+                durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
                 curr_iters++;
                 if(burst_length!=0){ /*bcast needed for synch if bursts timed*/
                     if(my_rank==master_rank){ /*master decides if burst should be continued*/
@@ -193,7 +193,30 @@ int main(int argc, char** argv){
     }while(endless);
     /*write results to file*/
     MPI_Barrier(MPI_COMM_WORLD);
-    write_results();
+    
+
+    // For pingpong we can avoid doing allgather etc from common.h (we just need to report rank 0 time)
+    if(my_rank==master_rank){
+        int num_samples;
+        int start_index;
+        if (curr_iters - warm_up_iters > max_samples)
+        {
+            num_samples = max_samples;
+            start_index = curr_iters % max_samples;        
+        }
+        else
+        {
+            num_samples = curr_iters - warm_up_iters;
+            start_index = warm_up_iters;
+        }
+        printf("MainRank\n");
+        for(i = 0; i < num_samples; i++){
+            printf("%.9f\n", durations[(start_index + i) % max_samples]);
+        }
+        printf("Ran %d iterations. Measured %d iterations.\n", curr_iters, num_samples);
+        fflush(stdout);
+    }
+
     
     /*free allocated buffers*/
     free(durations);

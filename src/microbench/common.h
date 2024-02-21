@@ -54,21 +54,18 @@ static void write_results()
     int i, j;
     int start_index;    
     double *tmp_buf = NULL;
-    int tmp_buf_created = 0;
 
     if (curr_iters - warm_up_iters > max_samples)
     {
         num_samples = max_samples;
-        start_index = curr_iters % max_samples;
-        tmp_buf = (double *)malloc(sizeof(double)*num_samples);
-        tmp_buf_created = 1;
+        start_index = curr_iters % max_samples;        
     }
     else
     {
         num_samples = curr_iters - warm_up_iters;
         start_index = warm_up_iters;
-        tmp_buf = &(durations[start_index]);
     }
+    tmp_buf = (double *)malloc(sizeof(double)*num_samples);
 
     double *all_data =  (double *)malloc(sizeof(double)*num_samples*w_size);
     double *sorting_buf = (double*)malloc(sizeof(double)*w_size);
@@ -79,10 +76,8 @@ static void write_results()
     }
 
     // Copy the data from the durations buffer to tmp_buf (so that it is in the proper order)
-    if(tmp_buf_created){
-        memcpy(tmp_buf, &(durations[start_index]), sizeof(double)*(max_samples - start_index));
-        memcpy(&tmp_buf[max_samples - start_index], durations, sizeof(double)*start_index);
-    }
+    memcpy(tmp_buf, &(durations[start_index]), sizeof(double)*(max_samples - start_index));
+    memcpy(&tmp_buf[max_samples - start_index], durations, sizeof(double)*start_index);
 
     /*print file header*/
     if (my_rank == master_rank)
@@ -92,15 +87,16 @@ static void write_results()
 
     // We need to first gather all the data
     MPI_Gather(tmp_buf, num_samples, MPI_DOUBLE, all_data, num_samples, MPI_DOUBLE, master_rank, MPI_COMM_WORLD);
-    
+
     if(my_rank == master_rank){   
         for(i = 0; i < num_samples; i++){
             int j;
             duration_sum = 0;
             for(j = 0; j < w_size; j++){
-                sorting_buf[j] = all_data[i*w_size + j];
+                sorting_buf[j] = all_data[j*num_samples + i];
                 duration_sum += sorting_buf[j];
             }
+
             qsort(sorting_buf, w_size, sizeof(double), compare_doubles);
             if (w_size % 2 == 0)
             { /*even: then median as mean of middle values*/
@@ -118,9 +114,7 @@ static void write_results()
     }
     free(sorting_buf);
     free(all_data);   
-    if(tmp_buf_created){
-        free(tmp_buf);
-    }
+    free(tmp_buf);
 }
 
 /*signal handler*/
