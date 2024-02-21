@@ -6,7 +6,7 @@ from nccl_common import ncclbase
 
 class app(ncclbase):  
     def get_binary_path(self):
-        return os.environ["BLINK_ROOT"] + "/src/nccl-tests/build/sendrecv_perf"
+        return os.environ["BLINK_ROOT"] + "/src/nccl-tests/build/alltoall_perf"
     
     def get_bench_name(self):
-        return "NCCL SendRecv"
+        return "NCCL Alltoall"

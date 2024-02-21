@@ -1,5 +1,6 @@
-import base
+import sys
 import os
+sys.path.append(os.environ["BLINK_ROOT"] + "/wrappers")
 
 class app(base):  
     exists = True
