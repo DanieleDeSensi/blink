@@ -1,6 +1,7 @@
 import sys
 import os
-from base import base
+sys.path.append(os.environ["BLINK_ROOT"] + "/wrappers")
+from base import base,sizeof_fmt
 
 class microbench(base):
     metadata = [

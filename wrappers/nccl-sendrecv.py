@@ -1,5 +1,5 @@
-import base
 import os
+from base import base,sizeof_fmt
 
 class app(base):  
     exists = True
