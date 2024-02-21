@@ -23,6 +23,14 @@
 double g_hrttimer_startvalue;
 unsigned long long g_timerfreq;
 
+int register_dummy(void);
+int register_pattern_collvsnoise(void);
+int register_pattern_noise(void);
+int register_pattern_mprobe(void);
+int register_pattern_memory(void);
+int register_pattern_ebb(void);
+int register_pattern_func_args(void);
+
 /**
  * user supplied options
  */
