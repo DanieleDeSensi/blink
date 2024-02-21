@@ -3,9 +3,16 @@ import os
 sys.path.append(os.environ["BLINK_ROOT"] + "/wrappers")
 from base import base
 
+def sizeof_fmt(num, suffix='B'):
+    for unit in ['','Ki','Mi','Gi','Ti','Pi','Ei','Zi']:
+        if abs(num) < 1024.0:
+            return "%3.0f%s%s" % (num, unit, suffix)
+        num /= 1024.0
+    return "%f%s%s" % (num, 'Yi', suffix)
+
 class microbench(base):
     metadata = [
-        {'name': 'Avg-Duration'     , 'unit': 's', 'conv': True},
+        {'name': 'Avg-Duration'     , 'unit': 's', 'conv': True },
         {'name': 'Min-Duration'     , 'unit': 's', 'conv': False},
         {'name': 'Max-Duration'     , 'unit': 's', 'conv': False},
         {'name': 'Median-Duration'  , 'unit': 's', 'conv': False},
@@ -20,9 +27,10 @@ class microbench(base):
         data_list = [list(x) for x in zip(*tmp_list)]
         return data_list
 
-    def get_bench_input(self, args):
-        if "-msgsize" not in args:
+    def get_bench_input(self):
+        if "-msgsize" not in self.args:
             return ""
         else:
-            args_values = args.split(" ") 
-            return args_values[args_values.index('-msgsize') + 1]
+            args_values = self.args.split(" ") 
+            size_bytes = args_values[args_values.index('-msgsize') + 1]
+            return sizeof_fmt(int(size_bytes))

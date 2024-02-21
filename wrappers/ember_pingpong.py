@@ -24,5 +24,5 @@ class app(base):
     def get_bench_name(self):
         return "Ember - PingPong"
     
-    def get_bench_input(self, args):
+    def get_bench_input(self):
         return ""

@@ -8,4 +8,4 @@ class app(microbench):
         return os.environ["BLINK_ROOT"] + "/src/microbench/bin/inc_b" 
     
     def get_bench_name(self):
-        return "Incast (Blocking)"
+        return "Incast"

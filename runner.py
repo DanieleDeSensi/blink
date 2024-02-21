@@ -270,7 +270,7 @@ def main():
         if args.extrainfo:
             extra = args.extrainfo
         desc_file.write(test_bench_path + ',' + str(args.numnodes) + ',' + allocation_mode + ',' +
-                        allocation_split + ',' + str(ppn) + ',' + out_format + ',' + extra + ',' + runner_id + '\n')
+                        allocation_split + ',' + str(ppn) + ',' + out_format + ',' + extra + ',' + data_directory + '\n')
            
 
     # prepare runtime feedback output

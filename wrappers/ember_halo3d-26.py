@@ -21,5 +21,5 @@ class app(base):
     def get_bench_name(self):
         return "Ember - Halo3D-26"
     
-    def get_bench_input(self, args):
+    def get_bench_input(self):
         return ""

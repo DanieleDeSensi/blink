@@ -30,7 +30,8 @@ class base:
         return ""
     
     # Returns a human-readable string representing the benchmark input description
-    def get_bench_input(self, args):
+    # args are in self.args
+    def get_bench_input(self):
         return ""
 
     # Functions that CAN be overriden

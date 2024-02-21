@@ -28,5 +28,5 @@ class app(base):
     def get_bench_name(self):
         return "Netgauge - EBB"
     
-    def get_bench_input(self, args):
+    def get_bench_input(self):
         return ""
