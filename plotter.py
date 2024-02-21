@@ -59,8 +59,9 @@ def get_input_and_full_name_from_args(wrapper_path, args):
     return (w.get_bench_name(), w.get_bench_input())
 
 # Loads the data of the specified aggressors (only the specified metric).
+# This is used for distribution plots (box/violin/etc)
 # Returns the DataFrame with the data.
-def load_data(aggressors_info, data_filename, metric):
+def load_data_distribution(aggressors_info, data_filename, metric):
     global_df = pd.DataFrame()
     # Load the data from data_filename using pandas    
     for a in aggressors_info.split(","):
@@ -75,6 +76,22 @@ def load_data(aggressors_info, data_filename, metric):
         global_df[a] = data
         # Rename the column to human-readable name
         global_df = global_df.rename(columns={a: aggressor_fullname + aggressor_input})
+    return global_df
+
+# Loads the data of the specified victim, for different inputs.
+# This is used for trend plots.
+# Returns the DataFrame with the data.
+def load_data_trend(victim_inputs, data_filename, metric):
+    global_df = pd.DataFrame()
+    # Load the data from data_filename using pandas    
+    for vin in victim_inputs:
+        data_path = data_filename[vin]
+        data = pd.DataFrame()
+        data[metric] = pd.read_csv(data_path)[metric]        
+        if data.empty:
+            raise Exception("Error: data file " + data_path + " does not contain data for metric " + metric)
+        data["Input"] = vin
+        global_df = pd.concat([global_df, data], ignore_index=True)
     return global_df
 
 def metric_to_human_readable(metric):
@@ -140,12 +157,28 @@ def plot_line(df, victim_fullname, metric, outname):
     ax.figure.savefig(outname + "_lines.pdf", bbox_inches='tight')
     plt.clf()
 
+# Plots the trend of victim performance for different inputs
+# Time/iteration on the x-axis
+def plot_trend_line(df, victim_fullname, metric, outname):
+    # Setup the plot
+    ax = sns.lineplot(data=df, x="Input", y=metric, marker="o")
+
+    # Set the title and labels
+    ax.set_title(victim_fullname)
+    ax.set_xlabel("Input")
+    ax.set_ylabel(metric_to_human_readable(metric))
+
+    # Save to file
+    ax.figure.savefig(outname + "_lines.png", bbox_inches='tight')
+    ax.figure.savefig(outname + "_lines.pdf", bbox_inches='tight')
+    plt.clf()
+
 def main():
     parser=argparse.ArgumentParser(description='Plots the results for a single app mix (violins, boxes, and timeseries), with and without congestion.')
     parser.add_argument('-d', '--data_folder', help='Main data folder.', default="data")
     parser.add_argument('-s', '--system', help='System name.', required=True)
     parser.add_argument('-v', '--victim_info', help='Victim info in the format name:input_name (e.g. ardc_b:128B). The name must match the filename of the Python wrapper.', required=True)
-    parser.add_argument('-a', '--aggressors_info', help='Comma-separated list of aggressors name:input_name (e.g. a2a:128,inc:1024). Names must match the filename of the Python wrapper.', required=True)
+    parser.add_argument('-a', '--aggressors_info', help='Comma-separated list of aggressors name:input_name (e.g. a2a:128,inc:1024). Names must match the filename of the Python wrapper.', default="null_dummy")
     parser.add_argument('-n', '--num_nodes', help='The number of nodes the mix was executed on (total).', required=True)
     parser.add_argument('-am', '--allocation_mode', help='The allocation mode the mix was executed with.', required=True)
     parser.add_argument('-sp', '--allocation_split', help='The allocation split the mix was executed with.', required=True)
@@ -163,13 +196,35 @@ def main():
     if not os.path.exists(out_file_prefix): 
         os.makedirs(out_file_prefix)
     
-    # Parse the victim info
-    if ":" in args.victim_info:
-        victim_name, victim_input = args.victim_info.split(":")
+
+    plot_trend_inputs = False
+
+    # If we specify the same victim with many inputs and one aggressors, then we plot the
+    # performance of the victim for different inputs.
+    # Otherwise, we plot the combination of the victim and aggressors.
+    victim_inputs = []
+    if args.victim_info.count(",") > 0 and args.aggressors_info.count(",") == 0:
+        plot_trend_inputs = True
+        # Trend for the different inputs of the victim
+        # Check that is always the same victim
+        victims = args.victim_info.split(",")
+        victim_name = victims[0].split(":")[0]        
+        for v in victims:
+            vicname, input = v.split(":")
+            if vicname != victim_name:
+                raise Exception("Error: all the victims must be the same")
+            else:
+                victim_inputs.append(input)
     else:
-        victim_name = args.victim_info
-        victim_input = ""
-        
+        plot_trend_inputs = False
+        # Parse the victim info
+        if ":" in args.victim_info:
+            victim_name, victim_input = args.victim_info.split(":")
+        else:
+            victim_name = args.victim_info
+            victim_input = ""
+        victim_inputs.append(victim_input)
+            
     # Parse the aggressor info
     aggressors_input = {}
     for a in args.aggressors_info.split(","):
@@ -199,30 +254,48 @@ def main():
                 (victim_fn, victim_in) = get_input_and_full_name_from_args(info["victim_wrapper"], info["victim_args"])
                 (aggressor_fn, aggressor_in) = get_input_and_full_name_from_args(info["aggressor_wrapper"], info["aggressor_args"])
                 # Check if aggressor and victim match the ones in the mix
-                if victim_shortname == victim_name and victim_in == victim_input and \
+                if victim_shortname == victim_name and victim_in in victim_inputs and \
                    aggressor_shortname in aggressors_input and aggressor_in == aggressors_input[aggressor_shortname]:
-                    key = aggressor_shortname
-                    if aggressor_in != "":
-                        key += ":" + aggressor_in
-                    data_filename[key] = (row["path"] + "/data.csv", aggressor_fn)
+                    if plot_trend_inputs:
+                        key = victim_in
+                        data_filename[key] = row["path"] + "/data.csv"
+                    else:
+                        key = aggressor_shortname
+                        if aggressor_in != "":
+                            key += ":" + aggressor_in
+                        data_filename[key] = (row["path"] + "/data.csv", aggressor_fn)
                     victim_fullname = victim_fn # Store the fullname to be used later as label
                     if victim_in != "":
                         victim_fullname += " (" + victim_in + ")"
 
-    # At this point, data_filename is a dictionary where the keys are the aggressor name and input.
-    # The values are tuples with the data filename and the aggressor full name.
+    # At this point:
+    #    - If we plot trend: data_filename is a dictionary where the keys are the victim input and the values are the data filename.
+    #    - If we plot violin/box/etc data_filename is a dictionary where the keys are the aggressor name and input.
+    #      The values are tuples with the data filename and the aggressor full name.                        
+    if plot_trend_inputs:
+        if(len(data_filename) != len(victim_inputs)):
+            raise Exception("Error: could not find all the data files (or too much data has been found)")
+    else:
+        if(len(data_filename) != len(aggressors_input)):
+            raise Exception("Error: could not find all the data files (or too much data has been found)")
+    
     for metric in args.metrics.split(","):        
-        df = load_data(args.aggressors_info, data_filename, metric)
         outname = out_file_prefix + os.path.sep + metric
 
-        # Violins        
-        plot_violin(df, victim_fullname, metric, outname)
+        if plot_trend_inputs:
+            # Lines
+            df = load_data_trend(victim_inputs, data_filename, metric)
+            plot_trend_line(df, victim_fullname, metric, outname)   
+        else:
+            df = load_data_distribution(args.aggressors_info, data_filename, metric)
+            # Violins        
+            plot_violin(df, victim_fullname, metric, outname)
 
-        # Boxes        
-        plot_box(df, victim_fullname, metric, outname)
+            # Boxes        
+            plot_box(df, victim_fullname, metric, outname)
 
-        # Lines
-        plot_line(df, victim_fullname, metric, outname)
+            # Lines
+            plot_line(df, victim_fullname, metric, outname)
 
 if __name__=='__main__':
     main()
