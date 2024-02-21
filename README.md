@@ -8,6 +8,8 @@ This framework is designed to run multiple applications and/or benchmarks togeth
 - seaborn
 
 ## How to use the framework
+### Download external repositories containing microbenchmarks/applications code
+$ ./download.sh
 
 MUST BE CALLED FROM THE ROOT OF THE REPO!!! 
 

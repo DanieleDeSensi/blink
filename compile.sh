@@ -14,6 +14,23 @@ pushd src/microbench
     fi
 popd
 
+# Download GPU microbench
+if [ ! -d "src/microbench-gpu" ]; then
+    git clone git@github.com:HicrestLaboratory/interconnect-banchmark.git src/microbench-gpu
+    if [ $? -ne 0 ]; then
+        echo "${RED}[Error] GPU microbench clone failed, please check error messages above.${NC}"
+    fi
+fi
+# Compile GPU microbench
+pushd src/microbench-gpu
+    git checkout ${BLINK_GPU_MICROBENCH_COMMIT}
+    make -f Makefile.${BLINK_SYSTEM^^}
+    if [ $? -ne 0 ]; then
+        echo "${RED}[Error] GPU microbench compilation failed, please check error messages above.${NC}"
+        exit 1
+    fi
+popd
+
 # Compile netgauge
 pushd src/netgauge-2.4.6
     if [ ! -f "Makefile" ]; then
