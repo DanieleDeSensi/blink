@@ -1,6 +1,5 @@
 import sys
 import os
-sys.path.append(os.environ["BLINK_ROOT"] + "/wrappers")
 from base import base
 
 class microbench(base):

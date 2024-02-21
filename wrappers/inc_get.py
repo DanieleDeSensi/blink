@@ -1,6 +1,5 @@
 import sys
 import os
-sys.path.append(os.environ["BLINK_ROOT"] + "/wrappers/microbench/")
 from common import microbench
 
 class app(microbench):
