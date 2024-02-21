@@ -1,4 +1,6 @@
 import os
+import sys
+sys.path.append(os.environ["BLINK_ROOT"] + "/wrappers")
 from base import base,sizeof_fmt
 
 class app(base):  
