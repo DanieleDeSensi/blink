@@ -159,7 +159,6 @@ def log_meta_data(out_format, path, data_container_list, num_runs):
         dataframe.to_hdf(file_name, key='df',
                          data_columns=data_header_cols, index=False)
 
-
 def log_data(out_format, path, data_container_list):
     dataframe = pandas.DataFrame()
     columns = []
@@ -399,6 +398,10 @@ def main():
         print_runtime(str(app.id_num)+' on '+str(app.num_nodes) +
                       ' nodes:', ro_mode, ro_file)
         print_runtime(np.array(app.node_list), ro_mode, ro_file)
+        f = open(data_directory + os.path.sep + "hostnames_" + str(app.id_num), "w")
+        f.write("\n".join(map(str, app.node_list)))
+        f.close()
+        
     # sort schedule chronologically
     print_runtime('\nSchedule:', ro_mode, ro_file)
     schedule.sort(key=lambda t: t[2])
