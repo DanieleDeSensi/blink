@@ -24,10 +24,15 @@ fi
 # Compile GPU microbench
 pushd src/microbench-gpu
     git checkout ${BLINK_GPU_MICROBENCH_COMMIT}
-    make -f Makefile.${BLINK_SYSTEM^^}
-    if [ $? -ne 0 ]; then
-        echo "${RED}[Error] GPU microbench compilation failed, please check error messages above.${NC}"
-        exit 1
+    MAKEFILE_NAME="Makefile.${BLINK_SYSTEM^^}"
+    if [ -f ${MAKEFILE_NAME} ]; then
+        make -f ${MAKEFILE_NAME}
+        if [ $? -ne 0 ]; then
+            echo "${RED}[Error] GPU microbench compilation failed, please check error messages above.${NC}"
+            exit 1
+        fi
+    else
+        echo "${RED}[Warning] GPU microbench not supported on this system (${BLINK_SYSTEM}).${NC}"
     fi
 popd
 
