@@ -7,15 +7,15 @@ This framework is designed to run multiple applications and/or benchmarks togeth
 - pandas
 - seaborn (Only for the plotting part)
 
-## How to use the framework
+## Preliminary information
 All the commands described below MUST be run from the root directory of the framework.
-If the system is not already supported by the framework, you need to add the support for it. See the section "How to add the support for a new system" for more details. 
+If the system is not already supported by the framework, you need to add the support for it. See the section *"How to add the support for a new system"* for more details. 
 
-### How to compile
+## How to compile
 Before compiling, change the `BLINK_SYSTEM` variable in the `conf.sh` file to the name system you want to compile for. Then, run the following command:
 `$ ./compile.sh`
 
-### How to run benchmarks
+## How to run benchmarks
 The purpose of Blink is to run multiple benchmarks together and collect data from them. To do so, you need to create configuration files (`apps_mix`) describing which applications must be executed together (e.g. a pingpong together with an alltoall). You can find some examples under the `apps_mix` directory, and more details about the file format in `apps_mix/README.md` file.
 You can then run multiple of those configurations sequentally by creating a `test suite` (basically, a list of `apps_mix` to be executed). You can find examples of test suites in the `test_suites` directory.
 
@@ -27,7 +27,7 @@ Once you have created the test suite, you can run it by running the following co
 You can get a full list of the available options by running the following command:
 `$ ./run.sh -h`
 
-### How to integrate new applications/benchmarks
+## How to integrate new applications/benchmarks
 To integrate new applications, you need to create a new wrapper for the application. The wrapper is a Python script that launches the application and collects the data from it. You can find examples of wrappers in the `wrappers` directory, and more details on how to create a new wrapper in the `wrappers/README.md` file. After creating a new wrapper, it can be used in applications mix files and test suites.
 
 # Repository structure

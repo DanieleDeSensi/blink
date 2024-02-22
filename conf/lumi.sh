@@ -2,7 +2,8 @@
 module load cray-python
 
 # Mandatory variables to compile/run microbenchmarks
-export BLINK_CC=mpicc # MPI Compiler
+export BLINK_CC=cc # MPI C Compiler
+export BLINK_CXX=CC # MPI C++ Compiler
 export BLINK_GPU_BENCH="false" # Shall we run GPU interconnect tests?
 export BLINK_CUDA_HOME="/opt/cuda/11.8.0/targets/x86_64-linux"
 export BLINK_NCCL_HOME="/home/root/opt/nvhpc/Linux_x86_64/23.1/comm_libs/11.8/nccl"

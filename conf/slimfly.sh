@@ -2,7 +2,8 @@
 #module load openmpi
 
 # Mandatory variables to compile/run microbenchmarks
-export BLINK_CC=mpicc # MPI Compiler
+export BLINK_CC=mpicc # MPI C Compiler
+export BLINK_CXX=mpicxx # MPI C++ Compiler
 export BLINK_GPU_BENCH="false" # Shall we run GPU interconnect tests?
 export BLINK_CUDA_HOME=""
 export BLINK_NCCL_HOME=""

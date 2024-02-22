@@ -14,6 +14,26 @@ pushd src/microbench
     fi
 popd
 
+# Download dnn-proxies
+if [ ! -d "src/dnn-proxies" ]; then
+    git clone https://github.com/spcl/DNN-cpp-proxies src/dnn-proxies
+    if [ $? -ne 0 ]; then
+        echo "${RED}[Error] dnn-proxies clone failed, please check error messages above.${NC}"
+    fi
+fi
+# Compile dnn-proxies
+pushd src/dnn-proxies
+    git checkout ${BLINK_DNN_PROXIES_COMMIT}
+    mkdir -p bin
+    for bench in "cosmoflow" "dlrm" "gpt3" "gpt3_moe" "resnet152_scal"; do
+        ${BLINK_CXX} proxies/$bench.cpp -o bin/$bench
+        if [ $? -ne 0 ]; then
+            echo "${RED}[Error] dnn-proxies compilation failed, please check error messages above.${NC}"
+            exit 1
+        fi
+    done
+popd
+
 
 if [ "$BLINK_GPU_BENCH" = "true" ]; then
     # Download GPU microbench
