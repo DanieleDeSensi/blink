@@ -27,6 +27,9 @@ Once you have created the test suite, you can run it by running the following co
 You can get a full list of the available options by running the following command:
 `$ ./run.sh -h`
 
+### How to integrate new applications/benchmarks
+To integrate new applications, you need to create a new wrapper for the application. The wrapper is a Python script that launches the application and collects the data from it. You can find examples of wrappers in the `wrappers` directory, and more details on how to create a new wrapper in the `wrappers/README.md` file. After creating a new wrapper, it can be used in applications mix files and test suites.
+
 # Repository structure
 This repository contains the following files and directories:
 
