@@ -167,7 +167,7 @@ int main(int argc, char** argv){
                     if(my_rank==master_rank){
                         MPI_Send(send_buf,msg_size,MPI_BYTE,receiver_rank,my_rank,MPI_COMM_WORLD);
                         MPI_Recv(recv_buf,msg_size,MPI_BYTE, MPI_ANY_SOURCE
-                                    ,MPI_ANY_TAG, MPI_COMM_WORLD,MPI_STATUS_IGNORE); 
+                                    ,MPI_ANY_TAG, MPI_COMM_WORLD,MPI_STATUS_IGNORE); // TODO: Any tag is not good!
                     }else{
                         MPI_Recv(recv_buf,msg_size,MPI_BYTE,MPI_ANY_SOURCE,MPI_ANY_TAG,
                                 MPI_COMM_WORLD,MPI_STATUS_IGNORE);

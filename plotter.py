@@ -288,7 +288,7 @@ def main():
     # At this point:
     #    - If we plot trend: data_filename is a dictionary where the keys are the victim input and the values are the data filename.
     #    - If we plot violin/box/etc data_filename is a dictionary where the keys are the aggressor name and input.
-    #      The values are tuples with the data filename and the aggressor full name.                        
+    #      The values are tuples with the data filename and the aggressor full name.
     if plot_trend_inputs:
         if(len(data_filename) != len(victim_inputs)):
             raise Exception("Error: could not find all the data files (or too much data has been found)")
@@ -302,9 +302,16 @@ def main():
         if plot_trend_inputs:
             # Lines
             df = load_data_trend(victim_inputs, data_filename, metric)
+            # For pingpong we need to divide by 2 (the benchmark reports RTT)
+            if(victim_name == "ping-pong_b" and metric == "0_MainRank-Duration_s"):
+                df[metric] /= 2
             plot_trend_line(df, victim_name_h, metric, outname)  
         else:
             df = load_data_distribution(args.aggressors_info, data_filename, metric)
+            # For pingpong we need to divide by 2 (the benchmark reports RTT)
+            if(victim_name == "ping-pong_b" and metric == "0_MainRank-Duration_s"):
+                df[metric] /= 2
+
             # Violins        
             plot_violin(df, victim_fullname, metric, outname)
 
