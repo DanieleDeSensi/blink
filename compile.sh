@@ -7,6 +7,7 @@ NC=$(tput sgr0)
 
 # Compile microbench
 pushd src/microbench
+    mkdir -p bin
     CC=${BLINK_CC} make
     if [ $? -ne 0 ]; then
         echo "${RED}[Error] internals compilation failed, please check error messages above.${NC}"
