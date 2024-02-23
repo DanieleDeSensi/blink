@@ -168,9 +168,15 @@ def plot_line(df, title, metric, outname):
 
 # Plots the trend of victim performance for different inputs
 # Time/iteration on the x-axis
-def plot_trend_line(df, title, metric, outname):
+def plot_trend_line(df, title, metric, outname, trend_limit):
     # Setup the plot
     ax = sns.lineplot(data=df, x="Input", y=metric, marker="o")
+
+    # Plots the limit if specified
+    if trend_limit:
+        m, limit = trend_limit.split(":")
+        if metric == m:
+            ax.axhline(y=float(limit), color='black', linestyle='--')
 
     # Set the title and labels
     ax.set_title(title)
@@ -186,7 +192,7 @@ def main():
     parser=argparse.ArgumentParser(description='Plots the results for a single app mix (violins, boxes, and timeseries), with and without congestion.')
     parser.add_argument('-d', '--data_folder', help='Main data folder.', default="data")
     parser.add_argument('-s', '--system', help='System name.', required=True)
-    parser.add_argument('-v', '--victim_info', help='Victim info in the format name:input_name (e.g. ardc_b:128B). The name must match the filename of the Python wrapper.', required=True)
+    parser.add_argument('-v', '--victim_info', help='Victim info in the format name:input_name_0:input_name_1:... (e.g. ardc_b:128B:256B). The name must match the filename of the Python wrapper.', required=True)
     parser.add_argument('-a', '--aggressors_info', help='Comma-separated list of aggressors name:input_name (e.g. a2a:128,inc:1024). Names must match the filename of the Python wrapper.')
     parser.add_argument('-n', '--num_nodes', help='The number of nodes the mix was executed on (total).', required=True)
     parser.add_argument('-am', '--allocation_mode', help='The allocation mode the mix was executed with.', required=True)
@@ -194,6 +200,7 @@ def main():
     parser.add_argument('-e', '--extra', help='Any extra info about the execution (comma-separated list).')
     parser.add_argument('-m', '--metrics', help='Comma-separated string of metrics to plot.', default="0_Avg-Duration_s")
     parser.add_argument('-p', '--ppn', help='Processes per node.', default=1)
+    parser.add_argument('-tl', '--trend_limit', help='For trends plots, it plots the upper limit. (format metric:limit)')
     parser.add_argument('-o', '--outfile', help='Path of output files.')
 
     args = parser.parse_args()
@@ -215,25 +222,19 @@ def main():
 
     if not os.path.exists(out_file_prefix): 
         os.makedirs(out_file_prefix)
-        
+
     plot_trend_inputs = False
 
     # If we specify the same victim with many inputs and one aggressors, then we plot the
     # performance of the victim for different inputs.
     # Otherwise, we plot the combination of the victim and aggressors.
     victim_inputs = []
-    if args.victim_info.count(",") > 0 and (not args.aggressors_info or args.aggressors_info.count(",") == 0):
+    if args.victim_info.count(":") > 1 and (not args.aggressors_info or args.aggressors_info.count(",") == 0):
         plot_trend_inputs = True
         # Trend for the different inputs of the victim
         # Check that is always the same victim
-        victims = args.victim_info.split(",")
-        victim_name = victims[0].split(":")[0]        
-        for v in victims:
-            vicname, input = v.split(":")
-            if vicname != victim_name:
-                raise Exception("Error: all the victims must be the same")
-            else:
-                victim_inputs.append(input)
+        victim_name = args.victim_info.split(":")[0]        
+        victim_inputs = args.victim_info.split(":")[1:]
     else:
         plot_trend_inputs = False
         # Parse the victim info
@@ -315,7 +316,7 @@ def main():
             # For pingpong we need to divide by 2 (the benchmark reports RTT)
             if(victim_name == "ping-pong_b" and metric == "0_MainRank-Duration_s"):
                 df[metric] /= 2
-            plot_trend_line(df, victim_name_h, metric, outname)  
+            plot_trend_line(df, victim_name_h, metric, outname, args.trend_limit)  
         else:
             df = load_data_distribution(args.aggressors_info, data_filename, metric)
             # For pingpong we need to divide by 2 (the benchmark reports RTT)
