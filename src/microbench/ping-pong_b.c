@@ -211,7 +211,7 @@ int main(int argc, char** argv){
         printf("Time,Bandwidth\n");
         for(i = 0; i < num_samples; i++){
             float time = durations[(start_index + i) % max_samples]/2;
-            float bandwidth = ((msg_size * 8) / 1000000000) / time;
+            float bandwidth = ((msg_size * 8.0) / 1000000000.0) / time;
             printf("%.9f,%.9f\n", time, bandwidth);
         }
         printf("Ran %d iterations. Measured %d iterations.\n", curr_iters, num_samples);

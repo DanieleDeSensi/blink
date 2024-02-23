@@ -103,6 +103,7 @@ def metric_to_human_readable(metric):
     metric_expanded = {}
     metric_expanded["Avg-Duration"] = "Runtime"
     metric_expanded["MainRank-Duration"] = "Runtime"
+    metric_expanded["MainRank-Bandwidth"] = "Bandwidth"
     metric_expanded["busbw-ip"] = "Bus Bandwidth (In-Place)"
     metric_expanded["algbw-ip"] = "Algo Bandwidth (In-Place)"
     metric_expanded["time-ip"] = "Runtime (In-Place)"

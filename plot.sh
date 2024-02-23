@@ -1,6 +1,6 @@
 #!/bin/bash
 # Point-to-point - Same switch
-./plotter.py -s leonardo -v ping-pong_b:1B:8B:64B:512B:4KiB:32KiB:256KiB:2MiB:16MiB:128MiB -n 2 -am l -sp 100 --metrics 0_MainRank-Duration_s,bw -o plots/leonardo/pingpong -e same_switch
+./plotter.py -s leonardo -v ping-pong_b:1B:8B:64B:512B:4KiB:32KiB:256KiB:2MiB:16MiB:128MiB -n 2 -am l -sp 100 --metrics 0_MainRank-Duration_s,0_MainRank-Bandwidth_Gb/s -o plots/leonardo/pingpong -e same_switch
 
 
 # NCCL - Point-to-point 
