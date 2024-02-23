@@ -245,7 +245,7 @@ def main():
     if node_file == "auto":
         if not "BLINK_WL_MANAGER" in os.environ or os.environ["BLINK_WL_MANAGER"] != "slurm":
             raise Exception("auto node file can only be used if slurm is used as workload manager.")
-        node_file = "node_files/auto_node_file.txt"
+        node_file = "conf/auto_node_file.txt"
         subprocess.call(["scontrol", "show", "hostnames"], stdout=open(node_file, "w"))
 
     
