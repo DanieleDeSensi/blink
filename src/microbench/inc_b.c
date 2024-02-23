@@ -1,4 +1,3 @@
-#define _GNU_SOURCE
 #include <mpi.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -108,8 +107,8 @@ int main(int argc, char** argv){
     send_buf_size=msg_size;
     recv_buf_size=(w_size-1)*msg_size;
     
-    send_buf=malloc(send_buf_size);
-    recv_buf=malloc(recv_buf_size);
+    send_buf=(unsigned char*)malloc(send_buf_size);
+    recv_buf=(unsigned char*)malloc(recv_buf_size);
     durations=(double *)malloc(sizeof(double)*max_samples);
     
     if(send_buf==NULL || recv_buf==NULL || durations==NULL){

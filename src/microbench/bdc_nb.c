@@ -1,4 +1,3 @@
-#define _GNU_SOURCE
 #include <mpi.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -107,7 +106,7 @@ int main(int argc, char** argv){
     
     buf_size=msg_size*measure_granularity;;
     
-    buf=malloc(buf_size);
+    buf=(unsigned char*)malloc(buf_size);
     requests=(MPI_Request*)malloc(sizeof(MPI_Request)*(measure_granularity));
     durations=(double *)malloc(sizeof(double)*max_samples);
     

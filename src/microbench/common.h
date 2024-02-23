@@ -51,7 +51,7 @@ static void write_results()
     double duration_sum;
     double duration_median;
     int num_samples;
-    int i, j;
+    int i;
     int start_index;    
     double *tmp_buf = NULL;
 

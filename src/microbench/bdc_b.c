@@ -1,4 +1,3 @@
-#define _GNU_SOURCE
 #include <mpi.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -106,7 +105,7 @@ int main(int argc, char** argv){
     
     buf_size=msg_size*measure_granularity;;
     
-    buf=malloc(buf_size);
+    buf=(unsigned char*)malloc(buf_size);
     durations=(double *)malloc(sizeof(double)*max_samples);
     
     if(buf==NULL || durations==NULL){
