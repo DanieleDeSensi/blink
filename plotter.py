@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+
+# - If one victim and multiple aggressors are specified, it plots the performance of the victim for different aggressors.
+# - If one victim and multiple extras are specified, it plots the performance of the victim for the different extras (e.g., same switch, different groups, etc...).
+# - If one victim with multiple inputs is specified (and no aggressors are specified) it plots the performance of the victim for different inputs.
+
 import seaborn as sns
 import pandas as pd
 import numpy as np
@@ -87,7 +92,7 @@ def load_data_trend(victim_inputs, data_filename, metric):
     for vin in victim_inputs:
         data_path = data_filename[vin]
         data = pd.DataFrame()
-        data[metric] = pd.read_csv(data_path)[metric]        
+        data[metric] = pd.read_csv(data_path)[metric]
         if data.empty:
             raise Exception("Error: data file " + data_path + " does not contain data for metric " + metric)
         data["Input"] = vin
@@ -98,6 +103,9 @@ def metric_to_human_readable(metric):
     metric_expanded = {}
     metric_expanded["Avg-Duration"] = "Runtime"
     metric_expanded["MainRank-Duration"] = "Runtime"
+    metric_expanded["busbw-ip"] = "Bus Bandwidth (In-Place)"
+    metric_expanded["algbw-ip"] = "Algo Bandwidth (In-Place)"
+    metric_expanded["time-ip"] = "Runtime (In-Place)"
     # See get_title in data_container in runner.py to check how the header of the data.csv files is created
     # It is composed of appid_metric_unit
     # The appid is the id of the application in the mix, starting from 0
@@ -183,8 +191,9 @@ def main():
     parser.add_argument('-n', '--num_nodes', help='The number of nodes the mix was executed on (total).', required=True)
     parser.add_argument('-am', '--allocation_mode', help='The allocation mode the mix was executed with.', required=True)
     parser.add_argument('-sp', '--allocation_split', help='The allocation split the mix was executed with.', required=True)
-    parser.add_argument('-e', '--extra', help='Any extra info about the execution.', default="")
+    parser.add_argument('-e', '--extra', help='Any extra info about the execution (comma-separated list).')
     parser.add_argument('-m', '--metrics', help='Comma-separated string of metrics to plot.', default="0_Avg-Duration_s")
+    parser.add_argument('-p', '--ppn', help='Processes per node.', default=1)
     parser.add_argument('-o', '--outfile', help='Path of output files.')
 
     args = parser.parse_args()
@@ -202,11 +211,11 @@ def main():
             agg_str = ""
         out_file_prefix = "./plots" + os.path.sep + args.system + os.path.sep + args.victim_info + agg_str + "_" + args.num_nodes + "_" + args.allocation_mode + "_" + args.allocation_split
         if args.extra:
-            out_file_prefix += "_" + args.extra    
+            out_file_prefix += "_" + args.extra        
+
     if not os.path.exists(out_file_prefix): 
         os.makedirs(out_file_prefix)
-    
-
+        
     plot_trend_inputs = False
 
     # If we specify the same victim with many inputs and one aggressors, then we plot the
@@ -255,7 +264,8 @@ def main():
             # Check if the fields in the description match the ones in the arguments
             if row["system"] == args.system and row["numnodes"] == args.num_nodes and \
                row["allocation_mode"] == args.allocation_mode and row["allocation_split"] == args.allocation_split and \
-               row["extra"] == args.extra:                               
+               int(row["ppn"]) == int(args.ppn) and \
+               ((args.extra and row["extra"] == args.extra) or (not args.extra and row["extra"] == "")):                               
                 # Check if the mix matches the victim and aggressor
                 info = extract_info(row["app_mix"])                
                 # Get the bench name from the Python wrapper filename and load the python wrapper to get the full name and the input name
@@ -297,7 +307,7 @@ def main():
             raise Exception("Error: could not find all the data files (or too much data has been found)")
     
     for metric in args.metrics.split(","):        
-        outname = out_file_prefix + os.path.sep + metric
+        outname = out_file_prefix + os.path.sep + metric.replace("/", "_")
 
         if plot_trend_inputs:
             # Lines
