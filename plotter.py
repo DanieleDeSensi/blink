@@ -313,15 +313,9 @@ def main():
         if plot_trend_inputs:
             # Lines
             df = load_data_trend(victim_inputs, data_filename, metric)
-            # For pingpong we need to divide by 2 (the benchmark reports RTT)
-            if(victim_name == "ping-pong_b" and metric == "0_MainRank-Duration_s"):
-                df[metric] /= 2
             plot_trend_line(df, victim_name_h, metric, outname, args.trend_limit)  
         else:
             df = load_data_distribution(args.aggressors_info, data_filename, metric)
-            # For pingpong we need to divide by 2 (the benchmark reports RTT)
-            if(victim_name == "ping-pong_b" and metric == "0_MainRank-Duration_s"):
-                df[metric] /= 2
 
             # Violins        
             plot_violin(df, victim_fullname, metric, outname)

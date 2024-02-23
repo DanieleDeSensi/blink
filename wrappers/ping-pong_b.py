@@ -5,7 +5,8 @@ from microbench_common import microbench
 
 class app(microbench):
     metadata = [
-        {'name': 'MainRank-Duration', 'unit': 's', 'conv': True}
+        {'name': 'MainRank-Duration', 'unit': 's', 'conv': True},
+        {'name': 'MainRank-Bandwidth', 'unit': 'Gb/s', 'conv': False}
     ]
 
     def get_binary_path(self):

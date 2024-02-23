@@ -208,9 +208,11 @@ int main(int argc, char** argv){
             num_samples = curr_iters - warm_up_iters;
             start_index = warm_up_iters;
         }
-        printf("MainRank\n");
+        printf("Time,Bandwidth\n");
         for(i = 0; i < num_samples; i++){
-            printf("%.9f\n", durations[(start_index + i) % max_samples]);
+            float time = durations[(start_index + i) % max_samples]/2;
+            float bandwidth = ((msg_size * 8) / 1000000000) / time;
+            printf("%.9f,%.9f\n", time, bandwidth);
         }
         printf("Ran %d iterations. Measured %d iterations.\n", curr_iters, num_samples);
         fflush(stdout);
