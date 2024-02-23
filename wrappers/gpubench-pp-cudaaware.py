@@ -9,4 +9,4 @@ class app(gpubench):
         return os.environ["BLINK_ROOT"] + "src/microbench-gpu/bin/pp_CudaAware"
 
     def get_bench_name(self):
-        return "gpubench p2p CudaAware"
+        return "gpubench pp CudaAware"
