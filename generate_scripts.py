@@ -52,7 +52,7 @@ def main():
     ppn = args.ppn
 
     if node_file == "auto":
-        node_file = "node_files/auto_node_file.txt"
+        node_file = "conf/auto_node_file.txt"
         subprocess.call(["scontrol", "show", "hostnames"],
                         stdout=open(node_file, "w"))
 
