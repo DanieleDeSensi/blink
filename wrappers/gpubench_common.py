@@ -18,4 +18,6 @@ class gpubench(base):
         return data
 
     def get_bench_input(self):
-        return ""
+        args_fields = self.args.split(" ")
+        pos = args_fields.index("-x") + 1
+        return sizeof_fmt(2**int(args_fields[pos]))
