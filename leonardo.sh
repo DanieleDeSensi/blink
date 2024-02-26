@@ -22,4 +22,5 @@ done
 
 # TODO: 
 # 1. modify gpubench (pp) to support more ppn
-# 2. 
+# 2. run everything at max ppn
+# 3. run aggressor on NCCL as well (so that routing affects both)
