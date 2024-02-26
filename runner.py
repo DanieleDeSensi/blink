@@ -131,9 +131,17 @@ def get_abs_split(allocation_split, num_apps, num_nodes):
 
     if sum(split_list) > 100:
         raise Exception("Splits percentages mustn't add up to more than 100.")
+    '''
     if len(split_list) != num_apps:
         raise Exception('Number of applications ('+str(num_apps)+') is not equal to number of splits ('
                         + str(len(split_list))+')')
+    '''
+    if len(split_list) < num_apps:
+        raise Exception('Number of applications ('+str(num_apps)+') is larger than number of splits ('
+                    + str(len(split_list))+')')
+    
+    split_list = split_list[:num_apps]
+
     split_absolute = []
     for split in split_list[:-1]:
         split_absolute += [int(num_nodes*split/100)]
@@ -273,7 +281,7 @@ def main():
            
 
     # prepare runtime feedback output
-    ro_file_path = data_directory+'/runtime'
+    ro_file_path = data_directory+'/run_log'
     if ro_mode == 'file' or ro_mode == '+file':
         ro_file = open(ro_file_path, 'w')
     else:

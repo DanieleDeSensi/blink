@@ -13,10 +13,10 @@ for am in "l" "r+" "i"
 do
     for sp in "50:50" "90:10" "10:90"
     do
-        NCCL_IB_ADAPTIVE_ROUTING=0 ./run.sh test_suites/leonardo_big   auto -n ${NUM_NODES} -sp ${sp} -am ${am} --ppn 1 -e AR0 -mn ${MIN_RUNS_BIG}   --timeout ${TIMEOUT_BIG}
-        NCCL_IB_ADAPTIVE_ROUTING=1 ./run.sh test_suites/leonardo_big   auto -n ${NUM_NODES} -sp ${sp} -am ${am} --ppn 1 -e AR1 -mn ${MIN_RUNS_BIG}   --timeout ${TIMEOUT_BIG}
-        NCCL_IB_ADAPTIVE_ROUTING=0 ./run.sh test_suites/leonardo_small auto -n ${NUM_NODES} -sp ${sp} -am ${am} --ppn 1 -e AR0 -mn ${MIN_RUNS_SMALL} --timeout ${TIMEOUT_SMALL}
-        NCCL_IB_ADAPTIVE_ROUTING=1 ./run.sh test_suites/leonardo_small auto -n ${NUM_NODES} -sp ${sp} -am ${am} --ppn 1 -e AR1 -mn ${MIN_RUNS_SMALL} --timeout ${TIMEOUT_SMALL}
+        NCCL_IB_ADAPTIVE_ROUTING=0 ./run.sh test_suites/leonardo_big   auto -n ${NUM_NODES} -sp ${sp} -am ${am} --ppn 1 -e AR0 -mn ${MIN_RUNS_BIG}   -ro file --timeout ${TIMEOUT_BIG}
+        NCCL_IB_ADAPTIVE_ROUTING=1 ./run.sh test_suites/leonardo_big   auto -n ${NUM_NODES} -sp ${sp} -am ${am} --ppn 1 -e AR1 -mn ${MIN_RUNS_BIG}   -ro file --timeout ${TIMEOUT_BIG}
+        NCCL_IB_ADAPTIVE_ROUTING=0 ./run.sh test_suites/leonardo_small auto -n ${NUM_NODES} -sp ${sp} -am ${am} --ppn 1 -e AR0 -mn ${MIN_RUNS_SMALL} -ro file --timeout ${TIMEOUT_SMALL}
+        NCCL_IB_ADAPTIVE_ROUTING=1 ./run.sh test_suites/leonardo_small auto -n ${NUM_NODES} -sp ${sp} -am ${am} --ppn 1 -e AR1 -mn ${MIN_RUNS_SMALL} -ro file --timeout ${TIMEOUT_SMALL}
     done
 done
 
