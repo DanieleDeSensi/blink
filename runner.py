@@ -536,6 +536,7 @@ def main():
                 print_runtime('  '+str(round(time.time()-run_start_time, 5))+'s: encountered an exception in '
                               + str(app.id_num), ro_mode, ro_file)
                 print_runtime(app.stderr, ro_mode, ro_file)
+                raise Exception("Application " + str(app.id_num) + " threw an exception.")
 
         # get data
         data_collection_start_time = time.time()
