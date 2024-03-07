@@ -9,6 +9,6 @@
 
 ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l --ppn 4 -ro +file"
 
-./run.sh test_suites/gpubench ${ARGS}
+./run.sh test_suites/gpubench-pp-nccl-cudaaware ${ARGS}
 ./run.sh test_suites/nccl_sendrecv ${ARGS}
 ./run.sh test_suites/nccl_coll ${ARGS}
