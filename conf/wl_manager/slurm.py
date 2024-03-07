@@ -1,3 +1,4 @@
+import os
 class wl_manager:
     # Generates a script that can be used to run all the benchmarks specified in the schedule.
     def write_script(self, runner_args, schedules, nams, name, splits, node_file, ppn):
@@ -15,6 +16,7 @@ class wl_manager:
         num_nodes=len(node_list)
         node_list_string=','.join(node_list)
         slurm_string=('srun --nodelist ' + node_list_string + \
+                      ' ' + os.environ["BLINK_PINNING_FLAGS"] + \
                       ' -n ' + str(ppn*num_nodes) + \
                       ' -N ' + str(num_nodes) + ' ' + cmd)
         return slurm_string

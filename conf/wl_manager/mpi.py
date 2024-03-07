@@ -19,7 +19,7 @@ class wl_manager:
         job_cmd = os.environ["BLINK_MPIRUN"] + " " + \
                   os.environ["BLINK_MPIRUN_MAP_BY_NODE_FLAG"] + " " + \
                   os.environ["BLINK_MPIRUN_ADDITIONAL_FLAGS"] + " " + \
-                  os.environ["BLINK_MPIRUN_PINNING_FLAGS"] + " " + \
+                  os.environ["BLINK_PINNING_FLAGS"] + " " + \
                   os.environ["BLINK_MPIRUN_HOSTNAMES_FLAG"] + " " + node_list_string + " " + \
                   "-np " + str(ppn*num_nodes) + " " + cmd
         return job_cmd
