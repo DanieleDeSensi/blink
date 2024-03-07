@@ -9,4 +9,4 @@ class app(gpubench):
         return os.environ["BLINK_ROOT"] + "/src/microbench-gpu/bin/hlo_Baseline"
 
     def get_bench_name(self):
-        return "gpubench p2p Baseline"
+        return "gpubench hlo Baseline"

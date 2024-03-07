@@ -9,4 +9,4 @@ class app(gpubench):
         return os.environ["BLINK_ROOT"] + "/src/microbench-gpu/bin/pp_Nvlink"
 
     def get_bench_name(self):
-        return "gpubench p2p Baseline"
+        return "gpubench pp Nvlink"
