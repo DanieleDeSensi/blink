@@ -1,6 +1,6 @@
 base_file="gpubench-pp-baseline.py"
 
-exps=("pp" "a2a" "ar" "hlo")
+exps=("pp" "a2a" "ar" "hlo" "mpp")
 Strs=("Baseline" "CudaAware" "Nccl" "Nvlink")
 strs=("baseline" "cudaaware" "nccl" "nvlink")
 

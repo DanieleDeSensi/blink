@@ -1,4 +1,4 @@
-exps=("pp" "a2a" "ar" "hlo")
+exps=("pp" "a2a" "ar" "hlo" "mpp")
 strs=("baseline" "cudaaware" "nccl" "nvlink")
 dim=("B" "KiB" "MiB" "GiB")
 
