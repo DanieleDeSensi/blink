@@ -112,7 +112,7 @@ def plot_violin(df, title, metric, outname, max_y):
     plt.scatter(x = range(len(q99s)), y = q99s, c = 'black', marker = 'x', s = 50)
 
     # Save to file
-    ax.figure.savefig(outname + "_violins.png", bbox_inches='tight')
+    #ax.figure.savefig(outname + "_violins.png", bbox_inches='tight')
     ax.figure.savefig(outname + "_violins.pdf", bbox_inches='tight')
     plt.clf()      
 
@@ -132,7 +132,7 @@ def plot_box(df, title, metric, outname, max_y):
     plt.scatter(x = range(len(q99s)), y = q99s, c = 'black', marker = 'x', s = 50)
 
     # Save to file
-    ax.figure.savefig(outname + "_boxes.png", bbox_inches='tight')
+    #ax.figure.savefig(outname + "_boxes.png", bbox_inches='tight')
     ax.figure.savefig(outname + "_boxes.pdf", bbox_inches='tight')
     plt.clf()
 
@@ -150,7 +150,7 @@ def plot_line(df, title, metric, outname, max_y):
         ax.set_ylim(0, float(max_y))
 
     # Save to file
-    ax.figure.savefig(outname + "_lines.png", bbox_inches='tight')
+    #ax.figure.savefig(outname + "_lines.png", bbox_inches='tight')
     ax.figure.savefig(outname + "_lines.pdf", bbox_inches='tight')
     plt.clf()
 

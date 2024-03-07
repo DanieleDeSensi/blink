@@ -75,7 +75,7 @@ def main():
             ax.set_ylim(0, float(args.max_y))
 
         # Save to file
-        ax.figure.savefig(outname + "_lines.png", bbox_inches='tight')
+        #ax.figure.savefig(outname + "_lines.png", bbox_inches='tight')
         ax.figure.savefig(outname + "_lines.pdf", bbox_inches='tight')
         plt.clf()
 
