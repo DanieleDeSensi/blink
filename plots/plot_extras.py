@@ -38,19 +38,23 @@ def main():
     if not os.path.exists(args.outfile): 
         os.makedirs(args.outfile)
 
-    for metric in args.metrics.split(","):        
-        outname = args.outfile + os.path.sep + metric.replace("/", "_")
+    for metric in args.metrics.split(","):                
         global_df = pd.DataFrame()
         for e in args.extras.split(","):            
             filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, args.allocation_split, args.ppn, e, args.victim_name, args.victim_input, args.aggressor_name, args.aggressor_input)
             if not filename:
-                raise Exception("Data not found for metric " + metric + " extra " + e)
+                raise Exception("Data not found for extra " + e)
             data = pd.DataFrame()
             data[e] = pd.read_csv(filename)[metric]
             if data.empty:
                 raise Exception("Error: data file " + filename + " does not contain data for metric " + metric)
             global_df = pd.concat([global_df, data], axis=1)
+            print(filename)
+
         
+        outname = args.outfile + os.path.sep + metric.replace("/", "_")
+
+        print(global_df)
         # Violins        
         plot_violin(global_df, victim_fn, metric, outname, args.max_y)
 

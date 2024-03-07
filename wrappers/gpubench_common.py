@@ -5,8 +5,8 @@ from base import base,sizeof_fmt
 
 class gpubench(base):
     metadata = [
-        {'name': 'Transfer Time (s)'     , 'unit': 's'   , 'conv': False},
-        {'name': 'Bandwidth (GB/s)'      , 'unit': 'GB/s', 'conv': False}
+        {'name': 'Transfer Time', 'unit': 's'   , 'conv': True},
+        {'name': 'Bandwidth'    , 'unit': 'GB/s', 'conv': False}
     ]
 
     def read_data(self):
