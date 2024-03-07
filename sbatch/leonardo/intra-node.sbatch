@@ -5,7 +5,6 @@
 #SBATCH --partition=boost_usr_prod 
 #SBATCH --exclusive
 #SBATCH --job-name=blink-intra-node
-#SBATCH --cpu-bind=map_cpu:1,2,17,18
 
 ARGS="auto -n 1 -sp 100 -am l --ppn 4 -ro +file"
 
