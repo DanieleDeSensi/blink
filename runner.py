@@ -441,6 +441,7 @@ def main():
     runs = 0
     converged = False
     start_time = time.time()
+    timeout_occured = False
     while True:
         exec_time = time.time()-start_time
         # termination conditions
@@ -564,7 +565,7 @@ def main():
     log_data(out_format, data_directory+'/data', data_container_list)
     log_meta_data(out_format, data_directory+'/metadata', data_container_list, runs)
     print_runtime('Writing data & meta-data took ' +
-                  str(round(time.time()-log_start_time, 5))+'s.', ro_mode, ro_file)
+                      str(round(time.time()-log_start_time, 5))+'s.', ro_mode, ro_file)
 
     print_runtime('Overall took '+str(round(time.time() -
                   pre_start_time, 5))+'s.', ro_mode, ro_file)

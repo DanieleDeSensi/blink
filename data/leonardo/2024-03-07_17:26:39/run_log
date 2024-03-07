@@ -1,0 +1,46 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/nccl-tests/allreduce/2MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo=None, maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=1, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-b 2097152 -e 2097152 -n 100 -w 10 -a 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 1 nodes:
+['lrdn0308']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.04584s.
+
+Running...
+ Run 1:
+  0.0037s: started 0
+  2.52978s: awaited 0
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.00337s: started 0
+  2.51758s: awaited 0
+  Data collection took 3e-05s.
+  Convergence check took 0.00108s.
+ Run 3:
+  0.00343s: started 0
+  2.51256s: awaited 0
+  Data collection took 3e-05s.
+  Convergence check took 0.00067s.
+ Run 4:
+  0.00348s: started 0
+  2.50241s: awaited 0
+  Data collection took 3e-05s.
+  Convergence check took 0.00068s.
+ Run 5:
+  0.00339s: started 0
+  2.51722s: awaited 0
+  Data collection took 3e-05s.
+  Convergence check took 0.00068s.
+Completed after reaching confidence interval, terminated after 5 runs taking 12.58 seconds.
+Writing data & meta-data took 0.01127s.
+Overall took 12.64025s.

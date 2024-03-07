@@ -1,0 +1,130 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/a2a-baseline/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo=None, maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=1, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 1 nodes:
+['lrdn0012']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.0336s.
+
+Running...
+ Run 1:
+  0.00372s: started 0
+  172.20334s: awaited 0
+  172.20336s: encountered an exception in 0
+[lrdn0012:374446:0:374446] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x7ffd80000000)
+[lrdn0012:374449:0:374449] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x7ffc80000000)
+[lrdn0012:374447:0:374447] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x7fff80000000)
+==== backtrace (tid: 374447) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x151e94c30edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x151e94c310bc]
+==== backtrace (tid: 374449) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14bf0164eedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14bf0164f0bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14bf0164f28a]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x151e94c3128a]
+ 3  /lib64/libc.so.6(+0xd0023) [0x151ea88a0023]
+ 4  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(+0x61ca5) [0x151ea8282ca5]
+ 5  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(opal_datatype_copy_content_same_ddt+0x94) [0x151ea8284554]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_allreduce_intra_redscat_allgather+0x1b1) [0x151eabb38771]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_do_this+0x9b) [0x151e8a3c199b]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_dec_fixed+0x1a9) [0x151e8a3bbfe9]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_cuda.so(mca_coll_cuda_allreduce+0x12a) [0x151e8a5cbf2a]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213) [0x151eabaef0d3]
+11  /leonardo_scratch/large/userexternal/ddesensi/blink//src/microbench-gpu/bin/a2a_Baseline() [0x403411]
+12  /lib64/libc.so.6(__libc_start_main+0xe5) [0x151ea880ad85]
+13  /leonardo_scratch/large/userexternal/ddesensi/blink//src/microbench-gpu/bin/a2a_Baseline() [0x40390e]
+=================================
+ 3  /lib64/libc.so.6(+0xd0023) [0x14bf15332023]
+ 4  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(+0x61ca5) [0x14bf14d14ca5]
+ 5  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(opal_datatype_copy_content_same_ddt+0x94) [0x14bf14d16554]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_allreduce_intra_redscat_allgather+0x1b1) [0x14bf185ca771]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_do_this+0x9b) [0x14bef6e2199b]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_dec_fixed+0x1a9) [0x14bef6e1bfe9]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_cuda.so(mca_coll_cuda_allreduce+0x12a) [0x14bef702bf2a]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213) [0x14bf185810d3]
+11  /leonardo_scratch/large/userexternal/ddesensi/blink//src/microbench-gpu/bin/a2a_Baseline() [0x403411]
+12  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14bf1529cd85]
+13  /leonardo_scratch/large/userexternal/ddesensi/blink//src/microbench-gpu/bin/a2a_Baseline() [0x40390e]
+=================================
+[lrdn0012:374447] *** Process received signal ***
+[lrdn0012:374447] Signal: Segmentation fault (11)
+[lrdn0012:374447] Signal code:  (-6)
+[lrdn0012:374447] Failing at address: 0x1ec080005b6af
+[lrdn0012:374449] *** Process received signal ***
+[lrdn0012:374449] Signal: Segmentation fault (11)
+[lrdn0012:374449] Signal code:  (-6)
+[lrdn0012:374449] Failing at address: 0x1ec080005b6b1
+[lrdn0012:374447] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x151ea9346cf0]
+[lrdn0012:374449] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14bf15dd8cf0]
+[lrdn0012:374447] [ 1] /lib64/libc.so.6(+0xd0023)[0x151ea88a0023]
+[lrdn0012:374449] [ 1] /lib64/libc.so.6(+0xd0023)[0x14bf15332023]
+[lrdn0012:374449] [ 2] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(+0x61ca5)[0x14bf14d14ca5]
+[lrdn0012:374447] [ 2] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(+0x61ca5)[0x151ea8282ca5]
+[lrdn0012:374449] [ 3] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(opal_datatype_copy_content_same_ddt+0x94)[0x14bf14d16554]
+[lrdn0012:374447] [ 3] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(opal_datatype_copy_content_same_ddt+0x94)[0x151ea8284554]
+[lrdn0012:374449] [ 4] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_allreduce_intra_redscat_allgather+0x1b1)[0x14bf185ca771]
+[lrdn0012:374449] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_do_this+0x9b)[0x14bef6e2199b]
+[lrdn0012:374447] [ 4] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_allreduce_intra_redscat_allgather+0x1b1)[0x151eabb38771]
+[lrdn0012:374447] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_do_this+0x9b)[0x151e8a3c199b]
+[lrdn0012:374447] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_dec_fixed+0x1a9)[0x151e8a3bbfe9]
+[lrdn0012:374447] [ 7] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_cuda.so(mca_coll_cuda_allreduce+0x12a)[0x151e8a5cbf2a]
+[lrdn0012:374449] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_dec_fixed+0x1a9)[0x14bef6e1bfe9]
+[lrdn0012:374449] [ 7] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_cuda.so(mca_coll_cuda_allreduce+0x12a)[0x14bef702bf2a]
+[lrdn0012:374447] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213)[0x151eabaef0d3]
+[lrdn0012:374447] [ 9] /leonardo_scratch/large/userexternal/ddesensi/blink//src/microbench-gpu/bin/a2a_Baseline[0x403411]
+[lrdn0012:374449] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213)[0x14bf185810d3]
+[lrdn0012:374449] [ 9] /leonardo_scratch/large/userexternal/ddesensi/blink//src/microbench-gpu/bin/a2a_Baseline[0x403411]
+[lrdn0012:374449] [10] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14bf1529cd85]
+[lrdn0012:374449] [11] /leonardo_scratch/large/userexternal/ddesensi/blink//src/microbench-gpu/bin/a2a_Baseline[0x40390e]
+[lrdn0012:374449] *** End of error message ***
+[lrdn0012:374447] [10] /lib64/libc.so.6(__libc_start_main+0xe5)[0x151ea880ad85]
+[lrdn0012:374447] [11] /leonardo_scratch/large/userexternal/ddesensi/blink//src/microbench-gpu/bin/a2a_Baseline[0x40390e]
+[lrdn0012:374447] *** End of error message ***
+==== backtrace (tid: 374446) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x149909e98edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x149909e990bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x149909e9928a]
+ 3  /lib64/libc.so.6(+0xd0023) [0x149925aaf023]
+ 4  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(+0x61ca5) [0x149925491ca5]
+ 5  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(opal_datatype_copy_content_same_ddt+0x94) [0x149925493554]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_allreduce_intra_redscat_allgather+0x1b1) [0x149928d47771]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_do_this+0x9b) [0x1498e75ac99b]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_dec_fixed+0x1a9) [0x1498e75a6fe9]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_cuda.so(mca_coll_cuda_allreduce+0x12a) [0x1498e77b6f2a]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213) [0x149928cfe0d3]
+11  /leonardo_scratch/large/userexternal/ddesensi/blink//src/microbench-gpu/bin/a2a_Baseline() [0x403411]
+12  /lib64/libc.so.6(__libc_start_main+0xe5) [0x149925a19d85]
+13  /leonardo_scratch/large/userexternal/ddesensi/blink//src/microbench-gpu/bin/a2a_Baseline() [0x40390e]
+=================================
+[lrdn0012:374446] *** Process received signal ***
+[lrdn0012:374446] Signal: Segmentation fault (11)
+[lrdn0012:374446] Signal code:  (-6)
+[lrdn0012:374446] Failing at address: 0x1ec080005b6ae
+[lrdn0012:374446] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x149926555cf0]
+[lrdn0012:374446] [ 1] /lib64/libc.so.6(+0xd0023)[0x149925aaf023]
+[lrdn0012:374446] [ 2] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(+0x61ca5)[0x149925491ca5]
+[lrdn0012:374446] [ 3] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(opal_datatype_copy_content_same_ddt+0x94)[0x149925493554]
+[lrdn0012:374446] [ 4] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_allreduce_intra_redscat_allgather+0x1b1)[0x149928d47771]
+[lrdn0012:374446] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_do_this+0x9b)[0x1498e75ac99b]
+[lrdn0012:374446] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_dec_fixed+0x1a9)[0x1498e75a6fe9]
+[lrdn0012:374446] [ 7] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_cuda.so(mca_coll_cuda_allreduce+0x12a)[0x1498e77b6f2a]
+[lrdn0012:374446] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213)[0x149928cfe0d3]
+[lrdn0012:374446] [ 9] /leonardo_scratch/large/userexternal/ddesensi/blink//src/microbench-gpu/bin/a2a_Baseline[0x403411]
+[lrdn0012:374446] [10] /lib64/libc.so.6(__libc_start_main+0xe5)[0x149925a19d85]
+[lrdn0012:374446] [11] /leonardo_scratch/large/userexternal/ddesensi/blink//src/microbench-gpu/bin/a2a_Baseline[0x40390e]
+[lrdn0012:374446] *** End of error message ***
+srun: error: lrdn0012: tasks 0-1,3: Segmentation fault (core dumped)
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0012 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3555374.12:1]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3555374.12 ON lrdn0012 CANCELLED AT 2024-03-07T16:30:43 ***
+srun: error: lrdn0012: task 2: Killed
+

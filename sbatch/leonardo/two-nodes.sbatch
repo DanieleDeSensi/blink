@@ -1,4 +1,5 @@
 #!/bin/bash
+#SBATCH --nodes=2
 #SBATCH --time=01:00:00
 #SBATCH --ntasks-per-node=4
 #SBATCH --gres=gpu:4

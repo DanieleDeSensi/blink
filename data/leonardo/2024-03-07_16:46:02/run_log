@@ -1,0 +1,31 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/ar-baseline/1B', beta=0.05, convergeall=False, datapath='./data', extrainfo=None, maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=1, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 1 nodes:
+['lrdn0012']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.06783s.
+
+Running...
+ Run 1:
+  0.00369s: started 0
+  1.63324s: awaited 0
+  Data collection took 0.00026s.
+  Convergence check took 0.00076s.
+ Run 2:
+  0.00332s: started 0
+  1.55772s: awaited 0
+  Data collection took 0.00019s.
+  Convergence check took 0.00068s.
+Completed after reaching confidence interval, terminated after 2 runs taking 3.19 seconds.
+Writing data & meta-data took 0.0083s.
+Overall took 3.2691s.

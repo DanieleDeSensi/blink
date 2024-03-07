@@ -1,0 +1,36 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/nccl-tests/sendrecv/64B', beta=0.05, convergeall=False, datapath='./data', extrainfo=None, maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=1, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-b 64 -e 64 -n 100 -w 10 -a 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 1 nodes:
+['lrdn0308']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.05267s.
+
+Running...
+ Run 1:
+  0.00361s: started 0
+  2.51368s: awaited 0
+  Data collection took 3e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.00335s: started 0
+  2.46108s: awaited 0
+  Data collection took 3e-05s.
+  Convergence check took 0.00107s.
+ Run 3:
+  0.00347s: started 0
+  2.48799s: awaited 0
+  Data collection took 3e-05s.
+  Convergence check took 0.00095s.
+Completed after reaching confidence interval, terminated after 3 runs taking 7.47 seconds.
+Writing data & meta-data took 0.01143s.
+Overall took 7.52915s.
