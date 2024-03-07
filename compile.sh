@@ -24,6 +24,7 @@ if [ ! -d "src/dnn-proxies" ]; then
 fi
 # Compile dnn-proxies
 pushd src/dnn-proxies
+    git fetch
     git checkout ${BLINK_DNN_PROXIES_COMMIT}
     mkdir -p bin
     for bench in "cosmoflow" "dlrm" "gpt3" "gpt3_moe" "resnet152_scal"; do
@@ -46,6 +47,7 @@ if [ "$BLINK_GPU_BENCH" = "true" ]; then
     fi
     # Compile GPU microbench
     pushd src/microbench-gpu
+        git fetch
         git checkout ${BLINK_GPU_MICROBENCH_COMMIT}
         MAKEFILE_NAME="Makefile.${BLINK_SYSTEM^^}"
         if [ -f ${MAKEFILE_NAME} ]; then
@@ -69,6 +71,7 @@ if [ "$BLINK_GPU_BENCH" = "true" ]; then
     fi
     # Compile nccl-tests
     pushd src/nccl-tests
+        git fetch
         git checkout ${BLINK_NCCL_TESTS_COMMIT}
         make MPI=1 NVCC=nvcc
         if [ $? -ne 0 ]; then
