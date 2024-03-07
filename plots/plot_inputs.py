@@ -48,10 +48,13 @@ def main():
         for vn in victim_names:
             for vi in victim_inputs:
                 filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, args.allocation_split, args.ppn, args.extra, vn, vi, args.aggressor_name, args.aggressor_input)
-                if not filename:
-                    raise Exception("Data not found for metric " + metric + " victim " + vn + " with input " + vi)
                 data = pd.DataFrame()
-                data[metric] = pd.read_csv(filename)[metric]
+                if filename and os.path.exists(filename):                    
+                    data[metric] = pd.read_csv(filename)[metric]
+                else:
+                    print("Data not found for metric " + metric + " victim " + vn + " with input " + vi)
+                    data[metric] = [np.nan]
+
                 if data.empty:
                     raise Exception("Error: data file " + filename + " does not contain data for metric " + metric)
                 data["Input"] = vi

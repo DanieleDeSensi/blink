@@ -86,8 +86,8 @@ def metric_to_human_readable(metric):
     metric_expanded["busbw-ip"] = "Bus Bandwidth (In-Place)"
     metric_expanded["algbw-ip"] = "Algo Bandwidth (In-Place)"
     metric_expanded["time-ip"] = "Runtime (In-Place)"
-    metric_expanded["Transfer Time (s)"] = "Runtime"
-    metric_expanded["Bandwidth (GB/s)"] = "Bandwidth"
+    metric_expanded["Transfer Time"] = "Runtime"
+    metric_expanded["Bandwidth"] = "Bandwidth"
     # See get_title in data_container in runner.py to check how the header of the data.csv files is created
     # It is composed of appid_metric_unit
     # The appid is the id of the application in the mix, starting from 0

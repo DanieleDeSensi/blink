@@ -8,8 +8,9 @@
 #SBATCH --job-name=blink-intra-node
 #SBATCH --account=iscrc_sharp_0
 
-ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l --ppn 4 -ro +file"
+ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file"
 
-#./run.sh test_suites/gpubench ${ARGS}
-./run.sh test_suites/nccl_sendrecv ${ARGS}
-./run.sh test_suites/nccl_coll ${ARGS}
+./run.sh test_suites/gpubench_pp ${ARGS} --ppn 2
+./run.sh test_suites/gpubench_coll ${ARGS} --ppn 4
+./run.sh test_suites/nccl_sendrecv ${ARGS} --ppn 2 # Just to test bandwidth between a pair of GPUs
+./run.sh test_suites/nccl_coll ${ARGS} --ppn 4
