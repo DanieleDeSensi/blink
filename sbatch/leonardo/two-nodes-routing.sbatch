@@ -8,13 +8,16 @@
 #SBATCH --job-name=blink-two-nodes
 #SBATCH --account=iscrc_sharp_0
 
-ALLOC=""
+ALLOC="same_switch"
 
 for AR in 0 1
 do
-    for SL in 0 1 
-    do
-        ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l --ppn 4 -ro +file -e ${ALLOC}_AR${AR}_SL${SL}"
-        NCCL_IB_ADAPTIVE_ROUTING=${AR} NCCL_IB_SL=${SL} ./run.sh test_suites/gpubench-pp-nccl-cudaaware ${ARGS}
-    done
+    ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l --ppn 4 -ro +file -e ${ALLOC}_AR${AR} --minruns 10"
+    NCCL_IB_ADAPTIVE_ROUTING=${AR} ./run.sh test_suites/gpubench-pp-nccl-routing ${ARGS}
+done
+
+for SL in 0 1
+do
+    ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l --ppn 4 -ro +file -e ${ALLOC}_SL${SL} --minruns 10"
+    NCCL_IB_SL=${SL} ./run.sh test_suites/gpubench-pp-nccl-routing ${ARGS}
 done
