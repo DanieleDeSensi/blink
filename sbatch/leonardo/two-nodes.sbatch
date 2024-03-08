@@ -5,7 +5,7 @@
 #SBATCH --gres=gpu:4
 #SBATCH --partition=boost_usr_prod 
 #SBATCH --exclusive
-#SBATCH --job-name=blink-intra-node
+#SBATCH --job-name=blink-two-nodes
 #SBATCH --account=iscrc_sharp_0
 
 ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l --ppn 4 -ro +file"
