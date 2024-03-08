@@ -1,0 +1,75 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/mpp-nccl/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_switch_AR1', maxruns=100, minruns=10, node_file='conf/auto_node_file.txt', numnodes=2, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn2695' 'lrdn2701']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.01687s.
+
+Running...
+ Run 1:
+  0.00506s: started 0
+  53.10066s: awaited 0
+  Data collection took 0.00025s.
+ Run 2:
+  0.0036s: started 0
+  36.13989s: awaited 0
+  Data collection took 0.0002s.
+ Run 3:
+  0.00358s: started 0
+  36.27222s: awaited 0
+  Data collection took 0.00021s.
+ Run 4:
+  0.00361s: started 0
+  29.10557s: awaited 0
+  Data collection took 0.00022s.
+ Run 5:
+  0.00362s: started 0
+  39.24364s: awaited 0
+  Data collection took 0.00021s.
+ Run 6:
+  0.00372s: started 0
+  38.54732s: awaited 0
+  Data collection took 0.00021s.
+ Run 7:
+  0.00382s: started 0
+  37.46648s: awaited 0
+  Data collection took 0.00021s.
+ Run 8:
+  0.0036s: started 0
+  49.71442s: awaited 0
+  49.71445s: encountered an exception in 0
+srun: Job 3568732 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3568732
+
+  Data collection took 0.00022s.
+ Run 9:
+  0.00367s: started 0
+  91.45813s: awaited 0
+  91.45816s: encountered an exception in 0
+srun: Job 3568732 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3568732
+
+  Data collection took 0.00021s.
+ Run 10:
+  0.00358s: started 0
+  37.80314s: awaited 0
+  Data collection took 0.00021s.
+  Convergence check took 0.00082s.
+ Run 11:
+  0.00384s: started 0
+  39.83122s: awaited 0
+  Data collection took 0.00021s.
+  Convergence check took 0.00072s.
+Completed after reaching confidence interval, terminated after 11 runs taking 488.69 seconds.
+Writing data & meta-data took 0.01023s.
+Overall took 488.71454s.
