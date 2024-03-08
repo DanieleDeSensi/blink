@@ -1,0 +1,74 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/mpp-nccl/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_switch_AR0', maxruns=100, minruns=10, node_file='conf/auto_node_file.txt', numnodes=2, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn1988' 'lrdn2032']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.06805s.
+
+Running...
+ Run 1:
+  0.00501s: started 0
+  24.7657s: awaited 0
+  Data collection took 0.00025s.
+ Run 2:
+  0.00378s: started 0
+  25.50736s: awaited 0
+  Data collection took 0.0002s.
+ Run 3:
+  0.00409s: started 0
+  24.23606s: awaited 0
+  Data collection took 0.00021s.
+ Run 4:
+  0.00393s: started 0
+  27.76614s: awaited 0
+  27.76617s: encountered an exception in 0
+srun: Job 3570086 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3570086
+
+  Data collection took 0.00021s.
+ Run 5:
+  0.00377s: started 0
+  64.66149s: awaited 0
+  Data collection took 0.00036s.
+ Run 6:
+  0.00474s: started 0
+  27.02647s: awaited 0
+  Data collection took 0.00031s.
+ Run 7:
+  0.00468s: started 0
+  27.86853s: awaited 0
+  Data collection took 0.00024s.
+ Run 8:
+  0.00483s: started 0
+  28.44245s: awaited 0
+  28.44249s: encountered an exception in 0
+srun: Job 3570086 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3570086
+
+  Data collection took 0.00023s.
+ Run 9:
+  0.00394s: started 0
+  26.74191s: awaited 0
+  Data collection took 0.00021s.
+ Run 10:
+  0.00371s: started 0
+  27.69898s: awaited 0
+  27.69901s: encountered an exception in 0
+srun: Job 3570086 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3570086
+
+  Data collection took 0.00021s.
+  Convergence check took 0.00082s.
+Completed after reaching confidence interval, terminated after 10 runs taking 304.72 seconds.
+Writing data & meta-data took 0.01011s.
+Overall took 304.79741s.
