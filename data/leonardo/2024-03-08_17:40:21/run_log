@@ -1,0 +1,78 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/mpp-nccl/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_SL0', maxruns=100, minruns=10, node_file='conf/auto_node_file.txt', numnodes=2, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn3309' 'lrdn3317']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.01444s.
+
+Running...
+ Run 1:
+  0.00487s: started 0
+  23.28394s: awaited 0
+  23.28397s: encountered an exception in 0
+srun: Job 3569889 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3569889
+
+  Data collection took 0.00025s.
+ Run 2:
+  0.00397s: started 0
+  23.14991s: awaited 0
+  23.14994s: encountered an exception in 0
+srun: Job 3569889 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3569889
+
+  Data collection took 0.0002s.
+ Run 3:
+  0.00391s: started 0
+  23.09798s: awaited 0
+  Data collection took 0.00021s.
+ Run 4:
+  0.00389s: started 0
+  23.10955s: awaited 0
+  Data collection took 0.00036s.
+ Run 5:
+  0.00458s: started 0
+  23.06802s: awaited 0
+  Data collection took 0.00022s.
+ Run 6:
+  0.00469s: started 0
+  22.96965s: awaited 0
+  Data collection took 0.00034s.
+ Run 7:
+  0.0048s: started 0
+  23.54135s: awaited 0
+  23.54138s: encountered an exception in 0
+srun: Job 3569889 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3569889
+
+  Data collection took 0.0002s.
+ Run 8:
+  0.00501s: started 0
+  23.44776s: awaited 0
+  23.44781s: encountered an exception in 0
+srun: Job 3569889 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3569889
+
+  Data collection took 0.0003s.
+ Run 9:
+  0.07303s: started 0
+  23.87674s: awaited 0
+  Data collection took 0.00024s.
+ Run 10:
+  0.00639s: started 0
+  23.80112s: awaited 0
+  Data collection took 0.0004s.
+  Convergence check took 0.00137s.
+Completed after reaching confidence interval, terminated after 10 runs taking 233.35 seconds.
+Writing data & meta-data took 0.01981s.
+Overall took 233.38533s.

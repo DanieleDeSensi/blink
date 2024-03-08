@@ -1,0 +1,66 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/mpp-nccl/1B', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_AR0', maxruns=100, minruns=10, node_file='conf/auto_node_file.txt', numnodes=2, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn3309' 'lrdn3317']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.01263s.
+
+Running...
+ Run 1:
+  0.00463s: started 0
+  11.57154s: awaited 0
+  Data collection took 0.00024s.
+ Run 2:
+  0.00376s: started 0
+  3.22046s: awaited 0
+  Data collection took 0.0002s.
+ Run 3:
+  0.00385s: started 0
+  3.6229s: awaited 0
+  3.62293s: encountered an exception in 0
+srun: Job 3569889 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3569889
+
+  Data collection took 0.0002s.
+ Run 4:
+  0.00384s: started 0
+  3.22227s: awaited 0
+  Data collection took 0.0002s.
+ Run 5:
+  0.00373s: started 0
+  3.21614s: awaited 0
+  Data collection took 0.00021s.
+ Run 6:
+  0.00377s: started 0
+  3.2254s: awaited 0
+  Data collection took 0.0002s.
+ Run 7:
+  0.00391s: started 0
+  3.22253s: awaited 0
+  Data collection took 0.0002s.
+ Run 8:
+  0.00376s: started 0
+  3.22062s: awaited 0
+  Data collection took 0.00021s.
+ Run 9:
+  0.00383s: started 0
+  3.23931s: awaited 0
+  Data collection took 0.0002s.
+ Run 10:
+  0.00393s: started 0
+  3.23458s: awaited 0
+  Data collection took 0.0002s.
+  Convergence check took 0.00083s.
+Completed after reaching confidence interval, terminated after 10 runs taking 41.0 seconds.
+Writing data & meta-data took 0.01063s.
+Overall took 41.02278s.
