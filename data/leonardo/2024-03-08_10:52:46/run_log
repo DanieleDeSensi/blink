@@ -1,0 +1,54 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/nccl-tests/alltoall/2MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo=None, maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=1, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-b 2097152 -e 2097152 -n 100 -w 10 -a 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 1 nodes:
+['lrdn0954']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02293s.
+
+Running...
+ Run 1:
+  0.00351s: started 0
+  2.60127s: awaited 0
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.00339s: started 0
+  3.06418s: awaited 0
+  3.0642s: encountered an exception in 0
+srun: Job 3562225 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3562225
+
+  Data collection took 3e-05s.
+  Convergence check took 0.00106s.
+ Run 3:
+  0.0033s: started 0
+  3.1818s: awaited 0
+  Data collection took 2e-05s.
+  Convergence check took 0.00097s.
+ Run 4:
+  0.00333s: started 0
+  3.04542s: awaited 0
+  3.04544s: encountered an exception in 0
+srun: Job 3562225 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3562225
+
+  Data collection took 3e-05s.
+  Convergence check took 0.00097s.
+ Run 5:
+  0.00339s: started 0
+  2.57798s: awaited 0
+  Data collection took 3e-05s.
+  Convergence check took 0.00065s.
+Completed after reaching confidence interval, terminated after 5 runs taking 14.47 seconds.
+Writing data & meta-data took 0.01285s.
+Overall took 14.51056s.

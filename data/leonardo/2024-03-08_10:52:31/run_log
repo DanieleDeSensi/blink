@@ -1,0 +1,36 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/nccl-tests/alltoall/32KiB', beta=0.05, convergeall=False, datapath='./data', extrainfo=None, maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=1, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-b 32768 -e 32768 -n 100 -w 10 -a 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 1 nodes:
+['lrdn0954']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02583s.
+
+Running...
+ Run 1:
+  0.00348s: started 0
+  2.53532s: awaited 0
+  Data collection took 3e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.00315s: started 0
+  2.50478s: awaited 0
+  Data collection took 3e-05s.
+  Convergence check took 0.00105s.
+ Run 3:
+  0.00334s: started 0
+  3.24092s: awaited 0
+  Data collection took 3e-05s.
+  Convergence check took 0.00095s.
+Completed after reaching confidence interval, terminated after 3 runs taking 8.28 seconds.
+Writing data & meta-data took 0.01116s.
+Overall took 8.3203s.
