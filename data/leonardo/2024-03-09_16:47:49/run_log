@@ -1,0 +1,21 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/ar-nccl/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0VAR0', maxruns=2, minruns=2, node_file='conf/auto_node_file.txt', numnodes=8, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 8 nodes:
+['lrdn0484' 'lrdn0849' 'lrdn0874' 'lrdn2150' 'lrdn2777' 'lrdn2779'
+ 'lrdn3400' 'lrdn3405']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02325s.
+
+Running...
+ Run 1:
+  0.00444s: started 0

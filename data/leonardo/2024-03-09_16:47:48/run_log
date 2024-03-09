@@ -1,0 +1,7 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/ar-nccl/1B_plus_incast', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0VAR0', maxruns=2, minruns=2, node_file='conf/auto_node_file.txt', numnodes=8, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+1: with arguments:"-msgsize 131072 -endl -iter 1 -grty 1", collection flag: False, ending condition: wait until others finished.
