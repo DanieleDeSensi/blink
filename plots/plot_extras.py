@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.colors import LogNorm
+from matplotlib import rcParams
 import matplotlib.ticker as ticker
 import os
 import argparse
@@ -13,7 +14,24 @@ import importlib.util
 from common import *
 
 matplotlib.rc('pdf', fonttype=42) # To avoid issues with camera-ready submission
+sns.set_style("whitegrid")
+#sns.set_context("paper")
+rcParams['figure.figsize'] = 8,4.5
 
+extra_fullname = {}
+extra_fullname["same_switch_AR0"] = "Same switch\nStat. Rout."
+extra_fullname["same_switch_AR1"] = "Same switch\nAdp. Rout."
+extra_fullname["diff_switch_AR0"] = "Diff. switch\nStat. Rout."
+extra_fullname["diff_switch_AR1"] = "Diff. switch\nAdp. Rout."
+extra_fullname["diff_groups_AR0"] = "Diff. group\nStat. Rout."
+extra_fullname["diff_groups_AR1"] = "Diff. group\nAdp. Rout."
+
+extra_fullname["same_switch_SL0"] = "Same switch\nSL0"
+extra_fullname["same_switch_SL1"] = "Same switch\nSL1"
+extra_fullname["diff_switch_SL0"] = "Diff. switch\nSL0"
+extra_fullname["diff_switch_SL1"] = "Diff. switch\nSL1"
+extra_fullname["diff_groups_SL0"] = "Diff. group\nSL0"
+extra_fullname["diff_groups_SL1"] = "Diff. group\nSL1"
 
 def main():
     parser=argparse.ArgumentParser(description='Plots the performance distribution for a specific victim/aggressor combination, for different extras.')
@@ -45,16 +63,14 @@ def main():
             if not filename:
                 raise Exception("Data not found for extra " + e)
             data = pd.DataFrame()
-            data[e] = pd.read_csv(filename)[metric]
+            data[extra_fullname[e]] = pd.read_csv(filename)[metric]
             if data.empty:
                 raise Exception("Error: data file " + filename + " does not contain data for metric " + metric)
             global_df = pd.concat([global_df, data], axis=1)
-            print(filename)
 
         
         outname = args.outfile + os.path.sep + metric.replace("/", "_")
 
-        print(global_df)
         # Violins        
         plot_violin(global_df, victim_fn, metric, outname, args.max_y)
 

@@ -4,40 +4,56 @@
 #### Leonardo ####
 ##################
 SYSTEM="leonardo"
-# Compare nccl-allreduce and gpubench-ar-nccl
-NCCL_INPUTS="8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
-#for TESTNAME in nccl-allreduce nccl-alltoall nccl-sendrecv
-#do
-#    ./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME} -vi ${NCCL_INPUTS} -n 1 -am l -sp 100 --metrics 0_busbw-ip_GB/s,0_algbw-ip_GB/s,0_time-ip_us -o plots/out/${SYSTEM}/${TESTNAME} --ppn 4 --trend_limit 0_busbw-ip_GB/s:230
-#done
 
+##########################
+# Adaptive routing tests #
+##########################
+OUT_PATH="plots/out/${SYSTEM}/routing"
+
+# Two nodes, different switches
+for BENCH in gpubench-mpp-nccl
+do
+    for INPUT in 1B 1GiB
+    do
+        TESTNAME=${BENCH}_${INPUT}
+        EXTRAS=diff_groups_AR0,diff_groups_AR1,diff_groups_SL0,diff_groups_SL1
+        #EXTRAS=same_switch_AR0,same_switch_AR1,diff_switch_AR0,diff_switch_AR1,diff_groups_AR0,diff_groups_AR1
+        ./plots/plot_extras.py -s ${SYSTEM} -vn ${BENCH} -vi ${INPUT} -n 2 -am l -sp 100 --metrics "0_Transfer Time_s,0_Bandwidth_GB/s" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS}
+    done
+done
+
+
+
+#####################
+# Single-node tests #
+#####################
+INPUTS="8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+OUT_PATH="plots/out/${SYSTEM}/single_node"
+
+#NCCL Tests - Point-to-Point
+for TESTNAME in nccl-sendrecv
+do
+    TREND_LIMIT=0_busbw-ip_GB/s:80
+    ./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME} -vi ${INPUTS} -n 1 -am l -sp 100 --metrics 0_busbw-ip_GB/s,0_busbw-oop_GB/s -o ${OUT_PATH}/${TESTNAME} --ppn 2 --trend_limit ${TREND_LIMIT}
+done
+
+#NCCL Tests - Collectives
+for TESTNAME in nccl-allreduce nccl-alltoall
+do
+    TREND_LIMIT=0_busbw-ip_GB/s:230
+    ./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME} -vi ${INPUTS} -n 1 -am l -sp 100 --metrics 0_busbw-ip_GB/s,0_busbw-oop_GB/s -o ${OUT_PATH}/${TESTNAME} --ppn 4 --trend_limit ${TREND_LIMIT}
+done
+
+#GPUBench - Point-to-Point
 for TESTNAME in gpubench-pp
 do
-    ./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink -vi ${NCCL_INPUTS} -n 1 -am l -sp 100 --metrics "0_Transfer Time_s,0_Bandwidth_GB/s" -o plots/out/${SYSTEM}/${TESTNAME} --ppn 2 --trend_limit 0_busbw-ip_GB/s:230
+    TREND_LIMIT=0_Bandwidth_GB/s:80
+    ./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "0_Transfer Time_s,0_Bandwidth_GB/s" -o ${OUT_PATH}/${TESTNAME} --ppn 2 --trend_limit ${TREND_LIMIT}
 done
 
-for TESTNAME in gpubench-ar gpubench-a2a gpubench-hlo
+# GPUBench - Collectives
+for TESTNAME in gpubench-a2a gpubench-ar
 do
-    ./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink -vi ${NCCL_INPUTS} -n 1 -am l -sp 100 --metrics "0_Transfer Time_s,0_Bandwidth_GB/s" -o plots/out/${SYSTEM}/${TESTNAME} --ppn 4 --trend_limit 0_busbw-ip_GB/s:230
+    TREND_LIMIT=0_Bandwidth_GB/s:230
+    ./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "0_Transfer Time_s,0_Bandwidth_GB/s" -o ${OUT_PATH}/${TESTNAME} --ppn 4 --trend_limit ${TREND_LIMIT}
 done
-
-'''
-# Routing tests
-for COLL in nccl-allreduce nccl-alltoall
-do
-    for SIZE in 8B 1GiB
-    do
-        TESTNAME=${COLL}-routing-${SIZE}
-        ./plots/plot_extras.py -s ${SYSTEM} -e diff_groups_AR1,diff_groups_AR0 -vn ${COLL} -vi ${SIZE} -n 2 -am l -sp 100 --metrics 0_busbw-ip_GB/s,0_time-ip_us -o plots/out/${SYSTEM}/${TESTNAME} --ppn 4
-    done
-done
-
-for COLL in gpubench-ar-nccl
-do
-    for SIZE in 1GiB
-    do
-        TESTNAME=${COLL}-routing-${SIZE}
-        ./plots/plot_extras.py -s ${SYSTEM} -e diff_groups_AR1,diff_groups_AR0 -vn ${COLL} -vi ${SIZE} -n 2 -am l -sp 100 --metrics "0_Bandwidth (GB/s)_GB/s" -o plots/out/${SYSTEM}/${TESTNAME} --ppn 1
-    done
-done
-'''

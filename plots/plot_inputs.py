@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.colors import LogNorm
+from matplotlib import rcParams
 import matplotlib.ticker as ticker
 import os
 import argparse
@@ -13,7 +14,9 @@ import importlib.util
 from common import *
 
 matplotlib.rc('pdf', fonttype=42) # To avoid issues with camera-ready submission
-
+sns.set_style("whitegrid")
+#sns.set_context("paper")
+rcParams['figure.figsize'] = 8,4.5
 
 def main():
     parser=argparse.ArgumentParser(description='Plots the performance of benchmarks/applications for different inputs.')
@@ -42,6 +45,8 @@ def main():
     victim_names = args.victim_names.split(",")
     victim_inputs = args.victim_inputs.split(",")
 
+    global_df_time = pd.DataFrame()
+
     for metric in args.metrics.split(","):        
         outname = args.outfile + os.path.sep + metric.replace("/", "_")
         global_df = pd.DataFrame()
@@ -61,6 +66,9 @@ def main():
                 data["Application"] = victim_fn
                 global_df = pd.concat([global_df, data], ignore_index=True)
 
+        if metric == "0_Transfer Time_s" and "gpubench" in args.victim_names:
+            global_df_time = global_df
+
         # Setup the plot
         ax = sns.lineplot(data=global_df, x="Input", y=metric, hue="Application", style="Application", marker="o")
 
@@ -76,6 +84,24 @@ def main():
         ax.set_ylabel(metric_to_human_readable(metric))
         if args.max_y:
             ax.set_ylim(0, float(args.max_y))
+        else:
+            ax.set_ylim(0, None)
+        # Remove legend title
+        ax.legend_.set_title(None)
+        # Move legend outside
+        sns.move_legend(ax, "lower center",
+                        bbox_to_anchor=(.5, 1), ncol=2, title=None, frameon=False)
+
+        # Inner latency plot
+        if metric == "0_Bandwidth_GB/s" and "gpubench" in args.victim_names:
+            ax2 = plt.axes([0.23, 0.6, .4, .2], facecolor='w')
+            global_df_time["0_Transfer Time_us"] = global_df_time["0_Transfer Time_s"]*1000000.0
+            sns.lineplot(data=global_df_time, x="Input", y="0_Transfer Time_us", hue="Application", style="Application", marker="o", ax=ax2)
+            ax2.set_xlim([0, 5])
+            ax2.set_ylim([0, 100])
+            ax2.set_xlabel("")
+            ax2.set_ylabel(metric_to_human_readable("0_Transfer Time_us"))
+            ax2.get_legend().remove()
 
         # Save to file
         #ax.figure.savefig(outname + "_lines.png", bbox_inches='tight')

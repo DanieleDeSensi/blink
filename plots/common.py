@@ -84,6 +84,7 @@ def metric_to_human_readable(metric):
     metric_expanded["MainRank-Duration"] = "Runtime"
     metric_expanded["MainRank-Bandwidth"] = "Bandwidth"
     metric_expanded["busbw-ip"] = "Bus Bandwidth (In-Place)"
+    metric_expanded["busbw-oop"] = "Bus Bandwidth (Out-of-Place)"
     metric_expanded["algbw-ip"] = "Algo Bandwidth (In-Place)"
     metric_expanded["time-ip"] = "Runtime (In-Place)"
     metric_expanded["Transfer Time"] = "Runtime"
@@ -157,6 +158,7 @@ def plot_line(df, title, metric, outname, max_y):
 # Returns a tuple (filename, victim_fullname, aggressor_fullname)
 def get_data_filename(data_folder, system, numnodes, allocation_mode, allocation_split, ppn, extra, victim_name, victim_input, aggressor_name, aggressor_input):
     # Read the description file to find the data files
+    to_return = (None, None, None)
     with open(data_folder + "/description.csv", mode='r') as infile:
         reader = csv.DictReader(infile)    
         for line in reader:
@@ -182,8 +184,10 @@ def get_data_filename(data_folder, system, numnodes, allocation_mode, allocation
 
                 if victim_name == victim_shortname and victim_input == victim_in and \
                    aggressor_name == aggressor_shortname and aggressor_input == aggressor_in:
-                    return (row["path"] + "/data.csv", victim_fn, aggressor_fn)
-    return (None, None, None)
+                    to_return = (row["path"] + "/data.csv", victim_fn, aggressor_fn)
+                    # We do not return immediately because we might have multiple entries for the same test,
+                    # and we want to consider the most recent one among those
+    return to_return
 
 '''
 def main():
