@@ -8,10 +8,12 @@
 #SBATCH --job-name=blink-two-nodes
 #SBATCH --account=iscrc_sharp_0
 
+ALLOCATION="same_switch"
+
 for SL in 0 1; do
     export UCX_IB_SL=${SL}
     export NCCL_IB_SL=${SL}
-    EXTRA="same_switch_SL${SL}"
+    EXTRA="${ALLOCATION}_SL${SL}"
     ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file -e ${EXTRA}"
     # We run latency test with 1 PPN
     ./run.sh test_suites/latency ${ARGS} --ppn 1
