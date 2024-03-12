@@ -33,6 +33,14 @@ extra_fullname["diff_switch_SL1"] = "Diff. switch\nSL1"
 extra_fullname["diff_groups_SL0"] = "Diff. group\nSL0"
 extra_fullname["diff_groups_SL1"] = "Diff. group\nSL1"
 
+extra_fullname["SL0VAR0"] = "SL0VAR0"
+extra_fullname["SL0VAR1"] = "SL0VAR1"
+extra_fullname["SL1VAR0"] = "SL1VAR0"
+extra_fullname["SL1VAR1"] = "SL1VAR1"
+
+extra_fullname["SL0"] = "SL0"
+extra_fullname["SL1"] = "SL1"
+
 def main():
     parser=argparse.ArgumentParser(description='Plots the performance distribution for a specific victim/aggressor combination, for different extras.')
     parser.add_argument('-d', '--data_folder', help='Main data folder.', default="data")
@@ -61,8 +69,12 @@ def main():
         for e in args.extras.split(","):            
             filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, args.allocation_split, args.ppn, e, args.victim_name, args.victim_input, args.aggressor_name, args.aggressor_input)
             if not filename:
-                raise Exception("Data not found for extra " + e)
+                print("Data not found for extra " + e)
+                continue
             data = pd.DataFrame()
+            if not os.path.exists(filename):
+                print("Error: data file " + filename + " does not exist")
+                continue
             data[extra_fullname[e]] = pd.read_csv(filename)[metric]
             if data.empty:
                 raise Exception("Error: data file " + filename + " does not contain data for metric " + metric)
