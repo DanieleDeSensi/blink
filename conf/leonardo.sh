@@ -30,12 +30,12 @@ export BLINK_AMG_PATH=""
 export BLINK_G500_PATH=""
 export BLINK_MINIFE_PATH=""
 if [ -n "${NCCL_IB_SL}" ]; then
-    echo "" > /dev/null
+    export NCCL_IB_SL=${NCCL_IB_SL}
 else
     export NCCL_IB_SL=1
 fi
 if [ -n "${UCX_IB_SL}" ]; then 
-    echo "" > /dev/null
+    export UCX_IB_SL=${UCX_IB_SL}
 else
     export UCX_IB_SL=1
 fi
