@@ -29,3 +29,14 @@ export BLINK_NG_CONFIGURE_FLAGS="HRT_ARCH=6 --with-mpi=/leonardo/prod/spack/03/i
 export BLINK_AMG_PATH=""
 export BLINK_G500_PATH=""
 export BLINK_MINIFE_PATH=""
+if [ -n "${NCCL_IB_SL}" ]; then
+    echo "" > /dev/null
+else
+    export NCCL_IB_SL=1
+fi
+if [ -n "${UCX_IB_SL}" ]; then 
+    echo "" > /dev/null
+else
+    export UCX_IB_SL=1
+fi
+
