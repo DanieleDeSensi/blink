@@ -1,0 +1,239 @@
+
+Passed arguments:
+Namespace(allocationmode='i', allocationsplit='10:90', alpha=0.05, app_mix='./apps_mix/gpubench/mpp-nccl/1B', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0VAR0', maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=16, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 1000 -x 0", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 16 nodes:
+['lrdn0020' 'lrdn0193' 'lrdn0208' 'lrdn0423' 'lrdn0484' 'lrdn0614'
+ 'lrdn1063' 'lrdn1069' 'lrdn1071' 'lrdn1085' 'lrdn1102' 'lrdn1110'
+ 'lrdn1123' 'lrdn1138' 'lrdn1139' 'lrdn1142']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02931s.
+
+Running...
+ Run 1:
+  0.00529s: started 0
+  18.55024s: awaited 0
+  18.55027s: encountered an exception in 0
+[lrdn0020:612220:0:612220] ib_mlx5_log.c:177  Transport retry count exceeded on mlx5_0:1/IB (synd 0x15 vend 0x81 hw_synd 0/0)
+[lrdn0020:612220:0:612220] ib_mlx5_log.c:177  DCI QP 0x31c0 wqe[417]: SEND s-e [rqpn 0x1fb83 rlid 5754] [va 0x14b906bc3e00 len 8256 lkey 0x141ada] 
+[lrdn0020:612221:0:612221] ib_mlx5_log.c:177  Transport retry count exceeded on mlx5_0:1/IB (synd 0x15 vend 0x81 hw_synd 0/0)
+[lrdn0020:612221:0:612221] ib_mlx5_log.c:177  DCI QP 0x31b7 wqe[45]: SEND s-e [rqpn 0x1fb85 rlid 5754] [va 0x15396d12ad80 len 8256 lkey 0x54a08] 
+[lrdn0020:612222:0:612222] ib_mlx5_log.c:177  Transport retry count exceeded on mlx5_0:1/IB (synd 0x15 vend 0x81 hw_synd 0/0)
+[lrdn0020:612222:0:612222] ib_mlx5_log.c:177  DCI QP 0x31cf wqe[43]: SEND s-e [rqpn 0x1fb7c rlid 5754] [va 0x14a8ec36ed80 len 8256 lkey 0x21f1d6] 
+[lrdn0020:612223:0:612223] ib_mlx5_log.c:177  Transport retry count exceeded on mlx5_0:1/IB (synd 0x15 vend 0x81 hw_synd 0/0)
+[lrdn0020:612223:0:612223] ib_mlx5_log.c:177  DCI QP 0x31db wqe[45]: SEND s-e [rqpn 0x1fb7b rlid 5754] [va 0x14e06a1d7f80 len 8256 lkey 0xb2fef] 
+==== backtrace (tid: 612222) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14a91bdcfedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x14a91bdccd41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_log_default_handler+0xde4) [0x14a91bdd16a4]
+==== backtrace (tid: 612220) ====
+==== backtrace (tid: 612221) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x153994620edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x15399461dd41]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_log_dispatch+0xe4) [0x14a91bdd19c4]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_ib_mlx5_completion_with_err+0x27a) [0x14a91a2cf4fa]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_dc_mlx5_ep_handle_failure+0xcb) [0x14a91a2f868b]
+ 6  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_ib_mlx5_check_completion+0x4d) [0x14a91a2d0f9d]
+ 7  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x50c32) [0x14a91a2fac32]
+ 8  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x14a9206d781a]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_progress+0x14) [0x14a920b61d14]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(opal_progress+0x2d) [0x14a92f693ead]
+11  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_request_default_wait+0xc5) [0x14a943640f05]
+12  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_sendrecv_actual+0xa1) [0x14a94369d6a1]
+13  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_allreduce_intra_redscat_allgather+0x606) [0x14a9436a0bc6]
+14  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_do_this+0x9b) [0x14a9117f099b]
+15  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_dec_fixed+0x1a9) [0x14a9117eafe9]
+16  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_cuda.so(mca_coll_cuda_allreduce+0x12a) [0x14a9119faf2a]
+17  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213) [0x14a9436570d3]
+18  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/mpp_Nccl() [0x4041e2]
+19  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14a92fc4bd85]
+20  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/mpp_Nccl() [0x4044fe]
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14b936bb4edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x14b936bb1d41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_log_default_handler+0xde4) [0x14b936bb66a4]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_log_dispatch+0xe4) [0x14b936bb69c4]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_ib_mlx5_completion_with_err+0x27a) [0x14b934ea84fa]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_dc_mlx5_ep_handle_failure+0xcb) [0x14b934ed168b]
+ 6  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_ib_mlx5_check_completion+0x4d) [0x14b934ea9f9d]
+ 7  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x50c32) [0x14b934ed3c32]
+ 8  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x14b94428281a]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_progress+0x14) [0x14b94470cd14]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(opal_progress+0x2d) [0x14b9520caead]
+11  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_request_default_wait+0xc5) [0x14b966077f05]
+12  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_sendrecv_actual+0xa1) [0x14b9660d46a1]
+13  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_allreduce_intra_redscat_allgather+0x606) [0x14b9660d7bc6]
+14  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_do_this+0x9b) [0x14b92c22099b]
+15  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_dec_fixed+0x1a9) [0x14b92c21afe9]
+16  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_cuda.so(mca_coll_cuda_allreduce+0x12a) [0x14b92c42af2a]
+17  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213) [0x14b96608e0d3]
+18  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/mpp_Nccl() [0x4041e2]
+19  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14b952682d85]
+20  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/mpp_Nccl() [0x4044fe]
+=================================
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_log_default_handler+0xde4) [0x1539946226a4]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_log_dispatch+0xe4) [0x1539946229c4]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_ib_mlx5_completion_with_err+0x27a) [0x1539929144fa]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_dc_mlx5_ep_handle_failure+0xcb) [0x15399293d68b]
+ 6  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_ib_mlx5_check_completion+0x4d) [0x153992915f9d]
+ 7  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x50c32) [0x15399293fc32]
+ 8  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x153994ce881a]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_progress+0x14) [0x153995172d14]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(opal_progress+0x2d) [0x1539a7c5dead]
+11  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_request_default_wait+0xc5) [0x1539bbc0af05]
+12  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_sendrecv_actual+0xa1) [0x1539bbc676a1]
+13  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_allreduce_intra_redscat_allgather+0x606) [0x1539bbc6abc6]
+14  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_do_this+0x9b) [0x153989db199b]
+15  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_dec_fixed+0x1a9) [0x153989dabfe9]
+16  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_cuda.so(mca_coll_cuda_allreduce+0x12a) [0x153989fbbf2a]
+17  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213) [0x1539bbc210d3]
+18  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/mpp_Nccl() [0x4041e2]
+19  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1539a8215d85]
+20  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/mpp_Nccl() [0x4044fe]
+=================================
+[lrdn0020:612221] *** Process received signal ***
+[lrdn0020:612221] Signal: Aborted (6)
+[lrdn0020:612221] Signal code:  (-6)
+=================================
+[lrdn0020:612222] *** Process received signal ***
+[lrdn0020:612222] Signal: Aborted (6)
+[lrdn0020:612222] Signal code:  (-6)
+[lrdn0020:612222] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14a930787cf0]
+==== backtrace (tid: 612223) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14e099e99edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x14e099e96d41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_log_default_handler+0xde4) [0x14e099e9b6a4]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_log_dispatch+0xe4) [0x14e099e9b9c4]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_ib_mlx5_completion_with_err+0x27a) [0x14e09818d4fa]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_dc_mlx5_ep_handle_failure+0xcb) [0x14e0981b668b]
+ 6  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_ib_mlx5_check_completion+0x4d) [0x14e09818ef9d]
+ 7  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x50c32) [0x14e0981b8c32]
+ 8  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x14e09a56181a]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_progress+0x14) [0x14e09a9ebd14]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(opal_progress+0x2d) [0x14e0ad4f7ead]
+11  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_request_default_wait+0xc5) [0x14e0c14a4f05]
+12  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_sendrecv_actual+0xa1) [0x14e0c15016a1]
+13  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_allreduce_intra_redscat_allgather+0x606) [0x14e0c1504bc6]
+14  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_do_this+0x9b) [0x14e0775ac99b]
+15  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_dec_fixed+0x1a9) [0x14e0775a6fe9]
+16  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_cuda.so(mca_coll_cuda_allreduce+0x12a) [0x14e0777b6f2a]
+17  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213) [0x14e0c14bb0d3]
+18  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/mpp_Nccl() [0x4041e2]
+19  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14e0adaafd85]
+20  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/mpp_Nccl() [0x4044fe]
+=================================
+[lrdn0020:612223] *** Process received signal ***
+[lrdn0020:612223] Signal: Aborted (6)
+[lrdn0020:612223] Signal code:  (-6)
+[lrdn0020:612223] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14e0ae5ebcf0]
+[lrdn0020:612220] *** Process received signal ***
+[lrdn0020:612220] Signal: Aborted (6)
+[lrdn0020:612220] Signal code:  (-6)
+[lrdn0020:612220] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14b9531becf0]
+[lrdn0020:612220] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x14b952696aff]
+[lrdn0020:612221] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x1539a8d51cf0]
+[lrdn0020:612221] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x1539a8229aff]
+[lrdn0020:612221] [ 2] /lib64/libc.so.6(abort+0x127)[0x1539a81fcea5]
+[lrdn0020:612221] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x15399461dd46]
+[lrdn0020:612222] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x14a92fc5faff]
+[lrdn0020:612222] [ 2] /lib64/libc.so.6(abort+0x127)[0x14a92fc32ea5]
+[lrdn0020:612222] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x14a91bdccd46]
+[lrdn0020:612222] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_log_default_handler+0xde4)[0x14a91bdd16a4]
+[lrdn0020:612222] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_log_dispatch+0xe4)[0x14a91bdd19c4]
+[lrdn0020:612223] [ 1] /lib64/libc.so.6(gsignal+0x10f)[0x14e0adac3aff]
+[lrdn0020:612223] [ 2] /lib64/libc.so.6(abort+0x127)[0x14e0ada96ea5]
+[lrdn0020:612223] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x14e099e96d46]
+[lrdn0020:612223] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_log_default_handler+0xde4)[0x14e099e9b6a4]
+[lrdn0020:612220] [ 2] /lib64/libc.so.6(abort+0x127)[0x14b952669ea5]
+[lrdn0020:612220] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x14b936bb1d46]
+[lrdn0020:612220] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_log_default_handler+0xde4)[0x14b936bb66a4]
+[lrdn0020:612221] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_log_default_handler+0xde4)[0x1539946226a4]
+[lrdn0020:612221] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_log_dispatch+0xe4)[0x1539946229c4]
+[lrdn0020:612221] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_ib_mlx5_completion_with_err+0x27a)[0x1539929144fa]
+[lrdn0020:612221] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_dc_mlx5_ep_handle_failure+0xcb)[0x15399293d68b]
+[lrdn0020:612222] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_ib_mlx5_completion_with_err+0x27a)[0x14a91a2cf4fa]
+[lrdn0020:612222] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_dc_mlx5_ep_handle_failure+0xcb)[0x14a91a2f868b]
+[lrdn0020:612222] [ 8] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_ib_mlx5_check_completion+0x4d)[0x14a91a2d0f9d]
+[lrdn0020:612222] [ 9] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x50c32)[0x14a91a2fac32]
+[lrdn0020:612223] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_log_dispatch+0xe4)[0x14e099e9b9c4]
+[lrdn0020:612223] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_ib_mlx5_completion_with_err+0x27a)[0x14e09818d4fa]
+[lrdn0020:612223] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_dc_mlx5_ep_handle_failure+0xcb)[0x14e0981b668b]
+[lrdn0020:612223] [ 8] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_ib_mlx5_check_completion+0x4d)[0x14e09818ef9d]
+[lrdn0020:612223] [ 9] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x50c32)[0x14e0981b8c32]
+[lrdn0020:612220] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_log_dispatch+0xe4)[0x14b936bb69c4]
+[lrdn0020:612220] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_ib_mlx5_completion_with_err+0x27a)[0x14b934ea84fa]
+[lrdn0020:612220] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_dc_mlx5_ep_handle_failure+0xcb)[0x14b934ed168b]
+[lrdn0020:612220] [ 8] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_ib_mlx5_check_completion+0x4d)[0x14b934ea9f9d]
+[lrdn0020:612220] [ 9] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x50c32)[0x14b934ed3c32]
+[lrdn0020:612221] [ 8] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(uct_ib_mlx5_check_completion+0x4d)[0x153992915f9d]
+[lrdn0020:612221] [ 9] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x50c32)[0x15399293fc32]
+[lrdn0020:612221] [10] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x153994ce881a]
+[lrdn0020:612221] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_progress+0x14)[0x153995172d14]
+[lrdn0020:612222] [10] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x14a9206d781a]
+[lrdn0020:612222] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_progress+0x14)[0x14a920b61d14]
+[lrdn0020:612222] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(opal_progress+0x2d)[0x14a92f693ead]
+[lrdn0020:612222] [13] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_request_default_wait+0xc5)[0x14a943640f05]
+[lrdn0020:612223] [10] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x14e09a56181a]
+[lrdn0020:612223] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_progress+0x14)[0x14e09a9ebd14]
+[lrdn0020:612223] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(opal_progress+0x2d)[0x14e0ad4f7ead]
+[lrdn0020:612220] [10] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x14b94428281a]
+[lrdn0020:612220] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_progress+0x14)[0x14b94470cd14]
+[lrdn0020:612220] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(opal_progress+0x2d)[0x14b9520caead]
+[lrdn0020:612221] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libopen-pal.so.40(opal_progress+0x2d)[0x1539a7c5dead]
+[lrdn0020:612221] [13] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_request_default_wait+0xc5)[0x1539bbc0af05]
+[lrdn0020:612222] [14] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_sendrecv_actual+0xa1)[0x14a94369d6a1]
+[lrdn0020:612223] [13] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_request_default_wait+0xc5)[0x14e0c14a4f05]
+[lrdn0020:612223] [14] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_sendrecv_actual+0xa1)[0x14e0c15016a1]
+[lrdn0020:612220] [13] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_request_default_wait+0xc5)[0x14b966077f05]
+[lrdn0020:612221] [14] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_sendrecv_actual+0xa1)[0x1539bbc676a1]
+[lrdn0020:612222] [15] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_allreduce_intra_redscat_allgather+0x606)[0x14a9436a0bc6]
+[lrdn0020:612222] [16] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_do_this+0x9b)[0x14a9117f099b]
+[lrdn0020:612222] [17] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_dec_fixed+0x1a9)[0x14a9117eafe9]
+[lrdn0020:612222] [18] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_cuda.so(mca_coll_cuda_allreduce+0x12a)[0x14a9119faf2a]
+[lrdn0020:612220] [14] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_sendrecv_actual+0xa1)[0x14b9660d46a1]
+[lrdn0020:612220] [15] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_allreduce_intra_redscat_allgather+0x606)[0x14b9660d7bc6]
+[lrdn0020:612220] [16] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_do_this+0x9b)[0x14b92c22099b]
+[lrdn0020:612221] [15] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_allreduce_intra_redscat_allgather+0x606)[0x1539bbc6abc6]
+[lrdn0020:612221] [16] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_do_this+0x9b)[0x153989db199b]
+[lrdn0020:612221] [17] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_dec_fixed+0x1a9)[0x153989dabfe9]
+[lrdn0020:612221] [18] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_cuda.so(mca_coll_cuda_allreduce+0x12a)[0x153989fbbf2a]
+[lrdn0020:612222] [19] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213)[0x14a9436570d3]
+[lrdn0020:612222] [20] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/mpp_Nccl[0x4041e2]
+[lrdn0020:612222] [21] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14a92fc4bd85]
+[lrdn0020:612222] [22] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/mpp_Nccl[0x4044fe]
+[lrdn0020:612222] *** End of error message ***
+[lrdn0020:612223] [15] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_allreduce_intra_redscat_allgather+0x606)[0x14e0c1504bc6]
+[lrdn0020:612223] [16] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_do_this+0x9b)[0x14e0775ac99b]
+[lrdn0020:612223] [17] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_dec_fixed+0x1a9)[0x14e0775a6fe9]
+[lrdn0020:612223] [18] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_cuda.so(mca_coll_cuda_allreduce+0x12a)[0x14e0777b6f2a]
+[lrdn0020:612223] [19] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213)[0x14e0c14bb0d3]
+[lrdn0020:612223] [20] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/mpp_Nccl[0x4041e2]
+[lrdn0020:612223] [21] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14e0adaafd85]
+[lrdn0020:612223] [22] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/mpp_Nccl[0x4044fe]
+[lrdn0020:612223] *** End of error message ***
+[lrdn0020:612220] [17] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_allreduce_intra_dec_fixed+0x1a9)[0x14b92c21afe9]
+[lrdn0020:612220] [18] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_cuda.so(mca_coll_cuda_allreduce+0x12a)[0x14b92c42af2a]
+[lrdn0020:612220] [19] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213)[0x14b96608e0d3]
+[lrdn0020:612220] [20] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/mpp_Nccl[0x4041e2]
+[lrdn0020:612220] [21] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14b952682d85]
+[lrdn0020:612220] [22] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/mpp_Nccl[0x4044fe]
+[lrdn0020:612221] [19] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213)[0x1539bbc210d3]
+[lrdn0020:612221] [20] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/mpp_Nccl[0x4041e2]
+[lrdn0020:612221] [21] /lib64/libc.so.6(__libc_start_main+0xe5)[0x1539a8215d85]
+[lrdn0020:612221] [22] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/mpp_Nccl[0x4044fe]
+[lrdn0020:612221] *** End of error message ***
+[lrdn0020:612220] *** End of error message ***
+srun: error: lrdn0020: tasks 0-2: Aborted (core dumped)
+srun: error: lrdn0020: task 3: Aborted (core dumped)
+
+  Data collection took 0.0001s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.004s: started 0
