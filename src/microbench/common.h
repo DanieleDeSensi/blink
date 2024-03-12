@@ -55,17 +55,23 @@ static void write_results()
     int start_index;    
     double *tmp_buf = NULL;
 
-    if (curr_iters - warm_up_iters > max_samples)
+    if (curr_iters - warm_up_iters > max_samples) // Wrapped the sampling recording
     {
         num_samples = max_samples;
         start_index = curr_iters % max_samples;        
+        tmp_buf = (double *)malloc(sizeof(double)*num_samples);
+        // Copy the data from the durations buffer to tmp_buf (so that it is in the proper order)
+        memcpy(tmp_buf, &(durations[start_index]), sizeof(double)*(num_samples - start_index));
+        memcpy(&tmp_buf[num_samples - start_index], durations, sizeof(double)*start_index);
     }
     else
     {
         num_samples = curr_iters - warm_up_iters;
         start_index = warm_up_iters;
+        tmp_buf = (double *)malloc(sizeof(double)*num_samples);
+        memcpy(tmp_buf, &(durations[start_index]), sizeof(double)*num_samples);
     }
-    tmp_buf = (double *)malloc(sizeof(double)*num_samples);
+    
 
     double *all_data =  (double *)malloc(sizeof(double)*num_samples*w_size);
     double *sorting_buf = (double*)malloc(sizeof(double)*w_size);
@@ -74,10 +80,6 @@ static void write_results()
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
         exit(-1);
     }
-
-    // Copy the data from the durations buffer to tmp_buf (so that it is in the proper order)
-    memcpy(tmp_buf, &(durations[start_index]), sizeof(double)*(num_samples - start_index));
-    memcpy(&tmp_buf[num_samples - start_index], durations, sizeof(double)*start_index);
 
     /*print file header*/
     if (my_rank == master_rank)
