@@ -76,8 +76,8 @@ static void write_results()
     }
 
     // Copy the data from the durations buffer to tmp_buf (so that it is in the proper order)
-    memcpy(tmp_buf, &(durations[start_index]), sizeof(double)*(max_samples - start_index));
-    memcpy(&tmp_buf[max_samples - start_index], durations, sizeof(double)*start_index);
+    memcpy(tmp_buf, &(durations[start_index]), sizeof(double)*(num_samples - start_index));
+    memcpy(&tmp_buf[num_samples - start_index], durations, sizeof(double)*start_index);
 
     /*print file header*/
     if (my_rank == master_rank)
