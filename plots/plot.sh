@@ -28,7 +28,18 @@ done
 ###################
 # Two-nodes tests #
 ###################
+INPUTS="8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
 OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
+EXTRA="same_switch_SL0"
+## NCCL vs. MPI tests
+TESTNAME="latency"
+./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-mpp-nccl,gpubench-mpp-cudaaware,ping-pong_b -vi 1B -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRA}
+TESTNAME="bandwidth"
+./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-mpp-nccl,gpubench-mpp-cudaaware,pw-ping-pong_b -vi 1GiB -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA}
+#TESTNAME="allsizes"
+#./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-mpp-nccl,gpubench-mpp-cudaaware,pw-ping-pong_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA}
+
+## Service levels tests
 EXTRAS=same_switch_SL0,same_switch_SL1,diff_switch_SL0,diff_switch_SL1,diff_group_SL0,diff_group_SL1
 # Buffer on GPU memory
 for BENCH in "gpubench-mpp-nccl" "gpubench-mpp-cudaaware"

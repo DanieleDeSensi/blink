@@ -158,8 +158,8 @@ def plot_violin(df, title, metric, outname, max_y):
     plt.scatter(x = range(len(q99s)), y = q99s, c = 'black', marker = 'x', s = 50)
 
     # Save to file
-    #ax.figure.savefig(outname + "_violins.png", bbox_inches='tight')
-    ax.figure.savefig(outname + "_violins.pdf", bbox_inches='tight')
+    #ax.figure.savefig(outname + "_violin.png", bbox_inches='tight')
+    ax.figure.savefig(outname + "_violin.pdf", bbox_inches='tight')
     plt.clf()      
 
 # Plots one box for each victim+aggressor combination, for the given metric
@@ -178,8 +178,8 @@ def plot_box(df, title, metric, outname, max_y, showfliers=True):
     plt.scatter(x = range(len(q99s)), y = q99s, c = 'black', marker = 'x', s = 50)
 
     # Save to file
-    #ax.figure.savefig(outname + "_boxes.png", bbox_inches='tight')
-    ax.figure.savefig(outname + "_boxes" + ("" if showfliers else "_nofliers") + ".pdf", bbox_inches='tight')
+    #ax.figure.savefig(outname + "_box.png", bbox_inches='tight')
+    ax.figure.savefig(outname + "_box" + ("" if showfliers else "_nofliers") + ".pdf", bbox_inches='tight')
     plt.clf()
 
 def plot_dist(df, title, metric, outname, max_y):
@@ -211,8 +211,8 @@ def plot_line(df, title, metric, outname, max_y):
         ax.set_ylim(0, float(max_y))
 
     # Save to file
-    #ax.figure.savefig(outname + "_lines.png", bbox_inches='tight')
-    ax.figure.savefig(outname + "_lines.pdf", bbox_inches='tight')
+    #ax.figure.savefig(outname + "_line.png", bbox_inches='tight')
+    ax.figure.savefig(outname + "_line.pdf", bbox_inches='tight')
     plt.clf()
 
 # Returns a tuple (filename, victim_fullname, aggressor_fullname)

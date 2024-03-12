@@ -40,17 +40,18 @@ def main():
 
     os.environ["BLINK_ROOT"] = os.path.dirname(os.path.abspath(__file__)) + "/../" # Set BLINK_ROOT
     if not os.path.exists(args.outfile): 
-        os.makedirs(args.outfile)
+        os.makedirs(args.outfile.lower())
 
     victim_names = args.victim_names.split(",")
     victim_inputs = args.victim_inputs.split(",")
 
-    global_df_time = pd.DataFrame()
+    global_df_time = None
 
     for metric_hr in args.metrics.split(","):      
         global_df = pd.DataFrame()
         for vn in victim_names:
             outname = args.outfile + os.path.sep + metric_hr
+            outname = outname.lower()
             for vi in victim_inputs:
                 filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, args.allocation_split, args.ppn, args.extra, vn, vi, args.aggressor_name, args.aggressor_input)
                 data = pd.DataFrame()
@@ -69,6 +70,9 @@ def main():
         if metric_hr == "Runtime" and "gpubench" in args.victim_names:
             global_df_time = global_df
 
+        #############
+        # Line plot #
+        #############
         # Setup the plot
         ax = sns.lineplot(data=global_df, x="Input", y=metric_hr, hue="Application", style="Application", markers=True, linewidth=3, markersize=8)
 
@@ -93,7 +97,7 @@ def main():
                         bbox_to_anchor=(.5, 1), ncol=2, title=None, frameon=False)
 
         # Inner latency plot
-        if metric_hr == "Bandwidth" and "gpubench" in args.victim_names:
+        if global_df_time is not None:
             ax2 = plt.axes([0.23, 0.6, .3, .2], facecolor='w')
             global_df_time["Runtime (us)"] = global_df_time["Runtime"] # Was already scaled before
             sns.lineplot(data=global_df_time, x="Input", y="Runtime (us)", hue="Application", style="Application", marker="o", ax=ax2)
@@ -106,8 +110,22 @@ def main():
             ax2.get_legend().remove()
 
         # Save to file
-        #ax.figure.savefig(outname + "_lines.png", bbox_inches='tight')
-        ax.figure.savefig(outname + "_lines.pdf", bbox_inches='tight')
+        #ax.figure.savefig(outname + "_line.png", bbox_inches='tight')
+        ax.figure.savefig(outname + "_line.pdf", bbox_inches='tight')
+        plt.clf()
+
+        #########
+        # Boxes #
+        #########
+        ax = sns.boxplot(data=global_df, x="Input", y=metric_hr, hue="Application")
+        ax.figure.savefig(outname + "_box.pdf", bbox_inches='tight')
+        plt.clf()
+
+        ########
+        # Bars #
+        ########
+        ax = sns.barplot(data=global_df, x="Input", y=metric_hr, hue="Application")
+        ax.figure.savefig(outname + "_bar.pdf", bbox_inches='tight')
         plt.clf()
 
 if __name__=='__main__':

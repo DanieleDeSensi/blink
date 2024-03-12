@@ -62,7 +62,7 @@ def main():
     
     os.environ["BLINK_ROOT"] = os.path.dirname(os.path.abspath(__file__)) + "/../" # Set BLINK_ROOT
     if not os.path.exists(args.outfile): 
-        os.makedirs(args.outfile)
+        os.makedirs(args.outfile.lower())
 
     for metric_hr in args.metrics.split(","):                
         global_df = pd.DataFrame()
@@ -82,6 +82,7 @@ def main():
 
         
         outname = args.outfile + os.path.sep + metric_hr
+        outname = outname.lower()
 
         # Violins        
         plot_violin(global_df, victim_fn, metric_hr, outname, args.max_y)
