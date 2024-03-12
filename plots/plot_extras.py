@@ -30,8 +30,8 @@ extra_fullname["same_switch_SL0"] = "Same switch\nSL0"
 extra_fullname["same_switch_SL1"] = "Same switch\nSL1"
 extra_fullname["diff_switch_SL0"] = "Diff. switch\nSL0"
 extra_fullname["diff_switch_SL1"] = "Diff. switch\nSL1"
-extra_fullname["diff_groups_SL0"] = "Diff. group\nSL0"
-extra_fullname["diff_groups_SL1"] = "Diff. group\nSL1"
+extra_fullname["diff_group_SL0"] = "Diff. group\nSL0"
+extra_fullname["diff_group_SL1"] = "Diff. group\nSL1"
 
 extra_fullname["SL0VAR0"] = "SL0VAR0"
 extra_fullname["SL0VAR1"] = "SL0VAR1"
@@ -64,33 +64,37 @@ def main():
     if not os.path.exists(args.outfile): 
         os.makedirs(args.outfile)
 
-    for metric in args.metrics.split(","):                
+    for metric_hr in args.metrics.split(","):                
         global_df = pd.DataFrame()
         for e in args.extras.split(","):            
             filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, args.allocation_split, args.ppn, e, args.victim_name, args.victim_input, args.aggressor_name, args.aggressor_input)
             if not filename:
-                print("Data not found for extra " + e)
+                print("Data not found for extra " + e + " " + str(args))
                 continue
             data = pd.DataFrame()
             if not os.path.exists(filename):
                 print("Error: data file " + filename + " does not exist")
                 continue
-            data[extra_fullname[e]] = pd.read_csv(filename)[metric]
+            data[extra_fullname[e]] = get_bench_data(args.victim_name, args.victim_input, metric_hr, filename, args.ppn)
             if data.empty:
-                raise Exception("Error: data file " + filename + " does not contain data for metric " + metric)
+                raise Exception("Error: data file " + filename + " does not contain data for metric " + metric_hr)
             global_df = pd.concat([global_df, data], axis=1)
 
         
-        outname = args.outfile + os.path.sep + metric.replace("/", "_")
+        outname = args.outfile + os.path.sep + metric_hr
 
         # Violins        
-        plot_violin(global_df, victim_fn, metric, outname, args.max_y)
+        plot_violin(global_df, victim_fn, metric_hr, outname, args.max_y)
 
-        # Boxes        
-        plot_box(global_df, victim_fn, metric, outname, args.max_y)
+        # Boxes, with and without outliers        
+        plot_box(global_df, victim_fn, metric_hr, outname, args.max_y, True)
+        plot_box(global_df, victim_fn, metric_hr, outname, args.max_y, False)
 
         # Lines
-        plot_line(global_df, victim_fn, metric, outname, args.max_y)
+        plot_line(global_df, victim_fn, metric_hr, outname, args.max_y)
+
+        ## Dist
+        #plot_dist(global_df, victim_fn, metric_hr, outname, args.max_y)
 
 if __name__=='__main__':
     main()

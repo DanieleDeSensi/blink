@@ -17,6 +17,7 @@ import csv
 import importlib.util
 
 matplotlib.rc('pdf', fonttype=42) # To avoid issues with camera-ready submission
+matplotlib.rc('font', size=12)
 
 # Extracts victim and aggressor from an app mix file
 # Assumes only two applications are specified in the mix, 
@@ -62,7 +63,7 @@ def get_input_and_full_name_from_args(wrapper_path, args):
     mod_app = importlib.util.module_from_spec(spec_app)
     spec_app.loader.exec_module(mod_app)
     w = mod_app.app(0, 0, args)
-    return (w.get_bench_name(), w.get_bench_input())
+    return (bench_to_human_readable(w.get_bench_name()), w.get_bench_input())
 
 # Loads the data of the specified aggressors (only the specified metric).
 # This is used for distribution plots (box/violin/etc)
@@ -78,24 +79,68 @@ def load_data_distribution(categories, data_filename, metric):
         global_df[a] = data
     return global_df
 
-def metric_to_human_readable(metric):
-    metric_expanded = {}
-    metric_expanded["Avg-Duration"] = "Runtime"
-    metric_expanded["MainRank-Duration"] = "Runtime"
-    metric_expanded["MainRank-Bandwidth"] = "Bandwidth"
-    metric_expanded["busbw-ip"] = "Bus Bandwidth (In-Place)"
-    metric_expanded["busbw-oop"] = "Bus Bandwidth (Out-of-Place)"
-    metric_expanded["algbw-ip"] = "Algo Bandwidth (In-Place)"
-    metric_expanded["time-ip"] = "Runtime (In-Place)"
-    metric_expanded["Transfer Time"] = "Runtime"
-    metric_expanded["Bandwidth"] = "Bandwidth"
-    # See get_title in data_container in runner.py to check how the header of the data.csv files is created
-    # It is composed of appid_metric_unit
-    # The appid is the id of the application in the mix, starting from 0
-    # Since we assume there are always two applications (one of which is the aggressor), we can ignore it 
-    # (i.e., the data file only contains data about a single application)
-    appid, metric, unit = metric.split("_")
-    return metric_expanded[metric] + " (" + unit + ")"
+def input_size_to_bytes(size_str):
+    size_str = size_str.strip().lower()
+
+    if size_str.endswith('gib'):
+        return int(float(size_str[:-3].strip()) * 2**30)
+    elif size_str.endswith('mib'):
+        return int(float(size_str[:-3].strip()) * 2**20)
+    elif size_str.endswith('kib'):
+        return int(float(size_str[:-3].strip()) * 2**10)
+    elif size_str.endswith('b'):
+        return int(size_str[:-1].strip())
+
+    raise ValueError(f"Invalid file size string: {size_str}")
+
+# For a given benchmark and metric, returns the data.
+# We always assume that
+# - We return bandwidth in Gb/s
+# - We return runtime in microseconds
+def get_bench_data(bench, input, metric, filename, ppn=1):
+    if "gpubench" in bench:
+        if metric == "Bandwidth":
+            return pd.read_csv(filename)["0_Bandwidth_GB/s"]*8
+        elif metric == "Runtime" or metric == "Latency":
+            return pd.read_csv(filename)["0_Transfer Time_s"]*1e6
+    elif bench == "nccl-sendrecv" or bench == "nccl-allreduce" or bench == "nccl-alltoall":
+        if metric == "Bandwidth":
+            return pd.read_csv(filename)["0_busbw-ip_GB/s"]*8
+    elif bench == "ping-pong_b" or bench == "pw-ping-pong_b":
+        if bench == "ping-pong_b":
+            time_str = "0_MainRank-Duration_s"            
+        else:
+            time_str = "0_Max-Duration_s"
+        if metric == "Runtime" or metric == "Latency":
+            return pd.read_csv(filename)[time_str]*1e6
+        elif metric == "Bandwidth":
+            input_bits = input_size_to_bytes(input)*8
+            input_gbits = input_bits / 1e9
+            gbit_s = input_gbits / (pd.read_csv(filename)[time_str]) # Time is already in seconds
+            if bench == "pw-ping-pong_b":
+                gbit_s *= int(ppn)
+            return gbit_s
+    raise Exception("Error: metric " + metric + " not supported for bench " + bench)
+
+def add_unit_to_metric(metric_hr):
+    if metric_hr == "Bandwidth":
+        return "Bandwidth (Gb/s)"
+    elif metric_hr == "Runtime":
+        return "Runtime (us)"
+
+def bench_to_human_readable(bench):
+    if "gpubench" in bench:
+        gpubench,bench,version = bench.split(" ") 
+        if version == "Baseline":
+            return "Baseline"
+        elif version == "CudaAware":
+            return "CUDA-Aware MPI"
+        elif version == "Nccl":
+            return "NCCL"
+        elif version == "Nvlink":
+            return "CUDA IPC"
+    return bench
+
 
 # Plots one violin for each victim+aggressor combination, for the given metric
 def plot_violin(df, title, metric, outname, max_y):
@@ -104,7 +149,7 @@ def plot_violin(df, title, metric, outname, max_y):
 
     # Set the title and labels
     ax.set_title(title)
-    ax.set_ylabel(metric_to_human_readable(metric))
+    ax.set_ylabel(add_unit_to_metric(metric))
     if max_y:
         ax.set_ylim(0, float(max_y))
 
@@ -118,13 +163,13 @@ def plot_violin(df, title, metric, outname, max_y):
     plt.clf()      
 
 # Plots one box for each victim+aggressor combination, for the given metric
-def plot_box(df, title, metric, outname, max_y):
+def plot_box(df, title, metric, outname, max_y, showfliers=True):
     # Setup the violin
-    ax = sns.boxplot(data=df)
+    ax = sns.boxplot(data=df, showfliers=showfliers)
 
     # Set the title and labels
     ax.set_title(title)
-    ax.set_ylabel(metric_to_human_readable(metric))
+    ax.set_ylabel(add_unit_to_metric(metric))
     if max_y:
         ax.set_ylim(0, float(max_y))
 
@@ -134,7 +179,22 @@ def plot_box(df, title, metric, outname, max_y):
 
     # Save to file
     #ax.figure.savefig(outname + "_boxes.png", bbox_inches='tight')
-    ax.figure.savefig(outname + "_boxes.pdf", bbox_inches='tight')
+    ax.figure.savefig(outname + "_boxes" + ("" if showfliers else "_nofliers") + ".pdf", bbox_inches='tight')
+    plt.clf()
+
+def plot_dist(df, title, metric, outname, max_y):
+    # Setup the violin
+    ax = sns.displot(data=df, kind="kde")
+
+    # Set the title and labels
+    #ax.set_title(title)
+    #ax.set_ylabel(add_unit_to_metric(metric))
+    #if max_y:
+    #    ax.set_ylim(0, float(max_y))
+
+    # Save to file
+    #ax.figure.savefig(outname + "_dist.png", bbox_inches='tight')
+    ax.figure.savefig(outname + "_dist.pdf", bbox_inches='tight')
     plt.clf()
 
 # Plots one line for each victim+aggressor combination, for the given metric
@@ -146,7 +206,7 @@ def plot_line(df, title, metric, outname, max_y):
     # Set the title and labels
     ax.set_title(title)
     ax.set_xlabel("Iteration")
-    ax.set_ylabel(metric_to_human_readable(metric))
+    ax.set_ylabel(add_unit_to_metric(metric))
     if max_y:
         ax.set_ylim(0, float(max_y))
 

@@ -47,41 +47,41 @@ def main():
 
     global_df_time = pd.DataFrame()
 
-    for metric in args.metrics.split(","):        
-        outname = args.outfile + os.path.sep + metric.replace("/", "_")
+    for metric_hr in args.metrics.split(","):      
         global_df = pd.DataFrame()
         for vn in victim_names:
+            outname = args.outfile + os.path.sep + metric_hr
             for vi in victim_inputs:
                 filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, args.allocation_split, args.ppn, args.extra, vn, vi, args.aggressor_name, args.aggressor_input)
                 data = pd.DataFrame()
                 if filename and os.path.exists(filename):                    
-                    data[metric] = pd.read_csv(filename)[metric]
+                    data[metric_hr] = get_bench_data(vn, vi, metric_hr, filename, args.ppn)
                 else:
-                    print("Data not found for metric " + metric + " victim " + vn + " with input " + vi)
-                    data[metric] = [np.nan]
+                    print("Data not found for metric " + metric_hr + " victim " + vn + " with input " + vi)
+                    data[metric_hr] = [np.nan]
 
                 if data.empty:
-                    raise Exception("Error: data file " + filename + " does not contain data for metric " + metric)
+                    raise Exception("Error: data file " + filename + " does not contain data for metric " + metric_hr)
                 data["Input"] = vi
                 data["Application"] = victim_fn
                 global_df = pd.concat([global_df, data], ignore_index=True)
 
-        if metric == "0_Transfer Time_s" and "gpubench" in args.victim_names:
+        if metric_hr == "Runtime" and "gpubench" in args.victim_names:
             global_df_time = global_df
 
         # Setup the plot
-        ax = sns.lineplot(data=global_df, x="Input", y=metric, hue="Application", style="Application", marker="o")
+        ax = sns.lineplot(data=global_df, x="Input", y=metric_hr, hue="Application", style="Application", markers=True, linewidth=3, markersize=8)
 
         # Plots the limit if specified
         if args.trend_limit:
             m, limit = args.trend_limit.split(":")
-            if metric == m:
+            if metric_hr == m:
                 ax.axhline(y=float(limit), color='black', linestyle='--')
 
         # Set the title and labels
         #ax.set_title(title)
         ax.set_xlabel("Input")
-        ax.set_ylabel(metric_to_human_readable(metric))
+        ax.set_ylabel(add_unit_to_metric(metric_hr))
         if args.max_y:
             ax.set_ylim(0, float(args.max_y))
         else:
@@ -93,14 +93,16 @@ def main():
                         bbox_to_anchor=(.5, 1), ncol=2, title=None, frameon=False)
 
         # Inner latency plot
-        if metric == "0_Bandwidth_GB/s" and "gpubench" in args.victim_names:
-            ax2 = plt.axes([0.23, 0.6, .4, .2], facecolor='w')
-            global_df_time["0_Transfer Time_us"] = global_df_time["0_Transfer Time_s"]*1000000.0
-            sns.lineplot(data=global_df_time, x="Input", y="0_Transfer Time_us", hue="Application", style="Application", marker="o", ax=ax2)
+        if metric_hr == "Bandwidth" and "gpubench" in args.victim_names:
+            ax2 = plt.axes([0.23, 0.6, .3, .2], facecolor='w')
+            global_df_time["Runtime (us)"] = global_df_time["Runtime"] # Was already scaled before
+            sns.lineplot(data=global_df_time, x="Input", y="Runtime (us)", hue="Application", style="Application", marker="o", ax=ax2)
             ax2.set_xlim([0, 5])
             ax2.set_ylim([0, 100])
+            inner_fontsize = 9
+            ax2.tick_params(labelsize=inner_fontsize)
             ax2.set_xlabel("")
-            ax2.set_ylabel(metric_to_human_readable("0_Transfer Time_us"))
+            ax2.set_ylabel("Runtime (us)", fontdict={'fontsize': inner_fontsize})
             ax2.get_legend().remove()
 
         # Save to file
