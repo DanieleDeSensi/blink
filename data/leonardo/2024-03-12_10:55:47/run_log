@@ -1,0 +1,38 @@
+
+Passed arguments:
+Namespace(allocationmode='r', allocationsplit='10:90', alpha=0.05, app_mix='./apps_mix/gpubench/mpp-nccl/1GiB_plus_alltoall_g', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0', maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=16, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 1000 -x 30", collection flag: True, ending condition: run until finished.
+1: with arguments:"-l 1000000 -x 17", collection flag: False, ending condition: wait until others finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn0220' 'lrdn0310']
+1 on 14 nodes:
+['lrdn0193' 'lrdn1378' 'lrdn0261' 'lrdn0258' 'lrdn0226' 'lrdn0292'
+ 'lrdn0278' 'lrdn1334' 'lrdn1380' 'lrdn0208' 'lrdn1349' 'lrdn1363'
+ 'lrdn0302' 'lrdn0244']
+
+Schedule:
+0.0s: start 0
+0.0s: start 1
+
+Preparing took 0.0259s.
+
+Running...
+ Run 1:
+  0.00488s: started 0
+  0.00751s: started 1
+  193.61433s: awaited 0
+  194.61376s: killed waiting 1
+  194.61379s: encountered an exception in 0
+srun: Job 3628361 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3628361
+
+  Data collection took 0.00159s.
+  Convergence check took 0.03312s.
+Completed after reaching confidence interval, terminated after 1 runs taking 194.65 seconds.
+Writing data & meta-data took 0.02368s.
+Overall took 194.69839s.
