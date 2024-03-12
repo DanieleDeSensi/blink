@@ -141,12 +141,18 @@ def get_abs_split(allocation_split, num_apps, num_nodes):
                     + str(len(split_list))+')')
     
     split_list = split_list[:num_apps]
-
+    print("Split list: " + str(split_list))
     split_absolute = []
     for split in split_list[:-1]:
-        split_absolute += [int(num_nodes*split/100)]
-    # allocate all remaining nodes to the last application
-    split_absolute += [num_nodes-sum(split_absolute)]
+        split_a = int(math.ceil(num_nodes*split/100))
+        split_absolute += [split_a]
+        print("Split_a: " + str(split_a))
+    if num_apps == 1:
+        split_absolute = [int(math.ceil(num_nodes*split_list[0]/100))]
+    else:
+        # allocate all remaining nodes to the last application
+        split_absolute += [num_nodes-sum(split_absolute)]
+    print("Splits: " + str(split_absolute))
     return split_absolute
 
 
