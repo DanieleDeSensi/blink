@@ -1,0 +1,26 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/mpp-cudaaware/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_SL1', maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=2, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn3100' 'lrdn3102']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.017s.
+
+Running...
+ Run 1:
+  0.0058s: started 0
+  40.10935s: awaited 0
+  Data collection took 0.00029s.
+  Convergence check took 0.00098s.
+Completed after reaching confidence interval, terminated after 1 runs taking 40.11 seconds.
+Writing data & meta-data took 0.0108s.
+Overall took 40.13874s.
