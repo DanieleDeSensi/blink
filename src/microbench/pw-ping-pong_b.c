@@ -181,7 +181,7 @@ int main(int argc, char** argv){
                         MPI_Send(send_buf,msg_size,MPI_BYTE,partner,0,MPI_COMM_WORLD);
                         MPI_Recv(recv_buf,msg_size,MPI_BYTE,partner,1,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
                     }
-                    durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
+                    durations[curr_iters%max_samples]=(MPI_Wtime()-measure_start_time)/2.0; /*write result to buffer (lru space)*/
                 }else{
                     for(i=0;i<measure_granularity;i++){
                         MPI_Recv(recv_buf,msg_size,MPI_BYTE,partner,0,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
@@ -195,7 +195,7 @@ int main(int argc, char** argv){
                         MPI_Send(send_buf,msg_size,MPI_BYTE,partner,0,MPI_COMM_WORLD);
                         MPI_Recv(recv_buf,msg_size,MPI_BYTE,partner,1,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
                     }
-                    durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
+                    durations[curr_iters%max_samples]=(MPI_Wtime()-measure_start_time)/2.0; /*write result to buffer (lru space)*/
                 }else{
                     for(i=0;i<measure_granularity;i++){
                         MPI_Recv(recv_buf,msg_size,MPI_BYTE,partner,0,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
