@@ -1,0 +1,26 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/pingpong-pw/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_switch_SL', maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=2, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1073741824 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn3217' 'lrdn3229']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.0099s.
+
+Running...
+ Run 1:
+  0.00478s: started 0
+  105.47048s: awaited 0
+  Data collection took 0.00022s.
+  Convergence check took 0.00077s.
+Completed after reaching confidence interval, terminated after 1 runs taking 105.47 seconds.
+Writing data & meta-data took 0.01206s.
+Overall took 105.4937s.
