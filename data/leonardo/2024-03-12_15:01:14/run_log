@@ -1,0 +1,31 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/pp-baseline/32KiB', beta=0.05, convergeall=False, datapath='./data', extrainfo=None, maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=1, outformat='csv', ppn=2, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 15", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 2
+0 on 1 nodes:
+['lrdn3418']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02083s.
+
+Running...
+ Run 1:
+  0.00525s: started 0
+  3.13392s: awaited 0
+  Data collection took 0.00026s.
+  Convergence check took 0.00086s.
+ Run 2:
+  0.00486s: started 0
+  1.34734s: awaited 0
+  Data collection took 0.00021s.
+  Convergence check took 0.0007s.
+Completed after reaching confidence interval, terminated after 2 runs taking 4.48 seconds.
+Writing data & meta-data took 0.00821s.
+Overall took 4.51255s.
