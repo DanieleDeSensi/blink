@@ -4,10 +4,15 @@ import shutil
 import os
 last_entry_for_key = {}
 
+header = None
+
 # Scan description.csv line-by-line
 with open('./data/description.csv', 'r') as file:
     lines = file.readlines()
     for line in lines:
+        if header is None:
+            header = line.strip()
+            continue
         # Split the line by comma
         fields = line.strip().split(',')
         key = ','.join(fields[:-1]) # The key is all the fields except for the last one (which is the data path)        
@@ -25,7 +30,7 @@ with open('./data/description.csv', 'r') as file:
 
 # Now save the new description.csv
 with open('./data/description.csv', 'w') as file:
+    file.write(header + '\n')
     for k,v in last_entry_for_key.items():
-        print(k + ',' + v + '\n')
-        #file.write(k + ',' + v + '\n')
+        file.write(k + ',' + v + '\n')
     
