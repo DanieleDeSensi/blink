@@ -18,52 +18,48 @@ do
     ./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Runtime,Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 2 --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE}
 done
 
-# GPUBench - Collectives
-for TESTNAME in gpubench-a2a gpubench-ar
-do
-    TREND_LIMIT=Bandwidth:1840
-    ./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Runtime,Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE}
-done
+# GPUBench - A2A
+TESTNAME=gpubench-a2a
+TREND_LIMIT=Bandwidth:1840
+./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE}
+
+# GPUBench - AR
+TESTNAME=gpubench-ar
+TREND_LIMIT=Bandwidth:1840
+./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE}
 
 ###################
 # Two-nodes tests #
 ###################
-INPUTS="8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
 OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
 EXTRA="same_switch_SL0"
 PLOT_TYPE="bar"
 ## NCCL vs. MPI tests
-TESTNAME="latency"
+TESTNAME="latency_soft"
 ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-mpp-nccl,gpubench-mpp-cudaaware,ping-pong_b -vi 1B -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRA} --plot_types ${PLOT_TYPE}
-TESTNAME="bandwidth"
+TESTNAME="bandwidth_soft"
 ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-mpp-nccl,gpubench-mpp-cudaaware,pw-ping-pong_b -vi 1GiB -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE}
 #TESTNAME="allsizes"
+INPUTS="8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
 #./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-mpp-nccl,gpubench-mpp-cudaaware,pw-ping-pong_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE}
 
 ##################
 # Distance tests #
 ##################
 PLOT_TYPE="box,violin"
-SL=0
-EXTRAS=same_switch_SL${SL},diff_switch_SL${SL},diff_group_SL${SL}
-# Buffer on GPU memory
-for BENCH in "gpubench-mpp-nccl" "gpubench-mpp-cudaaware"
+for SL in 0 1
 do
-    # PPN=1 for latency
-    TESTNAME=${BENCH}_1B
-    ./plots/plot_extras.py -s ${SYSTEM} -vn ${BENCH} -vi 1B -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
-
+    EXTRAS=same_switch_SL${SL},diff_switch_SL${SL},diff_group_SL${SL}
+    # Buffer on CPU memory
+    # PPN=1 for latency, pingpong
+    TESTNAME="latency_dist_SL${SL}"
+    ./plots/plot_extras.py -s ${SYSTEM} -vn "ping-pong_b" -vi 1B -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
+    # Buffer on GPU memory
     # PPN=4 for bandwidth
-    TESTNAME=${BENCH}_1GiB
-    ./plots/plot_extras.py -s ${SYSTEM} -vn ${BENCH} -vi 1GiB -n 2 -am l -sp 100 --metrics "Runtime,Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
+    TESTNAME="bandwidth_dist_SL${SL}"
+    ./plots/plot_extras.py -s ${SYSTEM} -vn "gpubench-mpp-nccl" -vi 1GiB -n 2 -am l -sp 100 --metrics "Runtime,Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
 done
-# Buffer on CPU memory
-# PPN=1 for latency, pingpong
-TESTNAME=ping-pong_b_1B
-./plots/plot_extras.py -s ${SYSTEM} -vn "ping-pong_b" -vi 1B -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
-# PPN=4 for bandwidth, pw-pingpong
-TESTNAME=pw-ping-pong_b_1GiB
-./plots/plot_extras.py -s ${SYSTEM} -vn "pw-ping-pong_b" -vi 1GiB -n 2 -am l -sp 100 --metrics "Runtime,Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
+
 
 
 

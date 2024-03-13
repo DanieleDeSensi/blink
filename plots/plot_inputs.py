@@ -40,7 +40,7 @@ def main():
     args = parser.parse_args()
 
     os.environ["BLINK_ROOT"] = os.path.dirname(os.path.abspath(__file__)) + "/../" # Set BLINK_ROOT
-    if not os.path.exists(args.outfile): 
+    if not os.path.exists(args.outfile.lower()): 
         os.makedirs(args.outfile.lower())
 
     victim_names = args.victim_names.split(",")
