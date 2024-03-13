@@ -1,0 +1,1127 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_SL1_hcoll1', maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=2, outformat='csv', ppn=1, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1073741824 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['lrdn1283' 'lrdn1286']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.01671s.
+
+Running...
+ Run 1:
+  0.00456s: started 0
+  1.07903s: awaited 0
+  1.07906s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.00427s: started 0
+  1.38224s: awaited 0
+  1.38228s: encountered an exception in 0
+srun: Job 3668961 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3668961
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00423s: started 0
+  1.05208s: awaited 0
+  1.05212s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 4:
+  0.00344s: started 0
+  1.97011s: awaited 0
+  1.97015s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 5:
+  0.00438s: started 0
+  1.05651s: awaited 0
+  1.05655s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 6:
+  0.00395s: started 0
+  2.01329s: awaited 0
+  2.01332s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 7:
+  0.0041s: started 0
+  1.05737s: awaited 0
+  1.05741s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 8:
+  0.00417s: started 0
+  1.08359s: awaited 0
+  1.08364s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 9:
+  0.00426s: started 0
+  1.06287s: awaited 0
+  1.06291s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 10:
+  0.00452s: started 0
+  1.06722s: awaited 0
+  1.06726s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 11:
+  0.00415s: started 0
+  1.05894s: awaited 0
+  1.05897s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 12:
+  0.00404s: started 0
+  1.06442s: awaited 0
+  1.06446s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 13:
+  0.00403s: started 0
+  2.42139s: awaited 0
+  2.42142s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 14:
+  0.0042s: started 0
+  1.05469s: awaited 0
+  1.05473s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 15:
+  0.00431s: started 0
+  2.01879s: awaited 0
+  2.01882s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 16:
+  0.00398s: started 0
+  1.08423s: awaited 0
+  1.08427s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 17:
+  0.00404s: started 0
+  1.98113s: awaited 0
+  1.98117s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 18:
+  0.00414s: started 0
+  1.07183s: awaited 0
+  1.07187s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 19:
+  0.00394s: started 0
+  2.15513s: awaited 0
+  2.15517s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 20:
+  0.00407s: started 0
+  1.06942s: awaited 0
+  1.06945s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 21:
+  0.00426s: started 0
+  1.99242s: awaited 0
+  1.99245s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 22:
+  0.00403s: started 0
+  1.07798s: awaited 0
+  1.07802s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 23:
+  0.00396s: started 0
+  2.11151s: awaited 0
+  2.11155s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 24:
+  0.00401s: started 0
+  1.06919s: awaited 0
+  1.06923s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 25:
+  0.0035s: started 0
+  2.02723s: awaited 0
+  2.02726s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 26:
+  0.00408s: started 0
+  1.06998s: awaited 0
+  1.07002s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 27:
+  0.00388s: started 0
+  2.0243s: awaited 0
+  2.02433s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 28:
+  0.00372s: started 0
+  1.07604s: awaited 0
+  1.07609s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 29:
+  0.00464s: started 0
+  1.08048s: awaited 0
+  1.08051s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 30:
+  0.00372s: started 0
+  1.07913s: awaited 0
+  1.07916s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 31:
+  0.00362s: started 0
+  1.08042s: awaited 0
+  1.08045s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 32:
+  0.00367s: started 0
+  1.07572s: awaited 0
+  1.07577s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 33:
+  0.00453s: started 0
+  1.05676s: awaited 0
+  1.05679s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 34:
+  0.00355s: started 0
+  1.79478s: awaited 0
+  1.79481s: encountered an exception in 0
+srun: Job 3668961 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3668961
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 35:
+  0.00357s: started 0
+  1.0604s: awaited 0
+  1.06044s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 36:
+  0.00358s: started 0
+  2.21873s: awaited 0
+  2.21876s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 37:
+  0.00357s: started 0
+  1.05384s: awaited 0
+  1.05388s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 38:
+  0.00359s: started 0
+  2.16804s: awaited 0
+  2.16808s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 39:
+  0.00447s: started 0
+  1.10983s: awaited 0
+  1.10988s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 40:
+  0.00452s: started 0
+  2.1187s: awaited 0
+  2.11874s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 41:
+  0.00365s: started 0
+  1.08599s: awaited 0
+  1.08602s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 42:
+  0.00364s: started 0
+  2.12801s: awaited 0
+  2.12804s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 43:
+  0.00354s: started 0
+  1.11184s: awaited 0
+  1.11186s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 44:
+  0.00351s: started 0
+  1.93685s: awaited 0
+  1.93689s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 45:
+  0.00425s: started 0
+  1.08786s: awaited 0
+  1.0879s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 46:
+  0.00361s: started 0
+  2.23007s: awaited 0
+  2.23011s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 47:
+  0.00447s: started 0
+  1.06544s: awaited 0
+  1.06548s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 48:
+  0.00425s: started 0
+  2.05211s: awaited 0
+  2.05214s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 49:
+  0.00336s: started 0
+  1.07496s: awaited 0
+  1.075s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 50:
+  0.00358s: started 0
+  1.07948s: awaited 0
+  1.07951s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1286: task 1: Exited with exit code 255
+srun: error: lrdn1283: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 51:
+  0.00333s: started 0
+  1.06065s: awaited 0
+  1.06068s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 52:
+  0.00337s: started 0
+  1.04789s: awaited 0
+  1.04792s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 53:
+  0.00337s: started 0
+  1.07501s: awaited 0
+  1.07505s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 54:
+  0.00397s: started 0
+  2.22696s: awaited 0
+  2.227s: encountered an exception in 0
+srun: Job 3668961 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3668961
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 55:
+  0.00393s: started 0
+  1.05797s: awaited 0
+  1.058s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 56:
+  0.00458s: started 0
+  2.5988s: awaited 0
+  2.59883s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 57:
+  0.00374s: started 0
+  1.05918s: awaited 0
+  1.05922s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 58:
+  0.00421s: started 0
+  2.2992s: awaited 0
+  2.29923s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 59:
+  0.00402s: started 0
+  1.08928s: awaited 0
+  1.08932s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 60:
+  0.00382s: started 0
+  2.33215s: awaited 0
+  2.33219s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 61:
+  0.00421s: started 0
+  1.03538s: awaited 0
+  1.03541s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 62:
+  0.00378s: started 0
+  2.60238s: awaited 0
+  2.60241s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 63:
+  0.00372s: started 0
+  1.06518s: awaited 0
+  1.06522s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 64:
+  0.0036s: started 0
+  2.32143s: awaited 0
+  2.32147s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 65:
+  0.00419s: started 0
+  1.06549s: awaited 0
+  1.06553s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 66:
+  0.00411s: started 0
+  2.31877s: awaited 0
+  2.31881s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 67:
+  0.00428s: started 0
+  1.08442s: awaited 0
+  1.08446s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 68:
+  0.00436s: started 0
+  1.08812s: awaited 0
+  1.08816s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 69:
+  0.00422s: started 0
+  1.08625s: awaited 0
+  1.08629s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 70:
+  0.00426s: started 0
+  1.06342s: awaited 0
+  1.06346s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 71:
+  0.0041s: started 0
+  1.07724s: awaited 0
+  1.07727s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 72:
+  0.00419s: started 0
+  1.07305s: awaited 0
+  1.07308s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 73:
+  0.00411s: started 0
+  1.08016s: awaited 0
+  1.08019s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 74:
+  0.00411s: started 0
+  1.06199s: awaited 0
+  1.06208s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 75:
+  0.00377s: started 0
+  1.04793s: awaited 0
+  1.04797s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 76:
+  0.00422s: started 0
+  1.48703s: awaited 0
+  1.48706s: encountered an exception in 0
+srun: Job 3668961 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3668961
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 77:
+  0.00397s: started 0
+  1.07819s: awaited 0
+  1.07822s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 78:
+  0.00299s: started 0
+  2.05342s: awaited 0
+  2.05346s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1286: task 1: Exited with exit code 255
+srun: error: lrdn1283: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 79:
+  0.00403s: started 0
+  1.06324s: awaited 0
+  1.06328s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 80:
+  0.00366s: started 0
+  2.1127s: awaited 0
+  2.11274s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 81:
+  0.00431s: started 0
+  1.05453s: awaited 0
+  1.05456s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 82:
+  0.00401s: started 0
+  2.02846s: awaited 0
+  2.02849s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 83:
+  0.00379s: started 0
+  1.05885s: awaited 0
+  1.05888s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 84:
+  0.00353s: started 0
+  2.0748s: awaited 0
+  2.07484s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 85:
+  0.00422s: started 0
+  1.05764s: awaited 0
+  1.05767s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 86:
+  0.00411s: started 0
+  2.26909s: awaited 0
+  2.26913s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 87:
+  0.00427s: started 0
+  1.0597s: awaited 0
+  1.05974s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 88:
+  0.00391s: started 0
+  2.10256s: awaited 0
+  2.10259s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 89:
+  0.00416s: started 0
+  1.05073s: awaited 0
+  1.05077s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 90:
+  0.00383s: started 0
+  1.99904s: awaited 0
+  1.99907s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 91:
+  0.00412s: started 0
+  1.06089s: awaited 0
+  1.06093s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 92:
+  0.00433s: started 0
+  2.08414s: awaited 0
+  2.08418s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 93:
+  0.00423s: started 0
+  1.05647s: awaited 0
+  1.0565s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 94:
+  0.00346s: started 0
+  2.05119s: awaited 0
+  2.05123s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 95:
+  0.00366s: started 0
+  1.06546s: awaited 0
+  1.06549s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 96:
+  0.00361s: started 0
+  2.05263s: awaited 0
+  2.05267s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 97:
+  0.00374s: started 0
+  1.06272s: awaited 0
+  1.06275s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 98:
+  0.00364s: started 0
+  1.98626s: awaited 0
+  1.98629s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 99:
+  0.00369s: started 0
+  1.10509s: awaited 0
+  1.10513s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1286: task 1: Exited with exit code 255
+srun: error: lrdn1283: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 100:
+  0.00384s: started 0
+  1.97122s: awaited 0
+  1.97126s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1283: task 0: Exited with exit code 255
+srun: error: lrdn1286: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 100 runs taking 146.98 seconds.

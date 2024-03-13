@@ -1,0 +1,715 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/ardc_b/1B', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_SL1_hcoll1', maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=2, outformat='csv', ppn=1, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['lrdn1283' 'lrdn1286']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.03584s.
+
+Running...
+ Run 1:
+  0.00459s: started 0
+  32.70921s: awaited 0
+  32.70924s: encountered an exception in 0
+Msg-size (1) must be divisible by size of int (4)srun: error: lrdn1283: task 0: Exited with exit code 255
+[lrdn1286:880518:0:880518]       ud_ep.c:276  Fatal: UD endpoint 0x2a5aee0 to <no debug data>: unhandled timeout error
+==== backtrace (tid: 880518) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x153d517c9edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x153d517c6d41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f) [0x153d517c6e5f]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700) [0x153d4faf1700]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b) [0x153d517c003b]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x153d51e9181a]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3) [0x153d58114623]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254) [0x153d66712514]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39) [0x153d46bd8439]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67) [0x153d46bd25a7]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad) [0x153d666c516d]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x401a74]
+12  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5) [0x153d64b36d85]
+13  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x40132e]
+=================================
+[lrdn1286:880518] *** Process received signal ***
+[lrdn1286:880518] Signal: Aborted (6)
+[lrdn1286:880518] Signal code:  (-6)
+[lrdn1286:880518] [ 0] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libpthread.so.0(+0x12cf0)[0x153d65551cf0]
+[lrdn1286:880518] [ 1] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(gsignal+0x10f)[0x153d64b4aaff]
+[lrdn1286:880518] [ 2] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(abort+0x127)[0x153d64b1dea5]
+[lrdn1286:880518] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x153d517c6d46]
+[lrdn1286:880518] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f)[0x153d517c6e5f]
+[lrdn1286:880518] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700)[0x153d4faf1700]
+[lrdn1286:880518] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b)[0x153d517c003b]
+[lrdn1286:880518] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x153d51e9181a]
+[lrdn1286:880518] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3)[0x153d58114623]
+[lrdn1286:880518] [ 9] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254)[0x153d66712514]
+[lrdn1286:880518] [10] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39)[0x153d46bd8439]
+[lrdn1286:880518] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67)[0x153d46bd25a7]
+[lrdn1286:880518] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad)[0x153d666c516d]
+[lrdn1286:880518] [13] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x401a74]
+[lrdn1286:880518] [14] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5)[0x153d64b36d85]
+[lrdn1286:880518] [15] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x40132e]
+[lrdn1286:880518] *** End of error message ***
+srun: error: lrdn1286: task 1: Aborted (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.00362s: started 0
+  32.72492s: awaited 0
+  32.72495s: encountered an exception in 0
+Msg-size (1) must be divisible by size of int (4)srun: error: lrdn1283: task 0: Exited with exit code 255
+[lrdn1286:880569:0:880569]       ud_ep.c:276  Fatal: UD endpoint 0x1f9cb50 to <no debug data>: unhandled timeout error
+==== backtrace (tid: 880569) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x1490d05f6edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x1490d05f3d41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f) [0x1490d05f3e5f]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700) [0x1490c8a7f700]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b) [0x1490d05ed03b]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x1490d0cbe81a]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3) [0x1490d114a623]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254) [0x1490df6e1514]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39) [0x1490ab9ef439]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67) [0x1490ab9e95a7]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad) [0x1490df69416d]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x401a74]
+12  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5) [0x1490ddb05d85]
+13  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x40132e]
+=================================
+[lrdn1286:880569] *** Process received signal ***
+[lrdn1286:880569] Signal: Aborted (6)
+[lrdn1286:880569] Signal code:  (-6)
+[lrdn1286:880569] [ 0] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libpthread.so.0(+0x12cf0)[0x1490de520cf0]
+[lrdn1286:880569] [ 1] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(gsignal+0x10f)[0x1490ddb19aff]
+[lrdn1286:880569] [ 2] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(abort+0x127)[0x1490ddaecea5]
+[lrdn1286:880569] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x1490d05f3d46]
+[lrdn1286:880569] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f)[0x1490d05f3e5f]
+[lrdn1286:880569] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700)[0x1490c8a7f700]
+[lrdn1286:880569] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b)[0x1490d05ed03b]
+[lrdn1286:880569] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x1490d0cbe81a]
+[lrdn1286:880569] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3)[0x1490d114a623]
+[lrdn1286:880569] [ 9] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254)[0x1490df6e1514]
+[lrdn1286:880569] [10] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39)[0x1490ab9ef439]
+[lrdn1286:880569] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67)[0x1490ab9e95a7]
+[lrdn1286:880569] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad)[0x1490df69416d]
+[lrdn1286:880569] [13] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x401a74]
+[lrdn1286:880569] [14] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5)[0x1490ddb05d85]
+[lrdn1286:880569] [15] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x40132e]
+[lrdn1286:880569] *** End of error message ***
+srun: error: lrdn1286: task 1: Aborted (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00375s: started 0
+  32.73725s: awaited 0
+  32.73728s: encountered an exception in 0
+Msg-size (1) must be divisible by size of int (4)srun: error: lrdn1283: task 0: Exited with exit code 255
+[lrdn1286:880619:0:880619]       ud_ep.c:276  Fatal: UD endpoint 0xfd0c70 to <no debug data>: unhandled timeout error
+==== backtrace (tid: 880619) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x148f64b90edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x148f64b8dd41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f) [0x148f64b8de5f]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700) [0x148f62eb8700]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b) [0x148f64b8703b]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x148f6525881a]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3) [0x148f654de623]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254) [0x148f799d1514]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39) [0x148f59f9f439]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67) [0x148f59f995a7]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad) [0x148f7998416d]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x401a74]
+12  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5) [0x148f77df5d85]
+13  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x40132e]
+=================================
+[lrdn1286:880619] *** Process received signal ***
+[lrdn1286:880619] Signal: Aborted (6)
+[lrdn1286:880619] Signal code:  (-6)
+[lrdn1286:880619] [ 0] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libpthread.so.0(+0x12cf0)[0x148f78810cf0]
+[lrdn1286:880619] [ 1] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(gsignal+0x10f)[0x148f77e09aff]
+[lrdn1286:880619] [ 2] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(abort+0x127)[0x148f77ddcea5]
+[lrdn1286:880619] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x148f64b8dd46]
+[lrdn1286:880619] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f)[0x148f64b8de5f]
+[lrdn1286:880619] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700)[0x148f62eb8700]
+[lrdn1286:880619] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b)[0x148f64b8703b]
+[lrdn1286:880619] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x148f6525881a]
+[lrdn1286:880619] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3)[0x148f654de623]
+[lrdn1286:880619] [ 9] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254)[0x148f799d1514]
+[lrdn1286:880619] [10] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39)[0x148f59f9f439]
+[lrdn1286:880619] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67)[0x148f59f995a7]
+[lrdn1286:880619] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad)[0x148f7998416d]
+[lrdn1286:880619] [13] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x401a74]
+[lrdn1286:880619] [14] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5)[0x148f77df5d85]
+[lrdn1286:880619] [15] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x40132e]
+[lrdn1286:880619] *** End of error message ***
+srun: error: lrdn1286: task 1: Aborted (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 4:
+  0.00385s: started 0
+  32.7201s: awaited 0
+  32.72013s: encountered an exception in 0
+Msg-size (1) must be divisible by size of int (4)srun: error: lrdn1283: task 0: Exited with exit code 255
+[lrdn1286:880667:0:880667]       ud_ep.c:276  Fatal: UD endpoint 0x2665930 to <no debug data>: unhandled timeout error
+==== backtrace (tid: 880667) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x150f6a0e6edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x150f6a0e3d41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f) [0x150f6a0e3e5f]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700) [0x150f6840e700]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b) [0x150f6a0dd03b]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x150f704b081a]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3) [0x150f7093c623]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254) [0x150f7efaa514]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39) [0x150f473a9439]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67) [0x150f473a35a7]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad) [0x150f7ef5d16d]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x401a74]
+12  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5) [0x150f7d3ced85]
+13  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x40132e]
+=================================
+[lrdn1286:880667] *** Process received signal ***
+[lrdn1286:880667] Signal: Aborted (6)
+[lrdn1286:880667] Signal code:  (-6)
+[lrdn1286:880667] [ 0] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libpthread.so.0(+0x12cf0)[0x150f7dde9cf0]
+[lrdn1286:880667] [ 1] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(gsignal+0x10f)[0x150f7d3e2aff]
+[lrdn1286:880667] [ 2] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(abort+0x127)[0x150f7d3b5ea5]
+[lrdn1286:880667] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x150f6a0e3d46]
+[lrdn1286:880667] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f)[0x150f6a0e3e5f]
+[lrdn1286:880667] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700)[0x150f6840e700]
+[lrdn1286:880667] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b)[0x150f6a0dd03b]
+[lrdn1286:880667] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x150f704b081a]
+[lrdn1286:880667] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3)[0x150f7093c623]
+[lrdn1286:880667] [ 9] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254)[0x150f7efaa514]
+[lrdn1286:880667] [10] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39)[0x150f473a9439]
+[lrdn1286:880667] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67)[0x150f473a35a7]
+[lrdn1286:880667] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad)[0x150f7ef5d16d]
+[lrdn1286:880667] [13] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x401a74]
+[lrdn1286:880667] [14] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5)[0x150f7d3ced85]
+[lrdn1286:880667] [15] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x40132e]
+[lrdn1286:880667] *** End of error message ***
+srun: error: lrdn1286: task 1: Aborted (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 5:
+  0.00358s: started 0
+  32.73831s: awaited 0
+  32.73835s: encountered an exception in 0
+Msg-size (1) must be divisible by size of int (4)srun: error: lrdn1283: task 0: Exited with exit code 255
+[lrdn1286:880714:0:880714]       ud_ep.c:276  Fatal: UD endpoint 0x2c4ae30 to <no debug data>: unhandled timeout error
+==== backtrace (tid: 880714) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14e820df6edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x14e820df3d41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f) [0x14e820df3e5f]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700) [0x14e8200ce700]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b) [0x14e820ded03b]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x14e8214be81a]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3) [0x14e82194a623]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254) [0x14e82ff2d514]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39) [0x14e8104a7439]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67) [0x14e8104a15a7]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad) [0x14e82fee016d]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x401a74]
+12  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5) [0x14e82e351d85]
+13  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x40132e]
+=================================
+[lrdn1286:880714] *** Process received signal ***
+[lrdn1286:880714] Signal: Aborted (6)
+[lrdn1286:880714] Signal code:  (-6)
+[lrdn1286:880714] [ 0] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libpthread.so.0(+0x12cf0)[0x14e82ed6ccf0]
+[lrdn1286:880714] [ 1] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(gsignal+0x10f)[0x14e82e365aff]
+[lrdn1286:880714] [ 2] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(abort+0x127)[0x14e82e338ea5]
+[lrdn1286:880714] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x14e820df3d46]
+[lrdn1286:880714] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f)[0x14e820df3e5f]
+[lrdn1286:880714] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700)[0x14e8200ce700]
+[lrdn1286:880714] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b)[0x14e820ded03b]
+[lrdn1286:880714] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x14e8214be81a]
+[lrdn1286:880714] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3)[0x14e82194a623]
+[lrdn1286:880714] [ 9] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254)[0x14e82ff2d514]
+[lrdn1286:880714] [10] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39)[0x14e8104a7439]
+[lrdn1286:880714] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67)[0x14e8104a15a7]
+[lrdn1286:880714] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad)[0x14e82fee016d]
+[lrdn1286:880714] [13] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x401a74]
+[lrdn1286:880714] [14] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5)[0x14e82e351d85]
+[lrdn1286:880714] [15] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x40132e]
+[lrdn1286:880714] *** End of error message ***
+srun: error: lrdn1286: task 1: Aborted (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 6:
+  0.00364s: started 0
+  33.61439s: awaited 0
+  33.61443s: encountered an exception in 0
+Msg-size (1) must be divisible by size of int (4)srun: error: lrdn1283: task 0: Exited with exit code 255
+[lrdn1286:880762:0:880762]       ud_ep.c:276  Fatal: UD endpoint 0x1331f60 to <no debug data>: unhandled timeout error
+==== backtrace (tid: 880762) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x15371c1f1edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x15371c1eed41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f) [0x15371c1eee5f]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700) [0x153714669700]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b) [0x15371c1e803b]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x15371c8b981a]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3) [0x15371cd45623]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254) [0x15372b348514]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39) [0x1537075cc439]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67) [0x1537075c65a7]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad) [0x15372b2fb16d]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x401a74]
+12  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5) [0x15372976cd85]
+13  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x40132e]
+=================================
+[lrdn1286:880762] *** Process received signal ***
+[lrdn1286:880762] Signal: Aborted (6)
+[lrdn1286:880762] Signal code:  (-6)
+[lrdn1286:880762] [ 0] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libpthread.so.0(+0x12cf0)[0x15372a187cf0]
+[lrdn1286:880762] [ 1] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(gsignal+0x10f)[0x153729780aff]
+[lrdn1286:880762] [ 2] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(abort+0x127)[0x153729753ea5]
+[lrdn1286:880762] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x15371c1eed46]
+[lrdn1286:880762] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f)[0x15371c1eee5f]
+[lrdn1286:880762] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700)[0x153714669700]
+[lrdn1286:880762] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b)[0x15371c1e803b]
+[lrdn1286:880762] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x15371c8b981a]
+[lrdn1286:880762] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3)[0x15371cd45623]
+[lrdn1286:880762] [ 9] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254)[0x15372b348514]
+[lrdn1286:880762] [10] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39)[0x1537075cc439]
+[lrdn1286:880762] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67)[0x1537075c65a7]
+[lrdn1286:880762] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad)[0x15372b2fb16d]
+[lrdn1286:880762] [13] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x401a74]
+[lrdn1286:880762] [14] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5)[0x15372976cd85]
+[lrdn1286:880762] [15] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x40132e]
+[lrdn1286:880762] *** End of error message ***
+srun: error: lrdn1286: task 1: Aborted (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 7:
+  0.0038s: started 0
+  112.28741s: awaited 0
+  112.28743s: encountered an exception in 0
+Msg-size (1) must be divisible by size of int (4)srun: error: lrdn1283: task 0: Exited with exit code 255
+[lrdn1286:880818:0:880818]       ud_ep.c:276  Fatal: UD endpoint 0x12767d0 to <no debug data>: unhandled timeout error
+==== backtrace (tid: 880818) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x151b30578edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x151b30575d41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f) [0x151b30575e5f]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700) [0x151b2e8a0700]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b) [0x151b3056f03b]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x151b30c4081a]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3) [0x151b310cc623]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254) [0x151b4540e514]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39) [0x151b25987439]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67) [0x151b259815a7]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad) [0x151b453c116d]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x401a74]
+12  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5) [0x151b43832d85]
+13  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x40132e]
+=================================
+[lrdn1286:880818] *** Process received signal ***
+[lrdn1286:880818] Signal: Aborted (6)
+[lrdn1286:880818] Signal code:  (-6)
+[lrdn1286:880818] [ 0] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libpthread.so.0(+0x12cf0)[0x151b4424dcf0]
+[lrdn1286:880818] [ 1] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(gsignal+0x10f)[0x151b43846aff]
+[lrdn1286:880818] [ 2] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(abort+0x127)[0x151b43819ea5]
+[lrdn1286:880818] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x151b30575d46]
+[lrdn1286:880818] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f)[0x151b30575e5f]
+[lrdn1286:880818] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700)[0x151b2e8a0700]
+[lrdn1286:880818] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b)[0x151b3056f03b]
+[lrdn1286:880818] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x151b30c4081a]
+[lrdn1286:880818] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3)[0x151b310cc623]
+[lrdn1286:880818] [ 9] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254)[0x151b4540e514]
+[lrdn1286:880818] [10] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39)[0x151b25987439]
+[lrdn1286:880818] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67)[0x151b259815a7]
+[lrdn1286:880818] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad)[0x151b453c116d]
+[lrdn1286:880818] [13] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x401a74]
+[lrdn1286:880818] [14] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5)[0x151b43832d85]
+[lrdn1286:880818] [15] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x40132e]
+[lrdn1286:880818] *** End of error message ***
+srun: error: lrdn1286: task 1: Aborted (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 8:
+  0.0037s: started 0
+  33.4499s: awaited 0
+  33.44993s: encountered an exception in 0
+srun: Job 3668961 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3668961
+Msg-size (1) must be divisible by size of int (4)srun: error: lrdn1283: task 0: Exited with exit code 255
+[lrdn1286:880870:0:880870]       ud_ep.c:276  Fatal: UD endpoint 0x22cba30 to <no debug data>: unhandled timeout error
+==== backtrace (tid: 880870) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14eaac9f6edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x14eaac9f3d41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f) [0x14eaac9f3e5f]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700) [0x14eaa4e94700]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b) [0x14eaac9ed03b]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x14eaad0be81a]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3) [0x14eaad54a623]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254) [0x14eabbb7f514]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39) [0x14ea97df8439]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67) [0x14ea97df25a7]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad) [0x14eabbb3216d]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x401a74]
+12  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5) [0x14eab9fa3d85]
+13  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x40132e]
+=================================
+[lrdn1286:880870] *** Process received signal ***
+[lrdn1286:880870] Signal: Aborted (6)
+[lrdn1286:880870] Signal code:  (-6)
+[lrdn1286:880870] [ 0] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libpthread.so.0(+0x12cf0)[0x14eaba9becf0]
+[lrdn1286:880870] [ 1] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(gsignal+0x10f)[0x14eab9fb7aff]
+[lrdn1286:880870] [ 2] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(abort+0x127)[0x14eab9f8aea5]
+[lrdn1286:880870] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x14eaac9f3d46]
+[lrdn1286:880870] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f)[0x14eaac9f3e5f]
+[lrdn1286:880870] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700)[0x14eaa4e94700]
+[lrdn1286:880870] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b)[0x14eaac9ed03b]
+[lrdn1286:880870] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x14eaad0be81a]
+[lrdn1286:880870] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3)[0x14eaad54a623]
+[lrdn1286:880870] [ 9] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254)[0x14eabbb7f514]
+[lrdn1286:880870] [10] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39)[0x14ea97df8439]
+[lrdn1286:880870] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67)[0x14ea97df25a7]
+[lrdn1286:880870] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad)[0x14eabbb3216d]
+[lrdn1286:880870] [13] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x401a74]
+[lrdn1286:880870] [14] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5)[0x14eab9fa3d85]
+[lrdn1286:880870] [15] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x40132e]
+[lrdn1286:880870] *** End of error message ***
+srun: error: lrdn1286: task 1: Aborted (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 9:
+  0.00416s: started 0
+  32.74226s: awaited 0
+  32.7423s: encountered an exception in 0
+Msg-size (1) must be divisible by size of int (4)srun: error: lrdn1283: task 0: Exited with exit code 255
+[lrdn1286:880919:0:880919]       ud_ep.c:276  Fatal: UD endpoint 0x1629970 to <no debug data>: unhandled timeout error
+==== backtrace (tid: 880919) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x1543a32a5edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x1543a32a2d41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f) [0x1543a32a2e5f]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700) [0x1543a15cd700]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b) [0x1543a329c03b]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x1543a396d81a]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3) [0x1543a3df9623]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254) [0x1543b8237514]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39) [0x1543986b4439]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67) [0x1543986ae5a7]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad) [0x1543b81ea16d]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x401a74]
+12  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5) [0x1543b665bd85]
+13  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x40132e]
+=================================
+[lrdn1286:880919] *** Process received signal ***
+[lrdn1286:880919] Signal: Aborted (6)
+[lrdn1286:880919] Signal code:  (-6)
+[lrdn1286:880919] [ 0] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libpthread.so.0(+0x12cf0)[0x1543b7076cf0]
+[lrdn1286:880919] [ 1] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(gsignal+0x10f)[0x1543b666faff]
+[lrdn1286:880919] [ 2] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(abort+0x127)[0x1543b6642ea5]
+[lrdn1286:880919] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x1543a32a2d46]
+[lrdn1286:880919] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f)[0x1543a32a2e5f]
+[lrdn1286:880919] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700)[0x1543a15cd700]
+[lrdn1286:880919] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b)[0x1543a329c03b]
+[lrdn1286:880919] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x1543a396d81a]
+[lrdn1286:880919] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3)[0x1543a3df9623]
+[lrdn1286:880919] [ 9] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254)[0x1543b8237514]
+[lrdn1286:880919] [10] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39)[0x1543986b4439]
+[lrdn1286:880919] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67)[0x1543986ae5a7]
+[lrdn1286:880919] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad)[0x1543b81ea16d]
+[lrdn1286:880919] [13] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x401a74]
+[lrdn1286:880919] [14] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5)[0x1543b665bd85]
+[lrdn1286:880919] [15] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x40132e]
+[lrdn1286:880919] *** End of error message ***
+srun: error: lrdn1286: task 1: Aborted (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 10:
+  0.00388s: started 0
+  33.56934s: awaited 0
+  33.56937s: encountered an exception in 0
+Msg-size (1) must be divisible by size of int (4)srun: error: lrdn1283: task 0: Exited with exit code 255
+[lrdn1286:880971:0:880971]       ud_ep.c:276  Fatal: UD endpoint 0x11e68f0 to <no debug data>: unhandled timeout error
+==== backtrace (tid: 880971) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x149498578edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x149498575d41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f) [0x149498575e5f]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700) [0x1494968a0700]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b) [0x14949856f03b]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x149498c4081a]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3) [0x1494990cc623]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254) [0x1494ad3fc514]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39) [0x14948d987439]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67) [0x14948d9815a7]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad) [0x1494ad3af16d]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x401a74]
+12  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5) [0x1494ab820d85]
+13  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x40132e]
+=================================
+[lrdn1286:880971] *** Process received signal ***
+[lrdn1286:880971] Signal: Aborted (6)
+[lrdn1286:880971] Signal code:  (-6)
+[lrdn1286:880971] [ 0] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libpthread.so.0(+0x12cf0)[0x1494ac23bcf0]
+[lrdn1286:880971] [ 1] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(gsignal+0x10f)[0x1494ab834aff]
+[lrdn1286:880971] [ 2] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(abort+0x127)[0x1494ab807ea5]
+[lrdn1286:880971] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x149498575d46]
+[lrdn1286:880971] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f)[0x149498575e5f]
+[lrdn1286:880971] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700)[0x1494968a0700]
+[lrdn1286:880971] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b)[0x14949856f03b]
+[lrdn1286:880971] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x149498c4081a]
+[lrdn1286:880971] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3)[0x1494990cc623]
+[lrdn1286:880971] [ 9] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254)[0x1494ad3fc514]
+[lrdn1286:880971] [10] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39)[0x14948d987439]
+[lrdn1286:880971] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67)[0x14948d9815a7]
+[lrdn1286:880971] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad)[0x1494ad3af16d]
+[lrdn1286:880971] [13] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x401a74]
+[lrdn1286:880971] [14] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5)[0x1494ab820d85]
+[lrdn1286:880971] [15] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x40132e]
+[lrdn1286:880971] *** End of error message ***
+srun: error: lrdn1286: task 1: Aborted (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 11:
+  0.00394s: started 0
+  32.97221s: awaited 0
+  32.97224s: encountered an exception in 0
+Msg-size (1) must be divisible by size of int (4)srun: error: lrdn1283: task 0: Exited with exit code 255
+[lrdn1286:881020:0:881020]       ud_ep.c:276  Fatal: UD endpoint 0xee8c50 to <no debug data>: unhandled timeout error
+==== backtrace (tid: 881020) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x148e30373edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x148e30370d41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f) [0x148e30370e5f]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700) [0x148e2e69b700]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b) [0x148e3036a03b]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x148e30a3b81a]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3) [0x148e30ec7623]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254) [0x148e45306514]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39) [0x148e25782439]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67) [0x148e2577c5a7]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad) [0x148e452b916d]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x401a74]
+12  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5) [0x148e4372ad85]
+13  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x40132e]
+=================================
+[lrdn1286:881020] *** Process received signal ***
+[lrdn1286:881020] Signal: Aborted (6)
+[lrdn1286:881020] Signal code:  (-6)
+[lrdn1286:881020] [ 0] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libpthread.so.0(+0x12cf0)[0x148e44145cf0]
+[lrdn1286:881020] [ 1] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(gsignal+0x10f)[0x148e4373eaff]
+[lrdn1286:881020] [ 2] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(abort+0x127)[0x148e43711ea5]
+[lrdn1286:881020] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x148e30370d46]
+[lrdn1286:881020] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f)[0x148e30370e5f]
+[lrdn1286:881020] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700)[0x148e2e69b700]
+[lrdn1286:881020] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b)[0x148e3036a03b]
+[lrdn1286:881020] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x148e30a3b81a]
+[lrdn1286:881020] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3)[0x148e30ec7623]
+[lrdn1286:881020] [ 9] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254)[0x148e45306514]
+[lrdn1286:881020] [10] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39)[0x148e25782439]
+[lrdn1286:881020] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67)[0x148e2577c5a7]
+[lrdn1286:881020] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad)[0x148e452b916d]
+[lrdn1286:881020] [13] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x401a74]
+[lrdn1286:881020] [14] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5)[0x148e4372ad85]
+[lrdn1286:881020] [15] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x40132e]
+[lrdn1286:881020] *** End of error message ***
+srun: error: lrdn1286: task 1: Aborted (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 12:
+  0.00377s: started 0
+  32.73109s: awaited 0
+  32.73112s: encountered an exception in 0
+Msg-size (1) must be divisible by size of int (4)srun: error: lrdn1283: task 0: Exited with exit code 255
+[lrdn1286:881071:0:881071]       ud_ep.c:276  Fatal: UD endpoint 0x2181550 to <no debug data>: unhandled timeout error
+==== backtrace (tid: 881071) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14aad477fedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x14aad477cd41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f) [0x14aad477ce5f]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700) [0x14aad2aa7700]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b) [0x14aad477603b]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x14aad4e4781a]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3) [0x14aad52d3623]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254) [0x14aae95de514]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39) [0x14aac9b8e439]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67) [0x14aac9b885a7]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad) [0x14aae959116d]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x401a74]
+12  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5) [0x14aae7a02d85]
+13  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x40132e]
+=================================
+[lrdn1286:881071] *** Process received signal ***
+[lrdn1286:881071] Signal: Aborted (6)
+[lrdn1286:881071] Signal code:  (-6)
+[lrdn1286:881071] [ 0] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libpthread.so.0(+0x12cf0)[0x14aae841dcf0]
+[lrdn1286:881071] [ 1] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(gsignal+0x10f)[0x14aae7a16aff]
+[lrdn1286:881071] [ 2] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(abort+0x127)[0x14aae79e9ea5]
+[lrdn1286:881071] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x14aad477cd46]
+[lrdn1286:881071] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f)[0x14aad477ce5f]
+[lrdn1286:881071] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700)[0x14aad2aa7700]
+[lrdn1286:881071] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b)[0x14aad477603b]
+[lrdn1286:881071] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x14aad4e4781a]
+[lrdn1286:881071] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3)[0x14aad52d3623]
+[lrdn1286:881071] [ 9] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254)[0x14aae95de514]
+[lrdn1286:881071] [10] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39)[0x14aac9b8e439]
+[lrdn1286:881071] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67)[0x14aac9b885a7]
+[lrdn1286:881071] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad)[0x14aae959116d]
+[lrdn1286:881071] [13] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x401a74]
+[lrdn1286:881071] [14] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5)[0x14aae7a02d85]
+[lrdn1286:881071] [15] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x40132e]
+[lrdn1286:881071] *** End of error message ***
+srun: error: lrdn1286: task 1: Aborted (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 13:
+  0.00362s: started 0
+  32.72202s: awaited 0
+  32.72206s: encountered an exception in 0
+Msg-size (1) must be divisible by size of int (4)srun: error: lrdn1283: task 0: Exited with exit code 255
+[lrdn1286:881120:0:881120]       ud_ep.c:276  Fatal: UD endpoint 0x1e87a40 to <no debug data>: unhandled timeout error
+==== backtrace (tid: 881120) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x1514655bcedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x1514655b9d41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f) [0x1514655b9e5f]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700) [0x1514638e4700]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b) [0x1514655b303b]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x151465c8481a]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3) [0x151466110623]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254) [0x15147a5a9514]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39) [0x15145a9cb439]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67) [0x15145a9c55a7]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad) [0x15147a55c16d]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x401a74]
+12  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5) [0x1514789cdd85]
+13  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x40132e]
+=================================
+[lrdn1286:881120] *** Process received signal ***
+[lrdn1286:881120] Signal: Aborted (6)
+[lrdn1286:881120] Signal code:  (-6)
+[lrdn1286:881120] [ 0] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libpthread.so.0(+0x12cf0)[0x1514793e8cf0]
+[lrdn1286:881120] [ 1] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(gsignal+0x10f)[0x1514789e1aff]
+[lrdn1286:881120] [ 2] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(abort+0x127)[0x1514789b4ea5]
+[lrdn1286:881120] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x1514655b9d46]
+[lrdn1286:881120] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f)[0x1514655b9e5f]
+[lrdn1286:881120] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700)[0x1514638e4700]
+[lrdn1286:881120] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b)[0x1514655b303b]
+[lrdn1286:881120] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x151465c8481a]
+[lrdn1286:881120] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3)[0x151466110623]
+[lrdn1286:881120] [ 9] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254)[0x15147a5a9514]
+[lrdn1286:881120] [10] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39)[0x15145a9cb439]
+[lrdn1286:881120] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67)[0x15145a9c55a7]
+[lrdn1286:881120] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad)[0x15147a55c16d]
+[lrdn1286:881120] [13] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x401a74]
+[lrdn1286:881120] [14] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5)[0x1514789cdd85]
+[lrdn1286:881120] [15] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x40132e]
+[lrdn1286:881120] *** End of error message ***
+srun: error: lrdn1286: task 1: Aborted (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 14:
+  0.00361s: started 0
+  33.34936s: awaited 0
+  33.3494s: encountered an exception in 0
+Msg-size (1) must be divisible by size of int (4)srun: error: lrdn1283: task 0: Exited with exit code 255
+[lrdn1286:881167:0:881167]       ud_ep.c:276  Fatal: UD endpoint 0x16a4e40 to <no debug data>: unhandled timeout error
+==== backtrace (tid: 881167) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14eeb74b2edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x14eeb74afd41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f) [0x14eeb74afe5f]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700) [0x14eeb57da700]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b) [0x14eeb74a903b]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x14eeb7b7a81a]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3) [0x14eebc0a4623]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254) [0x14eecc349514]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39) [0x14eeac8c1439]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67) [0x14eeac8bb5a7]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad) [0x14eecc2fc16d]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x401a74]
+12  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5) [0x14eeca76dd85]
+13  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x40132e]
+=================================
+[lrdn1286:881167] *** Process received signal ***
+[lrdn1286:881167] Signal: Aborted (6)
+[lrdn1286:881167] Signal code:  (-6)
+[lrdn1286:881167] [ 0] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libpthread.so.0(+0x12cf0)[0x14eecb188cf0]
+[lrdn1286:881167] [ 1] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(gsignal+0x10f)[0x14eeca781aff]
+[lrdn1286:881167] [ 2] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(abort+0x127)[0x14eeca754ea5]
+[lrdn1286:881167] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x14eeb74afd46]
+[lrdn1286:881167] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f)[0x14eeb74afe5f]
+[lrdn1286:881167] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700)[0x14eeb57da700]
+[lrdn1286:881167] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b)[0x14eeb74a903b]
+[lrdn1286:881167] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x14eeb7b7a81a]
+[lrdn1286:881167] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3)[0x14eebc0a4623]
+[lrdn1286:881167] [ 9] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254)[0x14eecc349514]
+[lrdn1286:881167] [10] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39)[0x14eeac8c1439]
+[lrdn1286:881167] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67)[0x14eeac8bb5a7]
+[lrdn1286:881167] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad)[0x14eecc2fc16d]
+[lrdn1286:881167] [13] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x401a74]
+[lrdn1286:881167] [14] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5)[0x14eeca76dd85]
+[lrdn1286:881167] [15] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x40132e]
+[lrdn1286:881167] *** End of error message ***
+srun: error: lrdn1286: task 1: Aborted (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 15:
+  0.00457s: started 0
+  32.71722s: awaited 0
+  32.71726s: encountered an exception in 0
+Msg-size (1) must be divisible by size of int (4)srun: error: lrdn1283: task 0: Exited with exit code 255
+[lrdn1286:881216:0:881216]       ud_ep.c:276  Fatal: UD endpoint 0xfb0ce0 to <no debug data>: unhandled timeout error
+==== backtrace (tid: 881216) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x153364373edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x153364370d41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f) [0x153364370e5f]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700) [0x15336269b700]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b) [0x15336436a03b]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x153364a3b81a]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3) [0x153364ec7623]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254) [0x153379322514]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39) [0x153359782439]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67) [0x15335977c5a7]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad) [0x1533792d516d]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x401a74]
+12  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5) [0x153377746d85]
+13  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x40132e]
+=================================
+[lrdn1286:881216] *** Process received signal ***
+[lrdn1286:881216] Signal: Aborted (6)
+[lrdn1286:881216] Signal code:  (-6)
+[lrdn1286:881216] [ 0] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libpthread.so.0(+0x12cf0)[0x153378161cf0]
+[lrdn1286:881216] [ 1] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(gsignal+0x10f)[0x15337775aaff]
+[lrdn1286:881216] [ 2] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(abort+0x127)[0x15337772dea5]
+[lrdn1286:881216] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x153364370d46]
+[lrdn1286:881216] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f)[0x153364370e5f]
+[lrdn1286:881216] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700)[0x15336269b700]
+[lrdn1286:881216] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b)[0x15336436a03b]
+[lrdn1286:881216] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x153364a3b81a]
+[lrdn1286:881216] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3)[0x153364ec7623]
+[lrdn1286:881216] [ 9] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254)[0x153379322514]
+[lrdn1286:881216] [10] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39)[0x153359782439]
+[lrdn1286:881216] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67)[0x15335977c5a7]
+[lrdn1286:881216] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad)[0x1533792d516d]
+[lrdn1286:881216] [13] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x401a74]
+[lrdn1286:881216] [14] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5)[0x153377746d85]
+[lrdn1286:881216] [15] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x40132e]
+[lrdn1286:881216] *** End of error message ***
+srun: error: lrdn1286: task 1: Aborted (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 16:
+  0.00413s: started 0
+  26.35959s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 15 runs taking 600.15 seconds.
