@@ -57,7 +57,7 @@ def main():
                 filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, args.allocation_split, args.ppn, args.extra, vn, vi, args.aggressor_name, args.aggressor_input)
                 data = pd.DataFrame()
                 if filename and os.path.exists(filename):                    
-                    data[metric_hr] = get_bench_data(vn, vi, metric_hr, filename, args.ppn)
+                    data[metric_hr] = get_bench_data(vn, vi, metric_hr, filename, args.ppn, args.numnodes)
                 else:
                     print("Data not found for metric " + metric_hr + " victim " + vn + " with input " + vi)
                     data[metric_hr] = [np.nan]
@@ -88,7 +88,7 @@ def main():
 
             # Set the title and labels
             #ax.set_title(title)
-            ax.set_xlabel("Input")
+            #ax.set_xlabel("Input")
             ax.set_ylabel(add_unit_to_metric(metric_hr))
             if args.max_y:
                 ax.set_ylim(0, float(args.max_y))

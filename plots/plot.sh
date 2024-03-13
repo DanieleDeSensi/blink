@@ -32,16 +32,20 @@ TREND_LIMIT=Bandwidth:1840
 # Two-nodes tests #
 ###################
 OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
-EXTRA="same_switch_SL0"
-PLOT_TYPE="bar"
-## NCCL vs. MPI tests
-TESTNAME="latency_soft"
-./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-mpp-nccl,gpubench-mpp-cudaaware,ping-pong_b -vi 1B -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRA} --plot_types ${PLOT_TYPE}
-TESTNAME="bandwidth_soft"
-./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-mpp-nccl,gpubench-mpp-cudaaware,pw-ping-pong_b -vi 1GiB -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE}
-#TESTNAME="allsizes"
+EXTRA="same_switch_SL1"
+PLOT_TYPE="line"
+# P2P
+TESTNAME="allsizes_pp"
 INPUTS="8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
-#./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-mpp-nccl,gpubench-mpp-cudaaware,pw-ping-pong_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE}
+./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-mpp-nccl,gpubench-mpp-cudaaware,pw-ping-pong_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE}
+# AR
+TESTNAME="allsizes_ar"
+INPUTS="8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-ar-nccl,gpubench-ar-cudaaware,ardc_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE}
+# A2A
+TESTNAME="allsizes_a2a"
+INPUTS="8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-a2a-cudaaware,a2a_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE}
 
 ##################
 # Distance tests #

@@ -97,7 +97,8 @@ def input_size_to_bytes(size_str):
 # We always assume that
 # - We return bandwidth in Gb/s
 # - We return runtime in microseconds
-def get_bench_data(bench, input, metric, filename, ppn=1):
+def get_bench_data(bench, input, metric, filename, ppn=1, nodes=0):
+    microbenchs = ["ping-pong_b", "pw-ping-pong_b", "a2a_b", "ardc_b"]
     if "gpubench" in bench:
         if metric == "Bandwidth":
             return pd.read_csv(filename)["0_Bandwidth_GB/s"]*8
@@ -106,7 +107,7 @@ def get_bench_data(bench, input, metric, filename, ppn=1):
     elif bench == "nccl-sendrecv" or bench == "nccl-allreduce" or bench == "nccl-alltoall":
         if metric == "Bandwidth":
             return pd.read_csv(filename)["0_busbw-ip_GB/s"]*8
-    elif bench == "ping-pong_b" or bench == "pw-ping-pong_b":
+    elif bench in microbenchs:
         if bench == "ping-pong_b":
             time_str = "0_MainRank-Duration_s"            
         else:
@@ -119,6 +120,10 @@ def get_bench_data(bench, input, metric, filename, ppn=1):
             gbit_s = input_gbits / (pd.read_csv(filename)[time_str]) # Time is already in seconds
             if bench == "pw-ping-pong_b":
                 gbit_s *= int(ppn)
+            elif bench == "a2a_b":
+                gbit_s *= (int(nodes) - 1) # I send that count to each of the other nodes
+            elif bench == "ardc_b":
+                gbit_s *= 2 # I actually send twice the data (e.g., Rabenseifner's algorithm)
             return gbit_s
     raise Exception("Error: metric " + metric + " not supported for bench " + bench)
 
@@ -129,6 +134,7 @@ def add_unit_to_metric(metric_hr):
         return "Runtime (us)"
 
 def bench_to_human_readable(bench):
+    microbenchs = ["Ping-Pong", "Pairwise Ping-Pong", "Alltoall", "Allreduce"]
     if "gpubench" in bench:
         gpubench,bench,version = bench.split(" ") 
         if version == "Baseline":
@@ -139,9 +145,7 @@ def bench_to_human_readable(bench):
             return "NCCL"
         elif version == "Nvlink":
             return "CUDA IPC"
-    elif bench == "Ping-Pong":
-        return "MPI"
-    elif bench == "Pairwise Ping-Pong":
+    elif bench in microbenchs:
         return "MPI"
     return bench
 

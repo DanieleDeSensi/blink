@@ -76,7 +76,7 @@ def main():
             if not os.path.exists(filename):
                 print("Error: data file " + filename + " does not exist")
                 continue
-            data[extra_fullname[e]] = get_bench_data(args.victim_name, args.victim_input, metric_hr, filename, args.ppn)
+            data[extra_fullname[e]] = get_bench_data(args.victim_name, args.victim_input, metric_hr, filename, args.ppn, args.numnodes)
             if data.empty:
                 raise Exception("Error: data file " + filename + " does not contain data for metric " + metric_hr)
             global_df = pd.concat([global_df, data], axis=1)
