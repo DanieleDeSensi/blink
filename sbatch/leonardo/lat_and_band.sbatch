@@ -8,7 +8,7 @@
 #SBATCH --job-name=blink-two-nodes
 #SBATCH --account=iscrc_sharp_0
 
-ALLOCATION="same_switch"
+ALLOCATION="diff_group"
 
 for SL in 0 1; do
     export UCX_IB_SL=${SL}

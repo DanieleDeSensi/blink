@@ -55,7 +55,7 @@ static void write_results()
     int start_index;    
     double *tmp_buf = NULL;
 
-    if (curr_iters - warm_up_iters > max_samples) // Wrapped the sampling recording
+    if (curr_iters > max_samples) // Wrapped the sampling recording
     {
         num_samples = max_samples;
         start_index = curr_iters % max_samples;        

@@ -1,0 +1,26 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/128MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_SL1', maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=2, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 134217728 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn0534' 'lrdn0538']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02693s.
+
+Running...
+ Run 1:
+  0.00451s: started 0
+  19.36689s: awaited 0
+  Data collection took 0.00023s.
+  Convergence check took 0.00077s.
+Completed after reaching confidence interval, terminated after 1 runs taking 19.37 seconds.
+Writing data & meta-data took 0.01296s.
+Overall took 19.4079s.

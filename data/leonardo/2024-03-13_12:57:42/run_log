@@ -1,0 +1,1385 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/ardc_b/1B', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_SL1', maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=2, outformat='csv', ppn=4, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn0534' 'lrdn0538']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.03824s.
+
+Running...
+ Run 1:
+  0.0053s: started 0
+  3.25208s: awaited 0
+  3.25211s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.49:0]
+slurmstepd: error: *** STEP 3656159.49 ON lrdn0534 CANCELLED AT 2024-03-13T12:57:45 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.00364s: started 0
+  3.32859s: awaited 0
+  3.32862s: encountered an exception in 0
+srun: Job 3656159 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3656159
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.50:0]
+slurmstepd: error: *** STEP 3656159.50 ON lrdn0534 CANCELLED AT 2024-03-13T12:57:48 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00355s: started 0
+  3.20099s: awaited 0
+  3.20102s: encountered an exception in 0
+srun: Job 3656159 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3656159
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.51:0]
+slurmstepd: error: *** STEP 3656159.51 ON lrdn0534 CANCELLED AT 2024-03-13T12:57:51 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 4:
+  0.00373s: started 0
+  3.23353s: awaited 0
+  3.23356s: encountered an exception in 0
+srun: Job 3656159 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3656159
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.52:0]
+slurmstepd: error: *** STEP 3656159.52 ON lrdn0534 CANCELLED AT 2024-03-13T12:57:54 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 5:
+  0.00366s: started 0
+  3.05958s: awaited 0
+  3.05961s: encountered an exception in 0
+srun: Job 3656159 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3656159
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.53:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.53 ON lrdn0534 CANCELLED AT 2024-03-13T12:57:57 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 6:
+  0.00362s: started 0
+  2.87827s: awaited 0
+  2.8783s: encountered an exception in 0
+srun: Job 3656159 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3656159
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.54:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.54 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:00 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 7:
+  0.00361s: started 0
+  3.65184s: awaited 0
+  3.65187s: encountered an exception in 0
+srun: Job 3656159 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3656159
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.55:0]
+slurmstepd: error: *** STEP 3656159.55 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:04 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 8:
+  0.00382s: started 0
+  2.38953s: awaited 0
+  2.38956s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.56:0]
+slurmstepd: error: *** STEP 3656159.56 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:06 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 9:
+  0.00356s: started 0
+  3.13997s: awaited 0
+  3.14001s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.57:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.57 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:10 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 10:
+  0.00365s: started 0
+  3.30442s: awaited 0
+  3.30446s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.58:0]
+slurmstepd: error: *** STEP 3656159.58 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:13 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 11:
+  0.00357s: started 0
+  3.24915s: awaited 0
+  3.24918s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.59:0]
+slurmstepd: error: *** STEP 3656159.59 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:16 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 12:
+  0.00362s: started 0
+  3.10105s: awaited 0
+  3.10109s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.60:0]
+slurmstepd: error: *** STEP 3656159.60 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:19 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 13:
+  0.00381s: started 0
+  3.12845s: awaited 0
+  3.12848s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.61:0]
+slurmstepd: error: *** STEP 3656159.61 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:22 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 14:
+  0.00373s: started 0
+  3.14854s: awaited 0
+  3.14857s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.62:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.62 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:25 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 15:
+  0.00373s: started 0
+  3.04898s: awaited 0
+  3.04901s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.63:0]
+slurmstepd: error: *** STEP 3656159.63 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:29 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 16:
+  0.00362s: started 0
+  3.09946s: awaited 0
+  3.0995s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.64:0]
+slurmstepd: error: *** STEP 3656159.64 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:32 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 17:
+  0.00369s: started 0
+  3.09974s: awaited 0
+  3.09977s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.65:0]
+slurmstepd: error: *** STEP 3656159.65 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:35 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0534: tasks 1-3: Killed
+srun: error: lrdn0538: tasks 4-7: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 18:
+  0.00365s: started 0
+  2.36606s: awaited 0
+  2.36609s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.66:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.66 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:37 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 19:
+  0.00381s: started 0
+  2.35185s: awaited 0
+  2.35188s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.67:0]
+slurmstepd: error: *** STEP 3656159.67 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:39 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 20:
+  0.00374s: started 0
+  2.9724s: awaited 0
+  2.97243s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.68:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.68 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:42 ***
+srun: error: lrdn0534: tasks 1-3: Killed
+srun: error: lrdn0538: tasks 4-7: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 21:
+  0.00371s: started 0
+  3.15735s: awaited 0
+  3.15738s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.69:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.69 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:46 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 22:
+  0.00375s: started 0
+  3.0474s: awaited 0
+  3.04743s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.70:0]
+slurmstepd: error: *** STEP 3656159.70 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:49 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 23:
+  0.00387s: started 0
+  3.05982s: awaited 0
+  3.05984s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.71:0]
+slurmstepd: error: *** STEP 3656159.71 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:52 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 24:
+  0.00284s: started 0
+  3.14945s: awaited 0
+  3.14948s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.72:0]
+slurmstepd: error: *** STEP 3656159.72 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:55 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0534: tasks 1-3: Killed
+srun: error: lrdn0538: tasks 4-7: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 25:
+  0.00392s: started 0
+  3.11901s: awaited 0
+  3.11905s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.73:0]
+slurmstepd: error: *** STEP 3656159.73 ON lrdn0534 CANCELLED AT 2024-03-13T12:58:58 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 26:
+  0.00387s: started 0
+  3.04955s: awaited 0
+  3.04958s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.74:0]
+slurmstepd: error: *** STEP 3656159.74 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:01 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 27:
+  0.00286s: started 0
+  3.09514s: awaited 0
+  3.09518s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.75:0]
+slurmstepd: error: *** STEP 3656159.75 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:04 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 28:
+  0.00344s: started 0
+  2.35014s: awaited 0
+  2.35017s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.76:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.76 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:06 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 29:
+  0.00307s: started 0
+  2.34897s: awaited 0
+  2.34901s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.77:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.77 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:09 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 30:
+  0.003s: started 0
+  2.78985s: awaited 0
+  2.78989s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.78:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.78 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:12 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 31:
+  0.00305s: started 0
+  3.37929s: awaited 0
+  3.37932s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.79:0]
+slurmstepd: error: *** STEP 3656159.79 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:15 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 32:
+  0.00313s: started 0
+  3.4639s: awaited 0
+  3.46394s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.80:0]
+slurmstepd: error: *** STEP 3656159.80 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:18 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 33:
+  0.00297s: started 0
+  3.1367s: awaited 0
+  3.13674s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.81:0]
+slurmstepd: error: *** STEP 3656159.81 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:22 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 34:
+  0.00401s: started 0
+  3.04754s: awaited 0
+  3.04758s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.82:0]
+slurmstepd: error: *** STEP 3656159.82 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:25 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 35:
+  0.00384s: started 0
+  3.07119s: awaited 0
+  3.07123s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.83:0]
+slurmstepd: error: *** STEP 3656159.83 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:28 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 36:
+  0.00366s: started 0
+  3.09783s: awaited 0
+  3.09787s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.84:0]
+slurmstepd: error: *** STEP 3656159.84 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:31 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 37:
+  0.00388s: started 0
+  3.06579s: awaited 0
+  3.06581s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.85:0]
+slurmstepd: error: *** STEP 3656159.85 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:34 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 38:
+  0.00258s: started 0
+  2.36728s: awaited 0
+  2.36731s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.86:0]
+slurmstepd: error: *** STEP 3656159.86 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:36 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 39:
+  0.00388s: started 0
+  2.35672s: awaited 0
+  2.35675s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.87:0]
+slurmstepd: error: *** STEP 3656159.87 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:39 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 40:
+  0.00344s: started 0
+  2.35974s: awaited 0
+  2.35977s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.88:0]
+slurmstepd: error: *** STEP 3656159.88 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:41 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 41:
+  0.00359s: started 0
+  3.49995s: awaited 0
+  3.49998s: encountered an exception in 0
+srun: Job 3656159 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3656159
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.89:0]
+slurmstepd: error: *** STEP 3656159.89 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:44 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 42:
+  0.00357s: started 0
+  3.69327s: awaited 0
+  3.6933s: encountered an exception in 0
+srun: Job 3656159 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3656159
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.90:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.90 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:48 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 43:
+  0.0037s: started 0
+  3.31676s: awaited 0
+  3.31679s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.91:0]
+slurmstepd: error: *** STEP 3656159.91 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:51 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 44:
+  0.00375s: started 0
+  3.3431s: awaited 0
+  3.34313s: encountered an exception in 0
+srun: Job 3656159 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3656159
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.92:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.92 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:55 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 45:
+  0.00376s: started 0
+  3.36694s: awaited 0
+  3.36697s: encountered an exception in 0
+srun: Job 3656159 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3656159
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.93:0]
+slurmstepd: error: *** STEP 3656159.93 ON lrdn0534 CANCELLED AT 2024-03-13T12:59:58 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 46:
+  0.00351s: started 0
+  3.26843s: awaited 0
+  3.26846s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.94:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.94 ON lrdn0534 CANCELLED AT 2024-03-13T13:00:01 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 47:
+  0.0038s: started 0
+  5.07891s: awaited 0
+  5.07894s: encountered an exception in 0
+srun: Job 3656159 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3656159
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.95:0]
+slurmstepd: error: *** STEP 3656159.95 ON lrdn0534 CANCELLED AT 2024-03-13T13:00:06 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 48:
+  0.0037s: started 0
+  2.61816s: awaited 0
+  2.61819s: encountered an exception in 0
+srun: Job 3656159 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3656159
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.96:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.96 ON lrdn0534 CANCELLED AT 2024-03-13T13:00:09 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 49:
+  0.00381s: started 0
+  2.37138s: awaited 0
+  2.37141s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.97:0]
+slurmstepd: error: *** STEP 3656159.97 ON lrdn0534 CANCELLED AT 2024-03-13T13:00:11 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 50:
+  0.00362s: started 0
+  3.05552s: awaited 0
+  3.05555s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.98:0]
+slurmstepd: error: *** STEP 3656159.98 ON lrdn0534 CANCELLED AT 2024-03-13T13:00:15 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 51:
+  0.00374s: started 0
+  3.20165s: awaited 0
+  3.20168s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.99:0]
+slurmstepd: error: *** STEP 3656159.99 ON lrdn0534 CANCELLED AT 2024-03-13T13:00:18 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 52:
+  0.00366s: started 0
+  3.22454s: awaited 0
+  3.22457s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.100:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.100 ON lrdn0534 CANCELLED AT 2024-03-13T13:00:21 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 53:
+  0.0036s: started 0
+  3.13839s: awaited 0
+  3.13842s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.101:0]
+slurmstepd: error: *** STEP 3656159.101 ON lrdn0534 CANCELLED AT 2024-03-13T13:00:24 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 54:
+  0.00352s: started 0
+  3.19118s: awaited 0
+  3.19121s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.102:0]
+slurmstepd: error: *** STEP 3656159.102 ON lrdn0534 CANCELLED AT 2024-03-13T13:00:27 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 55:
+  0.00357s: started 0
+  3.26483s: awaited 0
+  3.26486s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.103:0]
+slurmstepd: error: *** STEP 3656159.103 ON lrdn0534 CANCELLED AT 2024-03-13T13:00:31 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 56:
+  0.0037s: started 0
+  2.97031s: awaited 0
+  2.97034s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.104:0]
+slurmstepd: error: *** STEP 3656159.104 ON lrdn0534 CANCELLED AT 2024-03-13T13:00:34 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 57:
+  0.00356s: started 0
+  3.2187s: awaited 0
+  3.21874s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.105:0]
+slurmstepd: error: *** STEP 3656159.105 ON lrdn0534 CANCELLED AT 2024-03-13T13:00:37 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 58:
+  0.00361s: started 0
+  2.36173s: awaited 0
+  2.36176s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.106:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.106 ON lrdn0534 CANCELLED AT 2024-03-13T13:00:39 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 59:
+  0.00364s: started 0
+  2.34994s: awaited 0
+  2.34997s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.107:0]
+slurmstepd: error: *** STEP 3656159.107 ON lrdn0534 CANCELLED AT 2024-03-13T13:00:41 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 60:
+  0.00366s: started 0
+  3.98303s: awaited 0
+  3.98307s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.108:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.108 ON lrdn0534 CANCELLED AT 2024-03-13T13:00:45 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 61:
+  0.0035s: started 0
+  65.25382s: awaited 0
+  65.25385s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.109:0]
+[lrdn0538:739657:0:739657]       ud_ep.c:276  Fatal: UD endpoint 0xf95550 to <no debug data>: unhandled timeout error
+==== backtrace (tid: 739657) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x152434ecbedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_message+0xb1) [0x152434ec8d41]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f) [0x152434ec8e5f]
+ 3  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700) [0x1524331f3700]
+ 4  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b) [0x152434ec203b]
+ 5  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a) [0x15244428281a]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3) [0x15244470e623]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254) [0x1524532ad514]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39) [0x15242a50e439]
+ 9  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67) [0x15242a5085a7]
+10  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad) [0x15245326016d]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x401a74]
+12  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5) [0x1524516d1d85]
+13  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b() [0x40132e]
+=================================
+[lrdn0538:739657] *** Process received signal ***
+[lrdn0538:739657] Signal: Aborted (6)
+[lrdn0538:739657] Signal code:  (-6)
+[lrdn0538:739657] [ 0] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libpthread.so.0(+0x12cf0)[0x1524520eccf0]
+[lrdn0538:739657] [ 1] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(gsignal+0x10f)[0x1524516e5aff]
+[lrdn0538:739657] [ 2] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(abort+0x127)[0x1524516b8ea5]
+[lrdn0538:739657] [ 3] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x27d46)[0x152434ec8d46]
+[lrdn0538:739657] [ 4] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_fatal_error_format+0x10f)[0x152434ec8e5f]
+[lrdn0538:739657] [ 5] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/ucx/libuct_ib.so.0(+0x59700)[0x1524331f3700]
+[lrdn0538:739657] [ 6] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2103b)[0x152434ec203b]
+[lrdn0538:739657] [ 7] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucp.so.0(ucp_worker_progress+0x6a)[0x15244428281a]
+[lrdn0538:739657] [ 8] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x1e3)[0x15244470e623]
+[lrdn0538:739657] [ 9] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(ompi_coll_base_barrier_intra_recursivedoubling+0x254)[0x1524532ad514]
+[lrdn0538:739657] [10] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_do_this+0x39)[0x15242a50e439]
+[lrdn0538:739657] [11] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_tuned.so(ompi_coll_tuned_barrier_intra_dec_fixed+0x67)[0x15242a5085a7]
+[lrdn0538:739657] [12] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Barrier+0xad)[0x15245326016d]
+[lrdn0538:739657] [13] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x401a74]
+[lrdn0538:739657] [14] /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libc.so.6(__libc_start_main+0xe5)[0x1524516d1d85]
+[lrdn0538:739657] [15] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench/bin/ardc_b[0x40132e]
+[lrdn0538:739657] *** End of error message ***
+srun: error: lrdn0538: task 4: Aborted (core dumped)
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0538 [1]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.109:4]
+slurmstepd: error: *** STEP 3656159.109 ON lrdn0534 CANCELLED AT 2024-03-13T13:01:51 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0534: tasks 1-3: Killed
+srun: error: lrdn0538: tasks 5-7: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 62:
+  0.00361s: started 0
+  3.8649s: awaited 0
+  3.86493s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.110:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.110 ON lrdn0534 CANCELLED AT 2024-03-13T13:01:55 ***
+srun: error: lrdn0534: tasks 1-3: Killed
+srun: error: lrdn0538: tasks 4-7: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 63:
+  0.00391s: started 0
+  3.7331s: awaited 0
+  3.73313s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.111:0]
+slurmstepd: error: *** STEP 3656159.111 ON lrdn0534 CANCELLED AT 2024-03-13T13:01:58 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 64:
+  0.00367s: started 0
+  3.26636s: awaited 0
+  3.26639s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.112:0]
+slurmstepd: error: *** STEP 3656159.112 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:02 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 65:
+  0.00357s: started 0
+  3.28227s: awaited 0
+  3.2823s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.113:0]
+slurmstepd: error: *** STEP 3656159.113 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:05 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0534: tasks 1-3: Killed
+srun: error: lrdn0538: tasks 4-7: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 66:
+  0.0038s: started 0
+  3.29948s: awaited 0
+  3.29951s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.114:0]
+slurmstepd: error: *** STEP 3656159.114 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:08 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 67:
+  0.00363s: started 0
+  5.27095s: awaited 0
+  5.27098s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.115:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.115 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:13 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 68:
+  0.00403s: started 0
+  3.01075s: awaited 0
+  3.01078s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.116:0]
+slurmstepd: error: *** STEP 3656159.116 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:16 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 69:
+  0.00368s: started 0
+  3.13804s: awaited 0
+  3.13807s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.117:0]
+slurmstepd: error: *** STEP 3656159.117 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:20 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 70:
+  0.00358s: started 0
+  3.16543s: awaited 0
+  3.16546s: encountered an exception in 0
+srun: Job 3656159 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3656159
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.118:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.118 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:23 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 71:
+  0.00378s: started 0
+  2.35863s: awaited 0
+  2.35866s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.119:0]
+slurmstepd: error: *** STEP 3656159.119 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:25 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 72:
+  0.00354s: started 0
+  2.3418s: awaited 0
+  2.34183s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.120:0]
+slurmstepd: error: *** STEP 3656159.120 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:27 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 73:
+  0.00379s: started 0
+  2.33165s: awaited 0
+  2.33168s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.121:0]
+slurmstepd: error: *** STEP 3656159.121 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:30 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0534: tasks 1-3: Killed
+srun: error: lrdn0538: tasks 4-7: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 74:
+  0.00364s: started 0
+  2.80358s: awaited 0
+  2.80361s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.122:0]
+slurmstepd: error: *** STEP 3656159.122 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:33 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 75:
+  0.00373s: started 0
+  3.12611s: awaited 0
+  3.12614s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.123:0]
+slurmstepd: error: *** STEP 3656159.123 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:36 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 76:
+  0.00357s: started 0
+  3.02904s: awaited 0
+  3.02907s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.124:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.124 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:39 ***
+slurmstepd: error: *** STEP 3656159.124 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:39 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 77:
+  0.00365s: started 0
+  3.11286s: awaited 0
+  3.11289s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.125:0]
+slurmstepd: error: *** STEP 3656159.125 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:42 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 78:
+  0.00361s: started 0
+  3.04508s: awaited 0
+  3.04511s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.126:0]
+slurmstepd: error: *** STEP 3656159.126 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:45 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 79:
+  0.00359s: started 0
+  3.05859s: awaited 0
+  3.05862s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.127:0]
+slurmstepd: error: *** STEP 3656159.127 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:48 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 80:
+  0.00357s: started 0
+  3.10491s: awaited 0
+  3.10494s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.128:0]
+slurmstepd: error: *** STEP 3656159.128 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:51 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 81:
+  0.00357s: started 0
+  3.48754s: awaited 0
+  3.48757s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.129:0]
+slurmstepd: error: *** STEP 3656159.129 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:55 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 82:
+  0.00366s: started 0
+  3.54827s: awaited 0
+  3.54832s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.130:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.130 ON lrdn0534 CANCELLED AT 2024-03-13T13:02:58 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 83:
+  0.00377s: started 0
+  3.48194s: awaited 0
+  3.48198s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.131:0]
+slurmstepd: error: *** STEP 3656159.131 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:02 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 84:
+  0.00371s: started 0
+  3.51139s: awaited 0
+  3.51142s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.132:0]
+slurmstepd: error: *** STEP 3656159.132 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:05 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 85:
+  0.00371s: started 0
+  3.4629s: awaited 0
+  3.46293s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.133:0]
+slurmstepd: error: *** STEP 3656159.133 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:09 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 86:
+  0.00381s: started 0
+  3.53209s: awaited 0
+  3.53212s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.134:0]
+slurmstepd: error: *** STEP 3656159.134 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:12 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 87:
+  0.00368s: started 0
+  3.47428s: awaited 0
+  3.47431s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.135:0]
+slurmstepd: error: *** STEP 3656159.135 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:16 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 88:
+  0.00367s: started 0
+  3.51298s: awaited 0
+  3.51301s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.136:0]
+slurmstepd: error: *** STEP 3656159.136 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:19 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 89:
+  0.00355s: started 0
+  3.47658s: awaited 0
+  3.47661s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.137:0]
+slurmstepd: error: *** STEP 3656159.137 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:23 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 90:
+  0.00388s: started 0
+  2.35024s: awaited 0
+  2.35027s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.138:0]
+slurmstepd: error: *** STEP 3656159.138 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:25 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 91:
+  0.00375s: started 0
+  2.35151s: awaited 0
+  2.35155s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.139:0]
+slurmstepd: error: *** STEP 3656159.139 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:27 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 92:
+  0.00382s: started 0
+  3.03105s: awaited 0
+  3.0311s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.140:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.140 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:30 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 93:
+  0.00991s: started 0
+  3.27048s: awaited 0
+  3.27051s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.141:0]
+slurmstepd: error: *** STEP 3656159.141 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:34 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 94:
+  0.00372s: started 0
+  3.43583s: awaited 0
+  3.43587s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.142:0]
+slurmstepd: error: *** STEP 3656159.142 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:37 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 95:
+  0.00376s: started 0
+  3.28324s: awaited 0
+  3.28327s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.143:0]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3656159.143 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:40 ***
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 96:
+  0.00388s: started 0
+  3.27855s: awaited 0
+  3.27858s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.144:0]
+slurmstepd: error: *** STEP 3656159.144 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:44 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 97:
+  0.00366s: started 0
+  3.26946s: awaited 0
+  3.26949s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.145:0]
+slurmstepd: error: *** STEP 3656159.145 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:47 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 98:
+  0.00378s: started 0
+  3.25129s: awaited 0
+  3.25132s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.146:0]
+slurmstepd: error: *** STEP 3656159.146 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:50 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 99:
+  0.00384s: started 0
+  3.25126s: awaited 0
+  3.25129s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.147:0]
+slurmstepd: error: *** STEP 3656159.147 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:53 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 100:
+  0.00356s: started 0
+  3.25707s: awaited 0
+  3.2571s: encountered an exception in 0
+srun: error: lrdn0534: task 0: Exited with exit code 255
+Msg-size (1) must be divisible by size of int (4)slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0534 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3656159.148:0]
+slurmstepd: error: *** STEP 3656159.148 ON lrdn0534 CANCELLED AT 2024-03-13T13:03:57 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn0538: tasks 4-7: Killed
+srun: error: lrdn0534: tasks 1-3: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 100 runs taking 375.16 seconds.
