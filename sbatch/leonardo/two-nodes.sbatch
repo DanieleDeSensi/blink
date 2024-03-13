@@ -15,6 +15,7 @@ for SL in 1; do
     export NCCL_IB_SL=${SL}
     EXTRA="${ALLOCATION}_SL${SL}"
     ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file -e ${EXTRA}"
-    # We run bandwidth test with 4 PPN
-    ./run.sh test_suites/two-nodes ${ARGS} --ppn 4
+    for PPN in 1 4; do
+        ./run.sh test_suites/two-nodes ${ARGS} --ppn ${PPN}
+    done
 done

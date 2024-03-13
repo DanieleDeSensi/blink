@@ -54,23 +54,28 @@ def main():
             outname = args.outfile + os.path.sep + metric_hr
             outname = outname.lower()
             for vi in victim_inputs:
-                filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, args.allocation_split, args.ppn, args.extra, vn, vi, args.aggressor_name, args.aggressor_input)
-                data = pd.DataFrame()
-                if filename and os.path.exists(filename):                    
-                    data[metric_hr] = get_bench_data(vn, vi, metric_hr, filename, args.ppn, args.numnodes)
+                if metric_hr == "Bandwidth": # For bandwidth, we also get the data for runtime to plot the inner plot
+                    actual_metrics = ["Runtime", "Bandwidth"]
                 else:
-                    print("Data not found for metric " + metric_hr + " victim " + vn + " with input " + vi)
-                    data[metric_hr] = [np.nan]
+                    actual_metrics = [metric_hr]
 
-                if data.empty:
-                    raise Exception("Error: data file " + filename + " does not contain data for metric " + metric_hr)
-                data["Input"] = vi
-                data["Application"] = victim_fn
-                global_df = pd.concat([global_df, data], ignore_index=True)
+                for actual_metric in actual_metrics:
+                    filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, args.allocation_split, args.ppn, args.extra, vn, vi, args.aggressor_name, args.aggressor_input)
+                    data = pd.DataFrame()
+                    if filename and os.path.exists(filename):                    
+                        data[actual_metric] = get_bench_data(vn, vi, actual_metric, filename, args.ppn, args.numnodes)
+                    else:
+                        print("Data not found for metric " + actual_metric + " victim " + vn + " with input " + vi)
+                        data[actual_metric] = [np.nan]
 
-        if metric_hr == "Runtime" and "gpubench" in args.victim_names:
-            global_df_time = global_df
-
+                    if data.empty:
+                        raise Exception("Error: data file " + filename + " does not contain data for metric " + actual_metric)
+                    data["Input"] = vi
+                    data["Application"] = victim_fn
+                    if metric_hr == "Bandwidth" and actual_metric == "Runtime": # Save the data for the inner plot in the bandwidth plots
+                        global_df_time = pd.concat([global_df_time, data], ignore_index=True)
+                    else:
+                        global_df = pd.concat([global_df, data], ignore_index=True)
 
         plot_types = args.plot_types.split(",")
         #############

@@ -121,7 +121,8 @@ def get_bench_data(bench, input, metric, filename, ppn=1, nodes=0):
             if bench == "pw-ping-pong_b":
                 gbit_s *= int(ppn)
             elif bench == "a2a_b":
-                gbit_s *= (int(nodes) - 1) # I send that count to each of the other nodes
+                ranks = int(nodes) * int(ppn)
+                gbit_s *= (ranks - 1) # I send that count to each of the other nodes
             elif bench == "ardc_b":
                 gbit_s *= 2 # I actually send twice the data (e.g., Rabenseifner's algorithm)
             return gbit_s
