@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # Must be called from root directory
+import shutil
 import os
 last_entry_for_key = {}
 
@@ -16,8 +17,15 @@ with open('./data/description.csv', 'r') as file:
             to_remove = last_entry_for_key[key]
             last_entry_for_key[key] = value # Update the last entry
             # Remove the old data
-            os.remove(to_remove)
+            shutil.rmtree(to_remove)
             print("Removed " + to_remove)
-        else:
+        elif os.exists(value):
+            # No data yet, we store it only if the folder actually exists
             last_entry_for_key[key] = value # Update the last entry
 
+# Now save the new description.csv
+with open('./data/description.csv', 'w') as file:
+    for k,v in last_entry_for_key.items():
+        print(k + ',' + v + '\n')
+        #file.write(k + ',' + v + '\n')
+    
