@@ -56,6 +56,7 @@ def main():
     parser.add_argument('-m', '--metrics', help='Comma-separated string of metrics to plot.', default="0_Avg-Duration_s")
     parser.add_argument('-p', '--ppn', help='Processes per node.', default=1)
     parser.add_argument('-my', '--max_y', help='Max value on the y-axis')
+    parser.add_argument('-pt', '--plot_types', help='Types of plots to produce. Comma-separated list of "violin", "box", "line", "dist".', default="violin,box,line,dist")
     parser.add_argument('-o', '--outfile', help='Path of output files.', required=True)
 
     args = parser.parse_args()   
@@ -84,18 +85,23 @@ def main():
         outname = args.outfile + os.path.sep + metric_hr
         outname = outname.lower()
 
+        plot_types = args.plot_types.split(",")
         # Violins        
-        plot_violin(global_df, victim_fn, metric_hr, outname, args.max_y)
+        if "violin" in plot_types:            
+            plot_violin(global_df, victim_fn, metric_hr, outname, args.max_y)
 
         # Boxes, with and without outliers        
-        plot_box(global_df, victim_fn, metric_hr, outname, args.max_y, True)
-        plot_box(global_df, victim_fn, metric_hr, outname, args.max_y, False)
+        if "box" in plot_types:
+            plot_box(global_df, victim_fn, metric_hr, outname, args.max_y, True)
+            plot_box(global_df, victim_fn, metric_hr, outname, args.max_y, False)
 
         # Lines
-        plot_line(global_df, victim_fn, metric_hr, outname, args.max_y)
+        if "line" in plot_types:
+            plot_line(global_df, victim_fn, metric_hr, outname, args.max_y)
 
         ## Dist
-        #plot_dist(global_df, victim_fn, metric_hr, outname, args.max_y)
+        if "dist" in plot_types:
+            plot_dist(global_df, victim_fn, metric_hr, outname, args.max_y)
 
 if __name__=='__main__':
     main()

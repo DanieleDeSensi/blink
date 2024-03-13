@@ -1,3 +1,3 @@
 - intra-node.sbatch: Runs tests on a single node (p2p between GPUs, as well as allreduce and alltoall, with IPC, baseline, NCCL, MPI CUDA-Aware)
 - lat_and_band.sbatch: It runs latency (1B, 1ppn) and bandwidth (1GiB, 4ppn) tests on two nodes, ideally at different nodes distance. Only multi-point-to-point, for buffer allocated on GPU memory (NCCL and MPI CUDA-Aware), or on host memory (MPI)
-- two-nodes.sbatch: Runs tests on two nodes. mpp, allreduce, and alltoall, for different message sizes, 4 PPN. It runs them for buffers allocated on GPU memory (NCCL, MPI CUDA-Aware), or host memory (MPI).
+- two-nodes.sbatch: Runs tests on two nodes under the same switch. mpp, allreduce, and alltoall, for different message sizes, 4 PPN. It runs them for buffers allocated on GPU memory (NCCL, MPI CUDA-Aware), or host memory (MPI).

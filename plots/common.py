@@ -139,6 +139,10 @@ def bench_to_human_readable(bench):
             return "NCCL"
         elif version == "Nvlink":
             return "CUDA IPC"
+    elif bench == "Ping-Pong":
+        return "MPI"
+    elif bench == "Pairwise Ping-Pong":
+        return "MPI"
     return bench
 
 

@@ -34,6 +34,7 @@ def main():
     parser.add_argument('-p', '--ppn', help='Processes per node.', default=1)
     parser.add_argument('-tl', '--trend_limit', help='Y-axis upper limit. (format metric:limit)')
     parser.add_argument('-my', '--max_y', help='Max value on the y-axis')
+    parser.add_argument('-pt', '--plot_types', help='Types of plots to produce. Comma-separated list of "line", "box", "bar".', default="line,box,bar")
     parser.add_argument('-o', '--outfile', help='Path of output files.', required=True)
 
     args = parser.parse_args()
@@ -70,63 +71,68 @@ def main():
         if metric_hr == "Runtime" and "gpubench" in args.victim_names:
             global_df_time = global_df
 
+
+        plot_types = args.plot_types.split(",")
         #############
         # Line plot #
         #############
-        # Setup the plot
-        ax = sns.lineplot(data=global_df, x="Input", y=metric_hr, hue="Application", style="Application", markers=True, linewidth=3, markersize=8)
+        if "line" in plot_types:
+            # Setup the plot
+            ax = sns.lineplot(data=global_df, x="Input", y=metric_hr, hue="Application", style="Application", markers=True, linewidth=3, markersize=8)
 
-        # Plots the limit if specified
-        if args.trend_limit:
-            m, limit = args.trend_limit.split(":")
-            if metric_hr == m:
-                ax.axhline(y=float(limit), color='black', linestyle='--')
+            # Plots the limit if specified
+            if args.trend_limit:
+                m, limit = args.trend_limit.split(":")
+                if metric_hr == m:
+                    ax.axhline(y=float(limit), color='black', linestyle='--')
 
-        # Set the title and labels
-        #ax.set_title(title)
-        ax.set_xlabel("Input")
-        ax.set_ylabel(add_unit_to_metric(metric_hr))
-        if args.max_y:
-            ax.set_ylim(0, float(args.max_y))
-        else:
-            ax.set_ylim(0, None)
-        # Remove legend title
-        ax.legend_.set_title(None)
-        # Move legend outside
-        sns.move_legend(ax, "lower center",
-                        bbox_to_anchor=(.5, 1), ncol=2, title=None, frameon=False)
+            # Set the title and labels
+            #ax.set_title(title)
+            ax.set_xlabel("Input")
+            ax.set_ylabel(add_unit_to_metric(metric_hr))
+            if args.max_y:
+                ax.set_ylim(0, float(args.max_y))
+            else:
+                ax.set_ylim(0, None)
+            # Remove legend title
+            ax.legend_.set_title(None)
+            # Move legend outside
+            sns.move_legend(ax, "lower center",
+                            bbox_to_anchor=(.5, 1), ncol=2, title=None, frameon=False)
 
-        # Inner latency plot
-        if global_df_time is not None:
-            ax2 = plt.axes([0.23, 0.6, .3, .2], facecolor='w')
-            global_df_time["Runtime (us)"] = global_df_time["Runtime"] # Was already scaled before
-            sns.lineplot(data=global_df_time, x="Input", y="Runtime (us)", hue="Application", style="Application", marker="o", ax=ax2)
-            ax2.set_xlim([0, 5])
-            ax2.set_ylim([0, 100])
-            inner_fontsize = 9
-            ax2.tick_params(labelsize=inner_fontsize)
-            ax2.set_xlabel("")
-            ax2.set_ylabel("Runtime (us)", fontdict={'fontsize': inner_fontsize})
-            ax2.get_legend().remove()
+            # Inner latency plot
+            if global_df_time is not None:
+                ax2 = plt.axes([0.23, 0.6, .3, .2], facecolor='w')
+                global_df_time["Runtime (us)"] = global_df_time["Runtime"] # Was already scaled before
+                sns.lineplot(data=global_df_time, x="Input", y="Runtime (us)", hue="Application", style="Application", marker="o", ax=ax2)
+                ax2.set_xlim([0, 5])
+                ax2.set_ylim([0, 100])
+                inner_fontsize = 9
+                ax2.tick_params(labelsize=inner_fontsize)
+                ax2.set_xlabel("")
+                ax2.set_ylabel("Runtime (us)", fontdict={'fontsize': inner_fontsize})
+                ax2.get_legend().remove()
 
-        # Save to file
-        #ax.figure.savefig(outname + "_line.png", bbox_inches='tight')
-        ax.figure.savefig(outname + "_line.pdf", bbox_inches='tight')
-        plt.clf()
+            # Save to file
+            #ax.figure.savefig(outname + "_line.png", bbox_inches='tight')
+            ax.figure.savefig(outname + "_line.pdf", bbox_inches='tight')
+            plt.clf()
 
         #########
         # Boxes #
         #########
-        ax = sns.boxplot(data=global_df, x="Input", y=metric_hr, hue="Application")
-        ax.figure.savefig(outname + "_box.pdf", bbox_inches='tight')
-        plt.clf()
+        if "box" in plot_types:
+            ax = sns.boxplot(data=global_df, x="Input", y=metric_hr, hue="Application")
+            ax.figure.savefig(outname + "_box.pdf", bbox_inches='tight')
+            plt.clf()
 
         ########
         # Bars #
         ########
-        ax = sns.barplot(data=global_df, x="Input", y=metric_hr, hue="Application")
-        ax.figure.savefig(outname + "_bar.pdf", bbox_inches='tight')
-        plt.clf()
+        if "bar" in plot_types:
+            ax = sns.barplot(data=global_df, x="Input", y=metric_hr, hue="Application")
+            ax.figure.savefig(outname + "_bar.pdf", bbox_inches='tight')
+            plt.clf()
 
 if __name__=='__main__':
     main()

@@ -94,10 +94,10 @@ int main(int argc, char** argv){
     }
     
     /*pin to core*/
-    cpu_set_t mask;
+    /*cpu_set_t mask;
     CPU_ZERO(&mask);
     CPU_SET(1, &mask);
-    sched_setaffinity(0, sizeof(mask), &mask);
+    sched_setaffinity(0, sizeof(mask), &mask);*/
     
     /*allocate buffers*/
     int msg_size_ints;
