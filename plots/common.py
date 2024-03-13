@@ -139,7 +139,7 @@ def bench_to_human_readable(bench):
     if "gpubench" in bench:
         gpubench,bench,version = bench.split(" ") 
         if version == "Baseline":
-            return "Baseline"
+            return "Host Mem. Staging"
         elif version == "CudaAware":
             return "CUDA-Aware MPI"
         elif version == "Nccl":

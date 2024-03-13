@@ -14,18 +14,22 @@ PLOT_TYPE="line"
 #GPUBench - Point-to-Point
 for TESTNAME in gpubench-pp
 do
-    TREND_LIMIT=Bandwidth:704
-    ./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Runtime,Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 2 --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE}
+    #TREND_LIMIT=Bandwidth:704
+    TREND_LIMIT=Bandwidth:800
+    INNER_YLIM="[0, 30]"
+    ./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Runtime,Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 2 --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}"
 done
 
 # GPUBench - A2A
 TESTNAME=gpubench-a2a
-TREND_LIMIT=Bandwidth:1840
+#TREND_LIMIT=Bandwidth:1840
+TREND_LIMIT=Bandwidth:2400
 ./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE}
 
 # GPUBench - AR
 TESTNAME=gpubench-ar
-TREND_LIMIT=Bandwidth:1840
+#TREND_LIMIT=Bandwidth:1840
+TREND_LIMIT=Bandwidth:2400
 ./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE}
 
 ###################
@@ -34,18 +38,19 @@ TREND_LIMIT=Bandwidth:1840
 OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
 EXTRA="same_switch_SL1"
 PLOT_TYPE="line"
-# P2P
-TESTNAME="allsizes_pp"
 INPUTS="8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
-./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-mpp-nccl,gpubench-mpp-cudaaware,pw-ping-pong_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE}
-# AR
-TESTNAME="allsizes_ar"
-INPUTS="8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
-./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-ar-nccl,gpubench-ar-cudaaware,ardc_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE}
-# A2A
-TESTNAME="allsizes_a2a"
-INPUTS="8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
-./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-a2a-cudaaware,a2a_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE}
+for PPN in 1 4
+do
+    # P2P
+    TESTNAME="allsizes_pp_PPN${PPN}"
+    ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-mpp-nccl,gpubench-mpp-cudaaware,pw-ping-pong_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE}
+    # AR
+    TESTNAME="allsizes_ar_PPN${PPN}"
+    ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-ar-nccl,gpubench-ar-cudaaware,ardc_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE}
+    # A2A
+    TESTNAME="allsizes_a2a_PPN${PPN}"
+    ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-a2a-cudaaware,a2a_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE}
+done
 
 ##################
 # Distance tests #

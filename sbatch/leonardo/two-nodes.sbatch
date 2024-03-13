@@ -14,8 +14,10 @@ for SL in 1; do
     export UCX_IB_SL=${SL}
     export NCCL_IB_SL=${SL}
     EXTRA="${ALLOCATION}_SL${SL}"
-    ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file -e ${EXTRA}"
+    ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file"
     for PPN in 1 4; do
-        ./run.sh test_suites/two-nodes ${ARGS} --ppn ${PPN}
+        ./run.sh test_suites/two-nodes-pp ${ARGS} --ppn ${PPN} -e ${EXTRA}
+        OMPI_MCA_coll_hcoll_enable=1 ./run.sh test_suites/two-nodes-coll ${ARGS} --ppn ${PPN} -e ${EXTRA}_hcoll1
+        OMPI_MCA_coll_hcoll_enable=0 ./run.sh test_suites/two-nodes-coll ${ARGS} --ppn ${PPN} -e ${EXTRA}_hcoll0
     done
 done

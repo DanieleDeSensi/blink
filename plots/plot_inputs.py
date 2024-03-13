@@ -11,6 +11,7 @@ import os
 import argparse
 import csv
 import importlib.util
+import ast
 from common import *
 
 matplotlib.rc('pdf', fonttype=42) # To avoid issues with camera-ready submission
@@ -35,6 +36,8 @@ def main():
     parser.add_argument('-tl', '--trend_limit', help='Y-axis upper limit. (format metric:limit)')
     parser.add_argument('-my', '--max_y', help='Max value on the y-axis')
     parser.add_argument('-pt', '--plot_types', help='Types of plots to produce. Comma-separated list of "line", "box", "bar".', default="line,box,bar")
+    parser.add_argument('-ip', '--inner_pos', help='Positioning arguments for the inner plot.', default="[0.23, 0.6, .3, .2]")
+    parser.add_argument('-iy', '--inner_ylim', help='Y-axis limits for the inner plot.', default="[0, 100]")
     parser.add_argument('-o', '--outfile', help='Path of output files.', required=True)
 
     args = parser.parse_args()
@@ -93,7 +96,7 @@ def main():
 
             # Set the title and labels
             #ax.set_title(title)
-            #ax.set_xlabel("Input")
+            ax.set_xlabel("")
             ax.set_ylabel(add_unit_to_metric(metric_hr))
             if args.max_y:
                 ax.set_ylim(0, float(args.max_y))
@@ -107,11 +110,11 @@ def main():
 
             # Inner latency plot
             if global_df_time is not None:
-                ax2 = plt.axes([0.23, 0.6, .3, .2], facecolor='w')
+                ax2 = plt.axes(ast.literal_eval(args.inner_pos), facecolor='w')
                 global_df_time["Runtime (us)"] = global_df_time["Runtime"] # Was already scaled before
                 sns.lineplot(data=global_df_time, x="Input", y="Runtime (us)", hue="Application", style="Application", marker="o", ax=ax2)
                 ax2.set_xlim([0, 5])
-                ax2.set_ylim([0, 100])
+                ax2.set_ylim(ast.literal_eval(args.inner_ylim))
                 inner_fontsize = 9
                 ax2.tick_params(labelsize=inner_fontsize)
                 ax2.set_xlabel("")
