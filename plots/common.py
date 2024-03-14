@@ -93,6 +93,18 @@ def input_size_to_bytes(size_str):
 
     raise ValueError(f"Invalid file size string: {size_str}")
 
+def get_num_ib_devices(system):
+    # Find the number of IB_DEVICES in conf file
+    conffile = os.environ["BLINK_ROOT"] + "/conf/" + system + ".sh"
+    with open(conffile, "r") as f:
+        lines = f.readlines()
+        for l in lines:
+            if "BLINK_IB_DEVICES" in l:
+                num_devices = l.split("=")[1].strip().count("#") + 1
+                break
+    return num_devices
+
+
 # For a given benchmark and metric, returns the data.
 # We always assume that
 # - We return bandwidth in Gb/s
@@ -111,14 +123,7 @@ def get_bench_data(bench, input, metric, filename, ppn, nodes, system):
         if metric == "Runtime":
             return pd.read_csv(filename)["1_time_us"] # 0_ is the server
         elif metric == "Bandwidth":
-            # Find the number of IB_DEVICES in conf file
-            conffile = os.environ["BLINK_ROOT"] + "/conf/" + system + ".sh"
-            with open(conffile, "r") as f:
-                lines = f.readlines()
-                for l in lines:
-                    if "BLINK_IB_DEVICES" in l:
-                        num_devices = l.split("=")[1].strip().count("#") + 1
-                        break
+            num_devices = get_num_ib_devices(system)
             input_bits = input_size_to_bytes(input)*8*num_devices
             input_gbits = input_bits / 1e9
             return input_gbits / (pd.read_csv(filename)["1_time_us"] / 1e6)
@@ -163,6 +168,8 @@ def bench_to_human_readable(bench):
             return "CUDA IPC"
     elif bench in microbenchs:
         return "MPI"
+    elif bench == "ib_send_lat":
+        return "IB Verbs"
     return bench
 
 
