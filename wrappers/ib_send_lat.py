@@ -25,6 +25,8 @@ class app(base):
         samples = []
         for path in files:
             start = False
+            i = 0
+            warmup = 10
             with open(path) as file:
                 lines = file.readlines()
                 samples_rank = []
@@ -33,9 +35,11 @@ class app(base):
                     if line_clean == "#, usec":
                         start = True
                         continue
-                    if start and line != "---":
-                        time = line.split(",")[1].strip()
-                        samples_rank += [float(time)]
+                    if start and not line_clean.startswith("---"):
+                        if i >= warmup: # Discard first warmup samples
+                            time = line_clean.split(",")[1].strip()
+                            samples_rank += [float(time)]
+                        i += 1
                     else:
                         start = False
             samples += [samples_rank]
