@@ -10,11 +10,11 @@
 
 source conf.sh
 
-for SL in 0 1; do
+for SL in 1 0; do
     export UCX_IB_SL=${SL}
     export NCCL_IB_SL=${SL}
     EXTRA="SL${SL}"
-    ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file"
+    ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file --maxruns 5"
     for PPN in 4; do
         # Collectives (with/without HCOLL)
         for HCOLL in 0 1

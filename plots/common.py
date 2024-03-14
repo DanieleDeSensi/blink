@@ -15,6 +15,7 @@ import os
 import argparse
 import csv
 import importlib.util
+import ast
 
 matplotlib.rc('pdf', fonttype=42) # To avoid issues with camera-ready submission
 matplotlib.rc('font', size=12)
@@ -174,7 +175,7 @@ def bench_to_human_readable(bench):
 
 
 # Plots one violin for each victim+aggressor combination, for the given metric
-def plot_violin(df, title, metric, outname, max_y):
+def plot_violin(df, metric, outname, max_y, xticklabels, title):
     # Setup the violin
     ax = sns.violinplot(data=df, cut=0)
 
@@ -183,6 +184,8 @@ def plot_violin(df, title, metric, outname, max_y):
     ax.set_ylabel(add_unit_to_metric(metric))
     if max_y:
         ax.set_ylim(0, float(max_y))
+    if xticklabels:
+        ax.set_xticklabels(ast.literal_eval(xticklabels))
 
     # Add 99th quantile as a black x
     q99s = df.quantile(0.99).to_list()    
@@ -194,7 +197,7 @@ def plot_violin(df, title, metric, outname, max_y):
     plt.clf()      
 
 # Plots one box for each victim+aggressor combination, for the given metric
-def plot_box(df, title, metric, outname, max_y, showfliers=True):
+def plot_box(df, metric, outname, max_y, xticklabels, title, showfliers=True):
     # Setup the violin
     ax = sns.boxplot(data=df, showfliers=showfliers)
 
@@ -203,7 +206,8 @@ def plot_box(df, title, metric, outname, max_y, showfliers=True):
     ax.set_ylabel(add_unit_to_metric(metric))
     if max_y:
         ax.set_ylim(0, float(max_y))
-
+    if xticklabels:
+        ax.set_xticklabels(ast.literal_eval(xticklabels))
     # Add 99th quantile as a black x
     q99s = df.quantile(0.99).to_list()    
     plt.scatter(x = range(len(q99s)), y = q99s, c = 'black', marker = 'x', s = 50)
@@ -213,10 +217,11 @@ def plot_box(df, title, metric, outname, max_y, showfliers=True):
     ax.figure.savefig(outname + "_box" + ("" if showfliers else "_nofliers") + ".pdf", bbox_inches='tight')
     plt.clf()
 
-def plot_dist(df, title, metric, outname, max_y):
+def plot_dist(df, metric, outname, max_y, xticklabels, title):
     # Setup the violin
     ax = sns.displot(data=df, kind="kde")
-
+    if xticklabels:
+        ax.set_xticklabels(ast.literal_eval(xticklabels))
     # Set the title and labels
     #ax.set_title(title)
     #ax.set_ylabel(add_unit_to_metric(metric))
@@ -230,7 +235,7 @@ def plot_dist(df, title, metric, outname, max_y):
 
 # Plots one line for each victim+aggressor combination, for the given metric
 # Time/iteration on the x-axis
-def plot_line(df, title, metric, outname, max_y):
+def plot_line(df, metric, outname, max_y, xticklabels, title):
     # Setup the violin
     ax = sns.lineplot(data=df)
 
@@ -240,7 +245,8 @@ def plot_line(df, title, metric, outname, max_y):
     ax.set_ylabel(add_unit_to_metric(metric))
     if max_y:
         ax.set_ylim(0, float(max_y))
-
+    if xticklabels:
+        ax.set_xticklabels(ast.literal_eval(xticklabels))
     # Save to file
     #ax.figure.savefig(outname + "_line.png", bbox_inches='tight')
     ax.figure.savefig(outname + "_line.pdf", bbox_inches='tight')

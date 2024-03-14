@@ -66,6 +66,8 @@ def main():
     parser.add_argument('-my', '--max_y', help='Max value on the y-axis')
     parser.add_argument('-pt', '--plot_types', help='Types of plots to produce. Comma-separated list of "violin", "box", "line", "dist".', default="violin,box,line,dist")
     parser.add_argument('-o', '--outfile', help='Path of output files.', required=True)
+    parser.add_argument('--xticklabels', help='xticklabels.', required=False)
+    parser.add_argument('--title', help='title', required=False)
 
     args = parser.parse_args()   
     
@@ -96,20 +98,20 @@ def main():
         plot_types = args.plot_types.split(",")
         # Violins        
         if "violin" in plot_types:            
-            plot_violin(global_df, victim_fn, metric_hr, outname, args.max_y)
+            plot_violin(global_df, metric_hr, outname, args.max_y, args.xticklabels, args.title)
 
         # Boxes, with and without outliers        
         if "box" in plot_types:
-            plot_box(global_df, victim_fn, metric_hr, outname, args.max_y, True)
-            plot_box(global_df, victim_fn, metric_hr, outname, args.max_y, False)
+            plot_box(global_df, metric_hr, outname, args.max_y, args.xticklabels, args.title, True)
+            plot_box(global_df, metric_hr, outname, args.max_y, args.xticklabels, args.title, False)
 
         # Lines
         if "line" in plot_types:
-            plot_line(global_df, victim_fn, metric_hr, outname, args.max_y)
+            plot_line(global_df, metric_hr, outname, args.max_y, args.xticklabels, args.title)
 
         ## Dist
         if "dist" in plot_types:
-            plot_dist(global_df, victim_fn, metric_hr, outname, args.max_y)
+            plot_dist(global_df, metric_hr, outname, args.max_y, args.xticklabels, args.title)
 
 if __name__=='__main__':
     main()

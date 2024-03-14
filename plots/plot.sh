@@ -95,19 +95,19 @@ done
 ##################
 # Distance tests #
 ##################
-PLOT_TYPE="box,violin"
-for SL in 0 1
-do
-    EXTRAS=same_switch_SL${SL},diff_switch_SL${SL},diff_group_SL${SL}
-    # Buffer on CPU memory
-    # PPN=1 for latency, pingpong
-    TESTNAME="latency_dist_SL${SL}"
-    ./plots/plot_extras.py -s ${SYSTEM} -vn "ping-pong_b" -vi 1B -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
-    # Buffer on GPU memory
-    # PPN=4 for bandwidth
-    TESTNAME="bandwidth_dist_SL${SL}"
-    ./plots/plot_extras.py -s ${SYSTEM} -vn "gpubench-mpp-nccl" -vi 1GiB -n 2 -am l -sp 100 --metrics "Runtime,Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
-done
+#PLOT_TYPE="box,violin"
+#for SL in 0 1
+#do
+#    EXTRAS=same_switch_SL${SL},diff_switch_SL${SL},diff_group_SL${SL}
+#    # Buffer on CPU memory
+#    # PPN=1 for latency, pingpong
+#    TESTNAME="latency_dist_SL${SL}"
+#    ./plots/plot_extras.py -s ${SYSTEM} -vn "ping-pong_b" -vi 1B -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
+#    # Buffer on GPU memory
+#    # PPN=4 for bandwidth
+#    TESTNAME="bandwidth_dist_SL${SL}"
+#    ./plots/plot_extras.py -s ${SYSTEM} -vn "gpubench-mpp-nccl" -vi 1GiB -n 2 -am l -sp 100 --metrics "Runtime,Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
+#done
 
 ########################
 # Distance tests (IBV) #
@@ -119,11 +119,13 @@ do
     # Buffer on CPU memory
     # PPN=1 for latency, pingpong
     TESTNAME="latency_dist_ib_SL${SL}"
-    ./plots/plot_extras.py -s ${SYSTEM} -vn "ib_send_lat" -vi 1B -n 2 -am l -sp 50:50 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
+    TITLE=""
+    XTICKLABELS="[\"Same Switch\", \"Different Switch\", \"Different Group\"]"
+    ./plots/plot_extras.py -s ${SYSTEM} -vn "ib_send_lat" -vi 1B -n 2 -am l -sp 50:50 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --title "${TITLE}" --xticklabels "${XTICKLABELS}"
     # Buffer on GPU memory
     # PPN=4 for bandwidth
     TESTNAME="bandwidth_dist_ib_SL${SL}"
-    ./plots/plot_extras.py -s ${SYSTEM} -vn "ib_send_lat" -vi 1GiB -n 2 -am l -sp 50:50 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
+    ./plots/plot_extras.py -s ${SYSTEM} -vn "ib_send_lat" -vi 1GiB -n 2 -am l -sp 50:50 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --title "${TITLE}" --xticklabels "${XTICKLABELS}"
 done
 
 
