@@ -7,7 +7,7 @@
 #SBATCH --exclusive
 #SBATCH --job-name=blink-two-nodes
 #SBATCH --account=iscrc_sharp_0
-
+source conf.sh
 ALLOC="same_switch"
 
 for AR in 0 1

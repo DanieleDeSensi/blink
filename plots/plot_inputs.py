@@ -75,7 +75,7 @@ def main():
                     filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, allocation_split, ppn, args.extra, vn, vi, args.aggressor_name, args.aggressor_input)
                     data = pd.DataFrame()
                     if filename and os.path.exists(filename):                    
-                        data[actual_metric] = get_bench_data(vn, vi, actual_metric, filename, ppn, args.numnodes)
+                        data[actual_metric] = get_bench_data(vn, vi, actual_metric, filename, ppn, args.numnodes, args.system)
                     else:
                         print("Data not found for metric " + actual_metric + " victim " + vn + " with input " + vi)
                         data[actual_metric] = [np.nan]

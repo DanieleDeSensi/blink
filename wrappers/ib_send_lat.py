@@ -50,8 +50,8 @@ class app(base):
             for j in range(len(samples)):
                 max_time = max(max_time, samples[j][i])
             samples_max += [max_time]
-        for f in files:
-            os.remove(f)
+        #for f in files:
+        #    os.remove(f)
         return [samples_max]
 
     def get_bench_name(self):

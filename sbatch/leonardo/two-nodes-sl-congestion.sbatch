@@ -7,7 +7,7 @@
 #SBATCH --exclusive
 #SBATCH --job-name=blink-sl-congestion
 #SBATCH --account=iscrc_sharp_0
-
+source conf.sh
 for SL in 0 1
 do
     for VAR in 0 1

@@ -7,7 +7,7 @@
 #SBATCH --exclusive
 #SBATCH --job-name=blink-intra-node
 #SBATCH --account=iscrc_sharp_0
-
+source conf.sh
 ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file"
 
 ./run.sh test_suites/gpubench_pp ${ARGS} --ppn 2
