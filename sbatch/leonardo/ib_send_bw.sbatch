@@ -8,18 +8,15 @@
 #SBATCH --job-name=blink-ib_send_bw
 #SBATCH --account=iscrc_sharp_0
 
-SL=0
+SL=1
 export UCX_IB_SL=${SL}
 export NCCL_IB_SL=${SL}
+ALLOCATION="same_switch"
+# The server goes first, thus the first hostname is that of the server
+SERVER_HOSTNAME=$(scontrol show hostname | head -n 1)
 
 for TRANSPORT in RC UC; do
-    EXTRA="ib-${TRANSPORT}"
-    ARGS="auto -n ${SLURM_NNODES} -sp 50:50 -am l -ro +file --minruns 10"
-    for PPN in 1; do
-        # The server goes first, thus the first hostname is that of the server
-        SERVER_HOSTNAME=$(scontrol show hostname | head -n 1)
-        for MESSAGE_SIZE in 134217728; do
-            ./run.sh test_suites/ib_send_bw ${ARGS} --ppn ${PPN} -e ${EXTRA} --replace_mix_args "%SERVER_ADDRESS:${SERVER_HOSTNAME},%SERVICE_LEVEL:${SL},%TRANSPORT:${TRANSPORT},%MESSAGE_SIZE:${MESSAGE_SIZE}"
-        done
-    done
+    EXTRA="${ALLOCATION}_${TRANSPORT}"
+    ARGS="auto -n ${SLURM_NNODES} -sp 50:50 -am l -ro +file --minruns 10"   
+    ./run.sh test_suites/ib_send_bw ${ARGS} --ppn 4 -e ${EXTRA} --replace_mix_args "%SERVER_ADDRESS:${SERVER_HOSTNAME},%SERVICE_LEVEL:${SL},%TRANSPORT:${TRANSPORT}"
 done

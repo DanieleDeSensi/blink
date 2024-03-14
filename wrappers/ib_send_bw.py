@@ -45,4 +45,4 @@ class app(base):
     def get_bench_input(self):
         args_fields = self.args.split(" ")
         pos = args_fields.index("-s") + 1
-        return sizeof_fmt(2**int(args_fields[pos]))
+        return sizeof_fmt(int(args_fields[pos]))

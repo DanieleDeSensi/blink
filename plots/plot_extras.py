@@ -44,6 +44,11 @@ extra_fullname["SL1"] = "SL1"
 extra_fullname["same_switch_SL1_hcoll0"] = "SL1\nHColl0"
 extra_fullname["same_switch_SL1_hcoll1"] = "SL1\nHColl1"
 
+extra_fullname["ib-RC_SL0"] = "SL0,RC"
+extra_fullname["ib-RC_SL1"] = "SL1,RC"
+extra_fullname["ib-UC_SL0"] = "SL0,UC"
+extra_fullname["ib-UC_SL1"] = "SL1,UC"
+
 def main():
     parser=argparse.ArgumentParser(description='Plots the performance distribution for a specific victim/aggressor combination, for different extras.')
     parser.add_argument('-d', '--data_folder', help='Main data folder.', default="data")

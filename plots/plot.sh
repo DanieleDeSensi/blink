@@ -9,19 +9,37 @@ SYSTEM="leonardo"
 ###############
 # HCOLL tests #
 ###############
-#OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
-#PLOT_TYPE="box,violin"
-#for COLL in "gpubench-ar-nccl" "gpubench-ar-cudaaware" "gpubench-a2a-nccl" "gpubench-a2a-cudaaware" "ardc_b" "a2a_b"
-#do
-#    for PPN in 1 4
-#    do
-#        EXTRAS=same_switch_SL1_hcoll0,same_switch_SL1_hcoll1
-#        TESTNAME="hcoll_latency_ppn"${PPN}"_"${COLL}
-#        ./plots/plot_extras.py -s ${SYSTEM} -vn ${COLL} -vi 1B -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRAS} --plot_types ${PLOT_TYPE}
-#        TESTNAME="hcoll_bandwidth_ppn"${PPN}"_"${COLL}
-#        ./plots/plot_extras.py -s ${SYSTEM} -vn ${COLL} -vi 128MiB -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRAS} --plot_types ${PLOT_TYPE}
-#    done
-#done
+OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
+for EXTRA in "same_switch_SL1_hcoll0" "same_switch_SL1_hcoll1" 
+do
+    PLOT_TYPE="line"
+    INPUTS="8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+    for PPN in 1 4
+    do
+        # AR
+        TESTNAME="allsizes_ar_PPN${PPN}_${EXTRA}"
+        ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-ar-nccl,gpubench-ar-cudaaware,ardc_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE}
+        # A2A
+        TESTNAME="allsizes_a2a_PPN${PPN}_${EXTRA}"
+        INNER_YLIM="[0, 30]"
+        TREND_LIMIT=Bandwidth:400
+        ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-a2a-cudaaware,a2a_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
+    done
+done
+
+exit 0
+
+######################
+# IB Transport tests #
+######################
+OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
+PLOT_TYPE="box,violin"
+for SL in 0 1
+do
+    EXTRAS=ib-RC_SL${SL},ib-UC_SL${SL}
+    TESTNAME="ib_send_bw${SL}"
+    ./plots/plot_extras.py -s ${SYSTEM} -vn "ib_send_bw" -vi 64KiB -n 2 -am l -sp 50:50 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
+done
 
 #####################
 # Single-node tests #
@@ -89,9 +107,6 @@ do
     TESTNAME="bandwidth_dist_SL${SL}"
     ./plots/plot_extras.py -s ${SYSTEM} -vn "gpubench-mpp-nccl" -vi 1GiB -n 2 -am l -sp 100 --metrics "Runtime,Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
 done
-
-
-
 
 ########################
 # Service levels tests #
