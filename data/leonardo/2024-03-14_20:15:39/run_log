@@ -1,0 +1,30 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/perftest/ib_send_lat/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_group_SL{SL}_RC', maxruns=1, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args='%SERVER_ADDRESS:lrdn1235,%SERVICE_LEVEL:1,%TRANSPORT:RC,%IB_DEVICES_LIST:', runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:" "-c RC -S 1 -s 1073741824"", collection flag: False, ending condition: run until finished.
+1: with arguments:" "-c RC -S 1 -s 1073741824 lrdn1235"", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 1 nodes:
+['lrdn1235']
+1 on 1 nodes:
+['lrdn2941']
+
+Schedule:
+0.0s: start 0
+5.0s: start 1
+
+Preparing took 0.26074s.
+
+Running...
+ Run 1:
+  0.00333s: started 0
+  5.01236s: started 1
+  5.01259s: awaited 0
+  5.65026s: awaited 1
+  Data collection took 0.0086s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 1 runs taking 5.66 seconds.

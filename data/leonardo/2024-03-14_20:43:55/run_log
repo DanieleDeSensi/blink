@@ -1,0 +1,36 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/perftest/ib_send_lat/32KiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_group_SL{SL}_UC', maxruns=1, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args='%SERVER_ADDRESS:lrdn1235,%SERVICE_LEVEL:1,%TRANSPORT:UC,%IB_DEVICES_LIST:mlx5_0#mlx5_1#mlx5_2#mlx5_3', runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c UC -S 1 -s 32768"", collection flag: False, ending condition: run until finished.
+1: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c UC -S 1 -s 32768 lrdn1235"", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 1 nodes:
+['lrdn1235']
+1 on 1 nodes:
+['lrdn2941']
+
+Schedule:
+0.0s: start 0
+5.0s: start 1
+
+Preparing took 0.2545s.
+
+Running...
+ Run 1:
+  0.00275s: started 0
+  5.01181s: started 1
+  6.14479s: awaited 0
+  6.14506s: awaited 1
+  6.14507s: encountered an exception in 0
+srun: Job 3709671 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3709671
+
+  Data collection took 0.01219s.
+  Convergence check took 0.00086s.
+Completed maximum number of runs, terminated after 1 runs taking 6.16 seconds.
+Writing data & meta-data took 0.00903s.
+Overall took 6.42193s.
