@@ -20,7 +20,7 @@ for TRANSPORT in RC UC; do
     ARGS="auto -n ${SLURM_NNODES} -sp 50:50 -am l -ro +file --minruns 10"   
     for DEVS in "mlx5_0#mlx5_1#mlx5_2#mlx5_3"; do
 	# Even if its is PPN=1, it spawn 4 processes (one per device)	
-        ./run.sh test_suites/ib_send_bw ${ARGS} --ppn 1 -e ${EXTRA} --replace_mix_args "%SERVER_ADDRESS:${SERVER_HOSTNAME},%SERVICE_LEVEL:${SL},%TRANSPORT:${TRANSPORT},%IB_DEVICES_LIST:${DEVS}"
+        ./run.sh test_suites/pp-ib ${ARGS} --ppn 1 -e ${EXTRA} --replace_mix_args "%SERVER_ADDRESS:${SERVER_HOSTNAME},%SERVICE_LEVEL:${SL},%TRANSPORT:${TRANSPORT},%IB_DEVICES_LIST:${DEVS}"
     done
 
 done
