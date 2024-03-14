@@ -97,7 +97,7 @@ def input_size_to_bytes(size_str):
 # We always assume that
 # - We return bandwidth in Gb/s
 # - We return runtime in microseconds
-def get_bench_data(bench, input, metric, filename, ppn=1, nodes=0):
+def get_bench_data(bench, input, metric, filename, ppn, nodes, system):
     microbenchs = ["ping-pong_b", "pw-ping-pong_b", "a2a_b", "ardc_b"]
     if "gpubench" in bench:
         if metric == "Bandwidth":
@@ -111,7 +111,15 @@ def get_bench_data(bench, input, metric, filename, ppn=1, nodes=0):
         if metric == "Runtime":
             return pd.read_csv(filename)["1_time_us"] # 0_ is the server
         elif metric == "Bandwidth":
-            input_bits = input_size_to_bytes(input)*8
+            # Find the number of IB_DEVICES in conf file
+            conffile = os.environ["BLINK_ROOT"] + "/conf/" + system + ".sh"
+            with open(conffile, "r") as f:
+                lines = f.readlines()
+                for l in lines:
+                    if "BLINK_IB_DEVICES" in l:
+                        num_devices = l.split("=")[1].strip().count("#") + 1
+                        break
+            input_bits = input_size_to_bytes(input)*8*num_devices
             input_gbits = input_bits / 1e9
             return input_gbits / (pd.read_csv(filename)["1_time_us"] / 1e6)
     elif bench in microbenchs:

@@ -7,7 +7,7 @@
 #SBATCH --exclusive
 #SBATCH --job-name=blink-two-nodes
 #SBATCH --account=iscrc_sharp_0
-
+source conf.sh
 ALLOCATION="diff_group"
 
 for SL in 0 1; do

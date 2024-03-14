@@ -8,6 +8,7 @@
 #SBATCH --job-name=blink-ib_send_lat
 #SBATCH --account=iscrc_sharp_0
 
+source conf.sh
 SL=1
 export UCX_IB_SL=${SL}
 export NCCL_IB_SL=${SL}
