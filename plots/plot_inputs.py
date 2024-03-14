@@ -57,7 +57,7 @@ def main():
             ppn = args.ppn
             allocation_split = args.allocation_split
             # TODO: This is a hack, make it cleaner
-            if vn == "ib_send_bw":
+            if vn == "ib_send_lat":
                 if ppn != 1:
                     ppn = 1
                 if allocation_split == "100":
@@ -66,7 +66,7 @@ def main():
             outname = args.outfile + os.path.sep + metric_hr
             outname = outname.lower()
             for vi in victim_inputs:
-                if metric_hr == "Bandwidth": #and vn != "ib_send_bw": # For bandwidth, we also get the data for runtime to plot the inner plot
+                if metric_hr == "Bandwidth": # For bandwidth, we also get the data for runtime to plot the inner plot
                     actual_metrics = ["Runtime", "Bandwidth"]
                 else:
                     actual_metrics = [metric_hr]

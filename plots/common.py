@@ -107,9 +107,13 @@ def get_bench_data(bench, input, metric, filename, ppn=1, nodes=0):
     elif bench == "nccl-sendrecv" or bench == "nccl-allreduce" or bench == "nccl-alltoall":
         if metric == "Bandwidth":
             return pd.read_csv(filename)["0_busbw-ip_GB/s"]*8
-    elif bench == "ib_send_bw":
-        if metric == "Bandwidth":
-            return pd.read_csv(filename)["1_BW_average_gbit/s"] # 0_ is the server
+    elif bench == "ib_send_lat":
+        if metric == "Runtime":
+            return pd.read_csv(filename)["1_time_us"] # 0_ is the server
+        elif metric == "Bandwidth":
+            input_bits = input_size_to_bytes(input)*8
+            input_gbits = input_bits / 1e9
+            return input_gbits / (pd.read_csv(filename)["1_time_us"] / 1e6)
     elif bench in microbenchs:
         if bench == "ping-pong_b":
             time_str = "0_MainRank-Duration_s"            
