@@ -1,0 +1,93 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/a2a-nccl/8B', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_SL1_hcoll0', maxruns=100, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 3", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn1597' 'lrdn1604']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.31068s.
+
+Running...
+ Run 1:
+  0.00849s: started 0
+  5.10182s: awaited 0
+  Data collection took 0.00039s.
+  Convergence check took 0.00145s.
+ Run 2:
+  0.00956s: started 0
+  4.98645s: awaited 0
+  Data collection took 0.00036s.
+  Convergence check took 0.00111s.
+ Run 3:
+  0.00854s: started 0
+  4.90931s: awaited 0
+  Data collection took 0.00023s.
+  Convergence check took 0.00078s.
+ Run 4:
+  0.00487s: started 0
+  5.09151s: awaited 0
+  5.09157s: encountered an exception in 0
+srun: Job 3691692 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3691692
+
+  Data collection took 0.00034s.
+  Convergence check took 0.00099s.
+ Run 5:
+  0.00765s: started 0
+  4.90898s: awaited 0
+  Data collection took 0.00053s.
+  Convergence check took 0.00123s.
+ Run 6:
+  0.08101s: started 0
+  5.10762s: awaited 0
+  Data collection took 0.00057s.
+  Convergence check took 0.00157s.
+ Run 7:
+  0.07412s: started 0
+  5.17668s: awaited 0
+  Data collection took 0.00039s.
+  Convergence check took 0.00166s.
+ Run 8:
+  0.00751s: started 0
+  5.10566s: awaited 0
+  Data collection took 0.0005s.
+  Convergence check took 0.00155s.
+ Run 9:
+  0.00649s: started 0
+  5.1912s: awaited 0
+  5.19126s: encountered an exception in 0
+srun: Job 3691692 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3691692
+
+  Data collection took 0.00039s.
+  Convergence check took 0.00119s.
+ Run 10:
+  0.00601s: started 0
+  4.99777s: awaited 0
+  Data collection took 0.00023s.
+  Convergence check took 0.00085s.
+ Run 11:
+  0.00599s: started 0
+  5.99586s: awaited 0
+  5.9959s: encountered an exception in 0
+srun: Job 3691692 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3691692
+
+  Data collection took 0.00022s.
+  Convergence check took 0.00086s.
+ Run 12:
+  0.005s: started 0
+  5.00432s: awaited 0
+  Data collection took 0.00038s.
+  Convergence check took 0.00121s.
+Completed after reaching confidence interval, terminated after 12 runs taking 61.6 seconds.
+Writing data & meta-data took 0.09721s.
+Overall took 63.0061s.

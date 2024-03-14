@@ -1,0 +1,86 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/ib_send_bw/64KiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='ib-RC_SL1', maxruns=100, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args='%SERVER_ADDRESS:lrdn0332,%SERVICE_LEVEL:1,%TRANSPORT:RC,%IB_DEVICES_LIST:mlx5_0#mlx5_1#mlx5_2#mlx5_3', runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c RC -S 1 -s 65536"", collection flag: False, ending condition: run until finished.
+1: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c RC -S 1 -s 65536 lrdn0332"", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 1 nodes:
+['lrdn0332']
+1 on 1 nodes:
+['lrdn0532']
+
+Schedule:
+0.0s: start 0
+3.0s: start 1
+
+Preparing took 1.40617s.
+
+Running...
+ Run 1:
+  0.00667s: started 0
+  3.02162s: started 1
+  4.99444s: awaited 0
+  4.99466s: awaited 1
+  Data collection took 0.02889s.
+ Run 2:
+  0.07564s: started 0
+  3.09422s: started 1
+  5.28891s: awaited 0
+  5.28919s: awaited 1
+  Data collection took 0.00914s.
+ Run 3:
+  0.06932s: started 0
+  3.09109s: started 1
+  5.27018s: awaited 0
+  5.27056s: awaited 1
+  Data collection took 0.02787s.
+ Run 4:
+  0.06743s: started 0
+  3.08962s: started 1
+  5.68181s: awaited 0
+  5.70058s: awaited 1
+  Data collection took 0.07366s.
+ Run 5:
+  0.00846s: started 0
+  3.02697s: started 1
+  5.80515s: awaited 0
+  5.80536s: awaited 1
+  Data collection took 0.08659s.
+ Run 6:
+  0.01022s: started 0
+  3.02917s: started 1
+  5.8197s: awaited 0
+  5.89443s: awaited 1
+  Data collection took 0.11198s.
+ Run 7:
+  0.01202s: started 0
+  3.08542s: started 1
+  5.7157s: awaited 0
+  5.71595s: awaited 1
+  Data collection took 0.08355s.
+ Run 8:
+  0.01176s: started 0
+  3.08547s: started 1
+  7.18943s: awaited 0
+  7.18974s: awaited 1
+  Data collection took 0.02036s.
+ Run 9:
+  0.00963s: started 0
+  3.07991s: started 1
+  5.09081s: awaited 0
+  5.1752s: awaited 1
+  Data collection took 0.1144s.
+ Run 10:
+  0.01063s: started 0
+  3.0851s: started 1
+  5.0892s: awaited 0
+  5.08957s: awaited 1
+  Data collection took 0.03675s.
+  Convergence check took 0.0592s.
+Completed after reaching confidence interval, terminated after 10 runs taking 56.79 seconds.
+Writing data & meta-data took 0.10185s.
+Overall took 58.29677s.

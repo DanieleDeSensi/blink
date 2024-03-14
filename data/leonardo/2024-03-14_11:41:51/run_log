@@ -1,0 +1,60 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/a2a-cudaaware/64B', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_SL1_hcoll1', maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=2, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 6", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['lrdn0970' 'lrdn1938']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.01567s.
+
+Running...
+ Run 1:
+  0.00482s: started 0
+  0.25039s: awaited 0
+  0.25042s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.00341s: started 0
+  0.24835s: awaited 0
+  0.24837s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00317s: started 0
+  0.25092s: awaited 0
+  0.25095s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 4:
+  0.00328s: started 0
+  0.24849s: awaited 0
+  0.24851s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 5:
+  0.00327s: started 0
+  0.24851s: awaited 0
+  0.24854s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 6:
+  0.00325s: started 0

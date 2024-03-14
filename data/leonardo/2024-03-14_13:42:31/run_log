@@ -1,0 +1,25 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/ib_send_bw/64KiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='ib-RC', maxruns=100, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args='%SERVER_ADDRESS:lrdn0332,%SERVICE_LEVEL:0,%TRANSPORT:RC,%IB_DEVICES_LIST:mlx5_0#mlx5_1#mlx5_2#mlx5_3', runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c RC -S 0 -s 65536"", collection flag: False, ending condition: run until finished.
+1: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c RC -S 0 -s 65536 lrdn0332"", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 1 nodes:
+['lrdn0332']
+1 on 1 nodes:
+['lrdn0532']
+
+Schedule:
+0.0s: start 0
+3.0s: start 1
+
+Preparing took 1.40088s.
+
+Running...
+ Run 1:
+  0.08207s: started 0
+  3.09417s: started 1

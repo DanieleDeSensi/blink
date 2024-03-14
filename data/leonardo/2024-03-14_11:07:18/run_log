@@ -1,0 +1,1137 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_SL1_hcoll1', maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=2, outformat='csv', ppn=1, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1073741824 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['lrdn1038' 'lrdn1039']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.00968s.
+
+Running...
+ Run 1:
+  0.00471s: started 0
+  1.0879s: awaited 0
+  1.08793s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.00386s: started 0
+  1.37131s: awaited 0
+  1.37135s: encountered an exception in 0
+srun: Job 3685916 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3685916
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00377s: started 0
+  1.08364s: awaited 0
+  1.08368s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1039: task 1: Exited with exit code 255
+srun: error: lrdn1038: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 4:
+  0.00381s: started 0
+  2.10922s: awaited 0
+  2.10926s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 5:
+  0.00376s: started 0
+  1.06786s: awaited 0
+  1.06789s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 6:
+  0.00366s: started 0
+  2.07625s: awaited 0
+  2.0763s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 7:
+  0.00481s: started 0
+  1.06393s: awaited 0
+  1.06396s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 8:
+  0.00375s: started 0
+  1.94295s: awaited 0
+  1.94299s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 9:
+  0.00372s: started 0
+  1.07985s: awaited 0
+  1.07988s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 10:
+  0.00379s: started 0
+  1.07482s: awaited 0
+  1.07485s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 11:
+  0.00379s: started 0
+  1.10516s: awaited 0
+  1.1052s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 12:
+  0.00383s: started 0
+  1.0813s: awaited 0
+  1.08133s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1039: task 1: Exited with exit code 255
+srun: error: lrdn1038: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 13:
+  0.00365s: started 0
+  1.06882s: awaited 0
+  1.06886s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 14:
+  0.00377s: started 0
+  1.06779s: awaited 0
+  1.06783s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 15:
+  0.00384s: started 0
+  2.2152s: awaited 0
+  2.21523s: encountered an exception in 0
+srun: Job 3685916 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3685916
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 16:
+  0.00377s: started 0
+  1.06127s: awaited 0
+  1.0613s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 17:
+  0.00373s: started 0
+  2.22168s: awaited 0
+  2.22171s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 18:
+  0.0038s: started 0
+  1.07647s: awaited 0
+  1.07651s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 19:
+  0.00371s: started 0
+  2.14462s: awaited 0
+  2.14466s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 20:
+  0.00378s: started 0
+  1.07124s: awaited 0
+  1.07127s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 21:
+  0.00382s: started 0
+  2.15441s: awaited 0
+  2.15445s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 22:
+  0.00361s: started 0
+  1.06724s: awaited 0
+  1.06727s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 23:
+  0.00375s: started 0
+  2.29263s: awaited 0
+  2.29266s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 24:
+  0.00399s: started 0
+  1.07157s: awaited 0
+  1.0716s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1039: task 1: Exited with exit code 255
+srun: error: lrdn1038: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 25:
+  0.00374s: started 0
+  2.07883s: awaited 0
+  2.07886s: encountered an exception in 0
+srun: Job 3685916 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3685916
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 26:
+  0.00386s: started 0
+  1.08719s: awaited 0
+  1.08722s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 27:
+  0.00384s: started 0
+  1.88752s: awaited 0
+  1.88755s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 28:
+  0.00394s: started 0
+  1.06783s: awaited 0
+  1.06787s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 29:
+  0.00377s: started 0
+  2.01235s: awaited 0
+  2.01238s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 30:
+  0.0039s: started 0
+  1.07959s: awaited 0
+  1.07962s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 31:
+  0.00374s: started 0
+  1.05956s: awaited 0
+  1.0596s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 32:
+  0.00399s: started 0
+  1.10097s: awaited 0
+  1.101s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 33:
+  0.00374s: started 0
+  1.09248s: awaited 0
+  1.09251s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 34:
+  0.00354s: started 0
+  1.0716s: awaited 0
+  1.07163s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 35:
+  0.00397s: started 0
+  1.06349s: awaited 0
+  1.06353s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 36:
+  0.00387s: started 0
+  2.13373s: awaited 0
+  2.13376s: encountered an exception in 0
+srun: Job 3685916 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3685916
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 37:
+  0.00382s: started 0
+  1.09613s: awaited 0
+  1.09617s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 38:
+  0.00381s: started 0
+  2.24423s: awaited 0
+  2.24426s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 39:
+  0.00401s: started 0
+  1.07685s: awaited 0
+  1.07689s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 40:
+  0.00378s: started 0
+  2.50701s: awaited 0
+  2.50704s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 41:
+  0.00382s: started 0
+  1.08252s: awaited 0
+  1.08256s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 42:
+  0.00377s: started 0
+  2.29456s: awaited 0
+  2.29459s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 43:
+  0.004s: started 0
+  1.06408s: awaited 0
+  1.06412s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 44:
+  0.00379s: started 0
+  1.96507s: awaited 0
+  1.9651s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 45:
+  0.00371s: started 0
+  1.08947s: awaited 0
+  1.08951s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 46:
+  0.00397s: started 0
+  2.00883s: awaited 0
+  2.00886s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 47:
+  0.00382s: started 0
+  1.07286s: awaited 0
+  1.0729s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 48:
+  0.00399s: started 0
+  1.91243s: awaited 0
+  1.91247s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 49:
+  0.00367s: started 0
+  1.0971s: awaited 0
+  1.09714s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 50:
+  0.00388s: started 0
+  1.96157s: awaited 0
+  1.96161s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 51:
+  0.00374s: started 0
+  1.06558s: awaited 0
+  1.06561s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 52:
+  0.00376s: started 0
+  1.07537s: awaited 0
+  1.07541s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 53:
+  0.00376s: started 0
+  1.08468s: awaited 0
+  1.08472s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 54:
+  0.00367s: started 0
+  1.06291s: awaited 0
+  1.06295s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 55:
+  0.00379s: started 0
+  1.06958s: awaited 0
+  1.06961s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 56:
+  0.00387s: started 0
+  2.30865s: awaited 0
+  2.30869s: encountered an exception in 0
+srun: Job 3685916 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3685916
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1039: task 1: Exited with exit code 255
+srun: error: lrdn1038: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 57:
+  0.00387s: started 0
+  1.08379s: awaited 0
+  1.08382s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 58:
+  0.00368s: started 0
+  2.13564s: awaited 0
+  2.13567s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 59:
+  0.00381s: started 0
+  1.07236s: awaited 0
+  1.0724s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 60:
+  0.00375s: started 0
+  2.2352s: awaited 0
+  2.23523s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 61:
+  0.00383s: started 0
+  1.07838s: awaited 0
+  1.07842s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 62:
+  0.00357s: started 0
+  2.09718s: awaited 0
+  2.09721s: encountered an exception in 0
+srun: Job 3685916 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3685916
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 63:
+  0.00389s: started 0
+  1.0723s: awaited 0
+  1.07234s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 64:
+  0.00402s: started 0
+  2.13618s: awaited 0
+  2.13621s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 65:
+  0.0038s: started 0
+  1.08531s: awaited 0
+  1.08534s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1039: task 1: Exited with exit code 255
+srun: error: lrdn1038: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 66:
+  0.00398s: started 0
+  2.10036s: awaited 0
+  2.10039s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 67:
+  0.0039s: started 0
+  1.07644s: awaited 0
+  1.07647s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 68:
+  0.00383s: started 0
+  2.0574s: awaited 0
+  2.05743s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 69:
+  0.00391s: started 0
+  1.08027s: awaited 0
+  1.0803s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 70:
+  0.00385s: started 0
+  2.03115s: awaited 0
+  2.03118s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 71:
+  0.00396s: started 0
+  1.06458s: awaited 0
+  1.06462s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 72:
+  0.00376s: started 0
+  1.09101s: awaited 0
+  1.09104s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 73:
+  0.00372s: started 0
+  1.08528s: awaited 0
+  1.08532s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 74:
+  0.0045s: started 0
+  1.09498s: awaited 0
+  1.09501s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 75:
+  0.00405s: started 0
+  1.0595s: awaited 0
+  1.05954s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 76:
+  0.00378s: started 0
+  1.09242s: awaited 0
+  1.09246s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 77:
+  0.00388s: started 0
+  3.02796s: awaited 0
+  3.028s: encountered an exception in 0
+srun: Job 3685916 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3685916
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1039: task 1: Exited with exit code 255
+srun: error: lrdn1038: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 78:
+  0.00391s: started 0
+  1.06283s: awaited 0
+  1.06286s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 79:
+  0.00383s: started 0
+  2.29087s: awaited 0
+  2.29091s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 80:
+  0.00387s: started 0
+  1.06828s: awaited 0
+  1.06832s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 81:
+  0.00376s: started 0
+  2.32697s: awaited 0
+  2.327s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 82:
+  0.00429s: started 0
+  1.0672s: awaited 0
+  1.06724s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 83:
+  0.00494s: started 0
+  2.33714s: awaited 0
+  2.33718s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 84:
+  0.00391s: started 0
+  1.10165s: awaited 0
+  1.10169s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 85:
+  0.00384s: started 0
+  2.11887s: awaited 0
+  2.11891s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 86:
+  0.00397s: started 0
+  1.10877s: awaited 0
+  1.10881s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 87:
+  0.0046s: started 0
+  2.13897s: awaited 0
+  2.13901s: encountered an exception in 0
+srun: Job 3685916 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3685916
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 88:
+  0.00402s: started 0
+  1.09822s: awaited 0
+  1.09826s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 89:
+  0.00388s: started 0
+  2.15336s: awaited 0
+  2.1534s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 90:
+  0.00468s: started 0
+  1.11917s: awaited 0
+  1.11921s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 91:
+  0.00393s: started 0
+  2.18571s: awaited 0
+  2.18575s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 92:
+  0.00371s: started 0
+  1.08856s: awaited 0
+  1.0886s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 93:
+  0.00373s: started 0
+  1.08731s: awaited 0
+  1.08735s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 94:
+  0.00389s: started 0
+  1.09015s: awaited 0
+  1.09019s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 95:
+  0.00377s: started 0
+  1.07881s: awaited 0
+  1.07884s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 96:
+  0.00374s: started 0
+  1.0696s: awaited 0
+  1.06963s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 97:
+  0.00398s: started 0
+  1.77881s: awaited 0
+  1.77885s: encountered an exception in 0
+srun: Job 3685916 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3685916
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 98:
+  0.00389s: started 0
+  1.08102s: awaited 0
+  1.08105s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 99:
+  0.00382s: started 0
+  1.99665s: awaited 0
+  1.99669s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 100:
+  0.00377s: started 0
+  1.07632s: awaited 0
+  1.07635s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn1038: task 0: Exited with exit code 255
+srun: error: lrdn1039: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 100 runs taking 147.93 seconds.

@@ -1,0 +1,37 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/ib_send_bw/ib_send_bw', beta=0.05, convergeall=False, datapath='./data', extrainfo='ib-RC', maxruns=100, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args='%SERVER_ADDRESS:lrdn0868,%SERVICE_LEVEL:0,%TRANSPORT:RC,%MESSAGE_SIZE:134217728', runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"--perform_warm_up -c RC -S 0 -s 134217728 --report_gbits -F --out_json --out_json_file=ib_send_bw.json", collection flag: False, ending condition: run until finished.
+1: with arguments:"--perform_warm_up -c RC -S 0 -s 134217728 --report_gbits -F --out_json --out_json_file=ib_send_bw.json lrdn0868", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 1 nodes:
+['lrdn0868']
+1 on 1 nodes:
+['lrdn1517']
+
+Schedule:
+0.0s: start 0
+3.0s: start 1
+
+Preparing took 1.49386s.
+
+Running...
+ Run 1:
+  0.00935s: started 0
+  3.01979s: started 1
+  17.91689s: awaited 0
+  17.92635s: awaited 1
+  Data collection took 0.06591s.
+ Run 2:
+  0.00709s: started 0
+  3.01718s: started 1
+  582.11912s: timed out 0
+  582.11938s: timed out 1
+  No data collection due to timeout.
+Completed after timeout, terminated after 1 runs taking 600.11 seconds.
+Writing data & meta-data took 0.09482s.
+Overall took 601.7006s.

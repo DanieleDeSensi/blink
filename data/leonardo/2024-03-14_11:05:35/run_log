@@ -1,0 +1,35 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/a2a-cudaaware/2MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_SL1_hcoll0', maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=2, outformat='csv', ppn=1, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 21", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['lrdn1038' 'lrdn1039']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02914s.
+
+Running...
+ Run 1:
+  0.00518s: started 0
+  1.8261s: awaited 0
+  1.82615s: encountered an exception in 0
+srun: Job 3685916 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3685916
+
+  Data collection took 0.00027s.
+  Convergence check took 0.00086s.
+ Run 2:
+  0.00469s: started 0
+  1.24579s: awaited 0
+  Data collection took 0.00044s.
+  Convergence check took 0.00212s.
+Completed after reaching confidence interval, terminated after 2 runs taking 3.08 seconds.
+Writing data & meta-data took 0.0207s.
+Overall took 3.12579s.

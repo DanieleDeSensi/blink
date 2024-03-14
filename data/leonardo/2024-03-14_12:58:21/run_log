@@ -1,0 +1,86 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/ib_send_bw/ib_send_bw', beta=0.05, convergeall=False, datapath='./data', extrainfo='ib-UC', maxruns=100, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args='%SERVER_ADDRESS:lrdn2731,%SERVICE_LEVEL:0,%TRANSPORT:UC,%MESSAGE_SIZE:134217728', runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"--perform_warm_up -c UC -S 0 -s 134217728 --report_gbits -F --out_json --out_json_file=ib_send_bw.json", collection flag: False, ending condition: run until finished.
+1: with arguments:"--perform_warm_up -c UC -S 0 -s 134217728 --report_gbits -F --out_json --out_json_file=ib_send_bw.json lrdn2731", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 1 nodes:
+['lrdn2731']
+1 on 1 nodes:
+['lrdn2734']
+
+Schedule:
+0.0s: start 0
+3.0s: start 1
+
+Preparing took 1.2995s.
+
+Running...
+ Run 1:
+  0.00845s: started 0
+  3.02125s: started 1
+  17.79753s: awaited 0
+  17.79773s: awaited 1
+  Data collection took 0.0043s.
+ Run 2:
+  0.00697s: started 0
+  3.01745s: started 1
+  17.61377s: awaited 0
+  17.69526s: awaited 1
+  Data collection took 0.01143s.
+ Run 3:
+  0.1153s: started 0
+  3.12612s: started 1
+  18.0937s: awaited 0
+  18.09392s: awaited 1
+  Data collection took 0.00251s.
+ Run 4:
+  0.00778s: started 0
+  3.01966s: started 1
+  18.4178s: awaited 0
+  18.41807s: awaited 1
+  Data collection took 0.00498s.
+ Run 5:
+  0.07139s: started 0
+  3.08642s: started 1
+  17.67483s: awaited 0
+  17.67504s: awaited 1
+  Data collection took 0.00486s.
+ Run 6:
+  0.0082s: started 0
+  3.01854s: started 1
+  18.40401s: awaited 0
+  18.40424s: awaited 1
+  Data collection took 0.00244s.
+ Run 7:
+  0.00667s: started 0
+  3.01984s: started 1
+  17.68739s: awaited 0
+  17.6882s: awaited 1
+  Data collection took 0.00259s.
+ Run 8:
+  0.00627s: started 0
+  3.02466s: started 1
+  17.70539s: awaited 0
+  17.70561s: awaited 1
+  Data collection took 0.00269s.
+ Run 9:
+  0.00857s: started 0
+  3.08245s: started 1
+  17.51297s: awaited 0
+  17.51321s: awaited 1
+  Data collection took 0.00296s.
+ Run 10:
+  0.08053s: started 0
+  3.09947s: started 1
+  18.97045s: awaited 0
+  18.9757s: awaited 1
+  Data collection took 0.00267s.
+  Convergence check took 0.00227s.
+Completed after reaching confidence interval, terminated after 10 runs taking 180.01 seconds.
+Writing data & meta-data took 0.01913s.
+Overall took 181.33085s.

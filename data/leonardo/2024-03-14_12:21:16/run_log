@@ -1,0 +1,99 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/ib_send_bw/ib_send_bw', beta=0.05, convergeall=False, datapath='./data', extrainfo='ib-RC', maxruns=100, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args='%SERVER_ADDRESS:lrdn0868,%SERVICE_LEVEL:1,%TRANSPORT:RC,%MESSAGE_SIZE:134217728', runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"--perform_warm_up -c RC -S 1 -s 134217728 --report_gbits -F --out_json --out_json_file=ib_send_bw.json", collection flag: False, ending condition: run until finished.
+1: with arguments:"--perform_warm_up -c RC -S 1 -s 134217728 --report_gbits -F --out_json --out_json_file=ib_send_bw.json lrdn0868", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 1 nodes:
+['lrdn0868']
+1 on 1 nodes:
+['lrdn1517']
+
+Schedule:
+0.0s: start 0
+3.0s: start 1
+
+Preparing took 1.68176s.
+
+Running...
+ Run 1:
+  0.01628s: started 0
+  3.09127s: started 1
+  17.78632s: awaited 0
+  17.78657s: awaited 1
+  Data collection took 0.00296s.
+ Run 2:
+  0.00781s: started 0
+  3.02572s: started 1
+  18.31073s: awaited 0
+  18.31115s: awaited 1
+  18.31117s: encountered an exception in 0
+srun: Job 3690961 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3690961
+
+  Data collection took 0.01219s.
+ Run 3:
+  0.07546s: started 0
+  3.08916s: started 1
+  17.78725s: awaited 0
+  17.79957s: awaited 1
+  Data collection took 0.10147s.
+ Run 4:
+  0.07435s: started 0
+  3.10695s: started 1
+  89.473s: awaited 0
+  89.47765s: awaited 1
+  89.4777s: encountered an exception in 0
+srun: Job 3690961 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 3690961 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3690961
+
+  89.47772s: encountered an exception in 1
+srun: Job 3690961 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3690961
+
+  Data collection took 0.00262s.
+ Run 5:
+  0.00801s: started 0
+  3.01691s: started 1
+  17.59157s: awaited 0
+  17.59299s: awaited 1
+  Data collection took 0.00261s.
+ Run 6:
+  0.00659s: started 0
+  3.02982s: started 1
+  20.22827s: awaited 0
+  20.30811s: awaited 1
+  Data collection took 0.01044s.
+ Run 7:
+  0.07796s: started 0
+  3.09514s: started 1
+  18.09916s: awaited 0
+  18.09941s: awaited 1
+  Data collection took 0.0038s.
+ Run 8:
+  0.00982s: started 0
+  3.07841s: started 1
+  18.68893s: awaited 0
+  18.68914s: awaited 1
+  Data collection took 0.00354s.
+ Run 9:
+  0.0141s: started 0
+  3.09041s: started 1
+  17.68634s: awaited 0
+  17.68861s: awaited 1
+  Data collection took 0.00295s.
+ Run 10:
+  0.00698s: started 0
+  3.01578s: started 1
+  17.61163s: awaited 0
+  17.61188s: awaited 1
+  Data collection took 0.01137s.
+  Convergence check took 0.38096s.
+Completed after reaching confidence interval, terminated after 10 runs taking 253.9 seconds.
+Writing data & meta-data took 0.38352s.
+Overall took 255.96666s.

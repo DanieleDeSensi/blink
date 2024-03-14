@@ -1,0 +1,819 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/ar-nccl/8B', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_SL1_hcoll1', maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=2, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 3", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['lrdn0970' 'lrdn1938']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.01017s.
+
+Running...
+ Run 1:
+  0.00487s: started 0
+  0.25275s: awaited 0
+  0.25278s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.00356s: started 0
+  0.26861s: awaited 0
+  0.26865s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 3:
+  0.00351s: started 0
+  0.25068s: awaited 0
+  0.25071s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 4:
+  0.00359s: started 0
+  0.25093s: awaited 0
+  0.25097s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 5:
+  0.00347s: started 0
+  0.25326s: awaited 0
+  0.25329s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 6:
+  0.00354s: started 0
+  0.25096s: awaited 0
+  0.251s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 7:
+  0.00379s: started 0
+  0.2503s: awaited 0
+  0.25034s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 8:
+  0.00334s: started 0
+  0.24962s: awaited 0
+  0.24966s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 9:
+  0.00324s: started 0
+  0.24951s: awaited 0
+  0.24955s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 10:
+  0.00287s: started 0
+  0.24964s: awaited 0
+  0.24967s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 11:
+  0.0032s: started 0
+  1.52172s: awaited 0
+  1.52176s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 12:
+  0.00459s: started 0
+  0.25233s: awaited 0
+  0.25235s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 13:
+  0.00347s: started 0
+  0.25074s: awaited 0
+  0.25078s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 14:
+  0.00325s: started 0
+  0.24922s: awaited 0
+  0.24925s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 15:
+  0.0031s: started 0
+  0.24972s: awaited 0
+  0.24976s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 16:
+  0.00323s: started 0
+  0.24917s: awaited 0
+  0.2492s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 17:
+  0.00355s: started 0
+  0.25034s: awaited 0
+  0.25037s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 18:
+  0.00342s: started 0
+  0.25104s: awaited 0
+  0.25108s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 19:
+  0.00372s: started 0
+  1.47342s: awaited 0
+  1.47346s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 20:
+  0.00364s: started 0
+  0.29203s: awaited 0
+  0.29206s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 21:
+  0.00341s: started 0
+  0.25129s: awaited 0
+  0.25133s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 22:
+  0.00365s: started 0
+  0.25263s: awaited 0
+  0.25266s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 23:
+  0.00366s: started 0
+  0.25248s: awaited 0
+  0.25252s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 24:
+  0.00359s: started 0
+  0.25146s: awaited 0
+  0.2515s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 25:
+  0.00435s: started 0
+  0.25224s: awaited 0
+  0.25227s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 26:
+  0.00381s: started 0
+  0.2512s: awaited 0
+  0.25123s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 27:
+  0.00378s: started 0
+  1.46146s: awaited 0
+  1.46149s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 28:
+  0.00356s: started 0
+  0.25177s: awaited 0
+  0.25181s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 29:
+  0.00389s: started 0
+  0.25067s: awaited 0
+  0.2507s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 30:
+  0.0033s: started 0
+  0.25045s: awaited 0
+  0.25049s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 31:
+  0.00361s: started 0
+  0.25716s: awaited 0
+  0.25719s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 32:
+  0.00317s: started 0
+  0.24916s: awaited 0
+  0.2492s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 33:
+  0.00375s: started 0
+  0.25097s: awaited 0
+  0.251s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 34:
+  0.00352s: started 0
+  0.25087s: awaited 0
+  0.2509s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 35:
+  0.00357s: started 0
+  1.52926s: awaited 0
+  1.52931s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 36:
+  0.0036s: started 0
+  0.25053s: awaited 0
+  0.25057s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 37:
+  0.0033s: started 0
+  0.25083s: awaited 0
+  0.25088s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 38:
+  0.00325s: started 0
+  0.24984s: awaited 0
+  0.24988s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 39:
+  0.00331s: started 0
+  0.25846s: awaited 0
+  0.2585s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 40:
+  0.00336s: started 0
+  0.2479s: awaited 0
+  0.24794s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 41:
+  0.00308s: started 0
+  0.24859s: awaited 0
+  0.24863s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 42:
+  0.00342s: started 0
+  0.25198s: awaited 0
+  0.25202s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 43:
+  0.00361s: started 0
+  1.39106s: awaited 0
+  1.39109s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 44:
+  0.00364s: started 0
+  0.2494s: awaited 0
+  0.24944s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 45:
+  0.00317s: started 0
+  0.24863s: awaited 0
+  0.24865s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 46:
+  0.00314s: started 0
+  0.24733s: awaited 0
+  0.24736s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 47:
+  0.00271s: started 0
+  0.25578s: awaited 0
+  0.25581s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 2e-05s.
+  Convergence check took 0.0s.
+ Run 48:
+  0.00341s: started 0
+  0.24928s: awaited 0
+  0.24931s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 49:
+  0.0031s: started 0
+  0.24981s: awaited 0
+  0.24984s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 50:
+  0.00336s: started 0
+  0.2492s: awaited 0
+  0.24923s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 51:
+  0.00311s: started 0
+  1.44855s: awaited 0
+  1.44858s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 52:
+  0.00355s: started 0
+  0.24961s: awaited 0
+  0.24964s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 53:
+  0.00354s: started 0
+  0.24672s: awaited 0
+  0.24675s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 54:
+  0.00294s: started 0
+  0.2477s: awaited 0
+  0.24773s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 55:
+  0.00327s: started 0
+  0.24933s: awaited 0
+  0.24937s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 56:
+  0.0032s: started 0
+  0.24998s: awaited 0
+  0.25002s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 57:
+  0.00359s: started 0
+  0.24873s: awaited 0
+  0.24876s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 58:
+  0.00357s: started 0
+  0.24702s: awaited 0
+  0.24706s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 59:
+  0.0033s: started 0
+  1.46356s: awaited 0
+  1.46359s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 60:
+  0.00367s: started 0
+  0.26902s: awaited 0
+  0.26905s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 61:
+  0.00351s: started 0
+  0.24974s: awaited 0
+  0.24978s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 62:
+  0.00351s: started 0
+  0.26759s: awaited 0
+  0.26762s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 63:
+  0.0034s: started 0
+  0.24791s: awaited 0
+  0.24794s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 64:
+  0.00309s: started 0
+  0.24666s: awaited 0
+  0.24669s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 65:
+  0.00313s: started 0
+  0.24674s: awaited 0
+  0.24677s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 66:
+  0.00295s: started 0
+  0.25153s: awaited 0
+  0.25156s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 67:
+  0.00369s: started 0
+  1.37495s: awaited 0
+  1.37498s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 68:
+  0.00352s: started 0
+  0.3389s: awaited 0
+  0.33893s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 69:
+  0.00359s: started 0
+  0.25193s: awaited 0
+  0.25196s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 70:
+  0.0035s: started 0
+  0.25249s: awaited 0
+  0.25252s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 71:
+  0.00386s: started 0
+  0.25037s: awaited 0
+  0.25041s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 72:
+  0.00388s: started 0
+  0.24993s: awaited 0
+  0.24997s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 73:
+  0.00371s: started 0
+  0.25048s: awaited 0
+  0.25052s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 74:
+  0.00345s: started 0
+  0.25027s: awaited 0
+  0.2503s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 75:
+  0.00352s: started 0
+  0.25655s: awaited 0
+  0.2566s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 76:
+  0.00471s: started 0
+  0.25269s: awaited 0
+  0.25272s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 77:
+  0.00347s: started 0
+  0.25222s: awaited 0
+  0.25225s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 78:
+  0.00339s: started 0
+  0.24943s: awaited 0
+  0.24946s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 79:
+  0.00319s: started 0
+  0.2494s: awaited 0
+  0.24943s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 80:
+  0.00361s: started 0
+  0.24931s: awaited 0
+  0.24936s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 81:
+  0.00422s: started 0
+  0.25125s: awaited 0
+  0.25129s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 82:
+  0.00364s: started 0
+  0.24841s: awaited 0
+  0.24844s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 83:
+  0.00316s: started 0
+  0.2488s: awaited 0
+  0.24883s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 84:
+  0.00292s: started 0
+  0.25061s: awaited 0
+  0.25065s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 85:
+  0.00369s: started 0
+  0.25082s: awaited 0
+  0.25086s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 86:
+  0.00359s: started 0
+  0.24975s: awaited 0
+  0.24979s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 87:
+  0.00381s: started 0
+  0.24762s: awaited 0
+  0.24766s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 88:
+  0.00315s: started 0
+  0.25087s: awaited 0
+  0.25091s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 89:
+  0.00388s: started 0
+  0.25087s: awaited 0
+  0.25091s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 90:
+  0.0035s: started 0
+  0.24805s: awaited 0
+  0.24808s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 91:
+  0.00319s: started 0
+  1.61817s: awaited 0
+  1.61821s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 92:
+  0.00355s: started 0
+  0.25072s: awaited 0
+  0.25076s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 93:
+  0.00436s: started 0
+  0.25316s: awaited 0
+  0.2532s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 94:
+  0.00451s: started 0
+  0.25209s: awaited 0
+  0.25214s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 95:
+  0.00459s: started 0
+  0.25259s: awaited 0
+  0.25262s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 96:
+  0.00351s: started 0
+  0.25185s: awaited 0
+  0.2519s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 97:
+  0.00411s: started 0
+  0.25142s: awaited 0
+  0.25146s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 98:
+  0.00416s: started 0
+  0.25161s: awaited 0
+  0.25165s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 99:
+  0.00421s: started 0
+  1.51115s: awaited 0
+  1.51118s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 100:
+  0.00367s: started 0
+  0.24996s: awaited 0
+  0.25s: encountered an exception in 0
+srun: error: Unable to create step for job 3685916: Requested node configuration is not available
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 100 runs taking 37.54 seconds.
