@@ -8,13 +8,13 @@
 #SBATCH --job-name=blink-ib_send_bw
 #SBATCH --account=iscrc_sharp_0
 
-SL=1
+SL=0
 export UCX_IB_SL=${SL}
 export NCCL_IB_SL=${SL}
 
 for TRANSPORT in RC UC; do
     EXTRA="ib-${TRANSPORT}"
-    ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file"
+    ARGS="auto -n ${SLURM_NNODES} -sp 50:50 -am l -ro +file --minruns 10"
     for PPN in 1; do
         # The server goes first, thus the first hostname is that of the server
         SERVER_HOSTNAME=$(scontrol show hostname | head -n 1)

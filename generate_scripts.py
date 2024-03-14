@@ -43,26 +43,25 @@ def main():
                          type=int, required=True)
     parser.add_argument('-e', '--extrainfo', help='Extra info specifying details of this specific execution (will be stored in the description.csv file)', type=str)
     parser.add_argument('-rm', '--replace_mix_args', help='Comma separated string of arguments to replace (in the format str:str). E.g., "server:192.168.0.1,client:192.168.0.2" replaces the string "server" in the app_mix with "192.168.0.1", etc..', type=str)
+    parser.add_argument('-sn', '--scriptname', help='Script name', type=str, required=True)
     args = parser.parse_args()
 
     wlm_path="./conf/wl_manager/" + os.environ["BLINK_WL_MANAGER"] + ".py"
     test_bench_path = args.test_bench
     node_file = args.node_file
-    #name = './scripts/' + args.scriptname + '.sh'
-    name = "generated_script.sh"
+    name = args.scriptname
     ppn = args.ppn
-
-    if node_file == "auto":
-        node_file = "conf/auto_node_file.txt"
-        subprocess.call(["scontrol", "show", "hostnames"],
-                        stdout=open(node_file, "w"))
 
     # runner args, non modified
     extra = ""
     if args.extrainfo:
         extra = " -e " + args.extrainfo
+    repl = ""
+    if args.replace_mix_args:
+        repl = " -rm " + args.replace_mix_args
+    
     runner_args = (' -n ' + str(args.numnodes) + extra + ' -mn '+str(args.minruns)+' -mx '+str(args.maxruns)+' -t '+str(args.timeout)
-                   + ' -a '+str(args.alpha)+' -b '+str(args.beta)+' -of '+args.outformat+' -ro '+args.runtimeout+' -rm '+args.replace_mix_args)
+                   + ' -a '+str(args.alpha)+' -b '+str(args.beta)+' -of '+args.outformat+' -ro '+args.runtimeout+repl)
     if args.convergeall:
         runner_args = runner_args+' -ca'
 
