@@ -250,7 +250,7 @@ def get_data_filename(data_folder, system, numnodes, allocation_mode, allocation
                     aggressor_shortname = ""
                     aggressor_fn = ""
                     aggressor_in = ""
-
+                
                 if victim_name == victim_shortname and victim_input == victim_in and \
                    aggressor_name == aggressor_shortname and aggressor_input == aggressor_in:
                     to_return = (row["path"] + "/data.csv", victim_fn, aggressor_fn)

@@ -5,6 +5,24 @@
 ##################
 SYSTEM="leonardo"
 
+
+###############
+# HCOLL tests #
+###############
+#OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
+#PLOT_TYPE="box,violin"
+#for COLL in "gpubench-ar-nccl" "gpubench-ar-cudaaware" "gpubench-a2a-nccl" "gpubench-a2a-cudaaware" "ardc_b" "a2a_b"
+#do
+#    for PPN in 1 4
+#    do
+#        EXTRAS=same_switch_SL1_hcoll0,same_switch_SL1_hcoll1
+#        TESTNAME="hcoll_latency_ppn"${PPN}"_"${COLL}
+#        ./plots/plot_extras.py -s ${SYSTEM} -vn ${COLL} -vi 1B -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRAS} --plot_types ${PLOT_TYPE}
+#        TESTNAME="hcoll_bandwidth_ppn"${PPN}"_"${COLL}
+#        ./plots/plot_extras.py -s ${SYSTEM} -vn ${COLL} -vi 128MiB -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRAS} --plot_types ${PLOT_TYPE}
+#    done
+#done
+
 #####################
 # Single-node tests #
 #####################
@@ -49,8 +67,11 @@ do
     ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-ar-nccl,gpubench-ar-cudaaware,ardc_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE}
     # A2A
     TESTNAME="allsizes_a2a_PPN${PPN}"
-    ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-a2a-cudaaware,a2a_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE}
+    INNER_YLIM="[0, 30]"
+    TREND_LIMIT=Bandwidth:400
+    ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-a2a-cudaaware,a2a_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
 done
+
 
 ##################
 # Distance tests #
