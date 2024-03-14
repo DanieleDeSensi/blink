@@ -1,0 +1,541 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/ardc_b/512B', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_SL1_hcoll1', maxruns=100, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 512 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['lrdn3228' 'lrdn3240']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27682s.
+
+Running...
+ Run 1:
+  0.00342s: started 0
+  1.46975s: awaited 0
+  Data collection took 0.00145s.
+  Convergence check took 0.0008s.
+ Run 2:
+  0.00375s: started 0
+  2.08251s: awaited 0
+  Data collection took 0.0021s.
+  Convergence check took 0.00078s.
+ Run 3:
+  0.00379s: started 0
+  1.43294s: awaited 0
+  Data collection took 0.00148s.
+  Convergence check took 0.00085s.
+ Run 4:
+  0.00359s: started 0
+  1.44033s: awaited 0
+  Data collection took 0.00152s.
+  Convergence check took 0.00093s.
+ Run 5:
+  0.00349s: started 0
+  1.42839s: awaited 0
+  Data collection took 0.00148s.
+  Convergence check took 0.00101s.
+ Run 6:
+  0.00362s: started 0
+  1.43923s: awaited 0
+  Data collection took 0.00152s.
+  Convergence check took 0.00111s.
+ Run 7:
+  0.00353s: started 0
+  1.45153s: awaited 0
+  Data collection took 0.00156s.
+  Convergence check took 0.00118s.
+ Run 8:
+  0.00383s: started 0
+  1.46496s: awaited 0
+  Data collection took 0.00297s.
+  Convergence check took 0.00216s.
+ Run 9:
+  0.00474s: started 0
+  1.46263s: awaited 0
+  Data collection took 0.00147s.
+  Convergence check took 0.00139s.
+ Run 10:
+  0.00361s: started 0
+  1.43384s: awaited 0
+  Data collection took 0.00162s.
+  Convergence check took 0.00149s.
+ Run 11:
+  0.00364s: started 0
+  1.44942s: awaited 0
+  Data collection took 0.00789s.
+  Convergence check took 0.00656s.
+ Run 12:
+  0.00409s: started 0
+  1.4633s: awaited 0
+  Data collection took 0.00165s.
+  Convergence check took 0.00166s.
+ Run 13:
+  0.00378s: started 0
+  1.43359s: awaited 0
+  Data collection took 0.00149s.
+  Convergence check took 0.00173s.
+ Run 14:
+  0.00394s: started 0
+  1.45118s: awaited 0
+  Data collection took 0.00162s.
+  Convergence check took 0.00182s.
+ Run 15:
+  0.00389s: started 0
+  2.18578s: awaited 0
+  Data collection took 0.00303s.
+  Convergence check took 0.00212s.
+ Run 16:
+  0.00409s: started 0
+  1.46751s: awaited 0
+  Data collection took 0.00205s.
+  Convergence check took 0.00199s.
+ Run 17:
+  0.00396s: started 0
+  1.46475s: awaited 0
+  Data collection took 0.00149s.
+  Convergence check took 0.00208s.
+ Run 18:
+  0.00368s: started 0
+  1.44743s: awaited 0
+  Data collection took 0.00148s.
+  Convergence check took 0.00214s.
+ Run 19:
+  0.00366s: started 0
+  1.453s: awaited 0
+  Data collection took 0.00163s.
+  Convergence check took 0.00222s.
+ Run 20:
+  0.00362s: started 0
+  1.44274s: awaited 0
+  Data collection took 0.00163s.
+  Convergence check took 0.00234s.
+ Run 21:
+  0.0038s: started 0
+  1.4484s: awaited 0
+  Data collection took 0.01707s.
+  Convergence check took 0.00217s.
+ Run 22:
+  0.00379s: started 0
+  1.95607s: awaited 0
+  Data collection took 0.00175s.
+  Convergence check took 0.00243s.
+ Run 23:
+  0.00365s: started 0
+  1.43573s: awaited 0
+  Data collection took 0.00152s.
+  Convergence check took 0.00249s.
+ Run 24:
+  0.00373s: started 0
+  1.44054s: awaited 0
+  Data collection took 0.00152s.
+  Convergence check took 0.00259s.
+ Run 25:
+  0.0037s: started 0
+  1.451s: awaited 0
+  Data collection took 0.00167s.
+  Convergence check took 0.00265s.
+ Run 26:
+  0.00369s: started 0
+  1.42644s: awaited 0
+  Data collection took 0.00152s.
+  Convergence check took 0.00275s.
+ Run 27:
+  0.00374s: started 0
+  1.44852s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00281s.
+ Run 28:
+  0.00372s: started 0
+  1.45826s: awaited 0
+  Data collection took 0.00151s.
+  Convergence check took 0.00293s.
+ Run 29:
+  0.00384s: started 0
+  1.43991s: awaited 0
+  Data collection took 0.00163s.
+  Convergence check took 0.00304s.
+ Run 30:
+  0.00369s: started 0
+  1.55831s: awaited 0
+  1.55834s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+
+  Data collection took 0.00161s.
+  Convergence check took 0.00313s.
+ Run 31:
+  0.00376s: started 0
+  1.46888s: awaited 0
+  Data collection took 0.00152s.
+  Convergence check took 0.0032s.
+ Run 32:
+  0.00394s: started 0
+  1.50789s: awaited 0
+  1.50792s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+
+  Data collection took 0.00151s.
+  Convergence check took 0.00325s.
+ Run 33:
+  0.00383s: started 0
+  1.48301s: awaited 0
+  Data collection took 0.00157s.
+  Convergence check took 0.00342s.
+ Run 34:
+  0.00384s: started 0
+  1.50129s: awaited 0
+  1.50132s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+
+  Data collection took 0.00149s.
+  Convergence check took 0.00346s.
+ Run 35:
+  0.0037s: started 0
+  1.43404s: awaited 0
+  Data collection took 0.0015s.
+  Convergence check took 0.00354s.
+ Run 36:
+  0.00374s: started 0
+  3.25609s: awaited 0
+  3.25612s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+
+  Data collection took 0.00152s.
+  Convergence check took 0.00358s.
+ Run 37:
+  0.00378s: started 0
+  1.42637s: awaited 0
+  Data collection took 0.00171s.
+  Convergence check took 0.00384s.
+ Run 38:
+  0.00378s: started 0
+  1.43899s: awaited 0
+  Data collection took 0.00171s.
+  Convergence check took 0.00394s.
+ Run 39:
+  0.00381s: started 0
+  1.45808s: awaited 0
+  Data collection took 0.00151s.
+  Convergence check took 0.00395s.
+ Run 40:
+  0.00375s: started 0
+  1.46848s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00409s.
+ Run 41:
+  0.00383s: started 0
+  1.65424s: awaited 0
+  1.65427s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+
+  Data collection took 0.00155s.
+  Convergence check took 0.00399s.
+ Run 42:
+  0.00381s: started 0
+  1.47242s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00418s.
+ Run 43:
+  0.0037s: started 0
+  1.44036s: awaited 0
+  Data collection took 0.00166s.
+  Convergence check took 0.00432s.
+ Run 44:
+  0.00398s: started 0
+  1.4467s: awaited 0
+  Data collection took 0.00151s.
+  Convergence check took 0.00437s.
+ Run 45:
+  0.00393s: started 0
+  1.44393s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00449s.
+ Run 46:
+  0.00382s: started 0
+  1.42568s: awaited 0
+  Data collection took 0.0015s.
+  Convergence check took 0.00464s.
+ Run 47:
+  0.00387s: started 0
+  1.44776s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00465s.
+ Run 48:
+  0.00394s: started 0
+  1.43882s: awaited 0
+  Data collection took 0.00151s.
+  Convergence check took 0.00481s.
+ Run 49:
+  0.00424s: started 0
+  1.45425s: awaited 0
+  Data collection took 0.00201s.
+  Convergence check took 0.00535s.
+ Run 50:
+  0.0037s: started 0
+  1.43474s: awaited 0
+  Data collection took 0.0015s.
+  Convergence check took 0.00483s.
+ Run 51:
+  0.00411s: started 0
+  1.46273s: awaited 0
+  Data collection took 0.00154s.
+  Convergence check took 0.00501s.
+ Run 52:
+  0.00411s: started 0
+  1.44191s: awaited 0
+  Data collection took 0.0015s.
+  Convergence check took 0.00512s.
+ Run 53:
+  0.00417s: started 0
+  1.47867s: awaited 0
+  Data collection took 0.00152s.
+  Convergence check took 0.00517s.
+ Run 54:
+  0.0038s: started 0
+  1.48668s: awaited 0
+  Data collection took 0.00151s.
+  Convergence check took 0.00523s.
+ Run 55:
+  0.00392s: started 0
+  1.46843s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00536s.
+ Run 56:
+  0.00387s: started 0
+  1.44277s: awaited 0
+  Data collection took 0.00221s.
+  Convergence check took 0.00534s.
+ Run 57:
+  0.00391s: started 0
+  1.43983s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00547s.
+ Run 58:
+  0.00391s: started 0
+  1.44223s: awaited 0
+  Data collection took 0.00151s.
+  Convergence check took 0.00554s.
+ Run 59:
+  0.00384s: started 0
+  1.4522s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00565s.
+ Run 60:
+  0.00403s: started 0
+  1.47922s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00589s.
+ Run 61:
+  0.00389s: started 0
+  2.134s: awaited 0
+  Data collection took 0.00154s.
+  Convergence check took 0.00592s.
+ Run 62:
+  0.00397s: started 0
+  1.45341s: awaited 0
+  Data collection took 0.00155s.
+  Convergence check took 0.00589s.
+ Run 63:
+  0.00396s: started 0
+  1.44108s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00611s.
+ Run 64:
+  0.0039s: started 0
+  1.44571s: awaited 0
+  Data collection took 0.00218s.
+  Convergence check took 0.00602s.
+ Run 65:
+  0.00405s: started 0
+  1.45668s: awaited 0
+  Data collection took 0.00151s.
+  Convergence check took 0.00613s.
+ Run 66:
+  0.00412s: started 0
+  1.44309s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00627s.
+ Run 67:
+  0.00391s: started 0
+  1.46351s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00633s.
+ Run 68:
+  0.00384s: started 0
+  1.45528s: awaited 0
+  Data collection took 0.00248s.
+  Convergence check took 0.00932s.
+ Run 69:
+  0.00482s: started 0
+  1.44681s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00646s.
+ Run 70:
+  0.00398s: started 0
+  1.44431s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00665s.
+ Run 71:
+  0.00415s: started 0
+  1.44461s: awaited 0
+  Data collection took 0.00154s.
+  Convergence check took 0.00664s.
+ Run 72:
+  0.00421s: started 0
+  1.48139s: awaited 0
+  Data collection took 0.00156s.
+  Convergence check took 0.00675s.
+ Run 73:
+  0.00421s: started 0
+  1.45062s: awaited 0
+  Data collection took 0.00216s.
+  Convergence check took 0.00689s.
+ Run 74:
+  0.00408s: started 0
+  1.46737s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00706s.
+ Run 75:
+  0.00398s: started 0
+  1.52433s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00708s.
+ Run 76:
+  0.00422s: started 0
+  2.25505s: awaited 0
+  Data collection took 0.00629s.
+  Convergence check took 0.04583s.
+ Run 77:
+  0.00394s: started 0
+  1.46195s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00726s.
+ Run 78:
+  0.00417s: started 0
+  1.43643s: awaited 0
+  Data collection took 0.00154s.
+  Convergence check took 0.00733s.
+ Run 79:
+  0.00422s: started 0
+  1.43034s: awaited 0
+  Data collection took 0.00152s.
+  Convergence check took 0.00739s.
+ Run 80:
+  0.00424s: started 0
+  1.42229s: awaited 0
+  Data collection took 0.00151s.
+  Convergence check took 0.00745s.
+ Run 81:
+  0.004s: started 0
+  2.13973s: awaited 0
+  Data collection took 0.00154s.
+  Convergence check took 0.00758s.
+ Run 82:
+  0.00419s: started 0
+  1.42928s: awaited 0
+  Data collection took 0.00151s.
+  Convergence check took 0.00769s.
+ Run 83:
+  0.00416s: started 0
+  1.48191s: awaited 0
+  Data collection took 0.00256s.
+  Convergence check took 0.00764s.
+ Run 84:
+  0.00417s: started 0
+  1.44552s: awaited 0
+  Data collection took 0.00151s.
+  Convergence check took 0.00789s.
+ Run 85:
+  0.00416s: started 0
+  1.43936s: awaited 0
+  Data collection took 0.00152s.
+  Convergence check took 0.00805s.
+ Run 86:
+  0.00438s: started 0
+  1.44798s: awaited 0
+  Data collection took 0.00152s.
+  Convergence check took 0.00836s.
+ Run 87:
+  0.00426s: started 0
+  1.44742s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.0104s.
+ Run 88:
+  0.00421s: started 0
+  1.46103s: awaited 0
+  Data collection took 0.00152s.
+  Convergence check took 0.0091s.
+ Run 89:
+  0.00521s: started 0
+  1.45085s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00843s.
+ Run 90:
+  0.00441s: started 0
+  1.45345s: awaited 0
+  Data collection took 0.00294s.
+  Convergence check took 0.01124s.
+ Run 91:
+  0.00522s: started 0
+  1.46797s: awaited 0
+  Data collection took 0.00152s.
+  Convergence check took 0.00848s.
+ Run 92:
+  0.00465s: started 0
+  2.23851s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00878s.
+ Run 93:
+  0.00437s: started 0
+  1.45404s: awaited 0
+  Data collection took 0.00305s.
+  Convergence check took 0.01571s.
+ Run 94:
+  0.00506s: started 0
+  1.45349s: awaited 0
+  Data collection took 0.00184s.
+  Convergence check took 0.00865s.
+ Run 95:
+  0.00404s: started 0
+  1.4518s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00872s.
+ Run 96:
+  0.00409s: started 0
+  1.42667s: awaited 0
+  Data collection took 0.00155s.
+  Convergence check took 0.00896s.
+ Run 97:
+  0.00413s: started 0
+  1.46383s: awaited 0
+  Data collection took 0.00152s.
+  Convergence check took 0.00912s.
+ Run 98:
+  0.00401s: started 0
+  1.4675s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00899s.
+ Run 99:
+  0.00411s: started 0
+  1.46669s: awaited 0
+  Data collection took 0.00154s.
+  Convergence check took 0.00913s.
+ Run 100:
+  0.00415s: started 0
+  1.45581s: awaited 0
+  Data collection took 0.00151s.
+  Convergence check took 0.00911s.
+Completed maximum number of runs, terminated after 100 runs taking 152.98 seconds.
+Writing data & meta-data took 0.44005s.
+Overall took 153.70175s.

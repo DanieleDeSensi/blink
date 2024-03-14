@@ -1,0 +1,1143 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_SL1_hcoll0', maxruns=100, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1073741824 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['lrdn3228' 'lrdn3240']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.26947s.
+
+Running...
+ Run 1:
+  0.00334s: started 0
+  1.12238s: awaited 0
+  1.12241s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.00367s: started 0
+  2.06651s: awaited 0
+  2.06655s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00363s: started 0
+  1.09748s: awaited 0
+  1.09751s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 4:
+  0.00382s: started 0
+  2.11339s: awaited 0
+  2.11342s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 5:
+  0.00364s: started 0
+  1.09881s: awaited 0
+  1.09884s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 6:
+  0.00368s: started 0
+  2.22113s: awaited 0
+  2.22116s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 7:
+  0.00398s: started 0
+  1.14251s: awaited 0
+  1.14255s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 8:
+  0.00452s: started 0
+  2.13283s: awaited 0
+  2.13287s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 9:
+  0.0037s: started 0
+  1.10832s: awaited 0
+  1.10835s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 10:
+  0.00394s: started 0
+  2.1135s: awaited 0
+  2.11355s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 11:
+  0.00445s: started 0
+  1.08956s: awaited 0
+  1.08959s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 12:
+  0.00377s: started 0
+  2.07005s: awaited 0
+  2.07008s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 13:
+  0.00369s: started 0
+  1.09185s: awaited 0
+  1.09189s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 14:
+  0.00374s: started 0
+  1.07706s: awaited 0
+  1.07709s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 15:
+  0.00384s: started 0
+  1.07756s: awaited 0
+  1.07759s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 16:
+  0.00365s: started 0
+  1.08878s: awaited 0
+  1.08881s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 17:
+  0.00364s: started 0
+  1.07791s: awaited 0
+  1.07794s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 18:
+  0.0037s: started 0
+  1.73666s: awaited 0
+  1.73669s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 19:
+  0.0037s: started 0
+  1.11645s: awaited 0
+  1.11648s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 20:
+  0.00369s: started 0
+  1.89399s: awaited 0
+  1.89402s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 21:
+  0.00378s: started 0
+  1.0833s: awaited 0
+  1.08334s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 22:
+  0.00385s: started 0
+  1.91317s: awaited 0
+  1.9132s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 23:
+  0.00403s: started 0
+  1.09313s: awaited 0
+  1.09316s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 24:
+  0.00367s: started 0
+  1.84462s: awaited 0
+  1.84466s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 25:
+  0.00361s: started 0
+  1.08006s: awaited 0
+  1.08009s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 26:
+  0.00368s: started 0
+  1.88876s: awaited 0
+  1.8888s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 27:
+  0.00448s: started 0
+  1.09952s: awaited 0
+  1.09956s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 28:
+  0.00433s: started 0
+  1.90658s: awaited 0
+  1.90662s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 29:
+  0.00441s: started 0
+  1.07996s: awaited 0
+  1.08s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 30:
+  0.00368s: started 0
+  1.85395s: awaited 0
+  1.85399s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 31:
+  0.00392s: started 0
+  1.07936s: awaited 0
+  1.0794s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 32:
+  0.00444s: started 0
+  1.94776s: awaited 0
+  1.9478s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 33:
+  0.00447s: started 0
+  1.09145s: awaited 0
+  1.09149s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 34:
+  0.00433s: started 0
+  1.84152s: awaited 0
+  1.84157s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3228: task 0: Exited with exit code 255
+srun: error: lrdn3240: task 1: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 35:
+  0.0044s: started 0
+  1.09309s: awaited 0
+  1.09313s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 36:
+  0.0042s: started 0
+  1.08989s: awaited 0
+  1.08992s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 37:
+  0.0038s: started 0
+  1.092s: awaited 0
+  1.09203s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 38:
+  0.00373s: started 0
+  1.09658s: awaited 0
+  1.09661s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 39:
+  0.00366s: started 0
+  1.08437s: awaited 0
+  1.0844s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 40:
+  0.00358s: started 0
+  1.10284s: awaited 0
+  1.10287s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 41:
+  0.00368s: started 0
+  1.0948s: awaited 0
+  1.09483s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 42:
+  0.00366s: started 0
+  1.49285s: awaited 0
+  1.49288s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 43:
+  0.00366s: started 0
+  1.08217s: awaited 0
+  1.0822s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 44:
+  0.00378s: started 0
+  1.83686s: awaited 0
+  1.83689s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 45:
+  0.00361s: started 0
+  1.09828s: awaited 0
+  1.09831s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 46:
+  0.00367s: started 0
+  1.94537s: awaited 0
+  1.9454s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 47:
+  0.00372s: started 0
+  1.09249s: awaited 0
+  1.09252s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 48:
+  0.00359s: started 0
+  1.9304s: awaited 0
+  1.93043s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 49:
+  0.00374s: started 0
+  1.10131s: awaited 0
+  1.10135s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 50:
+  0.0037s: started 0
+  1.93311s: awaited 0
+  1.93314s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 51:
+  0.00362s: started 0
+  1.10301s: awaited 0
+  1.10304s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 52:
+  0.00364s: started 0
+  1.80042s: awaited 0
+  1.80045s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 53:
+  0.00336s: started 0
+  1.08423s: awaited 0
+  1.08426s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 54:
+  0.00387s: started 0
+  1.87751s: awaited 0
+  1.87755s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 55:
+  0.00371s: started 0
+  1.0927s: awaited 0
+  1.09273s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 56:
+  0.00368s: started 0
+  1.82865s: awaited 0
+  1.82868s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 57:
+  0.00374s: started 0
+  1.09745s: awaited 0
+  1.09748s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 58:
+  0.00372s: started 0
+  1.10679s: awaited 0
+  1.10682s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 59:
+  0.00359s: started 0
+  1.10081s: awaited 0
+  1.10084s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 60:
+  0.00338s: started 0
+  1.07309s: awaited 0
+  1.07312s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 61:
+  0.00351s: started 0
+  1.09936s: awaited 0
+  1.09939s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 62:
+  0.00357s: started 0
+  1.09883s: awaited 0
+  1.09887s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 63:
+  0.00352s: started 0
+  1.52333s: awaited 0
+  1.52336s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 64:
+  0.0036s: started 0
+  1.07364s: awaited 0
+  1.07367s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 65:
+  0.00371s: started 0
+  1.82333s: awaited 0
+  1.82336s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 66:
+  0.00378s: started 0
+  1.10044s: awaited 0
+  1.10047s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 67:
+  0.00374s: started 0
+  1.72903s: awaited 0
+  1.72906s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 68:
+  0.00366s: started 0
+  1.08935s: awaited 0
+  1.08939s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 69:
+  0.00339s: started 0
+  1.8155s: awaited 0
+  1.81553s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 70:
+  0.0035s: started 0
+  1.09449s: awaited 0
+  1.09452s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 71:
+  0.00355s: started 0
+  1.7668s: awaited 0
+  1.76683s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 72:
+  0.00343s: started 0
+  1.10728s: awaited 0
+  1.10731s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 73:
+  0.00352s: started 0
+  1.74236s: awaited 0
+  1.7424s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 74:
+  0.0034s: started 0
+  1.08808s: awaited 0
+  1.08811s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 75:
+  0.00362s: started 0
+  1.72055s: awaited 0
+  1.72058s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 76:
+  0.00348s: started 0
+  1.08395s: awaited 0
+  1.08399s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 77:
+  0.00425s: started 0
+  1.76737s: awaited 0
+  1.7674s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 78:
+  0.00342s: started 0
+  1.09742s: awaited 0
+  1.09745s: encountered an exception in 0
+Failed to allocate a buffer on rank 0
+Failed to allocate a buffer on rank 1
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 79:
+  0.00324s: started 0
+  1.70337s: awaited 0
+  1.7034s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 80:
+  0.00358s: started 0
+  1.08239s: awaited 0
+  1.08243s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 81:
+  0.00373s: started 0
+  1.10832s: awaited 0
+  1.10835s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 82:
+  0.00347s: started 0
+  2.28494s: awaited 0
+  2.28497s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 83:
+  0.00365s: started 0
+  1.07974s: awaited 0
+  1.07977s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 84:
+  0.00352s: started 0
+  1.09112s: awaited 0
+  1.09115s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 85:
+  0.00355s: started 0
+  1.10043s: awaited 0
+  1.10047s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 86:
+  0.00344s: started 0
+  1.52869s: awaited 0
+  1.52872s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 87:
+  0.00345s: started 0
+  1.11726s: awaited 0
+  1.11729s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 88:
+  0.00355s: started 0
+  1.09849s: awaited 0
+  1.09852s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 89:
+  0.00351s: started 0
+  1.07807s: awaited 0
+  1.07811s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 90:
+  0.00359s: started 0
+  1.09537s: awaited 0
+  1.0954s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 91:
+  0.00349s: started 0
+  1.3589s: awaited 0
+  1.35893s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 92:
+  0.00349s: started 0
+  1.11401s: awaited 0
+  1.11404s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 93:
+  0.00376s: started 0
+  1.61751s: awaited 0
+  1.61754s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 94:
+  0.00365s: started 0
+  1.08625s: awaited 0
+  1.08629s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 95:
+  0.00365s: started 0
+  1.69853s: awaited 0
+  1.69856s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 96:
+  0.00371s: started 0
+  1.10503s: awaited 0
+  1.10506s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 97:
+  0.00362s: started 0
+  1.55335s: awaited 0
+  1.55339s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 98:
+  0.00378s: started 0
+  1.09691s: awaited 0
+  1.09695s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 99:
+  0.00368s: started 0
+  1.64584s: awaited 0
+  1.64587s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 100:
+  0.00371s: started 0
+  1.11615s: awaited 0
+  1.11619s: encountered an exception in 0
+Failed to allocate a buffer on rank 1
+Failed to allocate a buffer on rank 0
+srun: error: lrdn3240: task 1: Exited with exit code 255
+srun: error: lrdn3228: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 100 runs taking 138.26 seconds.

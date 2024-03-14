@@ -1,0 +1,223 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/ar-cudaaware/8B', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_SL1_hcoll1', maxruns=100, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 3", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['lrdn3228' 'lrdn3240']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.25782s.
+
+Running...
+ Run 1:
+  0.00333s: started 0
+  1.60841s: awaited 0
+  1.60845s: encountered an exception in 0
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[lrdn3228:940764:0:940764] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x150c54600200)
+==== backtrace (tid: 940764) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x150caf6b8edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x150caf6b90bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x150caf6b928a]
+ 3  /lib64/libc.so.6(+0xd0057) [0x150cc1d02057]
+ 4  /opt/mellanox/hcoll/lib/libhcoll.so.1(coll_ml_allreduce_small+0x520) [0x150ca3d83e70]
+ 5  /opt/mellanox/hcoll/lib/libhcoll.so.1(+0x23de1) [0x150ca3d79de1]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_allreduce+0x136) [0x150ca408e636]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213) [0x150cc4f510d3]
+ 8  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware() [0x403444]
+ 9  /lib64/libc.so.6(__libc_start_main+0xe5) [0x150cc1c6cd85]
+10  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware() [0x403b9e]
+=================================
+[lrdn3228:940764] *** Process received signal ***
+[lrdn3228:940764] Signal: Segmentation fault (11)
+[lrdn3228:940764] Signal code:  (-6)
+[lrdn3228:940764] Failing at address: 0x1ec08000e5adc
+[lrdn3228:940764] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x150cc27a8cf0]
+[lrdn3228:940764] [ 1] /lib64/libc.so.6(+0xd0057)[0x150cc1d02057]
+[lrdn3228:940764] [ 2] /opt/mellanox/hcoll/lib/libhcoll.so.1(coll_ml_allreduce_small+0x520)[0x150ca3d83e70]
+[lrdn3240:1203566:0:1203566] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x1552ac600200)
+==== backtrace (tid:1203566) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x15530687dedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x15530687e0bc]
+[lrdn3228:940764] [ 3] /opt/mellanox/hcoll/lib/libhcoll.so.1(+0x23de1)[0x150ca3d79de1]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x15530687e28a]
+ 3  /lib64/libc.so.6(+0xd0057) [0x155318c11057]
+ 4  /opt/mellanox/hcoll/lib/libhcoll.so.1(coll_ml_allreduce_small+0x520) [0x1552f6cabe70]
+ 5  /opt/mellanox/hcoll/lib/libhcoll.so.1(+0x23de1) [0x1552f6ca1de1]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_allreduce+0x136) [0x1552f6fb6636]
+[lrdn3228:940764] [ 4] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_allreduce+0x136)[0x150ca408e636]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213) [0x15531be600d3]
+ 8  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware() [0x403444]
+ 9  /lib64/libc.so.6(__libc_start_main+0xe5) [0x155318b7bd85]
+10  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware() [0x403b9e]
+=================================
+[lrdn3228:940764] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213)[0x150cc4f510d3]
+[lrdn3228:940764] [ 6] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware[0x403444]
+[lrdn3240:1203566] *** Process received signal ***
+[lrdn3240:1203566] Signal: Segmentation fault (11)
+[lrdn3240:1203566] Signal code:  (-6)
+[lrdn3240:1203566] Failing at address: 0x1ec0800125d6e
+[lrdn3228:940764] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x150cc1c6cd85]
+[lrdn3228:940764] [ 8] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware[0x403b9e]
+[lrdn3228:940764] *** End of error message ***
+[lrdn3240:1203566] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x1553196b7cf0]
+[lrdn3240:1203566] [ 1] /lib64/libc.so.6(+0xd0057)[0x155318c11057]
+[lrdn3240:1203566] [ 2] /opt/mellanox/hcoll/lib/libhcoll.so.1(coll_ml_allreduce_small+0x520)[0x1552f6cabe70]
+[lrdn3240:1203566] [ 3] /opt/mellanox/hcoll/lib/libhcoll.so.1(+0x23de1)[0x1552f6ca1de1]
+[lrdn3240:1203566] [ 4] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_allreduce+0x136)[0x1552f6fb6636]
+[lrdn3240:1203566] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213)[0x15531be600d3]
+[lrdn3240:1203566] [ 6] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware[0x403444]
+[lrdn3240:1203566] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x155318b7bd85]
+[lrdn3240:1203566] [ 8] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware[0x403b9e]
+[lrdn3240:1203566] *** End of error message ***
+srun: error: lrdn3240: task 1: Segmentation fault (core dumped)
+srun: error: lrdn3228: task 0: Segmentation fault (core dumped)
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.00364s: started 0
+  1.66029s: awaited 0
+  1.66032s: encountered an exception in 0
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[lrdn3228:940809:0:940809] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x145cf2600200)
+[lrdn3240:1203609:0:1203609] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x146230600200)
+==== backtrace (tid: 940809) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x145d4f4b2edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x145d4f4b30bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x145d4f4b328a]
+ 3  /lib64/libc.so.6(+0xd0057) [0x145d61a7f057]
+ 4  /opt/mellanox/hcoll/lib/libhcoll.so.1(coll_ml_allreduce_small+0x520) [0x145d43b7de70]
+ 5  /opt/mellanox/hcoll/lib/libhcoll.so.1(+0x23de1) [0x145d43b73de1]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_allreduce+0x136) [0x145d43e88636]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213) [0x145d64cce0d3]
+ 8  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware() [0x403444]
+ 9  /lib64/libc.so.6(__libc_start_main+0xe5) [0x145d619e9d85]
+10  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware() [0x403b9e]
+=================================
+[lrdn3228:940809] *** Process received signal ***
+[lrdn3228:940809] Signal: Segmentation fault (11)
+[lrdn3228:940809] Signal code:  (-6)
+[lrdn3228:940809] Failing at address: 0x1ec08000e5b09
+[lrdn3228:940809] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x145d62525cf0]
+[lrdn3228:940809] [ 1] /lib64/libc.so.6(+0xd0057)[0x145d61a7f057]
+[lrdn3228:940809] [ 2] /opt/mellanox/hcoll/lib/libhcoll.so.1(coll_ml_allreduce_small+0x520)[0x145d43b7de70]
+[lrdn3228:940809] [ 3] /opt/mellanox/hcoll/lib/libhcoll.so.1(+0x23de1)[0x145d43b73de1]
+[lrdn3228:940809] [ 4] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_allreduce+0x136)[0x145d43e88636]
+[lrdn3228:940809] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213)[0x145d64cce0d3]
+[lrdn3228:940809] [ 6] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware[0x403444]
+[lrdn3228:940809] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x145d619e9d85]
+[lrdn3228:940809] [ 8] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware[0x403b9e]
+[lrdn3228:940809] *** End of error message ***
+==== backtrace (tid:1203609) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x1462907fcedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x1462907fd0bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x1462907fd28a]
+ 3  /lib64/libc.so.6(+0xd0057) [0x14629ee5f057]
+ 4  /opt/mellanox/hcoll/lib/libhcoll.so.1(coll_ml_allreduce_small+0x520) [0x146280d0ee70]
+ 5  /opt/mellanox/hcoll/lib/libhcoll.so.1(+0x23de1) [0x146280d04de1]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_allreduce+0x136) [0x146281019636]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213) [0x1462a20ae0d3]
+ 8  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware() [0x403444]
+ 9  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14629edc9d85]
+10  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware() [0x403b9e]
+=================================
+[lrdn3240:1203609] *** Process received signal ***
+[lrdn3240:1203609] Signal: Segmentation fault (11)
+[lrdn3240:1203609] Signal code:  (-6)
+[lrdn3240:1203609] Failing at address: 0x1ec0800125d99
+[lrdn3240:1203609] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14629f905cf0]
+[lrdn3240:1203609] [ 1] /lib64/libc.so.6(+0xd0057)[0x14629ee5f057]
+[lrdn3240:1203609] [ 2] /opt/mellanox/hcoll/lib/libhcoll.so.1(coll_ml_allreduce_small+0x520)[0x146280d0ee70]
+[lrdn3240:1203609] [ 3] /opt/mellanox/hcoll/lib/libhcoll.so.1(+0x23de1)[0x146280d04de1]
+[lrdn3240:1203609] [ 4] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_allreduce+0x136)[0x146281019636]
+[lrdn3240:1203609] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213)[0x1462a20ae0d3]
+[lrdn3240:1203609] [ 6] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware[0x403444]
+[lrdn3240:1203609] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14629edc9d85]
+[lrdn3240:1203609] [ 8] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware[0x403b9e]
+[lrdn3240:1203609] *** End of error message ***
+srun: error: lrdn3240: task 1: Segmentation fault (core dumped)
+srun: error: lrdn3228: task 0: Segmentation fault (core dumped)
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00369s: started 0
+  3.67543s: awaited 0
+  3.67547s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[lrdn3240:1203660:0:1203660] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x147208600200)
+[lrdn3228:940858:0:940858] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x150dee600200)
+==== backtrace (tid:1203660) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14726397bedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14726397c0bc]
+==== backtrace (tid: 940858) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x150e4cffcedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x150e4cffd0bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14726397c28a]
+ 3  /lib64/libc.so.6(+0xd0057) [0x147275eb9057]
+ 4  /opt/mellanox/hcoll/lib/libhcoll.so.1(coll_ml_allreduce_small+0x520) [0x147258046e70]
+ 5  /opt/mellanox/hcoll/lib/libhcoll.so.1(+0x23de1) [0x14725803cde1]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_allreduce+0x136) [0x147258351636]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213) [0x1472791080d3]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x150e4cffd28a]
+ 3  /lib64/libc.so.6(+0xd0057) [0x150e5b620057]
+ 4  /opt/mellanox/hcoll/lib/libhcoll.so.1(coll_ml_allreduce_small+0x520) [0x150e2d4cde70]
+ 5  /opt/mellanox/hcoll/lib/libhcoll.so.1(+0x23de1) [0x150e2d4c3de1]
+ 6  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_allreduce+0x136) [0x150e2d7d8636]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213) [0x150e5e86f0d3]
+ 8  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware() [0x403444]
+ 8  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware() [0x403444]
+ 9  /lib64/libc.so.6(__libc_start_main+0xe5) [0x147275e23d85]
+10  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware() [0x403b9e]
+=================================
+ 9  /lib64/libc.so.6(__libc_start_main+0xe5) [0x150e5b58ad85]
+10  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware() [0x403b9e]
+=================================
+[lrdn3240:1203660] *** Process received signal ***
+[lrdn3228:940858] *** Process received signal ***
+[lrdn3240:1203660] Signal: Segmentation fault (11)
+[lrdn3240:1203660] Signal code:  (-6)
+[lrdn3240:1203660] Failing at address: 0x1ec0800125dcc
+[lrdn3228:940858] Signal: Segmentation fault (11)
+[lrdn3228:940858] Signal code:  (-6)
+[lrdn3228:940858] Failing at address: 0x1ec08000e5b3a
+[lrdn3240:1203660] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14727695fcf0]
+[lrdn3228:940858] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x150e5c0c6cf0]
+[lrdn3240:1203660] [ 1] /lib64/libc.so.6(+0xd0057)[0x147275eb9057]
+[lrdn3228:940858] [ 1] /lib64/libc.so.6(+0xd0057)[0x150e5b620057]
+[lrdn3240:1203660] [ 2] /opt/mellanox/hcoll/lib/libhcoll.so.1(coll_ml_allreduce_small+0x520)[0x147258046e70]
+[lrdn3228:940858] [ 2] /opt/mellanox/hcoll/lib/libhcoll.so.1(coll_ml_allreduce_small+0x520)[0x150e2d4cde70]
+[lrdn3228:940858] [ 3] /opt/mellanox/hcoll/lib/libhcoll.so.1(+0x23de1)[0x150e2d4c3de1]
+[lrdn3228:940858] [ 4] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_allreduce+0x136)[0x150e2d7d8636]
+[lrdn3228:940858] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213)[0x150e5e86f0d3]
+[lrdn3228:940858] [ 6] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware[0x403444]
+[lrdn3228:940858] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x150e5b58ad85]
+[lrdn3228:940858] [ 8] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware[0x403b9e]
+[lrdn3228:940858] *** End of error message ***
+[lrdn3240:1203660] [ 3] /opt/mellanox/hcoll/lib/libhcoll.so.1(+0x23de1)[0x14725803cde1]
+[lrdn3240:1203660] [ 4] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_allreduce+0x136)[0x147258351636]
+[lrdn3240:1203660] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(PMPI_Allreduce+0x213)[0x1472791080d3]
+[lrdn3240:1203660] [ 6] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware[0x403444]
+[lrdn3240:1203660] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x147275e23d85]
+[lrdn3240:1203660] [ 8] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/ar_CudaAware[0x403b9e]
+[lrdn3240:1203660] *** End of error message ***
+srun: error: lrdn3240: task 1: Segmentation fault (core dumped)
+srun: error: lrdn3228: task 0: Segmentation fault (core dumped)
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 4:
+  0.00455s: started 0

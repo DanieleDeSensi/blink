@@ -1,0 +1,61 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/ardc_b/256KiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_SL1_hcoll0', maxruns=100, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 262144 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['lrdn3228' 'lrdn3240']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27531s.
+
+Running...
+ Run 1:
+  0.00356s: started 0
+  1.21556s: awaited 0
+  Data collection took 0.00147s.
+  Convergence check took 0.00078s.
+ Run 2:
+  0.00369s: started 0
+  1.22653s: awaited 0
+  Data collection took 0.00212s.
+  Convergence check took 0.00078s.
+ Run 3:
+  0.00362s: started 0
+  1.21335s: awaited 0
+  Data collection took 0.00147s.
+  Convergence check took 0.00084s.
+ Run 4:
+  0.0037s: started 0
+  1.20159s: awaited 0
+  Data collection took 0.0015s.
+  Convergence check took 0.00092s.
+ Run 5:
+  0.00377s: started 0
+  1.22477s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00103s.
+ Run 6:
+  0.0039s: started 0
+  1.34618s: awaited 0
+  Data collection took 0.00151s.
+  Convergence check took 0.00109s.
+ Run 7:
+  0.00394s: started 0
+  1.22726s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00122s.
+ Run 8:
+  0.00409s: started 0
+  1.21282s: awaited 0
+  Data collection took 0.00159s.
+  Convergence check took 0.00129s.
+Completed after reaching confidence interval, terminated after 8 runs taking 9.89 seconds.
+Writing data & meta-data took 0.04957s.
+Overall took 10.21443s.
