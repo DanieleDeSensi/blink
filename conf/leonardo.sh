@@ -25,6 +25,7 @@ export BLINK_BW_SATURATING_SIZE=16777216 # How many bytes to send to get max bw
 export BLINK_WL_MANAGER="slurm"
 export BLINK_NG_CONFIGURE_FLAGS="HRT_ARCH=6 --with-mpi=/leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/"
 export UCX_LOG_LEVEL=error
+export BLINK_IB_DEVICES="mlx5_0#mlx5_1#mlx5_2#mlx5_3"
 
 # Optional variables specifying binary paths for applications
 export BLINK_AMG_PATH=""

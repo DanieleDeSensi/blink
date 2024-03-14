@@ -9,13 +9,14 @@
 #SBATCH --account=iscrc_sharp_0
 
 ALLOCATION="same_switch"
-IB_SERVER_ADDRESS=$(scontrol show hostnames | head -n 1)
+SERVER_HOSTNAME=$(scontrol show hostnames | head -n 1)
 
 for SL in 1; do
     export UCX_IB_SL=${SL}
     export NCCL_IB_SL=${SL}
     EXTRA="${ALLOCATION}_SL${SL}"
     ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file"
+    ARGS_IBV="auto -n ${SLURM_NNODES} -sp 50:50 -am l -ro +file"
     for PPN in 1 4; do
         ##################
         # Point-to-point #
@@ -26,8 +27,12 @@ for SL in 1; do
         ./run.sh test_suites/pp-cudaaware ${ARGS} --ppn ${PPN} -e ${EXTRA} 
         # MPI
         ./run.sh test_suites/pp-mpi ${ARGS} --ppn ${PPN} -e ${EXTRA} 
-        # IB/Perftest
-        ./run.sh test_suites/pp-ib ${ARGS} --ppn ${PPN} -e ${EXTRA} --replace_mix_args "%TRANSPORT:RC,%SERVICE_LEVEL:${SL},%SERVER_ADDRESS:${IB_SERVER_ADDRESS}"
+        if [ ${PPN} == 1 ]; then
+            # Perftest is always ran with 1 PPN, and then spawns by itself the other processes
+            # IB/Perftest
+            TRANSPORT="RC"
+            ./run.sh test_suites/pp-ib ${ARGS_IBV} --ppn 1 -e ${EXTRA} --replace_mix_args "%SERVER_ADDRESS:${SERVER_HOSTNAME},%SERVICE_LEVEL:${SL},%TRANSPORT:${TRANSPORT},%IB_DEVICES_LIST:${BLINK_IB_DEVICES}"
+        fi
 
         # Collectives (with/without HCOLL)
         for HCOLL in 0 1

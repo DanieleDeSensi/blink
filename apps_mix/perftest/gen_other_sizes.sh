@@ -1,5 +1,5 @@
 
-base_size="ib_send_bw/1B"
+base_size="ib_send_lat/1B"
 dim=("B" "KiB" "MiB" "GiB")
 
 for j in {0..3}

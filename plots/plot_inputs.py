@@ -54,19 +54,28 @@ def main():
     for metric_hr in args.metrics.split(","):      
         global_df = pd.DataFrame()
         for vn in victim_names:
+            ppn = args.ppn
+            allocation_split = args.allocation_split
+            # TODO: This is a hack, make it cleaner
+            if vn == "ib_send_bw":
+                if ppn != 1:
+                    ppn = 1
+                if allocation_split == "100":
+                    allocation_split = "50:50"
+
             outname = args.outfile + os.path.sep + metric_hr
             outname = outname.lower()
             for vi in victim_inputs:
-                if metric_hr == "Bandwidth": # For bandwidth, we also get the data for runtime to plot the inner plot
+                if metric_hr == "Bandwidth": #and vn != "ib_send_bw": # For bandwidth, we also get the data for runtime to plot the inner plot
                     actual_metrics = ["Runtime", "Bandwidth"]
                 else:
                     actual_metrics = [metric_hr]
 
                 for actual_metric in actual_metrics:
-                    filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, args.allocation_split, args.ppn, args.extra, vn, vi, args.aggressor_name, args.aggressor_input)
+                    filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, allocation_split, ppn, args.extra, vn, vi, args.aggressor_name, args.aggressor_input)
                     data = pd.DataFrame()
                     if filename and os.path.exists(filename):                    
-                        data[actual_metric] = get_bench_data(vn, vi, actual_metric, filename, args.ppn, args.numnodes)
+                        data[actual_metric] = get_bench_data(vn, vi, actual_metric, filename, ppn, args.numnodes)
                     else:
                         print("Data not found for metric " + actual_metric + " victim " + vn + " with input " + vi)
                         data[actual_metric] = [np.nan]
