@@ -11,7 +11,7 @@
 SL=1
 export UCX_IB_SL=${SL}
 export NCCL_IB_SL=${SL}
-ALLOCATION="same_switch"
+ALLOCATION="diff_switch"
 # The server goes first, thus the first hostname is that of the server
 SERVER_HOSTNAME=$(scontrol show hostname | head -n 1)
 
