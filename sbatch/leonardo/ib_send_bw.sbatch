@@ -5,7 +5,7 @@
 #SBATCH --gres=gpu:4
 #SBATCH --partition=boost_usr_prod 
 #SBATCH --exclusive
-#SBATCH --job-name=blink-two-nodes
+#SBATCH --job-name=blink-ib_send_bw
 #SBATCH --account=iscrc_sharp_0
 
 SL=1
