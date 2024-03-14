@@ -1,0 +1,90 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/perftest/ib_send_bw/128MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_UC', maxruns=100, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args='%SERVER_ADDRESS:lrdn3228,%SERVICE_LEVEL:1,%TRANSPORT:UC,%IB_DEVICES_LIST:mlx5_0#mlx5_1#mlx5_2#mlx5_3', runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c UC -S 1 -s 134217728"", collection flag: False, ending condition: run until finished.
+1: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c UC -S 1 -s 134217728 lrdn3228"", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 1 nodes:
+['lrdn3228']
+1 on 1 nodes:
+['lrdn3240']
+
+Schedule:
+0.0s: start 0
+3.0s: start 1
+
+Preparing took 0.26491s.
+
+Running...
+ Run 1:
+  0.0037s: started 0
+  3.011s: started 1
+  16.90363s: awaited 0
+  16.90376s: awaited 1
+  Data collection took 0.0074s.
+ Run 2:
+  0.00379s: started 0
+  3.01094s: started 1
+  16.49918s: awaited 0
+  16.49931s: awaited 1
+  Data collection took 0.00705s.
+ Run 3:
+  0.00386s: started 0
+  3.01082s: started 1
+  16.56848s: awaited 0
+  16.5686s: awaited 1
+  Data collection took 0.00693s.
+ Run 4:
+  0.00369s: started 0
+  3.01076s: started 1
+  16.5612s: awaited 0
+  16.56132s: awaited 1
+  Data collection took 0.00881s.
+ Run 5:
+  0.00366s: started 0
+  3.01066s: started 1
+  17.37018s: awaited 0
+  17.37044s: awaited 1
+  Data collection took 0.0111s.
+ Run 6:
+  0.03165s: started 0
+  3.03982s: started 1
+  16.57797s: awaited 0
+  16.57812s: awaited 1
+  Data collection took 0.00734s.
+ Run 7:
+  0.00479s: started 0
+  3.01266s: started 1
+  16.50666s: awaited 0
+  16.50678s: awaited 1
+  Data collection took 0.00661s.
+ Run 8:
+  0.00404s: started 0
+  3.01043s: started 1
+  17.42604s: awaited 0
+  17.42617s: awaited 1
+  17.42618s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+
+  Data collection took 0.00691s.
+ Run 9:
+  0.00363s: started 0
+  3.01069s: started 1
+  16.56711s: awaited 0
+  16.56758s: awaited 1
+  Data collection took 0.00728s.
+ Run 10:
+  0.00367s: started 0
+  3.0107s: started 1
+  16.50554s: awaited 0
+  16.50566s: awaited 1
+  Data collection took 0.00866s.
+  Convergence check took 0.00083s.
+Completed after reaching confidence interval, terminated after 10 runs taking 167.57 seconds.
+Writing data & meta-data took 0.00955s.
+Overall took 167.84336s.

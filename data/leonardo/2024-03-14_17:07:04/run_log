@@ -1,0 +1,90 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/perftest/ib_send_bw/128MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_RC', maxruns=100, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args='%SERVER_ADDRESS:lrdn3228,%SERVICE_LEVEL:1,%TRANSPORT:RC,%IB_DEVICES_LIST:mlx5_0#mlx5_1#mlx5_2#mlx5_3', runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c RC -S 1 -s 134217728"", collection flag: False, ending condition: run until finished.
+1: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c RC -S 1 -s 134217728 lrdn3228"", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 1 nodes:
+['lrdn3228']
+1 on 1 nodes:
+['lrdn3240']
+
+Schedule:
+0.0s: start 0
+3.0s: start 1
+
+Preparing took 0.27267s.
+
+Running...
+ Run 1:
+  0.00363s: started 0
+  3.01045s: started 1
+  16.53802s: awaited 0
+  16.53814s: awaited 1
+  Data collection took 0.00813s.
+ Run 2:
+  0.00379s: started 0
+  3.0109s: started 1
+  16.65094s: awaited 0
+  16.65108s: awaited 1
+  Data collection took 0.00885s.
+ Run 3:
+  0.00386s: started 0
+  3.01099s: started 1
+  16.57189s: awaited 0
+  16.57202s: awaited 1
+  Data collection took 0.0072s.
+ Run 4:
+  0.00656s: started 0
+  3.01287s: started 1
+  16.52693s: awaited 0
+  16.52706s: awaited 1
+  16.52707s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+
+  Data collection took 0.00646s.
+ Run 5:
+  0.00575s: started 0
+  3.01364s: started 1
+  16.52421s: awaited 0
+  16.52433s: awaited 1
+  Data collection took 0.00699s.
+ Run 6:
+  0.00414s: started 0
+  3.01133s: started 1
+  16.50404s: awaited 0
+  16.50417s: awaited 1
+  Data collection took 0.00711s.
+ Run 7:
+  0.0037s: started 0
+  3.01068s: started 1
+  16.53078s: awaited 0
+  16.53093s: awaited 1
+  Data collection took 0.00928s.
+ Run 8:
+  0.00425s: started 0
+  3.01195s: started 1
+  16.51315s: awaited 0
+  16.51329s: awaited 1
+  Data collection took 0.00841s.
+ Run 9:
+  0.00391s: started 0
+  3.01086s: started 1
+  16.50877s: awaited 0
+  16.50891s: awaited 1
+  Data collection took 0.00762s.
+ Run 10:
+  0.00463s: started 0
+  3.01331s: started 1
+  16.50441s: awaited 0
+  16.50455s: awaited 1
+  Data collection took 0.00743s.
+  Convergence check took 0.03591s.
+Completed after reaching confidence interval, terminated after 10 runs taking 165.49 seconds.
+Writing data & meta-data took 0.02174s.
+Overall took 165.7842s.

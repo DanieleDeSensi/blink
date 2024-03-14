@@ -1,0 +1,98 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/perftest/ib_send_bw/16MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_UC', maxruns=100, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args='%SERVER_ADDRESS:lrdn3228,%SERVICE_LEVEL:1,%TRANSPORT:UC,%IB_DEVICES_LIST:mlx5_0#mlx5_1#mlx5_2#mlx5_3', runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c UC -S 1 -s 16777216"", collection flag: False, ending condition: run until finished.
+1: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c UC -S 1 -s 16777216 lrdn3228"", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 1 nodes:
+['lrdn3228']
+1 on 1 nodes:
+['lrdn3240']
+
+Schedule:
+0.0s: start 0
+3.0s: start 1
+
+Preparing took 0.25931s.
+
+Running...
+ Run 1:
+  0.0028s: started 0
+  3.01s: started 1
+  6.94437s: awaited 0
+  6.94474s: awaited 1
+  6.94475s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+
+  Data collection took 0.0068s.
+ Run 2:
+  0.00379s: started 0
+  3.01018s: started 1
+  6.07779s: awaited 0
+  6.07792s: awaited 1
+  Data collection took 0.00652s.
+ Run 3:
+  0.004s: started 0
+  3.01148s: started 1
+  6.22019s: awaited 0
+  6.22032s: awaited 1
+  6.22033s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+
+  Data collection took 0.00636s.
+ Run 4:
+  0.00377s: started 0
+  3.01158s: started 1
+  6.25402s: awaited 0
+  6.25469s: awaited 1
+  6.2547s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+
+  Data collection took 0.00681s.
+ Run 5:
+  0.0044s: started 0
+  3.01215s: started 1
+  6.16978s: awaited 0
+  6.16991s: awaited 1
+  Data collection took 0.00719s.
+ Run 6:
+  0.00387s: started 0
+  3.01058s: started 1
+  5.48873s: awaited 0
+  5.48886s: awaited 1
+  Data collection took 0.00713s.
+ Run 7:
+  0.00361s: started 0
+  3.0123s: started 1
+  5.47387s: awaited 0
+  5.474s: awaited 1
+  Data collection took 0.00854s.
+ Run 8:
+  0.00449s: started 0
+  3.0115s: started 1
+  5.48094s: awaited 0
+  5.48139s: awaited 1
+  Data collection took 0.00663s.
+ Run 9:
+  0.00442s: started 0
+  3.01199s: started 1
+  5.93891s: awaited 0
+  5.93959s: awaited 1
+  Data collection took 0.00675s.
+ Run 10:
+  0.00427s: started 0
+  3.01181s: started 1
+  6.08507s: awaited 0
+  6.0852s: awaited 1
+  Data collection took 0.00915s.
+  Convergence check took 0.00092s.
+Completed after reaching confidence interval, terminated after 10 runs taking 60.21 seconds.
+Writing data & meta-data took 0.01027s.
+Overall took 60.48097s.

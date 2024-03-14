@@ -1,0 +1,94 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/perftest/ib_send_bw/4KiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_UC', maxruns=100, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args='%SERVER_ADDRESS:lrdn3228,%SERVICE_LEVEL:1,%TRANSPORT:UC,%IB_DEVICES_LIST:mlx5_0#mlx5_1#mlx5_2#mlx5_3', runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c UC -S 1 -s 4096"", collection flag: False, ending condition: run until finished.
+1: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c UC -S 1 -s 4096 lrdn3228"", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 1 nodes:
+['lrdn3228']
+1 on 1 nodes:
+['lrdn3240']
+
+Schedule:
+0.0s: start 0
+3.0s: start 1
+
+Preparing took 0.26148s.
+
+Running...
+ Run 1:
+  0.00299s: started 0
+  3.00976s: started 1
+  4.66825s: awaited 0
+  4.66838s: awaited 1
+  Data collection took 0.0093s.
+ Run 2:
+  0.00349s: started 0
+  3.00934s: started 1
+  3.90322s: awaited 0
+  3.90367s: awaited 1
+  Data collection took 0.00757s.
+ Run 3:
+  0.00369s: started 0
+  3.00996s: started 1
+  3.91644s: awaited 0
+  3.91657s: awaited 1
+  Data collection took 0.01094s.
+ Run 4:
+  0.00366s: started 0
+  3.01032s: started 1
+  4.62649s: awaited 0
+  4.62663s: awaited 1
+  4.62664s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+
+  Data collection took 0.00868s.
+ Run 5:
+  0.00418s: started 0
+  3.01108s: started 1
+  3.909s: awaited 0
+  3.90963s: awaited 1
+  Data collection took 0.00658s.
+ Run 6:
+  0.004s: started 0
+  3.01091s: started 1
+  3.90258s: awaited 0
+  3.90271s: awaited 1
+  Data collection took 0.00645s.
+ Run 7:
+  0.00396s: started 0
+  3.01017s: started 1
+  3.89048s: awaited 0
+  3.89122s: awaited 1
+  Data collection took 0.00835s.
+ Run 8:
+  0.00355s: started 0
+  3.01055s: started 1
+  4.55589s: awaited 0
+  4.55608s: awaited 1
+  4.55609s: encountered an exception in 0
+srun: Job 3697355 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3697355
+
+  Data collection took 0.00872s.
+ Run 9:
+  0.00356s: started 0
+  3.01033s: started 1
+  3.93267s: awaited 0
+  3.93279s: awaited 1
+  Data collection took 0.01095s.
+ Run 10:
+  0.00357s: started 0
+  3.01094s: started 1
+  3.89483s: awaited 0
+  3.89525s: awaited 1
+  Data collection took 0.00745s.
+  Convergence check took 0.00086s.
+Completed after reaching confidence interval, terminated after 10 runs taking 41.29 seconds.
+Writing data & meta-data took 0.00931s.
+Overall took 41.56202s.
