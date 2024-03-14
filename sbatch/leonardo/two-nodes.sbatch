@@ -7,7 +7,7 @@
 #SBATCH --exclusive
 #SBATCH --job-name=blink-two-nodes
 #SBATCH --account=iscrc_sharp_0
-
+source conf.sh
 ALLOCATION="same_switch"
 SERVER_HOSTNAME=$(scontrol show hostnames | head -n 1)
 

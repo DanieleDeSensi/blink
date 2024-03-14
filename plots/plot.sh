@@ -31,7 +31,7 @@ SYSTEM="leonardo"
 #####################
 # Single-node tests #
 #####################
-INPUTS="8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+INPUTS="8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB,8GiB"
 OUT_PATH="plots/out/${SYSTEM}/single_node"
 PLOT_TYPE="line"
 #GPUBench - Point-to-Point
@@ -78,6 +78,16 @@ do
     ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-a2a-cudaaware,a2a_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
 done
 
+#######################
+# IB transports tests #
+#######################
+INPUTS="8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+TESTNAME="ib_transports_rc"
+EXTRA="diff_group_RC_SL1"
+./plots/plot_inputs.py -s ${SYSTEM} -vn ib_send_lat -vi ${INPUTS} -n 2 -am l -sp 50:50 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRA} --plot_types ${PLOT_TYPE}
+TESTNAME="ib_transports_uc"
+EXTRA="diff_group_UC_SL1"
+./plots/plot_inputs.py -s ${SYSTEM} -vn ib_send_lat -vi ${INPUTS} -n 2 -am l -sp 50:50 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRA} --plot_types ${PLOT_TYPE}
 
 ##################
 # Distance tests #
