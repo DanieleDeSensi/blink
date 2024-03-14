@@ -234,6 +234,7 @@ def main():
     parser.add_argument('-s', '--seed', help='Seed for randomness', default=1, type=int)
     parser.add_argument('-d', '--datapath', help='Path where data is written', default='./data')
     parser.add_argument('-e', '--extrainfo', help='Extra info specifying details of this specific execution (will be stored in the description.csv file)', type=str)
+    parser.add_argument('-rm', '--replace_mix_args', help='Comma separated string of arguments to replace (in the format str:str). E.g., "server:192.168.0.1,client:192.168.0.2" replaces the string "server" in the app_mix with "192.168.0.1", etc..', type=str)
     args = parser.parse_args()
 
     # argument namespace to variables
@@ -253,6 +254,7 @@ def main():
     ro_mode = args.runtimeout
     data_path = args.datapath
     num_nodes = args.numnodes
+    replace_mix_args = args.replace_mix_args
 
     random.seed(args.seed)
 
@@ -323,6 +325,12 @@ def main():
 
             # arguments for app
             args = line_list[1]
+
+            # replace arguments with those specified
+            if replace_mix_args and replace_mix_args != "":
+                for replacement in replace_mix_args.split(","):
+                    key, value = replacement.split(":")
+                    args = args.replace(key, value)
 
             # collection flag
             if line_list[2] == '0':
