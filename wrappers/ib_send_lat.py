@@ -33,9 +33,11 @@ class app(base):
                     if line_clean == "#, usec":
                         start = True
                         continue
-                    if line != "---":
+                    if start and line != "---":
                         time = line.split(",")[1].strip()
                         samples_rank += [float(time)]
+                    else:
+                        start = False
             samples += [samples_rank]
         
         samples_max = []
