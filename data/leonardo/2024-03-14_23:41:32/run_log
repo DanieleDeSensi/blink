@@ -1,0 +1,46 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/ardc_b/16MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL1_hcoll1', maxruns=3, minruns=1, node_file='auto', numnodes=64, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 16777216 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['lrdn0003' 'lrdn0019' 'lrdn0178' 'lrdn0240' 'lrdn0352' 'lrdn0378'
+ 'lrdn0457' 'lrdn0537' 'lrdn0577' 'lrdn0617' 'lrdn0623' 'lrdn0648'
+ 'lrdn0659' 'lrdn0710' 'lrdn0781' 'lrdn0796' 'lrdn0802' 'lrdn0821'
+ 'lrdn0879' 'lrdn0888' 'lrdn0894' 'lrdn0951' 'lrdn0999' 'lrdn1024'
+ 'lrdn1070' 'lrdn1118' 'lrdn1193' 'lrdn1260' 'lrdn1262' 'lrdn1278'
+ 'lrdn1292' 'lrdn1308' 'lrdn1342' 'lrdn1457' 'lrdn1485' 'lrdn1554'
+ 'lrdn1579' 'lrdn1588' 'lrdn1605' 'lrdn1688' 'lrdn1738' 'lrdn1753'
+ 'lrdn1778' 'lrdn1796' 'lrdn1832' 'lrdn1861' 'lrdn1944' 'lrdn2029'
+ 'lrdn2038' 'lrdn2113' 'lrdn2200' 'lrdn2265' 'lrdn2278' 'lrdn2335'
+ 'lrdn2347' 'lrdn2439' 'lrdn2558' 'lrdn2587' 'lrdn2721' 'lrdn2776'
+ 'lrdn2842' 'lrdn2888' 'lrdn2977' 'lrdn3431']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.2631s.
+
+Running...
+ Run 1:
+  0.00283s: started 0
+  2.80358s: awaited 0
+  Data collection took 0.00023s.
+  Convergence check took 0.00077s.
+ Run 2:
+  0.0039s: started 0
+  3.13659s: awaited 0
+  Data collection took 0.00018s.
+  Convergence check took 0.00068s.
+ Run 3:
+  0.00393s: started 0
+  3.29118s: awaited 0
+  Data collection took 0.00018s.
+  Convergence check took 0.00073s.
+Completed maximum number of runs, terminated after 3 runs taking 9.23 seconds.
+Writing data & meta-data took 0.01177s.
+Overall took 9.50919s.
