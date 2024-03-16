@@ -9,7 +9,7 @@ SRCS = $(wildcard $(SRC_DIR)/*.c)
 BINS = $(patsubst $(SRC_DIR)/%.c, $(BIN_DIR)/%, $(SRCS))
 
 # Compilation flags
-CFLAGS = -lm -D_GNU_SOURCE
+CFLAGS = -lm -D_GNU_SOURCE -O3
 
 # Targets
 all: $(BINS)
