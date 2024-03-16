@@ -49,6 +49,10 @@ extra_fullname["diff_group_RC_SL1"] = "SL1,RC"
 extra_fullname["diff_group_UC_SL0"] = "SL0,UC"
 extra_fullname["diff_group_UC_SL1"] = "SL1,UC"
 
+extra_fullname["diff_group"] = "Different Group"
+extra_fullname["diff_switch"] = "Different Switch"
+extra_fullname["same_switch"] = "Same Switch"
+
 def main():
     parser=argparse.ArgumentParser(description='Plots the performance distribution for a specific victim/aggressor combination, for different extras.')
     parser.add_argument('-d', '--data_folder', help='Main data folder.', default="data")
@@ -75,10 +79,20 @@ def main():
     if not os.path.exists(args.outfile.lower()): 
         os.makedirs(args.outfile.lower())
 
+    victim_name = get_actual_bench_name(args.victim_name, args.system)
+    allocation_split = args.allocation_split
+    ppn = args.ppn
+    # TODO: This is a hack, make it cleaner
+    if victim_name == "ib_send_lat":
+        if ppn != 1:
+            ppn = 1
+        if allocation_split == "100":
+            allocation_split = "50:50"
     for metric_hr in args.metrics.split(","):                
         global_df = pd.DataFrame()
-        for e in args.extras.split(","):            
-            filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, args.allocation_split, args.ppn, e, args.victim_name, args.victim_input, args.aggressor_name, args.aggressor_input)
+        for ea in args.extras.split(","):            
+            e = get_actual_extra_name(ea, args.system)
+            filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, allocation_split, ppn, e, victim_name, args.victim_input, args.aggressor_name, args.aggressor_input)
             if not filename:
                 print("Data not found for extra " + e + " " + str(args))
                 continue
@@ -86,7 +100,7 @@ def main():
             if not os.path.exists(filename):
                 print("Error: data file " + filename + " does not exist")
                 continue
-            data[extra_fullname[e]] = get_bench_data(args.victim_name, args.victim_input, metric_hr, filename, args.ppn, args.numnodes, args.system)
+            data[extra_fullname[e]] = get_bench_data(victim_name, args.victim_input, metric_hr, filename, ppn, args.numnodes, args.system)
             if data.empty:
                 raise Exception("Error: data file " + filename + " does not contain data for metric " + metric_hr)
             global_df = pd.concat([global_df, data], axis=1)

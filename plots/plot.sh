@@ -1,5 +1,31 @@
 #!/bin/bash
 
+
+##################
+# Distance tests #
+##################
+for SYSTEM in "lumi" "leonardo"
+do
+    OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
+    PLOT_TYPE="box,violin"
+    for SL in 1
+    do
+        EXTRAS=#same_switch,#diff_switch,#diff_group
+        VICTIM_NAME="#distance"
+        # Latency - 1B
+        TESTNAME="latency_distance"
+        TITLE=""
+        XTICKLABELS="[\"Same Switch\", \"Different Switch\", \"Different Group\"]"
+        ./plots/plot_extras.py -s ${SYSTEM} -vn ${VICTIM_NAME} -vi 1B -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --title "${TITLE}"   #--xticklabels "${XTICKLABELS}"
+        # Bandwidth - 1GiB
+        TESTNAME="bandwidth_distance"
+        ./plots/plot_extras.py -s ${SYSTEM} -vn ${VICTIM_NAME} -vi 1GiB -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --title "${TITLE}" #--xticklabels "${XTICKLABELS}"
+    done
+done
+
+
+exit 0
+
 ##################
 #### Leonardo ####
 ##################
@@ -110,44 +136,6 @@ do
     TESTNAME="ib_transports_${TRANSPORT}"
     EXTRA="diff_group_${TRANSPORT}_SL0"
     ./plots/plot_inputs.py -s ${SYSTEM} -vn ib_send_lat -vi ${INPUTS} -n 2 -am l -sp 50:50 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRA} --plot_types ${PLOT_TYPE}
-done
-
-##################
-# Distance tests #
-##################
-#OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
-#PLOT_TYPE="box,violin"
-#for SL in 0 1
-#do
-#    EXTRAS=same_switch_SL${SL},diff_switch_SL${SL},diff_group_SL${SL}
-#    # Buffer on CPU memory
-#    # PPN=1 for latency, pingpong
-#    TESTNAME="latency_dist_SL${SL}"
-#    ./plots/plot_extras.py -s ${SYSTEM} -vn "ping-pong_b" -vi 1B -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
-#    # Buffer on GPU memory
-#    # PPN=4 for bandwidth
-#    TESTNAME="bandwidth_dist_SL${SL}"
-#    ./plots/plot_extras.py -s ${SYSTEM} -vn "gpubench-mpp-nccl" -vi 1GiB -n 2 -am l -sp 100 --metrics "Runtime,Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
-#done
-
-########################
-# Distance tests (IBV) #
-########################
-OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
-PLOT_TYPE="box,violin"
-for SL in 1
-do
-    EXTRAS=same_switch_SL${SL},diff_switch_SL${SL},diff_group_SL${SL}
-    # Buffer on CPU memory
-    # PPN=1 for latency, pingpong
-    TESTNAME="latency_dist_ib_SL${SL}"
-    TITLE=""
-    XTICKLABELS="[\"Same Switch\", \"Different Switch\", \"Different Group\"]"
-    ./plots/plot_extras.py -s ${SYSTEM} -vn "ib_send_lat" -vi 1B -n 2 -am l -sp 50:50 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --title "${TITLE}" --xticklabels "${XTICKLABELS}"
-    # Buffer on GPU memory
-    # PPN=4 for bandwidth
-    TESTNAME="bandwidth_dist_ib_SL${SL}"
-    ./plots/plot_extras.py -s ${SYSTEM} -vn "ib_send_lat" -vi 1GiB -n 2 -am l -sp 50:50 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --title "${TITLE}" --xticklabels "${XTICKLABELS}"
 done
 
 
