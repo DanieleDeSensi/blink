@@ -1,0 +1,30 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/mpp-cudaaware/4B', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_SL0', maxruns=100, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 2", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['lrdn2628' 'lrdn2629']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27566s.
+
+Running...
+ Run 1:
+  0.00286s: started 0
+  1.74685s: awaited 0
+  1.74689s: encountered an exception in 0
+srun: Job 3736640 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3736640
+
+  Data collection took 0.00027s.
+  Convergence check took 0.00082s.
+Completed after reaching confidence interval, terminated after 1 runs taking 1.75 seconds.
+Writing data & meta-data took 0.00807s.
+Overall took 2.03181s.
