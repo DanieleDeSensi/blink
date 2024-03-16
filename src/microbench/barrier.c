@@ -96,7 +96,7 @@ int main(int argc, char** argv){
     sched_setaffinity(0, sizeof(mask), &mask);*/
     
     /*allocate buffers*/
-    durations=(double *)malloc(sizeof(double)*max_samples);
+    durations=(double *)malloc_align(sizeof(double)*max_samples);
     
     if(durations==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);

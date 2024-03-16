@@ -105,8 +105,8 @@ int main(int argc, char** argv){
     
     buf_size=msg_size*measure_granularity;;
     
-    buf=(unsigned char*)malloc(buf_size);
-    durations=(double *)malloc(sizeof(double)*max_samples);
+    buf=(unsigned char*)malloc_align(buf_size);
+    durations=(double *)malloc_align(sizeof(double)*max_samples);
     
     if(buf==NULL || durations==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);

@@ -108,9 +108,9 @@ int main(int argc, char** argv){
     send_buf_size=msg_size;
     recv_buf_size=w_size*msg_size*measure_granularity;
     
-    send_buf=(unsigned char*)malloc(send_buf_size);
-    recv_buf=(unsigned char*)malloc(recv_buf_size);
-    durations=(double *)malloc(sizeof(double)*max_samples);
+    send_buf=(unsigned char*)malloc_align(send_buf_size);
+    recv_buf=(unsigned char*)malloc_align(recv_buf_size);
+    durations=(double *)malloc_align(sizeof(double)*max_samples);
     
     MPI_Win_create(send_buf,send_buf_size,1,MPI_INFO_NULL,MPI_COMM_WORLD,&rma_win);
     

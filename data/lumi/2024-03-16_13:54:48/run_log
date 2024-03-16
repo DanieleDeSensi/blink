@@ -1,0 +1,42 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/pw-ping-pong_b/32KiB', node_file='auto', numnodes=2, allocationmode='l', allocationsplit='100', minruns=5, maxruns=100, timeout=600.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='same_switch', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-msgsize 32768 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['nid005911' 'nid005913']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.04989s.
+
+Running...
+ Run 1:
+  0.00398s: started 0
+  0.54641s: awaited 0
+  Data collection took 0.00425s.
+ Run 2:
+  0.00403s: started 0
+  0.54425s: awaited 0
+  Data collection took 0.0028s.
+ Run 3:
+  0.00413s: started 0
+  0.54806s: awaited 0
+  Data collection took 0.00269s.
+ Run 4:
+  0.004s: started 0
+  0.5426s: awaited 0
+  Data collection took 0.00265s.
+ Run 5:
+  0.00394s: started 0
+  0.54036s: awaited 0
+  Data collection took 0.00286s.
+  Convergence check took 0.00256s.
+Completed after reaching confidence interval, terminated after 5 runs taking 2.74 seconds.
+Writing data & meta-data took 0.05557s.
+Overall took 2.84566s.

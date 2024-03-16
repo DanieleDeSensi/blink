@@ -106,9 +106,9 @@ int main(int argc, char** argv){
     
     buf_size=msg_size*measure_granularity;;
     
-    buf=(unsigned char*)malloc(buf_size);
-    requests=(MPI_Request*)malloc(sizeof(MPI_Request)*(measure_granularity));
-    durations=(double *)malloc(sizeof(double)*max_samples);
+    buf=(unsigned char*)malloc_align(buf_size);
+    requests=(MPI_Request*)malloc_align(sizeof(MPI_Request)*(measure_granularity));
+    durations=(double *)malloc_align(sizeof(double)*max_samples);
     
     if(buf==NULL || durations==NULL || requests==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
