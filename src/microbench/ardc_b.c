@@ -116,9 +116,9 @@ int main(int argc, char** argv){
     send_buf_size=msg_size;
     recv_buf_size=msg_size;
     
-    send_buf=(int*)malloc(send_buf_size);
-    recv_buf=(int*)malloc(recv_buf_size);
-    durations=(double *)malloc(sizeof(double)*max_samples);
+    send_buf=(int*)malloc_align(send_buf_size);
+    recv_buf=(int*)malloc_align(recv_buf_size);
+    durations=(double *)malloc_align(sizeof(double)*max_samples);
     
     if(send_buf==NULL || recv_buf==NULL || durations==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);

@@ -216,3 +216,14 @@ static void offset_pairs(int *a, int n, int o)
             a[i] = i;
     }
 }
+
+#define ALIGNMENT (sysconf(_SC_PAGESIZE))
+static void* malloc_align(size_t size){
+    void *p = NULL;
+    int ret = posix_memalign(&p, ALIGNMENT, size);
+    if (ret != 0){
+        fprintf(stderr, "Failed to allocate memory on rank\n");
+        exit(-1);
+    }
+    return p;
+}

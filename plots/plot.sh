@@ -5,27 +5,47 @@
 ##################
 SYSTEM="leonardo"
 
+##################
+# 64 nodes tests #
+##################
+OUT_PATH="plots/out/${SYSTEM}/64-nodes/"
+PLOT_TYPE="line"
+for SL in 0 1
+do
+    for HCOLL in 0 
+    do
+        EXTRA="SL${SL}_hcoll${HCOLL}"
+        INNER_YLIM="[0, 100]"
+        INNER_POS="[0.2, 0.6, .3, .2]"
+        TREND_LIMIT=Bandwidth:0
+        # AR
+        INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB,8GiB"
+        TESTNAME="allsizes_ar_SL${SL}_hcoll${HCOLL}"
+        ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-ar-nccl -vi ${INPUTS} -n 64 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}"
+        # A2A
+        INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB"
+        TESTNAME="allsizes_a2a_SL${SL}_hcoll${HCOLL}"
+        INNER_YLIM="[0, 10000]"
+        TREND_LIMIT=Bandwidth:0
+        ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-a2a-nccl -vi ${INPUTS} -n 64 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
+    done
+done
+exit 0
 
-###############
-# HCOLL tests #
-###############
-#OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
-#for EXTRA in "same_switch_SL1_hcoll0" "same_switch_SL1_hcoll1" 
-#do
-#    PLOT_TYPE="line"
-#    INPUTS="8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
-#    for PPN in 1 4
-#    do
-#        # AR
-#        TESTNAME="allsizes_ar_PPN${PPN}_${EXTRA}"
-#        ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-ar-nccl,gpubench-ar-cudaaware,ardc_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE}
-#        # A2A
-#        TESTNAME="allsizes_a2a_PPN${PPN}_${EXTRA}"
-#        INNER_YLIM="[0, 30]"
-#        TREND_LIMIT=Bandwidth:400
-#        ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-a2a-cudaaware,a2a_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
-#    done
-#done
+########################
+# Service levels tests #
+########################
+OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
+PLOT_TYPE="box,line"
+EXTRAS=diff_group_RC_SL0,diff_group_UC_SL0,diff_group_RC_SL1,diff_group_UC_SL1
+for BENCH in "ib_send_lat"
+do
+    for SIZE in "1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB" "128MiB" "1GiB"
+    do
+        TESTNAME=sl_${BENCH}_${SIZE}
+        ./plots/plot_extras.py -s ${SYSTEM} -vn ${BENCH} -vi ${SIZE} -n 2 -am l -sp 50:50 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
+    done
+done
 
 
 #####################
@@ -62,7 +82,7 @@ OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
 EXTRA="same_switch_SL1"
 PLOT_TYPE="line"
 INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
-for PPN in 1 4
+for PPN in 4
 do
     # P2P
     INNER_YLIM="[0, 30]"
@@ -84,7 +104,7 @@ done
 # IB transports tests #
 #######################
 INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
-
+OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
 for TRANSPORT in "RC" "UC"
 do
     TESTNAME="ib_transports_${TRANSPORT}"
@@ -95,6 +115,7 @@ done
 ##################
 # Distance tests #
 ##################
+#OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
 #PLOT_TYPE="box,violin"
 #for SL in 0 1
 #do
@@ -112,6 +133,7 @@ done
 ########################
 # Distance tests (IBV) #
 ########################
+OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
 PLOT_TYPE="box,violin"
 for SL in 1
 do
@@ -128,30 +150,6 @@ do
     ./plots/plot_extras.py -s ${SYSTEM} -vn "ib_send_lat" -vi 1GiB -n 2 -am l -sp 50:50 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --title "${TITLE}" --xticklabels "${XTICKLABELS}"
 done
 
-
-########################
-# Service levels tests #
-########################
-PLOT_TYPE="box,line"
-EXTRAS=same_switch_SL0,same_switch_SL1,diff_switch_SL0,diff_switch_SL1,diff_group_SL0,diff_group_SL1
-# Buffer on GPU memory
-for BENCH in "gpubench-mpp-nccl" "gpubench-mpp-cudaaware"
-do
-    # PPN=1 for latency
-    TESTNAME=${BENCH}_1B
-    ./plots/plot_extras.py -s ${SYSTEM} -vn ${BENCH} -vi 1B -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
-
-    # PPN=4 for bandwidth
-    TESTNAME=${BENCH}_1GiB
-    ./plots/plot_extras.py -s ${SYSTEM} -vn ${BENCH} -vi 1GiB -n 2 -am l -sp 100 --metrics "Runtime,Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
-done
-# Buffer on CPU memory
-# PPN=1 for latency, pingpong
-TESTNAME=ping-pong_b_1B
-./plots/plot_extras.py -s ${SYSTEM} -vn "ping-pong_b" -vi 1B -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
-# PPN=4 for bandwidth, pw-pingpong
-TESTNAME=pw-ping-pong_b_1GiB
-./plots/plot_extras.py -s ${SYSTEM} -vn "pw-ping-pong_b" -vi 1GiB -n 2 -am l -sp 100 --metrics "Runtime,Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
 
 
 exit 0

@@ -108,10 +108,10 @@ int main(int argc, char** argv){
     send_buf_size=msg_size;
     recv_buf_size=(w_size-1)*msg_size;
     
-    send_buf=(unsigned char*)malloc(send_buf_size);
-    recv_buf=(unsigned char*)malloc(recv_buf_size);
-    requests=(MPI_Request*)malloc(sizeof(MPI_Request)*(w_size-1));
-    durations=(double *)malloc(sizeof(double)*max_samples);
+    send_buf=(unsigned char*)malloc_align(send_buf_size);
+    recv_buf=(unsigned char*)malloc_align(recv_buf_size);
+    requests=(MPI_Request*)malloc_align(sizeof(MPI_Request)*(w_size-1));
+    durations=(double *)malloc_align(sizeof(double)*max_samples);
     
     if(send_buf==NULL || recv_buf==NULL || durations==NULL || requests==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);

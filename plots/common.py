@@ -120,6 +120,8 @@ def get_bench_data(bench, input, metric, filename, ppn, nodes, system):
     elif bench == "nccl-sendrecv" or bench == "nccl-allreduce" or bench == "nccl-alltoall":
         if metric == "Bandwidth":
             return pd.read_csv(filename)["0_busbw-ip_GB/s"]*8
+        elif metric == "Runtime" or metric == "Latency":
+            return pd.read_csv(filename)["0_time-ip_us"]
     elif bench == "ib_send_lat":
         if metric == "Runtime":
             return pd.read_csv(filename)["1_time_us"] # 0_ is the server
