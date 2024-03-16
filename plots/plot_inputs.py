@@ -53,7 +53,8 @@ def main():
 
     for metric_hr in args.metrics.split(","):      
         global_df = pd.DataFrame()
-        for vn in victim_names:
+        for vn_a in victim_names:
+            vn = get_actual_bench_name(vn_a, args.system)
             ppn = args.ppn
             allocation_split = args.allocation_split
             # TODO: This is a hack, make it cleaner
@@ -72,7 +73,7 @@ def main():
                     actual_metrics = [metric_hr]
 
                 for actual_metric in actual_metrics:
-                    filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, allocation_split, ppn, args.extra, vn, vi, args.aggressor_name, args.aggressor_input)
+                    filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, allocation_split, ppn, get_actual_extra_name(args.extra, args.system), vn, vi, args.aggressor_name, args.aggressor_input)
                     data = pd.DataFrame()
                     if filename and os.path.exists(filename):                    
                         data[actual_metric] = get_bench_data(vn, vi, actual_metric, filename, ppn, args.numnodes, args.system)

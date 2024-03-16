@@ -175,6 +175,29 @@ def bench_to_human_readable(bench):
         return "IB Verbs"
     return bench
 
+# Returns the actual name of the benchmark, given the name of the benchmark and the system
+def get_actual_bench_name(bench, system):
+    if bench.startswith("#"):
+        if bench == "#distance":
+            if system == "lumi":
+                return "pw-ping-pong_b"
+            elif system == "leonardo":
+                return "ib_send_lat"
+    else:
+        return bench
+    raise Exception("Error: bench " + bench + " not supported for system " + system)
+
+# Returns the actual name of the extra, given the name of the extra and the system
+def get_actual_extra_name(extra, system):
+    if extra.startswith("#"):
+        if extra == "#diff_group" or extra == "#diff_switch" or extra == "#same_switch":
+            if system == "lumi":
+                return extra.replace("#", "")
+            elif system == "leonardo":
+                return extra.replace("#", "") + "_SL1"
+    else:
+        return extra
+    raise Exception("Error: extra " + extra + " not supported for system " + system)
 
 # Plots one violin for each victim+aggressor combination, for the given metric
 def plot_violin(df, metric, outname, max_y, xticklabels, title):
