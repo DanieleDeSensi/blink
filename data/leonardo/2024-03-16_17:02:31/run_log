@@ -1,0 +1,54 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/pw-ping-pong_b/8B', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_switch_SL0', maxruns=5, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 8 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn3089' 'lrdn3096']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.26089s.
+
+Running...
+ Run 1:
+  0.00431s: started 0
+  2.89906s: awaited 0
+  Data collection took 0.0015s.
+  Convergence check took 0.00083s.
+ Run 2:
+  0.00472s: started 0
+  1.34668s: awaited 0
+  Data collection took 0.00227s.
+  Convergence check took 0.00079s.
+ Run 3:
+  0.00457s: started 0
+  2.61032s: awaited 0
+  2.61035s: encountered an exception in 0
+srun: Job 3738479 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3738479
+
+  Data collection took 0.00148s.
+  Convergence check took 0.00086s.
+ Run 4:
+  0.0049s: started 0
+  1.36495s: awaited 0
+  Data collection took 0.00151s.
+  Convergence check took 0.00094s.
+ Run 5:
+  0.00469s: started 0
+  2.66337s: awaited 0
+  2.66341s: encountered an exception in 0
+srun: Job 3738479 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3738479
+
+  Data collection took 0.00154s.
+  Convergence check took 0.00101s.
+Completed maximum number of runs, terminated after 5 runs taking 10.9 seconds.
+Writing data & meta-data took 0.03356s.
+Overall took 11.19212s.

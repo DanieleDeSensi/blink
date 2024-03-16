@@ -1,0 +1,30 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/pw-ping-pong_b/128MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_switch_SL0', maxruns=5, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 134217728 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn3089' 'lrdn3096']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.26665s.
+
+Running...
+ Run 1:
+  0.00386s: started 0
+  12.53185s: awaited 0
+  12.53189s: encountered an exception in 0
+srun: Job 3738479 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3738479
+
+  Data collection took 0.00027s.
+  Convergence check took 0.00085s.
+Completed after reaching confidence interval, terminated after 1 runs taking 12.53 seconds.
+Writing data & meta-data took 0.01223s.
+Overall took 12.81201s.
