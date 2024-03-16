@@ -1,0 +1,46 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/ar-nccl/4B', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0_hcoll0', maxruns=3, minruns=1, node_file='auto', numnodes=64, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 2", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['lrdn1481' 'lrdn1506' 'lrdn1594' 'lrdn1607' 'lrdn1616' 'lrdn1638'
+ 'lrdn1642' 'lrdn1655' 'lrdn1670' 'lrdn1671' 'lrdn1750' 'lrdn1765'
+ 'lrdn1772' 'lrdn1797' 'lrdn1799' 'lrdn1819' 'lrdn1833' 'lrdn1840'
+ 'lrdn1852' 'lrdn1886' 'lrdn1909' 'lrdn1922' 'lrdn1929' 'lrdn1936'
+ 'lrdn1951' 'lrdn1960' 'lrdn1977' 'lrdn1987' 'lrdn2006' 'lrdn2031'
+ 'lrdn2060' 'lrdn2064' 'lrdn2090' 'lrdn2096' 'lrdn2114' 'lrdn2124'
+ 'lrdn2130' 'lrdn2138' 'lrdn2139' 'lrdn2158' 'lrdn2161' 'lrdn2181'
+ 'lrdn2196' 'lrdn2208' 'lrdn2213' 'lrdn2228' 'lrdn2237' 'lrdn2242'
+ 'lrdn2254' 'lrdn2262' 'lrdn2273' 'lrdn2282' 'lrdn2298' 'lrdn2304'
+ 'lrdn2318' 'lrdn2327' 'lrdn2337' 'lrdn2345' 'lrdn2356' 'lrdn2357'
+ 'lrdn2371' 'lrdn2393' 'lrdn2400' 'lrdn2413']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.25312s.
+
+Running...
+ Run 1:
+  0.0027s: started 0
+  5.34485s: awaited 0
+  Data collection took 0.00046s.
+  Convergence check took 0.00077s.
+ Run 2:
+  0.004s: started 0
+  4.41381s: awaited 0
+  Data collection took 0.00037s.
+  Convergence check took 0.00069s.
+ Run 3:
+  0.00413s: started 0
+  4.43847s: awaited 0
+  Data collection took 0.00038s.
+  Convergence check took 0.00069s.
+Completed maximum number of runs, terminated after 3 runs taking 14.2 seconds.
+Writing data & meta-data took 0.00835s.
+Overall took 14.46216s.
