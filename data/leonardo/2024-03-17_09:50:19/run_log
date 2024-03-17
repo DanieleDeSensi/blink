@@ -1,0 +1,62 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/mpp-nccl/4B', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_group_SL0', maxruns=5, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 2", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn1306' 'lrdn3416']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27374s.
+
+Running...
+ Run 1:
+  0.00326s: started 0
+  5.32759s: awaited 0
+  Data collection took 0.00024s.
+  Convergence check took 0.00075s.
+ Run 2:
+  0.00335s: started 0
+  4.0012s: awaited 0
+  4.00124s: encountered an exception in 0
+srun: Job 3744428 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3744428
+
+  Data collection took 0.00022s.
+  Convergence check took 0.00077s.
+ Run 3:
+  0.00408s: started 0
+  3.97055s: awaited 0
+  3.9706s: encountered an exception in 0
+srun: Job 3744428 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3744428
+
+  Data collection took 0.00022s.
+  Convergence check took 0.00077s.
+ Run 4:
+  0.00394s: started 0
+  4.08656s: awaited 0
+  4.0866s: encountered an exception in 0
+srun: Job 3744428 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3744428
+
+  Data collection took 0.00022s.
+  Convergence check took 0.00079s.
+ Run 5:
+  0.00403s: started 0
+  3.88026s: awaited 0
+  3.88029s: encountered an exception in 0
+srun: Job 3744428 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3744428
+
+  Data collection took 0.00021s.
+  Convergence check took 0.00076s.
+Completed maximum number of runs, terminated after 5 runs taking 21.27 seconds.
+Writing data & meta-data took 0.00986s.
+Overall took 21.55529s.

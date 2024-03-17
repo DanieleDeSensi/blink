@@ -1,0 +1,64 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/perftest/ib_send_lat/8B', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_group_SL0', maxruns=5, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args='%SERVER_ADDRESS:lrdn1306,%SERVICE_LEVEL:0,%TRANSPORT:RC,%IB_DEVICES_LIST:mlx5_0#mlx5_1#mlx5_2#mlx5_3', runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c RC -S 0 -s 8"", collection flag: False, ending condition: run until finished.
+1: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c RC -S 0 -s 8 lrdn1306"", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 1 nodes:
+['lrdn1306']
+1 on 1 nodes:
+['lrdn3416']
+
+Schedule:
+0.0s: start 0
+5.0s: start 1
+
+Preparing took 0.26901s.
+
+Running...
+ Run 1:
+  0.0034s: started 0
+  5.01224s: started 1
+  6.13374s: awaited 0
+  6.13386s: awaited 1
+  Data collection took 0.0147s.
+  Convergence check took 0.00078s.
+ Run 2:
+  0.00354s: started 0
+  5.01244s: started 1
+  6.21064s: awaited 0
+  6.21076s: awaited 1
+  Data collection took 0.0119s.
+  Convergence check took 0.00076s.
+ Run 3:
+  0.00361s: started 0
+  5.01242s: started 1
+  6.11862s: awaited 0
+  6.11873s: awaited 1
+  Data collection took 0.01258s.
+  Convergence check took 0.00081s.
+ Run 4:
+  0.00359s: started 0
+  5.01246s: started 1
+  6.1591s: awaited 0
+  6.15922s: awaited 1
+  6.15923s: encountered an exception in 0
+srun: Job 3744428 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3744428
+
+  Data collection took 0.01169s.
+  Convergence check took 0.00087s.
+ Run 5:
+  0.00379s: started 0
+  5.01278s: started 1
+  7.96312s: awaited 0
+  7.96323s: awaited 1
+  Data collection took 0.01143s.
+  Convergence check took 0.00091s.
+Completed maximum number of runs, terminated after 5 runs taking 32.65 seconds.
+Writing data & meta-data took 0.01409s.
+Overall took 32.93647s.

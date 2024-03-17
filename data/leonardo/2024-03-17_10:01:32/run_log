@@ -1,0 +1,60 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/perftest/ib_send_lat/1B', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_group_SL0', maxruns=5, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args='%SERVER_ADDRESS:lrdn1306,%SERVICE_LEVEL:0,%TRANSPORT:RC,%IB_DEVICES_LIST:mlx5_0#mlx5_1#mlx5_2#mlx5_3', runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c RC -S 0 -s 1"", collection flag: False, ending condition: run until finished.
+1: with arguments:"mlx5_0#mlx5_1#mlx5_2#mlx5_3 "-c RC -S 0 -s 1 lrdn1306"", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 1 nodes:
+['lrdn1306']
+1 on 1 nodes:
+['lrdn3416']
+
+Schedule:
+0.0s: start 0
+5.0s: start 1
+
+Preparing took 0.28393s.
+
+Running...
+ Run 1:
+  0.00301s: started 0
+  5.0117s: started 1
+  6.17191s: awaited 0
+  6.17202s: awaited 1
+  Data collection took 0.01367s.
+  Convergence check took 0.00079s.
+ Run 2:
+  0.00338s: started 0
+  5.0117s: started 1
+  7.046s: awaited 0
+  7.04612s: awaited 1
+  Data collection took 0.01427s.
+  Convergence check took 0.00077s.
+ Run 3:
+  0.00356s: started 0
+  5.01231s: started 1
+  6.12369s: awaited 0
+  6.12389s: awaited 1
+  Data collection took 0.01217s.
+  Convergence check took 0.00083s.
+ Run 4:
+  0.00346s: started 0
+  5.01216s: started 1
+  6.13163s: awaited 0
+  6.13175s: awaited 1
+  Data collection took 0.01168s.
+  Convergence check took 0.00086s.
+ Run 5:
+  0.00338s: started 0
+  5.01208s: started 1
+  6.13125s: awaited 0
+  6.13137s: awaited 1
+  Data collection took 0.01156s.
+  Convergence check took 0.00092s.
+Completed maximum number of runs, terminated after 5 runs taking 31.67 seconds.
+Writing data & meta-data took 0.01456s.
+Overall took 31.9723s.
