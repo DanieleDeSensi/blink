@@ -1,0 +1,90 @@
+
+Passed arguments:
+Namespace(allocationmode='i', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/gpubench/a2a-nccl/1B_plus_incast', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0', maxruns=5, minruns=1, node_file='auto', numnodes=64, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+1: with arguments:"-msgsize 131072 -endl -iter 1 -grty 1", collection flag: False, ending condition: wait until others finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 32 nodes:
+['lrdn0014' 'lrdn0081' 'lrdn0120' 'lrdn0129' 'lrdn0169' 'lrdn0199'
+ 'lrdn0224' 'lrdn0312' 'lrdn0348' 'lrdn0367' 'lrdn0383' 'lrdn0410'
+ 'lrdn0433' 'lrdn0443' 'lrdn0466' 'lrdn0500' 'lrdn0516' 'lrdn0537'
+ 'lrdn0560' 'lrdn0577' 'lrdn0596' 'lrdn0618' 'lrdn0638' 'lrdn0653'
+ 'lrdn0678' 'lrdn0697' 'lrdn0714' 'lrdn0739' 'lrdn0758' 'lrdn0774'
+ 'lrdn0799' 'lrdn0818']
+1 on 32 nodes:
+['lrdn0018' 'lrdn0103' 'lrdn0128' 'lrdn0152' 'lrdn0188' 'lrdn0205'
+ 'lrdn0308' 'lrdn0335' 'lrdn0352' 'lrdn0377' 'lrdn0396' 'lrdn0411'
+ 'lrdn0439' 'lrdn0457' 'lrdn0487' 'lrdn0504' 'lrdn0530' 'lrdn0543'
+ 'lrdn0565' 'lrdn0589' 'lrdn0608' 'lrdn0626' 'lrdn0650' 'lrdn0667'
+ 'lrdn0683' 'lrdn0710' 'lrdn0728' 'lrdn0745' 'lrdn0768' 'lrdn0788'
+ 'lrdn0803' 'lrdn0835']
+
+Schedule:
+0.0s: start 0
+0.0s: start 1
+
+Preparing took 0.2626s.
+
+Running...
+ Run 1:
+  0.00252s: started 0
+  0.00515s: started 1
+  23.1662s: awaited 0
+  23.16867s: killed waiting 1
+  23.16868s: encountered an exception in 1
+srun: Job 3755515 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3755515
+
+  Data collection took 0.00039s.
+  Convergence check took 0.00076s.
+ Run 2:
+  0.00398s: started 0
+  0.00686s: started 1
+  21.7434s: awaited 0
+  83.17149s: killed waiting 1
+  83.17151s: encountered an exception in 1
+srun: Job 3755515 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3755515
+
+  Data collection took 0.00034s.
+  Convergence check took 0.00068s.
+ Run 3:
+  0.00379s: started 0
+  0.00651s: started 1
+  22.82175s: awaited 0
+  22.82453s: killed waiting 1
+  22.82454s: encountered an exception in 1
+srun: Job 3755515 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3755515
+
+  Data collection took 0.00033s.
+  Convergence check took 0.00069s.
+ Run 4:
+  0.00364s: started 0
+  0.00619s: started 1
+  21.7367s: awaited 0
+  22.41049s: killed waiting 1
+  22.4105s: encountered an exception in 1
+srun: Job 3755515 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3755515
+
+  Data collection took 0.00034s.
+  Convergence check took 0.00067s.
+ Run 5:
+  0.00392s: started 0
+  0.00664s: started 1
+  21.75276s: awaited 0
+  21.75527s: killed waiting 1
+  21.75527s: encountered an exception in 1
+srun: Job 3755515 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3755515
+
+  Data collection took 0.00034s.
+  Convergence check took 0.00069s.
+Completed maximum number of runs, terminated after 5 runs taking 173.34 seconds.
+Writing data & meta-data took 0.00888s.
+Overall took 173.60745s.
