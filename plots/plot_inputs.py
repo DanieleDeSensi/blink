@@ -38,6 +38,7 @@ def main():
     parser.add_argument('-pt', '--plot_types', help='Types of plots to produce. Comma-separated list of "line", "box", "bar".', default="line,box,bar")
     parser.add_argument('-ip', '--inner_pos', help='Positioning arguments for the inner plot.', default="[0.23, 0.6, .3, .2]")
     parser.add_argument('-iy', '--inner_ylim', help='Y-axis limits for the inner plot.', default="[0, 100]")
+    parser.add_argument('-l', '--labels', help='Comma-separated list of labels.')
     parser.add_argument('-o', '--outfile', help='Path of output files.', required=True)
 
     args = parser.parse_args()
@@ -54,7 +55,7 @@ def main():
     for metric_hr in args.metrics.split(","):      
         global_df = pd.DataFrame()
         for vn_a in victim_names:
-            vn = get_actual_bench_name(vn_a, args.system)
+            vn = get_actual_bench_name(vn_a, args.system, None)
             ppn = args.ppn
             allocation_split = args.allocation_split
             # TODO: This is a hack, make it cleaner
@@ -73,7 +74,7 @@ def main():
                     actual_metrics = [metric_hr]
 
                 for actual_metric in actual_metrics:
-                    filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, allocation_split, ppn, get_actual_extra_name(args.extra, args.system), vn, vi, args.aggressor_name, args.aggressor_input)
+                    filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, allocation_split, ppn, get_actual_extra_name(args.extra, args.system, vn), vn, vi, args.aggressor_name, args.aggressor_input)
                     data = pd.DataFrame()
                     if filename and os.path.exists(filename):                    
                         data[actual_metric] = get_bench_data(vn, vi, actual_metric, filename, ppn, args.numnodes, args.system)
@@ -84,19 +85,28 @@ def main():
                     if data.empty:
                         raise Exception("Error: data file " + filename + " does not contain data for metric " + actual_metric)
                     data["Input"] = vi
-                    data["Application"] = victim_fn
+                    data["Application"] = vn # victim_fn
                     if metric_hr == "Bandwidth" and actual_metric == "Runtime": # Save the data for the inner plot in the bandwidth plots
                         global_df_time = pd.concat([global_df_time, data], ignore_index=True)
                     else:
                         global_df = pd.concat([global_df, data], ignore_index=True)
 
         plot_types = args.plot_types.split(",")
+        if args.labels:
+            index = 0
+            labels = args.labels.split(",")
+            for v in args.victim_names.split(","):
+                global_df.replace(v, labels[index], inplace=True)
+                index += 1
+        else:
+            labels = args.victim_names.split(",")
+
         #############
         # Line plot #
         #############
         if "line" in plot_types:
             # Setup the plot
-            ax = sns.lineplot(data=global_df, x="Input", y=metric_hr, hue="Application", style="Application", markers=True, linewidth=3, markersize=8)
+            ax = sns.lineplot(data=global_df, x="Input", y=metric_hr, hue="Application", style="Application", markers=True, linewidth=3, markersize=8, hue_order=labels)
 
             # Plots the limit if specified
             if args.trend_limit:

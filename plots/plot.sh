@@ -1,28 +1,113 @@
 #!/bin/bash
+#######################################
+# Service levels + IB Transport tests #
+#######################################
+#SYSTEM="leonardo"
+#OUT_PATH="plots/out/two-nodes/sl/${SYSTEM}"
+#PLOT_TYPE="box,line,violin"
+#EXTRAS=diff_group_RC_SL0,diff_group_UC_SL0,diff_group_RC_SL1,diff_group_UC_SL1
+#for BENCH in "ib_send_lat"
+#do
+#    for SIZE in "1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB" "128MiB" "1GiB"
+#    do
+#        TESTNAME=sl_${BENCH}_${SIZE}
+#        ./plots/plot_extras.py -s ${SYSTEM} -vn ${BENCH} -vi ${SIZE} -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
+#    done
+#done
+
+#######################################
+# Service levels + IB Transport tests #
+#######################################
+SYSTEM="leonardo"
+OUT_PATH="plots/out/two-nodes/sl/${SYSTEM}"
+PLOT_TYPE="box,line,violin,boxnofliers"
+EXTRAS=#same_switch#SL0,#same_switch#SL1,#diff_switch#SL0,#diff_switch#SL1,#diff_group#SL0,#diff_group#SL1
+for SIZE in "1B" "1GiB"
+do
+    BENCH="ib_send_lat" #"gpubench-mpp-nccl" #"ib_send_lat"
+    TESTNAME=${BENCH}_${SIZE}
+    ./plots/plot_extras.py -s ${SYSTEM} -vn ${BENCH} -vi ${SIZE} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
+done
+
+#####################
+# Single-node tests #
+#####################
+SYSTEM="leonardo"
+INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB,8GiB"
+OUT_PATH="plots/out/single_node/${SYSTEM}"
+PLOT_TYPE="line"
+for TESTNAME in "gpubench-pp" "gpubench-a2a" "gpubench-ar"
+do
+    VICTIM_NAMES="${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink"
+    LABELS="NCCL,Host Mem. Staging,CUDA-Aware,CUDA IPC"
+    if [ ${TESTNAME} == "gpubench-pp" ]; then
+        TREND_LIMIT=Bandwidth:800
+        PPN=2
+    fi
+    if [ ${TESTNAME} == "gpubench-a2a" ]; then
+        TREND_LIMIT=Bandwidth:2400
+        PPN=4
+    fi
+    if [ ${TESTNAME} == "gpubench-ar" ]; then
+        TREND_LIMIT=Bandwidth:2400
+        PPN=4
+    fi
+    INNER_YLIM="[0, 30]"
+    ./plots/plot_inputs.py -s ${SYSTEM} -vn "${VICTIM_NAMES}" -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --labels "${LABELS}"
+done
 
 
 ##################
 # Distance tests #
 ##################
-for SYSTEM in "lumi" "leonardo"
+SYSTEMS="lumi,leonardo"
+OUT_PATH="plots/out/two-nodes/distance"
+PLOT_TYPE="box,boxnofliers,violin,dist"
+for SL in 1
 do
-    OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
-    PLOT_TYPE="box,violin"
-    for SL in 1
-    do
-        EXTRAS=#same_switch,#diff_switch,#diff_group
-        VICTIM_NAME="#distance"
-        # Latency - 1B
-        TESTNAME="latency_distance"
-        TITLE=""
-        XTICKLABELS="[\"Same Switch\", \"Different Switch\", \"Different Group\"]"
-        ./plots/plot_extras.py -s ${SYSTEM} -vn ${VICTIM_NAME} -vi 1B -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --title "${TITLE}"   #--xticklabels "${XTICKLABELS}"
-        # Bandwidth - 1GiB
-        TESTNAME="bandwidth_distance"
-        ./plots/plot_extras.py -s ${SYSTEM} -vn ${VICTIM_NAME} -vi 1GiB -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --title "${TITLE}" #--xticklabels "${XTICKLABELS}"
-    done
+    EXTRAS=#same_switch,#diff_switch,#diff_group
+    VICTIM_NAME="#distance-cpu"
+    INPUT="#"
+    XTICKLABELS="[\"Same Switch\", \"Different Switch\", \"Different Group\"]"
+    MAX_Y="leonardo|Latency:6,lumi|Latency:6"
+    ./plots/plot_extras.py -s ${SYSTEMS} -vn ${VICTIM_NAME} -vi ${INPUT} -n 2 -am l -sp 100 --metrics "Latency,Bandwidth" -o ${OUT_PATH} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --max_y "${MAX_Y}" #--xticklabels "${XTICKLABELS}"    
 done
 
+####################
+# Pingpong 2 Nodes #
+####################
+EXTRA="#same_switch"
+PLOT_TYPE="line"
+INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+BENCH_NAMES="gpubench-mpp-nccl,gpubench-mpp-cudaaware,pw-ping-pong_b,ib_send_lat"
+LABELS="NCCL,CUDA-Aware,MPI,IB Verbs"
+PPN=4
+for SYSTEM in "lumi" "leonardo"
+do
+    OUT_PATH="plots/out/two-nodes/pingpong/${SYSTEM}"
+    # P2P
+    INNER_YLIM="[0, 30]"
+    INNER_POS="[0.2, 0.6, .3, .2]"
+    if [ ${SYSTEM} == "lumi" ]; then
+        TREND_LIMIT=Bandwidth:800
+    fi
+    if [ ${SYSTEM} == "leonardo" ]; then
+        TREND_LIMIT=Bandwidth:400
+    fi
+    ./plots/plot_inputs.py -s ${SYSTEM} -vn ${BENCH_NAMES} -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT} --inner_pos "${INNER_POS}" --labels "${LABELS}"
+done
+
+#######################
+# IB transports tests #
+#######################
+#SYSTEM="leonardo"
+#INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+#OUT_PATH="plots/out/two-nodes/ibtransport/${SYSTEM}"
+#for TRANSPORT in "RC" "UC"
+#do
+#    EXTRA="diff_group_${TRANSPORT}_SL0"
+#    ./plots/plot_inputs.py -s ${SYSTEM} -vn ib_send_lat -vi ${INPUTS} -n 2 -am l -sp 50:50 --metrics "Bandwidth" -o ${OUT_PATH}/${RC} --ppn 1 -e ${EXTRA} --plot_types ${PLOT_TYPE}
+#done
 
 exit 0
 
@@ -58,52 +143,10 @@ do
 done
 exit 0
 
-########################
-# Service levels tests #
-########################
-OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
-PLOT_TYPE="box,line"
-EXTRAS=diff_group_RC_SL0,diff_group_UC_SL0,diff_group_RC_SL1,diff_group_UC_SL1
-for BENCH in "ib_send_lat"
-do
-    for SIZE in "1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB" "128MiB" "1GiB"
-    do
-        TESTNAME=sl_${BENCH}_${SIZE}
-        ./plots/plot_extras.py -s ${SYSTEM} -vn ${BENCH} -vi ${SIZE} -n 2 -am l -sp 50:50 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
-    done
-done
 
-
-#####################
-# Single-node tests #
-#####################
-INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB,8GiB"
-OUT_PATH="plots/out/${SYSTEM}/single_node"
-PLOT_TYPE="line"
-#GPUBench - Point-to-Point
-for TESTNAME in gpubench-pp
-do
-    #TREND_LIMIT=Bandwidth:704
-    TREND_LIMIT=Bandwidth:800
-    INNER_YLIM="[0, 30]"
-    ./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Runtime,Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 2 --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}"
-done
-
-# GPUBench - A2A
-TESTNAME=gpubench-a2a
-#TREND_LIMIT=Bandwidth:1840
-TREND_LIMIT=Bandwidth:2400
-./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE}
-
-# GPUBench - AR
-TESTNAME=gpubench-ar
-#TREND_LIMIT=Bandwidth:1840
-TREND_LIMIT=Bandwidth:2400
-./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE}
-
-###################
-# Two-nodes tests #
-###################
+##################################
+# Two-nodes tests -- collectives #
+##################################
 OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
 EXTRA="same_switch_SL1"
 PLOT_TYPE="line"
@@ -114,8 +157,6 @@ do
     INNER_YLIM="[0, 30]"
     INNER_POS="[0.2, 0.6, .3, .2]"
     TREND_LIMIT=Bandwidth:400
-    TESTNAME="allsizes_pp_PPN${PPN}"
-    ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-mpp-nccl,gpubench-mpp-cudaaware,pw-ping-pong_b,ib_send_lat -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT} --inner_pos "${INNER_POS}"
     # AR
     TESTNAME="allsizes_ar_PPN${PPN}"
     ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-ar-nccl,gpubench-ar-cudaaware,ardc_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE}
@@ -126,17 +167,7 @@ do
     ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-a2a-cudaaware,a2a_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
 done
 
-#######################
-# IB transports tests #
-#######################
-INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
-OUT_PATH="plots/out/${SYSTEM}/two-nodes/"
-for TRANSPORT in "RC" "UC"
-do
-    TESTNAME="ib_transports_${TRANSPORT}"
-    EXTRA="diff_group_${TRANSPORT}_SL0"
-    ./plots/plot_inputs.py -s ${SYSTEM} -vn ib_send_lat -vi ${INPUTS} -n 2 -am l -sp 50:50 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 1 -e ${EXTRA} --plot_types ${PLOT_TYPE}
-done
+
 
 
 

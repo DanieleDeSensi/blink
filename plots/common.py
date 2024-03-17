@@ -123,7 +123,7 @@ def get_bench_data(bench, input, metric, filename, ppn, nodes, system):
         elif metric == "Runtime" or metric == "Latency":
             return pd.read_csv(filename)["0_time-ip_us"]
     elif bench == "ib_send_lat":
-        if metric == "Runtime":
+        if metric == "Runtime" or metric == "Latency":
             return pd.read_csv(filename)["1_time_us"] # 0_ is the server
         elif metric == "Bandwidth":
             num_devices = get_num_ib_devices(system)
@@ -156,6 +156,17 @@ def add_unit_to_metric(metric_hr):
         return "Bandwidth (Gb/s)"
     elif metric_hr == "Runtime":
         return "Runtime (us)"
+    elif metric_hr == "Latency":
+        return "Latency (us)"
+    return metric_hr
+
+def system_to_human_readable(system):
+    if system == "lumi":
+        return "LUMI"
+    elif system == "leonardo":
+        return "Leonardo"
+    else:
+        return system
 
 def bench_to_human_readable(bench):
     microbenchs = ["Ping-Pong", "Pairwise Ping-Pong", "Alltoall", "Allreduce"]
@@ -176,87 +187,98 @@ def bench_to_human_readable(bench):
     return bench
 
 # Returns the actual name of the benchmark, given the name of the benchmark and the system
-def get_actual_bench_name(bench, system):
+def get_actual_bench_name(bench, system, input):
     if bench.startswith("#"):
-        if bench == "#distance":
+        if bench == "#distance-cpu":
             if system == "lumi":
                 return "pw-ping-pong_b"
             elif system == "leonardo":
-                return "ib_send_lat"
+                if input == "1B":
+                    return "pw-ping-pong_b"
+                else:
+                    return "ib_send_lat"
+        elif bench == "#distance-gpu":
+            if system == "lumi":
+                return "pw-ping-pong_b" # TODO: Fix
+            elif system == "leonardo":
+                return "gpubench-mpp-nccl"
     else:
         return bench
     raise Exception("Error: bench " + bench + " not supported for system " + system)
 
 # Returns the actual name of the extra, given the name of the extra and the system
-def get_actual_extra_name(extra, system):
+def get_actual_extra_name(extra, system, victim_name):
     if extra.startswith("#"):
-        if extra == "#diff_group" or extra == "#diff_switch" or extra == "#same_switch":
+        if "#diff_group" in extra or "#diff_switch" in extra or "#same_switch" in extra:
             if system == "lumi":
                 return extra.replace("#", "")
             elif system == "leonardo":
-                return extra.replace("#", "") + "_SL1"
+                if "#SL0" in extra: #diff_group_SL0
+                    if victim_name == "ib_send_lat":
+                        return extra.replace("#", "", 1).replace("#SL0", "_SL0")
+                    else:
+                        return extra.replace("#", "", 1).replace("#SL0", "_SL0")
+                elif "#SL1" in extra: #diff_group_SL1
+                    if victim_name == "ib_send_lat":
+                        return extra.replace("#", "", 1).replace("#SL1", "_SL1")
+                    else:                        
+                        return extra.replace("#", "", 1).replace("#SL1", "_SL1")
+                else: #diff_group
+                    return extra.replace("#", "", 1) + "_SL0"
     else:
         return extra
     raise Exception("Error: extra " + extra + " not supported for system " + system)
 
+
+def get_actual_input_name(input, metric):
+    if input == "#":
+        if metric == "Latency":
+            return "1B"
+        elif metric == "Bandwidth":
+            return "1GiB"
+    else:
+        return input
+    raise Exception("Error: input " + input + " not supported for metric " + metric)
+
 # Plots one violin for each victim+aggressor combination, for the given metric
-def plot_violin(df, metric, outname, max_y, xticklabels, title):
+def plot_violin(df, metric, ax):
     # Setup the violin
-    ax = sns.violinplot(data=df, cut=0)
+    sns.violinplot(data=df, cut=0, ax=ax)
 
-    # Set the title and labels
-    ax.set_title(title)
+    # Set the labels
     ax.set_ylabel(add_unit_to_metric(metric))
-    if max_y:
-        ax.set_ylim(0, float(max_y))
-    if xticklabels:
-        ax.set_xticklabels(ast.literal_eval(xticklabels))
-
-    # Add 99th quantile as a black x
-    q99s = df.quantile(0.99).to_list()    
-    plt.scatter(x = range(len(q99s)), y = q99s, c = 'black', marker = 'x', s = 50)
-
-    # Save to file
-    #ax.figure.savefig(outname + "_violin.png", bbox_inches='tight')
-    ax.figure.savefig(outname + "_violin.pdf", bbox_inches='tight')
-    plt.clf()      
+    # Add quantile as a black x
+    #if metric == "Bandwidth":
+    #    q = 0.01
+    #else:
+    #    q = 0.99    
+    #x = df.quantile(q).to_list()    
+    x = df.mean().to_list()
+    sns.scatterplot(x = range(len(x)), y = x, c = 'black', marker = 'x', s = 50, ax=ax)
 
 # Plots one box for each victim+aggressor combination, for the given metric
-def plot_box(df, metric, outname, max_y, xticklabels, title, showfliers=True):
+def plot_box(df, metric, ax, showfliers=True):
     # Setup the violin
-    ax = sns.boxplot(data=df, showfliers=showfliers)
+    sns.boxplot(data=df, showfliers=showfliers, ax=ax, whis=[5, 95], notch=True)
 
     # Set the title and labels
-    ax.set_title(title)
     ax.set_ylabel(add_unit_to_metric(metric))
-    if max_y:
-        ax.set_ylim(0, float(max_y))
-    if xticklabels:
-        ax.set_xticklabels(ast.literal_eval(xticklabels))
-    # Add 99th quantile as a black x
-    q99s = df.quantile(0.99).to_list()    
-    plt.scatter(x = range(len(q99s)), y = q99s, c = 'black', marker = 'x', s = 50)
+    
+    # Add quantile as a black x
+    #if metric == "Bandwidth":
+    #    q = 0.01
+    #else:
+    #    q = 0.99    
+    #x = df.quantile(q).to_list()    
+    x = df.mean().to_list()
 
-    # Save to file
-    #ax.figure.savefig(outname + "_box.png", bbox_inches='tight')
-    ax.figure.savefig(outname + "_box" + ("" if showfliers else "_nofliers") + ".pdf", bbox_inches='tight')
-    plt.clf()
+    plt.scatter(x = range(len(x)), y = x, c = 'black', marker = 'x', s = 50)
 
-def plot_dist(df, metric, outname, max_y, xticklabels, title):
+def plot_dist(df, metric, ax):
     # Setup the violin
-    ax = sns.displot(data=df, kind="kde")
-    if xticklabels:
-        ax.set_xticklabels(ast.literal_eval(xticklabels))
+    sns.kdeplot(data=df, ax=ax)
     # Set the title and labels
-    #ax.set_title(title)
-    #ax.set_ylabel(add_unit_to_metric(metric))
-    #if max_y:
-    #    ax.set_ylim(0, float(max_y))
-
-    # Save to file
-    #ax.figure.savefig(outname + "_dist.png", bbox_inches='tight')
-    ax.figure.savefig(outname + "_dist.pdf", bbox_inches='tight')
-    plt.clf()
+    ax.set_xlabel(add_unit_to_metric(metric))
 
 # Plots one line for each victim+aggressor combination, for the given metric
 # Time/iteration on the x-axis
@@ -310,6 +332,13 @@ def get_data_filename(data_folder, system, numnodes, allocation_mode, allocation
                     # We do not return immediately because we might have multiple entries for the same test,
                     # and we want to consider the most recent one among those
     return to_return
+
+def patch_violinplot(palette, n, ax):
+    from matplotlib.collections import PolyCollection
+    violins = [art for art in ax.get_children() if isinstance(art, PolyCollection)]
+    colors = sns.color_palette(palette, n_colors=n) * (len(violins)//n)
+    for i in range(len(violins)):
+        violins[i].set_edgecolor(colors[i])
 
 '''
 def main():
