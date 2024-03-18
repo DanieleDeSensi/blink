@@ -40,7 +40,7 @@ popd
 if [ "$BLINK_GPU_BENCH" = "true" ]; then
     # Download GPU microbench
     if [ ! -d "src/microbench-gpu" ]; then
-        git clone git@github.com:HicrestLaboratory/interconnect-benchmark.git src/microbench-gpu
+        git clone https://github.com/HicrestLaboratory/interconnect-benchmark.git src/microbench-gpu
         if [ $? -ne 0 ]; then
             echo "${RED}[Error] GPU microbench clone failed, please check error messages above.${NC}"
         fi
