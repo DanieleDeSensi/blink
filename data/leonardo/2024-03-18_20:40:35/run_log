@@ -1,0 +1,97 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/a2a-nccl/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0_hcoll0', maxruns=3, minruns=1, node_file='auto', numnodes=8, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 8 nodes:
+['lrdn2521' 'lrdn2763' 'lrdn2769' 'lrdn2786' 'lrdn2800' 'lrdn2817'
+ 'lrdn2828' 'lrdn2949']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.26231s.
+
+Running...
+ Run 1:
+  0.00247s: started 0
+  36.63096s: awaited 0
+  36.63098s: encountered an exception in 0
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn2521 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3775698.92:1]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn2817 [5]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3775698.92:23]
+slurmstepd: error: *** STEP 3775698.92 ON lrdn2521 CANCELLED AT 2024-03-18T20:41:07 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+srun: error: lrdn2817: task 20: Killed
+srun: error: lrdn2763: tasks 5-7: Killed
+srun: error: lrdn2763: task 4: Killed
+srun: error: lrdn2949: tasks 29-31: Killed
+srun: error: lrdn2949: task 28: Killed
+srun: error: lrdn2769: tasks 8-9: Killed
+srun: error: lrdn2769: tasks 10-11: Killed
+
+  Data collection took 5e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.00352s: started 0
+  36.52878s: awaited 0
+  36.5288s: encountered an exception in 0
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn2521 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3775698.93:3]
+slurmstepd: error: *** STEP 3775698.93 ON lrdn2521 CANCELLED AT 2024-03-18T20:41:43 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn2800 [4]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3775698.93:18]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn2949 [7]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3775698.93:31]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn2828 [6]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3775698.93:24]
+srun: error: lrdn2949: tasks 28,30: Killed
+srun: error: lrdn2800: tasks 16,19: Killed
+srun: error: lrdn2949: task 29: Killed
+srun: error: lrdn2800: task 17: Killed
+srun: error: lrdn2828: tasks 25-26: Killed
+srun: error: lrdn2521: tasks 0,2: Killed
+srun: error: lrdn2828: task 27: Killed
+srun: error: lrdn2521: task 1: Killed
+srun: error: lrdn2763: tasks 4,6: Killed
+srun: error: lrdn2763: tasks 5,7: Killed
+srun: error: lrdn2769: tasks 9,11: Killed
+srun: error: lrdn2769: tasks 8,10: Killed
+srun: error: lrdn2817: tasks 22-23: Killed
+srun: error: lrdn2817: task 21: Killed
+srun: error: lrdn2817: task 20: Killed
+
+  Data collection took 4e-05s.
+  Convergence check took 0.0s.
+ Run 3:
+  0.00353s: started 0
+  35.93075s: awaited 0
+  35.93078s: encountered an exception in 0
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn2828 [6]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3775698.94:24]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3775698.94 ON lrdn2521 CANCELLED AT 2024-03-18T20:42:19 ***
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn2817 [5]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3775698.94:23]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn2800 [4]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3775698.94:19]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn2769 [2]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3775698.94:8]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn2521 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3775698.94:2]
+srun: error: lrdn2769: tasks 9-10: Killed
+srun: error: lrdn2769: task 11: Killed
+srun: error: lrdn2817: tasks 20-21: Killed
+srun: error: lrdn2828: tasks 26-27: Killed
+srun: error: lrdn2817: task 22: Killed
+srun: error: lrdn2828: task 25: Killed
+srun: error: lrdn2800: tasks 16,18: Killed
+srun: error: lrdn2800: task 17: Killed
+srun: error: lrdn2521: tasks 0-1: Killed
+srun: error: lrdn2521: task 3: Killed
+srun: error: lrdn2949: tasks 29-30: Killed
+srun: error: lrdn2763: tasks 4,6: Killed
+srun: error: lrdn2949: task 31: Killed
+srun: error: lrdn2949: task 28: Killed
+srun: error: lrdn2763: tasks 5,7: Killed
+srun: error: lrdn2786: tasks 13,15: Killed
+srun: error: lrdn2786: tasks 12,14: Killed
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 3 runs taking 109.09 seconds.

@@ -1,0 +1,27 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/ar-nccl/512B', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL1_hcoll0', maxruns=3, minruns=1, node_file='auto', numnodes=8, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 9", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 8 nodes:
+['lrdn2521' 'lrdn2763' 'lrdn2769' 'lrdn2786' 'lrdn2800' 'lrdn2817'
+ 'lrdn2828' 'lrdn2949']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.26774s.
+
+Running...
+ Run 1:
+  0.00249s: started 0
+  3.61134s: awaited 0
+  Data collection took 0.00024s.
+  Convergence check took 0.00076s.
+Completed after reaching confidence interval, terminated after 1 runs taking 3.61 seconds.
+Writing data & meta-data took 0.00762s.
+Overall took 3.88777s.

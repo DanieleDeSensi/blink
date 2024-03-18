@@ -1,0 +1,28 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/ar-nccl/4KiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0_hcoll0', maxruns=3, minruns=1, node_file='auto', numnodes=16, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 12", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 16 nodes:
+['lrdn1789' 'lrdn1796' 'lrdn1813' 'lrdn1825' 'lrdn1829' 'lrdn1836'
+ 'lrdn1849' 'lrdn1857' 'lrdn1865' 'lrdn1878' 'lrdn1886' 'lrdn1908'
+ 'lrdn1914' 'lrdn1927' 'lrdn1937' 'lrdn1948']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.26791s.
+
+Running...
+ Run 1:
+  0.00254s: started 0
+  3.65002s: awaited 0
+  Data collection took 0.00027s.
+  Convergence check took 0.00078s.
+Completed after reaching confidence interval, terminated after 1 runs taking 3.65 seconds.
+Writing data & meta-data took 0.00878s.
+Overall took 3.92784s.

@@ -1,0 +1,264 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/a2a-nccl/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0_hcoll0', maxruns=3, minruns=1, node_file='auto', numnodes=32, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 32 nodes:
+['lrdn0390' 'lrdn0404' 'lrdn0415' 'lrdn0430' 'lrdn0489' 'lrdn0519'
+ 'lrdn0550' 'lrdn0574' 'lrdn0591' 'lrdn0599' 'lrdn0607' 'lrdn0611'
+ 'lrdn0625' 'lrdn0635' 'lrdn0639' 'lrdn0655' 'lrdn0665' 'lrdn0669'
+ 'lrdn0684' 'lrdn0700' 'lrdn0711' 'lrdn0725' 'lrdn0903' 'lrdn0910'
+ 'lrdn0947' 'lrdn0980' 'lrdn0996' 'lrdn1025' 'lrdn1071' 'lrdn1079'
+ 'lrdn1167' 'lrdn1170']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.26579s.
+
+Running...
+ Run 1:
+  0.00251s: started 0
+  60.99562s: awaited 0
+  60.99564s: encountered an exception in 0
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+srun: error: lrdn0684: task 72: Out Of Memory
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0684 [18]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:72]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0404 [1]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:5]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0725 [21]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:84]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: *** STEP 3773143.113 ON lrdn0390 CANCELLED AT 2024-03-18T20:35:43 ***
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn1170 [31]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:127]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0635 [13]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:53]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0700 [19]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:76]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0489 [4]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:16]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn1071 [28]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:115]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0980 [25]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:101]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0639 [14]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:59]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0625 [12]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:49]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0996 [26]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:107]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0415 [2]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:8]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0430 [3]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:12]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0519 [5]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:20]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0947 [24]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:97]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0665 [16]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:65]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0607 [10]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:40]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn1167 [30]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:121]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0599 [9]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:36]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0669 [17]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:69]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0591 [8]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:32]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0611 [11]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:44]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0910 [23]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:94]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0903 [22]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:90]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0711 [20]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:82]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0655 [15]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:60]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.113. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0574 [7]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:31]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0390 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:0]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn1025 [27]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:111]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn1079 [29]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:116]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0550 [6]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:27]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0996 [26]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:105]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0725 [21]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:86]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0684 [18]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:75]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0404 [1]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.113:7]
+
+  Data collection took 0.00012s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.00685s: started 0
+  62.08041s: awaited 0
+  62.08045s: encountered an exception in 0
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+srun: error: lrdn0947: task 99: Out Of Memory
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0947 [24]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:99]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3773143.114 ON lrdn0390 CANCELLED AT 2024-03-18T20:36:43 ***
+slurmstepd: error: *** STEP 3773143.114 ON lrdn0390 CANCELLED AT 2024-03-18T20:36:43 ***
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0700 [19]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:79]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0639 [14]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:57]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0669 [17]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:69]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0665 [16]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:64]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0430 [3]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:15]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0519 [5]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:23]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0591 [8]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:32]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn1167 [30]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:122]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0611 [11]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:44]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn1170 [31]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:125]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0711 [20]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:83]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0599 [9]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:36]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0390 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:3]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0903 [22]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:91]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0607 [10]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:43]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0996 [26]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:106]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn1079 [29]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:117]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0550 [6]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:24]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0404 [1]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:5]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0725 [21]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:87]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0415 [2]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:8]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0655 [15]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:60]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn1071 [28]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:112]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn1025 [27]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:110]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0910 [23]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:92]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.114. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0635 [13]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:53]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0947 [24]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:96]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0665 [16]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:66]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0700 [19]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:77]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0684 [18]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:72]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0669 [17]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:71]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0639 [14]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:59]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0574 [7]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:31]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0489 [4]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:18]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0980 [25]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:101]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0625 [12]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:50]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0996 [26]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:105]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0607 [10]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:42]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0404 [1]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.114:6]
+
+  Data collection took 0.00012s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.05313s: started 0
+  65.52647s: awaited 0
+  65.52651s: encountered an exception in 0
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+srun: error: lrdn0947: task 98: Out Of Memory
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0947 [24]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:98]
+srun: Job step aborted: Waiting up to 92 seconds for job step to finish.
+slurmstepd: error: *** STEP 3773143.115 ON lrdn0390 CANCELLED AT 2024-03-18T20:37:47 ***
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0665 [16]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:64]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0489 [4]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:17]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0519 [5]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:23]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0700 [19]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:78]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0635 [13]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:55]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0404 [1]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:4]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0611 [11]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:46]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0669 [17]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:70]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0599 [9]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:37]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0711 [20]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:83]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0591 [8]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:34]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn1071 [28]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:115]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn1167 [30]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:123]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn1079 [29]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:118]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0607 [10]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:42]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0390 [0]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:2]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0655 [15]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:63]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0725 [21]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:86]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0625 [12]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:51]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0430 [3]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:15]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn1170 [31]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:127]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0980 [25]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:101]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0910 [23]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:94]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0574 [7]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:30]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0404 [1]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:6]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0665 [16]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:66]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0489 [4]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:19]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0947 [24]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:97]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0415 [2]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:9]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0903 [22]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:89]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0684 [18]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:72]
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=3773143.115. Some of your processes may have been killed by the cgroup out-of-memory handler.
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn1025 [27]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:111]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0550 [6]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:24]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn1079 [29]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:116]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0639 [14]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:56]
+slurmstepd: error:  mpi/pmix_v3: _errhandler: lrdn0996 [26]: pmixp_client_v2.c:212: Error handler invoked: status = -25, source = [slurm.pmix.3773143.115:107]
+
+  Data collection took 0.00013s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 3 runs taking 188.64 seconds.
