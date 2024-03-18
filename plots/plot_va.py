@@ -45,8 +45,8 @@ extra_fullname["SL0VAR1"] = "SL0VAR1"
 extra_fullname["SL1VAR0"] = "SL1VAR0"
 extra_fullname["SL1VAR1"] = "SL1VAR1"
 
-extra_fullname["SL0"] = "SL0"
-extra_fullname["SL1"] = "SL1"
+extra_fullname["SL0"] = "Default SL"
+extra_fullname["SL1"] = "Non-default SL"
 
 extra_fullname["same_switch_SL1_hcoll0"] = "SL1\nHColl0"
 extra_fullname["same_switch_SL1_hcoll1"] = "SL1\nHColl1"
@@ -178,7 +178,7 @@ def main():
                 
                 # Set title only on the first row
                 if index <= num_cols:
-                    ax.set_title(system_to_human_readable(extra))            
+                    ax.set_title(extra_fullname(extra))            
                 
                 index += 1
         # Share y-axis
