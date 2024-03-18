@@ -1,6 +1,6 @@
 
 base_exp="pp"
-other_exps=("a2a" "ar" "hlo" "mpp")
+other_exps=("a2a" "ar" "hlo" "mpp" "inc" "otom")
 
 for other_exp in "${other_exps[@]}"
 do
