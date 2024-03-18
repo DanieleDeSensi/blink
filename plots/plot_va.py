@@ -66,8 +66,8 @@ def main():
     parser.add_argument('-s', '--system', help='System name.', required=True)
     parser.add_argument('-vn', '--victim_name', help='Victim name. It must match the filename of the Python wrapper.', required=True)
     parser.add_argument('-vi', '--victim_input', help='Victim input.', required=True)
-    parser.add_argument('-an', '--aggressor_name', help='Name of the aggressor. It must match the filename of the Python wrapper.', default="")
-    parser.add_argument('-ai', '--aggressor_input', help='Aggressor input.', default="")    
+    parser.add_argument('-an', '--aggressor_names', help='Names of the aggressor. It must match the filename of the Python wrapper.', default="")
+    #parser.add_argument('-ai', '--aggressor_inputs', help='Aggressor inputs (one per aggressor).', default="")    
     parser.add_argument('-n', '--numnodes', help='The number of nodes the mix was executed on (total).', required=True)
     parser.add_argument('-am', '--allocation_mode', help='The allocation mode the mix was executed with.', required=True)
     parser.add_argument('-sp', '--allocation_split', help='The allocation split the mix was executed with.', required=True)
@@ -86,20 +86,17 @@ def main():
     if not os.path.exists(args.outfile.lower()): 
         os.makedirs(args.outfile.lower())
 
-    if args.aggressor_name and not args.aggressor_input:
-        aggressor_input = get_default_aggressor_input(args.aggressor_name)
-    else:
-        aggressor_input = args.aggressor_input
+
 
     data_dict = {}
 
     for metric_hr in args.metrics.split(","):                        
-        for system in args.system.split(","):
+        for ea in args.extras.split(","):        
             global_df = pd.DataFrame()
-            for ea in args.extras.split(","):
+            for aggressor in args.aggressor_names.split(","):    
                 victim_input = get_actual_input_name(args.victim_input, metric_hr)
-                victim_name = get_actual_bench_name(args.victim_name, system, victim_input)                
-                e = get_actual_extra_name(ea, system, victim_name)
+                victim_name = get_actual_bench_name(args.victim_name, args.system, victim_input)                
+                e = get_actual_extra_name(ea, args.system, victim_name)
                 allocation_split = args.allocation_split
                 ppn = args.ppn            
                 if victim_name == "ib_send_lat": # TODO: This is a hack, make it cleaner
@@ -107,7 +104,8 @@ def main():
                         ppn = 1
                     if allocation_split == "100":
                         allocation_split = "50:50"            
-                filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, system, args.numnodes, args.allocation_mode, allocation_split, ppn, e, victim_name, victim_input, args.aggressor_name, aggressor_input)
+                aggressor_input = get_default_aggressor_input(aggressor)
+                filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, allocation_split, ppn, e, victim_name, victim_input, aggressor, aggressor_input)
                 if not filename:
                     print("Data not found for extra " + e + " " + ea + " " + str(args))
                     continue
@@ -115,38 +113,40 @@ def main():
                 if not os.path.exists(filename):
                     print("Error: data file " + filename + " does not exist")
                     continue
-                data[extra_fullname[e]] = get_bench_data(victim_name, victim_input, metric_hr, filename, ppn, args.numnodes, system)
+                data[aggressor] = get_bench_data(victim_name, victim_input, metric_hr, filename, ppn, args.numnodes, args.system)
                 if data.empty:
                     raise Exception("Error: data file " + filename + " does not contain data for metric " + metric_hr)
                 global_df = pd.concat([global_df, data], axis=1)
-            key = system + "|" + metric_hr
+            key = ea + "|" + metric_hr
             data_dict[key] = global_df
 
     outname = args.outfile + os.path.sep
     outname = outname.lower()
 
     plot_types = args.plot_types.split(",")
-    num_cols = len(args.system.split(","))
+    num_cols = len(args.extras.split(","))
     num_rows = len(args.metrics.split(","))
 
     for plot_type in plot_types:
+        axes = []
         fig = plt.figure()
         fig.subplots_adjust(hspace=0.4, wspace=0.4)
         index = 1
         for metric in args.metrics.split(","):
-            for system in args.system.split(","):     
-                key = system + "|" + metric
+            for extra in args.extras.split(","):     
+                key = extra + "|" + metric
                 if key not in data_dict:
                     print("Error: no data found for " + key)
                     continue
                 global_df = data_dict[key]
                 ax = fig.add_subplot(num_rows, num_cols, index)
+                axes += [ax]
 
                 # Violins        
                 if plot_type == "violin":            
                     plot_violin(global_df, metric, ax)                
                     # Fix aspect
-                    patch_violinplot(sns.color_palette(), len(args.extras.split(",")), ax)            
+                    patch_violinplot(sns.color_palette(), len(args.aggressor_names.split(",")), ax)            
                 elif plot_type == "box":
                     plot_box(global_df, metric, ax)
                 elif plot_type == "boxnofliers":
@@ -178,12 +178,17 @@ def main():
                 
                 # Set title only on the first row
                 if index <= num_cols:
-                    ax.set_title(system_to_human_readable(system))            
+                    ax.set_title(system_to_human_readable(extra))            
                 
                 index += 1
+        # Share y-axis
+        for ax in axes[1:]:
+            ax.sharey(axes[0])                
         # Save to file
         fig.savefig(outname + plot_type + ".pdf", bbox_inches='tight')
         plt.clf()      
+    
+
 
     '''
     # Boxes, with and without outliers        

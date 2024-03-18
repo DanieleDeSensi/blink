@@ -15,9 +15,86 @@
 #    done
 #done
 
-#######################################
-# Service levels + IB Transport tests #
-#######################################
+
+
+##########################
+# 64 nodes tests - HCOLL #
+##########################
+#SYSTEM="leonardo"
+#OUT_PATH="plots/out/64-nodes/hcoll/${SYSTEM}"
+#PLOT_TYPE="line,box"
+#PPN=4
+#SL=1 #TODO Redo for SL=0!
+#EXTRA="SL${SL}_hcoll0,SL${SL}_hcoll1"
+#INNER_YLIM="[50, 150]"
+#INNER_POS="[0.2, 0.6, .3, .2]"
+#TREND_LIMIT=Bandwidth:0
+## AR
+#INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB,8GiB"
+#TESTNAME="ar"
+#./plots/plot_inputs_multiextras.py -s ${SYSTEM} -vn ardc_b -vi ${INPUTS} -n 64 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}"
+## A2A
+#INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB"
+#TESTNAME="a2a"
+#INNER_YLIM="[0, 50]"
+#TREND_LIMIT=Bandwidth:0
+#./plots/plot_inputs_multiextras.py -s ${SYSTEM} -vn a2a_b -vi ${INPUTS} -n 64 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
+
+
+###############################
+# 64 nodes tests - SL1 - Cong #
+###############################
+SYSTEM="leonardo"
+OUT_PATH="plots/out/64-nodes/cong/${SYSTEM}"
+PLOT_TYPE="box"
+EXTRA="SL0,SL1"
+for ALLOCATION_MODE in "l" "r" "i"
+do
+    for BENCH in "ar" "a2a"
+    do
+        if [ ${BENCH} == "ar" ]; then
+            declare -a INPUTS=("1B" "1GiB")
+            FULLNAME="Allreduce"
+        else
+            declare -a INPUTS=("1B" "16MiB")
+            FULLNAME="Alltoall"
+        fi
+        XTICKLABELS="[\"${FULLNAME}\nIsolated\", \"${FULLNAME}\n+Alltoall\", \"${FULLNAME}\n+Incast\"]"
+        for INPUT in "${INPUTS[@]}"
+        do        
+            TESTNAME="${BENCH}"_${INPUT}_${ALLOCATION_MODE}
+            ./plots/plot_va.py -s ${SYSTEM} -vn gpubench-${BENCH}-nccl -vi ${INPUT} --aggressor_names ",a2a_b,inc_b" -n 64 -am ${ALLOCATION_MODE} -sp 50:50 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE} --xticklabels "${XTICKLABELS}"
+        done
+    done
+done
+
+exit 0
+
+#######################
+# 64 nodes tests - SL #
+#######################
+SYSTEM="leonardo"
+OUT_PATH="plots/out/64-nodes/sl/${SYSTEM}"
+PLOT_TYPE="line,box"
+
+EXTRA="SL0_hcoll0,SL1_hcoll0"
+INNER_YLIM="[50, 150]"
+INNER_POS="[0.2, 0.6, .3, .2]"
+TREND_LIMIT=Bandwidth:0
+# AR
+INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB,8GiB"
+TESTNAME="allsizes_ar_SL${SL}"
+./plots/plot_inputs_multiextras.py -s ${SYSTEM} -vn gpubench-ar-nccl -vi ${INPUTS} -n 64 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}"
+# A2A
+INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB"
+TESTNAME="allsizes_a2a_SL${SL}"
+INNER_YLIM="[0, 50]"
+TREND_LIMIT=Bandwidth:0
+./plots/plot_inputs_multiextras.py -s ${SYSTEM} -vn gpubench-a2a-nccl -vi ${INPUTS} -n 64 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
+
+##################
+# Service levels #
+##################
 SYSTEM="leonardo"
 OUT_PATH="plots/out/two-nodes/sl/${SYSTEM}"
 PLOT_TYPE="box,line,violin,boxnofliers"
@@ -53,7 +130,7 @@ do
         PPN=4
     fi
     INNER_YLIM="[0, 30]"
-    ./plots/plot_inputs.py -s ${SYSTEM} -vn "${VICTIM_NAMES}" -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --labels "${LABELS}"
+    ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn "${VICTIM_NAMES}" -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --labels "${LABELS}"
 done
 
 
@@ -94,7 +171,7 @@ do
     if [ ${SYSTEM} == "leonardo" ]; then
         TREND_LIMIT=Bandwidth:400
     fi
-    ./plots/plot_inputs.py -s ${SYSTEM} -vn ${BENCH_NAMES} -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT} --inner_pos "${INNER_POS}" --labels "${LABELS}"
+    ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn ${BENCH_NAMES} -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT} --inner_pos "${INNER_POS}" --labels "${LABELS}"
 done
 
 #######################
@@ -106,41 +183,9 @@ done
 #for TRANSPORT in "RC" "UC"
 #do
 #    EXTRA="diff_group_${TRANSPORT}_SL0"
-#    ./plots/plot_inputs.py -s ${SYSTEM} -vn ib_send_lat -vi ${INPUTS} -n 2 -am l -sp 50:50 --metrics "Bandwidth" -o ${OUT_PATH}/${RC} --ppn 1 -e ${EXTRA} --plot_types ${PLOT_TYPE}
+#    ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn ib_send_lat -vi ${INPUTS} -n 2 -am l -sp 50:50 --metrics "Bandwidth" -o ${OUT_PATH}/${RC} --ppn 1 -e ${EXTRA} --plot_types ${PLOT_TYPE}
 #done
 
-exit 0
-
-##################
-#### Leonardo ####
-##################
-SYSTEM="leonardo"
-
-##################
-# 64 nodes tests #
-##################
-OUT_PATH="plots/out/${SYSTEM}/64-nodes/"
-PLOT_TYPE="line"
-for SL in 0 1
-do
-    for HCOLL in 0 
-    do
-        EXTRA="SL${SL}_hcoll${HCOLL}"
-        INNER_YLIM="[0, 100]"
-        INNER_POS="[0.2, 0.6, .3, .2]"
-        TREND_LIMIT=Bandwidth:0
-        # AR
-        INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB,8GiB"
-        TESTNAME="allsizes_ar_SL${SL}_hcoll${HCOLL}"
-        ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-ar-nccl -vi ${INPUTS} -n 64 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}"
-        # A2A
-        INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB"
-        TESTNAME="allsizes_a2a_SL${SL}_hcoll${HCOLL}"
-        INNER_YLIM="[0, 10000]"
-        TREND_LIMIT=Bandwidth:0
-        ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-a2a-nccl -vi ${INPUTS} -n 64 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
-    done
-done
 exit 0
 
 
@@ -159,12 +204,12 @@ do
     TREND_LIMIT=Bandwidth:400
     # AR
     TESTNAME="allsizes_ar_PPN${PPN}"
-    ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-ar-nccl,gpubench-ar-cudaaware,ardc_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE}
+    ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn gpubench-ar-nccl,gpubench-ar-cudaaware,ardc_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE}
     # A2A
     TESTNAME="allsizes_a2a_PPN${PPN}"
     INNER_YLIM="[0, 30]"
     TREND_LIMIT=Bandwidth:400
-    ./plots/plot_inputs.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-a2a-cudaaware,a2a_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
+    ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-a2a-cudaaware,a2a_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
 done
 
 
@@ -180,14 +225,14 @@ OUT_PATH="plots/out/${SYSTEM}/single_node"
 for TESTNAME in nccl-sendrecv
 do
     TREND_LIMIT=Bandwidth:80
-    ./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME} -vi ${INPUTS} -n 1 -am l -sp 100 --metrics Bandwidth -o ${OUT_PATH}/${TESTNAME} --ppn 2 --trend_limit ${TREND_LIMIT}
+    ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn ${TESTNAME} -vi ${INPUTS} -n 1 -am l -sp 100 --metrics Bandwidth -o ${OUT_PATH}/${TESTNAME} --ppn 2 --trend_limit ${TREND_LIMIT}
 done
 
 #NCCL Tests - Collectives
 for TESTNAME in nccl-allreduce nccl-alltoall
 do
     TREND_LIMIT=Bandwidth:230
-    ./plots/plot_inputs.py -s ${SYSTEM} -vn ${TESTNAME} -vi ${INPUTS} -n 1 -am l -sp 100 --metrics Bandwidth -o ${OUT_PATH}/${TESTNAME} --ppn 4 --trend_limit ${TREND_LIMIT}
+    ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn ${TESTNAME} -vi ${INPUTS} -n 1 -am l -sp 100 --metrics Bandwidth -o ${OUT_PATH}/${TESTNAME} --ppn 4 --trend_limit ${TREND_LIMIT}
 done
 
 ########################
