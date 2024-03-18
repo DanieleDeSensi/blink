@@ -317,7 +317,6 @@ def get_data_filename(data_folder, system, numnodes, allocation_mode, allocation
                 # Get the bench name from the Python wrapper filename and load the python wrapper to get the full name and the input name
                 victim_shortname = info["victim_wrapper"].split("/")[-1][:-3]                
                 (victim_fn, victim_in) = get_input_and_full_name_from_args(os.environ["BLINK_ROOT"] + os.path.sep + info["victim_wrapper"], info["victim_args"])
-
                 if "aggressor_wrapper" in info:
                     aggressor_shortname = info["aggressor_wrapper"].split("/")[-1][:-3]
                     (aggressor_fn, aggressor_in) = get_input_and_full_name_from_args(os.environ["BLINK_ROOT"] + os.path.sep + info["aggressor_wrapper"], info["aggressor_args"])
@@ -325,7 +324,6 @@ def get_data_filename(data_folder, system, numnodes, allocation_mode, allocation
                     aggressor_shortname = ""
                     aggressor_fn = ""
                     aggressor_in = ""
-                
                 if victim_name == victim_shortname and victim_input == victim_in and \
                    aggressor_name == aggressor_shortname and aggressor_input == aggressor_in:
                     to_return = (row["path"] + "/data.csv", victim_fn, aggressor_fn)
@@ -339,6 +337,16 @@ def patch_violinplot(palette, n, ax):
     colors = sns.color_palette(palette, n_colors=n) * (len(violins)//n)
     for i in range(len(violins)):
         violins[i].set_edgecolor(colors[i])
+
+def get_default_aggressor_input(aggressor):
+    if aggressor == "gpubench-a2a-nccl":
+        return "128KiB"
+    elif aggressor == "inc_b":
+        return "128KiB"
+    elif aggressor == "a2a_b":
+        return "128KiB"
+    else:
+        return ""
 
 '''
 def main():

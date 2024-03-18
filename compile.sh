@@ -40,7 +40,7 @@ popd
 if [ "$BLINK_GPU_BENCH" = "true" ]; then
     # Download GPU microbench
     if [ ! -d "src/microbench-gpu" ]; then
-        git clone git@github.com:HicrestLaboratory/interconnect-benchmark.git src/microbench-gpu
+        git clone https://github.com/HicrestLaboratory/interconnect-benchmark.git src/microbench-gpu
         if [ $? -ne 0 ]; then
             echo "${RED}[Error] GPU microbench clone failed, please check error messages above.${NC}"
         fi
@@ -52,7 +52,7 @@ if [ "$BLINK_GPU_BENCH" = "true" ]; then
         MAKEFILE_NAME="Makefile.${BLINK_SYSTEM^^}"
         if [ -f ${MAKEFILE_NAME} ]; then
             #CUDA_HOME=${BLINK_CUDA_HOME} MPI_HOME=${BLINK_MPI_HOME} MPI_CUDA_HOME=${BLINK_MPI_CUDA_HOME} NCCL_HOME=${BLINK_NCCL_HOME} make -f ${MAKEFILE_NAME}
-	    make -f ${MAKEFILE_NAME}
+	        make -f ${MAKEFILE_NAME}
             if [ $? -ne 0 ]; then
                 echo "${RED}[Error] GPU microbench compilation failed, please check error messages above.${NC}"
                 exit 1
