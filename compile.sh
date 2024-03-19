@@ -48,10 +48,10 @@ if [ "$BLINK_GPU_BENCH" = "true" ]; then
     # Compile GPU microbench
     pushd src/microbench-gpu
         git fetch
-        if [ "${SYSTEM}" = "lumi" ]; then
-            git checkout -b add-lumi
-            git checkout f0f46c1
-            ./create_hip_files.sh
+        if [ "${BLINK_SYSTEM}" = "lumi" ]; then
+            git checkout add-lumi
+            git checkout c01c869
+            ./create_hip_file.sh
         else
             git checkout ${BLINK_GPU_MICROBENCH_COMMIT}
         fi
@@ -67,7 +67,8 @@ if [ "$BLINK_GPU_BENCH" = "true" ]; then
             echo "${RED}[Warning] GPU microbench not supported on this system (${BLINK_SYSTEM}).${NC}"
         fi
     popd
-
+fi
+if [ "$BLINK_XCCL_BENCH" = "true" ]; then
     # Download nccl-tests
     if [ ! -d "src/nccl-tests" ]; then
         git clone https://github.com/NVIDIA/nccl-tests src/nccl-tests

@@ -5,6 +5,7 @@
 export BLINK_CC=mpicc # MPI C Compiler
 export BLINK_CXX=mpicxx # MPI C++ Compiler
 export BLINK_GPU_BENCH="false" # Shall we run GPU interconnect tests?
+export BLINK_XCCL_BENCH="false"
 export BLINK_CUDA_HOME=""
 export BLINK_NCCL_HOME=""
 export BLINK_MPI_HOME=""

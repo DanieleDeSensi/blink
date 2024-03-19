@@ -7,6 +7,7 @@ module load nccl
 export BLINK_CC=mpicc # MPI C Compiler
 export BLINK_CXX=mpicxx # MPI C++ Compiler
 export BLINK_GPU_BENCH="true" # Shall we run GPU interconnect tests?
+export BLINK_XCCL_BENCH="true"
 export BLINK_CUDA_HOME="/opt/cuda/11.8.0/targets/x86_64-linux"
 export BLINK_NCCL_HOME="/home/root/opt/nvhpc/Linux_x86_64/23.1/comm_libs/11.8/nccl"
 export BLINK_MPI_HOME="/leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd" # MPI home folder

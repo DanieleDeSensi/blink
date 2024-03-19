@@ -1,0 +1,150 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/pp-cudaaware/1B', node_file='auto', numnodes=1, allocationmode='l', allocationsplit='100', minruns=1, maxruns=100, timeout=600.0, alpha=0.05, beta=0.05, ppn=2, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 2
+0 on 1 nodes:
+['nid006312']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.07166s.
+
+Running...
+ Run 1:
+  0.01521s: started 0
+  0.76937s: awaited 0
+  Data collection took 0.0005s.
+  Convergence check took 0.00183s.
+ Run 2:
+  0.01401s: started 0
+  0.77078s: awaited 0
+  Data collection took 0.00046s.
+  Convergence check took 0.00149s.
+ Run 3:
+  0.01539s: started 0
+  0.86315s: awaited 0
+  Data collection took 0.00045s.
+  Convergence check took 0.00156s.
+ Run 4:
+  0.01415s: started 0
+  1.66135s: awaited 0
+  Data collection took 0.00044s.
+  Convergence check took 0.00154s.
+ Run 5:
+  0.01529s: started 0
+  0.77319s: awaited 0
+  Data collection took 0.00048s.
+  Convergence check took 0.00186s.
+ Run 6:
+  0.01732s: started 0
+  0.77348s: awaited 0
+  Data collection took 0.0005s.
+  Convergence check took 0.0018s.
+ Run 7:
+  0.01594s: started 0
+  0.77507s: awaited 0
+  Data collection took 0.00053s.
+  Convergence check took 0.00186s.
+ Run 8:
+  0.01999s: started 0
+  1.67623s: awaited 0
+  Data collection took 0.00047s.
+  Convergence check took 0.00165s.
+ Run 9:
+  0.01536s: started 0
+  0.81747s: awaited 0
+  Data collection took 0.0005s.
+  Convergence check took 0.0017s.
+ Run 10:
+  0.01642s: started 0
+  0.77702s: awaited 0
+  Data collection took 0.00045s.
+  Convergence check took 0.00163s.
+ Run 11:
+  0.01438s: started 0
+  0.76663s: awaited 0
+  Data collection took 0.00044s.
+  Convergence check took 0.0017s.
+ Run 12:
+  0.01541s: started 0
+  1.7696s: awaited 0
+  Data collection took 0.00046s.
+  Convergence check took 0.00177s.
+ Run 13:
+  0.01533s: started 0
+  0.78334s: awaited 0
+  Data collection took 0.00046s.
+  Convergence check took 0.00166s.
+ Run 14:
+  0.01399s: started 0
+  0.81795s: awaited 0
+  Data collection took 0.00044s.
+  Convergence check took 0.00167s.
+ Run 15:
+  0.01359s: started 0
+  0.77132s: awaited 0
+  Data collection took 0.00045s.
+  Convergence check took 0.0018s.
+ Run 16:
+  0.01548s: started 0
+  1.62229s: awaited 0
+  Data collection took 0.00049s.
+  Convergence check took 0.00188s.
+ Run 17:
+  0.01582s: started 0
+  0.76984s: awaited 0
+  Data collection took 0.00044s.
+  Convergence check took 0.00189s.
+ Run 18:
+  0.01549s: started 0
+  0.7494s: awaited 0
+  Data collection took 0.00059s.
+  Convergence check took 0.00241s.
+ Run 19:
+  0.01584s: started 0
+  0.82387s: awaited 0
+  Data collection took 0.00056s.
+  Convergence check took 0.00255s.
+ Run 20:
+  0.01888s: started 0
+  1.64792s: awaited 0
+  Data collection took 0.00045s.
+  Convergence check took 0.00195s.
+ Run 21:
+  0.01777s: started 0
+  0.75508s: awaited 0
+  Data collection took 0.00052s.
+  Convergence check took 0.0023s.
+ Run 22:
+  0.01633s: started 0
+  0.77589s: awaited 0
+  Data collection took 0.00051s.
+  Convergence check took 0.00208s.
+ Run 23:
+  0.01423s: started 0
+  0.7727s: awaited 0
+  Data collection took 0.00054s.
+  Convergence check took 0.00203s.
+ Run 24:
+  0.01559s: started 0
+  1.53444s: awaited 0
+  1.53453s: encountered an exception in 0
+srun: Job 6576529 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6576529
+
+  Data collection took 0.00051s.
+  Convergence check took 0.00234s.
+ Run 25:
+  0.0174s: started 0
+  0.78958s: awaited 0
+  Data collection took 0.00049s.
+  Convergence check took 0.00223s.
+Completed after reaching confidence interval, terminated after 25 runs taking 24.87 seconds.
+Writing data & meta-data took 0.02466s.
+Overall took 24.96746s.
