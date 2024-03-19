@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --time=02:00:00
-#SBATCH --ntasks-per-node=4
+#SBATCH --ntasks-per-node=17
 #SBATCH --gres=gpu:4
 #SBATCH --mem=0
 #SBATCH --partition=boost_usr_prod
