@@ -1,5 +1,14 @@
 # Modules load and any other needed command
 module load cray-python
+#export EBU_USER_PREFIX=/project/project_465000997/EasyBuild
+module load LUMI/22.08
+module load aws-ofi-rccl
+module load craype-accel-amd-gfx90a
+#module load rocm
+export NCCL_NET_GDR_LEVEL=3
+export FI_CXI_ATS=0
+export NCCL_BUFFSIZE=33554432
+
 
 # Mandatory variables to compile/run microbenchmarks
 export BLINK_CC=cc # MPI C Compiler
