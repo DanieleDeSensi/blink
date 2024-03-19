@@ -47,6 +47,7 @@ SYSTEM="leonardo"
 OUT_PATH="plots/out/multi-nodes/${SYSTEM}"
 PLOT_TYPE="line,box,bar"
 EXTRA="SL0_hcoll0,SL1_hcoll0"
+NNODES="8,16,32,64,128"
 for BENCH in "ar" "a2a"
 do
     if [ ${BENCH} == "ar" ]; then
@@ -60,7 +61,7 @@ do
     for INPUT in "${INPUTS[@]}"
     do        
         TESTNAME="${BENCH}"_${INPUT}
-        ./plots/plot_inputs_multinodes.py -s ${SYSTEM} -vn gpubench-${BENCH}-nccl -vi ${INPUT} -n "8,16,32,64" -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE}
+        ./plots/plot_inputs_multinodes.py -s ${SYSTEM} -vn gpubench-${BENCH}-nccl -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE}
     done
 done
 

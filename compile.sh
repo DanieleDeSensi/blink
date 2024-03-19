@@ -48,7 +48,13 @@ if [ "$BLINK_GPU_BENCH" = "true" ]; then
     # Compile GPU microbench
     pushd src/microbench-gpu
         git fetch
-        git checkout ${BLINK_GPU_MICROBENCH_COMMIT}
+        if [ "${SYSTEM}" = "lumi" ]; then
+            git checkout -b add-lumi
+            git checkout f0f46c1
+            ./create_hip_files.sh
+        else
+            git checkout ${BLINK_GPU_MICROBENCH_COMMIT}
+        fi
         MAKEFILE_NAME="Makefile.${BLINK_SYSTEM^^}"
         if [ -f ${MAKEFILE_NAME} ]; then
             #CUDA_HOME=${BLINK_CUDA_HOME} MPI_HOME=${BLINK_MPI_HOME} MPI_CUDA_HOME=${BLINK_MPI_CUDA_HOME} NCCL_HOME=${BLINK_NCCL_HOME} make -f ${MAKEFILE_NAME}
