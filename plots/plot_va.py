@@ -69,10 +69,10 @@ def main():
     parser.add_argument('-an', '--aggressor_names', help='Names of the aggressor. It must match the filename of the Python wrapper.', default="")
     #parser.add_argument('-ai', '--aggressor_inputs', help='Aggressor inputs (one per aggressor).', default="")    
     parser.add_argument('-n', '--numnodes', help='The number of nodes the mix was executed on (total).', required=True)
-    parser.add_argument('-am', '--allocation_mode', help='The allocation mode the mix was executed with.', required=True)
+    parser.add_argument('-am', '--allocation_modes', help='The allocation mode the mix was executed with (comma-separated string).', required=True)
     parser.add_argument('-sp', '--allocation_split', help='The allocation split the mix was executed with.', required=True)
     parser.add_argument('-e', '--extras', help='Extra info about the execution (comma-separated list).', required=True)
-    parser.add_argument('-m', '--metrics', help='Comma-separated string of metrics to plot.', default="0_Avg-Duration_s")
+    parser.add_argument('-m', '--metric', help='Comma-separated string of metrics to plot.', default="0_Avg-Duration_s")
     parser.add_argument('-p', '--ppn', help='Processes per node.', default=1)
     parser.add_argument('-my', '--max_y', help='Max value on the y-axis. Comma separated list (one element for each metric/system combination). E.g.: "leonardo|bandwidth=100,lumi|latency=10"')
     parser.add_argument('-pt', '--plot_types', help='Types of plots to produce. Comma-separated list of "violin", "box", "line", "dist".', default="violin,box,boxnofliers,line,dist")
@@ -90,11 +90,11 @@ def main():
 
     data_dict = {}
 
-    for metric_hr in args.metrics.split(","):                        
+    for allocation_mode in args.allocation_modes.split(","):                        
         for ea in args.extras.split(","):        
             global_df = pd.DataFrame()
             for aggressor in args.aggressor_names.split(","):    
-                victim_input = get_actual_input_name(args.victim_input, metric_hr)
+                victim_input = get_actual_input_name(args.victim_input, args.metric)
                 victim_name = get_actual_bench_name(args.victim_name, args.system, victim_input)                
                 e = get_actual_extra_name(ea, args.system, victim_name)
                 allocation_split = args.allocation_split
@@ -105,7 +105,7 @@ def main():
                     if allocation_split == "100":
                         allocation_split = "50:50"            
                 aggressor_input = get_default_aggressor_input(aggressor)
-                filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, allocation_split, ppn, e, victim_name, victim_input, aggressor, aggressor_input)
+                filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, allocation_mode, allocation_split, ppn, e, victim_name, victim_input, aggressor, aggressor_input)
                 if not filename:
                     print("Data not found for extra " + e + " " + ea + " " + str(args))
                     continue
@@ -113,11 +113,11 @@ def main():
                 if not os.path.exists(filename):
                     print("Error: data file " + filename + " does not exist")
                     continue
-                data[aggressor] = get_bench_data(victim_name, victim_input, metric_hr, filename, ppn, args.numnodes, args.system)
+                data[aggressor] = get_bench_data(victim_name, victim_input, args.metric, filename, ppn, args.numnodes, args.system)
                 if data.empty:
-                    raise Exception("Error: data file " + filename + " does not contain data for metric " + metric_hr)
+                    raise Exception("Error: data file " + filename + " does not contain data for metric " + args.metric)
                 global_df = pd.concat([global_df, data], axis=1)
-            key = ea + "|" + metric_hr
+            key = ea + "|" + allocation_mode
             data_dict[key] = global_df
 
     outname = args.outfile + os.path.sep
@@ -125,16 +125,16 @@ def main():
 
     plot_types = args.plot_types.split(",")
     num_cols = len(args.extras.split(","))
-    num_rows = len(args.metrics.split(","))
+    num_rows = len(args.allocation_modes.split(","))
 
     for plot_type in plot_types:
         axes = []
         fig = plt.figure()
         fig.subplots_adjust(hspace=0.4, wspace=0.4)
         index = 1
-        for metric in args.metrics.split(","):
+        for allocation_mode in args.allocation_modes.split(","):
             for extra in args.extras.split(","):     
-                key = extra + "|" + metric
+                key = extra + "|" + allocation_mode
                 if key not in data_dict:
                     print("Error: no data found for " + key)
                     continue
@@ -144,15 +144,15 @@ def main():
 
                 # Violins        
                 if plot_type == "violin":            
-                    plot_violin(global_df, metric, ax)                
+                    plot_violin(global_df, args.metric, ax)                
                     # Fix aspect
                     patch_violinplot(sns.color_palette(), len(args.aggressor_names.split(",")), ax)            
                 elif plot_type == "box":
-                    plot_box(global_df, metric, ax)
+                    plot_box(global_df, args.metric, ax)
                 elif plot_type == "boxnofliers":
-                    plot_box(global_df, metric, ax, False)                      
+                    plot_box(global_df, args.metric, ax, False)                      
                 elif plot_type == "dist":
-                    plot_dist(global_df, metric, ax)
+                    plot_dist(global_df, args.metric, ax)
 
                 if plot_type != "dist":
                     # No limits for box with fliers
@@ -167,18 +167,18 @@ def main():
                     # Remove xticklabels for all but the last row
                     if index <= (num_rows - 1) * num_cols:
                         ax.set_xticklabels("")      
-                    if args.xticklabels:
+                    elif args.xticklabels:
                         ax.set_xticklabels(ast.literal_eval(args.xticklabels))                  
                 
                 # Remove y-axis label for all but the first column
                 if index % num_cols == 1:
-                    ax.set_ylabel(add_unit_to_metric(metric))
+                    ax.set_ylabel(get_human_readable_allocation_mode(allocation_mode) + "\n" + add_unit_to_metric(args.metric))
                 else:
                     ax.set_ylabel("")
                 
                 # Set title only on the first row
                 if index <= num_cols:
-                    ax.set_title(extra_fullname(extra))            
+                    ax.set_title(extra_fullname[extra])            
                 
                 index += 1
         # Share y-axis

@@ -13,11 +13,7 @@ source conf.sh
 SL=1
 export UCX_IB_SL=${SL}
 export NCCL_IB_SL=${SL}
-<<<<<<< Updated upstream
 ALLOCATION="diff_group"
-=======
-ALLOCATION="same_switch"
->>>>>>> Stashed changes
 # The server goes first, thus the first hostname is that of the server
 SERVER_HOSTNAME=$(scontrol show hostname | head -n 1)
 

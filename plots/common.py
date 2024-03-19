@@ -348,6 +348,16 @@ def get_default_aggressor_input(aggressor):
     else:
         return ""
 
+def get_human_readable_allocation_mode(am):
+    if am == "i":
+        return "Interleaved Alloc."
+    elif am == "r":
+        return "Random Alloc."
+    elif am == "l":
+        return "Linear Alloc."
+    else:
+        return am
+
 '''
 def main():
     print(get_data_filename("./data", "leonardo", 2, "l", "100", 1, "diff_groups_SL1", "gpubench-pp-nccl", "1GiB", "",""))

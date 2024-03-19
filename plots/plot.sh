@@ -40,6 +40,31 @@
 #TREND_LIMIT=Bandwidth:0
 #./plots/plot_inputs_multiextras.py -s ${SYSTEM} -vn a2a_b -vi ${INPUTS} -n 64 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
 
+#########################################
+# Multi nodes tests - Coll. scalability #
+#########################################
+SYSTEM="leonardo"
+OUT_PATH="plots/out/multi-nodes/${SYSTEM}"
+PLOT_TYPE="line,box,bar"
+EXTRA="SL0_hcoll0,SL1_hcoll0"
+for BENCH in "ar" "a2a"
+do
+    if [ ${BENCH} == "ar" ]; then
+        declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB" "128MiB" "1GiB" "8GiB")
+        FULLNAME="Allreduce"
+    else
+        declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB")
+        FULLNAME="Alltoall"
+    fi
+
+    for INPUT in "${INPUTS[@]}"
+    do        
+        TESTNAME="${BENCH}"_${INPUT}
+        ./plots/plot_inputs_multinodes.py -s ${SYSTEM} -vn gpubench-${BENCH}-nccl -vi ${INPUT} -n "8,16,32,64" -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE}
+    done
+done
+
+exit 0
 
 ###############################
 # 64 nodes tests - SL1 - Cong #
@@ -48,27 +73,23 @@ SYSTEM="leonardo"
 OUT_PATH="plots/out/64-nodes/cong/${SYSTEM}"
 PLOT_TYPE="box"
 EXTRA="SL0,SL1"
-for ALLOCATION_MODE in "l" "r" "i"
+for BENCH in "ar" "a2a"
 do
-    for BENCH in "ar" "a2a"
-    do
-        if [ ${BENCH} == "ar" ]; then
-            declare -a INPUTS=("1B" "1GiB")
-            FULLNAME="Allreduce"
-        else
-            declare -a INPUTS=("1B" "16MiB")
-            FULLNAME="Alltoall"
-        fi
-        XTICKLABELS="[\"${FULLNAME}\nIsolated\", \"${FULLNAME}\n+Alltoall\", \"${FULLNAME}\n+Incast\"]"
-        for INPUT in "${INPUTS[@]}"
-        do        
-            TESTNAME="${BENCH}"_${INPUT}_${ALLOCATION_MODE}
-            ./plots/plot_va.py -s ${SYSTEM} -vn gpubench-${BENCH}-nccl -vi ${INPUT} --aggressor_names ",a2a_b,inc_b" -n 64 -am ${ALLOCATION_MODE} -sp 50:50 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE} --xticklabels "${XTICKLABELS}"
-        done
+    if [ ${BENCH} == "ar" ]; then
+        declare -a INPUTS=("1B" "1GiB")
+        FULLNAME="Allreduce"
+    else
+        declare -a INPUTS=("1B" "16MiB")
+        FULLNAME="Alltoall"
+    fi
+    XTICKLABELS="[\"${FULLNAME}\nIsolated\", \"${FULLNAME}\n+Alltoall\", \"${FULLNAME}\n+Incast\"]"
+    for INPUT in "${INPUTS[@]}"
+    do        
+        TESTNAME="${BENCH}"_${INPUT}
+        ./plots/plot_va.py -s ${SYSTEM} -vn gpubench-${BENCH}-nccl -vi ${INPUT} --aggressor_names ",a2a_b,inc_b" -n 64 -am "l,r" -sp 50:50 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE} --xticklabels "${XTICKLABELS}"
     done
 done
 
-exit 0
 
 #######################
 # 64 nodes tests - SL #
@@ -91,6 +112,8 @@ TESTNAME="allsizes_a2a_SL${SL}"
 INNER_YLIM="[0, 50]"
 TREND_LIMIT=Bandwidth:0
 ./plots/plot_inputs_multiextras.py -s ${SYSTEM} -vn gpubench-a2a-nccl -vi ${INPUTS} -n 64 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
+
+exit 0
 
 ##################
 # Service levels #
