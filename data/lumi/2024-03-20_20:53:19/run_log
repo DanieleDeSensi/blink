@@ -1,0 +1,38 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/ardc_b/8GiB', node_file='auto', numnodes=8, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=600.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-msgsize 8589934592 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 8 nodes:
+['nid005412' 'nid005413' 'nid005414' 'nid005666' 'nid005667' 'nid005668'
+ 'nid005821' 'nid005822']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.06485s.
+
+Running...
+ Run 1:
+  0.00692s: started 0
+  1.07704s: awaited 0
+  1.07706s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 8 which doesn't match the requested tasks 32 with the number of requested nodes 8. Ignoring --ntasks-per-node.
+
+  Data collection took 0.00026s.
+  Convergence check took 0.00088s.
+ Run 2:
+  0.00676s: started 0
+  1.86204s: awaited 0
+  1.86207s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 8 which doesn't match the requested tasks 32 with the number of requested nodes 8. Ignoring --ntasks-per-node.
+
+  Data collection took 0.00027s.
+  Convergence check took 0.00092s.
+Completed after reaching confidence interval, terminated after 2 runs taking 2.94 seconds.
+Writing data & meta-data took 0.0089s.
+Overall took 3.01547s.
