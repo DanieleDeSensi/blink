@@ -50,7 +50,7 @@ if [ "$BLINK_GPU_BENCH" = "true" ]; then
         git fetch
         if [ "${SYSTEM}" = "lumi" ]; then
             git checkout -b add-lumi
-            git checkout f0f46c1
+            git checkout 391f764
             ./create_hip_files.sh
         else
             git checkout ${BLINK_GPU_MICROBENCH_COMMIT}

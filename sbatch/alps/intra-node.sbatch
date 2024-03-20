@@ -7,5 +7,5 @@
 source conf.sh
 ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file"
 
-./run.sh test_suites/gpubench_pp_noca ${ARGS} --ppn 2
-./run.sh test_suites/gpubench_coll_noca ${ARGS} --ppn 4
+./run.sh test_suites/gpubench_pp_alps ${ARGS} --ppn 2
+./run.sh test_suites/gpubench_coll_alps ${ARGS} --ppn 4

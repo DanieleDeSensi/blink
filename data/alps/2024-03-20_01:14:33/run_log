@@ -1,0 +1,260 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/hlo-nccl/4KiB', node_file='auto', numnodes=1, allocationmode='l', allocationsplit='100', minruns=1, maxruns=100, timeout=600.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 12", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 1 nodes:
+['nid005128']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.03139s.
+
+Running...
+ Run 1:
+  0.00122s: started 0
+  32.26288s: awaited 0
+  32.26291s: encountered an exception in 0
+srun: error: nid005128: tasks 1-3: Exited with exit code 1
+srun: Terminating StepId=44417.651
+slurmstepd: error: *** STEP 44417.651 ON nid005128 CANCELLED AT 2024-03-20T01:15:05 ***
+srun: error: nid005128: task 0: Terminated
+srun: Force Terminated StepId=44417.651
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.00135s: started 0
+  31.73965s: awaited 0
+  31.73969s: encountered an exception in 0
+srun: error: nid005128: tasks 1-3: Exited with exit code 1
+srun: Terminating StepId=44417.652
+slurmstepd: error: *** STEP 44417.652 ON nid005128 CANCELLED AT 2024-03-20T01:15:37 ***
+srun: error: nid005128: task 0: Terminated
+srun: Force Terminated StepId=44417.652
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00134s: started 0
+  31.30348s: awaited 0
+  31.30351s: encountered an exception in 0
+srun: error: nid005128: tasks 1,3: Exited with exit code 1
+srun: Terminating StepId=44417.653
+slurmstepd: error: *** STEP 44417.653 ON nid005128 CANCELLED AT 2024-03-20T01:16:08 ***
+srun: error: nid005128: task 2: Exited with exit code 1
+srun: error: nid005128: task 0: Terminated
+srun: Force Terminated StepId=44417.653
+
+  Data collection took 2e-05s.
+  Convergence check took 0.0s.
+ Run 4:
+  0.00144s: started 0
+  31.80391s: awaited 0
+  31.80395s: encountered an exception in 0
+srun: error: nid005128: tasks 1-3: Exited with exit code 1
+srun: Terminating StepId=44417.654
+slurmstepd: error: *** STEP 44417.654 ON nid005128 CANCELLED AT 2024-03-20T01:16:40 ***
+srun: error: nid005128: task 0: Terminated
+srun: Force Terminated StepId=44417.654
+
+  Data collection took 2e-05s.
+  Convergence check took 0.0s.
+ Run 5:
+  0.00142s: started 0
+  31.34772s: awaited 0
+  31.34776s: encountered an exception in 0
+srun: error: nid005128: tasks 1-3: Exited with exit code 1
+srun: Terminating StepId=44417.655
+slurmstepd: error: *** STEP 44417.655 ON nid005128 CANCELLED AT 2024-03-20T01:17:12 ***
+srun: error: nid005128: task 0: Terminated
+srun: Force Terminated StepId=44417.655
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 6:
+  0.00144s: started 0
+  31.20535s: awaited 0
+  31.20539s: encountered an exception in 0
+srun: error: nid005128: task 2: Exited with exit code 1
+srun: Terminating StepId=44417.656
+slurmstepd: error: *** STEP 44417.656 ON nid005128 CANCELLED AT 2024-03-20T01:17:43 ***
+srun: error: nid005128: task 0: Terminated
+srun: error: nid005128: tasks 1,3: Exited with exit code 1
+srun: Force Terminated StepId=44417.656
+
+  Data collection took 2e-05s.
+  Convergence check took 0.0s.
+ Run 7:
+  0.00138s: started 0
+  31.21113s: awaited 0
+  31.21116s: encountered an exception in 0
+srun: error: nid005128: tasks 1,3: Exited with exit code 1
+srun: Terminating StepId=44417.657
+slurmstepd: error: *** STEP 44417.657 ON nid005128 CANCELLED AT 2024-03-20T01:18:14 ***
+srun: error: nid005128: task 2: Exited with exit code 1
+srun: error: nid005128: task 0: Terminated
+srun: Force Terminated StepId=44417.657
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 8:
+  0.00133s: started 0
+  30.80172s: awaited 0
+  30.80175s: encountered an exception in 0
+srun: error: nid005128: tasks 2-3: Exited with exit code 1
+srun: Terminating StepId=44417.658
+slurmstepd: error: *** STEP 44417.658 ON nid005128 CANCELLED AT 2024-03-20T01:18:45 ***
+srun: error: nid005128: task 1: Exited with exit code 1
+srun: error: nid005128: task 0: Terminated
+srun: Force Terminated StepId=44417.658
+
+  Data collection took 2e-05s.
+  Convergence check took 0.0s.
+ Run 9:
+  0.00133s: started 0
+  30.69012s: awaited 0
+  30.69016s: encountered an exception in 0
+srun: error: nid005128: tasks 1-3: Exited with exit code 1
+srun: Terminating StepId=44417.659
+slurmstepd: error: *** STEP 44417.659 ON nid005128 CANCELLED AT 2024-03-20T01:19:16 ***
+srun: error: nid005128: task 0: Terminated
+srun: Force Terminated StepId=44417.659
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 10:
+  0.00133s: started 0
+  31.28487s: awaited 0
+  31.2849s: encountered an exception in 0
+srun: error: nid005128: tasks 1-3: Exited with exit code 1
+srun: Terminating StepId=44417.660
+slurmstepd: error: *** STEP 44417.660 ON nid005128 CANCELLED AT 2024-03-20T01:19:47 ***
+srun: error: nid005128: task 0: Terminated
+srun: Force Terminated StepId=44417.660
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 11:
+  0.00129s: started 0
+  31.04079s: awaited 0
+  31.04083s: encountered an exception in 0
+srun: error: nid005128: tasks 1-3: Exited with exit code 1
+srun: Terminating StepId=44417.661
+slurmstepd: error: *** STEP 44417.661 ON nid005128 CANCELLED AT 2024-03-20T01:20:18 ***
+srun: error: nid005128: task 0: Terminated
+srun: Force Terminated StepId=44417.661
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 12:
+  0.00134s: started 0
+  31.05991s: awaited 0
+  31.05995s: encountered an exception in 0
+srun: error: nid005128: task 3: Exited with exit code 1
+srun: Terminating StepId=44417.662
+slurmstepd: error: *** STEP 44417.662 ON nid005128 CANCELLED AT 2024-03-20T01:20:49 ***
+srun: error: nid005128: tasks 1-2: Exited with exit code 1
+srun: error: nid005128: task 0: Terminated
+srun: Force Terminated StepId=44417.662
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 13:
+  0.00139s: started 0
+  30.74128s: awaited 0
+  30.74132s: encountered an exception in 0
+srun: error: nid005128: tasks 2-3: Exited with exit code 1
+srun: Terminating StepId=44417.663
+slurmstepd: error: *** STEP 44417.663 ON nid005128 CANCELLED AT 2024-03-20T01:21:20 ***
+srun: error: nid005128: task 1: Exited with exit code 1
+srun: error: nid005128: task 0: Terminated
+srun: Force Terminated StepId=44417.663
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 14:
+  0.00135s: started 0
+  30.9489s: awaited 0
+  30.94894s: encountered an exception in 0
+srun: error: nid005128: task 2: Exited with exit code 1
+srun: Terminating StepId=44417.664
+slurmstepd: error: *** STEP 44417.664 ON nid005128 CANCELLED AT 2024-03-20T01:21:51 ***
+srun: error: nid005128: task 0: Terminated
+srun: error: nid005128: tasks 1,3: Exited with exit code 1
+srun: Force Terminated StepId=44417.664
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 15:
+  0.00132s: started 0
+  32.32796s: awaited 0
+  32.32799s: encountered an exception in 0
+srun: error: nid005128: tasks 1-3: Exited with exit code 1
+srun: Terminating StepId=44417.665
+slurmstepd: error: *** STEP 44417.665 ON nid005128 CANCELLED AT 2024-03-20T01:22:23 ***
+srun: error: nid005128: task 0: Terminated
+srun: Force Terminated StepId=44417.665
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 16:
+  0.00135s: started 0
+  31.21392s: awaited 0
+  31.21396s: encountered an exception in 0
+srun: error: nid005128: task 3: Exited with exit code 1
+srun: Terminating StepId=44417.666
+slurmstepd: error: *** STEP 44417.666 ON nid005128 CANCELLED AT 2024-03-20T01:22:54 ***
+srun: error: nid005128: tasks 1-2: Exited with exit code 1
+srun: error: nid005128: task 0: Terminated
+srun: Force Terminated StepId=44417.666
+
+  Data collection took 2e-05s.
+  Convergence check took 0.0s.
+ Run 17:
+  0.00134s: started 0
+  31.527s: awaited 0
+  31.52704s: encountered an exception in 0
+srun: error: nid005128: tasks 1-3: Exited with exit code 1
+srun: Terminating StepId=44417.667
+slurmstepd: error: *** STEP 44417.667 ON nid005128 CANCELLED AT 2024-03-20T01:23:25 ***
+srun: error: nid005128: task 0: Terminated
+srun: Force Terminated StepId=44417.667
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 18:
+  0.00135s: started 0
+  31.33933s: awaited 0
+  31.33937s: encountered an exception in 0
+srun: error: nid005128: tasks 2-3: Exited with exit code 1
+srun: Terminating StepId=44417.668
+slurmstepd: error: *** STEP 44417.668 ON nid005128 CANCELLED AT 2024-03-20T01:23:57 ***
+srun: error: nid005128: task 1: Exited with exit code 1
+srun: error: nid005128: task 0: Terminated
+srun: Force Terminated StepId=44417.668
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 19:
+  0.00136s: started 0
+  30.6831s: awaited 0
+  30.68314s: encountered an exception in 0
+srun: error: nid005128: tasks 1-3: Exited with exit code 1
+srun: Terminating StepId=44417.669
+slurmstepd: error: *** STEP 44417.669 ON nid005128 CANCELLED AT 2024-03-20T01:24:28 ***
+srun: error: nid005128: task 0: Terminated
+srun: Force Terminated StepId=44417.669
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 20:
+  0.00133s: started 0
+  6.05646s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 19 runs taking 600.59 seconds.

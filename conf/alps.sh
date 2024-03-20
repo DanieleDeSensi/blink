@@ -1,6 +1,8 @@
 # Modules load and any other needed command
 uenv start /bret/scratch/cscs/bcumming/images/prgenv-gnu-24.2-nccl.squashfs
 uenv view default
+export MPICH_SMP_SINGLE_COPY_MODE=CMA
+export MPICH_MALLOC_FALLBACK=1
 # Mandatory variables to compile/run microbenchmarks
 export BLINK_CC=mpicc # MPI C Compiler
 export BLINK_CXX=mpicxx # MPI C++ Compiler
