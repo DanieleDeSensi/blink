@@ -1,4 +1,86 @@
 #!/bin/bash
+#####################
+# Single-node tests #
+#####################
+for SYSTEM in "leonardo" "lumi"
+do
+    INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+    OUT_PATH="plots/out/single_node/${SYSTEM}"
+    PLOT_TYPE="line"
+    for TESTNAME in "gpubench-pp" "gpubench-a2a" "gpubench-ar"
+    do
+        VICTIM_NAMES="${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink"
+        LABELS="NCCL,Host Mem. Staging,CUDA-Aware,CUDA IPC"
+        if [ ${TESTNAME} == "gpubench-pp" ]; then
+            TREND_LIMIT=Bandwidth:800
+            PPN=2
+        fi
+        if [ ${TESTNAME} == "gpubench-a2a" ]; then
+            if [ ${SYSTEM} == "lumi" ]; then
+                TREND_LIMIT=Bandwidth:2400
+                PPN=8
+            else
+                TREND_LIMIT=Bandwidth:2400
+                PPN=4
+            fi
+        fi
+        if [ ${TESTNAME} == "gpubench-ar" ]; then
+            if [ ${SYSTEM} == "lumi" ]; then
+                TREND_LIMIT=Bandwidth:2400
+                PPN=8
+            else
+                TREND_LIMIT=Bandwidth:2400
+                PPN=4
+            fi
+        fi
+        INNER_YLIM="[0, 30]"
+        ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn "${VICTIM_NAMES}" -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --labels "${LABELS}"
+    done
+done
+
+######################
+# 8 nodes tests - SL #
+######################
+SYSTEM="lumi"
+OUT_PATH="plots/out/8-nodes/${SYSTEM}"
+PLOT_TYPE="line,box"
+INNER_YLIM="[50, 150]"
+INNER_POS="[0.2, 0.6, .3, .2]"
+TREND_LIMIT=Bandwidth:0
+INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+TESTNAME="allsizes"
+./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-ar-nccl,a2a_b,ardc_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 8 --plot_types "${PLOT_TYPE}" #--inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
+
+exit 0
+
+
+#########################################
+# Multi nodes tests - Coll. scalability #
+#########################################
+SYSTEM="leonardo"
+OUT_PATH="plots/out/multi-nodes/${SYSTEM}"
+PLOT_TYPE="line,box,bar"
+EXTRA="SL0_hcoll0,SL1_hcoll0"
+NNODES="8,16,32,64,128,256"
+for BENCH in "ar" "a2a"
+do
+    if [ ${BENCH} == "ar" ]; then
+        declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB" "128MiB" "1GiB" "8GiB")
+        FULLNAME="Allreduce"
+    else
+        declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB")
+        FULLNAME="Alltoall"
+    fi
+
+    for INPUT in "${INPUTS[@]}"
+    do        
+        TESTNAME="${BENCH}"_${INPUT}
+        ./plots/plot_inputs_multinodes.py -s ${SYSTEM} -vn gpubench-${BENCH}-nccl -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE}
+    done
+done
+
+
+
 #######################################
 # Service levels + IB Transport tests #
 #######################################
@@ -14,8 +96,6 @@
 #        ./plots/plot_extras.py -s ${SYSTEM} -vn ${BENCH} -vi ${SIZE} -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
 #    done
 #done
-
-
 
 ##########################
 # 64 nodes tests - HCOLL #
@@ -39,33 +119,6 @@
 #INNER_YLIM="[0, 50]"
 #TREND_LIMIT=Bandwidth:0
 #./plots/plot_inputs_multiextras.py -s ${SYSTEM} -vn a2a_b -vi ${INPUTS} -n 64 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
-
-#########################################
-# Multi nodes tests - Coll. scalability #
-#########################################
-SYSTEM="leonardo"
-OUT_PATH="plots/out/multi-nodes/${SYSTEM}"
-PLOT_TYPE="line,box,bar"
-EXTRA="SL0_hcoll0,SL1_hcoll0"
-NNODES="8,16,32,64,128"
-for BENCH in "ar" "a2a"
-do
-    if [ ${BENCH} == "ar" ]; then
-        declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB" "128MiB" "1GiB" "8GiB")
-        FULLNAME="Allreduce"
-    else
-        declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB")
-        FULLNAME="Alltoall"
-    fi
-
-    for INPUT in "${INPUTS[@]}"
-    do        
-        TESTNAME="${BENCH}"_${INPUT}
-        ./plots/plot_inputs_multinodes.py -s ${SYSTEM} -vn gpubench-${BENCH}-nccl -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE}
-    done
-done
-
-exit 0
 
 ###############################
 # 64 nodes tests - SL1 - Cong #
@@ -129,34 +182,6 @@ do
     TESTNAME=${BENCH}_${SIZE}
     ./plots/plot_extras.py -s ${SYSTEM} -vn ${BENCH} -vi ${SIZE} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
 done
-
-#####################
-# Single-node tests #
-#####################
-SYSTEM="leonardo"
-INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB,8GiB"
-OUT_PATH="plots/out/single_node/${SYSTEM}"
-PLOT_TYPE="line"
-for TESTNAME in "gpubench-pp" "gpubench-a2a" "gpubench-ar"
-do
-    VICTIM_NAMES="${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink"
-    LABELS="NCCL,Host Mem. Staging,CUDA-Aware,CUDA IPC"
-    if [ ${TESTNAME} == "gpubench-pp" ]; then
-        TREND_LIMIT=Bandwidth:800
-        PPN=2
-    fi
-    if [ ${TESTNAME} == "gpubench-a2a" ]; then
-        TREND_LIMIT=Bandwidth:2400
-        PPN=4
-    fi
-    if [ ${TESTNAME} == "gpubench-ar" ]; then
-        TREND_LIMIT=Bandwidth:2400
-        PPN=4
-    fi
-    INNER_YLIM="[0, 30]"
-    ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn "${VICTIM_NAMES}" -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --labels "${LABELS}"
-done
-
 
 ##################
 # Distance tests #

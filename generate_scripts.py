@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 import subprocess
 import datetime
 import argparse
@@ -22,7 +22,7 @@ def main():
     parser.add_argument('-mn', '--minruns',
                         help='Minimum number of runs.', default=1, type=int)
     parser.add_argument('-mx', '--maxruns',
-                        help='Maximum number of runs.', default=100, type=int)
+                        help='Maximum number of runs.', default=10, type=int)
     parser.add_argument(
         '-t', '--timeout', help='Maximum duration of testing.', default=600, type=int)
     parser.add_argument(

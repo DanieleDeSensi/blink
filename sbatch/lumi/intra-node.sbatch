@@ -8,7 +8,12 @@
 #SBATCH --exclusive
 #SBATCH --job-name=blink-intra-node
 source conf.sh
-ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file"
+ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file --maxruns 10"
 
-./run.sh test_suites/gpubench_pp ${ARGS} --ppn 2
-./run.sh test_suites/gpubench_coll ${ARGS} --ppn 8
+./run.sh test_suites/gpubench_pp_noca ${ARGS} --ppn 2
+./run.sh test_suites/gpubench_coll_noca ${ARGS} --ppn 8
+
+export MPICH_GPU_SUPPORT_ENABLED=1
+./run.sh test_suites/gpubench_pp_ca ${ARGS} --ppn 2
+./run.sh test_suites/gpubench_coll_ca ${ARGS} --ppn 8
+unset MPICH_GPU_SUPPORT_ENABLED
