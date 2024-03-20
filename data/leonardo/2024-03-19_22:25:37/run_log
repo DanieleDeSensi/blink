@@ -1,0 +1,87 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/ar-nccl/4KiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0_hcoll0', maxruns=3, minruns=1, node_file='auto', numnodes=256, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 12", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 256 nodes:
+['lrdn0015' 'lrdn0042' 'lrdn0048' 'lrdn0055' 'lrdn0060' 'lrdn0067'
+ 'lrdn0077' 'lrdn0110' 'lrdn0116' 'lrdn0117' 'lrdn0118' 'lrdn0119'
+ 'lrdn0126' 'lrdn0139' 'lrdn0140' 'lrdn0143' 'lrdn0144' 'lrdn0145'
+ 'lrdn0168' 'lrdn0170' 'lrdn0186' 'lrdn0200' 'lrdn0201' 'lrdn0205'
+ 'lrdn0206' 'lrdn0207' 'lrdn0218' 'lrdn0239' 'lrdn0246' 'lrdn0248'
+ 'lrdn0252' 'lrdn0263' 'lrdn0268' 'lrdn0269' 'lrdn0280' 'lrdn0283'
+ 'lrdn0284' 'lrdn0290' 'lrdn0313' 'lrdn0314' 'lrdn0324' 'lrdn0329'
+ 'lrdn0335' 'lrdn0336' 'lrdn0356' 'lrdn0377' 'lrdn0380' 'lrdn0386'
+ 'lrdn0413' 'lrdn0430' 'lrdn0431' 'lrdn0433' 'lrdn0438' 'lrdn0508'
+ 'lrdn0515' 'lrdn0517' 'lrdn0564' 'lrdn0565' 'lrdn0574' 'lrdn0590'
+ 'lrdn0595' 'lrdn0606' 'lrdn0609' 'lrdn0620' 'lrdn0686' 'lrdn0694'
+ 'lrdn0700' 'lrdn0714' 'lrdn0719' 'lrdn0724' 'lrdn0741' 'lrdn0746'
+ 'lrdn0761' 'lrdn0767' 'lrdn0769' 'lrdn0789' 'lrdn0851' 'lrdn0856'
+ 'lrdn0858' 'lrdn0862' 'lrdn0864' 'lrdn0869' 'lrdn0873' 'lrdn0875'
+ 'lrdn0888' 'lrdn0896' 'lrdn0900' 'lrdn0905' 'lrdn0908' 'lrdn0914'
+ 'lrdn0916' 'lrdn0925' 'lrdn0927' 'lrdn0966' 'lrdn0979' 'lrdn0982'
+ 'lrdn0991' 'lrdn0995' 'lrdn1054' 'lrdn1062' 'lrdn1063' 'lrdn1071'
+ 'lrdn1079' 'lrdn1132' 'lrdn1137' 'lrdn1147' 'lrdn1179' 'lrdn1191'
+ 'lrdn1212' 'lrdn1233' 'lrdn1250' 'lrdn1310' 'lrdn1313' 'lrdn1323'
+ 'lrdn1337' 'lrdn1353' 'lrdn1354' 'lrdn1356' 'lrdn1368' 'lrdn1374'
+ 'lrdn1428' 'lrdn1436' 'lrdn1447' 'lrdn1460' 'lrdn1462' 'lrdn1468'
+ 'lrdn1470' 'lrdn1489' 'lrdn1514' 'lrdn1525' 'lrdn1566' 'lrdn1590'
+ 'lrdn1596' 'lrdn1607' 'lrdn1618' 'lrdn1619' 'lrdn1621' 'lrdn1625'
+ 'lrdn1628' 'lrdn1629' 'lrdn1632' 'lrdn1645' 'lrdn1654' 'lrdn1667'
+ 'lrdn1668' 'lrdn1673' 'lrdn1675' 'lrdn1684' 'lrdn1686' 'lrdn1693'
+ 'lrdn1704' 'lrdn1722' 'lrdn1748' 'lrdn1761' 'lrdn1793' 'lrdn1800'
+ 'lrdn1815' 'lrdn1865' 'lrdn1921' 'lrdn1930' 'lrdn1977' 'lrdn1978'
+ 'lrdn1983' 'lrdn2022' 'lrdn2038' 'lrdn2046' 'lrdn2057' 'lrdn2063'
+ 'lrdn2069' 'lrdn2088' 'lrdn2111' 'lrdn2123' 'lrdn2133' 'lrdn2145'
+ 'lrdn2153' 'lrdn2208' 'lrdn2214' 'lrdn2262' 'lrdn2265' 'lrdn2274'
+ 'lrdn2276' 'lrdn2291' 'lrdn2301' 'lrdn2303' 'lrdn2338' 'lrdn2369'
+ 'lrdn2377' 'lrdn2378' 'lrdn2392' 'lrdn2401' 'lrdn2404' 'lrdn2408'
+ 'lrdn2427' 'lrdn2428' 'lrdn2434' 'lrdn2438' 'lrdn2440' 'lrdn2450'
+ 'lrdn2485' 'lrdn2521' 'lrdn2534' 'lrdn2548' 'lrdn2552' 'lrdn2555'
+ 'lrdn2568' 'lrdn2585' 'lrdn2586' 'lrdn2620' 'lrdn2625' 'lrdn2627'
+ 'lrdn2636' 'lrdn2643' 'lrdn2653' 'lrdn2655' 'lrdn2661' 'lrdn2662'
+ 'lrdn2713' 'lrdn2714' 'lrdn2722' 'lrdn2732' 'lrdn2734' 'lrdn2784'
+ 'lrdn2797' 'lrdn2798' 'lrdn2802' 'lrdn2818' 'lrdn2834' 'lrdn2870'
+ 'lrdn2884' 'lrdn2885' 'lrdn2897' 'lrdn2903' 'lrdn2925' 'lrdn3006'
+ 'lrdn3011' 'lrdn3014' 'lrdn3038' 'lrdn3044' 'lrdn3161' 'lrdn3194'
+ 'lrdn3200' 'lrdn3210' 'lrdn3222' 'lrdn3227' 'lrdn3248' 'lrdn3273'
+ 'lrdn3296' 'lrdn3333' 'lrdn3334' 'lrdn3349' 'lrdn3389' 'lrdn3390'
+ 'lrdn3393' 'lrdn3402' 'lrdn3406' 'lrdn3419']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27996s.
+
+Running...
+ Run 1:
+  0.00415s: started 0
+  6.28256s: awaited 0
+  6.28259s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 1024 with the number of requested nodes 256. Ignoring --ntasks-per-node.
+
+  Data collection took 0.001s.
+  Convergence check took 0.00075s.
+ Run 2:
+  0.00538s: started 0
+  6.25842s: awaited 0
+  6.25845s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 1024 with the number of requested nodes 256. Ignoring --ntasks-per-node.
+
+  Data collection took 0.00093s.
+  Convergence check took 0.00069s.
+ Run 3:
+  0.00546s: started 0
+  6.28099s: awaited 0
+  6.28101s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 1024 with the number of requested nodes 256. Ignoring --ntasks-per-node.
+
+  Data collection took 0.00092s.
+  Convergence check took 0.00069s.
+Completed maximum number of runs, terminated after 3 runs taking 18.83 seconds.
+Writing data & meta-data took 0.00784s.
+Overall took 19.11499s.

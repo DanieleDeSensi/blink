@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import subprocess
 import numpy as np
 import scipy.stats as st

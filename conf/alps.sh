@@ -7,6 +7,7 @@ export MPICH_MALLOC_FALLBACK=1
 export BLINK_CC=mpicc # MPI C Compiler
 export BLINK_CXX=mpicxx # MPI C++ Compiler
 export BLINK_GPU_BENCH="true" # Shall we run GPU interconnect tests?
+export BLINK_XCCL_BENCH="true"
 export BLINK_CUDA_HOME="/user-environment/env/default"
 export BLINK_NCCL_HOME="/user-environment/env/default"
 export BLINK_MPI_HOME="/user-environment/env/default" # MPI home folder

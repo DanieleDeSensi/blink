@@ -1,0 +1,1719 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/hlo-nccl/1B', node_file='auto', numnodes=1, allocationmode='l', allocationsplit='100', minruns=1, maxruns=100, timeout=600.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 1 nodes:
+['nid006255']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.07603s.
+
+Running...
+ Run 1:
+  0.01278s: started 0
+  1.23837s: awaited 0
+  1.23844s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1429
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 2:
+  0.0153s: started 0
+  0.37371s: awaited 0
+  0.37379s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1430
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 3:
+  0.01738s: started 0
+  0.3684s: awaited 0
+  0.36844s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1431
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 4:
+  0.01752s: started 0
+  0.36763s: awaited 0
+  0.36766s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1432
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 5:
+  0.01585s: started 0
+  0.39284s: awaited 0
+  0.39292s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1433
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 6:
+  0.01477s: started 0
+  0.37496s: awaited 0
+  0.37502s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1434
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 7:
+  0.01423s: started 0
+  0.3663s: awaited 0
+  0.36637s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1435
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 8:
+  0.01601s: started 0
+  1.35526s: awaited 0
+  1.35532s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1436
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 9:
+  0.0145s: started 0
+  0.36491s: awaited 0
+  0.36497s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1437
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 10:
+  0.01804s: started 0
+  0.37531s: awaited 0
+  0.37536s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1438
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 11:
+  0.01747s: started 0
+  0.43216s: awaited 0
+  0.43223s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1439
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 12:
+  0.01597s: started 0
+  0.36707s: awaited 0
+  0.36712s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1440
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 13:
+  0.01796s: started 0
+  0.36942s: awaited 0
+  0.36949s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1441
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 14:
+  0.01826s: started 0
+  0.40299s: awaited 0
+  0.40307s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1442
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 15:
+  0.01474s: started 0
+  0.36416s: awaited 0
+  0.36419s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1443
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 16:
+  0.01633s: started 0
+  1.44042s: awaited 0
+  1.44047s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1444
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 17:
+  0.01442s: started 0
+  0.40423s: awaited 0
+  0.40426s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1445
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 18:
+  0.01413s: started 0
+  0.36106s: awaited 0
+  0.36109s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1446
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 19:
+  0.01328s: started 0
+  0.37734s: awaited 0
+  0.37738s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1447
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 20:
+  0.01442s: started 0
+  0.36686s: awaited 0
+  0.36689s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1448
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 21:
+  0.01381s: started 0
+  0.54429s: awaited 0
+  0.54442s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1449
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 22:
+  0.01751s: started 0
+  0.65863s: awaited 0
+  0.65868s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1450
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 23:
+  0.016s: started 0
+  1.30158s: awaited 0
+  1.30166s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1451
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 24:
+  0.01629s: started 0
+  0.37583s: awaited 0
+  0.37587s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1452
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 25:
+  0.01642s: started 0
+  0.36621s: awaited 0
+  0.36628s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1453
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 26:
+  0.01514s: started 0
+  0.36407s: awaited 0
+  0.36411s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1454
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 27:
+  0.01425s: started 0
+  0.36832s: awaited 0
+  0.36836s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1455
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 28:
+  0.01355s: started 0
+  0.36727s: awaited 0
+  0.36736s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1456
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 29:
+  0.01642s: started 0
+  0.37673s: awaited 0
+  0.37683s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1457
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 30:
+  0.01424s: started 0
+  0.36568s: awaited 0
+  0.36574s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1458
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 31:
+  0.01297s: started 0
+  1.30832s: awaited 0
+  1.30839s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1459
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 32:
+  0.01404s: started 0
+  0.36426s: awaited 0
+  0.36452s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1460
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 33:
+  0.01402s: started 0
+  0.45659s: awaited 0
+  0.45665s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1461
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 34:
+  0.01426s: started 0
+  0.37257s: awaited 0
+  0.37261s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1462
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 35:
+  0.01608s: started 0
+  0.37704s: awaited 0
+  0.37712s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1463
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 36:
+  0.01503s: started 0
+  0.36814s: awaited 0
+  0.3682s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1464
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 37:
+  0.01405s: started 0
+  0.37464s: awaited 0
+  0.37471s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1465
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 38:
+  0.01396s: started 0
+  0.37825s: awaited 0
+  0.37828s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1466
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 39:
+  0.01262s: started 0
+  1.1321s: awaited 0
+  1.13216s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1467
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 40:
+  0.01493s: started 0
+  0.3705s: awaited 0
+  0.37056s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1468
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 41:
+  0.01599s: started 0
+  0.37636s: awaited 0
+  0.37639s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1469
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 42:
+  0.01496s: started 0
+  0.35792s: awaited 0
+  0.35796s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1470
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 43:
+  0.01382s: started 0
+  0.38397s: awaited 0
+  0.38402s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1471
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 44:
+  0.0155s: started 0
+  0.3675s: awaited 0
+  0.36754s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1472
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 45:
+  0.01271s: started 0
+  0.36756s: awaited 0
+  0.36762s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1473
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 46:
+  0.01361s: started 0
+  0.36736s: awaited 0
+  0.36741s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1474
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 47:
+  0.01411s: started 0
+  1.37766s: awaited 0
+  1.37773s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1475
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 48:
+  0.01451s: started 0
+  0.37389s: awaited 0
+  0.37393s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1476
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 49:
+  0.01484s: started 0
+  0.36786s: awaited 0
+  0.36789s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1477
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 50:
+  0.01346s: started 0
+  0.36s: awaited 0
+  0.36004s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1478
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 51:
+  0.01633s: started 0
+  0.53576s: awaited 0
+  0.53579s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1479
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 52:
+  0.01428s: started 0
+  0.36934s: awaited 0
+  0.36941s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1480
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 53:
+  0.01406s: started 0
+  0.35914s: awaited 0
+  0.35917s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1481
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 54:
+  0.01453s: started 0
+  0.37499s: awaited 0
+  0.37503s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1482
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 55:
+  0.01267s: started 0
+  1.40084s: awaited 0
+  1.4009s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1483
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 56:
+  0.01488s: started 0
+  0.39126s: awaited 0
+  0.39133s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1484
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 57:
+  0.0154s: started 0
+  0.38381s: awaited 0
+  0.38384s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1485
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 58:
+  0.01384s: started 0
+  0.35984s: awaited 0
+  0.35988s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1486
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 59:
+  0.01471s: started 0
+  0.36835s: awaited 0
+  0.36839s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1487
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 60:
+  0.01475s: started 0
+  0.36588s: awaited 0
+  0.36592s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1488
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 61:
+  0.01242s: started 0
+  0.36699s: awaited 0
+  0.36703s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1489
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 62:
+  0.01356s: started 0
+  0.38485s: awaited 0
+  0.38511s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1490
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 63:
+  0.01493s: started 0
+  0.39876s: awaited 0
+  0.39885s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1491
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 64:
+  0.01639s: started 0
+  0.36961s: awaited 0
+  0.36969s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1492
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 65:
+  0.01571s: started 0
+  0.37468s: awaited 0
+  0.37475s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1493
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 66:
+  0.015s: started 0
+  0.36922s: awaited 0
+  0.36925s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1494
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 67:
+  0.01678s: started 0
+  0.39629s: awaited 0
+  0.39636s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1495
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 68:
+  0.01551s: started 0
+  0.36999s: awaited 0
+  0.37004s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1496
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 69:
+  0.01519s: started 0
+  0.36824s: awaited 0
+  0.36831s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1497
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 70:
+  0.01581s: started 0
+  0.36705s: awaited 0
+  0.36711s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1498
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 71:
+  0.01512s: started 0
+  0.36626s: awaited 0
+  0.36632s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1499
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 72:
+  0.01642s: started 0
+  0.37051s: awaited 0
+  0.37058s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1500
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 73:
+  0.01586s: started 0
+  0.37415s: awaited 0
+  0.37422s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1501
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 74:
+  0.01387s: started 0
+  0.45255s: awaited 0
+  0.45263s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1502
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 75:
+  0.01584s: started 0
+  0.38376s: awaited 0
+  0.38383s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1503
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 76:
+  0.01483s: started 0
+  0.37023s: awaited 0
+  0.37028s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1504
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 77:
+  0.01682s: started 0
+  0.37792s: awaited 0
+  0.37799s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1505
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 78:
+  0.01762s: started 0
+  0.36631s: awaited 0
+  0.36638s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1506
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 79:
+  0.01719s: started 0
+  0.39355s: awaited 0
+  0.39361s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1507
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 80:
+  0.01613s: started 0
+  0.41807s: awaited 0
+  0.41814s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1508
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 81:
+  0.01478s: started 0
+  0.36715s: awaited 0
+  0.3672s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1509
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 82:
+  0.01543s: started 0
+  0.36432s: awaited 0
+  0.36438s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1510
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 83:
+  0.01672s: started 0
+  0.36881s: awaited 0
+  0.36888s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1511
+
+  Data collection took 6e-05s.
+  Convergence check took 2e-05s.
+ Run 84:
+  0.01536s: started 0
+  0.37384s: awaited 0
+  0.3739s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1512
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 85:
+  0.01874s: started 0
+  0.36907s: awaited 0
+  0.36915s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1513
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 86:
+  0.0153s: started 0
+  0.43542s: awaited 0
+  0.43549s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1514
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 87:
+  0.01622s: started 0
+  0.40725s: awaited 0
+  0.40733s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1515
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 88:
+  0.01535s: started 0
+  0.36263s: awaited 0
+  0.3627s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1516
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 89:
+  0.01741s: started 0
+  0.57618s: awaited 0
+  0.57625s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1517
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 90:
+  0.01606s: started 0
+  0.36633s: awaited 0
+  0.36639s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1518
+
+  Data collection took 3e-05s.
+  Convergence check took 2e-05s.
+ Run 91:
+  0.01454s: started 0
+  0.37807s: awaited 0
+  0.37814s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1519
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 92:
+  0.01401s: started 0
+  0.36606s: awaited 0
+  0.36612s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1520
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 93:
+  0.01353s: started 0
+  0.38722s: awaited 0
+  0.38729s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1521
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 94:
+  0.01579s: started 0
+  0.36574s: awaited 0
+  0.36581s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1522
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 95:
+  0.01513s: started 0
+  0.38335s: awaited 0
+  0.38342s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1523
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 96:
+  0.01469s: started 0
+  0.43674s: awaited 0
+  0.43683s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1524
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 97:
+  0.01685s: started 0
+  0.36383s: awaited 0
+  0.36393s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1525
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 98:
+  0.01709s: started 0
+  0.35636s: awaited 0
+  0.35642s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1526
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 99:
+  0.01414s: started 0
+  0.37972s: awaited 0
+  0.37979s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1527
+
+  Data collection took 4e-05s.
+  Convergence check took 2e-05s.
+ Run 100:
+  0.01516s: started 0
+  0.36481s: awaited 0
+  0.36487s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/hlo_Nccl: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.1528
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 100 runs taking 46.1 seconds.

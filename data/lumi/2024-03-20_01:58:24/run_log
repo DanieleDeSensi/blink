@@ -1,0 +1,26 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-cudaaware/2MiB', node_file='auto', numnodes=1, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 21", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 1 nodes:
+['nid006255']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.06372s.
+
+Running...
+ Run 1:
+  0.01373s: started 0
+  1.04808s: awaited 0
+  Data collection took 0.00051s.
+  Convergence check took 0.00175s.
+Completed after reaching confidence interval, terminated after 1 runs taking 1.05 seconds.
+Writing data & meta-data took 0.01331s.
+Overall took 1.12761s.

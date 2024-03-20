@@ -1,0 +1,1570 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-baseline/1GiB', node_file='auto', numnodes=1, allocationmode='l', allocationsplit='100', minruns=1, maxruns=100, timeout=600.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 1 nodes:
+['nid006255']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.05163s.
+
+Running...
+ Run 1:
+  0.01314s: started 0
+  28.54631s: awaited 0
+  28.54636s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.72
+slurmstepd: error: *** STEP 6577790.72 ON nid006255 CANCELLED AT 2024-03-20T01:08:18 ***
+srun: error: nid006255: tasks 0-2,4-6: Terminated
+srun: Force Terminated StepId=6577790.72
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.01363s: started 0
+  31.19s: awaited 0
+  31.19009s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.73
+slurmstepd: error: *** STEP 6577790.73 ON nid006255 CANCELLED AT 2024-03-20T01:08:50 ***
+srun: error: nid006255: tasks 0-2,4-6: Terminated
+srun: Force Terminated StepId=6577790.73
+
+  Data collection took 6e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.01716s: started 0
+  32.68152s: awaited 0
+  32.6816s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.74
+slurmstepd: error: *** STEP 6577790.74 ON nid006255 CANCELLED AT 2024-03-20T01:09:22 ***
+srun: error: nid006255: tasks 0-2,4-6: Terminated
+srun: Force Terminated StepId=6577790.74
+
+  Data collection took 6e-05s.
+  Convergence check took 1e-05s.
+ Run 4:
+  0.01537s: started 0
+  31.63874s: awaited 0
+  31.63883s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.75
+slurmstepd: error: *** STEP 6577790.75 ON nid006255 CANCELLED AT 2024-03-20T01:09:54 ***
+srun: error: nid006255: tasks 1-2,4-6: Terminated
+srun: error: nid006255: task 0: Terminated
+srun: Force Terminated StepId=6577790.75
+
+  Data collection took 6e-05s.
+  Convergence check took 1e-05s.
+ Run 5:
+  0.01836s: started 0
+  30.81232s: awaited 0
+  30.8124s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.76
+slurmstepd: error: *** STEP 6577790.76 ON nid006255 CANCELLED AT 2024-03-20T01:10:24 ***
+srun: error: nid006255: tasks 1-2,4-6: Terminated
+srun: error: nid006255: task 0: Terminated
+srun: Force Terminated StepId=6577790.76
+
+  Data collection took 5e-05s.
+  Convergence check took 1e-05s.
+ Run 6:
+  0.01803s: started 0
+  30.74753s: awaited 0
+  30.7476s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.77
+slurmstepd: error: *** STEP 6577790.77 ON nid006255 CANCELLED AT 2024-03-20T01:10:56 ***
+srun: error: nid006255: tasks 0-2,4-6: Terminated
+srun: Force Terminated StepId=6577790.77
+
+  Data collection took 5e-05s.
+  Convergence check took 1e-05s.
+ Run 7:
+  0.01606s: started 0
+  30.88303s: awaited 0
+  30.88311s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.78
+slurmstepd: error: *** STEP 6577790.78 ON nid006255 CANCELLED AT 2024-03-20T01:11:26 ***
+srun: error: nid006255: tasks 0-1,4-6: Terminated
+srun: error: nid006255: task 2: Terminated
+srun: Force Terminated StepId=6577790.78
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 8:
+  0.01885s: started 0
+  30.91559s: awaited 0
+  30.91566s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.79
+slurmstepd: error: *** STEP 6577790.79 ON nid006255 CANCELLED AT 2024-03-20T01:11:57 ***
+srun: error: nid006255: tasks 0-2,4-6: Terminated
+srun: Force Terminated StepId=6577790.79
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 9:
+  0.01503s: started 0
+  31.48211s: awaited 0
+  31.48219s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.80
+slurmstepd: error: *** STEP 6577790.80 ON nid006255 CANCELLED AT 2024-03-20T01:12:29 ***
+srun: error: nid006255: tasks 0-2,5-6: Terminated
+srun: error: nid006255: task 4: Terminated
+srun: Force Terminated StepId=6577790.80
+
+  Data collection took 6e-05s.
+  Convergence check took 1e-05s.
+ Run 10:
+  0.01899s: started 0
+  31.43269s: awaited 0
+  31.43277s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.81
+slurmstepd: error: *** STEP 6577790.81 ON nid006255 CANCELLED AT 2024-03-20T01:13:00 ***
+srun: error: nid006255: tasks 0-2,4-6: Terminated
+srun: Force Terminated StepId=6577790.81
+
+  Data collection took 5e-05s.
+  Convergence check took 1e-05s.
+ Run 11:
+  0.02s: started 0
+  30.95573s: awaited 0
+  30.9558s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.82
+slurmstepd: error: *** STEP 6577790.82 ON nid006255 CANCELLED AT 2024-03-20T01:13:31 ***
+srun: error: nid006255: tasks 0-2,4-6: Terminated
+srun: Force Terminated StepId=6577790.82
+
+  Data collection took 7e-05s.
+  Convergence check took 1e-05s.
+ Run 12:
+  0.01902s: started 0
+  31.25489s: awaited 0
+  31.25497s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.83
+slurmstepd: error: *** STEP 6577790.83 ON nid006255 CANCELLED AT 2024-03-20T01:14:02 ***
+srun: error: nid006255: tasks 0-2,4-6: Terminated
+srun: Force Terminated StepId=6577790.83
+
+  Data collection took 5e-05s.
+  Convergence check took 1e-05s.
+ Run 13:
+  0.0163s: started 0
+  31.43423s: awaited 0
+  31.43429s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.84
+slurmstepd: error: *** STEP 6577790.84 ON nid006255 CANCELLED AT 2024-03-20T01:14:34 ***
+srun: error: nid006255: tasks 0-2,4-6: Terminated
+srun: Force Terminated StepId=6577790.84
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 14:
+  0.01448s: started 0
+  31.23156s: awaited 0
+  31.23164s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.85
+slurmstepd: error: *** STEP 6577790.85 ON nid006255 CANCELLED AT 2024-03-20T01:15:05 ***
+srun: error: nid006255: tasks 0-2,4-6: Terminated
+srun: Force Terminated StepId=6577790.85
+
+  Data collection took 5e-05s.
+  Convergence check took 1e-05s.
+ Run 15:
+  0.01656s: started 0
+  31.1951s: awaited 0
+  31.19517s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.86
+slurmstepd: error: *** STEP 6577790.86 ON nid006255 CANCELLED AT 2024-03-20T01:15:36 ***
+srun: error: nid006255: tasks 0-2,4-6: Terminated
+srun: Force Terminated StepId=6577790.86
+
+  Data collection took 5e-05s.
+  Convergence check took 1e-05s.
+ Run 16:
+  0.01572s: started 0
+  31.15046s: awaited 0
+  31.15055s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.87
+slurmstepd: error: *** STEP 6577790.87 ON nid006255 CANCELLED AT 2024-03-20T01:16:07 ***
+srun: error: nid006255: tasks 0-2,4-6: Terminated
+srun: Force Terminated StepId=6577790.87
+
+  Data collection took 6e-05s.
+  Convergence check took 1e-05s.
+ Run 17:
+  0.02106s: started 0
+  30.8474s: awaited 0
+  30.84748s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.88
+slurmstepd: error: *** STEP 6577790.88 ON nid006255 CANCELLED AT 2024-03-20T01:16:38 ***
+srun: error: nid006255: tasks 0-2,4-6: Terminated
+srun: Force Terminated StepId=6577790.88
+
+  Data collection took 5e-05s.
+  Convergence check took 1e-05s.
+ Run 18:
+  0.01801s: started 0
+  31.83462s: awaited 0
+  31.83468s: encountered an exception in 0
+srun: error: nid006255: tasks 3,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.89
+slurmstepd: error: *** STEP 6577790.89 ON nid006255 CANCELLED AT 2024-03-20T01:17:10 ***
+srun: error: nid006255: tasks 1-2,4-6: Terminated
+srun: error: nid006255: task 0: Terminated
+srun: Force Terminated StepId=6577790.89
+
+  Data collection took 5e-05s.
+  Convergence check took 1e-05s.
+ Run 19:
+  0.01548s: started 0
+  1.44412s: awaited 0
+  1.44419s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.90
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 20:
+  0.01586s: started 0
+  1.40814s: awaited 0
+  1.40821s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.91
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 21:
+  0.01825s: started 0
+  0.54091s: awaited 0
+  0.54099s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.92
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 22:
+  0.01925s: started 0
+  0.59903s: awaited 0
+  0.5991s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.93
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 23:
+  0.01628s: started 0
+  0.38198s: awaited 0
+  0.38204s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.94
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 24:
+  0.01508s: started 0
+  0.39062s: awaited 0
+  0.39069s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.95
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 25:
+  0.01648s: started 0
+  0.40343s: awaited 0
+  0.40351s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.96
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 26:
+  0.01825s: started 0
+  0.372s: awaited 0
+  0.37205s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.97
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 27:
+  0.01617s: started 0
+  1.16064s: awaited 0
+  1.16071s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.98
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 28:
+  0.01721s: started 0
+  0.38908s: awaited 0
+  0.38914s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.99
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 29:
+  0.01683s: started 0
+  0.44878s: awaited 0
+  0.44885s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.100
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 30:
+  0.01716s: started 0
+  0.39066s: awaited 0
+  0.39074s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.101
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 31:
+  0.01808s: started 0
+  0.41479s: awaited 0
+  0.41485s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.102
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 32:
+  0.01445s: started 0
+  0.39037s: awaited 0
+  0.39044s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.103
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 33:
+  0.01607s: started 0
+  0.40209s: awaited 0
+  0.40218s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.104
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 34:
+  0.01855s: started 0
+  0.37023s: awaited 0
+  0.3703s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.105
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 35:
+  0.01747s: started 0
+  1.18708s: awaited 0
+  1.18715s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.106
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 36:
+  0.014s: started 0
+  0.42511s: awaited 0
+  0.4252s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.107
+
+  Data collection took 5e-05s.
+  Convergence check took 1e-05s.
+ Run 37:
+  0.01865s: started 0
+  0.38919s: awaited 0
+  0.38927s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.108
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 38:
+  0.01873s: started 0
+  0.39144s: awaited 0
+  0.39152s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.109
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 39:
+  0.01659s: started 0
+  0.39429s: awaited 0
+  0.39434s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.110
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 40:
+  0.0164s: started 0
+  0.53362s: awaited 0
+  0.5337s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.111
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 41:
+  0.01723s: started 0
+  0.39033s: awaited 0
+  0.3904s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.112
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 42:
+  0.0164s: started 0
+  0.3902s: awaited 0
+  0.39025s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.113
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 43:
+  0.01549s: started 0
+  1.38428s: awaited 0
+  1.38435s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.114
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 44:
+  0.01669s: started 0
+  0.40071s: awaited 0
+  0.40078s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.115
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 45:
+  0.01834s: started 0
+  0.39351s: awaited 0
+  0.39358s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.116
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 46:
+  0.01846s: started 0
+  0.60957s: awaited 0
+  0.60965s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.117
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 47:
+  0.01533s: started 0
+  0.65817s: awaited 0
+  0.65825s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.118
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 48:
+  0.01555s: started 0
+  0.48552s: awaited 0
+  0.48559s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.119
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 49:
+  0.01731s: started 0
+  1.14899s: awaited 0
+  1.14905s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.120
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 50:
+  0.01697s: started 0
+  0.37101s: awaited 0
+  0.37108s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.121
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 51:
+  0.01633s: started 0
+  0.39382s: awaited 0
+  0.39391s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.122
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 52:
+  0.01839s: started 0
+  0.51857s: awaited 0
+  0.51864s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.123
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 53:
+  0.0168s: started 0
+  0.40701s: awaited 0
+  0.40709s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.124
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 54:
+  0.01782s: started 0
+  0.37565s: awaited 0
+  0.37573s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.125
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 55:
+  0.01806s: started 0
+  0.37457s: awaited 0
+  0.37465s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.126
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 56:
+  0.01752s: started 0
+  0.37959s: awaited 0
+  0.37964s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.127
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 57:
+  0.01581s: started 0
+  1.34252s: awaited 0
+  1.34259s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.128
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 58:
+  0.01919s: started 0
+  0.39021s: awaited 0
+  0.39028s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.129
+
+  Data collection took 3e-05s.
+  Convergence check took 3e-05s.
+ Run 59:
+  0.01815s: started 0
+  0.37465s: awaited 0
+  0.37471s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.130
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 60:
+  0.01437s: started 0
+  0.46915s: awaited 0
+  0.46923s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.131
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 61:
+  0.01612s: started 0
+  0.36987s: awaited 0
+  0.36992s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.132
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 62:
+  0.01707s: started 0
+  0.37624s: awaited 0
+  0.3763s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.133
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 63:
+  0.01888s: started 0
+  0.42143s: awaited 0
+  0.4215s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.134
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 64:
+  0.01455s: started 0
+  0.3786s: awaited 0
+  0.37867s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.135
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 65:
+  0.0157s: started 0
+  1.36403s: awaited 0
+  1.3641s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.136
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 66:
+  0.01808s: started 0
+  0.52749s: awaited 0
+  0.52757s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.137
+
+  Data collection took 5e-05s.
+  Convergence check took 1e-05s.
+ Run 67:
+  0.01745s: started 0
+  0.3676s: awaited 0
+  0.36767s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.138
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 68:
+  0.0167s: started 0
+  0.37551s: awaited 0
+  0.37557s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.139
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 69:
+  0.01789s: started 0
+  0.37309s: awaited 0
+  0.37313s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.140
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 70:
+  0.01605s: started 0
+  0.37025s: awaited 0
+  0.37032s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.141
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 71:
+  0.01738s: started 0
+  0.39925s: awaited 0
+  0.39933s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.142
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 72:
+  0.01628s: started 0
+  0.80304s: awaited 0
+  0.80311s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.143
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 73:
+  0.0166s: started 0
+  0.39709s: awaited 0
+  0.39713s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.144
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 74:
+  0.0143s: started 0
+  0.36863s: awaited 0
+  0.36867s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.145
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 75:
+  0.01619s: started 0
+  0.39458s: awaited 0
+  0.39464s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.146
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 76:
+  0.01561s: started 0
+  0.37825s: awaited 0
+  0.37831s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.147
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 77:
+  0.01369s: started 0
+  0.36894s: awaited 0
+  0.36902s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.148
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 78:
+  0.01804s: started 0
+  0.4363s: awaited 0
+  0.43637s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.149
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 79:
+  0.01975s: started 0
+  0.36142s: awaited 0
+  0.36147s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.150
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 80:
+  0.01465s: started 0
+  0.36909s: awaited 0
+  0.36917s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.151
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 81:
+  0.01667s: started 0
+  0.40124s: awaited 0
+  0.40132s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.152
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 82:
+  0.02148s: started 0
+  0.37631s: awaited 0
+  0.37638s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.153
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 83:
+  0.01449s: started 0
+  0.35744s: awaited 0
+  0.35752s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.154
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 84:
+  0.01605s: started 0
+  0.3689s: awaited 0
+  0.36898s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.155
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 85:
+  0.01776s: started 0
+  0.39247s: awaited 0
+  0.39255s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.156
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 86:
+  0.01755s: started 0
+  0.37217s: awaited 0
+  0.37223s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.157
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 87:
+  0.01482s: started 0
+  0.38639s: awaited 0
+  0.38647s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.158
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 88:
+  0.01637s: started 0
+  0.37674s: awaited 0
+  0.37682s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.159
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 89:
+  0.01791s: started 0
+  0.55512s: awaited 0
+  0.55518s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.160
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 90:
+  0.01452s: started 0
+  0.37076s: awaited 0
+  0.37083s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.161
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 91:
+  0.01568s: started 0
+  0.36797s: awaited 0
+  0.36802s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.162
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 92:
+  0.01642s: started 0
+  0.35873s: awaited 0
+  0.35881s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.163
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 93:
+  0.01595s: started 0
+  0.40498s: awaited 0
+  0.40504s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.164
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 94:
+  0.01671s: started 0
+  0.36354s: awaited 0
+  0.36362s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.165
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 95:
+  0.01938s: started 0
+  0.38626s: awaited 0
+  0.38635s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.166
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 96:
+  0.01922s: started 0
+  0.37236s: awaited 0
+  0.37243s: encountered an exception in 0
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+slurmstepd: error: execve(): /users/desensid/blink//src/microbench-gpu/bin/a2a_Baseline: No such file or directory
+srun: error: nid006255: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6577790.167
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 97:
+  0.01961s: started 0
+  0.40082s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 96 runs taking 600.18 seconds.
