@@ -1,8 +1,23 @@
 #!/bin/bash
+######################
+# 8 nodes tests - SL #
+######################
+SYSTEM="lumi"
+OUT_PATH="plots/out/8-nodes/${SYSTEM}"
+PLOT_TYPE="line,box"
+INNER_YLIM="[50, 150]"
+INNER_POS="[0.2, 0.6, .3, .2]"
+TREND_LIMIT=Bandwidth:0
+INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+TESTNAME="allsizes"
+./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-ar-nccl,a2a_b,ardc_b -vi ${INPUTS} -n 8 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 8 --plot_types "${PLOT_TYPE}" #--inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
+
+exit 0
+
 #####################
 # Single-node tests #
 #####################
-for SYSTEM in "leonardo" "lumi"
+for SYSTEM in "alps" "leonardo" "lumi"
 do
     INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
     OUT_PATH="plots/out/single_node/${SYSTEM}"
@@ -12,8 +27,14 @@ do
         VICTIM_NAMES="${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink"
         LABELS="NCCL,Host Mem. Staging,CUDA-Aware,CUDA IPC"
         if [ ${TESTNAME} == "gpubench-pp" ]; then
-            TREND_LIMIT=Bandwidth:800
             PPN=2
+            if [ ${SYSTEM} == "lumi" ]; then
+                TREND_LIMIT=Bandwidth:400  
+            elif [ ${SYSTEM} == "leonardo" ]; then
+                TREND_LIMIT=Bandwidth:800
+            else # Alps
+                TREND_LIMIT=Bandwidth:1200
+            fi
         fi
         if [ ${TESTNAME} == "gpubench-a2a" ]; then
             if [ ${SYSTEM} == "lumi" ]; then
@@ -37,20 +58,6 @@ do
         ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn "${VICTIM_NAMES}" -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --labels "${LABELS}"
     done
 done
-
-######################
-# 8 nodes tests - SL #
-######################
-SYSTEM="lumi"
-OUT_PATH="plots/out/8-nodes/${SYSTEM}"
-PLOT_TYPE="line,box"
-INNER_YLIM="[50, 150]"
-INNER_POS="[0.2, 0.6, .3, .2]"
-TREND_LIMIT=Bandwidth:0
-INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
-TESTNAME="allsizes"
-./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-ar-nccl,a2a_b,ardc_b -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 8 --plot_types "${PLOT_TYPE}" #--inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
-
 exit 0
 
 

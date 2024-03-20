@@ -50,14 +50,13 @@ if [ "$BLINK_GPU_BENCH" = "true" ]; then
         git fetch
         if [ "${BLINK_SYSTEM}" = "lumi" ]; then
             git checkout add-lumi
-            git checkout c01c869
+            git checkout 2b443c3
             ./create_hip_file.sh
         else
             git checkout ${BLINK_GPU_MICROBENCH_COMMIT}
         fi
         MAKEFILE_NAME="Makefile.${BLINK_SYSTEM^^}"
         if [ -f ${MAKEFILE_NAME} ]; then
-            #CUDA_HOME=${BLINK_CUDA_HOME} MPI_HOME=${BLINK_MPI_HOME} MPI_CUDA_HOME=${BLINK_MPI_CUDA_HOME} NCCL_HOME=${BLINK_NCCL_HOME} make -f ${MAKEFILE_NAME}
 	        make -f ${MAKEFILE_NAME}
             if [ $? -ne 0 ]; then
                 echo "${RED}[Error] GPU microbench compilation failed, please check error messages above.${NC}"
