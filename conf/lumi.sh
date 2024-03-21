@@ -1,16 +1,4 @@
 # Modules load and any other needed command
-export EBU_USER_PREFIX=/project/project_465000997/EasyBuild
-module load cray-python
-module load LUMI/22.08
-module load partition/L
-module load aws-ofi-rccl
-module load craype-accel-amd-gfx90a
-#module load rocm
-export NCCL_NET_GDR_LEVEL=3
-export FI_CXI_ATS=0
-export NCCL_BUFFSIZE=33554432
-export USER_HIP_GPU_MAP="1,3,7,5,0,2,6,4"
-#export USER_HIP_GPU_MAP="5,3,7,1,4,2,6,0"
 
 # Mandatory variables to compile/run microbenchmarks
 export BLINK_CC=cc # MPI C Compiler

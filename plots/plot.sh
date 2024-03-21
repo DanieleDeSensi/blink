@@ -1,7 +1,7 @@
 #!/bin/bash
-######################
-# 8 nodes tests - SL #
-######################
+#################
+# 8 nodes tests #
+#################
 SYSTEM="lumi"
 OUT_PATH="plots/out/8-nodes/${SYSTEM}"
 PLOT_TYPE="line,box"
@@ -10,9 +10,8 @@ INNER_POS="[0.2, 0.6, .3, .2]"
 TREND_LIMIT=Bandwidth:0
 INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
 TESTNAME="allsizes"
-./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-ar-nccl,a2a_b,ardc_b -vi ${INPUTS} -n 8 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 8 --plot_types "${PLOT_TYPE}" #--inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
+./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-ar-nccl,a2a_b,ardc_b -vi ${INPUTS} -n 8 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types "${PLOT_TYPE}" #--inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
 
-exit 0
 
 #####################
 # Single-node tests #
@@ -40,6 +39,9 @@ do
             if [ ${SYSTEM} == "lumi" ]; then
                 TREND_LIMIT=Bandwidth:2400
                 PPN=8
+            elif [ ${SYSTEM} == "alps" ]; then
+                TREND_LIMIT=Bandwidth:3600
+                PPN=4
             else
                 TREND_LIMIT=Bandwidth:2400
                 PPN=4
@@ -49,6 +51,9 @@ do
             if [ ${SYSTEM} == "lumi" ]; then
                 TREND_LIMIT=Bandwidth:2400
                 PPN=8
+            elif [ ${SYSTEM} == "alps" ]; then
+                TREND_LIMIT=Bandwidth:3600
+                PPN=4
             else
                 TREND_LIMIT=Bandwidth:2400
                 PPN=4

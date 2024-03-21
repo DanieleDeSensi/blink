@@ -32,7 +32,7 @@ def main():
     parser.add_argument('-sp', '--allocation_split', help='The allocation split the mix was executed with.', required=True)
     parser.add_argument('-e', '--extra', help='Extra info about the execution.', default="")
     parser.add_argument('-m', '--metrics', help='Comma-separated string of metrics to plot.', default="0_Avg-Duration_s")
-    parser.add_argument('-p', '--ppn', help='Processes per node.', default=1)
+    parser.add_argument('-p', '--ppn', help='Processes per node.')
     parser.add_argument('-tl', '--trend_limit', help='Y-axis upper limit. (format metric:limit)')
     parser.add_argument('-my', '--max_y', help='Max value on the y-axis')
     parser.add_argument('-pt', '--plot_types', help='Types of plots to produce. Comma-separated list of "line", "box", "bar".', default="line,box,bar")
@@ -56,7 +56,10 @@ def main():
         global_df = pd.DataFrame()
         for vn_a in victim_names:
             vn = get_actual_bench_name(vn_a, args.system, None)
-            ppn = args.ppn
+            if args.ppn == "DEFAULT_MULTINODE":
+                ppn = get_default_multinode_ppn(args.system, vn_a)
+            else:
+                ppn = int(args.ppn)
             allocation_split = args.allocation_split
             # TODO: This is a hack, make it cleaner
             if vn == "ib_send_lat":

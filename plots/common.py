@@ -357,6 +357,14 @@ def get_human_readable_allocation_mode(am):
         return "Linear Alloc."
     else:
         return am
+    
+def get_default_multinode_ppn(system, bench):
+    if system == "lumi":
+        if bench == "gpubench-a2a-nccl" or bench == "gpubench-ar-nccl":
+            return 8
+        elif bench == "a2a_b" or bench == "ardc_b":
+            return 4
+    raise Exception("Error: system " + system + " not supported")
 
 '''
 def main():
