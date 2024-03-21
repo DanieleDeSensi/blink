@@ -9,9 +9,11 @@
 
 source conf.sh
 ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file --maxruns 3"
-PPN=8
-./run.sh test_suites/coll-nccl-many ${ARGS} --ppn ${PPN}
-./run.sh test_suites/coll-cpu-many ${ARGS} --ppn ${PPN}
+# GPU tests, PPN=8
+./run.sh test_suites/coll-nccl-many ${ARGS} --ppn 8
 export MPICH_GPU_SUPPORT_ENABLED=1
-./run.sh test_suites/coll-cudaaware-many ${ARGS} --ppn ${PPN}
+./run.sh test_suites/coll-cudaaware-many ${ARGS} --ppn 8
 unset MPICH_GPU_SUPPORT_ENABLED
+
+# CPU tests, PPN=4
+./run.sh test_suites/coll-cpu-many ${ARGS} --ppn 4
