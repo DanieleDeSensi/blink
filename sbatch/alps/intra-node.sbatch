@@ -4,6 +4,7 @@
 #SBATCH --ntasks-per-node=4
 #SBATCH --exclusive
 #SBATCH --job-name=blink-intra-node
+#SBATCH --cpu-bind=map_cpu:0,72,144,216
 source conf.sh
 ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file"
 
