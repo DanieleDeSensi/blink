@@ -1,0 +1,150 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-cudaaware/1GiB', node_file='auto', numnodes=1, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 1 nodes:
+['nid006474']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.29104s.
+
+Running...
+ Run 1:
+  0.00462s: started 0
+  28.17178s: awaited 0
+  28.17185s: encountered an exception in 0
+srun: error: nid006474: tasks 2-3,6-7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6610378.263
+slurmstepd: error: *** STEP 6610378.263 ON nid006474 CANCELLED AT 2024-03-21T20:36:39 ***
+srun: error: nid006474: tasks 0-1,4: Terminated
+srun: error: nid006474: task 5: Terminated
+srun: Force Terminated StepId=6610378.263
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.00375s: started 0
+  29.02776s: awaited 0
+  29.02785s: encountered an exception in 0
+srun: Job 6610378 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6610378
+srun: error: nid006474: tasks 2-3,6-7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6610378.264
+slurmstepd: error: *** STEP 6610378.264 ON nid006474 CANCELLED AT 2024-03-21T20:37:08 ***
+srun: error: nid006474: tasks 0-1,4-5: Terminated
+srun: Force Terminated StepId=6610378.264
+
+  Data collection took 5e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00504s: started 0
+  29.74914s: awaited 0
+  29.74922s: encountered an exception in 0
+srun: error: nid006474: tasks 2-3,6-7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6610378.265
+slurmstepd: error: *** STEP 6610378.265 ON nid006474 CANCELLED AT 2024-03-21T20:37:38 ***
+srun: error: nid006474: tasks 0-1,4-5: Terminated
+srun: Force Terminated StepId=6610378.265
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 4:
+  0.00429s: started 0
+  29.6932s: awaited 0
+  29.69328s: encountered an exception in 0
+srun: error: nid006474: tasks 2-3,6-7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6610378.266
+slurmstepd: error: *** STEP 6610378.266 ON nid006474 CANCELLED AT 2024-03-21T20:38:08 ***
+srun: error: nid006474: tasks 0-1,4-5: Terminated
+srun: Force Terminated StepId=6610378.266
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 5:
+  0.00477s: started 0
+  29.44824s: awaited 0
+  29.44831s: encountered an exception in 0
+srun: Job 6610378 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6610378
+srun: error: nid006474: tasks 2-3,6-7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6610378.267
+slurmstepd: error: *** STEP 6610378.267 ON nid006474 CANCELLED AT 2024-03-21T20:38:37 ***
+srun: error: nid006474: tasks 0-1,4-5: Terminated
+srun: Force Terminated StepId=6610378.267
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 6:
+  0.00474s: started 0
+  30.65341s: awaited 0
+  30.65348s: encountered an exception in 0
+srun: Job 6610378 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6610378
+srun: error: nid006474: tasks 2-3,6-7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6610378.268
+slurmstepd: error: *** STEP 6610378.268 ON nid006474 CANCELLED AT 2024-03-21T20:39:07 ***
+srun: error: nid006474: tasks 0-1,4-5: Terminated
+srun: Force Terminated StepId=6610378.268
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 7:
+  0.00507s: started 0
+  29.05824s: awaited 0
+  29.0583s: encountered an exception in 0
+srun: error: nid006474: tasks 2-3,6-7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6610378.269
+slurmstepd: error: *** STEP 6610378.269 ON nid006474 CANCELLED AT 2024-03-21T20:39:37 ***
+srun: error: nid006474: tasks 0-1,4-5: Terminated
+srun: Force Terminated StepId=6610378.269
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 8:
+  0.00504s: started 0
+  29.68171s: awaited 0
+  29.68178s: encountered an exception in 0
+srun: error: nid006474: tasks 2-3,6-7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6610378.270
+slurmstepd: error: *** STEP 6610378.270 ON nid006474 CANCELLED AT 2024-03-21T20:40:06 ***
+srun: error: nid006474: tasks 0-1,4-5: Terminated
+srun: Force Terminated StepId=6610378.270
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 9:
+  0.00517s: started 0
+  29.24771s: awaited 0
+  29.24779s: encountered an exception in 0
+srun: Job 6610378 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6610378
+srun: error: nid006474: tasks 2-3,6-7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6610378.271
+slurmstepd: error: *** STEP 6610378.271 ON nid006474 CANCELLED AT 2024-03-21T20:40:36 ***
+srun: error: nid006474: tasks 0-1,4-5: Terminated
+srun: Force Terminated StepId=6610378.271
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 10:
+  0.00412s: started 0
+  30.84156s: awaited 0
+  30.84163s: encountered an exception in 0
+srun: Job 6610378 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6610378
+srun: error: nid006474: tasks 2-3,6-7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6610378.272
+slurmstepd: error: *** STEP 6610378.272 ON nid006474 CANCELLED AT 2024-03-21T20:41:06 ***
+srun: error: nid006474: tasks 0-1,4-5: Terminated
+srun: Force Terminated StepId=6610378.272
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 10 runs taking 295.58 seconds.
