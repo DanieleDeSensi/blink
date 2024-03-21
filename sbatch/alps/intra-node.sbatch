@@ -7,5 +7,20 @@
 source conf.sh
 ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file"
 
-./run.sh test_suites/gpubench_pp_alps ${ARGS} --ppn 2
-./run.sh test_suites/gpubench_coll_alps ${ARGS} --ppn 4
+# Baseline
+./run.sh test_suites/gpubench_pp_baseline ${ARGS} --ppn 2
+./run.sh test_suites/gpubench_coll_baseline ${ARGS} --ppn 4
+
+# NCCL
+./run.sh test_suites/gpubench_pp_nccl ${ARGS} --ppn 2
+./run.sh test_suites/gpubench_coll_nccl ${ARGS} --ppn 4
+
+# NVLink
+./run.sh test_suites/gpubench_pp_nvlink ${ARGS} --ppn 2
+./run.sh test_suites/gpubench_coll_nvlink ${ARGS} --ppn 4
+
+# CUDA-Aware MPI
+export MPICH_GPU_SUPPORT_ENABLED=1
+./run.sh test_suites/gpubench_pp_ca ${ARGS} --ppn 2
+./run.sh test_suites/gpubench_coll_ca ${ARGS} --ppn 4
+unset MPICH_GPU_SUPPORT_ENABLED

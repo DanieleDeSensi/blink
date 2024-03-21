@@ -1,4 +1,19 @@
 #!/bin/bash
+###################
+# 256 nodes tests #
+###################
+NUMNODES=256
+SYSTEM="lumi"
+OUT_PATH="plots/out/${NUMNODES}-nodes/${SYSTEM}"
+PLOT_TYPE="line,box"
+INNER_YLIM="[50, 150]"
+INNER_POS="[0.2, 0.6, .3, .2]"
+TREND_LIMIT=Bandwidth:0
+INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+TESTNAME="allsizes"
+./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-ar-nccl,a2a_b,ardc_b -vi ${INPUTS} -n ${NUMNODES} -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types "${PLOT_TYPE}" #--inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
+
+
 #################
 # 8 nodes tests #
 #################
