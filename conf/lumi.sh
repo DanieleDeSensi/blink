@@ -1,4 +1,5 @@
 # Modules load and any other needed command
+module load cray-python
 
 # Mandatory variables to compile/run microbenchmarks
 export BLINK_CC=cc # MPI C Compiler
