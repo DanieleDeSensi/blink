@@ -1,33 +1,4 @@
 #!/bin/bash
-###################
-# 256 nodes tests #
-###################
-NUMNODES=256
-SYSTEM="lumi"
-OUT_PATH="plots/out/${NUMNODES}-nodes/${SYSTEM}"
-PLOT_TYPE="line,box"
-INNER_YLIM="[50, 150]"
-INNER_POS="[0.2, 0.6, .3, .2]"
-TREND_LIMIT=Bandwidth:0
-INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
-TESTNAME="allsizes"
-./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-ar-nccl,a2a_b,ardc_b -vi ${INPUTS} -n ${NUMNODES} -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types "${PLOT_TYPE}" #--inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
-
-
-#################
-# 8 nodes tests #
-#################
-SYSTEM="lumi"
-OUT_PATH="plots/out/8-nodes/${SYSTEM}"
-PLOT_TYPE="line,box"
-INNER_YLIM="[50, 150]"
-INNER_POS="[0.2, 0.6, .3, .2]"
-TREND_LIMIT=Bandwidth:0
-INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
-TESTNAME="allsizes"
-./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-ar-nccl,a2a_b,ardc_b -vi ${INPUTS} -n 8 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types "${PLOT_TYPE}" #--inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
-
-
 #####################
 # Single-node tests #
 #####################
@@ -78,7 +49,63 @@ do
         ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn "${VICTIM_NAMES}" -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --labels "${LABELS}"
     done
 done
+
+####################
+# Pingpong 2 Nodes #
+####################
+EXTRA="#same_switch"
+PLOT_TYPE="line"
+INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+BENCH_NAMES="gpubench-mpp-nccl,gpubench-mpp-cudaaware,pw-ping-pong_b,ib_send_lat"
+LABELS="*CCL,GPU-Aware,MPI (host mem. buffers),IB Verbs"
+PPN=DEFAULT_MULTINODE
+for SYSTEM in "lumi" "leonardo" "alps"
+do
+    OUT_PATH="plots/out/two-nodes/pingpong/${SYSTEM}"
+    # P2P
+    INNER_YLIM="[0, 30]"
+    INNER_POS="[0.2, 0.6, .3, .2]"
+    if [ ${SYSTEM} == "lumi" ]; then
+        TREND_LIMIT=Bandwidth:800
+    fi
+    if [ ${SYSTEM} == "leonardo" ]; then
+        TREND_LIMIT=Bandwidth:400
+    fi
+    ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn ${BENCH_NAMES} -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT} --inner_pos "${INNER_POS}" --labels "${LABELS}"
+done
+
 exit 0
+
+###################
+# 256 nodes tests #
+###################
+NUMNODES=256
+SYSTEM="lumi"
+OUT_PATH="plots/out/${NUMNODES}-nodes/${SYSTEM}"
+PLOT_TYPE="line,box"
+INNER_YLIM="[50, 150]"
+INNER_POS="[0.2, 0.6, .3, .2]"
+TREND_LIMIT=Bandwidth:0
+INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+TESTNAME="allsizes"
+./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-ar-nccl,a2a_b,ardc_b -vi ${INPUTS} -n ${NUMNODES} -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types "${PLOT_TYPE}" #--inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
+
+
+#################
+# 8 nodes tests #
+#################
+SYSTEM="lumi"
+OUT_PATH="plots/out/8-nodes/${SYSTEM}"
+PLOT_TYPE="line,box"
+INNER_YLIM="[50, 150]"
+INNER_POS="[0.2, 0.6, .3, .2]"
+TREND_LIMIT=Bandwidth:0
+INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+TESTNAME="allsizes"
+./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-ar-nccl,a2a_b,ardc_b -vi ${INPUTS} -n 8 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types "${PLOT_TYPE}" #--inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
+
+
+
 
 
 #########################################
@@ -226,29 +253,6 @@ do
     ./plots/plot_extras.py -s ${SYSTEMS} -vn ${VICTIM_NAME} -vi ${INPUT} -n 2 -am l -sp 100 --metrics "Latency,Bandwidth" -o ${OUT_PATH} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --max_y "${MAX_Y}" #--xticklabels "${XTICKLABELS}"    
 done
 
-####################
-# Pingpong 2 Nodes #
-####################
-EXTRA="#same_switch"
-PLOT_TYPE="line"
-INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
-BENCH_NAMES="gpubench-mpp-nccl,gpubench-mpp-cudaaware,pw-ping-pong_b,ib_send_lat"
-LABELS="NCCL,CUDA-Aware,MPI,IB Verbs"
-PPN=4
-for SYSTEM in "lumi" "leonardo"
-do
-    OUT_PATH="plots/out/two-nodes/pingpong/${SYSTEM}"
-    # P2P
-    INNER_YLIM="[0, 30]"
-    INNER_POS="[0.2, 0.6, .3, .2]"
-    if [ ${SYSTEM} == "lumi" ]; then
-        TREND_LIMIT=Bandwidth:800
-    fi
-    if [ ${SYSTEM} == "leonardo" ]; then
-        TREND_LIMIT=Bandwidth:400
-    fi
-    ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn ${BENCH_NAMES} -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT} --inner_pos "${INNER_POS}" --labels "${LABELS}"
-done
 
 #######################
 # IB transports tests #

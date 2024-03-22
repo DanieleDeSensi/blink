@@ -9,6 +9,13 @@ class gpubench(base):
         {'name': 'Bandwidth'    , 'unit': 'GB/s', 'conv': False}
     ]
 
+    def get_path(self, name):
+        p = ""
+        if os.environ["BLINK_SYSTEM"] == "alps":
+            p += os.environ["BLINK_ROOT"] + "/conf/select_gpu_device.sh "            
+        p += os.environ["BLINK_ROOT"] + "/src/microbench-gpu/bin/" + name
+        return p
+    
     def read_data(self):
         output = self.stdout
         lines = output.split('\n')

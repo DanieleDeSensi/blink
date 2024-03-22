@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH --nodes=1
+#SBATCH --nodelist=nid001058,nid001056
 #SBATCH --time=02:00:00
 #SBATCH --ntasks-per-node=4
 #SBATCH --exclusive
-#SBATCH --job-name=blink-intra-node
+#SBATCH --job-name=blink-two-nodes
 source conf.sh
 ALLOCATION="same_switch"
 

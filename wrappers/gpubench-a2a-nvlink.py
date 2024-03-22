@@ -6,7 +6,7 @@ from gpubench_common import gpubench
 
 class app(gpubench):
     def get_binary_path(self):
-        return os.environ["BLINK_ROOT"] + "/src/microbench-gpu/bin/a2a_Nvlink"
+        return self.get_path("a2a_Nvlink")
 
     def get_bench_name(self):
         return "gpubench a2a Nvlink"

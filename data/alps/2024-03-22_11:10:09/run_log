@@ -1,0 +1,146 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-baseline/1GiB', node_file='auto', numnodes=1, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 1 nodes:
+['nid005128']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.0472s.
+
+Running...
+ Run 1:
+  0.00114s: started 0
+  10.12252s: awaited 0
+  10.12254s: encountered an exception in 0
+srun: error: nid005128: tasks 2-3: Segmentation fault
+srun: Terminating StepId=45848.33
+slurmstepd: error: *** STEP 45848.33 ON nid005128 CANCELLED AT 2024-03-22T11:10:19 ***
+srun: error: nid005128: task 0: Terminated
+srun: error: nid005128: task 1: Terminated
+srun: Force Terminated StepId=45848.33
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.00132s: started 0
+  9.61395s: awaited 0
+  9.61397s: encountered an exception in 0
+srun: error: nid005128: tasks 2-3: Segmentation fault
+srun: Terminating StepId=45848.34
+slurmstepd: error: *** STEP 45848.34 ON nid005128 CANCELLED AT 2024-03-22T11:10:28 ***
+srun: error: nid005128: task 0: Terminated
+srun: error: nid005128: task 1: Terminated
+srun: Force Terminated StepId=45848.34
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00134s: started 0
+  9.09529s: awaited 0
+  9.09531s: encountered an exception in 0
+srun: error: nid005128: tasks 2-3: Segmentation fault
+srun: Terminating StepId=45848.35
+slurmstepd: error: *** STEP 45848.35 ON nid005128 CANCELLED AT 2024-03-22T11:10:37 ***
+srun: error: nid005128: task 0: Terminated
+srun: error: nid005128: task 1: Terminated
+srun: Force Terminated StepId=45848.35
+
+  Data collection took 2e-05s.
+  Convergence check took 0.0s.
+ Run 4:
+  0.00129s: started 0
+  10.15632s: awaited 0
+  10.15634s: encountered an exception in 0
+srun: error: nid005128: tasks 2-3: Segmentation fault
+srun: Terminating StepId=45848.36
+slurmstepd: error: *** STEP 45848.36 ON nid005128 CANCELLED AT 2024-03-22T11:10:48 ***
+srun: error: nid005128: task 0: Terminated
+srun: error: nid005128: task 1: Terminated
+srun: Force Terminated StepId=45848.36
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 5:
+  0.00131s: started 0
+  9.59952s: awaited 0
+  9.59954s: encountered an exception in 0
+srun: error: nid005128: tasks 2-3: Segmentation fault
+srun: Terminating StepId=45848.37
+slurmstepd: error: *** STEP 45848.37 ON nid005128 CANCELLED AT 2024-03-22T11:10:57 ***
+srun: error: nid005128: tasks 0-1: Terminated
+srun: Force Terminated StepId=45848.37
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 6:
+  0.00135s: started 0
+  9.15886s: awaited 0
+  9.15889s: encountered an exception in 0
+srun: error: nid005128: tasks 2-3: Segmentation fault
+srun: Terminating StepId=45848.38
+slurmstepd: error: *** STEP 45848.38 ON nid005128 CANCELLED AT 2024-03-22T11:11:06 ***
+srun: error: nid005128: tasks 0-1: Terminated
+srun: Force Terminated StepId=45848.38
+
+  Data collection took 2e-05s.
+  Convergence check took 0.0s.
+ Run 7:
+  0.00132s: started 0
+  9.4329s: awaited 0
+  9.43292s: encountered an exception in 0
+srun: error: nid005128: tasks 2-3: Segmentation fault
+srun: Terminating StepId=45848.39
+slurmstepd: error: *** STEP 45848.39 ON nid005128 CANCELLED AT 2024-03-22T11:11:16 ***
+srun: error: nid005128: task 0: Terminated
+srun: error: nid005128: task 1: Terminated
+srun: Force Terminated StepId=45848.39
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 8:
+  0.00128s: started 0
+  9.9659s: awaited 0
+  9.96592s: encountered an exception in 0
+srun: error: nid005128: tasks 2-3: Segmentation fault
+srun: Terminating StepId=45848.40
+slurmstepd: error: *** STEP 45848.40 ON nid005128 CANCELLED AT 2024-03-22T11:11:25 ***
+srun: error: nid005128: tasks 0-1: Terminated
+srun: Force Terminated StepId=45848.40
+
+  Data collection took 2e-05s.
+  Convergence check took 0.0s.
+ Run 9:
+  0.0013s: started 0
+  9.69958s: awaited 0
+  9.6996s: encountered an exception in 0
+srun: error: nid005128: tasks 2-3: Segmentation fault
+srun: Terminating StepId=45848.41
+slurmstepd: error: *** STEP 45848.41 ON nid005128 CANCELLED AT 2024-03-22T11:11:35 ***
+srun: error: nid005128: task 0: Terminated
+srun: error: nid005128: task 1: Terminated
+srun: Force Terminated StepId=45848.41
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 10:
+  0.00129s: started 0
+  9.7168s: awaited 0
+  9.71682s: encountered an exception in 0
+srun: error: nid005128: tasks 2-3: Segmentation fault
+srun: Terminating StepId=45848.42
+slurmstepd: error: *** STEP 45848.42 ON nid005128 CANCELLED AT 2024-03-22T11:11:45 ***
+srun: error: nid005128: task 0: Terminated
+srun: error: nid005128: task 1: Terminated
+srun: Force Terminated StepId=45848.42
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+Completed maximum number of runs, terminated after 10 runs taking 96.57 seconds.
