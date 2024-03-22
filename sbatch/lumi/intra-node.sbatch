@@ -14,7 +14,10 @@ ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file --maxruns 10"
 export NCCL_NET_GDR_LEVEL=3
 export FI_CXI_ATS=0
 export NCCL_BUFFSIZE=33554432
-export USER_HIP_GPU_MAP="1,3,7,5,0,2,6,4"
+
+# GPU mapping and NUMA nodes mapping
+export USER_HIP_GPU_MAP="0,1,2,3,4,5,6,7"
+export BLINK_PINNING_FLAGS="--cpu-bind=map_cpu=49,57,17,25,1,9,33,41" # Pinning flags
 
 # Baseline
 source src/microbench-gpu/moduleload/load_Baseline_modules.sh
