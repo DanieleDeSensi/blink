@@ -1,0 +1,285 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/a2a_b/1GiB', node_file='auto', numnodes=2, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='same_switch', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-msgsize 1073741824 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['nid005326' 'nid005327']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.0618s.
+
+Running...
+ Run 1:
+  0.00234s: started 0
+  1.54428s: awaited 0
+  1.54434s: encountered an exception in 0
+srun: error: nid005326: tasks 0-2: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6622399.180
+srun: error: nid005327: tasks 4-5,7: Segmentation fault
+srun: error: nid005327: task 6: Bus error
+srun: error: nid005326: task 3: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.0022s: started 0
+  1.10184s: awaited 0
+  1.1019s: encountered an exception in 0
+srun: error: nid005326: tasks 0-3: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6622399.181
+srun: error: nid005327: tasks 4-5,7: Segmentation fault
+srun: error: nid005327: task 6: Bus error
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00221s: started 0
+  0.59784s: awaited 0
+  0.59796s: encountered an exception in 0
+xpmem_attach error: : No such file or directory
+MPICH ERROR [Rank 6] [job id 6622399.182] [Fri Mar 22 13:07:24 2024] [nid005327] - Abort(207689999) (rank 6 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)........................: MPI_Alltoall(sbuf=0x841000, scount=1073741824, MPI_BYTE, rbuf=0x842000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730)..........: 
+MPIC_Irecv(594)...........................: 
+MPID_Irecv(529)...........................: 
+MPIDI_irecv_unsafe(163)...................: 
+MPIDI_OFI_do_irecv(356)...................: 
+MPIDI_Progress_test(105)..................: 
+MPIDI_SHMI_progress(118)..................: 
+MPIDI_POSIX_progress(412).................: 
+MPIDI_CRAY_Common_lmt_ctrl_send_rts_cb(64): 
+MPIDI_CRAY_Common_lmt_handle_recv(44).....: 
+MPIDI_CRAY_Common_lmt_import_mem(210).....: 
+MPIDI_CRAY_XPMEM_do_attach(528)...........: xpmem_attach failed on rank 2 (src_rank 5, vaddr 0x180841000, len 1073741824)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)........................: MPI_Alltoall(sbuf=0x841000, scount=1073741824, MPI_BYTE, rbuf=0x842000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730)..........: 
+MPIC_Irecv(594)...........................: 
+MPID_Irecv(529)...........................: 
+MPIDI_irecv_unsafe(163)...................: 
+MPIDI_OFI_do_irecv(356)...................: 
+MPIDI_Progress_test(105)..................: 
+MPIDI_SHMI_progress(118)..................: 
+MPIDI_POSIX_progress(412).................: 
+MPIDI_CRAY_Common_lmt_ctrl_send_rts_cb(64): 
+MPIDI_CRAY_Common_lmt_handle_recv(44).....: 
+MPIDI_CRAY_Common_lmt_import_mem(210).....: 
+MPIDI_CRAY_XPMEM_do_attach(528)...........: xpmem_attach failed on rank 2 (src_rank 5, vaddr 0x180841000, len 1073741824)
+srun: error: nid005326: tasks 0-3: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6622399.182
+srun: error: nid005327: tasks 4-5,7: Segmentation fault
+srun: error: nid005327: task 6: Exited with exit code 255
+
+  Data collection took 4e-05s.
+  Convergence check took 1e-05s.
+ Run 4:
+  0.0029s: started 0
+  0.5923s: awaited 0
+  0.59236s: encountered an exception in 0
+xpmem_attach error: : No such file or directory
+MPICH ERROR [Rank 6] [job id 6622399.183] [Fri Mar 22 13:07:25 2024] [nid005327] - Abort(207689999) (rank 6 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)........................: MPI_Alltoall(sbuf=0x841000, scount=1073741824, MPI_BYTE, rbuf=0x842000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730)..........: 
+MPIC_Irecv(594)...........................: 
+MPID_Irecv(529)...........................: 
+MPIDI_irecv_unsafe(163)...................: 
+MPIDI_OFI_do_irecv(356)...................: 
+MPIDI_Progress_test(105)..................: 
+MPIDI_SHMI_progress(118)..................: 
+MPIDI_POSIX_progress(412).................: 
+MPIDI_CRAY_Common_lmt_ctrl_send_rts_cb(64): 
+MPIDI_CRAY_Common_lmt_handle_recv(44).....: 
+MPIDI_CRAY_Common_lmt_import_mem(210).....: 
+MPIDI_CRAY_XPMEM_do_attach(528)...........: xpmem_attach failed on rank 2 (src_rank 5, vaddr 0x180841000, len 1073741824)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)........................: MPI_Alltoall(sbuf=0x841000, scount=1073741824, MPI_BYTE, rbuf=0x842000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730)..........: 
+MPIC_Irecv(594)...........................: 
+MPID_Irecv(529)...........................: 
+MPIDI_irecv_unsafe(163)...................: 
+MPIDI_OFI_do_irecv(356)...................: 
+MPIDI_Progress_test(105)..................: 
+MPIDI_SHMI_progress(118)..................: 
+MPIDI_POSIX_progress(412).................: 
+MPIDI_CRAY_Common_lmt_ctrl_send_rts_cb(64): 
+MPIDI_CRAY_Common_lmt_handle_recv(44).....: 
+MPIDI_CRAY_Common_lmt_import_mem(210).....: 
+MPIDI_CRAY_XPMEM_do_attach(528)...........: xpmem_attach failed on rank 2 (src_rank 5, vaddr 0x180841000, len 1073741824)
+srun: error: nid005327: tasks 4-5,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6622399.183
+srun: error: nid005327: task 6: Exited with exit code 255
+srun: error: nid005326: tasks 0-3: Segmentation fault
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 5:
+  0.00269s: started 0
+  1.72627s: awaited 0
+  1.72633s: encountered an exception in 0
+xpmem_attach error: : No such file or directory
+MPICH ERROR [Rank 6] [job id 6622399.184] [Fri Mar 22 13:07:26 2024] [nid005327] - Abort(207689999) (rank 6 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)........................: MPI_Alltoall(sbuf=0x841000, scount=1073741824, MPI_BYTE, rbuf=0x842000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730)..........: 
+MPIC_Irecv(594)...........................: 
+MPID_Irecv(529)...........................: 
+MPIDI_irecv_unsafe(163)...................: 
+MPIDI_OFI_do_irecv(356)...................: 
+MPIDI_Progress_test(105)..................: 
+MPIDI_SHMI_progress(118)..................: 
+MPIDI_POSIX_progress(412).................: 
+MPIDI_CRAY_Common_lmt_ctrl_send_rts_cb(64): 
+MPIDI_CRAY_Common_lmt_handle_recv(44).....: 
+MPIDI_CRAY_Common_lmt_import_mem(210).....: 
+MPIDI_CRAY_XPMEM_do_attach(528)...........: xpmem_attach failed on rank 2 (src_rank 5, vaddr 0x180841000, len 1073741824)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)........................: MPI_Alltoall(sbuf=0x841000, scount=1073741824, MPI_BYTE, rbuf=0x842000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730)..........: 
+MPIC_Irecv(594)...........................: 
+MPID_Irecv(529)...........................: 
+MPIDI_irecv_unsafe(163)...................: 
+MPIDI_OFI_do_irecv(356)...................: 
+MPIDI_Progress_test(105)..................: 
+MPIDI_SHMI_progress(118)..................: 
+MPIDI_POSIX_progress(412).................: 
+MPIDI_CRAY_Common_lmt_ctrl_send_rts_cb(64): 
+MPIDI_CRAY_Common_lmt_handle_recv(44).....: 
+MPIDI_CRAY_Common_lmt_import_mem(210).....: 
+MPIDI_CRAY_XPMEM_do_attach(528)...........: xpmem_attach failed on rank 2 (src_rank 5, vaddr 0x180841000, len 1073741824)
+srun: error: nid005326: tasks 0-3: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6622399.184
+srun: error: nid005327: tasks 4-5,7: Segmentation fault
+srun: error: nid005327: task 6: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 6:
+  0.00219s: started 0
+  1.0773s: awaited 0
+  1.07736s: encountered an exception in 0
+srun: error: nid005327: tasks 4-5,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6622399.185
+srun: error: nid005327: task 6: Bus error
+srun: error: nid005326: tasks 0-3: Segmentation fault
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 7:
+  0.0026s: started 0
+  0.60441s: awaited 0
+  0.60448s: encountered an exception in 0
+srun: error: nid005326: tasks 0-3: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6622399.186
+srun: error: nid005327: tasks 4-5,7: Segmentation fault
+srun: error: nid005327: task 6: Bus error
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 8:
+  0.00238s: started 0
+  1.18585s: awaited 0
+  1.18593s: encountered an exception in 0
+srun: error: nid005326: tasks 0-3: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6622399.187
+srun: error: nid005327: tasks 4-5,7: Segmentation fault
+srun: error: nid005327: task 6: Bus error
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 9:
+  0.00595s: started 0
+  1.66329s: awaited 0
+  1.66335s: encountered an exception in 0
+xpmem_attach error: : No such file or directory
+MPICH ERROR [Rank 6] [job id 6622399.188] [Fri Mar 22 13:07:30 2024] [nid005327] - Abort(207689999) (rank 6 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)........................: MPI_Alltoall(sbuf=0x841000, scount=1073741824, MPI_BYTE, rbuf=0x842000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730)..........: 
+MPIC_Irecv(594)...........................: 
+MPID_Irecv(529)...........................: 
+MPIDI_irecv_unsafe(163)...................: 
+MPIDI_OFI_do_irecv(356)...................: 
+MPIDI_Progress_test(105)..................: 
+MPIDI_SHMI_progress(118)..................: 
+MPIDI_POSIX_progress(412).................: 
+MPIDI_CRAY_Common_lmt_ctrl_send_rts_cb(64): 
+MPIDI_CRAY_Common_lmt_handle_recv(44).....: 
+MPIDI_CRAY_Common_lmt_import_mem(210).....: 
+MPIDI_CRAY_XPMEM_do_attach(528)...........: xpmem_attach failed on rank 2 (src_rank 5, vaddr 0x180841000, len 1073741824)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)........................: MPI_Alltoall(sbuf=0x841000, scount=1073741824, MPI_BYTE, rbuf=0x842000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730)..........: 
+MPIC_Irecv(594)...........................: 
+MPID_Irecv(529)...........................: 
+MPIDI_irecv_unsafe(163)...................: 
+MPIDI_OFI_do_irecv(356)...................: 
+MPIDI_Progress_test(105)..................: 
+MPIDI_SHMI_progress(118)..................: 
+MPIDI_POSIX_progress(412).................: 
+MPIDI_CRAY_Common_lmt_ctrl_send_rts_cb(64): 
+MPIDI_CRAY_Common_lmt_handle_recv(44).....: 
+MPIDI_CRAY_Common_lmt_import_mem(210).....: 
+MPIDI_CRAY_XPMEM_do_attach(528)...........: xpmem_attach failed on rank 2 (src_rank 5, vaddr 0x180841000, len 1073741824)
+srun: error: nid005327: tasks 4-5,7: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6622399.188
+srun: error: nid005326: tasks 0-3: Segmentation fault
+srun: error: nid005327: task 6: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 10:
+  0.00229s: started 0
+  1.09538s: awaited 0
+  1.09544s: encountered an exception in 0
+xpmem_attach error: : No such file or directory
+MPICH ERROR [Rank 6] [job id 6622399.189] [Fri Mar 22 13:07:32 2024] [nid005327] - Abort(207689999) (rank 6 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)........................: MPI_Alltoall(sbuf=0x841000, scount=1073741824, MPI_BYTE, rbuf=0x842000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730)..........: 
+MPIC_Irecv(594)...........................: 
+MPID_Irecv(529)...........................: 
+MPIDI_irecv_unsafe(163)...................: 
+MPIDI_OFI_do_irecv(356)...................: 
+MPIDI_Progress_test(105)..................: 
+MPIDI_SHMI_progress(118)..................: 
+MPIDI_POSIX_progress(412).................: 
+MPIDI_CRAY_Common_lmt_ctrl_send_rts_cb(64): 
+MPIDI_CRAY_Common_lmt_handle_recv(44).....: 
+MPIDI_CRAY_Common_lmt_import_mem(210).....: 
+MPIDI_CRAY_XPMEM_do_attach(528)...........: xpmem_attach failed on rank 2 (src_rank 5, vaddr 0x180841000, len 1073741824)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)........................: MPI_Alltoall(sbuf=0x841000, scount=1073741824, MPI_BYTE, rbuf=0x842000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730)..........: 
+MPIC_Irecv(594)...........................: 
+MPID_Irecv(529)...........................: 
+MPIDI_irecv_unsafe(163)...................: 
+MPIDI_OFI_do_irecv(356)...................: 
+MPIDI_Progress_test(105)..................: 
+MPIDI_SHMI_progress(118)..................: 
+MPIDI_POSIX_progress(412).................: 
+MPIDI_CRAY_Common_lmt_ctrl_send_rts_cb(64): 
+MPIDI_CRAY_Common_lmt_handle_recv(44).....: 
+MPIDI_CRAY_Common_lmt_import_mem(210).....: 
+MPIDI_CRAY_XPMEM_do_attach(528)...........: xpmem_attach failed on rank 2 (src_rank 5, vaddr 0x180841000, len 1073741824)
+srun: error: nid005326: tasks 0-3: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6622399.189
+srun: error: nid005327: tasks 4-5,7: Segmentation fault
+srun: error: nid005327: task 6: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 10 runs taking 11.2 seconds.
