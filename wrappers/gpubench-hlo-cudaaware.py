@@ -6,7 +6,7 @@ from gpubench_common import gpubench
 
 class app(gpubench):
     def get_binary_path(self):
-        return os.environ["BLINK_ROOT"] + "/src/microbench-gpu/bin/hlo_CudaAware"
+        return self.get_path("hlo_CudaAware")
 
     def get_bench_name(self):
         return "gpubench hlo CudaAware"

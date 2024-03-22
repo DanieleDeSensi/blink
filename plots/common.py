@@ -360,10 +360,14 @@ def get_human_readable_allocation_mode(am):
     
 def get_default_multinode_ppn(system, bench):
     if system == "lumi":
-        if bench == "gpubench-a2a-nccl" or bench == "gpubench-ar-nccl":
+        if "gpubench" in bench:
             return 8
-        elif bench == "a2a_b" or bench == "ardc_b":
+        else:
             return 4
+    elif system == "leonardo":
+        return 4
+    elif system == "alps":
+        return 4
     raise Exception("Error: system " + system + " not supported")
 
 '''

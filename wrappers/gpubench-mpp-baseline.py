@@ -6,7 +6,7 @@ from gpubench_common import gpubench
 
 class app(gpubench):
     def get_binary_path(self):
-        return os.environ["BLINK_ROOT"] + "/src/microbench-gpu/bin/mpp_Baseline"
+        return self.get_path("mpp_Baseline")
 
     def get_bench_name(self):
         return "gpubench mpp Baseline"
