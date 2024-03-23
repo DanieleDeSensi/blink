@@ -26,7 +26,7 @@ do
     export USER_HIP_GPU_MAP="${SRC_GPU},${DST_GPU}"
     export BLINK_PINNING_FLAGS="--cpu-bind=map_cpu=${CPUS_PER_GPU[$SRC_GPU]},${CPUS_PER_GPU[$DST_GPU]}" # Pinning flags
 
-    ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file --maxruns 10 ${EXTRA}"
+    ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file --maxruns 10 -e ${EXTRA}"
     # Baseline
     source src/microbench-gpu/moduleload/load_Baseline_modules.sh
     ./run.sh test_suites/gpubench_pp_baseline_1GiB ${ARGS} --ppn 2

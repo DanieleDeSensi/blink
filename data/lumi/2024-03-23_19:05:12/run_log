@@ -1,0 +1,431 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-cudaaware/1GiB', node_file='auto', numnodes=32, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 32 nodes:
+['nid005744' 'nid005745' 'nid005746' 'nid005747' 'nid005748' 'nid005749'
+ 'nid005750' 'nid005751' 'nid005752' 'nid005753' 'nid005754' 'nid005755'
+ 'nid005756' 'nid005757' 'nid005758' 'nid005759' 'nid005760' 'nid005761'
+ 'nid005762' 'nid005763' 'nid005764' 'nid005765' 'nid005766' 'nid005767'
+ 'nid005768' 'nid005769' 'nid005770' 'nid005771' 'nid005772' 'nid005773'
+ 'nid005774' 'nid005775']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02652s.
+
+Running...
+ Run 1:
+  0.00236s: started 0
+  72.86928s: awaited 0
+  72.86931s: encountered an exception in 0
+srun: error: nid005763: tasks 153,155-159: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6648114.41
+srun: error: nid005759: tasks 120,123-127: Segmentation fault
+srun: error: nid005767: tasks 184-186,189-191: Segmentation fault
+srun: error: nid005758: tasks 112-114,116,118-119: Segmentation fault
+srun: error: nid005756: tasks 96-97,100-103: Segmentation fault
+slurmstepd: error: *** STEP 6648114.41 ON nid005744 CANCELLED AT 2024-03-23T19:05:13 ***
+srun: error: nid005751: tasks 56,58-60,62-63: Segmentation fault
+srun: error: nid005772: tasks 224-228,231: Segmentation fault
+srun: error: nid005760: tasks 128-130,133-135: Segmentation fault
+srun: error: nid005770: tasks 208-212,214: Segmentation fault
+srun: error: nid005750: tasks 49-50,52-55: Segmentation fault
+srun: error: nid005747: tasks 24,26-30: Segmentation fault
+srun: error: nid005762: tasks 144-145,147,149-151: Segmentation fault
+srun: error: nid005745: tasks 8,10-14: Segmentation fault
+srun: error: nid005769: tasks 200,202-206: Segmentation fault
+srun: error: nid005752: tasks 64-66,68-69,71: Segmentation fault
+srun: error: nid005773: tasks 232-233,236-239: Segmentation fault
+srun: error: nid005749: tasks 40-42,44-45,47: Segmentation fault
+srun: error: nid005764: tasks 160-162,164,166-167: Segmentation fault
+srun: error: nid005754: tasks 80-82,84-86: Segmentation fault
+srun: error: nid005748: tasks 33-36,38-39: Segmentation fault
+srun: error: nid005753: tasks 72,74-76,78-79: Segmentation fault
+srun: error: nid005765: tasks 168,170-174: Segmentation fault
+srun: error: nid005768: tasks 192-196,199: Segmentation fault
+srun: error: nid005761: tasks 136,138-140,142-143: Segmentation fault
+srun: error: nid005771: tasks 216,218-220,222-223: Segmentation fault
+srun: error: nid005766: tasks 176,178-180,182-183: Segmentation fault
+srun: error: nid005746: tasks 16-18,20-22: Segmentation fault
+srun: error: nid005774: tasks 240,242-246: Segmentation fault
+srun: error: nid005757: tasks 104-107,109-110: Segmentation fault
+srun: error: nid005775: tasks 248-250,252-254: Segmentation fault
+srun: error: nid005744: tasks 0-1,4-7: Segmentation fault
+srun: error: nid005755: tasks 88-90,93-95: Segmentation fault
+srun: error: nid005751: task 61: Segmentation fault
+srun: error: nid005763: task 152: Segmentation fault
+srun: error: nid005759: task 122: Segmentation fault
+srun: error: nid005758: task 117: Segmentation fault
+srun: error: nid005756: task 99: Segmentation fault
+srun: error: nid005767: task 187: Segmentation fault
+srun: error: nid005750: task 48: Segmentation fault
+srun: error: nid005772: task 229: Segmentation fault
+srun: error: nid005760: task 132: Segmentation fault
+srun: error: nid005770: task 215: Segmentation fault
+srun: error: nid005745: task 15: Segmentation fault
+srun: error: nid005747: task 25: Segmentation fault
+srun: error: nid005762: task 148: Segmentation fault
+srun: error: nid005769: task 201: Segmentation fault
+srun: error: nid005752: task 70: Segmentation fault
+srun: error: nid005749: task 43: Terminated
+srun: error: nid005764: task 165: Segmentation fault
+srun: error: nid005773: task 234: Segmentation fault
+srun: error: nid005753: task 77: Segmentation fault
+srun: error: nid005754: task 87: Segmentation fault
+srun: error: nid005748: task 32: Terminated
+srun: error: nid005768: task 197: Segmentation fault
+srun: error: nid005761: task 141: Segmentation fault
+srun: error: nid005765: task 169: Segmentation fault
+srun: error: nid005766: task 177: Segmentation fault
+srun: error: nid005771: task 221: Segmentation fault
+srun: error: nid005746: task 23: Terminated
+srun: error: nid005774: task 247: Segmentation fault
+srun: error: nid005757: task 108: Segmentation fault
+srun: error: nid005775: task 255: Segmentation fault
+srun: error: nid005744: task 3: Terminated
+srun: error: nid005755: task 92: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005760: task 131: Terminated
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005747: task 31: Terminated
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005746: task 19: Terminated
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005750: task 51: Terminated
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005755: task 91: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+srun: error: nid005758: task 115: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005763: task 154: Terminated
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005744: task 2: Terminated
+srun: error: nid005769: task 207: Terminated
+srun: error: nid005764: task 163: Terminated
+srun: error: nid005757: task 111: Terminated
+srun: error: nid005754: task 83: Terminated
+srun: error: nid005765: task 175: Terminated
+srun: error: nid005773: task 235: Terminated
+srun: error: nid005775: task 251: Terminated
+srun: error: nid005752: task 67: Terminated
+srun: error: nid005774: task 241: Terminated
+srun: error: nid005748: task 37: Terminated
+srun: error: nid005771: task 217: Terminated
+srun: error: nid005759: task 121: Terminated
+srun: error: nid005770: task 213: Terminated
+srun: error: nid005766: task 181: Terminated
+srun: error: nid005753: task 73: Terminated
+srun: error: nid005745: task 9: Terminated
+srun: error: nid005751: task 57: Terminated
+srun: error: nid005767: task 188: Terminated
+srun: error: nid005761: task 137: Terminated
+srun: error: nid005772: task 230: Terminated
+srun: error: nid005749: task 46: Terminated
+srun: error: nid005762: task 146: Terminated
+srun: error: nid005768: task 198: Terminated
+srun: error: nid005756: task 98: Terminated
+srun: Force Terminated StepId=6648114.41
+
+  Data collection took 0.00018s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.01s: started 0
+  75.26982s: awaited 0
+  75.26985s: encountered an exception in 0
+srun: error: nid005775: tasks 248-252,255: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6648114.42
+srun: error: nid005762: tasks 144,147-151: Segmentation fault
+srun: error: nid005769: task 204: Segmentation fault
+srun: error: nid005772: tasks 226-231: Segmentation fault
+srun: error: nid005763: tasks 152-154,156-157,159: Segmentation fault
+srun: error: nid005753: tasks 73-78: Segmentation fault
+srun: error: nid005748: tasks 32-34,37-39: Segmentation fault
+srun: error: nid005766: tasks 176-179,181,183: Segmentation fault
+srun: error: nid005758: tasks 112,114-117,119: Segmentation fault
+srun: error: nid005759: tasks 120-124,127: Segmentation fault
+srun: error: nid005756: tasks 97-99,101-102: Segmentation fault
+srun: error: nid005752: tasks 64-66,68-70: Segmentation fault
+slurmstepd: error: *** STEP 6648114.42 ON nid005744 CANCELLED AT 2024-03-23T19:06:30 ***
+srun: error: nid005767: tasks 184-188,190: Segmentation fault
+srun: error: nid005770: tasks 209-213,215: Segmentation fault
+srun: error: nid005773: tasks 233-234,236-239: Segmentation fault
+srun: error: nid005745: tasks 8-10,12-14: Segmentation fault
+srun: error: nid005774: tasks 241-244,246-247: Segmentation fault
+srun: error: nid005761: tasks 136-138,140-141,143: Segmentation fault
+srun: error: nid005744: tasks 2-7: Segmentation fault
+srun: error: nid005760: tasks 128,130,132-135: Segmentation fault
+srun: error: nid005771: tasks 216-220,222: Segmentation fault
+srun: error: nid005746: tasks 16-21: Segmentation fault
+srun: error: nid005750: tasks 49-52,54-55: Segmentation fault
+srun: error: nid005768: tasks 192-193,195-196,198-199: Segmentation fault
+srun: error: nid005755: tasks 88-89,92-95: Segmentation fault
+srun: error: nid005754: tasks 80,82-86: Segmentation fault
+srun: error: nid005757: tasks 104-109: Segmentation fault
+srun: error: nid005765: tasks 168-172,174: Segmentation fault
+srun: error: nid005751: tasks 56-58,60-62: Segmentation fault
+srun: error: nid005747: tasks 24-26,28,30-31: Segmentation fault
+srun: error: nid005749: tasks 40-41,43-46: Segmentation fault
+srun: error: nid005764: tasks 160-163,165-166: Segmentation fault
+srun: error: nid005775: task 254: Segmentation fault
+srun: error: nid005772: task 224: Segmentation fault
+srun: error: nid005763: task 158: Segmentation fault
+srun: error: nid005762: task 146: Segmentation fault
+srun: error: nid005753: task 79: Segmentation fault
+srun: error: nid005759: task 126: Segmentation fault
+srun: error: nid005748: task 36: Segmentation fault
+srun: error: nid005758: task 118: Segmentation fault
+srun: error: nid005752: task 71: Segmentation fault
+srun: error: nid005745: task 15: Segmentation fault
+srun: error: nid005767: task 191: Segmentation fault
+srun: error: nid005770: task 214: Segmentation fault
+srun: error: nid005756: tasks 100,103: Segmentation fault
+srun: error: nid005761: task 142: Segmentation fault
+srun: error: nid005773: task 232: Segmentation fault
+srun: error: nid005774: task 240: Segmentation fault
+srun: error: nid005744: task 0: Terminated
+srun: error: nid005760: task 129: Segmentation fault
+srun: error: nid005746: task 23: Terminated
+srun: error: nid005750: task 48: Segmentation fault
+srun: error: nid005771: task 221: Segmentation fault
+srun: error: nid005754: task 81: Segmentation fault
+srun: error: nid005768: task 194: Segmentation fault
+srun: error: nid005755: task 91: Segmentation fault
+srun: error: nid005757: task 110: Segmentation fault
+srun: error: nid005765: task 175: Segmentation fault
+srun: error: nid005751: task 63: Terminated
+srun: error: nid005747: task 29: Terminated
+srun: error: nid005769: tasks 200-203,205-206: Segmentation fault
+srun: error: nid005749: task 42: Terminated
+srun: error: nid005764: task 164: Segmentation fault
+srun: error: nid005766: task 180: Segmentation fault
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005763: task 155: Terminated
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005771: task 223: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005761: task 139: Terminated
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005758: task 113: Terminated
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005753: task 72: Terminated
+srun: error: nid005769: task 207: Terminated
+srun: error: nid005764: task 167: Terminated
+srun: error: nid005760: task 131: Terminated
+srun: error: nid005752: task 67: Terminated
+srun: error: nid005748: task 35: Terminated
+srun: error: nid005757: task 111: Terminated
+srun: error: nid005754: task 87: Terminated
+srun: error: nid005774: task 245: Terminated
+srun: error: nid005747: task 27: Terminated
+srun: error: nid005751: task 59: Terminated
+srun: error: nid005749: task 47: Terminated
+srun: error: nid005745: task 11: Terminated
+srun: error: nid005775: task 253: Terminated
+srun: error: nid005762: task 145: Terminated
+srun: error: nid005773: task 235: Terminated
+srun: error: nid005767: task 189: Terminated
+srun: error: nid005772: task 225: Terminated
+srun: error: nid005759: task 125: Terminated
+srun: error: nid005765: task 173: Terminated
+srun: error: nid005750: task 53: Terminated
+srun: error: nid005744: task 1: Terminated
+srun: error: nid005770: task 208: Terminated
+srun: error: nid005768: task 197: Terminated
+srun: error: nid005756: task 96: Terminated
+srun: error: nid005766: task 182: Terminated
+srun: error: nid005746: task 22: Terminated
+srun: error: nid005755: task 90: Terminated
+srun: Force Terminated StepId=6648114.42
+
+  Data collection took 0.00011s.
+  Convergence check took 0.0s.
+ Run 3:
+  0.00538s: started 0
+  116.28496s: awaited 0
+  116.28498s: encountered an exception in 0
+srun: error: nid005771: tasks 216-218,220-222: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6648114.43
+srun: error: nid005749: tasks 40-42,44-46: Segmentation fault
+srun: error: nid005772: tasks 224-226,228-229,231: Segmentation fault
+srun: error: nid005757: tasks 104-109: Segmentation fault
+srun: error: nid005751: tasks 56,58,60-63: Segmentation fault
+srun: error: nid005752: tasks 64-65,67,69-71: Segmentation fault
+srun: error: nid005767: tasks 184-185,188-191: Segmentation fault
+srun: error: nid005748: tasks 32-37: Segmentation fault
+srun: error: nid005750: tasks 48-49,51-54: Segmentation fault
+srun: error: nid005768: tasks 192-195,197-198: Segmentation fault
+srun: error: nid005758: tasks 112-113,115,117-119: Segmentation fault
+srun: error: nid005744: tasks 0,2-3,5,7: Segmentation fault
+srun: error: nid005761: tasks 136-138,141-143: Segmentation fault
+srun: error: nid005762: tasks 144-145,148-151: Segmentation fault
+srun: error: nid005760: tasks 128-133: Segmentation fault
+slurmstepd: error: *** STEP 6648114.43 ON nid005744 CANCELLED AT 2024-03-23T19:08:26 ***
+srun: error: nid005753: tasks 72-76,79: Segmentation fault
+srun: error: nid005764: tasks 160-164,166: Segmentation fault
+srun: error: nid005747: tasks 24,26-29,31: Segmentation fault
+srun: error: nid005755: tasks 88-93: Segmentation fault
+srun: error: nid005769: tasks 200-202,204,206-207: Segmentation fault
+srun: error: nid005765: tasks 169-171,173-175: Segmentation fault
+srun: error: nid005746: tasks 16-18,20,22-23: Segmentation fault
+srun: error: nid005766: tasks 176-180,183: Segmentation fault
+srun: error: nid005774: tasks 240,242-246: Segmentation fault
+srun: error: nid005759: tasks 120-123,125,127: Segmentation fault
+srun: error: nid005775: tasks 249-251,253-255: Segmentation fault
+srun: error: nid005763: tasks 152-154,156-158: Segmentation fault
+srun: error: nid005754: tasks 81-83,85-87: Segmentation fault
+srun: error: nid005773: tasks 232-234,236-238: Segmentation fault
+srun: error: nid005745: tasks 9-10,12-15: Segmentation fault
+srun: error: nid005756: tasks 98-103: Segmentation fault
+srun: error: nid005770: tasks 208-210,212-215: Segmentation fault
+srun: error: nid005757: task 111: Segmentation fault
+srun: error: nid005751: task 57: Segmentation fault
+srun: error: nid005772: task 230: Segmentation fault
+srun: error: nid005771: task 219: Segmentation fault
+srun: error: nid005750: task 55: Segmentation fault
+srun: error: nid005749: task 47: Segmentation fault
+srun: error: nid005767: task 186: Segmentation fault
+srun: error: nid005752: task 66: Segmentation fault
+srun: error: nid005748: task 38: Segmentation fault
+srun: error: nid005768: task 196: Segmentation fault
+srun: error: nid005758: task 116: Segmentation fault
+srun: error: nid005762: task 146: Segmentation fault
+srun: error: nid005744: tasks 4,6: Segmentation fault
+srun: error: nid005761: task 140: Segmentation fault
+srun: error: nid005764: task 165: Segmentation fault
+srun: error: nid005747: task 30: Segmentation fault
+srun: error: nid005760: task 134: Segmentation fault
+srun: error: nid005753: task 77: Segmentation fault
+srun: error: nid005765: task 172: Segmentation fault
+srun: error: nid005755: task 94: Segmentation fault
+srun: error: nid005746: task 21: Segmentation fault
+srun: error: nid005769: task 205: Segmentation fault
+srun: error: nid005774: task 247: Segmentation fault
+srun: error: nid005759: task 124: Segmentation fault
+srun: error: nid005766: task 182: Segmentation fault
+srun: error: nid005775: task 252: Segmentation fault
+srun: error: nid005763: task 159: Segmentation fault
+srun: error: nid005754: task 80: Segmentation fault
+srun: error: nid005773: task 239: Segmentation fault
+srun: error: nid005745: task 8: Terminated
+srun: error: nid005756: task 96: Segmentation fault
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005754: task 84: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005758: task 114: Terminated
+srun: error: nid005748: task 39: Terminated
+srun: error: nid005770: task 211: Terminated
+srun: error: nid005772: task 227: Terminated
+srun: error: nid005755: task 95: Terminated
+srun: error: nid005764: task 167: Terminated
+srun: error: nid005769: task 203: Terminated
+srun: error: nid005760: task 135: Terminated
+srun: error: nid005746: task 19: Terminated
+srun: error: nid005771: task 223: Terminated
+srun: error: nid005761: task 139: Terminated
+srun: error: nid005749: task 43: Terminated
+srun: error: nid005767: task 187: Terminated
+srun: error: nid005762: task 147: Terminated
+srun: error: nid005763: task 155: Terminated
+srun: error: nid005773: task 235: Terminated
+srun: error: nid005774: task 241: Terminated
+srun: error: nid005768: task 199: Terminated
+srun: error: nid005745: task 11: Terminated
+srun: error: nid005766: task 181: Terminated
+srun: error: nid005775: task 248: Terminated
+srun: error: nid005747: task 25: Terminated
+srun: error: nid005744: task 1: Terminated
+srun: error: nid005765: task 168: Terminated
+srun: error: nid005751: task 59: Terminated
+srun: error: nid005752: task 68: Terminated
+srun: error: nid005756: task 97: Terminated
+srun: error: nid005759: task 126: Terminated
+srun: error: nid005757: task 110: Terminated
+srun: error: nid005753: task 78: Terminated
+srun: error: nid005750: task 50: Terminated
+srun: Force Terminated StepId=6648114.43
+
+  Data collection took 0.00011s.
+  Convergence check took 0.0s.
+Completed maximum number of runs, terminated after 3 runs taking 264.43 seconds.
