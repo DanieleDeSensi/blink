@@ -1,0 +1,189 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-cudaaware/512B', node_file='auto', numnodes=2, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='same_switch', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 9", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['nid001056' 'nid001058']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.04439s.
+
+Running...
+ Run 1:
+  0.00127s: started 0
+  0.75013s: awaited 0
+  0.75015s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+srun: error: nid001056: tasks 0-3: Exited with exit code 8
+srun: Terminating StepId=46329.533
+srun: error: nid001058: tasks 4-7: Terminated
+srun: Force Terminated StepId=46329.533
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.00126s: started 0
+  1.08786s: awaited 0
+  1.08788s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+srun: error: nid001056: tasks 0-3: Exited with exit code 8
+srun: Terminating StepId=46329.534
+srun: error: nid001058: tasks 4-7: Terminated
+srun: Force Terminated StepId=46329.534
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00136s: started 0
+  0.53325s: awaited 0
+  0.53326s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+srun: error: nid001056: tasks 0-3: Exited with exit code 8
+srun: Terminating StepId=46329.535
+srun: error: nid001058: tasks 4-7: Terminated
+srun: Force Terminated StepId=46329.535
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 4:
+  0.0014s: started 0
+  0.47205s: awaited 0
+  0.47207s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+srun: error: nid001056: tasks 0-3: Exited with exit code 8
+srun: Terminating StepId=46329.536
+srun: error: nid001058: tasks 4-7: Terminated
+srun: Force Terminated StepId=46329.536
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 5:
+  0.00135s: started 0
+  0.44489s: awaited 0
+  0.4449s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+srun: error: nid001056: tasks 0-3: Exited with exit code 8
+srun: Terminating StepId=46329.537
+srun: error: nid001058: tasks 4-7: Exited with exit code 8
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 6:
+  0.00133s: started 0
+  0.30468s: awaited 0
+  0.30469s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+srun: error: nid001056: tasks 0-3: Exited with exit code 8
+srun: Terminating StepId=46329.538
+srun: error: nid001058: tasks 4-7: Exited with exit code 8
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 7:
+  0.00118s: started 0
+  0.32576s: awaited 0
+  0.32578s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+srun: error: nid001056: tasks 0-3: Exited with exit code 8
+srun: Terminating StepId=46329.539
+srun: error: nid001058: tasks 4-7: Exited with exit code 8
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 8:
+  0.00135s: started 0
+  0.59616s: awaited 0
+  0.59617s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+srun: error: nid001058: tasks 4-7: Exited with exit code 8
+srun: Terminating StepId=46329.540
+slurmstepd: error: *** STEP 46329.540 ON nid001056 CANCELLED AT 2024-03-22T19:17:36 ***
+srun: error: nid001056: tasks 0-3: Exited with exit code 8
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 9:
+  0.00128s: started 0
+  0.4384s: awaited 0
+  0.43842s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+srun: error: nid001058: tasks 4-7: Exited with exit code 8
+srun: Terminating StepId=46329.541
+slurmstepd: error: *** STEP 46329.541 ON nid001056 CANCELLED AT 2024-03-22T19:17:37 ***
+srun: error: nid001056: tasks 0-3: Exited with exit code 8
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 10:
+  0.0012s: started 0
+  0.30697s: awaited 0
+  0.30698s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//conf/select_gpu_device.sh: Exec format error
+srun: error: nid001056: tasks 0-3: Exited with exit code 8
+srun: Terminating StepId=46329.542
+srun: error: nid001058: tasks 4-7: Exited with exit code 8
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+Completed maximum number of runs, terminated after 10 runs taking 5.26 seconds.

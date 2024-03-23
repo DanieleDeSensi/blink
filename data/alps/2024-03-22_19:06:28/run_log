@@ -1,0 +1,345 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/a2a_b/1GiB', node_file='auto', numnodes=2, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='same_switch', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-msgsize 1073741824 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['nid001056' 'nid001058']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02579s.
+
+Running...
+ Run 1:
+  0.00124s: started 0
+  5.97979s: awaited 0
+  5.97981s: encountered an exception in 0
+cxil_map: write error
+cxil_map: write error
+cxil_map: write error
+MPICH ERROR [Rank 6] [job id 46329.191] [Fri Mar 22 19:06:34 2024] [nid001058] - Abort(606674959) (rank 6 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x390d0000, scount=1073741824, MPI_BYTE, rbuf=0x390e0000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x390d0000, scount=1073741824, MPI_BYTE, rbuf=0x390e0000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+srun: error: nid001058: tasks 5,7: Segmentation fault
+srun: Terminating StepId=46329.191
+srun: error: nid001058: task 6: Exited with exit code 255
+srun: error: nid001056: tasks 0-2: Segmentation fault
+slurmstepd: error: *** STEP 46329.191 ON nid001056 CANCELLED AT 2024-03-22T19:06:34 ***
+srun: error: nid001056: task 3: Segmentation fault
+srun: error: nid001058: task 4: Segmentation fault
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.00122s: started 0
+  6.30987s: awaited 0
+  6.30988s: encountered an exception in 0
+cxil_map: write error
+cxil_map: write error
+cxil_map: write error
+MPICH ERROR [Rank 6] [job id 46329.192] [Fri Mar 22 19:06:40 2024] [nid001058] - Abort(69804047) (rank 6 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x1b100000, scount=1073741824, MPI_BYTE, rbuf=0x1b110000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x1b100000, scount=1073741824, MPI_BYTE, rbuf=0x1b110000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+srun: error: nid001056: tasks 0-1,3: Segmentation fault
+srun: Terminating StepId=46329.192
+slurmstepd: error: *** STEP 46329.192 ON nid001056 CANCELLED AT 2024-03-22T19:06:40 ***
+srun: error: nid001056: task 2: Segmentation fault
+srun: error: nid001058: tasks 4-5,7: Segmentation fault
+srun: error: nid001058: task 6: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00122s: started 0
+  6.02254s: awaited 0
+  6.02256s: encountered an exception in 0
+cxil_map: write error
+cxil_map: write error
+cxil_map: write error
+MPICH ERROR [Rank 6] [job id 46329.193] [Fri Mar 22 19:06:46 2024] [nid001058] - Abort(740892687) (rank 6 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0xb610000, scount=1073741824, MPI_BYTE, rbuf=0xb620000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0xb610000, scount=1073741824, MPI_BYTE, rbuf=0xb620000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+srun: error: nid001056: tasks 1-3: Segmentation fault
+srun: Terminating StepId=46329.193
+srun: error: nid001058: tasks 4,7: Segmentation fault
+srun: error: nid001058: task 6: Exited with exit code 255
+slurmstepd: error: *** STEP 46329.193 ON nid001056 CANCELLED AT 2024-03-22T19:06:46 ***
+srun: error: nid001058: task 5: Segmentation fault
+srun: error: nid001056: task 0: Segmentation fault
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 4:
+  0.00122s: started 0
+  6.3538s: awaited 0
+  6.35382s: encountered an exception in 0
+cxil_map: write error
+cxil_map: write error
+cxil_map: write error
+MPICH ERROR [Rank 6] [job id 46329.194] [Fri Mar 22 19:06:52 2024] [nid001058] - Abort(1009328143) (rank 6 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0xc620000, scount=1073741824, MPI_BYTE, rbuf=0xc630000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0xc620000, scount=1073741824, MPI_BYTE, rbuf=0xc630000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+srun: error: nid001058: tasks 4,7: Segmentation fault
+srun: Terminating StepId=46329.194
+srun: error: nid001058: task 6: Exited with exit code 255
+slurmstepd: error: *** STEP 46329.194 ON nid001056 CANCELLED AT 2024-03-22T19:06:53 ***
+srun: error: nid001056: tasks 0-3: Segmentation fault
+srun: error: nid001058: task 5: Segmentation fault
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 5:
+  0.00129s: started 0
+  5.86127s: awaited 0
+  5.86129s: encountered an exception in 0
+cxil_map: write error
+cxil_map: write error
+cxil_map: write error
+MPICH ERROR [Rank 6] [job id 46329.195] [Fri Mar 22 19:06:58 2024] [nid001058] - Abort(472457231) (rank 6 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x83d0000, scount=1073741824, MPI_BYTE, rbuf=0x83e0000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x83d0000, scount=1073741824, MPI_BYTE, rbuf=0x83e0000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+srun: error: nid001058: tasks 4,7: Segmentation fault
+srun: Terminating StepId=46329.195
+srun: error: nid001056: tasks 0-2: Segmentation fault
+srun: error: nid001058: task 6: Exited with exit code 255
+slurmstepd: error: *** STEP 46329.195 ON nid001056 CANCELLED AT 2024-03-22T19:06:58 ***
+srun: error: nid001056: task 3: Segmentation fault
+srun: error: nid001058: task 5: Segmentation fault
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 6:
+  0.0012s: started 0
+  6.03674s: awaited 0
+  6.03676s: encountered an exception in 0
+cxil_map: write error
+cxil_map: write error
+cxil_map: write error
+MPICH ERROR [Rank 6] [job id 46329.196] [Fri Mar 22 19:07:05 2024] [nid001058] - Abort(1009328143) (rank 6 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x312e0000, scount=1073741824, MPI_BYTE, rbuf=0x312f0000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x312e0000, scount=1073741824, MPI_BYTE, rbuf=0x312f0000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+srun: error: nid001058: tasks 4-5: Segmentation fault
+srun: Terminating StepId=46329.196
+srun: error: nid001056: tasks 1-3: Segmentation fault
+srun: error: nid001058: task 6: Exited with exit code 255
+slurmstepd: error: *** STEP 46329.196 ON nid001056 CANCELLED AT 2024-03-22T19:07:05 ***
+srun: error: nid001056: task 0: Segmentation fault
+srun: error: nid001058: task 7: Segmentation fault
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 7:
+  0.00119s: started 0
+  5.72228s: awaited 0
+  5.7223s: encountered an exception in 0
+cxil_map: write error
+cxil_map: write error
+cxil_map: write error
+MPICH ERROR [Rank 6] [job id 46329.197] [Fri Mar 22 19:07:10 2024] [nid001058] - Abort(338239503) (rank 6 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x110d0000, scount=1073741824, MPI_BYTE, rbuf=0x110e0000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x110d0000, scount=1073741824, MPI_BYTE, rbuf=0x110e0000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+srun: error: nid001058: tasks 5,7: Segmentation fault
+srun: Terminating StepId=46329.197
+srun: error: nid001056: tasks 0-2: Segmentation fault
+srun: error: nid001058: task 6: Exited with exit code 255
+slurmstepd: error: *** STEP 46329.197 ON nid001056 CANCELLED AT 2024-03-22T19:07:10 ***
+srun: error: nid001056: task 3: Segmentation fault
+srun: error: nid001058: task 4: Segmentation fault
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 8:
+  0.00119s: started 0
+  6.17931s: awaited 0
+  6.17933s: encountered an exception in 0
+cxil_map: write error
+cxil_map: write error
+cxil_map: write error
+MPICH ERROR [Rank 6] [job id 46329.198] [Fri Mar 22 19:07:16 2024] [nid001058] - Abort(472457231) (rank 6 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x21220000, scount=1073741824, MPI_BYTE, rbuf=0x21230000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x21220000, scount=1073741824, MPI_BYTE, rbuf=0x21230000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+srun: error: nid001056: tasks 1-3: Segmentation fault
+srun: Terminating StepId=46329.198
+slurmstepd: error: *** STEP 46329.198 ON nid001056 CANCELLED AT 2024-03-22T19:07:17 ***
+srun: error: nid001058: tasks 5,7: Segmentation fault
+srun: error: nid001058: task 6: Exited with exit code 255
+srun: error: nid001058: task 4: Segmentation fault
+srun: error: nid001056: task 0: Segmentation fault
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 9:
+  0.00122s: started 0
+  5.85892s: awaited 0
+  5.85893s: encountered an exception in 0
+cxil_map: write error
+cxil_map: write error
+cxil_map: write error
+MPICH ERROR [Rank 6] [job id 46329.199] [Fri Mar 22 19:07:22 2024] [nid001058] - Abort(472457231) (rank 6 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x3570000, scount=1073741824, MPI_BYTE, rbuf=0x3580000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x3570000, scount=1073741824, MPI_BYTE, rbuf=0x3580000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+srun: error: nid001058: tasks 5,7: Segmentation fault
+srun: Terminating StepId=46329.199
+srun: error: nid001058: task 6: Exited with exit code 255
+slurmstepd: error: *** STEP 46329.199 ON nid001056 CANCELLED AT 2024-03-22T19:07:22 ***
+srun: error: nid001056: tasks 0-3: Segmentation fault
+srun: error: nid001058: task 4: Segmentation fault
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 10:
+  0.0012s: started 0
+  6.31794s: awaited 0
+  6.31796s: encountered an exception in 0
+cxil_map: write error
+cxil_map: write error
+cxil_map: write error
+MPICH ERROR [Rank 6] [job id 46329.200] [Fri Mar 22 19:07:28 2024] [nid001058] - Abort(69804047) (rank 6 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x14960000, scount=1073741824, MPI_BYTE, rbuf=0x14970000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x14960000, scount=1073741824, MPI_BYTE, rbuf=0x14970000, rcount=1073741824, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(730): 
+MPIC_Irecv(594).................: 
+MPID_Irecv(529).................: 
+MPIDI_irecv_unsafe(163).........: 
+MPIDI_OFI_do_irecv(356).........: OFI tagged recv failed (ofi_recv.h:356:MPIDI_OFI_do_irecv:Bad address)
+srun: error: nid001058: tasks 5,7: Segmentation fault
+srun: Terminating StepId=46329.200
+srun: error: nid001058: task 6: Exited with exit code 255
+slurmstepd: error: *** STEP 46329.200 ON nid001056 CANCELLED AT 2024-03-22T19:07:29 ***
+srun: error: nid001056: tasks 0-3: Segmentation fault
+srun: error: nid001058: task 4: Segmentation fault
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+Completed maximum number of runs, terminated after 10 runs taking 60.65 seconds.
