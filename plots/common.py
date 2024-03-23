@@ -361,7 +361,13 @@ def get_human_readable_allocation_mode(am):
 def get_default_multinode_ppn(system, bench):
     if system == "lumi":
         if "gpubench" in bench:
-            return 8
+            return 4
+            '''
+            if "mpp-cuda" in bench:
+                return 4
+            else:
+                return 8
+            '''
         else:
             return 4
     elif system == "leonardo":

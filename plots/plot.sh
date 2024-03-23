@@ -10,7 +10,7 @@ do
     for TESTNAME in "gpubench-pp" "gpubench-a2a" "gpubench-ar"
     do
         VICTIM_NAMES="${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink"
-        LABELS="NCCL,Host Mem. Staging,CUDA-Aware,CUDA IPC"
+        LABELS="*CCL,Trivial Staging,GPU-Aware MPI,Device-Device Copy"
         if [ ${TESTNAME} == "gpubench-pp" ]; then
             PPN=2
             if [ ${SYSTEM} == "lumi" ]; then
@@ -57,7 +57,7 @@ EXTRA="#same_switch"
 PLOT_TYPE="line"
 INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
 BENCH_NAMES="gpubench-mpp-nccl,gpubench-mpp-cudaaware,pw-ping-pong_b,ib_send_lat"
-LABELS="*CCL,GPU-Aware,MPI (host mem. buffers),IB Verbs"
+LABELS="*CCL,GPU-Aware MPI,MPI (host mem. buffers),IB Verbs"
 PPN=DEFAULT_MULTINODE
 for SYSTEM in "lumi" "leonardo" "alps"
 do
