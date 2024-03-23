@@ -40,6 +40,7 @@ def main():
     parser.add_argument('-iy', '--inner_ylim', help='Y-axis limits for the inner plot.', default="[0, 100]")
     parser.add_argument('-l', '--labels', help='Comma-separated list of labels.')
     parser.add_argument('-o', '--outfile', help='Path of output files.', required=True)
+    parser.add_argument('-eb', '--errorbar', help='Errorbar for lineplot.', required=True)
 
     args = parser.parse_args()
 
@@ -102,9 +103,13 @@ def main():
         #############
         # Line plot #
         #############
+        if args.errorbar:
+            errorbar = ast.literal_eval(args.errorbar)
+        else:
+            errorbar = ("pi", 50) # From 25th to 75th percentile
         if "line" in plot_types:
             # Setup the plot
-            ax = sns.lineplot(data=global_df, x="Nodes", y=metric_hr, hue="Extra", style="Extra", markers=True, linewidth=3, markersize=8, hue_order=labels)
+            ax = sns.lineplot(data=global_df, x="Nodes", y=metric_hr, hue="Extra", style="Extra", markers=True, linewidth=3, markersize=8, hue_order=labels, errorbar=errorbar)
 
             # Plots the limit if specified
             if args.trend_limit:
@@ -130,7 +135,7 @@ def main():
             if global_df_time is not None:
                 ax2 = plt.axes(ast.literal_eval(args.inner_pos), facecolor='w')
                 global_df_time["Runtime (us)"] = global_df_time["Runtime"] # Was already scaled before
-                sns.lineplot(data=global_df_time, x="Nodes", y="Runtime (us)", hue="Extra", style="Extra", marker="o", ax=ax2)
+                sns.lineplot(data=global_df_time, x="Nodes", y="Runtime (us)", hue="Extra", style="Extra", marker="o", ax=ax2, errorbar=errorbar)
                 ax2.set_xlim([0, 5])
                 ax2.set_ylim(ast.literal_eval(args.inner_ylim))
                 inner_fontsize = 9

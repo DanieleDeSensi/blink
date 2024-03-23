@@ -104,12 +104,14 @@ def main():
         else:
             labels = args.victim_names.split(",")
 
+
+        errorbar = ("pi", 50) # From 25th to 75th percentile
         #############
         # Line plot #
         #############
         if "line" in plot_types:
             # Setup the plot
-            ax = sns.lineplot(data=global_df, x="Input", y=metric_hr, hue="Application", style="Application", markers=True, linewidth=3, markersize=8, hue_order=labels)
+            ax = sns.lineplot(data=global_df, x="Input", y=metric_hr, hue="Application", style="Application", markers=True, linewidth=3, markersize=8, hue_order=labels, errorbar=errorbar)
 
             # Plots the limit if specified
             if args.trend_limit:
@@ -135,7 +137,7 @@ def main():
             if global_df_time is not None:
                 ax2 = plt.axes(ast.literal_eval(args.inner_pos), facecolor='w')
                 global_df_time["Runtime (us)"] = global_df_time["Runtime"] # Was already scaled before
-                sns.lineplot(data=global_df_time, x="Input", y="Runtime (us)", hue="Application", style="Application", marker="o", ax=ax2)
+                sns.lineplot(data=global_df_time, x="Input", y="Runtime (us)", hue="Application", style="Application", marker="o", ax=ax2, errorbar=errorbar)
                 ax2.set_xlim([0, 5])
                 ax2.set_ylim(ast.literal_eval(args.inner_ylim))
                 inner_fontsize = 9
