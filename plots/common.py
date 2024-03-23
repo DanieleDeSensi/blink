@@ -190,18 +190,15 @@ def bench_to_human_readable(bench):
 def get_actual_bench_name(bench, system, input):
     if bench.startswith("#"):
         if bench == "#distance-cpu":
-            if system == "lumi":
+            if system == "lumi" or system == "alps":
                 return "pw-ping-pong_b"
             elif system == "leonardo":
                 if input == "1B":
                     return "pw-ping-pong_b"
                 else:
                     return "ib_send_lat"
-        elif bench == "#distance-gpu":
-            if system == "lumi":
-                return "pw-ping-pong_b" # TODO: Fix
-            elif system == "leonardo":
-                return "gpubench-mpp-nccl"
+        elif bench == "#distance-gpu":        
+            return "gpubench-mpp-nccl"
     else:
         return bench
     raise Exception("Error: bench " + bench + " not supported for system " + system)
@@ -210,7 +207,7 @@ def get_actual_bench_name(bench, system, input):
 def get_actual_extra_name(extra, system, victim_name):
     if extra.startswith("#"):
         if "#diff_group" in extra or "#diff_switch" in extra or "#same_switch" in extra:
-            if system == "lumi":
+            if system == "lumi" or system == "alps":
                 return extra.replace("#", "")
             elif system == "leonardo":
                 if "#SL0" in extra: #diff_group_SL0
@@ -361,7 +358,13 @@ def get_human_readable_allocation_mode(am):
 def get_default_multinode_ppn(system, bench):
     if system == "lumi":
         if "gpubench" in bench:
-            return 8
+            return 4
+            '''
+            if "mpp-cuda" in bench:
+                return 4
+            else:
+                return 8
+            '''
         else:
             return 4
     elif system == "leonardo":

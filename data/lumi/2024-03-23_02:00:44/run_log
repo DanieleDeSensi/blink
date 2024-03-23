@@ -1,0 +1,50 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/mpp-nccl/1GiB', node_file='auto', numnodes=2, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='same_switch', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['nid005326' 'nid005327']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.08285s.
+
+Running...
+ Run 1:
+  0.01224s: started 0
+  101.02776s: awaited 0
+  Data collection took 0.00065s.
+  Convergence check took 0.00176s.
+ Run 2:
+  0.01733s: started 0
+  111.17892s: awaited 0
+  Data collection took 0.00054s.
+  Convergence check took 0.00149s.
+ Run 3:
+  0.01748s: started 0
+  109.79473s: awaited 0
+  Data collection took 0.00056s.
+  Convergence check took 0.00146s.
+ Run 4:
+  0.01646s: started 0
+  111.88709s: awaited 0
+  Data collection took 0.0005s.
+  Convergence check took 0.00146s.
+ Run 5:
+  0.01614s: started 0
+  102.43216s: awaited 0
+  Data collection took 0.00052s.
+  Convergence check took 0.00162s.
+ Run 6:
+  0.02096s: started 0
+  64.22862s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 5 runs taking 600.56 seconds.
+Writing data & meta-data took 0.01578s.
+Overall took 600.65957s.

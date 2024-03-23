@@ -1,78 +1,139 @@
 #!/bin/bash
-#####################
-# Single-node tests #
-#####################
-for SYSTEM in "alps" "leonardo" "lumi"
-do
-    INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
-    OUT_PATH="plots/out/single_node/${SYSTEM}"
-    PLOT_TYPE="line"
-    for TESTNAME in "gpubench-pp" "gpubench-a2a" "gpubench-ar"
-    do
-        VICTIM_NAMES="${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink"
-        LABELS="NCCL,Host Mem. Staging,CUDA-Aware,CUDA IPC"
-        if [ ${TESTNAME} == "gpubench-pp" ]; then
-            PPN=2
-            if [ ${SYSTEM} == "lumi" ]; then
-                TREND_LIMIT=Bandwidth:400  
-            elif [ ${SYSTEM} == "leonardo" ]; then
-                TREND_LIMIT=Bandwidth:800
-            else # Alps
-                TREND_LIMIT=Bandwidth:1200
-            fi
-        fi
-        if [ ${TESTNAME} == "gpubench-a2a" ]; then
-            if [ ${SYSTEM} == "lumi" ]; then
-                TREND_LIMIT=Bandwidth:2400
-                PPN=8
-            elif [ ${SYSTEM} == "alps" ]; then
-                TREND_LIMIT=Bandwidth:3600
-                PPN=4
-            else
-                TREND_LIMIT=Bandwidth:2400
-                PPN=4
-            fi
-        fi
-        if [ ${TESTNAME} == "gpubench-ar" ]; then
-            if [ ${SYSTEM} == "lumi" ]; then
-                TREND_LIMIT=Bandwidth:2400
-                PPN=8
-            elif [ ${SYSTEM} == "alps" ]; then
-                TREND_LIMIT=Bandwidth:3600
-                PPN=4
-            else
-                TREND_LIMIT=Bandwidth:2400
-                PPN=4
-            fi
-        fi
-        INNER_YLIM="[0, 30]"
-        ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn "${VICTIM_NAMES}" -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --labels "${LABELS}"
-    done
-done
+rm -rf plots/out/*
+PLOT_SINGLE_NODE=0
+PLOT_TWO_NODES=0
+PLOT_DISTANCE=0
+PLOT_COLL_SCALABILITY_NOISE=1
 
-####################
-# Pingpong 2 Nodes #
-####################
-EXTRA="#same_switch"
-PLOT_TYPE="line"
-INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
-BENCH_NAMES="gpubench-mpp-nccl,gpubench-mpp-cudaaware,pw-ping-pong_b,ib_send_lat"
-LABELS="*CCL,GPU-Aware,MPI (host mem. buffers),IB Verbs"
-PPN=DEFAULT_MULTINODE
-for SYSTEM in "lumi" "leonardo" "alps"
-do
-    OUT_PATH="plots/out/two-nodes/pingpong/${SYSTEM}"
-    # P2P
-    INNER_YLIM="[0, 30]"
-    INNER_POS="[0.2, 0.6, .3, .2]"
-    if [ ${SYSTEM} == "lumi" ]; then
-        TREND_LIMIT=Bandwidth:800
-    fi
-    if [ ${SYSTEM} == "leonardo" ]; then
-        TREND_LIMIT=Bandwidth:400
-    fi
-    ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn ${BENCH_NAMES} -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT} --inner_pos "${INNER_POS}" --labels "${LABELS}"
-done
+#################################
+# Single-node tests -- Fig. 1-3 #
+#################################
+if [[ $PLOT_SINGLE_NODE = 1 ]]; then
+    for SYSTEM in "alps" "leonardo" "lumi"
+    do
+        INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+        OUT_PATH="plots/out/single_node/${SYSTEM}"
+        PLOT_TYPE="line"
+        for TESTNAME in "gpubench-pp" "gpubench-a2a" "gpubench-ar"
+        do
+            VICTIM_NAMES="${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink"
+            LABELS="*CCL,Trivial Staging,GPU-Aware MPI,Device-Device Copy"
+            if [ ${TESTNAME} == "gpubench-pp" ]; then
+                PPN=2
+                if [ ${SYSTEM} == "lumi" ]; then
+                    TREND_LIMIT=Bandwidth:400  
+                elif [ ${SYSTEM} == "leonardo" ]; then
+                    TREND_LIMIT=Bandwidth:800
+                else # Alps
+                    TREND_LIMIT=Bandwidth:1200
+                fi
+            fi
+            if [ ${TESTNAME} == "gpubench-a2a" ]; then
+                if [ ${SYSTEM} == "lumi" ]; then
+                    TREND_LIMIT=Bandwidth:2400
+                    PPN=8
+                elif [ ${SYSTEM} == "alps" ]; then
+                    TREND_LIMIT=Bandwidth:3600
+                    PPN=4
+                else
+                    TREND_LIMIT=Bandwidth:2400
+                    PPN=4
+                fi
+            fi
+            if [ ${TESTNAME} == "gpubench-ar" ]; then
+                if [ ${SYSTEM} == "lumi" ]; then
+                    TREND_LIMIT=Bandwidth:2400
+                    PPN=8
+                elif [ ${SYSTEM} == "alps" ]; then
+                    TREND_LIMIT=Bandwidth:3600
+                    PPN=4
+                else
+                    TREND_LIMIT=Bandwidth:2400
+                    PPN=4
+                fi
+            fi
+            INNER_YLIM="[0, 30]"
+            ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn "${VICTIM_NAMES}" -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --labels "${LABELS}"
+        done
+    done
+fi
+
+##############################
+# Pingpong 2 Nodes -- Fig. 4 #
+##############################
+if [[ $PLOT_TWO_NODES = 1 ]]; then
+    EXTRA="#same_switch"
+    PLOT_TYPE="line"
+    INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+    BENCH_NAMES="gpubench-mpp-nccl,gpubench-mpp-cudaaware,pw-ping-pong_b,ib_send_lat"
+    LABELS="*CCL,GPU-Aware MPI,MPI (host mem. buffers),IB Verbs (host mem. buffers)"
+    PPN=DEFAULT_MULTINODE
+    for SYSTEM in "lumi" "leonardo" "alps"
+    do
+        OUT_PATH="plots/out/two-nodes/pingpong/${SYSTEM}"
+        # P2P
+        INNER_YLIM="[0, 30]"
+        INNER_POS="[0.2, 0.6, .3, .2]"
+        if [ ${SYSTEM} == "lumi" ]; then
+            TREND_LIMIT=Bandwidth:800
+        fi
+        if [ ${SYSTEM} == "leonardo" ]; then
+            TREND_LIMIT=Bandwidth:400
+        fi
+        ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn ${BENCH_NAMES} -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT} --inner_pos "${INNER_POS}" --labels "${LABELS}"
+    done
+fi
+
+############################
+# Distance tests -- Fig. 5 #
+############################
+if [[ $PLOT_DISTANCE = 1 ]]; then
+    SYSTEMS="leonardo,lumi"
+    #SYSTEMS="alps,leonardo,lumi"
+    PLOT_TYPE="box,boxnofliers,violin,dist"
+    EXTRAS=#same_switch,#diff_switch,#diff_group
+    INPUT="#"
+    XTICKLABELS="[\"Same\nSwitch\", \"Different\nSwitch\", \"Different\nGroup\"]"
+    for DIST in "distance-cpu" #"distance-gpu"
+    do
+        OUT_PATH="plots/out/two-nodes/${DIST}"
+        MAX_Y="leonardo|Latency:6,lumi|Latency:6"
+        ./plots/plot_extras.py -s ${SYSTEMS} -vn "#${DIST}" -vi ${INPUT} -n 2 -am l -sp 100 --metrics "Latency,Bandwidth" -o ${OUT_PATH} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --max_y "${MAX_Y}" --xticklabels "${XTICKLABELS}"    
+    done
+fi
+
+
+if [[ $PLOT_COLL_SCALABILITY_NOISE = 1 ]]; then
+    #########################################
+    # Multi nodes tests - Coll. scalability #
+    #########################################
+    SYSTEM="leonardo"
+    OUT_PATH="plots/out/multi-nodes/${SYSTEM}"
+    PLOT_TYPE="line,box,bar"
+    EXTRA="SL0_hcoll0,SL1_hcoll0"
+    NNODES="8,16,32,64,128,256"
+    LABELS="Default Service Level, Non-Default Service Level"
+    #ERRORBAR="(\"pi\", 50)"
+    ERRORBAR="(\"ci\", 95)"
+    for BENCH in "ar" "a2a"
+    do
+        if [ ${BENCH} == "ar" ]; then
+            declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB" "128MiB" "1GiB" "8GiB")
+            FULLNAME="Allreduce"
+        else
+            declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB")
+            FULLNAME="Alltoall"
+        fi
+
+        for INPUT in "${INPUTS[@]}"
+        do        
+            TESTNAME="${BENCH}"_${INPUT}
+            ./plots/plot_inputs_multinodes.py -s ${SYSTEM} -vn gpubench-${BENCH}-nccl -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE} --labels "${LABELS}" --errorbar "${ERRORBAR}"
+        done
+    done
+fi
+
+
 
 exit 0
 
@@ -103,35 +164,6 @@ TREND_LIMIT=Bandwidth:0
 INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
 TESTNAME="allsizes"
 ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-ar-nccl,a2a_b,ardc_b -vi ${INPUTS} -n 8 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types "${PLOT_TYPE}" #--inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
-
-
-
-
-
-#########################################
-# Multi nodes tests - Coll. scalability #
-#########################################
-SYSTEM="leonardo"
-OUT_PATH="plots/out/multi-nodes/${SYSTEM}"
-PLOT_TYPE="line,box,bar"
-EXTRA="SL0_hcoll0,SL1_hcoll0"
-NNODES="8,16,32,64,128,256"
-for BENCH in "ar" "a2a"
-do
-    if [ ${BENCH} == "ar" ]; then
-        declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB" "128MiB" "1GiB" "8GiB")
-        FULLNAME="Allreduce"
-    else
-        declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB")
-        FULLNAME="Alltoall"
-    fi
-
-    for INPUT in "${INPUTS[@]}"
-    do        
-        TESTNAME="${BENCH}"_${INPUT}
-        ./plots/plot_inputs_multinodes.py -s ${SYSTEM} -vn gpubench-${BENCH}-nccl -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE}
-    done
-done
 
 
 
@@ -236,23 +268,6 @@ do
     TESTNAME=${BENCH}_${SIZE}
     ./plots/plot_extras.py -s ${SYSTEM} -vn ${BENCH} -vi ${SIZE} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE}
 done
-
-##################
-# Distance tests #
-##################
-SYSTEMS="lumi,leonardo"
-OUT_PATH="plots/out/two-nodes/distance"
-PLOT_TYPE="box,boxnofliers,violin,dist"
-for SL in 1
-do
-    EXTRAS=#same_switch,#diff_switch,#diff_group
-    VICTIM_NAME="#distance-cpu"
-    INPUT="#"
-    XTICKLABELS="[\"Same Switch\", \"Different Switch\", \"Different Group\"]"
-    MAX_Y="leonardo|Latency:6,lumi|Latency:6"
-    ./plots/plot_extras.py -s ${SYSTEMS} -vn ${VICTIM_NAME} -vi ${INPUT} -n 2 -am l -sp 100 --metrics "Latency,Bandwidth" -o ${OUT_PATH} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --max_y "${MAX_Y}" #--xticklabels "${XTICKLABELS}"    
-done
-
 
 #######################
 # IB transports tests #
