@@ -1,0 +1,71 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/a2a_b/32KiB', node_file='auto', numnodes=2, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='same_switch', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-msgsize 32768 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['nid001056' 'nid001058']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.04169s.
+
+Running...
+ Run 1:
+  0.00114s: started 0
+  6.05155s: awaited 0
+  Data collection took 0.00162s.
+  Convergence check took 0.00083s.
+ Run 2:
+  0.00122s: started 0
+  6.20725s: awaited 0
+  Data collection took 0.00084s.
+  Convergence check took 0.00079s.
+ Run 3:
+  0.0012s: started 0
+  6.24833s: awaited 0
+  Data collection took 0.0008s.
+  Convergence check took 0.00083s.
+ Run 4:
+  0.0012s: started 0
+  6.35845s: awaited 0
+  Data collection took 0.00082s.
+  Convergence check took 0.00087s.
+ Run 5:
+  0.00125s: started 0
+  6.10483s: awaited 0
+  Data collection took 0.00082s.
+  Convergence check took 0.00098s.
+ Run 6:
+  0.13104s: started 0
+  6.66914s: awaited 0
+  Data collection took 0.00083s.
+  Convergence check took 0.00098s.
+ Run 7:
+  0.08s: started 0
+  6.15057s: awaited 0
+  Data collection took 0.00083s.
+  Convergence check took 0.00102s.
+ Run 8:
+  0.00121s: started 0
+  5.9547s: awaited 0
+  Data collection took 0.00084s.
+  Convergence check took 0.00112s.
+ Run 9:
+  0.1308s: started 0
+  6.27293s: awaited 0
+  Data collection took 0.00081s.
+  Convergence check took 0.00107s.
+ Run 10:
+  0.14592s: started 0
+  7.2973s: awaited 0
+  Data collection took 0.00084s.
+  Convergence check took 0.00115s.
+Completed maximum number of runs, terminated after 10 runs taking 63.33 seconds.
+Writing data & meta-data took 0.03376s.
+Overall took 63.4098s.
