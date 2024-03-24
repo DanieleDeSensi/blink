@@ -1,0 +1,34 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/a2a_b/2MiB', node_file='auto', numnodes=32, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=1, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-msgsize 2097152 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 32 nodes:
+['nid005370' 'nid005371' 'nid005402' 'nid005403' 'nid005404' 'nid005412'
+ 'nid005413' 'nid005414' 'nid005418' 'nid005419' 'nid005420' 'nid005552'
+ 'nid005553' 'nid005604' 'nid005605' 'nid005634' 'nid005635' 'nid005636'
+ 'nid005666' 'nid005667' 'nid005668' 'nid005698' 'nid005699' 'nid005700'
+ 'nid005728' 'nid005729' 'nid005730' 'nid006296' 'nid006297' 'nid006298'
+ 'nid006299' 'nid006300']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.03904s.
+
+Running...
+ Run 1:
+  0.00155s: started 0
+  1.56023s: awaited 0
+  1.56025s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 8 which doesn't match the requested tasks 32 with the number of requested nodes 32. Ignoring --ntasks-per-node.
+
+  Data collection took 0.00019s.
+  Convergence check took 0.00061s.
+Completed after reaching confidence interval, terminated after 1 runs taking 1.56 seconds.
+Writing data & meta-data took 0.00743s.
+Overall took 1.60757s.
