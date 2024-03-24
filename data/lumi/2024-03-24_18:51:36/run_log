@@ -1,0 +1,167 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-cudaaware/1GiB', node_file='auto', numnodes=8, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 8 nodes:
+['nid005940' 'nid005941' 'nid005942' 'nid005943' 'nid005944' 'nid005945'
+ 'nid005946' 'nid005947']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.04175s.
+
+Running...
+ Run 1:
+  0.00384s: started 0
+  20.97753s: awaited 0
+  20.9776s: encountered an exception in 0
+srun: error: nid005944: task 39: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6663390.97
+srun: error: nid005947: task 56: Segmentation fault
+srun: error: nid005940: task 1: Segmentation fault
+srun: error: nid005945: task 43: Segmentation fault
+srun: error: nid005943: task 31: Segmentation fault
+srun: error: nid005941: task 9: Segmentation fault
+srun: error: nid005946: task 48: Segmentation fault
+srun: error: nid005942: task 18: Segmentation fault
+slurmstepd: error: *** STEP 6663390.97 ON nid005940 CANCELLED AT 2024-03-24T18:51:37 ***
+srun: error: nid005944: task 38: Terminated
+srun: error: nid005943: task 30: Terminated
+srun: error: nid005941: task 8: Terminated
+srun: error: nid005942: task 19: Terminated
+srun: error: nid005947: task 57: Terminated
+srun: error: nid005945: task 42: Terminated
+srun: error: nid005946: task 49: Terminated
+srun: error: nid005940: task 0: Terminated
+srun: error: nid005941: tasks 14-15: Terminated
+srun: error: nid005947: tasks 62-63: Terminated
+srun: error: nid005945: task 46: Terminated
+srun: error: nid005941: task 11: Terminated
+srun: error: nid005946: tasks 50,54: Terminated
+srun: error: nid005943: tasks 25-26: Terminated
+srun: error: nid005944: tasks 32-34: Terminated
+srun: error: nid005942: task 17: Terminated
+srun: error: nid005945: tasks 40-41: Terminated
+srun: error: nid005940: tasks 2,7: Terminated
+srun: error: nid005943: tasks 24,27: Terminated
+srun: error: nid005946: tasks 51,55: Terminated
+srun: error: nid005944: tasks 35,37: Terminated
+srun: error: nid005942: tasks 16,20-22: Terminated
+srun: error: nid005944: task 36: Terminated
+srun: error: nid005947: task 58: Terminated
+srun: error: nid005940: tasks 3,6: Terminated
+srun: error: nid005943: tasks 28-29: Terminated
+srun: error: nid005945: tasks 44-45: Terminated
+srun: error: nid005941: tasks 12-13: Terminated
+srun: error: nid005947: tasks 59,61: Terminated
+srun: error: nid005942: task 23: Terminated
+srun: error: nid005947: task 60: Terminated
+srun: error: nid005946: task 53: Terminated
+srun: error: nid005946: task 52: Terminated
+srun: error: nid005940: task 4: Terminated
+srun: error: nid005940: task 5: Terminated
+srun: error: nid005941: task 10: Terminated
+srun: error: nid005945: task 47: Terminated
+srun: Force Terminated StepId=6663390.97
+
+  Data collection took 0.00014s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.00504s: started 0
+  19.87694s: awaited 0
+  19.87701s: encountered an exception in 0
+srun: error: nid005946: task 55: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6663390.98
+srun: error: nid005941: task 15: Segmentation fault
+srun: error: nid005942: task 19: Segmentation fault
+srun: error: nid005947: task 58: Segmentation fault
+srun: error: nid005945: task 47: Segmentation fault
+srun: error: nid005943: task 24: Segmentation fault
+srun: error: nid005944: task 34: Segmentation fault
+srun: error: nid005940: task 0: Segmentation fault
+slurmstepd: error: *** STEP 6663390.98 ON nid005940 CANCELLED AT 2024-03-24T18:51:58 ***
+srun: error: nid005941: tasks 8,14: Terminated
+srun: error: nid005942: tasks 18,20: Terminated
+srun: error: nid005945: task 46: Terminated
+srun: error: nid005944: tasks 35,37: Terminated
+srun: error: nid005946: tasks 48,54: Terminated
+srun: error: nid005941: tasks 9-13: Terminated
+srun: error: nid005942: tasks 16,21,23: Terminated
+srun: error: nid005947: tasks 56,59: Terminated
+srun: error: nid005945: tasks 41-42,44: Terminated
+srun: error: nid005944: tasks 32-33,36,39: Terminated
+srun: error: nid005946: tasks 49-50,52-53: Terminated
+srun: error: nid005944: task 38: Terminated
+srun: error: nid005946: task 51: Terminated
+srun: error: nid005942: tasks 17,22: Terminated
+srun: error: nid005947: tasks 57,60-62: Terminated
+srun: error: nid005940: tasks 1,5: Terminated
+srun: error: nid005945: tasks 40,43,45: Terminated
+srun: error: nid005947: task 63: Terminated
+srun: error: nid005943: task 25: Terminated
+srun: error: nid005940: tasks 2-4,6-7: Terminated
+srun: error: nid005943: tasks 26,28,30: Terminated
+srun: error: nid005943: tasks 27,29,31: Terminated
+srun: Force Terminated StepId=6663390.98
+
+  Data collection took 0.00011s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00425s: started 0
+  33.30954s: awaited 0
+  33.30961s: encountered an exception in 0
+srun: error: nid005942: task 19: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6663390.99
+srun: error: nid005944: task 35: Segmentation fault
+srun: error: nid005945: task 40: Segmentation fault
+srun: error: nid005940: task 4: Segmentation fault
+srun: error: nid005943: task 31: Segmentation fault
+srun: error: nid005947: task 63: Segmentation fault
+slurmstepd: error: *** STEP 6663390.99 ON nid005940 CANCELLED AT 2024-03-24T18:52:21 ***
+srun: error: nid005946: task 50: Segmentation fault
+srun: error: nid005941: task 9: Segmentation fault
+srun: error: nid005940: task 0: Terminated
+srun: error: nid005940: task 1: Terminated
+srun: error: nid005947: task 62: Terminated
+srun: error: nid005943: task 30: Terminated
+srun: error: nid005946: task 51: Terminated
+srun: error: nid005944: task 34: Terminated
+srun: error: nid005941: task 8: Terminated
+srun: error: nid005942: task 18: Terminated
+srun: error: nid005945: task 41: Terminated
+srun: error: nid005946: task 55: Terminated
+srun: error: nid005946: task 54: Terminated
+srun: error: nid005945: tasks 43,46-47: Terminated
+srun: error: nid005941: tasks 14-15: Terminated
+srun: error: nid005942: tasks 22-23: Terminated
+srun: error: nid005943: tasks 24-25,27: Terminated
+srun: error: nid005947: tasks 56-57: Terminated
+srun: error: nid005946: tasks 48-49: Terminated
+srun: error: nid005944: task 39: Terminated
+srun: error: nid005945: task 42: Terminated
+srun: error: nid005941: tasks 10-11: Terminated
+srun: error: nid005943: task 26: Terminated
+srun: error: nid005942: tasks 16-17,21: Terminated
+srun: error: nid005942: task 20: Terminated
+srun: error: nid005944: tasks 32-33,38: Terminated
+srun: error: nid005946: tasks 52-53: Terminated
+srun: error: nid005947: tasks 60-61: Terminated
+srun: error: nid005944: tasks 36-37: Terminated
+srun: error: nid005941: tasks 12-13: Terminated
+srun: error: nid005947: tasks 58-59: Terminated
+srun: error: nid005943: task 29: Terminated
+srun: error: nid005945: tasks 44-45: Terminated
+srun: error: nid005943: task 28: Terminated
+srun: error: nid005940: tasks 2-3,5,7: Terminated
+srun: error: nid005940: task 6: Terminated
+srun: Force Terminated StepId=6663390.99
+
+  Data collection took 0.0001s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 3 runs taking 74.17 seconds.
