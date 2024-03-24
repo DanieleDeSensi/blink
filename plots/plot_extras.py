@@ -60,6 +60,15 @@ extra_fullname["diff_group"] = "Diff.\nGroup"
 extra_fullname["diff_switch"] = "Diff.\nSwitch"
 extra_fullname["same_switch"] = "Same\nSwitch"
 
+extra_fullname["0-1"] = "0->1"
+extra_fullname["0-2"] = "0->2"
+extra_fullname["0-3"] = "0->3"
+extra_fullname["0-4"] = "0->4"
+extra_fullname["0-5"] = "0->5"
+extra_fullname["0-6"] = "0->6"
+extra_fullname["0-7"] = "0->7"
+
+
 def main():
     parser=argparse.ArgumentParser(description='Plots the performance distribution for a specific victim/aggressor combination, for different extras.')
     parser.add_argument('-d', '--data_folder', help='Main data folder.', default="data")

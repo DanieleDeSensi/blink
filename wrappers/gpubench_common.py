@@ -11,8 +11,9 @@ class gpubench(base):
 
     def get_path(self, name):
         p = ""
-        if os.environ["BLINK_SYSTEM"] == "alps":
-            p += os.environ["BLINK_ROOT"] + "/conf/select_gpu_device.sh "            
+        sys = os.environ["BLINK_SYSTEM"]
+        if "CudaAware" in name and (sys == "alps" or sys == "lumi"):
+            p += os.environ["BLINK_ROOT"] + "/src/microbench-gpu/select_gpu_" + sys + " "            
         p += os.environ["BLINK_ROOT"] + "/src/microbench-gpu/bin/" + name
         return p
     

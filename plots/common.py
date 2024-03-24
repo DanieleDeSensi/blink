@@ -112,24 +112,12 @@ def get_num_ib_devices(system):
 # - We return runtime in microseconds
 def get_bench_data(bench, input, metric, filename, ppn, nodes, system):
     microbenchs = ["ping-pong_b", "pw-ping-pong_b", "a2a_b", "ardc_b"]
+
     if "gpubench" in bench:
         if metric == "Bandwidth":
             return pd.read_csv(filename)["0_Bandwidth_GB/s"]*8
         elif metric == "Runtime" or metric == "Latency":
             return pd.read_csv(filename)["0_Transfer Time_s"]*1e6
-    elif bench == "nccl-sendrecv" or bench == "nccl-allreduce" or bench == "nccl-alltoall":
-        if metric == "Bandwidth":
-            return pd.read_csv(filename)["0_busbw-ip_GB/s"]*8
-        elif metric == "Runtime" or metric == "Latency":
-            return pd.read_csv(filename)["0_time-ip_us"]
-    elif bench == "ib_send_lat":
-        if metric == "Runtime" or metric == "Latency":
-            return pd.read_csv(filename)["1_time_us"] # 0_ is the server
-        elif metric == "Bandwidth":
-            num_devices = get_num_ib_devices(system)
-            input_bits = input_size_to_bytes(input)*8*num_devices
-            input_gbits = input_bits / 1e9
-            return input_gbits / (pd.read_csv(filename)["1_time_us"] / 1e6)
     elif bench in microbenchs:
         if bench == "ping-pong_b":
             time_str = "0_MainRank-Duration_s"            
@@ -149,6 +137,20 @@ def get_bench_data(bench, input, metric, filename, ppn, nodes, system):
             elif bench == "ardc_b":
                 gbit_s *= 2 # I actually send twice the data (e.g., Rabenseifner's algorithm)
             return gbit_s
+    elif bench == "nccl-sendrecv" or bench == "nccl-allreduce" or bench == "nccl-alltoall":
+        if metric == "Bandwidth":
+            return pd.read_csv(filename)["0_busbw-ip_GB/s"]*8
+        elif metric == "Runtime" or metric == "Latency":
+            return pd.read_csv(filename)["0_time-ip_us"]
+    elif bench == "ib_send_lat":
+        if metric == "Runtime" or metric == "Latency":
+            return pd.read_csv(filename)["1_time_us"] # 0_ is the server
+        elif metric == "Bandwidth":
+            num_devices = get_num_ib_devices(system)
+            input_bits = input_size_to_bytes(input)*8*num_devices
+            input_gbits = input_bits / 1e9
+            return input_gbits / (pd.read_csv(filename)["1_time_us"] / 1e6)
+
     raise Exception("Error: metric " + metric + " not supported for bench " + bench)
 
 def add_unit_to_metric(metric_hr):
@@ -199,13 +201,29 @@ def get_actual_bench_name(bench, system, input):
                     return "ib_send_lat"
         elif bench == "#distance-gpu":        
             return "gpubench-mpp-nccl"
+        elif bench == "#a2a-gpu": # TODO: FIX
+            if system == "leonardo":
+                return "gpubench-a2a-nccl"
+            else:
+                return "gpubench-a2a-cudaaware"
+        elif bench == "#ar-gpu": # TODO: FIX
+            if system == "leonardo":
+                return "gpubench-ar-nccl"
+            else:
+                return "gpubench-ar-cudaaware"
+            
     else:
         return bench
     raise Exception("Error: bench " + bench + " not supported for system " + system)
 
 # Returns the actual name of the extra, given the name of the extra and the system
 def get_actual_extra_name(extra, system, victim_name):
-    if extra.startswith("#"):
+    if extra == "#":
+        if system == "lumi":
+            return ""
+        elif system == "leonardo":
+            return "SL0_hcoll0"
+    elif extra.startswith("#"):
         if "#diff_group" in extra or "#diff_switch" in extra or "#same_switch" in extra:
             if system == "lumi" or system == "alps":
                 return extra.replace("#", "")
@@ -358,13 +376,10 @@ def get_human_readable_allocation_mode(am):
 def get_default_multinode_ppn(system, bench):
     if system == "lumi":
         if "gpubench" in bench:
-            return 4
-            '''
             if "mpp-cuda" in bench:
                 return 4
             else:
                 return 8
-            '''
         else:
             return 4
     elif system == "leonardo":

@@ -1,4 +1,0 @@
- #!/bin/bash
- export CUDA_VISIBLE_DEVICES=$SLURM_LOCALID
- export ROCR_VISIBLE_DEVICES=$SLURM_LOCALID
- exec $*

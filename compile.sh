@@ -48,12 +48,9 @@ if [ "$BLINK_GPU_BENCH" = "true" ]; then
     # Compile GPU microbench
     pushd src/microbench-gpu
         git fetch
+        git checkout ${BLINK_GPU_MICROBENCH_COMMIT}
         if [ "${BLINK_SYSTEM}" = "lumi" ]; then
-            git checkout add-lumi
-            git checkout 385357f
             ./create_hip_file.sh
-        else
-            git checkout ${BLINK_GPU_MICROBENCH_COMMIT}
         fi
         MAKEFILE_NAME="Makefile.${BLINK_SYSTEM^^}"
         if [ -f ${MAKEFILE_NAME} ]; then

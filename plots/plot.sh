@@ -3,7 +3,9 @@ rm -rf plots/out/*
 PLOT_SINGLE_NODE=0
 PLOT_TWO_NODES=0
 PLOT_DISTANCE=0
-PLOT_COLL_SCALABILITY_NOISE=1
+PLOT_COLL_SCALABILITY=1
+PLOT_COLL_SCALABILITY_NOISE=0
+PLOT_LUMI_GPU_PAIRS=0
 
 #################################
 # Single-node tests -- Fig. 1-3 #
@@ -14,18 +16,18 @@ if [[ $PLOT_SINGLE_NODE = 1 ]]; then
         INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
         OUT_PATH="plots/out/single_node/${SYSTEM}"
         PLOT_TYPE="line"
-        for TESTNAME in "gpubench-pp" "gpubench-a2a" "gpubench-ar"
+        for TESTNAME in "gpubench-pp" #"gpubench-a2a" "gpubench-ar"
         do
             VICTIM_NAMES="${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink"
             LABELS="*CCL,Trivial Staging,GPU-Aware MPI,Device-Device Copy"
             if [ ${TESTNAME} == "gpubench-pp" ]; then
                 PPN=2
                 if [ ${SYSTEM} == "lumi" ]; then
-                    TREND_LIMIT=Bandwidth:400  
+                    TREND_LIMIT=Bandwidth:400:Peak_Bw_\(GPU-GPU\),Bandwidth:72:Exp._Trivial_Bw
                 elif [ ${SYSTEM} == "leonardo" ]; then
-                    TREND_LIMIT=Bandwidth:800
+                    TREND_LIMIT=Bandwidth:800:Peak_Bw_\(GPU-GPU\),Bandwidth:112:Exp._Trivial_Bw
                 else # Alps
-                    TREND_LIMIT=Bandwidth:1200
+                    TREND_LIMIT=Bandwidth:1200:Peak_Bw_\(GPU-GPU\),Bandwidth:88:Exp._Trivial_Bw
                 fi
             fi
             if [ ${TESTNAME} == "gpubench-a2a" ]; then
@@ -102,19 +104,48 @@ if [[ $PLOT_DISTANCE = 1 ]]; then
     done
 fi
 
+if [[ $PLOT_COLL_SCALABILITY = 1 ]]; then
+    #########################################
+    # Multi nodes tests - Coll. scalability #
+    #########################################
+    SYSTEMS="leonardo,lumi"
+    OUT_PATH="plots/out/multi-nodes/${SYSTEM}"
+    PLOT_TYPE="line,box,bar"
+    EXTRA="#"
+    NNODES="8,16,32,64,128" #,256
+    ERRORBAR="(\"pi\", 50)"
+    #ERRORBAR="(\"ci\", 95)"
+    for BENCH in "ar" "a2a"
+    do
+        if [ ${BENCH} == "ar" ]; then
+            declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB" "128MiB" "1GiB" "8GiB")
+            FULLNAME="Allreduce"
+        else
+            declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB")
+            FULLNAME="Alltoall"
+        fi
+
+        for INPUT in "${INPUTS[@]}"
+        do        
+            TESTNAME="${BENCH}"_${INPUT}
+            ./plots/plot_nodes_multisystem.py -s ${SYSTEMS} -vn "#${BENCH}-gpu" -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types ${PLOT_TYPE} -e ${EXTRA} --bw_per_node #--errorbar "${ERRORBAR}"
+        done
+    done
+fi
+
 
 if [[ $PLOT_COLL_SCALABILITY_NOISE = 1 ]]; then
     #########################################
     # Multi nodes tests - Coll. scalability #
     #########################################
     SYSTEM="leonardo"
-    OUT_PATH="plots/out/multi-nodes/${SYSTEM}"
+    OUT_PATH="plots/out/multi-nodes/${SYSTEM}/noise"
     PLOT_TYPE="line,box,bar"
     EXTRA="SL0_hcoll0,SL1_hcoll0"
-    NNODES="8,16,32,64,128,256"
+    NNODES="8,16,32,64,128" #,256
     LABELS="Default Service Level, Non-Default Service Level"
-    #ERRORBAR="(\"pi\", 50)"
-    ERRORBAR="(\"ci\", 95)"
+    ERRORBAR="(\"pi\", 50)"
+    #ERRORBAR="(\"ci\", 95)"
     for BENCH in "ar" "a2a"
     do
         if [ ${BENCH} == "ar" ]; then
@@ -134,38 +165,57 @@ if [[ $PLOT_COLL_SCALABILITY_NOISE = 1 ]]; then
 fi
 
 
+##################
+# LUMI GPU Pairs #
+##################
+if [[ $PLOT_LUMI_GPU_PAIRS = 1 ]]; then
+    SYSTEM="lumi"
+    PLOT_TYPE="line,box,bar"
+    EXTRAS="0-1,0-2,0-3,0-4,0-5,0-6,0-7"
+    INPUT="1GiB"    
+    OUT_PATH="plots/out/single_node/gpupairs/${SYSTEM}"
+    BENCHS="gpubench-pp-baseline,gpubench-pp-nccl,gpubench-pp-nvlink,gpubench-pp-cudaaware"
+    LABELS="Trivial Staging,*CCL,Device-Device Copy,GPU-Aware MPI"
+    BARPLOT_TOPS="1600,400,400,400,400,800,800"
+    ./plots/plot_extras_multivictim.py -s ${SYSTEM} -vn "${BENCHS}" -vi ${INPUT} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH} --ppn 2 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --labels "${LABELS}" --barplot_tops "${BARPLOT_TOPS}"
+fi
 
 exit 0
-
-###################
-# 256 nodes tests #
-###################
-NUMNODES=256
-SYSTEM="lumi"
-OUT_PATH="plots/out/${NUMNODES}-nodes/${SYSTEM}"
-PLOT_TYPE="line,box"
-INNER_YLIM="[50, 150]"
-INNER_POS="[0.2, 0.6, .3, .2]"
-TREND_LIMIT=Bandwidth:0
-INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
-TESTNAME="allsizes"
-./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-ar-nccl,a2a_b,ardc_b -vi ${INPUTS} -n ${NUMNODES} -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types "${PLOT_TYPE}" #--inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
-
-
 #################
 # 8 nodes tests #
 #################
-SYSTEM="lumi"
-OUT_PATH="plots/out/8-nodes/${SYSTEM}"
-PLOT_TYPE="line,box"
-INNER_YLIM="[50, 150]"
-INNER_POS="[0.2, 0.6, .3, .2]"
-TREND_LIMIT=Bandwidth:0
-INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
-TESTNAME="allsizes"
-./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn gpubench-a2a-nccl,gpubench-ar-nccl,a2a_b,ardc_b -vi ${INPUTS} -n 8 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types "${PLOT_TYPE}" #--inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
+# Allreduce
+NNODES=32
+for SYSTEM in "lumi"
+do
+    OUT_PATH="plots/out/${NNODES}-nodes/allreduce/${SYSTEM}"
+    PLOT_TYPE="line,box"
+    INNER_YLIM="[50, 150]"
+    INNER_POS="[0.2, 0.6, .3, .2]"
+    TREND_LIMIT=Bandwidth:800
+    INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+    TESTNAME="allsizes"
+    BENCHMARKS="gpubench-ar-nccl,gpubench-ar-cudaaware,ardc_b"
+    LABELS="*CCL,GPU-Aware MPI,MPI - Host Mem."
+    ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn ${BENCHMARKS} -vi ${INPUTS} -n ${NNODES} -am l -sp 100 --metrics "Bandwidth" --bw_per_node -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types "${PLOT_TYPE}" --labels "${LABELS}" --trend_limit ${TREND_LIMIT} #--inner_ylim "${INNER_YLIM}" 
+done
 
+# Alltoall
+for SYSTEM in "lumi"
+do
+    OUT_PATH="plots/out/${NNODES}-nodes/alltoall/${SYSTEM}"
+    PLOT_TYPE="line,box"
+    INNER_YLIM="[50, 150]"
+    INNER_POS="[0.2, 0.6, .3, .2]"
+    TREND_LIMIT=Bandwidth:800
+    INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+    TESTNAME="allsizes"
+    BENCHMARKS="gpubench-a2a-nccl,gpubench-a2a-cudaaware,a2a_b"
+    LABELS="*CCL,GPU-Aware MPI,MPI - Host Mem."
+    ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn ${BENCHMARKS} -vi ${INPUTS} -n ${NNODES} -am l -sp 100 --metrics "Bandwidth" --bw_per_node -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types "${PLOT_TYPE}" --labels "${LABELS}" --trend_limit ${TREND_LIMIT} #--inner_ylim "${INNER_YLIM}" 
+done
 
+exit 0
 
 #######################################
 # Service levels + IB Transport tests #

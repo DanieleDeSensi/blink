@@ -33,13 +33,14 @@ def main():
     parser.add_argument('-e', '--extra', help='Extra info about the execution.', default="")
     parser.add_argument('-m', '--metrics', help='Comma-separated string of metrics to plot.', default="0_Avg-Duration_s")
     parser.add_argument('-p', '--ppn', help='Processes per node.')
-    parser.add_argument('-tl', '--trend_limit', help='Y-axis upper limit. (format metric:limit)')
+    parser.add_argument('-tl', '--trend_limit', help='Y-axis upper limit. (format metric:limit:label) More of them comma-separated')
     parser.add_argument('-my', '--max_y', help='Max value on the y-axis')
     parser.add_argument('-pt', '--plot_types', help='Types of plots to produce. Comma-separated list of "line", "box", "bar".', default="line,box,bar")
     parser.add_argument('-ip', '--inner_pos', help='Positioning arguments for the inner plot.', default="[0.23, 0.6, .3, .2]")
     parser.add_argument('-iy', '--inner_ylim', help='Y-axis limits for the inner plot.', default="[0, 100]")
     parser.add_argument('-l', '--labels', help='Comma-separated list of labels.')
     parser.add_argument('-o', '--outfile', help='Path of output files.', required=True)
+    parser.add_argument('--bw_per_node', help='Report bandwidth per-node rather than per-rank.', action='store_true')
 
     args = parser.parse_args()
 
@@ -60,6 +61,11 @@ def main():
                 ppn = get_default_multinode_ppn(args.system, vn_a)
             else:
                 ppn = int(args.ppn)
+
+            scaling_factor = 1
+            if args.bw_per_node and metric_hr == "Bandwidth":
+                scaling_factor = ppn
+            
             allocation_split = args.allocation_split
             # TODO: This is a hack, make it cleaner
             if vn == "ib_send_lat":
@@ -87,6 +93,8 @@ def main():
 
                     if data.empty:
                         raise Exception("Error: data file " + filename + " does not contain data for metric " + actual_metric)
+                    
+                    data[actual_metric] *= scaling_factor
                     data["Input"] = vi
                     data["Application"] = vn # victim_fn
                     if metric_hr == "Bandwidth" and actual_metric == "Runtime": # Save the data for the inner plot in the bandwidth plots
@@ -115,9 +123,17 @@ def main():
 
             # Plots the limit if specified
             if args.trend_limit:
-                m, limit = args.trend_limit.split(":")
-                if metric_hr == m:
-                    ax.axhline(y=float(limit), color='black', linestyle='--')
+                for limit_str in args.trend_limit.split(","):
+                    if limit_str.count(":") == 1:
+                        m, limit = limit_str.split(":")
+                        label = None
+                    else:
+                        m, limit, label = limit_str.split(":")
+                    if metric_hr == m:
+                        ax.axhline(y=float(limit), color='black', linestyle='--')
+                        if label:
+                            label = label.replace("_", " ") 
+                            ax.text(7, float(limit), label, fontsize=8, va='center', ha='center', backgroundcolor='w')
 
             # Set the title and labels
             #ax.set_title(title)
