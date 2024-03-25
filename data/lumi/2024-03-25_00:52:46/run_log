@@ -1,0 +1,148 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-cudaaware/1GiB', node_file='auto', numnodes=4, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 4 nodes:
+['nid005827' 'nid005949' 'nid006364' 'nid006366']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.05277s.
+
+Running...
+ Run 1:
+  0.00242s: started 0
+  76.58824s: awaited 0
+  76.58827s: encountered an exception in 0
+srun: error: nid005827: task 5: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6667484.74
+srun: error: slurm_msg_sendto: address:port=10.253.24.253:47796 msg_type=8001: Unexpected missing socket error
+srun: error: nid006366: tasks 24,28: Segmentation fault
+srun: error: slurm_msg_sendto: address:port=10.253.49.226:43388 msg_type=8001: Unexpected missing socket error
+srun: error: nid005949: tasks 12-13: Segmentation fault
+srun: error: slurm_msg_sendto: address:port=10.253.23.188:46228 msg_type=8001: Unexpected missing socket error
+srun: error: nid006364: tasks 20-21: Segmentation fault
+srun: error: slurm_msg_sendto: address:port=10.253.49.239:46200 msg_type=8001: Unexpected missing socket error
+srun: error: nid005827: task 5: Segmentation fault
+srun: error: Task 5 reported exit for a second time.
+srun: error: slurm_msg_sendto: address:port=10.253.24.253:39384 msg_type=8001: Unexpected missing socket error
+srun: error: nid006366: tasks 24,28: Segmentation fault
+srun: error: Task 24 reported exit for a second time.
+srun: error: Task 28 reported exit for a second time.
+srun: error: slurm_msg_sendto: address:port=10.253.49.226:35688 msg_type=8001: Unexpected missing socket error
+srun: error: nid005949: tasks 12-13: Segmentation fault
+srun: error: Task 12 reported exit for a second time.
+srun: error: Task 13 reported exit for a second time.
+srun: error: slurm_msg_sendto: address:port=10.253.23.188:59984 msg_type=8001: Unexpected missing socket error
+srun: error: nid006364: tasks 20-21: Segmentation fault
+srun: error: Task 20 reported exit for a second time.
+srun: error: Task 21 reported exit for a second time.
+srun: error: slurm_msg_sendto: address:port=10.253.49.239:38460 msg_type=8001: Unexpected missing socket error
+srun: error: nid005827: task 5: Segmentation fault
+srun: error: Task 5 reported exit for a second time.
+srun: error: slurm_msg_sendto: address:port=10.253.24.253:59814 msg_type=8001: Unexpected missing socket error
+srun: error: nid006366: tasks 24,28: Segmentation fault
+srun: error: Task 24 reported exit for a second time.
+srun: error: Task 28 reported exit for a second time.
+srun: error: slurm_msg_sendto: address:port=10.253.49.226:37198 msg_type=8001: Unexpected missing socket error
+srun: error: nid005949: tasks 12-13: Segmentation fault
+srun: error: Task 12 reported exit for a second time.
+srun: error: Task 13 reported exit for a second time.
+srun: error: slurm_msg_sendto: address:port=10.253.23.188:35308 msg_type=8001: Unexpected missing socket error
+srun: error: nid006364: tasks 20-21: Segmentation fault
+srun: error: Task 20 reported exit for a second time.
+srun: error: Task 21 reported exit for a second time.
+srun: error: slurm_msg_sendto: address:port=10.253.49.239:44084 msg_type=8001: Unexpected missing socket error
+srun: error: nid005827: task 5: Segmentation fault
+srun: error: Task 5 reported exit for a second time.
+srun: error: slurm_msg_sendto: address:port=10.253.24.253:49622 msg_type=8001: Unexpected missing socket error
+srun: error: nid006366: tasks 24,28: Segmentation fault
+srun: error: Task 24 reported exit for a second time.
+srun: error: Task 28 reported exit for a second time.
+srun: error: slurm_msg_sendto: address:port=10.253.49.226:36132 msg_type=8001: Unexpected missing socket error
+srun: error: nid005949: tasks 12-13: Segmentation fault
+srun: error: Task 12 reported exit for a second time.
+srun: error: Task 13 reported exit for a second time.
+srun: error: slurm_msg_sendto: address:port=10.253.23.188:52174 msg_type=8001: Unexpected missing socket error
+srun: error: nid006364: tasks 20-21: Segmentation fault
+srun: error: Task 20 reported exit for a second time.
+srun: error: Task 21 reported exit for a second time.
+srun: error: nid005827: task 5: Segmentation fault
+srun: error: Task 5 reported exit for a second time.
+srun: error: nid006366: tasks 24,28: Segmentation fault
+srun: error: Task 24 reported exit for a second time.
+srun: error: Task 28 reported exit for a second time.
+srun: error: nid005949: tasks 12-13: Segmentation fault
+srun: error: Task 12 reported exit for a second time.
+srun: error: Task 13 reported exit for a second time.
+slurmstepd: error: *** STEP 6667484.74 ON nid005827 CANCELLED AT 2024-03-25T00:53:58 ***
+srun: error: nid005827: task 2: Segmentation fault
+srun: error: nid005827: tasks 0,3-4,7: Terminated
+srun: error: nid006364: tasks 16-17,19,23: Terminated
+srun: error: nid006366: tasks 25-26,29-30: Terminated
+srun: error: nid005949: tasks 9-10,14: Terminated
+srun: error: nid005827: tasks 1,6: Terminated
+srun: error: nid006364: tasks 18,22: Terminated
+srun: error: nid005949: tasks 8,11,15: Terminated
+srun: error: nid006366: tasks 27,31: Terminated
+srun: Force Terminated StepId=6667484.74
+
+  Data collection took 4e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.00244s: started 0
+  20.3773s: awaited 0
+  20.37733s: encountered an exception in 0
+srun: error: nid005827: tasks 4-5: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6667484.75
+srun: error: nid006366: tasks 26-27: Segmentation fault
+srun: error: nid005949: tasks 10-11: Segmentation fault
+slurmstepd: error: *** STEP 6667484.75 ON nid005827 CANCELLED AT 2024-03-25T00:54:13 ***
+srun: error: nid006364: tasks 20-21: Segmentation fault
+srun: error: nid005827: tasks 6-7: Terminated
+srun: error: nid006364: tasks 22-23: Terminated
+srun: error: nid006366: tasks 25,31: Terminated
+srun: error: nid005949: tasks 8,14: Terminated
+srun: error: nid006364: tasks 16-18: Terminated
+srun: error: nid005827: tasks 0-1: Terminated
+srun: error: nid006364: task 19: Terminated
+srun: error: nid005827: tasks 2-3: Terminated
+srun: error: nid006366: tasks 24,28-30: Terminated
+srun: error: nid005949: tasks 9,12-13,15: Terminated
+srun: Force Terminated StepId=6667484.75
+
+  Data collection took 5e-05s.
+  Convergence check took 0.0s.
+ Run 3:
+  0.0023s: started 0
+  20.60873s: awaited 0
+  20.60876s: encountered an exception in 0
+srun: error: nid005827: tasks 4-5: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6667484.76
+srun: error: nid006366: tasks 28-29: Segmentation fault
+srun: error: nid005949: tasks 12-13: Segmentation fault
+srun: error: nid006364: tasks 20-21: Segmentation fault
+slurmstepd: error: *** STEP 6667484.76 ON nid005827 CANCELLED AT 2024-03-25T00:54:38 ***
+srun: error: nid005827: task 6: Terminated
+srun: error: nid005949: tasks 14-15: Terminated
+srun: error: nid006366: tasks 30-31: Terminated
+srun: error: nid005827: task 7: Terminated
+srun: error: nid005827: tasks 0,2-3: Terminated
+srun: error: nid006366: tasks 24-25,27: Terminated
+srun: error: nid006364: tasks 16,23: Terminated
+srun: error: nid005949: tasks 8-10: Terminated
+srun: error: nid005827: task 1: Terminated
+srun: error: nid006366: task 26: Terminated
+srun: error: nid005949: task 11: Terminated
+srun: error: nid006364: tasks 17-19,22: Terminated
+srun: Force Terminated StepId=6667484.76
+
+  Data collection took 4e-05s.
+  Convergence check took 0.0s.
+Completed maximum number of runs, terminated after 3 runs taking 117.58 seconds.
