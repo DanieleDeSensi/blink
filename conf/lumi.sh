@@ -17,8 +17,8 @@ export BLINK_MPIRUN_HOSTFILE_LONG_FLAG="" # Flag for specifying the hostfile (16
 if [ -n "${BLINK_PINNING_FLAGS}" ]; then
     export BLINK_PINNING_FLAGS=${BLINK_PINNING_FLAGS}
 else
-    export BLINK_PINNING_FLAGS="--cpu-bind=map_cpu=57,25,41,9,49,17,33,1" # Pinning flags
-    #export BLINK_PINNING_FLAGS="--cpu-bind=map_cpu=9,25,41,57,1,17,33,49" # Pinning flags
+    export BLINK_PINNING_FLAGS="--cpu-bind=map_cpu:57,25,41,9,49,17,33,1" # Pinning flags
+    #export BLINK_PINNING_FLAGS="--cpu-bind=map_cpu:9,25,41,57,1,17,33,49" # Pinning flags
 fi
 export BLINK_MPIRUN_ADDITIONAL_FLAGS=""    # Any additional flag that must be used by mpirun
 export BLINK_INTERFACE_MASK="148.187.36.181/19" # Interface address + mask size of the two nodes
