@@ -1,0 +1,129 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/pp-baseline/1B', node_file='auto', numnodes=1, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=2, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 2
+0 on 1 nodes:
+['nid001340']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02663s.
+
+Running...
+ Run 1:
+  0.00312s: started 0
+  0.37024s: awaited 0
+  0.37025s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001340: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51805.0
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.00342s: started 0
+  0.26214s: awaited 0
+  0.26215s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001340: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51805.1
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 3:
+  0.00317s: started 0
+  0.40186s: awaited 0
+  0.40188s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001340: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51805.2
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 4:
+  0.00354s: started 0
+  0.47756s: awaited 0
+  0.47758s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001340: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51805.3
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 5:
+  0.00336s: started 0
+  0.2693s: awaited 0
+  0.26932s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001340: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51805.4
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 6:
+  0.00321s: started 0
+  0.26117s: awaited 0
+  0.26118s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001340: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51805.5
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 7:
+  0.0031s: started 0
+  0.40059s: awaited 0
+  0.40059s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001340: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51805.6
+
+  Data collection took 0.0s.
+  Convergence check took 0.0s.
+ Run 8:
+  0.00337s: started 0
+  0.25958s: awaited 0
+  0.25959s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001340: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51805.7
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 9:
+  0.00308s: started 0
+  0.38902s: awaited 0
+  0.38902s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001340: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51805.8
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 10:
+  0.00306s: started 0
+  0.34376s: awaited 0
+  0.34377s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libmpi_gnu_123.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001340: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51805.9
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+Completed maximum number of runs, terminated after 10 runs taking 3.44 seconds.

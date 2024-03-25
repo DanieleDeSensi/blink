@@ -1,0 +1,36 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-baseline/1B', node_file='auto', numnodes=1, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 1 nodes:
+['nid001100']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.07343s.
+
+Running...
+ Run 1:
+  0.00116s: started 0
+  6.32643s: awaited 0
+  Data collection took 0.00023s.
+  Convergence check took 0.00081s.
+ Run 2:
+  0.10405s: started 0
+  5.93368s: awaited 0
+  Data collection took 0.00013s.
+  Convergence check took 0.0007s.
+ Run 3:
+  0.13879s: started 0
+  5.94023s: awaited 0
+  Data collection took 0.00012s.
+  Convergence check took 0.00069s.
+Completed after reaching confidence interval, terminated after 3 runs taking 18.2 seconds.
+Writing data & meta-data took 0.00969s.
+Overall took 18.28767s.
