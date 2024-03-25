@@ -20,7 +20,7 @@ export BLINK_PINNING_FLAGS="--cpu-bind=map_cpu=49,57,17,25,1,9,33,41" # Pinning 
 EXTRA="0-1"
 
 
-ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file --maxruns 10 ${EXTRA}"
+ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file --maxruns 10 -e ${EXTRA}"
 # Baseline
 source src/microbench-gpu/moduleload/load_Baseline_modules.sh
 ./run.sh test_suites/gpubench_pp_baseline ${ARGS} --ppn 2
