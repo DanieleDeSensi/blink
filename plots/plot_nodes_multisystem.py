@@ -12,6 +12,7 @@ import argparse
 import csv
 import importlib.util
 import ast
+import math
 from common import *
 
 matplotlib.rc('pdf', fonttype=42) # To avoid issues with camera-ready submission
@@ -22,9 +23,9 @@ rcParams['figure.figsize'] = 8,4.5
 def main():
     parser=argparse.ArgumentParser(description='Plots the performance of benchmarks/applications for different inputs.')
     parser.add_argument('-d', '--data_folder', help='Main data folder.', default="data")
-    parser.add_argument('-s', '--system', help='System name.', required=True)
+    parser.add_argument('-s', '--systems', help='System name.', required=True)
     parser.add_argument('-vn', '--victim_names', help='Comma-separated list of victims. The names must match the filename of the Python wrapper.', required=True)
-    parser.add_argument('-vi', '--victim_inputs', help='Comma-separated list of inputs.', required=True)
+    parser.add_argument('-vi', '--victim_input', help='Comma-separated list of inputs.', required=True)
     parser.add_argument('-an', '--aggressor_name', help='Name of the aggressor. It must match the filename of the Python wrapper.', default="")
     parser.add_argument('-ai', '--aggressor_input', help='Aggressor input.', default="")    
     parser.add_argument('-n', '--numnodes', help='The number of nodes the mix was executed on (total).', required=True)
@@ -36,93 +37,89 @@ def main():
     parser.add_argument('-tl', '--trend_limit', help='Y-axis upper limit. (format metric:limit:label) More of them comma-separated')
     parser.add_argument('-my', '--max_y', help='Max value on the y-axis')
     parser.add_argument('-pt', '--plot_types', help='Types of plots to produce. Comma-separated list of "line", "box", "bar".', default="line,box,bar")
-    parser.add_argument('-ip', '--inner_pos', help='Positioning arguments for the inner plot.', default="[0.23, 0.6, .3, .2]")
-    parser.add_argument('-iy', '--inner_ylim', help='Y-axis limits for the inner plot.')
-    parser.add_argument('-l', '--labels', help='Comma-separated list of labels.')
     parser.add_argument('-o', '--outfile', help='Path of output files.', required=True)
     parser.add_argument('--bw_per_node', help='Report bandwidth per-node rather than per-rank.', action='store_true')
     parser.add_argument('--errorbar', help='Error bar.', default="(\"ci\", 90)")
 
     args = parser.parse_args()
-    if args.extra == "NULL":
-        args.extra = ""
 
     os.environ["BLINK_ROOT"] = os.path.dirname(os.path.abspath(__file__)) + "/../" # Set BLINK_ROOT
     if not os.path.exists(args.outfile.lower()): 
         os.makedirs(args.outfile.lower())
 
-    victim_names = args.victim_names.split(",")
-    victim_inputs = args.victim_inputs.split(",")
-
     global_df_time = None
-
+    xticklabels = []
+    xticks = []
     for metric_hr in args.metrics.split(","):      
         global_df = pd.DataFrame()
-        for vn_a in victim_names:
-            vn = get_actual_bench_name(vn_a, args.system, None)
-            if args.ppn == "DEFAULT_MULTINODE":
-                ppn = get_default_multinode_ppn(args.system, vn_a)
-            else:
-                ppn = int(args.ppn)
-
-            scaling_factor = 1
-            if args.bw_per_node and metric_hr == "Bandwidth":
-                scaling_factor = ppn
-            
-            allocation_split = args.allocation_split
-            # TODO: This is a hack, make it cleaner
-            if vn == "ib_send_lat":
-                if ppn != 1:
-                    ppn = 1
-                if allocation_split == "100":
-                    allocation_split = "50:50"
-
-            outname = args.outfile + os.path.sep + metric_hr
-            outname = outname.lower()
-            for vi in victim_inputs:
-                if metric_hr == "Bandwidth": # For bandwidth, we also get the data for runtime to plot the inner plot
-                    actual_metrics = ["Runtime", "Bandwidth"]
+        for sys in args.systems.split(","):
+            for vic in args.victim_names.split(","):
+                vn = get_actual_bench_name(vic, sys, None)
+                if args.ppn == "DEFAULT_MULTINODE":
+                    ppn = get_default_multinode_ppn(sys, vn)
                 else:
-                    actual_metrics = [metric_hr]
+                    ppn = int(args.ppn)
 
-                for actual_metric in actual_metrics:
-                    filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, allocation_split, ppn, get_actual_extra_name(args.extra, args.system, vn, args.numnodes), vn, vi, args.aggressor_name, args.aggressor_input)
-                    
-                    data = pd.DataFrame()
-                    if filename and os.path.exists(filename):                    
-                        data[actual_metric] = get_bench_data(vn, vi, actual_metric, filename, ppn, args.numnodes, args.system)
-                    else:
-                        print("Data not found for metric " + actual_metric + " victim " + vn + " with input " + vi)
-                        data[actual_metric] = [np.nan]
+                scaling_factor = 1
+                if args.bw_per_node and metric_hr == "Bandwidth":
+                    scaling_factor = ppn
+                
+                allocation_split = args.allocation_split
+                # TODO: This is a hack, make it cleaner
+                if vn == "ib_send_lat":
+                    if ppn != 1:
+                        ppn = 1
+                    if allocation_split == "100":
+                        allocation_split = "50:50"
 
-                    if data.empty:
-                        raise Exception("Error: data file " + filename + " does not contain data for metric " + actual_metric)
-                    
-                    data[actual_metric] *= scaling_factor
-                    data["Input"] = vi
-                    data["Application"] = vn # victim_fn
-                    if metric_hr == "Bandwidth" and actual_metric == "Runtime": # Save the data for the inner plot in the bandwidth plots
-                        global_df_time = pd.concat([global_df_time, data], ignore_index=True)
+                outname = args.outfile + os.path.sep + metric_hr
+                outname = outname.lower()
+                for nodes in args.numnodes.split(","):
+                    if metric_hr == "Bandwidth": # For bandwidth, we also get the data for runtime to plot the inner plot
+                        actual_metrics = ["Runtime", "Bandwidth"]
                     else:
-                        global_df = pd.concat([global_df, data], ignore_index=True)
+                        actual_metrics = [metric_hr]
+
+                    for actual_metric in actual_metrics:
+                        filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, sys, nodes, args.allocation_mode, allocation_split, ppn, get_actual_extra_name(args.extra, sys, vn, nodes), vn, args.victim_input, args.aggressor_name, args.aggressor_input)
+                        data = pd.DataFrame()
+                        if filename and os.path.exists(filename):                    
+                            data[actual_metric] = get_bench_data(vn, args.victim_input, actual_metric, filename, ppn, nodes, sys)
+                        else:
+                            print("Data not found for metric " + actual_metric + " victim " + vn + " with input " + args.victim_input)
+                            data[actual_metric] = [np.nan]
+
+                        if data.empty:
+                            raise Exception("Error: data file " + filename + " does not contain data for metric " + actual_metric)
+                        
+                        data[actual_metric] *= scaling_factor
+                        data["Nodes"] = nodes
+                        data["Ranks"] = int(nodes)*int(ppn)
+                        if not args.bw_per_node:
+                            xticklabels += [(int(nodes)*int(ppn))]
+                            xticks += [(int(nodes)*int(ppn))]
+
+                        data["System"] = sys + " (" + vn + ")"
+                        if metric_hr == "Bandwidth" and actual_metric == "Runtime": # Save the data for the inner plot in the bandwidth plots
+                            global_df_time = pd.concat([global_df_time, data], ignore_index=True)
+                        else:
+                            global_df = pd.concat([global_df, data], ignore_index=True)
 
         plot_types = args.plot_types.split(",")
-        if args.labels:
-            index = 0
-            labels = args.labels.split(",")
-            for v in args.victim_names.split(","):
-                global_df.replace(v, labels[index], inplace=True)
-                index += 1
-        else:
-            labels = args.victim_names.split(",")
 
+        if args.bw_per_node:
+            x = "Nodes"
+        else:
+            x = "Ranks"
+            xticklabels = sorted(set(xticklabels))
+            xticks = sorted(set(xticks))
         #############
         # Line plot #
         #############
         errorbar = ast.literal_eval(args.errorbar)
         if "line" in plot_types:
             # Setup the plot
-            ax = sns.lineplot(data=global_df, x="Input", y=metric_hr, hue="Application", style="Application", markers=True, linewidth=3, markersize=8, hue_order=labels, errorbar=errorbar)
+            ax = sns.lineplot(data=global_df, x=x, y=metric_hr, hue="System", style="System", markers=True, linewidth=3, markersize=8, errorbar=errorbar)
 
             # Plots the limit if specified
             if args.trend_limit:
@@ -140,7 +137,7 @@ def main():
 
             # Set the title and labels
             #ax.set_title(title)
-            ax.set_xlabel("")
+            #ax.set_xlabel("")
             ax.set_ylabel(add_unit_to_metric(metric_hr))
             if args.max_y:
                 ax.set_ylim(0, float(args.max_y))
@@ -148,23 +145,15 @@ def main():
                 ax.set_ylim(0, None)
             # Remove legend title
             ax.legend_.set_title(None)
+        
+            if not args.bw_per_node:
+                plt.xscale('log')
+                ax.set_xticks(xticks)
+                ax.set_xticklabels(xticklabels)                
+
             # Move legend outside
             sns.move_legend(ax, "lower center",
                             bbox_to_anchor=(.5, 1), ncol=2, title=None, frameon=False)
-
-            # Inner latency plot
-            if global_df_time is not None:
-                ax2 = plt.axes(ast.literal_eval(args.inner_pos), facecolor='w')
-                global_df_time["Runtime (us)"] = global_df_time["Runtime"] # Was already scaled before
-                sns.lineplot(data=global_df_time, x="Input", y="Runtime (us)", hue="Application", style="Application", marker="o", ax=ax2, errorbar=errorbar)
-                ax2.set_xlim([0, 5])
-                if args.inner_ylim:
-                    ax2.set_ylim(ast.literal_eval(args.inner_ylim))
-                inner_fontsize = 9
-                ax2.tick_params(labelsize=inner_fontsize)
-                ax2.set_xlabel("")
-                ax2.set_ylabel("Runtime (us)", fontdict={'fontsize': inner_fontsize})
-                ax2.get_legend().remove()
 
             # Save to file
             #ax.figure.savefig(outname + "_line.png", bbox_inches='tight')
@@ -175,7 +164,7 @@ def main():
         # Boxes #
         #########
         if "box" in plot_types:
-            ax = sns.boxplot(data=global_df, x="Input", y=metric_hr, hue="Application")
+            ax = sns.boxplot(data=global_df, x=x, y=metric_hr, hue="System")
             ax.figure.savefig(outname + "_box.pdf", bbox_inches='tight')
             plt.clf()
 
@@ -183,7 +172,7 @@ def main():
         # Bars #
         ########
         if "bar" in plot_types:
-            ax = sns.barplot(data=global_df, x="Input", y=metric_hr, hue="Application")
+            ax = sns.barplot(data=global_df, x=x, y=metric_hr, hue="System")
             ax.figure.savefig(outname + "_bar.pdf", bbox_inches='tight')
             plt.clf()
 

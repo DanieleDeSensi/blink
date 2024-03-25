@@ -211,18 +211,28 @@ def get_actual_bench_name(bench, system, input):
                 return "gpubench-ar-nccl"
             else:
                 return "gpubench-ar-cudaaware"
+        elif bench == "#a2a-cpu": # TODO: FIX
+            return "a2a_b"
+        elif bench == "#ar-cpu": # TODO: FIX
+            return "ardc_b"
             
     else:
         return bench
     raise Exception("Error: bench " + bench + " not supported for system " + system)
 
 # Returns the actual name of the extra, given the name of the extra and the system
-def get_actual_extra_name(extra, system, victim_name):
+def get_actual_extra_name(extra, system, victim_name, numnodes):
     if extra == "#":
-        if system == "lumi":
-            return ""
+        if system == "lumi" or system == "alps":
+            if int(numnodes) == 2:
+                return "same_switch"
+            else:
+                return ""
         elif system == "leonardo":
-            return "SL0_hcoll0"
+            if int(numnodes) == 2:
+                return "same_switch"
+            else:
+                return "SL0_hcoll0"
     elif extra.startswith("#"):
         if "#diff_group" in extra or "#diff_switch" in extra or "#same_switch" in extra:
             if system == "lumi" or system == "alps":
@@ -321,7 +331,9 @@ def get_data_filename(data_folder, system, numnodes, allocation_mode, allocation
     with open(data_folder + "/description.csv", mode='r') as infile:
         reader = csv.DictReader(infile)    
         for line in reader:
-            row = {key: value for key, value in line.items()}       
+            row = {key: value for key, value in line.items()}      
+            #if row["system"] == "alps" and not "03-24" in row["path"]:
+            #    continue 
             # Check if the fields in the description match the ones in the arguments
             if row["system"] == system and int(row["numnodes"]) == int(numnodes) and \
                row["allocation_mode"] == allocation_mode and row["allocation_split"] == allocation_split and \

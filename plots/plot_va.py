@@ -96,7 +96,7 @@ def main():
             for aggressor in args.aggressor_names.split(","):    
                 victim_input = get_actual_input_name(args.victim_input, args.metric)
                 victim_name = get_actual_bench_name(args.victim_name, args.system, victim_input)                
-                e = get_actual_extra_name(ea, args.system, victim_name)
+                e = get_actual_extra_name(ea, args.system, victim_name, args.numnodes)
                 allocation_split = args.allocation_split
                 ppn = args.ppn            
                 if victim_name == "ib_send_lat": # TODO: This is a hack, make it cleaner

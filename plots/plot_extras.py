@@ -108,7 +108,7 @@ def main():
             for ea in args.extras.split(","):
                 victim_input = get_actual_input_name(args.victim_input, metric_hr)
                 victim_name = get_actual_bench_name(args.victim_name, system, victim_input)                
-                e = get_actual_extra_name(ea, system, victim_name)
+                e = get_actual_extra_name(ea, system, victim_name, args.numnodes)
                 allocation_split = args.allocation_split
                 ppn = args.ppn            
                 if victim_name == "ib_send_lat": # TODO: This is a hack, make it cleaner

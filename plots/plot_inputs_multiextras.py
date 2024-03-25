@@ -66,7 +66,7 @@ def main():
         outname = args.outfile + os.path.sep + metric_hr
         outname = outname.lower()
         for extra_r in args.extras.split(","):
-            extra = get_actual_extra_name(extra_r, args.system, vn)
+            extra = get_actual_extra_name(extra_r, args.system, vn, args.numnodes)
             for vi in victim_inputs:
                 if metric_hr == "Bandwidth": # For bandwidth, we also get the data for runtime to plot the inner plot
                     actual_metrics = ["Runtime", "Bandwidth"]

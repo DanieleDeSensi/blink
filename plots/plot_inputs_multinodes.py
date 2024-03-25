@@ -40,7 +40,7 @@ def main():
     parser.add_argument('-iy', '--inner_ylim', help='Y-axis limits for the inner plot.', default="[0, 100]")
     parser.add_argument('-l', '--labels', help='Comma-separated list of labels.')
     parser.add_argument('-o', '--outfile', help='Path of output files.', required=True)
-    parser.add_argument('-eb', '--errorbar', help='Errorbar for lineplot.', required=True)
+    parser.add_argument('-eb', '--errorbar', help='Errorbar for lineplot.', default="(\"pi\", 50)")
 
     args = parser.parse_args()
 
@@ -65,8 +65,8 @@ def main():
         outname = args.outfile + os.path.sep + metric_hr
         outname = outname.lower()
         for extra_r in args.extras.split(","):
-            extra = get_actual_extra_name(extra_r, args.system, vn)
             for n in args.numnodes.split(","):
+                extra = get_actual_extra_name(extra_r, args.system, vn, n)
                 if metric_hr == "Bandwidth": # For bandwidth, we also get the data for runtime to plot the inner plot
                     actual_metrics = ["Runtime", "Bandwidth"]
                 else:
@@ -103,10 +103,7 @@ def main():
         #############
         # Line plot #
         #############
-        if args.errorbar:
-            errorbar = ast.literal_eval(args.errorbar)
-        else:
-            errorbar = ("pi", 50) # From 25th to 75th percentile
+        errorbar = ast.literal_eval(args.errorbar)
         if "line" in plot_types:
             # Setup the plot
             ax = sns.lineplot(data=global_df, x="Nodes", y=metric_hr, hue="Extra", style="Extra", markers=True, linewidth=3, markersize=8, hue_order=labels, errorbar=errorbar)
