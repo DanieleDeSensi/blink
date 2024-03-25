@@ -1,0 +1,471 @@
+[1;31m[error][0m a uenv is already running
+[1;31m[error][0m a view is already loaded: {'path': PosixPath('/user-environment'), 'name': 'default'}
+[1;31m[error][0m a uenv is already running
+[1;31m[error][0m a view is already loaded: {'path': PosixPath('/user-environment'), 'name': 'default'}
++ for schedule in ./apps_mix/gpubench/pp-baseline/1B ./apps_mix/gpubench/pp-baseline/4B ./apps_mix/gpubench/pp-baseline/8B ./apps_mix/gpubench/pp-baseline/64B ./apps_mix/gpubench/pp-baseline/512B ./apps_mix/gpubench/pp-baseline/4KiB ./apps_mix/gpubench/pp-baseline/32KiB ./apps_mix/gpubench/pp-baseline/256KiB ./apps_mix/gpubench/pp-baseline/2MiB ./apps_mix/gpubench/pp-baseline/16MiB ./apps_mix/gpubench/pp-baseline/128MiB ./apps_mix/gpubench/pp-baseline/1GiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/pp-baseline/1B auto -am l -as 100 -n 1 -mn 1 -mx 10 -t 600 -a 0.05 -b 0.05 -of csv -ro +file -p 2
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/pp-baseline/1B', node_file='auto', numnodes=1, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=2, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [1]
+
+Node allocation:
+Processes per node (ppn): 2
+0 on 1 nodes:
+['nid001100']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.03614s.
+
+Running...
+ Run 1:
+  0.00377s: started 0
+  0.40828s: awaited 0
+  0.4083s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.0
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.00131s: started 0
+  0.29094s: awaited 0
+  0.29095s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.1
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 3:
+  0.00116s: started 0
+  0.43846s: awaited 0
+  0.43848s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.2
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 4:
+  0.00122s: started 0
+  0.57075s: awaited 0
+  0.57077s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.3
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 5:
+  0.00132s: started 0
+  0.2931s: awaited 0
+  0.29311s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.4
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 6:
+  0.00128s: started 0
+  0.2991s: awaited 0
+  0.29911s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.5
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 7:
+  0.00124s: started 0
+  0.34228s: awaited 0
+  0.3423s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.6
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 8:
+  0.00118s: started 0
+  0.29567s: awaited 0
+  0.29568s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.7
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 9:
+  0.00124s: started 0
+  0.56937s: awaited 0
+  0.56938s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.8
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 10:
+  0.06125s: started 0
+  0.35003s: awaited 0
+  0.35004s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.9
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+Completed maximum number of runs, terminated after 10 runs taking 3.86 seconds.
+Traceback (most recent call last):
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 595, in <module>
+    main()
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 580, in main
+    log_data(out_format, data_directory+'/data', data_container_list)
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 184, in log_data
+    dataframe.columns = columns
+    ^^^^^^^^^^^^^^^^^
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/generic.py", line 6310, in __setattr__
+    return object.__setattr__(self, name, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/generic.py", line 813, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/internals/managers.py", line 238, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/internals/base.py", line 98, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 0 elements, new values have 2 elements
++ for schedule in ./apps_mix/gpubench/pp-baseline/1B ./apps_mix/gpubench/pp-baseline/4B ./apps_mix/gpubench/pp-baseline/8B ./apps_mix/gpubench/pp-baseline/64B ./apps_mix/gpubench/pp-baseline/512B ./apps_mix/gpubench/pp-baseline/4KiB ./apps_mix/gpubench/pp-baseline/32KiB ./apps_mix/gpubench/pp-baseline/256KiB ./apps_mix/gpubench/pp-baseline/2MiB ./apps_mix/gpubench/pp-baseline/16MiB ./apps_mix/gpubench/pp-baseline/128MiB ./apps_mix/gpubench/pp-baseline/1GiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/pp-baseline/4B auto -am l -as 100 -n 1 -mn 1 -mx 10 -t 600 -a 0.05 -b 0.05 -of csv -ro +file -p 2
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/pp-baseline/4B', node_file='auto', numnodes=1, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=2, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 2", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [1]
+
+Node allocation:
+Processes per node (ppn): 2
+0 on 1 nodes:
+['nid001100']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02416s.
+
+Running...
+ Run 1:
+  0.0011s: started 0
+  0.42517s: awaited 0
+  0.42518s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.10
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.0014s: started 0
+  0.29105s: awaited 0
+  0.29106s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.11
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00148s: started 0
+  0.28442s: awaited 0
+  0.28443s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.12
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 4:
+  0.00123s: started 0
+  0.31656s: awaited 0
+  0.31658s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.13
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 5:
+  0.00132s: started 0
+  0.36385s: awaited 0
+  0.36386s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.14
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 6:
+  0.00117s: started 0
+  0.30975s: awaited 0
+  0.30976s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.15
+
+  Data collection took 0.0s.
+  Convergence check took 0.0s.
+ Run 7:
+  0.00115s: started 0
+  0.30261s: awaited 0
+  0.30262s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.16
+
+  Data collection took 0.0s.
+  Convergence check took 0.0s.
+ Run 8:
+  0.00106s: started 0
+  0.29593s: awaited 0
+  0.29594s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.17
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 9:
+  0.00112s: started 0
+  0.2946s: awaited 0
+  0.29461s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.18
+
+  Data collection took 0.0s.
+  Convergence check took 0.0s.
+ Run 10:
+  0.00116s: started 0
+  0.31096s: awaited 0
+  0.31097s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.19
+
+  Data collection took 0.0s.
+  Convergence check took 0.0s.
+Completed maximum number of runs, terminated after 10 runs taking 3.2 seconds.
+Traceback (most recent call last):
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 595, in <module>
+    main()
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 580, in main
+    log_data(out_format, data_directory+'/data', data_container_list)
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 184, in log_data
+    dataframe.columns = columns
+    ^^^^^^^^^^^^^^^^^
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/generic.py", line 6310, in __setattr__
+    return object.__setattr__(self, name, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/generic.py", line 813, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/internals/managers.py", line 238, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/internals/base.py", line 98, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 0 elements, new values have 2 elements
++ for schedule in ./apps_mix/gpubench/pp-baseline/1B ./apps_mix/gpubench/pp-baseline/4B ./apps_mix/gpubench/pp-baseline/8B ./apps_mix/gpubench/pp-baseline/64B ./apps_mix/gpubench/pp-baseline/512B ./apps_mix/gpubench/pp-baseline/4KiB ./apps_mix/gpubench/pp-baseline/32KiB ./apps_mix/gpubench/pp-baseline/256KiB ./apps_mix/gpubench/pp-baseline/2MiB ./apps_mix/gpubench/pp-baseline/16MiB ./apps_mix/gpubench/pp-baseline/128MiB ./apps_mix/gpubench/pp-baseline/1GiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/pp-baseline/8B auto -am l -as 100 -n 1 -mn 1 -mx 10 -t 600 -a 0.05 -b 0.05 -of csv -ro +file -p 2
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/pp-baseline/8B', node_file='auto', numnodes=1, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=2, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 3", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [1]
+
+Node allocation:
+Processes per node (ppn): 2
+0 on 1 nodes:
+['nid001100']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02127s.
+
+Running...
+ Run 1:
+  0.00114s: started 0
+  0.42915s: awaited 0
+  0.42917s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.20
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.00133s: started 0
+  0.32946s: awaited 0
+  0.32947s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.21
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 3:
+  0.00141s: started 0
+  0.50516s: awaited 0
+  0.50517s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.22
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 4:
+  0.00119s: started 0
+  0.29082s: awaited 0
+  0.29083s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.23
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 5:
+  0.00132s: started 0
+  0.29222s: awaited 0
+  0.29223s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.24
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 6:
+  0.0013s: started 0
+  0.29614s: awaited 0
+  0.29615s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.25
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 7:
+  0.00121s: started 0
+  0.28633s: awaited 0
+  0.28634s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.26
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 8:
+  0.00115s: started 0
+  0.2967s: awaited 0
+  0.29671s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.27
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 9:
+  0.00123s: started 0
+  0.29728s: awaited 0
+  0.29729s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.28
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 10:
+  0.00124s: started 0
+  0.44747s: awaited 0
+  0.44748s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/pp_Baseline: error while loading shared libraries: libcudart.so.12: cannot open shared object file: No such file or directory
+srun: error: nid001100: tasks 0-1: Exited with exit code 127
+srun: Terminating StepId=51808.29
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+Completed maximum number of runs, terminated after 10 runs taking 3.47 seconds.
+Traceback (most recent call last):
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 595, in <module>
+    main()
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 580, in main
+    log_data(out_format, data_directory+'/data', data_container_list)
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 184, in log_data
+    dataframe.columns = columns
+    ^^^^^^^^^^^^^^^^^
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/generic.py", line 6310, in __setattr__
+    return object.__setattr__(self, name, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/generic.py", line 813, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/internals/managers.py", line 238, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/internals/base.py", line 98, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 0 elements, new values have 2 elements
++ for schedule in ./apps_mix/gpubench/pp-baseline/1B ./apps_mix/gpubench/pp-baseline/4B ./apps_mix/gpubench/pp-baseline/8B ./apps_mix/gpubench/pp-baseline/64B ./apps_mix/gpubench/pp-baseline/512B ./apps_mix/gpubench/pp-baseline/4KiB ./apps_mix/gpubench/pp-baseline/32KiB ./apps_mix/gpubench/pp-baseline/256KiB ./apps_mix/gpubench/pp-baseline/2MiB ./apps_mix/gpubench/pp-baseline/16MiB ./apps_mix/gpubench/pp-baseline/128MiB ./apps_mix/gpubench/pp-baseline/1GiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/pp-baseline/64B auto -am l -as 100 -n 1 -mn 1 -mx 10 -t 600 -a 0.05 -b 0.05 -of csv -ro +file -p 2
+slurmstepd: error: *** JOB 51808 ON nid001100 CANCELLED AT 2024-03-24T19:27:32 ***
