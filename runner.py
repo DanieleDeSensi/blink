@@ -424,6 +424,11 @@ def main():
         f = open(data_directory + os.path.sep + "hostnames_" + str(app.id_num), "w")
         f.write("\n".join(map(str, app.node_list)))
         f.close()
+
+    # On Alps/LUMI, print nodes location
+    if os.environ["BLINK_SYSTEM"] == "lumi" or os.environ["BLINK_SYSTEM"] == "alps":
+        subprocess.call(["cat", "/etc/cray/xname"], stdout=open(data_directory + os.path.sep + "xname", "w"))
+
         
     # sort schedule chronologically
     print_runtime('\nSchedule:', ro_mode, ro_file)
