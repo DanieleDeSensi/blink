@@ -1,0 +1,31 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/pp-cudaaware/32KiB', node_file='auto', numnodes=1, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=2, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='0-1', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 15", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 2
+0 on 1 nodes:
+['nid005382']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.03953s.
+
+Running...
+ Run 1:
+  0.00232s: started 0
+  1.17959s: awaited 0
+  Data collection took 0.00022s.
+  Convergence check took 0.00066s.
+ Run 2:
+  0.01974s: started 0
+  0.71436s: awaited 0
+  Data collection took 0.00021s.
+  Convergence check took 0.00065s.
+Completed after reaching confidence interval, terminated after 2 runs taking 1.9 seconds.
+Writing data & meta-data took 0.00653s.
+Overall took 1.94188s.
