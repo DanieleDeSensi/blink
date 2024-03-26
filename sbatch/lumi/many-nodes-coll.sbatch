@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --time=02:00:00
+#SBATCH --time=04:00:00
 #SBATCH --ntasks-per-node=8
 #SBATCH --gpus-per-node=8
 #SBATCH -p ju-standard-g
@@ -34,5 +34,7 @@ unset MPICH_GPU_SUPPORT_ENABLED
 module purge
 module load LUMI/23.09
 module load partition/G
+#export MPICH_OFI_NIC_POLICY=NUMA
 export HSA_ENABLE_SDMA=0
+export BLINK_PINNING_FLAGS="--cpu-bind=map_cpu=57,25,9,41"
 ./run.sh test_suites/coll-cpu-many ${ARGS} --ppn ${PPN_CPU}
