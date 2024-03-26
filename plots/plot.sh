@@ -1,9 +1,9 @@
 #!/bin/bash
 rm -rf plots/out/*
-PLOT_SINGLE_NODE=1
+PLOT_SINGLE_NODE=0
 PLOT_TWO_NODES=0
 PLOT_DISTANCE=0
-PLOT_COLL_SCALABILITY=0
+PLOT_COLL_SCALABILITY=1
 PLOT_COLL_SCALABILITY_NOISE=0
 PLOT_LUMI_GPU_PAIRS=0
 #ERRORBAR="(\"ci\", 90)"
@@ -128,7 +128,8 @@ if [[ $PLOT_COLL_SCALABILITY = 1 ]]; then
     #########################################
     # Multi nodes tests - Coll. scalability #
     #########################################
-    SYSTEMS="alps,leonardo,lumi"
+    #SYSTEMS="alps,leonardo,lumi"
+    SYSTEMS="leonardo,lumi"
     OUT_PATH="plots/out/multi-nodes/${SYSTEM}"
     PLOT_TYPE="line,box,bar"
     EXTRA="#"

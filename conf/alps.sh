@@ -16,7 +16,7 @@ export BLINK_MPIRUN="srun" # Command for running MPI applications
 export BLINK_MPIRUN_MAP_BY_NODE_FLAG="" # Flag to force ranks to be mapped by node (srun)
 export BLINK_MPIRUN_HOSTFILE_FLAG="" # Flag for specifying the hostfile
 export BLINK_MPIRUN_HOSTFILE_LONG_FLAG="" # Flag for specifying the hostfile (16 hosts)
-export BLINK_PINNING_FLAGS="--cpu-bind=map_cpu=1,73,145,217" #"--cpu-bind=socket" # Pinning flags
+export BLINK_PINNING_FLAGS="--cpu-bind=map_cpu:1,73,145,217" #"--cpu-bind=socket" # Pinning flags
 export BLINK_MPIRUN_ADDITIONAL_FLAGS=""    # Any additional flag that must be used by mpirun
 export BLINK_INTERFACE_MASK="148.187.36.181/19" # Interface address + mask size of the two nodes
 export BLINK_RUN_IB=false # Shall we run IB tests?

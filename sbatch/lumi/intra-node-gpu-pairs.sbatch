@@ -24,7 +24,7 @@ do
     EXTRA="${SRC_GPU}-${DST_GPU}"
     # GPU mapping and NUMA nodes mapping
     export USER_HIP_GPU_MAP="${SRC_GPU},${DST_GPU}"
-    export BLINK_PINNING_FLAGS="--cpu-bind=map_cpu=${CPUS_PER_GPU[$SRC_GPU]},${CPUS_PER_GPU[$DST_GPU]}" # Pinning flags
+    export BLINK_PINNING_FLAGS="--cpu-bind=map_cpu:${CPUS_PER_GPU[$SRC_GPU]},${CPUS_PER_GPU[$DST_GPU]}" # Pinning flags
 
     ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file --maxruns 10 -e ${EXTRA}"
     # Baseline
