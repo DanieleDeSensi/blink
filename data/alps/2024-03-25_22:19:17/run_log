@@ -1,0 +1,71 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/1B', node_file='auto', numnodes=2, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='same_switch', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['nid001056' 'nid001058']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.08505s.
+
+Running...
+ Run 1:
+  0.00244s: started 0
+  14.72879s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00087s.
+ Run 2:
+  0.00274s: started 0
+  13.71862s: awaited 0
+  Data collection took 0.00013s.
+  Convergence check took 0.00077s.
+ Run 3:
+  0.0027s: started 0
+  13.609s: awaited 0
+  Data collection took 0.00013s.
+  Convergence check took 0.0008s.
+ Run 4:
+  0.00268s: started 0
+  13.72904s: awaited 0
+  Data collection took 0.00014s.
+  Convergence check took 0.00079s.
+ Run 5:
+  0.0027s: started 0
+  13.57557s: awaited 0
+  Data collection took 0.00013s.
+  Convergence check took 0.00078s.
+ Run 6:
+  0.10391s: started 0
+  13.86502s: awaited 0
+  Data collection took 0.00014s.
+  Convergence check took 0.00078s.
+ Run 7:
+  0.00266s: started 0
+  14.1864s: awaited 0
+  Data collection took 0.00012s.
+  Convergence check took 0.00078s.
+ Run 8:
+  0.00278s: started 0
+  13.65026s: awaited 0
+  Data collection took 0.00013s.
+  Convergence check took 0.00081s.
+ Run 9:
+  0.00267s: started 0
+  13.82481s: awaited 0
+  Data collection took 0.00013s.
+  Convergence check took 0.00076s.
+ Run 10:
+  0.10349s: started 0
+  14.50361s: awaited 0
+  Data collection took 0.00014s.
+  Convergence check took 0.00079s.
+Completed maximum number of runs, terminated after 10 runs taking 139.4 seconds.
+Writing data & meta-data took 0.01003s.
+Overall took 139.49668s.
