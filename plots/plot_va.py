@@ -105,7 +105,7 @@ def main():
                     if allocation_split == "100":
                         allocation_split = "50:50"            
                 aggressor_input = get_default_aggressor_input(aggressor)
-                filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, allocation_mode, allocation_split, ppn, e, victim_name, victim_input, aggressor, aggressor_input)
+                filename = get_data_filename(args.data_folder, args.system, args.numnodes, allocation_mode, allocation_split, ppn, e, victim_name, victim_input, aggressor, aggressor_input)
                 if not filename:
                     print("Data not found for extra " + e + " " + ea + " " + str(args))
                     continue

@@ -86,7 +86,7 @@ def main():
                     actual_metrics = [metric_hr]
 
                 for actual_metric in actual_metrics:
-                    filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, allocation_split, ppn, get_actual_extra_name(args.extra, args.system, vn, args.numnodes), vn, vi, args.aggressor_name, args.aggressor_input)
+                    filename = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, allocation_split, ppn, get_actual_extra_name(args.extra, args.system, vn, args.numnodes), vn, vi, args.aggressor_name, args.aggressor_input)
                     
                     data = pd.DataFrame()
                     if filename and os.path.exists(filename):                    
@@ -136,7 +136,7 @@ def main():
                         ax.axhline(y=float(limit), color='black', linestyle='--')
                         if label:
                             label = label.replace("_", " ") 
-                            ax.text(7, float(limit), label, fontsize=8, va='center', ha='center', backgroundcolor='w')
+                            ax.text(7, float(limit), label, fontsize=10, va='center', ha='center', backgroundcolor='w')
 
             # Set the title and labels
             #ax.set_title(title)

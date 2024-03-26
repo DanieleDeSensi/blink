@@ -64,7 +64,7 @@ def get_input_and_full_name_from_args(wrapper_path, args):
     mod_app = importlib.util.module_from_spec(spec_app)
     spec_app.loader.exec_module(mod_app)
     w = mod_app.app(0, 0, args)
-    return (bench_to_human_readable(w.get_bench_name()), w.get_bench_input())
+    return w.get_bench_input()
 
 # Loads the data of the specified aggressors (only the specified metric).
 # This is used for distribution plots (box/violin/etc)
@@ -167,23 +167,25 @@ def system_to_human_readable(system):
         return "LUMI"
     elif system == "leonardo":
         return "Leonardo"
+    elif system == "alps":
+        return "Alps"
     else:
         return system
 
-def bench_to_human_readable(bench):
-    microbenchs = ["Ping-Pong", "Pairwise Ping-Pong", "Alltoall", "Allreduce"]
+def bench_to_human_readable_impl(bench):
+    microbenchs = ["a2a_b", "ardc_b", "ping-pong_b", "pw-ping-pong_b"]
     if "gpubench" in bench:
-        gpubench,bench,version = bench.split(" ") 
-        if version == "Baseline":
-            return "Host Mem. Staging"
-        elif version == "CudaAware":
-            return "CUDA-Aware MPI"
-        elif version == "Nccl":
-            return "NCCL"
-        elif version == "Nvlink":
-            return "CUDA IPC"
+        _,_,version = bench.split("-") 
+        if version == "baseline":
+            return "Trivial Staging"
+        elif version == "cudaaware":
+            return "GPU-Aware MPI"
+        elif version == "nccl":
+            return "*CCL"
+        elif version == "nvlink":
+            return "Device-Device Copy"
     elif bench in microbenchs:
-        return "MPI"
+        return "MPI (host mem. buffers)"
     elif bench == "ib_send_lat":
         return "IB Verbs"
     return bench
@@ -327,7 +329,7 @@ def plot_line(df, metric, outname, max_y, xticklabels, title):
 # Returns a tuple (filename, victim_fullname, aggressor_fullname)
 def get_data_filename(data_folder, system, numnodes, allocation_mode, allocation_split, ppn, extra, victim_name, victim_input, aggressor_name, aggressor_input):
     # Read the description file to find the data files
-    to_return = (None, None, None)
+    to_return = None
     with open(data_folder + "/description.csv", mode='r') as infile:
         reader = csv.DictReader(infile)    
         for line in reader:
@@ -343,17 +345,17 @@ def get_data_filename(data_folder, system, numnodes, allocation_mode, allocation
                 
                 # Get the bench name from the Python wrapper filename and load the python wrapper to get the full name and the input name
                 victim_shortname = info["victim_wrapper"].split("/")[-1][:-3]                
-                (victim_fn, victim_in) = get_input_and_full_name_from_args(os.environ["BLINK_ROOT"] + os.path.sep + info["victim_wrapper"], info["victim_args"])
+                victim_in = get_input_and_full_name_from_args(os.environ["BLINK_ROOT"] + os.path.sep + info["victim_wrapper"], info["victim_args"])
                 if "aggressor_wrapper" in info:
                     aggressor_shortname = info["aggressor_wrapper"].split("/")[-1][:-3]
-                    (aggressor_fn, aggressor_in) = get_input_and_full_name_from_args(os.environ["BLINK_ROOT"] + os.path.sep + info["aggressor_wrapper"], info["aggressor_args"])
+                    aggressor_in = get_input_and_full_name_from_args(os.environ["BLINK_ROOT"] + os.path.sep + info["aggressor_wrapper"], info["aggressor_args"])
                 else:
                     aggressor_shortname = ""
                     aggressor_fn = ""
                     aggressor_in = ""
                 if victim_name == victim_shortname and victim_input == victim_in and \
                    aggressor_name == aggressor_shortname and aggressor_input == aggressor_in:
-                    to_return = (row["path"] + "/data.csv", victim_fn, aggressor_fn)
+                    to_return = row["path"] + "/data.csv"
                     # We do not return immediately because we might have multiple entries for the same test,
                     # and we want to consider the most recent one among those
     return to_return

@@ -31,42 +31,42 @@ if [[ $PLOT_SINGLE_NODE = 1 ]]; then
                 PPN=2
                 if [ ${SYSTEM} == "lumi" ]; then
                     INNER_YLIM="[0, 30]"
-                    TREND_LIMIT=Bandwidth:1600:Nominal_Bw_\(GPU-GPU\),Bandwidth:72:Exp._Trivial_Bw
+                    TREND_LIMIT=Bandwidth:1600:Expected_Bandwidth,Bandwidth:72:Exp._Trivial_Bw
                 elif [ ${SYSTEM} == "leonardo" ]; then
                     INNER_YLIM="[0, 30]"
-                    TREND_LIMIT=Bandwidth:800:Nominal_Bw_\(GPU-GPU\),Bandwidth:112:Exp._Trivial_Bw
+                    TREND_LIMIT=Bandwidth:800:Expected_Bandwidth,Bandwidth:112:Exp._Trivial_Bw
                 else # Alps
                     INNER_YLIM="[0, 30]"
-                    TREND_LIMIT=Bandwidth:1200:Nominal_Bw_\(GPU-GPU\),Bandwidth:88:Exp._Trivial_Bw
+                    TREND_LIMIT=Bandwidth:1200:Expected_Bandwidth,Bandwidth:88:Exp._Trivial_Bw
                 fi
             fi
             if [ ${TESTNAME} == "gpubench-a2a" ]; then
                 if [ ${SYSTEM} == "lumi" ]; then
                     INNER_YLIM="[0, 100]"
-                    TREND_LIMIT=Bandwidth:700
+                    TREND_LIMIT=Bandwidth:700:Expected_Bandwidth
                     PPN=8
                 elif [ ${SYSTEM} == "alps" ]; then
                     INNER_YLIM="[0, 100]"
-                    TREND_LIMIT=Bandwidth:3600
+                    TREND_LIMIT=Bandwidth:3600:Expected_Bandwidth
                     PPN=4
                 else
                     INNER_YLIM="[0, 100]"                
-                    TREND_LIMIT=Bandwidth:2400
+                    TREND_LIMIT=Bandwidth:2400:Expected_Bandwidth
                     PPN=4
                 fi
             fi
             if [ ${TESTNAME} == "gpubench-ar" ]; then
                 if [ ${SYSTEM} == "lumi" ]; then
                     INNER_YLIM="[0, 100]"
-                    TREND_LIMIT=Bandwidth:1600
+                    TREND_LIMIT=Bandwidth:1600:Expected_Bandwidth
                     PPN=8
                 elif [ ${SYSTEM} == "alps" ]; then
                     INNER_YLIM="[0, 100]"
-                    TREND_LIMIT=Bandwidth:3600
+                    TREND_LIMIT=Bandwidth:3600:Expected_Bandwidth
                     PPN=4
                 else
                     INNER_YLIM="[0, 100]"
-                    TREND_LIMIT=Bandwidth:2400
+                    TREND_LIMIT=Bandwidth:2400:Expected_Bandwidth
                     PPN=4
                 fi
             fi            
@@ -128,31 +128,40 @@ if [[ $PLOT_COLL_SCALABILITY = 1 ]]; then
     #########################################
     # Multi nodes tests - Coll. scalability #
     #########################################
-    #SYSTEMS="alps,leonardo,lumi"
-    SYSTEMS="leonardo,lumi"
+    SYSTEMS="alps,leonardo,lumi"
+    #SYSTEMS="leonardo,lumi"
     OUT_PATH="plots/out/multi-nodes/${SYSTEM}"
     PLOT_TYPE="line,box,bar"
     EXTRA="#"
-    NNODES="2,8,16,32,64,128,256"
+    NNODES="2,4,8,16,32,64,128,256"
     for BENCH in "ar" "a2a"
     do
         if [ ${BENCH} == "ar" ]; then
-            declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB" "128MiB" "1GiB" "8GiB")
+            #declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB" "128MiB" "1GiB" "8GiB")
+            declare -a INPUTS=("1GiB")
             FULLNAME="Allreduce"
         else
-            declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB")
+            #declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB")
+            declare -a INPUTS=("16MiB")
             FULLNAME="Alltoall"
         fi
 
         for INPUT in "${INPUTS[@]}"
         do  
-            #for TYPE in "cpu" "gpu"
-            #do      
-            #    TESTNAME="${BENCH}"_${TYPE}_${INPUT}
-            #    ./plots/plot_nodes_multisystem.py -s ${SYSTEMS} -vn "#${BENCH}-${TYPE}" -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types ${PLOT_TYPE} -e ${EXTRA} --bw_per_node --errorbar "${ERRORBAR}"
-            #done
-            TESTNAME="${BENCH}"_${INPUT}
-            ./plots/plot_nodes_multisystem.py -s ${SYSTEMS} -vn gpubench-${BENCH}-nccl,gpubench-${BENCH}-cudaaware -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types ${PLOT_TYPE} -e ${EXTRA} --errorbar "${ERRORBAR}" #--bw_per_node #
+            CPU_BENCH=""
+            if [ ${BENCH} == "ar" ]; then
+                CPU_BENCH="ardc_b"
+                TREND_LIMIT_GPU="X:X:X"
+                TREND_LIMIT_CPU="Bandwidth:100:Expected_Bandwidth_(Leonardo),Bandwidth:200:Expected_Bandwidth_(LUMI)"
+            else
+                CPU_BENCH="a2a_b"
+                TREND_LIMIT_GPU="Bandwidth:100:Expected_Bandwidth_(Leonardo_and_LUMI)"
+                TREND_LIMIT_CPU="Bandwidth:100:Expected_Bandwidth_(Leonardo),Bandwidth:200:Expected_Bandwidth_(LUMI)"
+            fi
+            TESTNAME="${BENCH}"_gpu_${INPUT}            
+            ./plots/plot_nodes_multisystem.py -s ${SYSTEMS} -vn gpubench-${BENCH}-nccl,gpubench-${BENCH}-cudaaware -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types ${PLOT_TYPE} -e ${EXTRA} --errorbar "${ERRORBAR}" --trend_limit "${TREND_LIMIT_GPU}" #--bw_per_node #
+            TESTNAME="${BENCH}"_cpu_${INPUT}
+            ./plots/plot_nodes_multisystem.py -s ${SYSTEMS} -vn ${CPU_BENCH} -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types ${PLOT_TYPE} -e ${EXTRA} --errorbar "${ERRORBAR}" --trend_limit "${TREND_LIMIT_CPU}" #--bw_per_node #
         done
     done
 fi
@@ -181,7 +190,7 @@ if [[ $PLOT_COLL_SCALABILITY_NOISE = 1 ]]; then
         for INPUT in "${INPUTS[@]}"
         do        
             TESTNAME="${BENCH}"_${INPUT}
-            ./plots/plot_inputs_multinodes.py -s ${SYSTEM} -vn gpubench-${BENCH}-nccl -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE} --labels "${LABELS}" --errorbar "${ERRORBAR}"
+            ./plots/plot_inputs_multinodes.py -s ${SYSTEM} -vn gpubench-${BENCH}-nccl -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE} --labels "${LABELS}" --errorbar "${ERRORBAR}" --no_inner
         done
     done
 fi
@@ -202,6 +211,7 @@ if [[ $PLOT_LUMI_GPU_PAIRS = 1 ]]; then
     ./plots/plot_extras_multivictim.py -s ${SYSTEM} -vn "${BENCHS}" -vi ${INPUT} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH} --ppn 2 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --labels "${LABELS}" --barplot_tops "${BARPLOT_TOPS}"
 fi
 
+exit 0
 
 #################
 # 8 nodes tests #
