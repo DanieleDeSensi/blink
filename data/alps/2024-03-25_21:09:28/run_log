@@ -1,0 +1,98 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench-comm/cudaaware', node_file='auto', numnodes=4, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 4 nodes:
+['nid003850' 'nid003882' 'nid003944' 'nid003976']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.03735s.
+
+Running...
+ Run 1:
+  0.00237s: started 0
+  0.61119s: awaited 0
+  0.61121s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+srun: error: nid003944: tasks 8-11: Exited with exit code 127
+srun: Terminating StepId=54884.92
+slurmstepd: error: *** STEP 54884.92 ON nid003850 CANCELLED AT 2024-03-25T21:09:29 ***
+srun: error: nid003882: tasks 4-7: Exited with exit code 127
+srun: error: nid003976: tasks 12-15: Exited with exit code 127
+srun: error: nid003850: tasks 0-3: Exited with exit code 127
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.00262s: started 0
+  0.54999s: awaited 0
+  0.55001s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+srun: error: nid003944: tasks 8-11: Exited with exit code 127
+srun: Terminating StepId=54884.93
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+slurmstepd: error: *** STEP 54884.93 ON nid003850 CANCELLED AT 2024-03-25T21:09:29 ***
+srun: error: nid003882: tasks 4-7: Exited with exit code 127
+srun: error: nid003976: tasks 12,14-15: Terminated
+srun: error: nid003976: task 13: Exited with exit code 127
+srun: error: nid003850: tasks 0-3: Terminated
+srun: Force Terminated StepId=54884.93
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00249s: started 0
+  0.74456s: awaited 0
+  0.74458s: encountered an exception in 0
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+/bret/scratch/cscs/lfusco/blink//src/microbench-gpu/select_gpu_alps: line 4: /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_CudaAware: No such file or directory
+srun: error: nid003976: tasks 12-15: Exited with exit code 127
+srun: Terminating StepId=54884.94
+srun: error: nid003882: tasks 4-7: Exited with exit code 127
+srun: error: nid003944: tasks 8-11: Exited with exit code 127
+slurmstepd: error: *** STEP 54884.94 ON nid003850 CANCELLED AT 2024-03-25T21:09:30 ***
+srun: error: nid003850: tasks 0-3: Terminated
+srun: Force Terminated StepId=54884.94
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+Completed maximum number of runs, terminated after 3 runs taking 1.91 seconds.
