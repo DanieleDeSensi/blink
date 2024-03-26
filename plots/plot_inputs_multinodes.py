@@ -40,6 +40,7 @@ def main():
     parser.add_argument('-iy', '--inner_ylim', help='Y-axis limits for the inner plot.', default="[0, 100]")
     parser.add_argument('-l', '--labels', help='Comma-separated list of labels.')
     parser.add_argument('-o', '--outfile', help='Path of output files.', required=True)
+    parser.add_argument('--no_inner', help='Does not draw the inner plot.', action='store_true')
     parser.add_argument('-eb', '--errorbar', help='Errorbar for lineplot.', default="(\"pi\", 50)")
 
     args = parser.parse_args()
@@ -73,7 +74,7 @@ def main():
                     actual_metrics = [metric_hr]
 
                 for actual_metric in actual_metrics:
-                    filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, args.system, n, args.allocation_mode, allocation_split, ppn, extra, vn, args.victim_input, args.aggressor_name, args.aggressor_input)
+                    filename = get_data_filename(args.data_folder, args.system, n, args.allocation_mode, allocation_split, ppn, extra, vn, args.victim_input, args.aggressor_name, args.aggressor_input)
                     data = pd.DataFrame()
                     if filename and os.path.exists(filename):                    
                         data[actual_metric] = get_bench_data(vn, args.victim_input, actual_metric, filename, ppn, n, args.system)
@@ -116,7 +117,7 @@ def main():
 
             # Set the title and labels
             #ax.set_title(title)
-            ax.set_xlabel("")
+            #ax.set_xlabel("")
             ax.set_ylabel(add_unit_to_metric(metric_hr))
             if args.max_y:
                 ax.set_ylim(0, float(args.max_y))
@@ -129,7 +130,7 @@ def main():
                             bbox_to_anchor=(.5, 1), ncol=2, title=None, frameon=False)
 
             # Inner latency plot
-            if global_df_time is not None:
+            if global_df_time is not None and not args.no_inner:
                 ax2 = plt.axes(ast.literal_eval(args.inner_pos), facecolor='w')
                 global_df_time["Runtime (us)"] = global_df_time["Runtime"] # Was already scaled before
                 sns.lineplot(data=global_df_time, x="Nodes", y="Runtime (us)", hue="Extra", style="Extra", marker="o", ax=ax2, errorbar=errorbar)

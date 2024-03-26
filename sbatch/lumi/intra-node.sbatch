@@ -30,6 +30,7 @@ source src/microbench-gpu/moduleload/load_Baseline_modules.sh
 source src/microbench-gpu/moduleload/load_Nccl_modules.sh
 ./run.sh test_suites/gpubench_pp_nccl ${ARGS} --ppn 2
 ./run.sh test_suites/gpubench_coll_nccl ${ARGS} --ppn 8
+./run.sh test_suites/comm-nccl ${ARGS} --ppn 8
 
 # NVLink
 source src/microbench-gpu/moduleload/load_Nvlink_modules.sh
@@ -41,4 +42,5 @@ source src/microbench-gpu/moduleload/load_CudaAware_modules.sh
 export MPICH_GPU_SUPPORT_ENABLED=1
 ./run.sh test_suites/gpubench_pp_ca ${ARGS} --ppn 2
 ./run.sh test_suites/gpubench_coll_ca ${ARGS} --ppn 8
+./run.sh test_suites/comm-cudaaware ${ARGS} --ppn 8
 unset MPICH_GPU_SUPPORT_ENABLED

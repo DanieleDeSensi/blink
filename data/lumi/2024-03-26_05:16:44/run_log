@@ -1,0 +1,207 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/a2a_b/128MiB', node_file='auto', numnodes=16, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-msgsize 134217728 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 16 nodes:
+['nid005322' 'nid005323' 'nid006274' 'nid006275' 'nid006286' 'nid006287'
+ 'nid006345' 'nid006346' 'nid006356' 'nid006357' 'nid006362' 'nid006363'
+ 'nid006364' 'nid006399' 'nid006400' 'nid006401']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.38093s.
+
+Running...
+ Run 1:
+  0.00102s: started 0
+  70.38812s: awaited 0
+  70.38814s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 8 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+MPICH ERROR [Rank 46] [job id 6691984.178] [Tue Mar 26 05:16:45 2024] [nid006363] - Abort(338237711) (rank 46 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x842000, scount=134217728, MPI_BYTE, rbuf=0x847000, rcount=134217728, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x842000, scount=134217728, MPI_BYTE, rbuf=0x847000, rcount=134217728, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+srun: error: nid006363: task 46: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6691984.178
+srun: error: nid005323: task 7: Segmentation fault
+srun: error: nid005322: tasks 0,3: Segmentation fault
+slurmstepd: error: *** STEP 6691984.178 ON nid005322 CANCELLED AT 2024-03-26T05:16:46 ***
+srun: error: nid005322: task 1: Terminated
+srun: error: nid005323: tasks 5-6: Terminated
+srun: error: nid006274: tasks 8-9,11: Terminated
+srun: error: nid006286: tasks 16,18-19: Terminated
+srun: error: nid006275: tasks 12-13,15: Terminated
+srun: error: nid006287: tasks 21-23: Terminated
+srun: error: nid006345: tasks 24-25,27: Terminated
+srun: error: nid006356: tasks 32-33,35: Terminated
+srun: error: nid006346: tasks 29-31: Terminated
+srun: error: nid006363: tasks 44-45: Terminated
+srun: error: nid006357: tasks 37-39: Terminated
+srun: error: nid006362: tasks 40-41,43: Terminated
+srun: error: nid006399: tasks 53-55: Terminated
+srun: error: nid006364: tasks 48-49,51: Terminated
+srun: error: nid006401: tasks 60,62-63: Terminated
+srun: error: nid006400: tasks 56-57,59: Terminated
+srun: error: nid005322: task 2: Terminated
+srun: error: nid006274: task 10: Terminated
+srun: error: nid006357: task 36: Terminated
+srun: error: nid006363: task 47: Terminated
+srun: error: nid006346: task 28: Terminated
+srun: error: nid006399: task 52: Terminated
+srun: error: nid006401: task 61: Terminated
+srun: error: nid006362: task 42: Terminated
+srun: error: nid006356: task 34: Terminated
+srun: error: nid006345: task 26: Terminated
+srun: error: nid006400: task 58: Terminated
+srun: error: nid006287: task 20: Terminated
+srun: error: nid006364: task 50: Terminated
+srun: error: nid006286: task 17: Terminated
+srun: error: nid005323: task 4: Terminated
+srun: error: nid006275: task 14: Terminated
+srun: Force Terminated StepId=6691984.178
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.00111s: started 0
+  68.22169s: awaited 0
+  68.22172s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 8 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+MPICH ERROR [Rank 46] [job id 6691984.179] [Tue Mar 26 05:17:55 2024] [nid006363] - Abort(338237711) (rank 46 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x842000, scount=134217728, MPI_BYTE, rbuf=0x847000, rcount=134217728, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x842000, scount=134217728, MPI_BYTE, rbuf=0x847000, rcount=134217728, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+srun: error: nid006363: task 46: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6691984.179
+srun: error: nid005323: task 7: Segmentation fault
+srun: error: nid005322: tasks 0,3: Segmentation fault
+slurmstepd: error: *** STEP 6691984.179 ON nid005322 CANCELLED AT 2024-03-26T05:17:55 ***
+srun: error: nid005322: task 2: Terminated
+srun: error: nid005323: tasks 5-6: Terminated
+srun: error: nid006274: tasks 8-9,11: Terminated
+srun: error: nid006286: tasks 16-17,19: Terminated
+srun: error: nid006275: tasks 12-13,15: Terminated
+srun: error: nid006287: tasks 20,22-23: Terminated
+srun: error: nid006345: tasks 24,26-27: Terminated
+srun: error: nid006356: tasks 33-35: Terminated
+srun: error: nid006346: tasks 28,30-31: Terminated
+srun: error: nid006357: tasks 36-37,39: Terminated
+srun: error: nid006362: tasks 41-43: Terminated
+srun: error: nid006363: tasks 44,47: Terminated
+srun: error: nid006364: tasks 48-49,51: Terminated
+srun: error: nid006399: tasks 53-55: Terminated
+srun: error: nid006400: tasks 56-58: Terminated
+srun: error: nid006401: tasks 60,62-63: Terminated
+srun: error: nid005322: task 1: Terminated
+srun: error: nid006399: task 52: Terminated
+srun: error: nid006275: task 14: Terminated
+srun: error: nid006401: task 61: Terminated
+srun: error: nid006362: task 40: Terminated
+srun: error: nid006286: task 18: Terminated
+srun: error: nid006287: task 21: Terminated
+srun: error: nid006364: task 50: Terminated
+srun: error: nid006274: task 10: Terminated
+srun: error: nid006356: task 32: Terminated
+srun: error: nid006346: task 29: Terminated
+srun: error: nid005323: task 4: Terminated
+srun: error: nid006345: task 25: Terminated
+srun: error: nid006357: task 38: Terminated
+srun: error: nid006363: task 45: Terminated
+srun: error: nid006400: task 59: Terminated
+srun: Force Terminated StepId=6691984.179
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00161s: started 0
+  69.49415s: awaited 0
+  69.49417s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 8 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+MPICH ERROR [Rank 46] [job id 6691984.180] [Tue Mar 26 05:19:04 2024] [nid006363] - Abort(338237711) (rank 46 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x842000, scount=134217728, MPI_BYTE, rbuf=0x847000, rcount=134217728, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x842000, scount=134217728, MPI_BYTE, rbuf=0x847000, rcount=134217728, datatype=MPI_BYTE, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+srun: error: nid006363: task 46: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6691984.180
+srun: error: nid005322: tasks 0,3: Segmentation fault
+srun: error: nid005323: task 7: Segmentation fault
+slurmstepd: error: *** STEP 6691984.180 ON nid005322 CANCELLED AT 2024-03-26T05:19:05 ***
+srun: error: nid005322: task 2: Terminated
+srun: error: nid005323: tasks 4,6: Terminated
+srun: error: nid006274: tasks 8-9,11: Terminated
+srun: error: nid006275: tasks 12-13,15: Terminated
+srun: error: nid006286: tasks 16,18-19: Terminated
+srun: error: nid006346: tasks 29-31: Terminated
+srun: error: nid006345: tasks 24,26-27: Terminated
+srun: error: nid006287: tasks 20-21,23: Terminated
+srun: error: nid006356: tasks 32-33,35: Terminated
+srun: error: nid006363: tasks 44-45: Terminated
+srun: error: nid006357: tasks 36-38: Terminated
+srun: error: nid006364: tasks 48,50-51: Terminated
+srun: error: nid006399: tasks 52-53,55: Terminated
+srun: error: nid006400: tasks 56-57,59: Terminated
+srun: error: nid006401: tasks 61-63: Terminated
+srun: error: nid006362: tasks 41-43: Terminated
+srun: error: nid005322: task 1: Terminated
+srun: error: nid006362: task 40: Terminated
+srun: error: nid006274: task 10: Terminated
+srun: error: nid006363: task 47: Terminated
+srun: error: nid006400: task 58: Terminated
+srun: error: nid006356: task 34: Terminated
+srun: error: nid006357: task 39: Terminated
+srun: error: nid006399: task 54: Terminated
+srun: error: nid006286: task 17: Terminated
+srun: error: nid006364: task 49: Terminated
+srun: error: nid006401: task 60: Terminated
+srun: error: nid006275: task 14: Terminated
+srun: error: nid006346: task 28: Terminated
+srun: error: nid005323: task 5: Terminated
+srun: error: nid006287: task 22: Terminated
+srun: error: nid006345: task 25: Terminated
+srun: Force Terminated StepId=6691984.180
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+Completed maximum number of runs, terminated after 3 runs taking 208.1 seconds.

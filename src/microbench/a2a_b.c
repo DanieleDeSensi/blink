@@ -139,6 +139,24 @@ int main(int argc, char** argv){
     bool burst_cont=false;
     curr_iters=0;
 
+    size_t large_count = 0;
+    if(msg_size >= 8 && msg_size % 8 == 0){ // Check if I can use 64-bit data types
+        large_count = msg_size / 8;
+        if (large_count >= ((u_int64_t) (1UL << 32)) - 1) { // If large_count can't be represented on 32 bits
+            if(rank == 0){
+                printf("\tTransfer size (B): -1, Transfer Time (s): -1, Bandwidth (GB/s): -1, Iteration -1\n");
+            }
+            return -1;
+        }
+    }else{
+        if (msg_size >= ((u_int64_t) (1UL << 32)) - 1) { // If msg_size can't be represented on 32 bits
+            if(rank == 0){
+                printf("\tTransfer size (B): -1, Transfer Time (s): -1, Bandwidth (GB/s): -1, Iteration -1\n");
+            }
+            return -1;
+        }
+    }
+
     MPI_Barrier(MPI_COMM_WORLD);
     do{
         for(k=0;k<max_iters+warm_up_iters;k++){
@@ -150,7 +168,11 @@ int main(int argc, char** argv){
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
-                    MPI_Alltoall(send_buf,msg_size,MPI_BYTE,recv_buf,msg_size,MPI_BYTE,MPI_COMM_WORLD);
+                    if(large_count){
+                        MPI_Alltoall(send_buf,large_count,MPI_UINT64_T,recv_buf,large_count,MPI_UINT64_T,MPI_COMM_WORLD);
+                    }else{
+                        MPI_Alltoall(send_buf,msg_size,MPI_BYTE,recv_buf,msg_size,MPI_BYTE,MPI_COMM_WORLD);
+                    }
                 }
                 durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
                 curr_iters++;

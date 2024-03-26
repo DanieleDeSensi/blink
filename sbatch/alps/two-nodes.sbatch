@@ -15,10 +15,13 @@ PPN=4
 ##################
 # NCCL    
 ./run.sh test_suites/pp-nccl ${ARGS} --ppn ${PPN} -e ${EXTRA} 
+./run.sh test_suites/comm-nccl ${ARGS} --ppn ${PPN}
+
 # CUDA-Aware
 export MPICH_GPU_SUPPORT_ENABLED=1
 ./run.sh test_suites/pp-cudaaware ${ARGS} --ppn ${PPN} -e ${EXTRA} 
 unset MPICH_GPU_SUPPORT_ENABLED
+
 # MPI
 ./run.sh test_suites/pp-mpi ${ARGS} --ppn ${PPN} -e ${EXTRA} 
 
@@ -27,4 +30,5 @@ unset MPICH_GPU_SUPPORT_ENABLED
 ./run.sh test_suites/two-nodes-coll-gpu-nccl ${ARGS} --ppn ${PPN} -e ${EXTRA}
 export MPICH_GPU_SUPPORT_ENABLED=1
 ./run.sh test_suites/two-nodes-coll-gpu-cudaaware ${ARGS} --ppn ${PPN} -e ${EXTRA}
+./run.sh test_suites/comm-cudaaware ${ARGS} --ppn ${PPN}
 unset MPICH_GPU_SUPPORT_ENABLED

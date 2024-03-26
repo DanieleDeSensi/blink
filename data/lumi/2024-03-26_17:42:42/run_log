@@ -1,0 +1,407 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-nccl/1GiB', node_file='auto', numnodes=16, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 16 nodes:
+['nid005360' 'nid005361' 'nid005538' 'nid005546' 'nid005548' 'nid005550'
+ 'nid005556' 'nid005568' 'nid005570' 'nid005572' 'nid005586' 'nid005588'
+ 'nid005590' 'nid005814' 'nid005898' 'nid006459']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.44332s.
+
+Running...
+ Run 1:
+  0.02141s: started 0
+  55.39073s: awaited 0
+  55.39077s: encountered an exception in 0
+srun: error: nid005588: tasks 90,92-95: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6702348.66
+srun: error: nid005556: tasks 48,52-55: Segmentation fault
+srun: error: nid005548: tasks 34,36-39: Segmentation fault
+srun: error: nid006459: tasks 120-124: Segmentation fault
+srun: error: nid005538: tasks 16,18,20,23: Segmentation fault
+srun: error: nid005568: tasks 58,60-63: Segmentation fault
+srun: error: nid005898: tasks 112,114,116,118-119: Segmentation fault
+srun: error: nid005361: tasks 8,10-13: Segmentation fault
+srun: error: nid005814: tasks 105,108-111: Segmentation fault
+srun: error: nid005572: tasks 73,75-77,79: Segmentation fault
+srun: error: nid005550: tasks 41,44-47: Segmentation fault
+srun: error: nid005570: tasks 64,67-70: Segmentation fault
+srun: error: nid005546: tasks 25,27-29,31: Segmentation fault
+slurmstepd: error: *** STEP 6702348.66 ON nid005360 CANCELLED AT 2024-03-26T17:42:46 ***
+srun: error: nid005360: tasks 0,3-5,7: Segmentation fault
+srun: error: nid005590: tasks 96-97,100-101,103: Segmentation fault
+srun: error: nid005586: tasks 80-82,84,87: Segmentation fault
+srun: error: nid005538: task 17: Segmentation fault
+srun: error: nid005538: task 22: Terminated
+srun: error: nid005814: task 104: Terminated
+srun: error: nid005546: task 30: Terminated
+srun: error: nid005550: task 40: Terminated
+srun: error: nid005568: task 59: Terminated
+srun: error: nid005538: task 19: Terminated
+srun: error: nid005572: task 78: Terminated
+srun: error: nid005546: task 24: Terminated
+srun: error: nid005570: task 71: Terminated
+srun: error: nid005898: task 113: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+srun: error: nid005572: task 74: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+srun: error: nid006459: tasks 126-127: Terminated
+srun: error: nid005556: task 49: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+srun: error: nid005361: task 9: Terminated
+srun: error: nid005550: task 43: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+srun: error: nid005590: task 98: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+srun: error: nid005361: task 15: Terminated
+srun: error: nid005590: task 99: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+srun: error: nid005586: task 86: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+srun: error: nid005588: task 91: Terminated
+srun: error: nid005360: task 6: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+srun: error: nid005360: task 1: Terminated
+srun: error: nid005548: task 35: Terminated
+srun: error: nid005360: task 2: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+srun: error: nid005898: task 115: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+srun: error: nid005586: task 85: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005568: tasks 56-57: Terminated
+srun: error: nid005586: task 83: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+srun: error: nid005898: task 117: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+srun: error: nid005588: task 89: Terminated
+srun: error: nid005588: task 88: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+srun: error: nid005548: task 32: Terminated
+srun: error: nid005548: task 33: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+srun: error: nid005546: task 26: Terminated
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005570: tasks 65-66: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid006459: task 125: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005550: task 42: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005556: tasks 50-51: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+srun: error: nid005814: tasks 106-107: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi3): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005538: task 21: Terminated
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005361: task 14: Terminated
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005572: task 72: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005590: task 102: Terminated
+srun: Force Terminated StepId=6702348.66
+
+  Data collection took 0.00012s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.03408s: started 0
+  61.64941s: awaited 0
+  61.64944s: encountered an exception in 0
+srun: error: nid005548: tasks 32,36,38-39: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6702348.67
+srun: error: nid005360: tasks 0,2-4,6: Segmentation fault
+srun: error: nid006459: tasks 121,123-124,126-127: Segmentation fault
+slurmstepd: error: *** STEP 6702348.67 ON nid005360 CANCELLED AT 2024-03-26T17:43:49 ***
+srun: error: nid005590: tasks 98,100-103: Segmentation fault
+srun: error: nid005550: tasks 40,42,44-46: Segmentation fault
+srun: error: nid005572: tasks 74,76,78-79: Segmentation fault
+srun: error: nid005586: tasks 81,83,86-87: Segmentation fault
+srun: error: nid005568: tasks 60-63: Segmentation fault
+srun: error: nid005814: tasks 104,106,108-110: Segmentation fault
+srun: error: nid005538: tasks 16,18-20,22: Segmentation fault
+srun: error: nid005588: tasks 90,92-95: Segmentation fault
+srun: error: nid005898: tasks 113-116,119: Segmentation fault
+srun: error: nid005546: tasks 24-25,28,30-31: Segmentation fault
+srun: error: nid005361: tasks 8,10-13: Segmentation fault
+srun: error: nid005570: tasks 64,66-69: Segmentation fault
+srun: error: nid005556: tasks 48,52-55: Segmentation fault
+srun: error: nid005548: task 37: Segmentation fault
+srun: error: nid005572: task 72: Segmentation fault
+srun: error: nid005586: task 84: Segmentation fault
+srun: error: nid005568: task 58: Segmentation fault
+srun: error: nid005572: task 75: Terminated
+srun: error: nid005538: task 17: Terminated
+srun: error: nid005572: task 73: Terminated
+srun: error: nid005550: tasks 41,43: Terminated
+srun: error: nid005546: task 29: Terminated
+srun: error: nid005548: task 33: Terminated
+srun: error: nid005548: task 35: Terminated
+srun: error: nid005570: task 65: Terminated
+srun: error: nid005568: tasks 56-57: Terminated
+srun: error: nid005590: task 97: Terminated
+srun: error: nid005361: task 15: Terminated
+srun: error: nid005590: task 96: Terminated
+srun: error: nid005361: task 14: Terminated
+srun: error: nid005556: task 49: Terminated
+srun: error: nid005588: task 91: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi0): Device or resource busy
+srun: error: nid005360: task 7: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+srun: error: nid005898: tasks 112,118: Terminated
+srun: error: nid005360: task 1: Terminated
+srun: error: nid005586: tasks 80,82: Terminated
+srun: error: nid006459: task 122: Terminated
+srun: error: nid005898: task 117: Terminated
+srun: error: nid005814: tasks 105,107: Terminated
+srun: error: nid005538: task 23: Terminated
+srun: error: nid005360: task 5: Terminated
+srun: error: nid005814: task 111: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+srun: error: nid006459: task 120: Terminated
+srun: error: nid006459: task 125: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+srun: error: nid005586: task 85: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi0): Device or resource busy
+srun: error: nid005556: task 51: Terminated
+srun: error: nid005556: task 50: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+srun: error: nid005588: task 88: Terminated
+srun: error: nid005588: task 89: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi3): Device or resource busy
+srun: error: nid005538: task 21: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi3): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005568: task 59: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi3): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005548: task 34: Terminated
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005361: task 9: Terminated
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005550: task 47: Terminated
+srun: error: nid005546: task 27: Terminated
+srun: error: nid005546: task 26: Terminated
+srun: error: nid005570: tasks 70-71: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+srun: error: nid005572: task 77: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi0): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005590: task 99: Terminated
+srun: Force Terminated StepId=6702348.67
+
+  Data collection took 0.00012s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00672s: started 0
+  54.59159s: awaited 0
+  54.59162s: encountered an exception in 0
+srun: error: nid006459: tasks 121-122,124,126-127: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6702348.68
+srun: error: nid005548: tasks 32-33,37-39: Segmentation fault
+srun: error: nid005360: tasks 0,3-4,6-7: Segmentation fault
+slurmstepd: error: *** STEP 6702348.68 ON nid005360 CANCELLED AT 2024-03-26T17:44:51 ***
+srun: error: nid005556: tasks 48,50-52,54: Segmentation fault
+srun: error: nid005586: tasks 81-84,86: Segmentation fault
+srun: error: nid005568: tasks 57,60-63: Segmentation fault
+srun: error: nid005814: tasks 104,106,108,110-111: Segmentation fault
+srun: error: nid005550: tasks 40-41,43-44,46: Segmentation fault
+srun: error: nid005361: tasks 9-10,12,14-15: Segmentation fault
+srun: error: nid005538: tasks 17,19-22: Segmentation fault
+srun: error: nid005572: tasks 74-76,78-79: Segmentation fault
+srun: error: nid005546: tasks 25,28-31: Segmentation fault
+srun: error: nid005898: tasks 113-114,116-118: Segmentation fault
+srun: error: nid005570: tasks 64,68-71: Segmentation fault
+srun: error: nid005588: tasks 88,91-93,95: Segmentation fault
+srun: error: nid005590: tasks 97-98,100-102: Segmentation fault
+srun: error: nid005556: task 55: Terminated
+srun: error: nid005550: task 42: Terminated
+srun: error: nid005814: task 109: Terminated
+srun: error: nid005550: task 45: Terminated
+srun: error: nid005548: task 34: Terminated
+srun: error: nid005570: tasks 66-67: Terminated
+srun: error: nid005568: task 58: Terminated
+srun: error: nid005568: task 59: Terminated
+srun: error: nid005572: task 77: Terminated
+srun: error: nid005572: task 73: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+srun: error: nid005814: task 105: Terminated
+srun: error: nid005360: tasks 1-2: Terminated
+srun: error: nid005588: task 94: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+srun: error: nid005546: task 24: Terminated
+srun: error: nid005898: tasks 112,119: Terminated
+srun: error: nid005538: tasks 18,23: Terminated
+srun: error: nid005586: task 87: Terminated
+srun: error: nid005538: task 16: Terminated
+srun: error: nid005361: task 8: Terminated
+srun: error: nid005898: task 115: Terminated
+srun: error: nid005586: task 80: Terminated
+srun: error: nid005588: task 90: Terminated
+srun: error: nid005588: task 89: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+srun: error: nid005590: task 103: Terminated
+srun: error: nid006459: task 123: Terminated
+srun: error: nid005360: task 5: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi0): Device or resource busy
+srun: error: nid005590: task 96: Terminated
+srun: error: nid005556: task 53: Terminated
+srun: error: nid005361: task 11: Terminated
+srun: error: nid005590: task 99: Terminated
+srun: error: nid005361: task 13: Terminated
+srun: error: nid006459: task 125: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+srun: error: nid005586: task 85: Terminated
+srun: error: nid005548: task 36: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+srun: error: nid006459: task 120: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+srun: error: nid005814: task 107: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi0): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+srun: error: nid005546: task 27: Terminated
+srun: error: nid005546: task 26: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 6 (cxi1): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+srun: error: nid005548: task 35: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005568: task 56: Terminated
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005570: task 65: Terminated
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005572: task 72: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+slurmstepd: error: switch_g_job_postfini: Device or resource busy
+srun: error: nid005550: task 47: Terminated
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+slurmstepd: error: Failed to destroy CXI Service ID 5 (cxi2): Device or resource busy
+srun: error: nid005556: task 49: Terminated
+srun: Force Terminated StepId=6702348.68
+
+  Data collection took 0.00013s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 3 runs taking 171.63 seconds.

@@ -116,7 +116,7 @@ def main():
                         ppn = 1
                     if allocation_split == "100":
                         allocation_split = "50:50"            
-                filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, system, args.numnodes, args.allocation_mode, allocation_split, ppn, e, victim_name, victim_input, args.aggressor_name, aggressor_input)
+                filename = get_data_filename(args.data_folder, system, args.numnodes, args.allocation_mode, allocation_split, ppn, e, victim_name, victim_input, args.aggressor_name, aggressor_input)
                 if not filename:
                     print("Data not found for extra " + e + " " + ea + " " + str(args))
                     continue
@@ -176,7 +176,7 @@ def main():
                     # Remove xticklabels for all but the last row
                     if index <= (num_rows - 1) * num_cols:
                         ax.set_xticklabels("")      
-                    if args.xticklabels:
+                    elif args.xticklabels:
                         ax.set_xticklabels(ast.literal_eval(args.xticklabels))                  
                 
                 # Remove y-axis label for all but the first column

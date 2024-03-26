@@ -81,7 +81,7 @@ def main():
                         actual_metrics = [metric_hr]
 
                     for actual_metric in actual_metrics:
-                        filename, victim_fn, aggressor_fn = get_data_filename(args.data_folder, sys, nodes, args.allocation_mode, allocation_split, ppn, get_actual_extra_name(args.extra, sys, vn, nodes), vn, args.victim_input, args.aggressor_name, args.aggressor_input)
+                        filename = get_data_filename(args.data_folder, sys, nodes, args.allocation_mode, allocation_split, ppn, get_actual_extra_name(args.extra, sys, vn, nodes), vn, args.victim_input, args.aggressor_name, args.aggressor_input)
                         data = pd.DataFrame()
                         if filename and os.path.exists(filename):                    
                             data[actual_metric] = get_bench_data(vn, args.victim_input, actual_metric, filename, ppn, nodes, sys)
@@ -99,7 +99,7 @@ def main():
                             xticklabels += [(int(nodes)*int(ppn))]
                             xticks += [(int(nodes)*int(ppn))]
 
-                        data["System"] = sys + " (" + vn + ")"
+                        data["System"] = system_to_human_readable(sys) + " (" + bench_to_human_readable_impl(vn) + ")"
                         if metric_hr == "Bandwidth" and actual_metric == "Runtime": # Save the data for the inner plot in the bandwidth plots
                             global_df_time = pd.concat([global_df_time, data], ignore_index=True)
                         else:
@@ -133,7 +133,7 @@ def main():
                         ax.axhline(y=float(limit), color='black', linestyle='--')
                         if label:
                             label = label.replace("_", " ") 
-                            ax.text(7, float(limit), label, fontsize=8, va='center', ha='center', backgroundcolor='w')
+                            ax.text(256, float(limit), label, fontsize=8, va='center', ha='center', backgroundcolor='w')
 
             # Set the title and labels
             #ax.set_title(title)

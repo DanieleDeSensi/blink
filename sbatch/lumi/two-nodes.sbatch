@@ -26,12 +26,14 @@ export BLINK_PINNING_FLAGS="--cpu-bind=map_cpu:57,25,9,41,49,17,1,33" # Pinning 
 source src/microbench-gpu/moduleload/load_Nccl_modules.sh
 ./run.sh test_suites/pp-nccl ${ARGS} --ppn ${PPN_GPU} -e ${EXTRA} 
 ./run.sh test_suites/two-nodes-coll-gpu-nccl ${ARGS} --ppn ${PPN_GPU} -e ${EXTRA}
+./run.sh test_suites/comm-nccl ${ARGS} --ppn ${PPN_GPU}
 
 # CUDA-Aware
 export MPICH_GPU_SUPPORT_ENABLED=1
 source src/microbench-gpu/moduleload/load_CudaAware_modules.sh
 ./run.sh test_suites/pp-cudaaware ${ARGS} --ppn ${PPN_GPU} -e ${EXTRA} 
 ./run.sh test_suites/two-nodes-coll-gpu-cudaaware ${ARGS} --ppn ${PPN_GPU} -e ${EXTRA}
+./run.sh test_suites/comm-cudaaware ${ARGS} --ppn ${PPN_GPU}
 unset MPICH_GPU_SUPPORT_ENABLED
 
 # MPI
