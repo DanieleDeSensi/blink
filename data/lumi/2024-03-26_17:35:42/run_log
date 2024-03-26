@@ -1,0 +1,38 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-nccl/4KiB', node_file='auto', numnodes=16, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 12", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 16 nodes:
+['nid005360' 'nid005361' 'nid005538' 'nid005546' 'nid005548' 'nid005550'
+ 'nid005556' 'nid005568' 'nid005570' 'nid005572' 'nid005586' 'nid005588'
+ 'nid005590' 'nid005814' 'nid005898' 'nid006459']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.40524s.
+
+Running...
+ Run 1:
+  0.02474s: started 0
+  8.69882s: awaited 0
+  Data collection took 0.00054s.
+  Convergence check took 0.00097s.
+ Run 2:
+  0.02026s: started 0
+  7.97076s: awaited 0
+  Data collection took 0.00037s.
+  Convergence check took 0.00079s.
+ Run 3:
+  0.00713s: started 0
+  7.91765s: awaited 0
+  Data collection took 0.00043s.
+  Convergence check took 0.00083s.
+Completed maximum number of runs, terminated after 3 runs taking 24.59 seconds.
+Writing data & meta-data took 0.00762s.
+Overall took 25.00426s.
