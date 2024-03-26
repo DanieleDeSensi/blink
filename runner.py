@@ -427,7 +427,7 @@ def main():
 
     # On Alps/LUMI, print nodes location
     if os.environ["BLINK_SYSTEM"] == "lumi" or os.environ["BLINK_SYSTEM"] == "alps":
-        subprocess.call(["cat", "/etc/cray/xname"], stdout=open(data_directory + os.path.sep + "xname", "w"))
+        subprocess.call(["srun", "cat", "/etc/cray/xname"], stdout=open(data_directory + os.path.sep + "xname", "w"))
 
         
     # sort schedule chronologically
