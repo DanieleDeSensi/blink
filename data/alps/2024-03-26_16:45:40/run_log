@@ -1,0 +1,27 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-cudaaware/8B', node_file='auto', numnodes=8, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 3", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 8 nodes:
+['nid005096' 'nid005128' 'nid005130' 'nid005160' 'nid005162' 'nid005192'
+ 'nid005258' 'nid005288']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.8838s.
+
+Running...
+ Run 1:
+  0.09653s: started 0
+  6.63947s: awaited 0
+  Data collection took 0.00024s.
+  Convergence check took 0.00081s.
+Completed after reaching confidence interval, terminated after 1 runs taking 6.64 seconds.
+Writing data & meta-data took 0.00898s.
+Overall took 7.53339s.
