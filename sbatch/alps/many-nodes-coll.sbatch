@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --time=02:00:00
+#SBATCH --time=08:00:00
 #SBATCH --ntasks-per-node=4
 #SBATCH --exclusive
 #SBATCH --job-name=blink-many-nodes-coll
@@ -12,7 +12,7 @@ PPN_CPU=4
 # GPU tests, PPN=4
 # NCCL
 ./run.sh test_suites/coll-nccl-many ${ARGS} --ppn ${PPN_GPU}
-./run.sh test_suites/comm-nccl ${ARGS} --ppn ${PPN_GPU}
+# ./run.sh test_suites/comm-nccl ${ARGS} --ppn ${PPN_GPU}
 
 # CUDA-Aware
 export MPICH_GPU_SUPPORT_ENABLED=1

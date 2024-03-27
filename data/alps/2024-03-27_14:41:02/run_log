@@ -1,0 +1,38 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/ardc_b/8GiB', node_file='auto', numnodes=16, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-msgsize 8589934592 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 16 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001098' 'nid001100' 'nid001104'
+ 'nid001106' 'nid001108' 'nid001110' 'nid001112']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.86666s.
+
+Running...
+ Run 1:
+  0.00305s: started 0
+  6.22777s: awaited 0
+  Data collection took 0.00022s.
+  Convergence check took 0.0009s.
+ Run 2:
+  0.13125s: started 0
+  6.6309s: awaited 0
+  Data collection took 0.00012s.
+  Convergence check took 0.00081s.
+ Run 3:
+  0.00285s: started 0
+  6.98579s: awaited 0
+  Data collection took 0.00011s.
+  Convergence check took 0.00084s.
+Completed maximum number of runs, terminated after 3 runs taking 19.85 seconds.
+Writing data & meta-data took 0.01196s.
+Overall took 20.72634s.

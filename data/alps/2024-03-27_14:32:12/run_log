@@ -1,0 +1,38 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/a2a_b/64B', node_file='auto', numnodes=16, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-msgsize 64 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 16 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001098' 'nid001100' 'nid001104'
+ 'nid001106' 'nid001108' 'nid001110' 'nid001112']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.98825s.
+
+Running...
+ Run 1:
+  0.00303s: started 0
+  7.42487s: awaited 0
+  Data collection took 0.00163s.
+  Convergence check took 0.00096s.
+ Run 2:
+  0.06931s: started 0
+  7.18436s: awaited 0
+  Data collection took 0.00084s.
+  Convergence check took 0.00092s.
+ Run 3:
+  0.05329s: started 0
+  6.83769s: awaited 0
+  Data collection took 0.00081s.
+  Convergence check took 0.00096s.
+Completed maximum number of runs, terminated after 3 runs taking 21.45 seconds.
+Writing data & meta-data took 0.01784s.
+Overall took 22.45942s.
