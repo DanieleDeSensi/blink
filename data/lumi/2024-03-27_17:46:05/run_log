@@ -1,0 +1,554 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/a2a_b/16MiB', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-msgsize 16777216 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid005343' 'nid005344' 'nid005345' 'nid005346' 'nid005347' 'nid005348'
+ 'nid005349' 'nid005350' 'nid005351' 'nid005352' 'nid005353' 'nid005354'
+ 'nid005355' 'nid005845' 'nid005846' 'nid005847' 'nid005848' 'nid005849'
+ 'nid005850' 'nid005851' 'nid005852' 'nid005853' 'nid005854' 'nid005855'
+ 'nid005856' 'nid005857' 'nid005858' 'nid005859' 'nid005860' 'nid005861'
+ 'nid005862' 'nid005863' 'nid005864' 'nid005865' 'nid005866' 'nid005867'
+ 'nid005868' 'nid005869' 'nid005870' 'nid005871' 'nid006334' 'nid006335'
+ 'nid006336' 'nid006337' 'nid006338' 'nid006339' 'nid006340' 'nid006341'
+ 'nid006342' 'nid006343' 'nid006344' 'nid006345' 'nid006346' 'nid006347'
+ 'nid006348' 'nid006349' 'nid006350' 'nid006351' 'nid006352' 'nid006353'
+ 'nid006354' 'nid006355' 'nid006356' 'nid006357']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.44697s.
+
+Running...
+ Run 1:
+  0.00149s: started 0
+  69.48417s: awaited 0
+  69.4842s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 8 which doesn't match the requested tasks 256 with the number of requested nodes 64. Ignoring --ntasks-per-node.
+MPICH ERROR [Rank 33] [job id 6718235.164] [Wed Mar 27 17:46:06 2024] [nid005351] - Abort(740890895) (rank 33 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x5eb000, scount=2097152, dtype=0x4c00083e, rbuf=0x5f0000, rcount=2097152, datatype=dtype=0x4c00083e, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x5eb000, scount=2097152, dtype=0x4c00083e, rbuf=0x5f0000, rcount=2097152, datatype=dtype=0x4c00083e, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPICH ERROR [Rank 125] [job id 6718235.164] [Wed Mar 27 17:46:06 2024] [nid005863] - Abort(740890895) (rank 125 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x5eb000, scount=2097152, dtype=0x4c00083e, rbuf=0x5f0000, rcount=2097152, datatype=dtype=0x4c00083e, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x5eb000, scount=2097152, dtype=0x4c00083e, rbuf=0x5f0000, rcount=2097152, datatype=dtype=0x4c00083e, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+srun: error: nid005351: task 33: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6718235.164
+srun: error: nid005863: task 125: Exited with exit code 255
+srun: error: nid005855: task 93: Segmentation fault
+srun: error: nid005845: task 55: Segmentation fault
+slurmstepd: error: *** STEP 6718235.164 ON nid005343 CANCELLED AT 2024-03-27T17:46:06 ***
+srun: error: nid005343: tasks 0-2: Terminated
+srun: error: nid006346: tasks 208-209,211: Terminated
+srun: error: nid006345: tasks 204-206: Terminated
+srun: error: nid006348: tasks 216-218: Terminated
+srun: error: nid005346: tasks 13-15: Terminated
+srun: error: nid005353: tasks 40-42: Terminated
+srun: error: nid005347: tasks 17-19: Terminated
+srun: error: nid005355: tasks 48-50: Terminated
+srun: error: nid006349: tasks 220-221,223: Terminated
+srun: error: nid005352: tasks 36-38: Terminated
+srun: error: nid005354: tasks 44-45,47: Terminated
+srun: error: nid005348: tasks 20-22: Terminated
+srun: error: nid006350: tasks 224,226-227: Terminated
+srun: error: nid005349: tasks 24-25,27: Terminated
+srun: error: nid006351: tasks 228-230: Terminated
+srun: error: nid006347: tasks 212-214: Terminated
+srun: error: nid006352: tasks 233-235: Terminated
+srun: error: nid006354: tasks 240-241,243: Terminated
+srun: error: nid006353: tasks 236-238: Terminated
+srun: error: nid005845: tasks 52,54: Terminated
+srun: error: nid005351: tasks 34-35: Terminated
+srun: error: nid006355: tasks 244-245,247: Terminated
+srun: error: nid005851: tasks 77-79: Terminated
+srun: error: nid005849: tasks 68-70: Terminated
+srun: error: nid005846: tasks 56-58: Terminated
+srun: error: nid006356: tasks 248,250-251: Terminated
+srun: error: nid005350: tasks 29-31: Terminated
+srun: error: nid006357: tasks 252,254-255: Terminated
+srun: error: nid005853: tasks 84-85,87: Terminated
+srun: error: nid005857: tasks 101-103: Terminated
+srun: error: nid005854: tasks 88-89,91: Terminated
+srun: error: nid005850: tasks 73-75: Terminated
+srun: error: nid005858: tasks 105-107: Terminated
+srun: error: nid005859: tasks 109-111: Terminated
+srun: error: nid005852: tasks 80-82: Terminated
+srun: error: nid005868: tasks 144,146-147: Terminated
+srun: error: nid005864: tasks 128-130: Terminated
+srun: error: nid005848: tasks 64,66-67: Terminated
+srun: error: nid005866: tasks 136,138-139: Terminated
+srun: error: nid005867: tasks 140-141,143: Terminated
+srun: error: nid005856: tasks 96,98-99: Terminated
+srun: error: nid005860: tasks 113-115: Terminated
+srun: error: nid005863: tasks 124,127: Terminated
+srun: error: nid005865: tasks 133-135: Terminated
+srun: error: nid005847: tasks 60,62-63: Terminated
+srun: error: nid005862: tasks 120,122-123: Terminated
+srun: error: nid005855: tasks 92,95: Terminated
+srun: error: nid005345: tasks 9-11: Terminated
+srun: error: nid006343: tasks 197-199: Terminated
+srun: error: nid005869: tasks 148-149,151: Terminated
+srun: error: nid005861: tasks 116-118: Terminated
+srun: error: nid006338: tasks 176-178: Terminated
+srun: error: nid006341: tasks 188-189,191: Terminated
+srun: error: nid006342: tasks 193-195: Terminated
+srun: error: nid006339: tasks 180-181,183: Terminated
+srun: error: nid006337: tasks 172-174: Terminated
+srun: error: nid005870: tasks 152-154: Terminated
+srun: error: nid006336: tasks 168-170: Terminated
+srun: error: nid005871: tasks 156,158-159: Terminated
+srun: error: nid005344: tasks 4-5,7: Terminated
+srun: error: nid006334: tasks 161-163: Terminated
+srun: error: nid006335: tasks 164-166: Terminated
+srun: error: nid006344: tasks 201-203: Terminated
+srun: error: nid006340: tasks 185-187: Terminated
+srun: error: nid005854: task 90: Terminated
+srun: error: nid006336: task 171: Terminated
+srun: error: nid005861: task 119: Terminated
+srun: error: nid006340: task 184: Terminated
+srun: error: nid005848: task 65: Terminated
+srun: error: nid006349: task 222: Terminated
+srun: error: nid005343: task 3: Terminated
+srun: error: nid005344: task 6: Terminated
+srun: error: nid005354: task 46: Terminated
+srun: error: nid005349: task 26: Terminated
+srun: error: nid006355: task 246: Terminated
+srun: error: nid005871: task 157: Terminated
+srun: error: nid005870: task 155: Terminated
+srun: error: nid005862: task 121: Terminated
+srun: error: nid005846: task 59: Terminated
+srun: error: nid005864: task 131: Terminated
+srun: error: nid005350: task 28: Terminated
+srun: error: nid006346: task 210: Terminated
+srun: error: nid006357: task 253: Terminated
+srun: error: nid005355: task 51: Terminated
+srun: error: nid006354: task 242: Terminated
+srun: error: nid006353: task 239: Terminated
+srun: error: nid006350: task 225: Terminated
+srun: error: nid005348: task 23: Terminated
+srun: error: nid005852: task 83: Terminated
+srun: error: nid006344: task 200: Terminated
+srun: error: nid005868: task 145: Terminated
+srun: error: nid005346: task 12: Terminated
+srun: error: nid006337: task 175: Terminated
+srun: error: nid006339: task 182: Terminated
+srun: error: nid005351: task 32: Terminated
+srun: error: nid005855: task 94: Terminated
+srun: error: nid006347: task 215: Terminated
+srun: error: nid005866: task 137: Terminated
+srun: error: nid005352: task 39: Terminated
+srun: error: nid005860: task 112: Terminated
+srun: error: nid006351: task 231: Terminated
+srun: error: nid005347: task 16: Terminated
+srun: error: nid006343: task 196: Terminated
+srun: error: nid006356: task 249: Terminated
+srun: error: nid006334: task 160: Terminated
+srun: error: nid006338: task 179: Terminated
+srun: error: nid005849: task 71: Terminated
+srun: error: nid006341: task 190: Terminated
+srun: error: nid005858: task 104: Terminated
+srun: error: nid005353: task 43: Terminated
+srun: error: nid005863: task 126: Terminated
+srun: error: nid005856: task 97: Terminated
+srun: error: nid005853: task 86: Terminated
+srun: error: nid005859: task 108: Terminated
+srun: error: nid005845: task 53: Terminated
+srun: error: nid005345: task 8: Terminated
+srun: error: nid006348: task 219: Terminated
+srun: error: nid005847: task 61: Terminated
+srun: error: nid005865: task 132: Terminated
+srun: error: nid005850: task 72: Terminated
+srun: error: nid006335: task 167: Terminated
+srun: error: nid005857: task 100: Terminated
+srun: error: nid006345: task 207: Terminated
+srun: error: nid006352: task 232: Terminated
+srun: error: nid005869: task 150: Terminated
+srun: error: nid005867: task 142: Terminated
+srun: error: nid005851: task 76: Terminated
+srun: error: nid006342: task 192: Terminated
+srun: Force Terminated StepId=6718235.164
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.0015s: started 0
+  69.7533s: awaited 0
+  69.75332s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 8 which doesn't match the requested tasks 256 with the number of requested nodes 64. Ignoring --ntasks-per-node.
+MPICH ERROR [Rank 33] [job id 6718235.165] [Wed Mar 27 17:47:16 2024] [nid005351] - Abort(740890895) (rank 33 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x5eb000, scount=2097152, dtype=0x4c00083e, rbuf=0x5f0000, rcount=2097152, datatype=dtype=0x4c00083e, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x5eb000, scount=2097152, dtype=0x4c00083e, rbuf=0x5f0000, rcount=2097152, datatype=dtype=0x4c00083e, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPICH ERROR [Rank 125] [job id 6718235.165] [Wed Mar 27 17:47:16 2024] [nid005863] - Abort(740890895) (rank 125 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x5eb000, scount=2097152, dtype=0x4c00083e, rbuf=0x5f0000, rcount=2097152, datatype=dtype=0x4c00083e, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x5eb000, scount=2097152, dtype=0x4c00083e, rbuf=0x5f0000, rcount=2097152, datatype=dtype=0x4c00083e, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+srun: error: nid005863: task 125: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6718235.165
+srun: error: nid005351: task 33: Exited with exit code 255
+srun: error: nid005855: task 93: Segmentation fault
+srun: error: nid005845: task 55: Segmentation fault
+slurmstepd: error: *** STEP 6718235.165 ON nid005343 CANCELLED AT 2024-03-27T17:47:16 ***
+srun: error: nid006346: tasks 208,210-211: Terminated
+srun: error: nid005343: tasks 0-2: Terminated
+srun: error: nid006347: tasks 212-214: Terminated
+srun: error: nid006345: tasks 205-207: Terminated
+srun: error: nid006348: tasks 216,218-219: Terminated
+srun: error: nid006350: tasks 225-227: Terminated
+srun: error: nid006349: tasks 220-222: Terminated
+srun: error: nid006351: tasks 228-229,231: Terminated
+srun: error: nid006352: tasks 232-233,235: Terminated
+srun: error: nid006353: tasks 236-238: Terminated
+srun: error: nid006355: tasks 244-246: Terminated
+srun: error: nid006356: tasks 248-250: Terminated
+srun: error: nid006354: tasks 241-243: Terminated
+srun: error: nid006357: tasks 253-255: Terminated
+srun: error: nid005355: tasks 48,50-51: Terminated
+srun: error: nid005346: tasks 12-13,15: Terminated
+srun: error: nid005347: tasks 16-17,19: Terminated
+srun: error: nid005845: tasks 52-53: Terminated
+srun: error: nid005352: tasks 36,38-39: Terminated
+srun: error: nid005348: tasks 21-23: Terminated
+srun: error: nid005847: tasks 60-62: Terminated
+srun: error: nid005354: tasks 45-47: Terminated
+srun: error: nid005846: tasks 56,58-59: Terminated
+srun: error: nid005353: tasks 40-42: Terminated
+srun: error: nid005351: tasks 32,34: Terminated
+srun: error: nid005852: tasks 80-81,83: Terminated
+srun: error: nid005850: tasks 72-73,75: Terminated
+srun: error: nid005349: tasks 24,26-27: Terminated
+srun: error: nid005861: tasks 117-119: Terminated
+srun: error: nid005859: tasks 108,110-111: Terminated
+srun: error: nid005854: tasks 88-89,91: Terminated
+srun: error: nid005857: tasks 100,102-103: Terminated
+srun: error: nid005350: tasks 28,30-31: Terminated
+srun: error: nid005856: tasks 96,98-99: Terminated
+srun: error: nid005848: tasks 64-66: Terminated
+srun: error: nid005853: tasks 84-86: Terminated
+srun: error: nid005858: tasks 104,106-107: Terminated
+srun: error: nid005855: tasks 92,95: Terminated
+srun: error: nid005864: tasks 128-130: Terminated
+srun: error: nid005860: tasks 112-114: Terminated
+srun: error: nid005851: tasks 76-78: Terminated
+srun: error: nid005849: tasks 68-69,71: Terminated
+srun: error: nid005863: tasks 124,127: Terminated
+srun: error: nid006338: tasks 176-177,179: Terminated
+srun: error: nid005871: tasks 156,158-159: Terminated
+srun: error: nid005866: tasks 136-137,139: Terminated
+srun: error: nid005862: tasks 120-121,123: Terminated
+srun: error: nid006334: tasks 160-162: Terminated
+srun: error: nid005868: tasks 144-146: Terminated
+srun: error: nid006336: tasks 168-170: Terminated
+srun: error: nid006337: tasks 173-175: Terminated
+srun: error: nid006335: tasks 164-166: Terminated
+srun: error: nid005870: tasks 152-153,155: Terminated
+srun: error: nid006339: tasks 180-181,183: Terminated
+srun: error: nid005865: tasks 132,134-135: Terminated
+srun: error: nid005869: tasks 148-149,151: Terminated
+srun: error: nid006340: tasks 184,186-187: Terminated
+srun: error: nid006341: tasks 188-189,191: Terminated
+srun: error: nid006342: tasks 193-195: Terminated
+srun: error: nid006343: tasks 196-198: Terminated
+srun: error: nid005344: tasks 4,6-7: Terminated
+srun: error: nid005345: tasks 8-9,11: Terminated
+srun: error: nid006344: tasks 200-202: Terminated
+srun: error: nid005867: tasks 140,142-143: Terminated
+srun: error: nid005351: task 35: Terminated
+srun: error: nid006349: task 223: Terminated
+srun: error: nid005847: task 63: Terminated
+srun: error: nid006347: task 215: Terminated
+srun: error: nid006339: task 182: Terminated
+srun: error: nid005355: task 49: Terminated
+srun: error: nid005846: task 57: Terminated
+srun: error: nid006344: task 203: Terminated
+srun: error: nid005353: task 43: Terminated
+srun: error: nid006335: task 167: Terminated
+srun: error: nid005345: task 10: Terminated
+srun: error: nid005864: task 131: Terminated
+srun: error: nid006341: task 190: Terminated
+srun: error: nid006336: task 171: Terminated
+srun: error: nid006353: task 239: Terminated
+srun: error: nid006346: task 209: Terminated
+srun: error: nid005855: task 94: Terminated
+srun: error: nid006348: task 217: Terminated
+srun: error: nid006354: task 240: Terminated
+srun: error: nid006351: task 230: Terminated
+srun: error: nid005350: task 29: Terminated
+srun: error: nid005845: task 54: Terminated
+srun: error: nid005344: task 5: Terminated
+srun: error: nid005352: task 37: Terminated
+srun: error: nid005848: task 67: Terminated
+srun: error: nid005863: task 126: Terminated
+srun: error: nid005853: task 87: Terminated
+srun: error: nid006357: task 252: Terminated
+srun: error: nid006338: task 178: Terminated
+srun: error: nid006356: task 251: Terminated
+srun: error: nid005870: task 154: Terminated
+srun: error: nid005347: task 18: Terminated
+srun: error: nid005850: task 74: Terminated
+srun: error: nid005868: task 147: Terminated
+srun: error: nid005348: task 20: Terminated
+srun: error: nid005866: task 138: Terminated
+srun: error: nid005856: task 97: Terminated
+srun: error: nid006337: task 172: Terminated
+srun: error: nid005343: task 3: Terminated
+srun: error: nid005354: task 44: Terminated
+srun: error: nid005859: task 109: Terminated
+srun: error: nid006342: task 192: Terminated
+srun: error: nid005346: task 14: Terminated
+srun: error: nid005861: task 116: Terminated
+srun: error: nid005860: task 115: Terminated
+srun: error: nid005852: task 82: Terminated
+srun: error: nid006334: task 163: Terminated
+srun: error: nid005851: task 79: Terminated
+srun: error: nid005349: task 25: Terminated
+srun: error: nid005869: task 150: Terminated
+srun: error: nid006345: task 204: Terminated
+srun: error: nid005867: task 141: Terminated
+srun: error: nid006355: task 247: Terminated
+srun: error: nid005854: task 90: Terminated
+srun: error: nid005849: task 70: Terminated
+srun: error: nid006340: task 185: Terminated
+srun: error: nid005858: task 105: Terminated
+srun: error: nid005857: task 101: Terminated
+srun: error: nid006352: task 234: Terminated
+srun: error: nid005862: task 122: Terminated
+srun: error: nid005865: task 133: Terminated
+srun: error: nid006343: task 199: Terminated
+srun: error: nid006350: task 224: Terminated
+srun: error: nid005871: task 157: Terminated
+srun: Force Terminated StepId=6718235.165
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 3:
+  0.0017s: started 0
+  70.0907s: awaited 0
+  70.09073s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 8 which doesn't match the requested tasks 256 with the number of requested nodes 64. Ignoring --ntasks-per-node.
+MPICH ERROR [Rank 33] [job id 6718235.166] [Wed Mar 27 17:48:26 2024] [nid005351] - Abort(740890895) (rank 33 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x5eb000, scount=2097152, dtype=0x4c00083e, rbuf=0x5f0000, rcount=2097152, datatype=dtype=0x4c00083e, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x5eb000, scount=2097152, dtype=0x4c00083e, rbuf=0x5f0000, rcount=2097152, datatype=dtype=0x4c00083e, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPICH ERROR [Rank 125] [job id 6718235.166] [Wed Mar 27 17:48:26 2024] [nid005863] - Abort(740890895) (rank 125 in comm 0): Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x5eb000, scount=2097152, dtype=0x4c00083e, rbuf=0x5f0000, rcount=2097152, datatype=dtype=0x4c00083e, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+
+aborting job:
+Fatal error in PMPI_Alltoall: Other MPI error, error stack:
+PMPI_Alltoall(427)..............: MPI_Alltoall(sbuf=0x5eb000, scount=2097152, dtype=0x4c00083e, rbuf=0x5f0000, rcount=2097152, datatype=dtype=0x4c00083e, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Alltoall_chunking(737): 
+MPIC_Isend(511).................: 
+MPID_Isend_coll(610)............: 
+MPIDI_isend_coll_unsafe(176)....: 
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+MPIDI_OFI_send_normal(372)......: OFI tagged senddata failed (ofi_send.h:372:MPIDI_OFI_send_normal:Invalid argument)
+srun: error: nid005351: task 33: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6718235.166
+srun: error: nid005863: task 125: Exited with exit code 255
+srun: error: nid005855: task 93: Segmentation fault
+srun: error: nid005845: task 55: Segmentation fault
+slurmstepd: error: *** STEP 6718235.166 ON nid005343 CANCELLED AT 2024-03-27T17:48:26 ***
+srun: error: nid005343: tasks 0,2-3: Terminated
+srun: error: nid006345: tasks 204,206-207: Terminated
+srun: error: nid006346: tasks 208-210: Terminated
+srun: error: nid006349: tasks 220-222: Terminated
+srun: error: nid006350: tasks 224-225,227: Terminated
+srun: error: nid006347: tasks 212-214: Terminated
+srun: error: nid006351: tasks 229-231: Terminated
+srun: error: nid006348: tasks 216-217,219: Terminated
+srun: error: nid006354: tasks 240-241,243: Terminated
+srun: error: nid006352: tasks 232-234: Terminated
+srun: error: nid006353: tasks 236-237,239: Terminated
+srun: error: nid005351: tasks 34-35: Terminated
+srun: error: nid005349: tasks 24-26: Terminated
+srun: error: nid005346: tasks 12-13,15: Terminated
+srun: error: nid005845: tasks 52-53: Terminated
+srun: error: nid005852: tasks 80-81,83: Terminated
+srun: error: nid005350: tasks 28-29,31: Terminated
+srun: error: nid005854: tasks 88-90: Terminated
+srun: error: nid005849: tasks 68-70: Terminated
+srun: error: nid006355: tasks 244-245,247: Terminated
+srun: error: nid005348: tasks 20-22: Terminated
+srun: error: nid005847: tasks 61-63: Terminated
+srun: error: nid005355: tasks 49-51: Terminated
+srun: error: nid005850: tasks 72-73,75: Terminated
+srun: error: nid005857: tasks 100-101,103: Terminated
+srun: error: nid005846: tasks 56,58-59: Terminated
+srun: error: nid005353: tasks 40-42: Terminated
+srun: error: nid005354: tasks 45-47: Terminated
+srun: error: nid005858: tasks 104-106: Terminated
+srun: error: nid005347: tasks 16,18-19: Terminated
+srun: error: nid005352: tasks 36,38-39: Terminated
+srun: error: nid005853: tasks 85-87: Terminated
+srun: error: nid005851: tasks 77-79: Terminated
+srun: error: nid005855: tasks 92,94: Terminated
+srun: error: nid005862: tasks 121-123: Terminated
+srun: error: nid005861: tasks 116-117,119: Terminated
+srun: error: nid005860: tasks 112-113,115: Terminated
+srun: error: nid006356: tasks 248,250-251: Terminated
+srun: error: nid005859: tasks 108-109,111: Terminated
+srun: error: nid005864: tasks 129-131: Terminated
+srun: error: nid005868: tasks 145-147: Terminated
+srun: error: nid006337: tasks 172,174-175: Terminated
+srun: error: nid005865: tasks 132-133,135: Terminated
+srun: error: nid006357: tasks 252-253,255: Terminated
+srun: error: nid006336: tasks 168-169,171: Terminated
+srun: error: nid006341: tasks 188-190: Terminated
+srun: error: nid005867: tasks 141-143: Terminated
+srun: error: nid005856: tasks 96,98-99: Terminated
+srun: error: nid006335: tasks 164-166: Terminated
+srun: error: nid005866: tasks 136-138: Terminated
+srun: error: nid005869: tasks 148-149,151: Terminated
+srun: error: nid006340: tasks 184-185,187: Terminated
+srun: error: nid006342: tasks 192-193,195: Terminated
+srun: error: nid006339: tasks 180,182-183: Terminated
+srun: error: nid005871: tasks 156-158: Terminated
+srun: error: nid005870: tasks 152,154-155: Terminated
+srun: error: nid006344: tasks 201-203: Terminated
+srun: error: nid006338: tasks 176-177,179: Terminated
+srun: error: nid005344: tasks 4-5,7: Terminated
+srun: error: nid005345: tasks 8-10: Terminated
+srun: error: nid005848: tasks 64,66-67: Terminated
+srun: error: nid005863: tasks 124,127: Terminated
+srun: error: nid006334: tasks 160-162: Terminated
+srun: error: nid006343: tasks 197-199: Terminated
+srun: error: nid006352: task 235: Terminated
+srun: error: nid005852: task 82: Terminated
+srun: error: nid006348: task 218: Terminated
+srun: error: nid006340: task 186: Terminated
+srun: error: nid006354: task 242: Terminated
+srun: error: nid006355: task 246: Terminated
+srun: error: nid006349: task 223: Terminated
+srun: error: nid005848: task 65: Terminated
+srun: error: nid006336: task 170: Terminated
+srun: error: nid005845: task 54: Terminated
+srun: error: nid006339: task 181: Terminated
+srun: error: nid005346: task 14: Terminated
+srun: error: nid005350: task 30: Terminated
+srun: error: nid006342: task 194: Terminated
+srun: error: nid005869: task 150: Terminated
+srun: error: nid006347: task 215: Terminated
+srun: error: nid005846: task 57: Terminated
+srun: error: nid005856: task 97: Terminated
+srun: error: nid005859: task 110: Terminated
+srun: error: nid005860: task 114: Terminated
+srun: error: nid006353: task 238: Terminated
+srun: error: nid005868: task 144: Terminated
+srun: error: nid005865: task 134: Terminated
+srun: error: nid005348: task 23: Terminated
+srun: error: nid005850: task 74: Terminated
+srun: error: nid005847: task 60: Terminated
+srun: error: nid005861: task 118: Terminated
+srun: error: nid005353: task 43: Terminated
+srun: error: nid005345: task 11: Terminated
+srun: error: nid005343: task 1: Terminated
+srun: error: nid005870: task 153: Terminated
+srun: error: nid005854: task 91: Terminated
+srun: error: nid005857: task 102: Terminated
+srun: error: nid006341: task 191: Terminated
+srun: error: nid006344: task 200: Terminated
+srun: error: nid005864: task 128: Terminated
+srun: error: nid006357: task 254: Terminated
+srun: error: nid005351: task 32: Terminated
+srun: error: nid006351: task 228: Terminated
+srun: error: nid006338: task 178: Terminated
+srun: error: nid005344: task 6: Terminated
+srun: error: nid005855: task 95: Terminated
+srun: error: nid005863: task 126: Terminated
+srun: error: nid006337: task 173: Terminated
+srun: error: nid005867: task 140: Terminated
+srun: error: nid006350: task 226: Terminated
+srun: error: nid005851: task 76: Terminated
+srun: error: nid006346: task 211: Terminated
+srun: error: nid005858: task 107: Terminated
+srun: error: nid005871: task 159: Terminated
+srun: error: nid006335: task 167: Terminated
+srun: error: nid006334: task 163: Terminated
+srun: error: nid006345: task 205: Terminated
+srun: error: nid005349: task 27: Terminated
+srun: error: nid005849: task 71: Terminated
+srun: error: nid005862: task 120: Terminated
+srun: error: nid005355: task 48: Terminated
+srun: error: nid005866: task 139: Terminated
+srun: error: nid005853: task 84: Terminated
+srun: error: nid006356: task 249: Terminated
+srun: error: nid005347: task 17: Terminated
+srun: error: nid005352: task 37: Terminated
+srun: error: nid006343: task 196: Terminated
+srun: error: nid005354: task 44: Terminated
+srun: Force Terminated StepId=6718235.166
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 3 runs taking 209.33 seconds.
