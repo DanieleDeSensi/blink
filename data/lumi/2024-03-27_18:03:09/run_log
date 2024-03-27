@@ -1,0 +1,189 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/1B', node_file='auto', numnodes=128, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 128 nodes:
+['nid005291' 'nid005292' 'nid005293' 'nid005294' 'nid005295' 'nid005296'
+ 'nid005297' 'nid005298' 'nid005299' 'nid005300' 'nid005301' 'nid005302'
+ 'nid005845' 'nid005846' 'nid005847' 'nid005848' 'nid005849' 'nid005850'
+ 'nid005851' 'nid005852' 'nid005853' 'nid005854' 'nid005855' 'nid005856'
+ 'nid005857' 'nid005858' 'nid005859' 'nid005860' 'nid005861' 'nid005862'
+ 'nid005863' 'nid005864' 'nid005865' 'nid005866' 'nid005867' 'nid005868'
+ 'nid005869' 'nid005870' 'nid005871' 'nid005950' 'nid005951' 'nid005952'
+ 'nid005953' 'nid005954' 'nid005955' 'nid005956' 'nid005957' 'nid005958'
+ 'nid005959' 'nid005960' 'nid005961' 'nid005962' 'nid005963' 'nid005964'
+ 'nid005965' 'nid005966' 'nid005967' 'nid005968' 'nid006258' 'nid006259'
+ 'nid006260' 'nid006261' 'nid006262' 'nid006263' 'nid006264' 'nid006265'
+ 'nid006266' 'nid006267' 'nid006268' 'nid006269' 'nid006270' 'nid006271'
+ 'nid006272' 'nid006273' 'nid006274' 'nid006275' 'nid006276' 'nid006277'
+ 'nid006278' 'nid006279' 'nid006280' 'nid006334' 'nid006335' 'nid006336'
+ 'nid006337' 'nid006338' 'nid006339' 'nid006340' 'nid006341' 'nid006342'
+ 'nid006343' 'nid006344' 'nid006345' 'nid006346' 'nid006347' 'nid006348'
+ 'nid006349' 'nid006350' 'nid006351' 'nid006352' 'nid006353' 'nid006354'
+ 'nid006355' 'nid006356' 'nid006357' 'nid006422' 'nid006423' 'nid006424'
+ 'nid006425' 'nid006426' 'nid006427' 'nid006428' 'nid006429' 'nid006430'
+ 'nid006431' 'nid006432' 'nid006433' 'nid006434' 'nid006435' 'nid006436'
+ 'nid006437' 'nid006438' 'nid006439' 'nid006440' 'nid006441' 'nid006442'
+ 'nid006443' 'nid006444']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 3.39566s.
+
+Running...
+ Run 1:
+  0.0348s: started 0
+  18.92056s: awaited 0
+  18.92058s: encountered an exception in 0
+pthread_mutex_unlock: No such file or directory
+pthread_mutex_unlock: Success
+pthread_mutex_unlock: Success
+pthread_mutex_timedlock() returned 0
+Failed to initialize RSMI device mutex after 5 seconds. Previous execution may not have shutdown cleanly. To fix problem, stop all rocm_smi programs, and then delete the rocm_smi* shared memory files in /dev/shm.: Success
+srun: error: nid005863: task 246: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6718538.1
+srun: error: nid005952: task 333: Segmentation fault
+slurmstepd: error: *** STEP 6718538.1 ON nid005291 CANCELLED AT 2024-03-27T18:03:31 ***
+srun: error: nid006355: tasks 816-823: Terminated
+srun: error: nid005962: tasks 408-415: Terminated
+srun: error: nid006356: tasks 824-831: Terminated
+srun: error: nid006357: tasks 832-839: Terminated
+srun: error: nid006422: tasks 840-847: Terminated
+srun: error: nid005291: tasks 0-7: Terminated
+srun: error: nid006423: tasks 848-855: Terminated
+srun: error: nid006424: tasks 856-863: Terminated
+srun: error: nid006425: tasks 864-871: Terminated
+srun: error: nid006427: tasks 880-887: Terminated
+srun: error: nid006429: tasks 896-903: Terminated
+srun: error: nid006426: tasks 872-879: Terminated
+srun: error: nid006430: tasks 904-911: Terminated
+srun: error: nid006275: tasks 600-607: Terminated
+srun: error: nid006263: tasks 504-511: Terminated
+srun: error: nid005301: tasks 80-87: Terminated
+srun: error: nid005299: tasks 64-71: Terminated
+srun: error: nid006428: tasks 888-895: Terminated
+srun: error: nid006261: tasks 488-495: Terminated
+srun: error: nid006274: tasks 592-599: Terminated
+srun: error: nid005300: tasks 72-79: Terminated
+srun: error: nid006432: tasks 920-927: Terminated
+srun: error: nid006259: tasks 472-479: Terminated
+srun: error: nid006266: tasks 528-535: Terminated
+srun: error: nid006264: tasks 512-519: Terminated
+srun: error: nid006265: tasks 520-527: Terminated
+srun: error: nid006269: tasks 552-559: Terminated
+srun: error: nid006258: tasks 464-471: Terminated
+srun: error: nid006268: tasks 544-551: Terminated
+srun: error: nid006260: tasks 480-487: Terminated
+srun: error: nid005298: tasks 56-63: Terminated
+srun: error: nid006271: tasks 568-575: Terminated
+srun: error: nid006276: tasks 608-615: Terminated
+srun: error: nid006262: tasks 496-503: Terminated
+srun: error: nid005302: tasks 88-95: Terminated
+srun: error: nid006270: tasks 560-567: Terminated
+srun: error: nid006434: tasks 936-943: Terminated
+srun: error: nid006272: tasks 576-583: Terminated
+srun: error: nid006267: tasks 536-543: Terminated
+srun: error: nid006433: tasks 928-935: Terminated
+srun: error: nid006431: tasks 912-919: Terminated
+srun: error: nid005845: tasks 96-103: Terminated
+srun: error: nid006435: tasks 944-951: Terminated
+srun: error: nid006335: tasks 656-663: Terminated
+srun: error: nid006273: tasks 584-591: Terminated
+srun: error: nid006279: tasks 632-639: Terminated
+srun: error: nid006278: tasks 624-631: Terminated
+srun: error: nid006436: tasks 952-959: Terminated
+srun: error: nid005847: tasks 112-119: Terminated
+srun: error: nid006280: tasks 640-647: Terminated
+srun: error: nid006277: tasks 616-623: Terminated
+srun: error: nid006337: tasks 672-679: Terminated
+srun: error: nid006338: tasks 680-687: Terminated
+srun: error: nid006339: tasks 688-695: Terminated
+srun: error: nid006437: tasks 960-967: Terminated
+srun: error: nid006336: tasks 664-671: Terminated
+srun: error: nid006341: tasks 704-711: Terminated
+srun: error: nid006438: tasks 968-975: Terminated
+srun: error: nid006439: tasks 976-983: Terminated
+srun: error: nid006334: tasks 648-655: Terminated
+srun: error: nid006440: tasks 984-991: Terminated
+srun: error: nid006441: tasks 992-999: Terminated
+srun: error: nid006442: tasks 1000-1007: Terminated
+srun: error: nid006443: tasks 1008-1015: Terminated
+srun: error: nid006444: tasks 1016-1023: Terminated
+srun: error: nid006340: tasks 696-703: Terminated
+srun: error: nid006351: tasks 784-791: Terminated
+srun: error: nid006348: tasks 760-767: Terminated
+srun: error: nid005965: tasks 432-439: Terminated
+srun: error: nid006353: tasks 800-807: Terminated
+srun: error: nid006342: tasks 712-719: Terminated
+srun: error: nid006346: tasks 744-751: Terminated
+srun: error: nid006343: tasks 720-727: Terminated
+srun: error: nid006352: tasks 792-799: Terminated
+srun: error: nid005966: tasks 440-447: Terminated
+srun: error: nid006354: tasks 808-815: Terminated
+srun: error: nid006347: tasks 752-759: Terminated
+srun: error: nid005967: tasks 448-455: Terminated
+srun: error: nid005964: tasks 424-431: Terminated
+srun: error: nid006349: tasks 768-775: Terminated
+srun: error: nid005963: tasks 416-423: Terminated
+srun: error: nid006344: tasks 728-735: Terminated
+srun: error: nid006350: tasks 776-783: Terminated
+srun: error: nid006345: tasks 736-743: Terminated
+srun: error: nid005858: tasks 200-207: Terminated
+srun: error: nid005846: tasks 104-111: Terminated
+srun: error: nid005856: tasks 184-191: Terminated
+srun: error: nid005851: tasks 144-151: Terminated
+srun: error: nid005854: tasks 168-175: Terminated
+srun: error: nid005859: tasks 208-215: Terminated
+srun: error: nid005848: tasks 120-127: Terminated
+srun: error: nid005850: tasks 136-143: Terminated
+srun: error: nid005860: tasks 216-223: Terminated
+srun: error: nid005861: tasks 224-231: Terminated
+srun: error: nid005855: tasks 176-183: Terminated
+srun: error: nid005857: tasks 192-199: Terminated
+srun: error: nid005849: tasks 128-135: Terminated
+srun: error: nid005853: tasks 160-167: Terminated
+srun: error: nid005852: tasks 152-159: Terminated
+srun: error: nid005863: tasks 240-245,247: Terminated
+srun: error: nid005866: tasks 264-271: Terminated
+srun: error: nid005864: tasks 248-255: Terminated
+srun: error: nid005865: tasks 256-263: Terminated
+srun: error: nid005867: tasks 272-279: Terminated
+srun: error: nid005868: tasks 280-287: Terminated
+srun: error: nid005954: tasks 344-351: Terminated
+srun: error: nid005870: tasks 296-303: Terminated
+srun: error: nid005871: tasks 304-311: Terminated
+srun: error: nid005869: tasks 288-295: Terminated
+srun: error: nid005862: tasks 232-239: Terminated
+srun: error: nid005968: tasks 456-463: Terminated
+srun: error: nid005297: tasks 48-55: Terminated
+srun: error: nid005950: tasks 312-319: Terminated
+srun: error: nid005951: tasks 320-327: Terminated
+srun: error: nid005953: tasks 336-343: Terminated
+srun: error: nid005952: tasks 328-332,334-335: Terminated
+srun: error: nid005955: tasks 352-359: Terminated
+srun: error: nid005956: tasks 360-367: Terminated
+srun: error: nid005960: tasks 392-399: Terminated
+srun: error: nid005958: tasks 376-383: Terminated
+srun: error: nid005957: tasks 368-375: Terminated
+srun: error: nid005961: tasks 400-407: Terminated
+srun: error: nid005959: tasks 384-391: Terminated
+srun: error: nid005296: tasks 40-47: Terminated
+srun: error: nid005295: tasks 32-39: Terminated
+srun: error: nid005293: tasks 16-23: Terminated
+srun: error: nid005294: tasks 24-31: Terminated
+srun: error: nid005292: tasks 8-15: Terminated
+srun: Force Terminated StepId=6718538.1
+
+  Data collection took 0.00048s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.0083s: started 0
+  282.68549s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 1 runs taking 301.61 seconds.
