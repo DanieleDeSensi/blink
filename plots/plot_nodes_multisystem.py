@@ -50,8 +50,11 @@ def main():
     global_df_time = None
     xticklabels = []
     xticks = []
+    ideal_label_pos = 256
     for metric_hr in args.metrics.split(","):      
         global_df = pd.DataFrame()
+        global_df_ideal = pd.DataFrame()
+        ideals = {}
         for sys in args.systems.split(","):
             for vic in args.victim_names.split(","):
                 vn = get_actual_bench_name(vic, sys, None)
@@ -78,15 +81,30 @@ def main():
                     if metric_hr == "Bandwidth": # For bandwidth, we also get the data for runtime to plot the inner plot
                         actual_metrics = ["Runtime", "Bandwidth"]
                     else:
-                        actual_metrics = [metric_hr]
+                        actual_metrics = [metric_hr]                    
 
+                    # Compute trend limit, assuming alltoall
+                    if args.trend_limit == "AUTO" and metric_hr == "Bandwidth" and not args.bw_per_node:
+                        data_ideal = pd.DataFrame(["System", "Nodes", "#GPUs", metric_hr])
+                        data_ideal["System"] = system_to_human_readable(sys) + " (Expected)"
+                        data_ideal["Nodes"] = nodes
+                        data_ideal["#GPUs"] = int(nodes)*int(ppn)
+                        if sys == "alps":
+                            data_ideal[metric_hr] = 200 * ((int(nodes)*int(ppn) - 1) / ((int(nodes) - 1)*int(ppn)))
+                        elif sys == "leonardo":
+                            data_ideal[metric_hr] = 100 * ((int(nodes)*int(ppn) - 1) / ((int(nodes) - 1)*int(ppn)))
+                        elif sys == "lumi":
+                            data_ideal[metric_hr] = 100 * ((int(nodes)*int(ppn) - 1) / ((int(nodes) - 1)*int(ppn)))
+                        global_df_ideal = pd.concat([global_df_ideal, data_ideal], ignore_index=True)             
+                        if nodes == str(ideal_label_pos):
+                            ideals[sys] = data_ideal[metric_hr].values[0]              
                     for actual_metric in actual_metrics:
                         filename = get_data_filename(args.data_folder, sys, nodes, args.allocation_mode, allocation_split, ppn, get_actual_extra_name(args.extra, sys, vn, nodes), vn, args.victim_input, args.aggressor_name, args.aggressor_input)
                         data = pd.DataFrame()
                         if filename and os.path.exists(filename):                    
                             data[actual_metric] = get_bench_data(vn, args.victim_input, actual_metric, filename, ppn, nodes, sys)
                         else:
-                            print("Data not found for metric " + actual_metric + " victim " + vn + " with input " + args.victim_input)
+                            #print("Data not found for metric " + actual_metric + " victim " + vn + " with input " + args.victim_input)
                             data[actual_metric] = [np.nan]
 
                         if data.empty:
@@ -94,12 +112,13 @@ def main():
                         
                         data[actual_metric] *= scaling_factor
                         data["Nodes"] = nodes
-                        data["Ranks"] = int(nodes)*int(ppn)
+                        data["#GPUs"] = int(nodes)*int(ppn)
+                        data["System"] = system_to_human_readable(sys) + " (" + bench_to_human_readable_impl(vn) + ")"
+
                         if not args.bw_per_node:
                             xticklabels += [(int(nodes)*int(ppn))]
                             xticks += [(int(nodes)*int(ppn))]
 
-                        data["System"] = system_to_human_readable(sys) + " (" + bench_to_human_readable_impl(vn) + ")"
                         if metric_hr == "Bandwidth" and actual_metric == "Runtime": # Save the data for the inner plot in the bandwidth plots
                             global_df_time = pd.concat([global_df_time, data], ignore_index=True)
                         else:
@@ -110,7 +129,7 @@ def main():
         if args.bw_per_node:
             x = "Nodes"
         else:
-            x = "Ranks"
+            x = "#GPUs"
             xticklabels = sorted(set(xticklabels))
             xticks = sorted(set(xticks))
         #############
@@ -122,7 +141,7 @@ def main():
             ax = sns.lineplot(data=global_df, x=x, y=metric_hr, hue="System", style="System", markers=True, linewidth=3, markersize=8, errorbar=errorbar)
 
             # Plots the limit if specified
-            if args.trend_limit:
+            if args.trend_limit != "AUTO":
                 for limit_str in args.trend_limit.split(","):
                     if limit_str.count(":") == 1:
                         m, limit = limit_str.split(":")
@@ -134,6 +153,12 @@ def main():
                         if label:
                             label = label.replace("_", " ") 
                             ax.text(256, float(limit), label, fontsize=8, va='center', ha='center', backgroundcolor='w')
+            else:
+                ax = sns.lineplot(data=global_df_ideal, x=x, y=metric_hr, hue="System", style="System", markers=False, linewidth=1.5, linestyle='--', color='black')
+                for sys in args.systems.split(","):
+                    label = system_to_human_readable(sys) + " (Expected)"
+                    print(ideals)
+                    ax.text(ideal_label_pos, ideals[sys], label, fontsize=8, va='center', ha='center', backgroundcolor='w')
 
             # Set the title and labels
             #ax.set_title(title)
@@ -145,6 +170,9 @@ def main():
                 ax.set_ylim(0, None)
             # Remove legend title
             ax.legend_.set_title(None)
+
+            #if not args.bw_per_node:
+            #    ax.set_xlim(16, 2048)
         
             if not args.bw_per_node:
                 plt.xscale('log')
