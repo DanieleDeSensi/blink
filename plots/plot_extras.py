@@ -68,6 +68,9 @@ extra_fullname["0-5"] = "0->5"
 extra_fullname["0-6"] = "0->6"
 extra_fullname["0-7"] = "0->7"
 
+extra_fullname["diff_group_TC_BE"] = "Best Effort"
+extra_fullname["diff_group_TC_LL"] = "Low Latency"
+
 
 def main():
     parser=argparse.ArgumentParser(description='Plots the performance distribution for a specific victim/aggressor combination, for different extras.')
