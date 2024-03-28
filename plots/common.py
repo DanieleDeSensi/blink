@@ -232,7 +232,7 @@ def get_actual_extra_name(extra, system, victim_name, numnodes):
                 return ""
         elif system == "leonardo":
             if int(numnodes) == 2:
-                return "same_switch"
+                return "same_switch_SL1_hcoll0"
             else:
                 return "SL0_hcoll0"
     elif extra.startswith("#"):

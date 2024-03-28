@@ -4,6 +4,7 @@ PLOT_SINGLE_NODE=0
 PLOT_TWO_NODES=0
 PLOT_DISTANCE=0
 PLOT_COLL_SCALABILITY=1
+PLOT_COLL_SCALABILITY_HEATMAP=1
 PLOT_COLL_SCALABILITY_NOISE=0
 PLOT_LUMI_GPU_PAIRS=0
 #ERRORBAR="(\"ci\", 90)"
@@ -129,7 +130,6 @@ if [[ $PLOT_COLL_SCALABILITY = 1 ]]; then
     # Multi nodes tests - Coll. scalability #
     #########################################
     SYSTEMS="alps,leonardo,lumi"
-    #SYSTEMS="leonardo,lumi"
     OUT_PATH="plots/out/multi-nodes/${SYSTEM}"
     PLOT_TYPE="line,box,bar"
     EXTRA="#"
@@ -137,12 +137,14 @@ if [[ $PLOT_COLL_SCALABILITY = 1 ]]; then
     for BENCH in "ar" "a2a"
     do
         if [ ${BENCH} == "ar" ]; then
-            #declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB" "128MiB" "1GiB" "8GiB")
+            #declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB" "128MiB" "1GiB")
+            #declare -a INPUTS=("1B" "1GiB")
             declare -a INPUTS=("1GiB")
             FULLNAME="Allreduce"
         else
             #declare -a INPUTS=("1B" "8B" "64B" "512B" "4KiB" "32KiB" "256KiB" "2MiB" "16MiB")
-            declare -a INPUTS=("16MiB")
+            #declare -a INPUTS=("1B" "16MiB")
+            declare -a INPUTS=("2MiB" "16MiB")
             FULLNAME="Alltoall"
         fi
 
@@ -155,8 +157,9 @@ if [[ $PLOT_COLL_SCALABILITY = 1 ]]; then
                 TREND_LIMIT_CPU="Bandwidth:100:Expected_Bandwidth_(Leonardo),Bandwidth:200:Expected_Bandwidth_(LUMI)"
             else
                 CPU_BENCH="a2a_b"
-                TREND_LIMIT_GPU="Bandwidth:100:Expected_Bandwidth_(Leonardo_and_LUMI)"
-                TREND_LIMIT_CPU="Bandwidth:100:Expected_Bandwidth_(Leonardo),Bandwidth:200:Expected_Bandwidth_(LUMI)"
+                TREND_LIMIT_GPU="Bandwidth:100:Asymptotically_Expected_Bandwidth_(Leonardo_and_LUMI),Bandwidth:200:Asymptotically_Expected_Bandwidth_(Alps)"
+                #TREND_LIMIT_GPU="AUTO"
+                TREND_LIMIT_CPU="Bandwidth:100:Asymptotically_Expected_Bandwidth_(Leonardo),Bandwidth:200:Asymptotically_Expected_Bandwidth_(LUMI)"
             fi
             TESTNAME="${BENCH}"_gpu_${INPUT}            
             ./plots/plot_nodes_multisystem.py -s ${SYSTEMS} -vn gpubench-${BENCH}-nccl,gpubench-${BENCH}-cudaaware -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types ${PLOT_TYPE} -e ${EXTRA} --errorbar "${ERRORBAR}" --trend_limit "${TREND_LIMIT_GPU}" #--bw_per_node #
@@ -195,6 +198,40 @@ if [[ $PLOT_COLL_SCALABILITY_NOISE = 1 ]]; then
     done
 fi
 
+#########################################
+# Multi nodes tests - Coll. scalability #
+#########################################
+if [[ $PLOT_COLL_SCALABILITY_HEATMAP = 1 ]]; then
+    PLOT_TYPE="line,box,bar"
+    EXTRA="#"
+    NNODES="2,4,8,16,32,64,128,256"
+    for BENCH in "ar" "a2a"
+    do
+        if [ ${BENCH} == "ar" ]; then
+            INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB"
+            FULLNAME="Allreduce"
+        else
+            INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB"
+            FULLNAME="Alltoall"
+        fi
+
+        for SYSTEM in "alps" "leonardo" "lumi"
+        do  
+            OUT_PATH="plots/out/multi-nodes/heatmap/${SYSTEM}/${BENCH}"
+            CPU_BENCH=""
+            if [ ${BENCH} == "ar" ]; then
+                TREND_LIMIT_GPU="X:X:X"
+            else
+                TREND_LIMIT_GPU="Bandwidth:100:Expected_Bandwidth_(Leonardo_and_LUMI)"
+            fi
+            TESTNAME="${BENCH}"_gpu_${SYSTEM}            
+            ./plots/plot_heatmap_nodes_v_size.py -s ${SYSTEM} -vn gpubench-${BENCH} --victim_types nccl,cudaaware -vi ${INPUTS} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types ${PLOT_TYPE} -e ${EXTRA} --errorbar "${ERRORBAR}" --trend_limit "${TREND_LIMIT_GPU}" #--bw_per_node #
+        done
+    done
+fi
+
+exit 0
+
 
 ##################
 # LUMI GPU Pairs #
@@ -211,14 +248,22 @@ if [[ $PLOT_LUMI_GPU_PAIRS = 1 ]]; then
     ./plots/plot_extras_multivictim.py -s ${SYSTEM} -vn "${BENCHS}" -vi ${INPUT} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH} --ppn 2 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --labels "${LABELS}" --barplot_tops "${BARPLOT_TOPS}"
 fi
 
+
+############
+# TC tests #
+############
+OUT_PATH="plots/out/lumi/two-nodes/tc"
+EXTRAS=diff_group_TC_BE,diff_group_TC_LL
+./plots/plot_extras.py -s lumi -vn ping-pong_b -vi "1B" -n 2 -am l -sp 100 --metrics "Runtime" -o ${OUT_PATH} --ppn 1 -e ${EXTRAS}
+
 exit 0
 
 #################
 # 8 nodes tests #
 #################
 # Allreduce
-NNODES=2
-EXTRA="same_switch"
+NNODES=4
+EXTRA=""
 for SYSTEM in "alps"
 do
     OUT_PATH="plots/out/${NNODES}-nodes/allreduce/${SYSTEM}"
@@ -230,7 +275,7 @@ do
     TESTNAME="allsizes"
     BENCHMARKS="gpubench-ar-nccl,gpubench-ar-cudaaware,ardc_b"
     LABELS="*CCL,GPU-Aware MPI,MPI - Host Mem."
-    ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn ${BENCHMARKS} -vi ${INPUTS} -n ${NNODES} -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types "${PLOT_TYPE}" --labels "${LABELS}" --trend_limit ${TREND_LIMIT} -e ${EXTRA} #--inner_ylim "${INNER_YLIM}" 
+    ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn ${BENCHMARKS} -vi ${INPUTS} -n ${NNODES} -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types "${PLOT_TYPE}" --labels "${LABELS}" --trend_limit ${TREND_LIMIT} #-e ${EXTRA} #--inner_ylim "${INNER_YLIM}" 
 done
 
 # Alltoall
@@ -245,7 +290,7 @@ do
     TESTNAME="allsizes"
     BENCHMARKS="gpubench-a2a-nccl,gpubench-a2a-cudaaware,a2a_b"
     LABELS="*CCL,GPU-Aware MPI,MPI - Host Mem."
-    ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn ${BENCHMARKS} -vi ${INPUTS} -n ${NNODES} -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types "${PLOT_TYPE}" --labels "${LABELS}" --trend_limit ${TREND_LIMIT} -e ${EXTRA} #--inner_ylim "${INNER_YLIM}" 
+    ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn ${BENCHMARKS} -vi ${INPUTS} -n ${NNODES} -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types "${PLOT_TYPE}" --labels "${LABELS}" --trend_limit ${TREND_LIMIT} #-e ${EXTRA} #--inner_ylim "${INNER_YLIM}" 
 done
 
 exit 0
