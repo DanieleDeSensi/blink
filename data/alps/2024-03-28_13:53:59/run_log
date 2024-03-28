@@ -1,0 +1,26 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/mpp-nccl/256KiB', node_file='auto', numnodes=2, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='diff_group', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 18", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['nid001058' 'nid007112']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.8659s.
+
+Running...
+ Run 1:
+  0.00243s: started 0
+  14.29747s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00086s.
+Completed after reaching confidence interval, terminated after 1 runs taking 14.3 seconds.
+Writing data & meta-data took 0.00919s.
+Overall took 15.17377s.

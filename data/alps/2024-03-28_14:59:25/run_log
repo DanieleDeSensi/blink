@@ -1,0 +1,841 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench-comm/nccl', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.21151s.
+
+Running...
+ Run 1:
+  0.08394s: started 0
+  1.27795s: awaited 0
+  1.27797s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001054: tasks 0-3: Exited with exit code 2
+srun: Terminating StepId=59252.75
+srun: error: nid001208: tasks 196-199: Exited with exit code 2
+srun: error: nid001090: tasks 32-35: Exited with exit code 2
+srun: error: nid001170: tasks 148-151: Exited with exit code 2
+srun: error: nid001242: tasks 248-251: Exited with exit code 2
+srun: error: nid001112: tasks 48-51: Exited with exit code 2
+srun: error: nid001072: tasks 16-19: Exited with exit code 2
+srun: error: nid001110: tasks 44-47: Exited with exit code 2
+srun: error: nid001238: tasks 240-243: Exited with exit code 2
+srun: error: nid001088: tasks 28-31: Exited with exit code 2
+srun: error: nid001056: tasks 4-7: Exited with exit code 2
+srun: error: nid001164: tasks 136-139: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001226: tasks 216-219: Exited with exit code 2
+srun: error: nid001230: tasks 224-227: Exited with exit code 2
+srun: error: nid001184: tasks 168-171: Exited with exit code 2
+srun: error: nid001160: tasks 128-131: Exited with exit code 2
+srun: error: nid001142: tasks 100-103: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001104: tasks 40-43: Exited with exit code 2
+srun: error: nid001240: tasks 244-247: Exited with exit code 2
+srun: error: nid001166: tasks 140-143: Exited with exit code 2
+srun: error: nid001198: tasks 184-187: Exited with exit code 2
+srun: error: nid001162: tasks 132-135: Exited with exit code 2
+srun: error: nid001140: tasks 96-99: Exited with exit code 2
+srun: error: nid001128: tasks 72-75: Exited with exit code 2
+srun: error: nid001066: tasks 12-15: Exited with exit code 2
+srun: error: nid001114: tasks 52-55: Terminated
+srun: error: nid001138: tasks 92,95: Exited with exit code 2
+srun: error: nid001138: tasks 93-94: Terminated
+srun: error: nid001228: tasks 220-223: Exited with exit code 2
+srun: error: nid001100: tasks 36-39: Exited with exit code 2
+srun: error: nid001148: tasks 112-115: Exited with exit code 2
+srun: error: nid001176: tasks 156-159: Exited with exit code 2
+srun: error: nid001212: tasks 200-203: Terminated
+srun: error: nid001120: tasks 64-67: Exited with exit code 2
+srun: error: nid001234: tasks 232-235: Exited with exit code 2
+srun: error: nid001186: tasks 172-175: Exited with exit code 2
+srun: error: nid001194: tasks 176-179: Exited with exit code 2
+srun: error: nid001178: tasks 160-163: Exited with exit code 2
+srun: error: nid001236: tasks 236-239: Exited with exit code 2
+srun: error: nid001214: tasks 204-207: Exited with exit code 2
+srun: error: nid001078: tasks 24-27: Exited with exit code 2
+srun: error: nid001146: tasks 108-111: Terminated
+srun: error: nid001244: tasks 252-255: Terminated
+srun: error: nid001216: tasks 208-211: Exited with exit code 2
+srun: error: nid001150: tasks 116-119: Terminated
+srun: error: nid001182: tasks 164-167: Terminated
+srun: error: nid001168: tasks 144-147: Terminated
+srun: error: nid001116: tasks 56-59: Exited with exit code 2
+srun: error: nid001122: tasks 68-71: Terminated
+srun: error: nid001118: tasks 60-63: Terminated
+srun: error: nid001202: tasks 188-191: Exited with exit code 2
+srun: error: nid001172: tasks 152-155: Terminated
+srun: error: nid001058: tasks 8-11: Exited with exit code 2
+srun: error: nid001132: tasks 80-83: Terminated
+srun: error: nid001154: tasks 124-127: Terminated
+srun: error: nid001134: tasks 84-87: Terminated
+srun: error: nid001206: tasks 192-195: Terminated
+srun: error: nid001144: tasks 104-107: Terminated
+srun: error: nid001196: tasks 180-183: Terminated
+srun: error: nid001232: tasks 228-231: Terminated
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001224: tasks 212-215: Terminated
+srun: error: nid001074: tasks 20-23: Terminated
+srun: error: nid001152: tasks 120-123: Terminated
+srun: error: nid001136: tasks 88-91: Exited with exit code 2
+srun: error: nid001130: tasks 76-79: Exited with exit code 2
+srun: Force Terminated StepId=59252.75
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.00269s: started 0
+  1.30136s: awaited 0
+  1.30139s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001104: tasks 40-43: Exited with exit code 2
+srun: Terminating StepId=59252.76
+srun: error: nid001212: tasks 200-203: Exited with exit code 2
+srun: error: nid001168: tasks 144-147: Exited with exit code 2
+srun: error: nid001216: tasks 208-211: Exited with exit code 2
+srun: error: nid001154: tasks 124-127: Exited with exit code 2
+srun: error: nid001202: tasks 188-191: Exited with exit code 2
+srun: error: nid001072: tasks 16-19: Exited with exit code 2
+srun: error: nid001130: tasks 76-79: Exited with exit code 2
+srun: error: nid001162: tasks 132-135: Exited with exit code 2
+srun: error: nid001120: tasks 64-67: Exited with exit code 2
+srun: error: nid001182: tasks 164-167: Exited with exit code 2
+srun: error: nid001066: tasks 12-15: Exited with exit code 2
+srun: error: nid001056: tasks 4-7: Exited with exit code 2
+srun: error: nid001176: tasks 156-159: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: *** STEP 59252.76 ON nid001054 CANCELLED AT 2024-03-28T14:59:28 ***
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001146: tasks 108-111: Exited with exit code 2
+srun: error: nid001144: tasks 104-107: Exited with exit code 2
+srun: error: nid001184: tasks 168-171: Exited with exit code 2
+srun: error: nid001242: tasks 248-251: Exited with exit code 2
+srun: error: nid001170: tasks 148-151: Exited with exit code 2
+srun: error: nid001110: tasks 44-47: Exited with exit code 2
+srun: error: nid001138: tasks 92-95: Exited with exit code 2
+srun: error: nid001074: tasks 20-23: Exited with exit code 2
+srun: error: nid001150: tasks 116-119: Exited with exit code 2
+srun: error: nid001232: tasks 228-231: Exited with exit code 2
+srun: error: nid001148: tasks 112-115: Exited with exit code 2
+srun: error: nid001208: tasks 196-199: Exited with exit code 2
+srun: error: nid001194: tasks 176-179: Exited with exit code 2
+srun: error: nid001166: tasks 140-143: Exited with exit code 2
+srun: error: nid001198: tasks 184-187: Exited with exit code 2
+srun: error: nid001152: tasks 120-123: Exited with exit code 2
+srun: error: nid001172: tasks 152-155: Exited with exit code 2
+srun: error: nid001128: tasks 72-75: Exited with exit code 2
+srun: error: nid001134: tasks 84-87: Exited with exit code 2
+srun: error: nid001136: tasks 88-91: Exited with exit code 2
+srun: error: nid001236: tasks 236-239: Exited with exit code 2
+srun: error: nid001122: tasks 68-71: Exited with exit code 2
+srun: error: nid001228: tasks 220-223: Exited with exit code 2
+srun: error: nid001238: tasks 240-243: Exited with exit code 2
+srun: error: nid001142: tasks 100-103: Exited with exit code 2
+srun: error: nid001164: tasks 136-139: Exited with exit code 2
+srun: error: nid001224: tasks 212-215: Exited with exit code 2
+srun: error: nid001186: tasks 172-175: Exited with exit code 2
+srun: error: nid001090: tasks 32-35: Terminated
+srun: error: nid001206: tasks 192-195: Terminated
+srun: error: nid001116: tasks 56-59: Exited with exit code 2
+srun: error: nid001132: tasks 80-83: Exited with exit code 2
+srun: error: nid001118: tasks 60-63: Terminated
+srun: error: nid001230: tasks 224-227: Exited with exit code 2
+srun: error: nid001196: tasks 180-183: Exited with exit code 2
+srun: error: nid001112: tasks 48-51: Exited with exit code 2
+srun: error: nid001226: tasks 216-219: Terminated
+srun: error: nid001244: tasks 252-255: Exited with exit code 2
+srun: error: nid001160: tasks 128-131: Exited with exit code 2
+srun: error: nid001058: tasks 8-11: Exited with exit code 2
+srun: error: nid001088: tasks 28-31: Exited with exit code 2
+srun: error: nid001214: tasks 204-207: Exited with exit code 2
+srun: error: nid001054: tasks 0-3: Terminated
+srun: error: nid001178: tasks 160-163: Exited with exit code 2
+srun: error: nid001100: tasks 36-39: Terminated
+srun: error: nid001140: tasks 96-99: Terminated
+srun: error: nid001114: tasks 52-55: Exited with exit code 2
+srun: error: nid001234: tasks 232-235: Terminated
+srun: error: nid001240: tasks 244-247: Terminated
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001078: tasks 24-27: Exited with exit code 2
+srun: Force Terminated StepId=59252.76
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00271s: started 0
+  1.03148s: awaited 0
+  1.03151s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001078: tasks 24-27: Exited with exit code 2
+srun: Terminating StepId=59252.77
+srun: error: nid001116: tasks 56-59: Exited with exit code 2
+srun: error: nid001170: tasks 148-151: Exited with exit code 2
+srun: error: nid001114: tasks 52-55: Exited with exit code 2
+srun: error: nid001138: tasks 92-95: Exited with exit code 2
+srun: error: nid001074: tasks 20-23: Exited with exit code 2
+srun: error: nid001112: tasks 48-51: Exited with exit code 2
+srun: error: nid001152: tasks 120-123: Exited with exit code 2
+srun: error: nid001122: tasks 68-71: Exited with exit code 2
+srun: error: nid001104: tasks 40-43: Exited with exit code 2
+srun: error: nid001146: tasks 108-111: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001154: tasks 124-127: Exited with exit code 2
+srun: error: nid001212: tasks 200-203: Exited with exit code 2
+srun: error: nid001232: tasks 228-231: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001202: tasks 188-191: Exited with exit code 2
+srun: error: nid001206: tasks 192-195: Exited with exit code 2
+srun: error: nid001148: tasks 112-115: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001178: tasks 160-163: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001216: tasks 208-211: Exited with exit code 2
+srun: error: nid001142: tasks 100-103: Exited with exit code 2
+srun: error: nid001226: tasks 216-219: Exited with exit code 2
+srun: error: nid001234: tasks 232-235: Exited with exit code 2
+srun: error: nid001120: tasks 64-67: Exited with exit code 2
+srun: error: nid001176: tasks 156-159: Exited with exit code 2
+srun: error: nid001136: tasks 88-91: Exited with exit code 2
+srun: error: nid001196: tasks 180-183: Exited with exit code 2
+srun: error: nid001198: tasks 184-187: Exited with exit code 2
+srun: error: nid001186: tasks 172-175: Exited with exit code 2
+srun: error: nid001160: tasks 128-131: Exited with exit code 2
+srun: error: nid001214: tasks 204-207: Exited with exit code 2
+srun: error: nid001072: tasks 16-19: Exited with exit code 2
+srun: error: nid001182: tasks 164-167: Exited with exit code 2
+srun: error: nid001228: tasks 220-223: Exited with exit code 2
+srun: error: nid001134: tasks 84-87: Terminated
+srun: error: nid001058: tasks 8-11: Terminated
+srun: error: nid001164: tasks 136-139: Terminated
+srun: error: nid001208: tasks 196-199: Exited with exit code 2
+srun: error: nid001172: tasks 152-155: Exited with exit code 2
+srun: error: nid001144: tasks 104-107: Exited with exit code 2
+srun: error: nid001132: tasks 80-83: Terminated
+srun: error: nid001168: tasks 144-147: Terminated
+srun: error: nid001066: tasks 12-15: Terminated
+srun: error: nid001244: tasks 252-255: Terminated
+srun: error: nid001224: tasks 212-215: Terminated
+srun: error: nid001238: tasks 240-243: Exited with exit code 2
+srun: error: nid001128: tasks 72-75: Exited with exit code 2
+srun: error: nid001118: tasks 60-63: Exited with exit code 2
+srun: error: nid001100: tasks 36-39: Exited with exit code 2
+srun: error: nid001236: tasks 236-239: Exited with exit code 2
+srun: error: nid001140: tasks 96-99: Terminated
+srun: error: nid001110: tasks 44-47: Terminated
+srun: error: nid001150: tasks 116-119: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001230: tasks 224-227: Exited with exit code 2
+srun: error: nid001130: tasks 76-79: Terminated
+srun: error: nid001056: tasks 4-7: Terminated
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001240: tasks 244-247: Terminated
+srun: error: nid001088: tasks 28-31: Exited with exit code 2
+srun: error: nid001162: tasks 132-135: Exited with exit code 2
+srun: error: nid001242: tasks 248-251: Exited with exit code 2
+slurmstepd: error: *** STEP 59252.77 ON nid001054 CANCELLED AT 2024-03-28T14:59:30 ***
+srun: error: nid001184: tasks 168-171: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001054: tasks 0-3: Terminated
+srun: error: nid001166: tasks 140-143: Exited with exit code 2
+srun: error: nid001090: tasks 32-35: Terminated
+srun: error: nid001194: tasks 176-179: Exited with exit code 2
+srun: Force Terminated StepId=59252.77
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 3 runs taking 3.61 seconds.
