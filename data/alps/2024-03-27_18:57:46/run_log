@@ -1,0 +1,36 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-cudaaware/4B', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 2", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001098' 'nid001100' 'nid001104'
+ 'nid001106' 'nid001108' 'nid001110' 'nid001112' 'nid001114' 'nid001116'
+ 'nid001118' 'nid001120' 'nid001122' 'nid001128' 'nid001130' 'nid001132'
+ 'nid001134' 'nid001136' 'nid001138' 'nid001140' 'nid001142' 'nid001144'
+ 'nid001146' 'nid001148' 'nid001150' 'nid001152' 'nid001154' 'nid001160'
+ 'nid001162' 'nid001164' 'nid001166' 'nid001168' 'nid001170' 'nid001172'
+ 'nid001176' 'nid001178' 'nid001182' 'nid001184' 'nid001186' 'nid001194'
+ 'nid001196' 'nid001198' 'nid001202' 'nid001206' 'nid001208' 'nid001212'
+ 'nid001214' 'nid001216' 'nid001224' 'nid001226' 'nid001228' 'nid001230'
+ 'nid001232' 'nid001234' 'nid001236' 'nid001238']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.09189s.
+
+Running...
+ Run 1:
+  0.12728s: started 0
+  9.09172s: awaited 0
+  Data collection took 0.00038s.
+  Convergence check took 0.00086s.
+Completed after reaching confidence interval, terminated after 1 runs taking 9.09 seconds.
+Writing data & meta-data took 0.00944s.
+Overall took 10.19438s.
