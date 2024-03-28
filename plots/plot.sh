@@ -133,7 +133,7 @@ if [[ $PLOT_COLL_SCALABILITY = 1 ]]; then
     OUT_PATH="plots/out/multi-nodes/${SYSTEM}"
     PLOT_TYPE="line,box,bar"
     EXTRA="#"
-    NNODES="2,4,8,16,32,64,128,256"
+    NNODES="2,4,8,16,32,64,128,256,512"
     for BENCH in "ar" "a2a"
     do
         if [ ${BENCH} == "ar" ]; then
@@ -198,13 +198,13 @@ if [[ $PLOT_COLL_SCALABILITY_NOISE = 1 ]]; then
     done
 fi
 
-#########################################
-# Multi nodes tests - Coll. scalability #
-#########################################
+#################################################
+# Multi nodes tests - Coll. scalability Heatmap #
+#################################################
 if [[ $PLOT_COLL_SCALABILITY_HEATMAP = 1 ]]; then
     PLOT_TYPE="line,box,bar"
     EXTRA="#"
-    NNODES="2,4,8,16,32,64,128,256"
+    NNODES="2,4,8,16,32,64" #,128,256"
     for BENCH in "ar" "a2a"
     do
         if [ ${BENCH} == "ar" ]; then
