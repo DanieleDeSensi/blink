@@ -86,10 +86,12 @@ def wait_timed(job, time):
 
 def end_job(job):
     # signal SIGUSR1 if ouput of endless is needed
-    if job.collect_flag:
-        job.process.terminate()
-    else:
-        job.process.kill()
+    # TODO: Restora
+    #if job.collect_flag:
+    #    job.process.terminate()
+    #else:
+    #    job.process.kill()
+    job.process.kill()
     out, err = job.process.communicate()
     job.set_output(out, err)
 
