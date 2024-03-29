@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --nodelist=nid001058,nid001056
+#SBATCH --nodelist=nid001058,nid007112
 #SBATCH --time=02:00:00
 #SBATCH --ntasks-per-node=4
 #SBATCH --exclusive
