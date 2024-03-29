@@ -41,6 +41,7 @@ def main():
     parser.add_argument('-l', '--labels', help='Comma-separated list of labels.')
     parser.add_argument('-o', '--outfile', help='Path of output files.', required=True)
     parser.add_argument('--no_inner', help='Does not draw the inner plot.', action='store_true')
+    parser.add_argument('--bw_per_node', help='Report bandwidth per-node rather than per-rank.', action='store_true')
     parser.add_argument('-eb', '--errorbar', help='Errorbar for lineplot.', default="(\"pi\", 50)")
 
     args = parser.parse_args()
@@ -50,7 +51,8 @@ def main():
         os.makedirs(args.outfile.lower())
 
     global_df_time = None
-
+    xticklabels = []
+    xticks = []
     for metric_hr in args.metrics.split(","):      
         global_df = pd.DataFrame()
         vn = get_actual_bench_name(args.victim_name, args.system, None)
@@ -81,11 +83,19 @@ def main():
                     else:
                         print("Data not found for metric " + actual_metric + " victim " + vn + " with input " + args.victim_input)
                         data[actual_metric] = [np.nan]
+                    
+                    if not args.bw_per_node and metric_hr == "Bandwidth":
+                        data[actual_metric] /= int(ppn)
 
                     if data.empty:
                         raise Exception("Error: data file " + filename + " does not contain data for metric " + actual_metric)
                     data["Nodes"] = n
+                    data["#GPUs"] = int(n)*int(ppn)
                     data["Extra"] = extra
+                    if not args.bw_per_node:
+                        xticklabels += [(int(n)*int(ppn))]
+                        xticks += [(int(n)*int(ppn))]
+
                     if metric_hr == "Bandwidth" and actual_metric == "Runtime": # Save the data for the inner plot in the bandwidth plots
                         global_df_time = pd.concat([global_df_time, data], ignore_index=True)
                     else:
@@ -101,13 +111,18 @@ def main():
         else:
             labels = args.extras.split(",")
 
+        x = "Nodes"
+        if not args.bw_per_node:
+            x = "#GPUs"
+            xticklabels = sorted(set(xticklabels))
+            xticks = sorted(set(xticks))
         #############
         # Line plot #
         #############
         errorbar = ast.literal_eval(args.errorbar)
         if "line" in plot_types:
             # Setup the plot
-            ax = sns.lineplot(data=global_df, x="Nodes", y=metric_hr, hue="Extra", style="Extra", markers=True, linewidth=3, markersize=8, hue_order=labels, errorbar=errorbar)
+            ax = sns.lineplot(data=global_df, x=x, y=metric_hr, hue="Extra", style="Extra", markers=True, linewidth=3, markersize=8, hue_order=labels, errorbar=errorbar)
 
             # Plots the limit if specified
             if args.trend_limit:
@@ -128,12 +143,16 @@ def main():
             # Move legend outside
             sns.move_legend(ax, "lower center",
                             bbox_to_anchor=(.5, 1), ncol=2, title=None, frameon=False)
+            if not args.bw_per_node:
+                plt.xscale('log')
+                ax.set_xticks(xticks)
+                ax.set_xticklabels(xticklabels)   
 
             # Inner latency plot
             if global_df_time is not None and not args.no_inner:
                 ax2 = plt.axes(ast.literal_eval(args.inner_pos), facecolor='w')
                 global_df_time["Runtime (us)"] = global_df_time["Runtime"] # Was already scaled before
-                sns.lineplot(data=global_df_time, x="Nodes", y="Runtime (us)", hue="Extra", style="Extra", marker="o", ax=ax2, errorbar=errorbar)
+                sns.lineplot(data=global_df_time, x=x, y="Runtime (us)", hue="Extra", style="Extra", marker="o", ax=ax2, errorbar=errorbar)
                 ax2.set_xlim([0, 5])
                 ax2.set_ylim(ast.literal_eval(args.inner_ylim))
                 inner_fontsize = 9
@@ -151,7 +170,7 @@ def main():
         # Boxes #
         #########
         if "box" in plot_types:
-            ax = sns.boxplot(data=global_df, x="Nodes", y=metric_hr, hue="Extra")
+            ax = sns.boxplot(data=global_df, x=x, y=metric_hr, hue="Extra")
             ax.figure.savefig(outname + "_box.pdf", bbox_inches='tight')
             plt.clf()
 
@@ -159,7 +178,7 @@ def main():
         # Bars #
         ########
         if "bar" in plot_types:
-            ax = sns.barplot(data=global_df, x="Nodes", y=metric_hr, hue="Extra")
+            ax = sns.barplot(data=global_df, x=x, y=metric_hr, hue="Extra")
             ax.figure.savefig(outname + "_bar.pdf", bbox_inches='tight')
             plt.clf()
 

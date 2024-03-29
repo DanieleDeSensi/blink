@@ -585,7 +585,7 @@ def main():
     # create logs
     log_start_time = time.time()
     log_data(out_format, data_directory+'/data', data_container_list)
-    log_meta_data(out_format, data_directory+'/metadata', data_container_list, runs)
+    #log_meta_data(out_format, data_directory+'/metadata', data_container_list, runs)
     print_runtime('Writing data & meta-data took ' +
                       str(round(time.time()-log_start_time, 5))+'s.', ro_mode, ro_file)
 

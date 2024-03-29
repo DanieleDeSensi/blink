@@ -2,11 +2,12 @@
 rm -rf plots/out/*
 PLOT_SINGLE_NODE=0
 PLOT_TWO_NODES=0
-PLOT_DISTANCE=0
-PLOT_COLL_SCALABILITY=1
-PLOT_COLL_SCALABILITY_HEATMAP=1
+PLOT_DISTANCE=1
+PLOT_COLL_SCALABILITY=0
+PLOT_COLL_SCALABILITY_HEATMAP=0
 PLOT_COLL_SCALABILITY_NOISE=0
 PLOT_LUMI_GPU_PAIRS=0
+PLOT_HCOLL=0
 #ERRORBAR="(\"ci\", 90)"
 ERRORBAR="(\"pi\", 50)"
 
@@ -111,16 +112,19 @@ fi
 # Distance tests -- Fig. 5 #
 ############################
 if [[ $PLOT_DISTANCE = 1 ]]; then
-    SYSTEMS="leonardo,lumi"
-    #SYSTEMS="alps,leonardo,lumi"
     PLOT_TYPE="box,boxnofliers,violin,dist"
     EXTRAS=#same_switch,#diff_switch,#diff_group
     INPUT="#"
     XTICKLABELS="[\"Same\nSwitch\", \"Different\nSwitch\", \"Different\nGroup\"]"
-    for DIST in "distance-cpu" #"distance-gpu"
+    for DIST in "distance-cpu" "distance-gpu"
     do
+        if [ ${DIST} = "distance-cpu" ]; then
+            SYSTEMS="alps,leonardo,lumi"
+        else
+            SYSTEMS="alps,leonardo"
+        fi
         OUT_PATH="plots/out/two-nodes/${DIST}"
-        MAX_Y="leonardo|Latency:6,lumi|Latency:6"
+        MAX_Y="alps|Latency:6,leonardo|Latency:6,lumi|Latency:6"
         ./plots/plot_extras.py -s ${SYSTEMS} -vn "#${DIST}" -vi ${INPUT} -n 2 -am l -sp 100 --metrics "Latency,Bandwidth" -o ${OUT_PATH} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --max_y "${MAX_Y}" --xticklabels "${XTICKLABELS}"
     done
 fi
@@ -204,7 +208,7 @@ fi
 if [[ $PLOT_COLL_SCALABILITY_HEATMAP = 1 ]]; then
     PLOT_TYPE="line,box,bar"
     EXTRA="#"
-    NNODES="2,4,8,16,32,64" #,128,256"
+    NNODES="2,4,8,16,32,64" #,128,256,512"
     for BENCH in "ar" "a2a"
     do
         if [ ${BENCH} == "ar" ]; then
@@ -230,8 +234,30 @@ if [[ $PLOT_COLL_SCALABILITY_HEATMAP = 1 ]]; then
     done
 fi
 
-exit 0
-
+##########################
+# 64 nodes tests - HCOLL #
+##########################
+if [[ $PLOT_HCOLL = 1 ]]; then
+    SYSTEM="leonardo"
+    OUT_PATH="plots/out/multi-nodes/hcoll/${SYSTEM}"
+    PLOT_TYPE="line,box"
+    PPN=4
+    SL=1 #TODO Redo for SL=0!
+    EXTRA="SL${SL}_hcoll0,SL${SL}_hcoll1"
+    INNER_YLIM="[50, 150]"
+    INNER_POS="[0.2, 0.6, .3, .2]"
+    TREND_LIMIT=Bandwidth:0
+    # AR
+    INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB,8GiB"
+    TESTNAME="ar"
+    ./plots/plot_inputs_multiextras.py -s ${SYSTEM} -vn ar-nccl -vi ${INPUTS} -n 64 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}"
+    # A2A
+    INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB"
+    TESTNAME="a2a"
+    INNER_YLIM="[0, 50]"
+    TREND_LIMIT=Bandwidth:0
+    ./plots/plot_inputs_multiextras.py -s ${SYSTEM} -vn a2a-nccl -vi ${INPUTS} -n 64 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
+fi
 
 ##################
 # LUMI GPU Pairs #
@@ -243,10 +269,11 @@ if [[ $PLOT_LUMI_GPU_PAIRS = 1 ]]; then
     INPUT="1GiB"    
     OUT_PATH="plots/out/single_node/gpupairs/${SYSTEM}"
     BENCHS="gpubench-pp-baseline,gpubench-pp-nccl,gpubench-pp-nvlink,gpubench-pp-cudaaware"
-    LABELS="Trivial Staging,*CCL,Device-Device Copy,GPU-Aware MPI"
+    LABELS="Trivial Staging,RCCL,Device-Device Copy,GPU-Aware MPI"
     BARPLOT_TOPS="1600,400,400,400,400,800,800"
     ./plots/plot_extras_multivictim.py -s ${SYSTEM} -vn "${BENCHS}" -vi ${INPUT} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH} --ppn 2 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --labels "${LABELS}" --barplot_tops "${BARPLOT_TOPS}"
 fi
+exit 0
 
 
 ############
@@ -311,28 +338,6 @@ exit 0
 #    done
 #done
 
-##########################
-# 64 nodes tests - HCOLL #
-##########################
-#SYSTEM="leonardo"
-#OUT_PATH="plots/out/64-nodes/hcoll/${SYSTEM}"
-#PLOT_TYPE="line,box"
-#PPN=4
-#SL=1 #TODO Redo for SL=0!
-#EXTRA="SL${SL}_hcoll0,SL${SL}_hcoll1"
-#INNER_YLIM="[50, 150]"
-#INNER_POS="[0.2, 0.6, .3, .2]"
-#TREND_LIMIT=Bandwidth:0
-## AR
-#INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB,128MiB,1GiB,8GiB"
-#TESTNAME="ar"
-#./plots/plot_inputs_multiextras.py -s ${SYSTEM} -vn ardc_b -vi ${INPUTS} -n 64 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}"
-## A2A
-#INPUTS="1B,8B,64B,512B,4KiB,32KiB,256KiB,2MiB,16MiB"
-#TESTNAME="a2a"
-#INNER_YLIM="[0, 50]"
-#TREND_LIMIT=Bandwidth:0
-#./plots/plot_inputs_multiextras.py -s ${SYSTEM} -vn a2a_b -vi ${INPUTS} -n 64 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
 
 ###############################
 # 64 nodes tests - SL1 - Cong #
