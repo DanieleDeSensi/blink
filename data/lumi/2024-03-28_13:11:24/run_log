@@ -1,0 +1,74 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/16MiB_plus_alltoall_gpu', node_file='auto', numnodes=32, allocationmode='l', allocationsplit='10:90', minruns=1, maxruns=5, timeout=300.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='ERDVZ65536', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 24", collection flag: True, ending condition: run until finished.
+1: with arguments:"-l 0 -x 17", collection flag: False, ending condition: wait until others finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 4 nodes:
+['nid005384' 'nid005385' 'nid005386' 'nid005387']
+1 on 28 nodes:
+['nid005388' 'nid005389' 'nid005750' 'nid005751' 'nid005752' 'nid005753'
+ 'nid005754' 'nid005755' 'nid005756' 'nid005757' 'nid005758' 'nid005759'
+ 'nid005760' 'nid005761' 'nid005762' 'nid005954' 'nid005955' 'nid005956'
+ 'nid005957' 'nid005958' 'nid005959' 'nid005960' 'nid005961' 'nid005962'
+ 'nid005963' 'nid005964' 'nid005965' 'nid005966']
+
+Schedule:
+0.0s: start 0
+0.0s: start 1
+
+Preparing took 1.40295s.
+
+Running...
+ Run 1:
+  0.02405s: started 0
+  0.0308s: started 1
+  2.67958s: awaited 0
+  3.63s: killed waiting 1
+  Data collection took 0.00041s.
+  Convergence check took 0.00078s.
+ Run 2:
+  0.02532s: started 0
+  0.03252s: started 1
+  2.57119s: awaited 0
+  2.57739s: killed waiting 1
+  2.57741s: encountered an exception in 1
+srun: Job 6729844 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6729844
+
+  Data collection took 0.0003s.
+  Convergence check took 0.00084s.
+ Run 3:
+  0.00767s: started 0
+  0.01541s: started 1
+  2.63004s: awaited 0
+  2.63097s: killed waiting 1
+  2.63098s: encountered an exception in 1
+srun: Job 6729844 step creation temporarily disabled, retrying (Requested nodes are busy)
+
+  Data collection took 0.00024s.
+  Convergence check took 0.00079s.
+ Run 4:
+  0.00707s: started 0
+  0.01459s: started 1
+  2.80812s: awaited 0
+  2.80913s: killed waiting 1
+  Data collection took 0.00024s.
+  Convergence check took 0.0008s.
+ Run 5:
+  0.00733s: started 0
+  0.01474s: started 1
+  2.61055s: awaited 0
+  2.6115s: killed waiting 1
+  2.61151s: encountered an exception in 1
+srun: Job 6729844 step creation temporarily disabled, retrying (Requested nodes are busy)
+
+  Data collection took 0.00024s.
+  Convergence check took 0.0008s.
+Completed maximum number of runs, terminated after 5 runs taking 14.26 seconds.
+Writing data & meta-data took 0.00849s.
+Overall took 15.67619s.

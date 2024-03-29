@@ -1,0 +1,26 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/1MiB', node_file='auto', numnodes=32, allocationmode='l', allocationsplit='10:90', minruns=1, maxruns=5, timeout=300.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='ERDVZDEF', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 20", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 4 nodes:
+['nid005306' 'nid005307' 'nid005308' 'nid005309']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 4.09294s.
+
+Running...
+ Run 1:
+  0.02676s: started 0
+  4.64892s: awaited 0
+  Data collection took 0.00035s.
+  Convergence check took 0.00087s.
+Completed after reaching confidence interval, terminated after 1 runs taking 4.65 seconds.
+Writing data & meta-data took 0.02657s.
+Overall took 8.76998s.

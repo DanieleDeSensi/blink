@@ -1,0 +1,54 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/16MiB', node_file='auto', numnodes=32, allocationmode='l', allocationsplit='10:90', minruns=1, maxruns=5, timeout=300.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='ERDVZ1024', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 24", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 4 nodes:
+['nid005384' 'nid005385' 'nid005386' 'nid005387']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 2.71627s.
+
+Running...
+ Run 1:
+  0.00665s: started 0
+  3.97276s: awaited 0
+  Data collection took 0.00037s.
+  Convergence check took 0.00094s.
+ Run 2:
+  0.00738s: started 0
+  4.04355s: awaited 0
+  4.04358s: encountered an exception in 0
+srun: Job 6729844 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6729844
+
+  Data collection took 0.0004s.
+  Convergence check took 0.00097s.
+ Run 3:
+  0.00723s: started 0
+  2.47086s: awaited 0
+  2.47088s: encountered an exception in 0
+srun: Job 6729844 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6729844
+
+  Data collection took 0.00024s.
+  Convergence check took 0.00079s.
+ Run 4:
+  0.00717s: started 0
+  2.54288s: awaited 0
+  Data collection took 0.0003s.
+  Convergence check took 0.0008s.
+ Run 5:
+  0.00718s: started 0
+  3.13619s: awaited 0
+  Data collection took 0.00029s.
+  Convergence check took 0.00092s.
+Completed maximum number of runs, terminated after 5 runs taking 16.17 seconds.
+Writing data & meta-data took 0.00799s.
+Overall took 18.89691s.
