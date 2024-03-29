@@ -10,7 +10,7 @@ class app(microbench):
     ]
 
     def get_binary_path(self):
-        return os.environ["BLINK_ROOT"] + "/src/microbench/bin/ping-pong_b" 
+        return self.get_path("ping-pong_b")
     
     def get_bench_name(self):
         return "Ping-Pong"

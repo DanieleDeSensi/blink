@@ -7,7 +7,7 @@ class app(microbench):
     metadata = []
     
     def get_binary_path(self):
-        return os.environ["BLINK_ROOT"] + '/src/microbench/bin/null_dummy'
+        return self.get_path("null_dummy")
     
     def read_data(self):  # return list (size num_metrics) of variable size lists
         data_list = []

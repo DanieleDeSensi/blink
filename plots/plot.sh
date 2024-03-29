@@ -1,10 +1,10 @@
 #!/bin/bash
 rm -rf plots/out/*
 PLOT_SINGLE_NODE=0
-PLOT_TWO_NODES=0
-PLOT_DISTANCE=1
-PLOT_COLL_SCALABILITY=1
-PLOT_COLL_SCALABILITY_HEATMAP=1
+PLOT_TWO_NODES=1
+PLOT_DISTANCE=0
+PLOT_COLL_SCALABILITY=0
+PLOT_COLL_SCALABILITY_HEATMAP=0
 PLOT_COLL_SCALABILITY_NOISE=0
 PLOT_LUMI_GPU_PAIRS=0
 PLOT_HCOLL=0
@@ -71,8 +71,10 @@ if [[ $PLOT_SINGLE_NODE = 1 ]]; then
                     TREND_LIMIT=Bandwidth:2400:Expected_Bandwidth
                     PPN=4
                 fi
-            fi            
-            ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn "${VICTIM_NAMES}" -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --labels "${LABELS}" -e "${EXTRA}" --errorbar "${ERRORBAR}"
+            fi    
+            # [left, bottom, width, height]     
+            INNER_POS="[0.21, 0.45, .35, .2625]"   
+            ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn "${VICTIM_NAMES}" -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --labels "${LABELS}" -e "${EXTRA}" --errorbar "${ERRORBAR}" --inner_pos "${INNER_POS}"
         done
     done
 fi

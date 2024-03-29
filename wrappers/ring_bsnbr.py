@@ -5,7 +5,7 @@ from microbench_common import microbench
 
 class app(microbench):
     def get_binary_path(self):
-        return os.environ["BLINK_ROOT"] + "/src/microbench/bin/ring_bsnbr" 
+        return self.get_path("ring_bsnbr")
     
     def get_bench_name(self):
         return "Ring (blocking send, non-blocking recv)"

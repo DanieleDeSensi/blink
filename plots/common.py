@@ -18,7 +18,7 @@ import importlib.util
 import ast
 
 matplotlib.rc('pdf', fonttype=42) # To avoid issues with camera-ready submission
-matplotlib.rc('font', size=12)
+matplotlib.rc('font', size=16)
 
 # Extracts victim and aggressor from an app mix file
 # Assumes only two applications are specified in the mix, 

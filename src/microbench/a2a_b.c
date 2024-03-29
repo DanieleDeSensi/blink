@@ -143,14 +143,14 @@ int main(int argc, char** argv){
     if(msg_size >= 8 && msg_size % 8 == 0){ // Check if I can use 64-bit data types
         large_count = msg_size / 8;
         if (large_count >= ((u_int64_t) (1UL << 32)) - 1) { // If large_count can't be represented on 32 bits
-            if(rank == 0){
+            if(my_rank == 0){
                 printf("\tTransfer size (B): -1, Transfer Time (s): -1, Bandwidth (GB/s): -1, Iteration -1\n");
             }
             return -1;
         }
     }else{
         if (msg_size >= ((u_int64_t) (1UL << 32)) - 1) { // If msg_size can't be represented on 32 bits
-            if(rank == 0){
+            if(my_rank == 0){
                 printf("\tTransfer size (B): -1, Transfer Time (s): -1, Bandwidth (GB/s): -1, Iteration -1\n");
             }
             return -1;

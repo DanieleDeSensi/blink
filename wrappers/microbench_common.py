@@ -12,6 +12,14 @@ class microbench(base):
         {'name': 'MainRank-Duration', 'unit': 's', 'conv': False}
     ]
 
+    def get_path(self, name):
+        p = ""
+        sys = os.environ["BLINK_SYSTEM"]
+        if sys == "leonardo":
+            p += os.environ["BLINK_ROOT"] + "/src/microbench/select_nic_ucx "
+        p += os.environ["BLINK_ROOT"] + "/src/microbench/bin/" + name
+        return p
+
     def read_data(self):
         out_string = self.stdout
         tmp_list = []

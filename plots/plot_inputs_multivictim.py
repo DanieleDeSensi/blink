@@ -136,11 +136,13 @@ def main():
                         ax.axhline(y=float(limit), color='black', linestyle='--')
                         if label:
                             label = label.replace("_", " ") 
-                            ax.text(7, float(limit), label, fontsize=10, va='center', ha='center', backgroundcolor='w')
+                            ax.text(7, float(limit), label, fontsize=11, va='center', ha='center', backgroundcolor='w')
 
             # Set the title and labels
             #ax.set_title(title)
             ax.set_xlabel("")
+            ax.tick_params(axis='x', rotation=45)
+
             ax.set_ylabel(add_unit_to_metric(metric_hr))
             if args.max_y:
                 ax.set_ylim(0, float(args.max_y))
@@ -160,7 +162,7 @@ def main():
                 ax2.set_xlim([0, 5])
                 if args.inner_ylim:
                     ax2.set_ylim(ast.literal_eval(args.inner_ylim))
-                inner_fontsize = 9
+                inner_fontsize = 12
                 ax2.tick_params(labelsize=inner_fontsize)
                 ax2.set_xlabel("")
                 ax2.set_ylabel("Runtime (us)", fontdict={'fontsize': inner_fontsize})
