@@ -13,7 +13,9 @@ class gpubench(base):
         p = ""
         sys = os.environ["BLINK_SYSTEM"]
         if "CudaAware" in name and (sys == "alps" or sys == "lumi"):
-            p += os.environ["BLINK_ROOT"] + "/src/microbench-gpu/select_gpu_" + sys + " "            
+            p += os.environ["BLINK_ROOT"] + "/src/microbench-gpu/select_gpu_" + sys + " "
+        elif "CudaAware" in name and (sys == "leonardo"):
+            p += os.environ["BLINK_ROOT"] + "/src/microbench-gpu/select_nic_" + sys + " "
         p += os.environ["BLINK_ROOT"] + "/src/microbench-gpu/bin/" + name
         return p
     
