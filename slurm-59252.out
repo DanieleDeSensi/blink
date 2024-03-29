@@ -1,0 +1,2031 @@
+[1;31m[error][0m a uenv is already running
+[1;31m[error][0m a view is already loaded: {'path': PosixPath('/user-environment'), 'name': 'default'}
+[1;31m[error][0m a uenv is already running
+[1;31m[error][0m a view is already loaded: {'path': PosixPath('/user-environment'), 'name': 'default'}
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/ar-nccl/1B auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/1B', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.62561s.
+
+Running...
+ Run 1:
+  0.0027s: started 0
+  17.65927s: awaited 0
+  Data collection took 0.00031s.
+  Convergence check took 0.00346s.
+ Run 2:
+  0.09486s: started 0
+  17.59413s: awaited 0
+  Data collection took 0.00019s.
+  Convergence check took 0.00076s.
+ Run 3:
+  0.10982s: started 0
+  17.80426s: awaited 0
+  Data collection took 0.0002s.
+  Convergence check took 0.00076s.
+Completed maximum number of runs, terminated after 3 runs taking 53.06 seconds.
+Writing data & meta-data took 0.01751s.
+Overall took 54.70709s.
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/ar-nccl/4B auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/4B', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 2", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.09716s.
+
+Running...
+ Run 1:
+  0.07173s: started 0
+  17.81305s: awaited 0
+  Data collection took 0.00031s.
+  Convergence check took 0.00085s.
+ Run 2:
+  0.09784s: started 0
+  15.94728s: awaited 0
+  Data collection took 0.00019s.
+  Convergence check took 0.00076s.
+ Run 3:
+  0.11938s: started 0
+  18.65703s: awaited 0
+  Data collection took 0.0002s.
+  Convergence check took 0.00077s.
+Completed maximum number of runs, terminated after 3 runs taking 52.42 seconds.
+Writing data & meta-data took 0.0102s.
+Overall took 53.52804s.
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/ar-nccl/8B auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/8B', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 3", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.06923s.
+
+Running...
+ Run 1:
+  0.00276s: started 0
+  17.62942s: awaited 0
+  Data collection took 0.00031s.
+  Convergence check took 0.00085s.
+ Run 2:
+  0.08148s: started 0
+  17.67628s: awaited 0
+  Data collection took 0.00019s.
+  Convergence check took 0.00076s.
+ Run 3:
+  0.00283s: started 0
+  16.22166s: awaited 0
+  Data collection took 0.00019s.
+  Convergence check took 0.00076s.
+Completed maximum number of runs, terminated after 3 runs taking 51.53 seconds.
+Writing data & meta-data took 0.01089s.
+Overall took 52.61078s.
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/ar-nccl/64B auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/64B', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 6", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.11151s.
+
+Running...
+ Run 1:
+  0.07734s: started 0
+  17.58356s: awaited 0
+  Data collection took 0.00031s.
+  Convergence check took 0.00085s.
+ Run 2:
+  0.11278s: started 0
+  18.10998s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00078s.
+ Run 3:
+  0.12162s: started 0
+  15.92018s: awaited 0
+  Data collection took 0.00019s.
+  Convergence check took 0.00076s.
+Completed maximum number of runs, terminated after 3 runs taking 51.62 seconds.
+Writing data & meta-data took 0.01112s.
+Overall took 52.73972s.
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/ar-nccl/512B auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/512B', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 9", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.32094s.
+
+Running...
+ Run 1:
+  0.00292s: started 0
+  16.06s: awaited 0
+  16.06002s: encountered an exception in 0
+srun: Job 59252 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=59252.17
+
+  Data collection took 0.00033s.
+  Convergence check took 0.00087s.
+ Run 2:
+  0.09655s: started 0
+  17.51566s: awaited 0
+  Data collection took 0.0002s.
+  Convergence check took 0.00077s.
+ Run 3:
+  0.08989s: started 0
+  15.85167s: awaited 0
+  Data collection took 0.0002s.
+  Convergence check took 0.00076s.
+Completed maximum number of runs, terminated after 3 runs taking 49.43 seconds.
+Writing data & meta-data took 0.01002s.
+Overall took 50.76164s.
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/ar-nccl/4KiB auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/4KiB', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 12", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.04797s.
+
+Running...
+ Run 1:
+  0.1079s: started 0
+  16.35696s: awaited 0
+  Data collection took 0.00031s.
+  Convergence check took 0.00085s.
+ Run 2:
+  0.10008s: started 0
+  15.79067s: awaited 0
+  Data collection took 0.00019s.
+  Convergence check took 0.00076s.
+ Run 3:
+  0.05831s: started 0
+  15.82495s: awaited 0
+  Data collection took 0.00019s.
+  Convergence check took 0.00078s.
+Completed maximum number of runs, terminated after 3 runs taking 47.98 seconds.
+Writing data & meta-data took 0.00945s.
+Overall took 49.03334s.
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/ar-nccl/32KiB auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/32KiB', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 15", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.01283s.
+
+Running...
+ Run 1:
+  0.16042s: started 0
+  16.16056s: awaited 0
+  Data collection took 0.00032s.
+  Convergence check took 0.00085s.
+ Run 2:
+  0.08864s: started 0
+  17.79874s: awaited 0
+  Data collection took 0.0002s.
+  Convergence check took 0.00076s.
+ Run 3:
+  0.08895s: started 0
+  15.91766s: awaited 0
+  Data collection took 0.0002s.
+  Convergence check took 0.00076s.
+Completed maximum number of runs, terminated after 3 runs taking 49.88 seconds.
+Writing data & meta-data took 0.00958s.
+Overall took 50.90269s.
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/ar-nccl/256KiB auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/256KiB', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 18", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.10773s.
+
+Running...
+ Run 1:
+  0.07962s: started 0
+  16.21848s: awaited 0
+  Data collection took 0.00032s.
+  Convergence check took 0.00089s.
+ Run 2:
+  0.05995s: started 0
+  15.92674s: awaited 0
+  Data collection took 0.00021s.
+  Convergence check took 0.00077s.
+ Run 3:
+  0.10208s: started 0
+  18.73621s: awaited 0
+  Data collection took 0.0002s.
+  Convergence check took 0.00075s.
+Completed maximum number of runs, terminated after 3 runs taking 50.88 seconds.
+Writing data & meta-data took 0.00923s.
+Overall took 52.00176s.
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/ar-nccl/2MiB auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/2MiB', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 21", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.30473s.
+
+Running...
+ Run 1:
+  0.06628s: started 0
+  16.10348s: awaited 0
+  Data collection took 0.00031s.
+  Convergence check took 0.00085s.
+ Run 2:
+  0.16188s: started 0
+  16.91842s: awaited 0
+  Data collection took 0.00019s.
+  Convergence check took 0.00078s.
+ Run 3:
+  0.0028s: started 0
+  16.11882s: awaited 0
+  Data collection took 0.0002s.
+  Convergence check took 0.00079s.
+Completed maximum number of runs, terminated after 3 runs taking 49.14 seconds.
+Writing data & meta-data took 0.00938s.
+Overall took 50.4582s.
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/ar-nccl/16MiB auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/16MiB', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 24", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.25315s.
+
+Running...
+ Run 1:
+  0.12134s: started 0
+  18.20321s: awaited 0
+  Data collection took 0.00031s.
+  Convergence check took 0.00085s.
+ Run 2:
+  0.10707s: started 0
+  16.11115s: awaited 0
+  Data collection took 0.00019s.
+  Convergence check took 0.00077s.
+ Run 3:
+  0.06497s: started 0
+  16.30335s: awaited 0
+  Data collection took 0.00019s.
+  Convergence check took 0.00076s.
+Completed maximum number of runs, terminated after 3 runs taking 50.62 seconds.
+Writing data & meta-data took 0.00899s.
+Overall took 51.88316s.
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/ar-nccl/128MiB auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/128MiB', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 27", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.31568s.
+
+Running...
+ Run 1:
+  0.00275s: started 0
+  17.45359s: awaited 0
+  17.45362s: encountered an exception in 0
+srun: Job 59252 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=59252.41
+
+  Data collection took 0.00033s.
+  Convergence check took 0.00086s.
+ Run 2:
+  0.05752s: started 0
+  19.19258s: awaited 0
+  Data collection took 0.0002s.
+  Convergence check took 0.00076s.
+ Run 3:
+  0.04397s: started 0
+  18.83389s: awaited 0
+  Data collection took 0.0002s.
+  Convergence check took 0.00076s.
+Completed maximum number of runs, terminated after 3 runs taking 55.48 seconds.
+Writing data & meta-data took 0.00977s.
+Overall took 56.80885s.
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/ar-nccl/1GiB auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/1GiB', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.01461s.
+
+Running...
+ Run 1:
+  0.09409s: started 0
+  22.40053s: awaited 0
+  Data collection took 0.00032s.
+  Convergence check took 0.00086s.
+Completed after reaching confidence interval, terminated after 1 runs taking 22.4 seconds.
+Writing data & meta-data took 0.00867s.
+Overall took 23.42509s.
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/a2a-nccl/1B auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-nccl/1B', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.13293s.
+
+Running...
+ Run 1:
+  0.07129s: started 0
+  300.07746s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 0 runs taking 300.08 seconds.
+Traceback (most recent call last):
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 602, in <module>
+    main()
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 587, in main
+    log_data(out_format, data_directory+'/data', data_container_list)
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 186, in log_data
+    dataframe.columns = columns
+    ^^^^^^^^^^^^^^^^^
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/generic.py", line 6310, in __setattr__
+    return object.__setattr__(self, name, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/generic.py", line 813, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/internals/managers.py", line 238, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/internals/base.py", line 98, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 0 elements, new values have 2 elements
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/a2a-nccl/4B auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+srun: Job 59252 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=59252.48
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-nccl/4B', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 2", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 5.78488s.
+
+Running...
+ Run 1:
+  0.10489s: started 0
+  300.10804s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 0 runs taking 300.11 seconds.
+Traceback (most recent call last):
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 602, in <module>
+    main()
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 587, in main
+    log_data(out_format, data_directory+'/data', data_container_list)
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 186, in log_data
+    dataframe.columns = columns
+    ^^^^^^^^^^^^^^^^^
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/generic.py", line 6310, in __setattr__
+    return object.__setattr__(self, name, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/generic.py", line 813, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/internals/managers.py", line 238, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/internals/base.py", line 98, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 0 elements, new values have 2 elements
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/a2a-nccl/8B auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+srun: Job 59252 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=59252.50
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-nccl/8B', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 3", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 6.03514s.
+
+Running...
+ Run 1:
+  0.00281s: started 0
+  300.10829s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 0 runs taking 300.11 seconds.
+Traceback (most recent call last):
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 602, in <module>
+    main()
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 587, in main
+    log_data(out_format, data_directory+'/data', data_container_list)
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 186, in log_data
+    dataframe.columns = columns
+    ^^^^^^^^^^^^^^^^^
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/generic.py", line 6310, in __setattr__
+    return object.__setattr__(self, name, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/generic.py", line 813, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/internals/managers.py", line 238, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/internals/base.py", line 98, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 0 elements, new values have 2 elements
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/a2a-nccl/64B auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+srun: Job 59252 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=59252.52
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-nccl/64B', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 6", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 6.20353s.
+
+Running...
+ Run 1:
+  0.10862s: started 0
+  21.29575s: awaited 0
+  Data collection took 0.00038s.
+  Convergence check took 0.00086s.
+Completed after reaching confidence interval, terminated after 1 runs taking 21.3 seconds.
+Writing data & meta-data took 0.00975s.
+Overall took 27.51037s.
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/a2a-nccl/512B auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-nccl/512B', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 9", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.12122s.
+
+Running...
+ Run 1:
+  0.06169s: started 0
+  24.96293s: awaited 0
+  Data collection took 0.00037s.
+  Convergence check took 0.00087s.
+ Run 2:
+  0.14762s: started 0
+  21.69825s: awaited 0
+  Data collection took 0.00026s.
+  Convergence check took 0.00077s.
+ Run 3:
+  0.06819s: started 0
+  22.55434s: awaited 0
+  Data collection took 0.00026s.
+  Convergence check took 0.00077s.
+Completed maximum number of runs, terminated after 3 runs taking 69.22 seconds.
+Writing data & meta-data took 0.0098s.
+Overall took 70.35008s.
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/a2a-nccl/4KiB auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-nccl/4KiB', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 12", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.25587s.
+
+Running...
+ Run 1:
+  0.00276s: started 0
+  21.18846s: awaited 0
+  Data collection took 0.00037s.
+  Convergence check took 0.00087s.
+ Run 2:
+  0.11931s: started 0
+  22.78077s: awaited 0
+  Data collection took 0.00026s.
+  Convergence check took 0.00077s.
+ Run 3:
+  0.09755s: started 0
+  23.59382s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00078s.
+Completed maximum number of runs, terminated after 3 runs taking 67.57 seconds.
+Writing data & meta-data took 0.01042s.
+Overall took 68.83287s.
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/a2a-nccl/32KiB auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-nccl/32KiB', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 15", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.29244s.
+
+Running...
+ Run 1:
+  0.00295s: started 0
+  22.48968s: awaited 0
+  Data collection took 0.00037s.
+  Convergence check took 0.00088s.
+ Run 2:
+  0.09239s: started 0
+  20.55231s: awaited 0
+  Data collection took 0.00026s.
+  Convergence check took 0.00076s.
+ Run 3:
+  0.00283s: started 0
+  257.06326s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 2 runs taking 300.11 seconds.
+Writing data & meta-data took 0.01015s.
+Overall took 301.41034s.
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/a2a-nccl/256KiB auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+srun: Job 59252 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=59252.66
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-nccl/256KiB', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 18", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 6.876s.
+
+Running...
+ Run 1:
+  0.07899s: started 0
+  300.10838s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 0 runs taking 300.11 seconds.
+Traceback (most recent call last):
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 602, in <module>
+    main()
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 587, in main
+    log_data(out_format, data_directory+'/data', data_container_list)
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 186, in log_data
+    dataframe.columns = columns
+    ^^^^^^^^^^^^^^^^^
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/generic.py", line 6310, in __setattr__
+    return object.__setattr__(self, name, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/generic.py", line 813, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/internals/managers.py", line 238, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/internals/base.py", line 98, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 0 elements, new values have 2 elements
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/a2a-nccl/2MiB auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+srun: Job 59252 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=59252.68
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-nccl/2MiB', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 21", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 6.02843s.
+
+Running...
+ Run 1:
+  0.00279s: started 0
+  27.73809s: awaited 0
+  27.73812s: encountered an exception in 0
+srun: Job 59252 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for StepId=59252.69
+
+  Data collection took 0.00038s.
+  Convergence check took 0.00087s.
+Completed after reaching confidence interval, terminated after 1 runs taking 27.74 seconds.
+Writing data & meta-data took 0.00996s.
+Overall took 33.77782s.
++ for schedule in ./apps_mix/gpubench/ar-nccl/1B ./apps_mix/gpubench/ar-nccl/4B ./apps_mix/gpubench/ar-nccl/8B ./apps_mix/gpubench/ar-nccl/64B ./apps_mix/gpubench/ar-nccl/512B ./apps_mix/gpubench/ar-nccl/4KiB ./apps_mix/gpubench/ar-nccl/32KiB ./apps_mix/gpubench/ar-nccl/256KiB ./apps_mix/gpubench/ar-nccl/2MiB ./apps_mix/gpubench/ar-nccl/16MiB ./apps_mix/gpubench/ar-nccl/128MiB ./apps_mix/gpubench/ar-nccl/1GiB ./apps_mix/gpubench/a2a-nccl/1B ./apps_mix/gpubench/a2a-nccl/4B ./apps_mix/gpubench/a2a-nccl/8B ./apps_mix/gpubench/a2a-nccl/64B ./apps_mix/gpubench/a2a-nccl/512B ./apps_mix/gpubench/a2a-nccl/4KiB ./apps_mix/gpubench/a2a-nccl/32KiB ./apps_mix/gpubench/a2a-nccl/256KiB ./apps_mix/gpubench/a2a-nccl/2MiB ./apps_mix/gpubench/a2a-nccl/16MiB
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench/a2a-nccl/16MiB auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-nccl/16MiB', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 24", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.96828s.
+
+Running...
+ Run 1:
+  0.00273s: started 0
+  59.96829s: awaited 0
+  Data collection took 0.00038s.
+  Convergence check took 0.00087s.
+ Run 2:
+  0.13881s: started 0
+  59.02497s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00078s.
+ Run 3:
+  0.13269s: started 0
+  62.42299s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00077s.
+Completed maximum number of runs, terminated after 3 runs taking 181.42 seconds.
+Writing data & meta-data took 0.01014s.
+Overall took 182.39822s.
+[1;31m[error][0m a uenv is already running
+[1;31m[error][0m a view is already loaded: {'path': PosixPath('/user-environment'), 'name': 'default'}
++ for schedule in ./apps_mix/gpubench-comm/nccl
++ for nam in l
++ for split in 100
++ python3 runner.py ./apps_mix/gpubench-comm/nccl auto -am l -as 100 -n 64 -mn 1 -mx 3 -t 300 -a 0.05 -b 0.05 -of csv -ro +file -p 4
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench-comm/nccl', node_file='auto', numnodes=64, allocationmode='l', allocationsplit='100', minruns=1, maxruns=3, timeout=300.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"", collection flag: True, ending condition: run until finished.
+Split list: [100.0]
+Splits: [64]
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['nid001054' 'nid001056' 'nid001058' 'nid001066' 'nid001072' 'nid001074'
+ 'nid001078' 'nid001088' 'nid001090' 'nid001100' 'nid001104' 'nid001110'
+ 'nid001112' 'nid001114' 'nid001116' 'nid001118' 'nid001120' 'nid001122'
+ 'nid001128' 'nid001130' 'nid001132' 'nid001134' 'nid001136' 'nid001138'
+ 'nid001140' 'nid001142' 'nid001144' 'nid001146' 'nid001148' 'nid001150'
+ 'nid001152' 'nid001154' 'nid001160' 'nid001162' 'nid001164' 'nid001166'
+ 'nid001168' 'nid001170' 'nid001172' 'nid001176' 'nid001178' 'nid001182'
+ 'nid001184' 'nid001186' 'nid001194' 'nid001196' 'nid001198' 'nid001202'
+ 'nid001206' 'nid001208' 'nid001212' 'nid001214' 'nid001216' 'nid001224'
+ 'nid001226' 'nid001228' 'nid001230' 'nid001232' 'nid001234' 'nid001236'
+ 'nid001238' 'nid001240' 'nid001242' 'nid001244']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.21151s.
+
+Running...
+ Run 1:
+  0.08394s: started 0
+  1.27795s: awaited 0
+  1.27797s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001054: tasks 0-3: Exited with exit code 2
+srun: Terminating StepId=59252.75
+srun: error: nid001208: tasks 196-199: Exited with exit code 2
+srun: error: nid001090: tasks 32-35: Exited with exit code 2
+srun: error: nid001170: tasks 148-151: Exited with exit code 2
+srun: error: nid001242: tasks 248-251: Exited with exit code 2
+srun: error: nid001112: tasks 48-51: Exited with exit code 2
+srun: error: nid001072: tasks 16-19: Exited with exit code 2
+srun: error: nid001110: tasks 44-47: Exited with exit code 2
+srun: error: nid001238: tasks 240-243: Exited with exit code 2
+srun: error: nid001088: tasks 28-31: Exited with exit code 2
+srun: error: nid001056: tasks 4-7: Exited with exit code 2
+srun: error: nid001164: tasks 136-139: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001226: tasks 216-219: Exited with exit code 2
+srun: error: nid001230: tasks 224-227: Exited with exit code 2
+srun: error: nid001184: tasks 168-171: Exited with exit code 2
+srun: error: nid001160: tasks 128-131: Exited with exit code 2
+srun: error: nid001142: tasks 100-103: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001104: tasks 40-43: Exited with exit code 2
+srun: error: nid001240: tasks 244-247: Exited with exit code 2
+srun: error: nid001166: tasks 140-143: Exited with exit code 2
+srun: error: nid001198: tasks 184-187: Exited with exit code 2
+srun: error: nid001162: tasks 132-135: Exited with exit code 2
+srun: error: nid001140: tasks 96-99: Exited with exit code 2
+srun: error: nid001128: tasks 72-75: Exited with exit code 2
+srun: error: nid001066: tasks 12-15: Exited with exit code 2
+srun: error: nid001114: tasks 52-55: Terminated
+srun: error: nid001138: tasks 92,95: Exited with exit code 2
+srun: error: nid001138: tasks 93-94: Terminated
+srun: error: nid001228: tasks 220-223: Exited with exit code 2
+srun: error: nid001100: tasks 36-39: Exited with exit code 2
+srun: error: nid001148: tasks 112-115: Exited with exit code 2
+srun: error: nid001176: tasks 156-159: Exited with exit code 2
+srun: error: nid001212: tasks 200-203: Terminated
+srun: error: nid001120: tasks 64-67: Exited with exit code 2
+srun: error: nid001234: tasks 232-235: Exited with exit code 2
+srun: error: nid001186: tasks 172-175: Exited with exit code 2
+srun: error: nid001194: tasks 176-179: Exited with exit code 2
+srun: error: nid001178: tasks 160-163: Exited with exit code 2
+srun: error: nid001236: tasks 236-239: Exited with exit code 2
+srun: error: nid001214: tasks 204-207: Exited with exit code 2
+srun: error: nid001078: tasks 24-27: Exited with exit code 2
+srun: error: nid001146: tasks 108-111: Terminated
+srun: error: nid001244: tasks 252-255: Terminated
+srun: error: nid001216: tasks 208-211: Exited with exit code 2
+srun: error: nid001150: tasks 116-119: Terminated
+srun: error: nid001182: tasks 164-167: Terminated
+srun: error: nid001168: tasks 144-147: Terminated
+srun: error: nid001116: tasks 56-59: Exited with exit code 2
+srun: error: nid001122: tasks 68-71: Terminated
+srun: error: nid001118: tasks 60-63: Terminated
+srun: error: nid001202: tasks 188-191: Exited with exit code 2
+srun: error: nid001172: tasks 152-155: Terminated
+srun: error: nid001058: tasks 8-11: Exited with exit code 2
+srun: error: nid001132: tasks 80-83: Terminated
+srun: error: nid001154: tasks 124-127: Terminated
+srun: error: nid001134: tasks 84-87: Terminated
+srun: error: nid001206: tasks 192-195: Terminated
+srun: error: nid001144: tasks 104-107: Terminated
+srun: error: nid001196: tasks 180-183: Terminated
+srun: error: nid001232: tasks 228-231: Terminated
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001224: tasks 212-215: Terminated
+srun: error: nid001074: tasks 20-23: Terminated
+srun: error: nid001152: tasks 120-123: Terminated
+srun: error: nid001136: tasks 88-91: Exited with exit code 2
+srun: error: nid001130: tasks 76-79: Exited with exit code 2
+srun: Force Terminated StepId=59252.75
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.00269s: started 0
+  1.30136s: awaited 0
+  1.30139s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001104: tasks 40-43: Exited with exit code 2
+srun: Terminating StepId=59252.76
+srun: error: nid001212: tasks 200-203: Exited with exit code 2
+srun: error: nid001168: tasks 144-147: Exited with exit code 2
+srun: error: nid001216: tasks 208-211: Exited with exit code 2
+srun: error: nid001154: tasks 124-127: Exited with exit code 2
+srun: error: nid001202: tasks 188-191: Exited with exit code 2
+srun: error: nid001072: tasks 16-19: Exited with exit code 2
+srun: error: nid001130: tasks 76-79: Exited with exit code 2
+srun: error: nid001162: tasks 132-135: Exited with exit code 2
+srun: error: nid001120: tasks 64-67: Exited with exit code 2
+srun: error: nid001182: tasks 164-167: Exited with exit code 2
+srun: error: nid001066: tasks 12-15: Exited with exit code 2
+srun: error: nid001056: tasks 4-7: Exited with exit code 2
+srun: error: nid001176: tasks 156-159: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: *** STEP 59252.76 ON nid001054 CANCELLED AT 2024-03-28T14:59:28 ***
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001146: tasks 108-111: Exited with exit code 2
+srun: error: nid001144: tasks 104-107: Exited with exit code 2
+srun: error: nid001184: tasks 168-171: Exited with exit code 2
+srun: error: nid001242: tasks 248-251: Exited with exit code 2
+srun: error: nid001170: tasks 148-151: Exited with exit code 2
+srun: error: nid001110: tasks 44-47: Exited with exit code 2
+srun: error: nid001138: tasks 92-95: Exited with exit code 2
+srun: error: nid001074: tasks 20-23: Exited with exit code 2
+srun: error: nid001150: tasks 116-119: Exited with exit code 2
+srun: error: nid001232: tasks 228-231: Exited with exit code 2
+srun: error: nid001148: tasks 112-115: Exited with exit code 2
+srun: error: nid001208: tasks 196-199: Exited with exit code 2
+srun: error: nid001194: tasks 176-179: Exited with exit code 2
+srun: error: nid001166: tasks 140-143: Exited with exit code 2
+srun: error: nid001198: tasks 184-187: Exited with exit code 2
+srun: error: nid001152: tasks 120-123: Exited with exit code 2
+srun: error: nid001172: tasks 152-155: Exited with exit code 2
+srun: error: nid001128: tasks 72-75: Exited with exit code 2
+srun: error: nid001134: tasks 84-87: Exited with exit code 2
+srun: error: nid001136: tasks 88-91: Exited with exit code 2
+srun: error: nid001236: tasks 236-239: Exited with exit code 2
+srun: error: nid001122: tasks 68-71: Exited with exit code 2
+srun: error: nid001228: tasks 220-223: Exited with exit code 2
+srun: error: nid001238: tasks 240-243: Exited with exit code 2
+srun: error: nid001142: tasks 100-103: Exited with exit code 2
+srun: error: nid001164: tasks 136-139: Exited with exit code 2
+srun: error: nid001224: tasks 212-215: Exited with exit code 2
+srun: error: nid001186: tasks 172-175: Exited with exit code 2
+srun: error: nid001090: tasks 32-35: Terminated
+srun: error: nid001206: tasks 192-195: Terminated
+srun: error: nid001116: tasks 56-59: Exited with exit code 2
+srun: error: nid001132: tasks 80-83: Exited with exit code 2
+srun: error: nid001118: tasks 60-63: Terminated
+srun: error: nid001230: tasks 224-227: Exited with exit code 2
+srun: error: nid001196: tasks 180-183: Exited with exit code 2
+srun: error: nid001112: tasks 48-51: Exited with exit code 2
+srun: error: nid001226: tasks 216-219: Terminated
+srun: error: nid001244: tasks 252-255: Exited with exit code 2
+srun: error: nid001160: tasks 128-131: Exited with exit code 2
+srun: error: nid001058: tasks 8-11: Exited with exit code 2
+srun: error: nid001088: tasks 28-31: Exited with exit code 2
+srun: error: nid001214: tasks 204-207: Exited with exit code 2
+srun: error: nid001054: tasks 0-3: Terminated
+srun: error: nid001178: tasks 160-163: Exited with exit code 2
+srun: error: nid001100: tasks 36-39: Terminated
+srun: error: nid001140: tasks 96-99: Terminated
+srun: error: nid001114: tasks 52-55: Exited with exit code 2
+srun: error: nid001234: tasks 232-235: Terminated
+srun: error: nid001240: tasks 244-247: Terminated
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001078: tasks 24-27: Exited with exit code 2
+srun: Force Terminated StepId=59252.76
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00271s: started 0
+  1.03148s: awaited 0
+  1.03151s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001078: tasks 24-27: Exited with exit code 2
+srun: Terminating StepId=59252.77
+srun: error: nid001116: tasks 56-59: Exited with exit code 2
+srun: error: nid001170: tasks 148-151: Exited with exit code 2
+srun: error: nid001114: tasks 52-55: Exited with exit code 2
+srun: error: nid001138: tasks 92-95: Exited with exit code 2
+srun: error: nid001074: tasks 20-23: Exited with exit code 2
+srun: error: nid001112: tasks 48-51: Exited with exit code 2
+srun: error: nid001152: tasks 120-123: Exited with exit code 2
+srun: error: nid001122: tasks 68-71: Exited with exit code 2
+srun: error: nid001104: tasks 40-43: Exited with exit code 2
+srun: error: nid001146: tasks 108-111: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001154: tasks 124-127: Exited with exit code 2
+srun: error: nid001212: tasks 200-203: Exited with exit code 2
+srun: error: nid001232: tasks 228-231: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001202: tasks 188-191: Exited with exit code 2
+srun: error: nid001206: tasks 192-195: Exited with exit code 2
+srun: error: nid001148: tasks 112-115: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001178: tasks 160-163: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001216: tasks 208-211: Exited with exit code 2
+srun: error: nid001142: tasks 100-103: Exited with exit code 2
+srun: error: nid001226: tasks 216-219: Exited with exit code 2
+srun: error: nid001234: tasks 232-235: Exited with exit code 2
+srun: error: nid001120: tasks 64-67: Exited with exit code 2
+srun: error: nid001176: tasks 156-159: Exited with exit code 2
+srun: error: nid001136: tasks 88-91: Exited with exit code 2
+srun: error: nid001196: tasks 180-183: Exited with exit code 2
+srun: error: nid001198: tasks 184-187: Exited with exit code 2
+srun: error: nid001186: tasks 172-175: Exited with exit code 2
+srun: error: nid001160: tasks 128-131: Exited with exit code 2
+srun: error: nid001214: tasks 204-207: Exited with exit code 2
+srun: error: nid001072: tasks 16-19: Exited with exit code 2
+srun: error: nid001182: tasks 164-167: Exited with exit code 2
+srun: error: nid001228: tasks 220-223: Exited with exit code 2
+srun: error: nid001134: tasks 84-87: Terminated
+srun: error: nid001058: tasks 8-11: Terminated
+srun: error: nid001164: tasks 136-139: Terminated
+srun: error: nid001208: tasks 196-199: Exited with exit code 2
+srun: error: nid001172: tasks 152-155: Exited with exit code 2
+srun: error: nid001144: tasks 104-107: Exited with exit code 2
+srun: error: nid001132: tasks 80-83: Terminated
+srun: error: nid001168: tasks 144-147: Terminated
+srun: error: nid001066: tasks 12-15: Terminated
+srun: error: nid001244: tasks 252-255: Terminated
+srun: error: nid001224: tasks 212-215: Terminated
+srun: error: nid001238: tasks 240-243: Exited with exit code 2
+srun: error: nid001128: tasks 72-75: Exited with exit code 2
+srun: error: nid001118: tasks 60-63: Exited with exit code 2
+srun: error: nid001100: tasks 36-39: Exited with exit code 2
+srun: error: nid001236: tasks 236-239: Exited with exit code 2
+srun: error: nid001140: tasks 96-99: Terminated
+srun: error: nid001110: tasks 44-47: Terminated
+srun: error: nid001150: tasks 116-119: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001230: tasks 224-227: Exited with exit code 2
+srun: error: nid001130: tasks 76-79: Terminated
+srun: error: nid001056: tasks 4-7: Terminated
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001240: tasks 244-247: Terminated
+srun: error: nid001088: tasks 28-31: Exited with exit code 2
+srun: error: nid001162: tasks 132-135: Exited with exit code 2
+srun: error: nid001242: tasks 248-251: Exited with exit code 2
+slurmstepd: error: *** STEP 59252.77 ON nid001054 CANCELLED AT 2024-03-28T14:59:30 ***
+srun: error: nid001184: tasks 168-171: Exited with exit code 2
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid001054: tasks 0-3: Terminated
+srun: error: nid001166: tasks 140-143: Exited with exit code 2
+srun: error: nid001090: tasks 32-35: Terminated
+srun: error: nid001194: tasks 176-179: Exited with exit code 2
+srun: Force Terminated StepId=59252.77
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 3 runs taking 3.61 seconds.
+Traceback (most recent call last):
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 602, in <module>
+    main()
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 587, in main
+    log_data(out_format, data_directory+'/data', data_container_list)
+  File "/bret/scratch/cscs/lfusco/blink/runner.py", line 186, in log_data
+    dataframe.columns = columns
+    ^^^^^^^^^^^^^^^^^
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/generic.py", line 6310, in __setattr__
+    return object.__setattr__(self, name, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "properties.pyx", line 69, in pandas._libs.properties.AxisProperty.__set__
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/generic.py", line 813, in _set_axis
+    self._mgr.set_axis(axis, labels)
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/internals/managers.py", line 238, in set_axis
+    self._validate_set_axis(axis, new_labels)
+  File "/users/lfusco/.local/lib/python3.11/site-packages/pandas/core/internals/base.py", line 98, in _validate_set_axis
+    raise ValueError(
+ValueError: Length mismatch: Expected axis has 0 elements, new values have 2 elements
