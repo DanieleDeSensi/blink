@@ -1,0 +1,34 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/a2a-cudaaware/2MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0_hcoll0', maxruns=5, minruns=1, node_file='auto', numnodes=32, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 21", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 32 nodes:
+['lrdn0039' 'lrdn0104' 'lrdn0134' 'lrdn0169' 'lrdn0221' 'lrdn0231'
+ 'lrdn0246' 'lrdn0259' 'lrdn0287' 'lrdn0406' 'lrdn1271' 'lrdn1582'
+ 'lrdn1612' 'lrdn1636' 'lrdn1884' 'lrdn1945' 'lrdn1962' 'lrdn1972'
+ 'lrdn1991' 'lrdn2154' 'lrdn2165' 'lrdn2211' 'lrdn2252' 'lrdn2327'
+ 'lrdn2333' 'lrdn2344' 'lrdn2395' 'lrdn2467' 'lrdn2478' 'lrdn2523'
+ 'lrdn2681' 'lrdn2711']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.26064s.
+
+Running...
+ Run 1:
+  0.00259s: started 0
+  4.97964s: awaited 0
+  4.97966s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 128 with the number of requested nodes 32. Ignoring --ntasks-per-node.
+
+  Data collection took 0.00035s.
+  Convergence check took 0.00075s.
+Completed after reaching confidence interval, terminated after 1 runs taking 4.98 seconds.
+Writing data & meta-data took 0.00503s.
+Overall took 5.24649s.
