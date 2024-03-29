@@ -1,0 +1,46 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/pw-ping-pong_b/256KiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_group_SL0', maxruns=5, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 262144 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn2681' 'lrdn3394']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27799s.
+
+Running...
+ Run 1:
+  0.00243s: started 0
+  1.28984s: awaited 0
+  Data collection took 0.00145s.
+  Convergence check took 0.00078s.
+ Run 2:
+  0.00326s: started 0
+  1.37244s: awaited 0
+  Data collection took 0.00203s.
+  Convergence check took 0.0007s.
+ Run 3:
+  0.00252s: started 0
+  1.26112s: awaited 0
+  Data collection took 0.00146s.
+  Convergence check took 0.00081s.
+ Run 4:
+  0.00297s: started 0
+  1.32219s: awaited 0
+  Data collection took 0.00147s.
+  Convergence check took 0.0009s.
+ Run 5:
+  0.00294s: started 0
+  1.2688s: awaited 0
+  Data collection took 0.00149s.
+  Convergence check took 0.00098s.
+Completed maximum number of runs, terminated after 5 runs taking 6.53 seconds.
+Writing data & meta-data took 0.02906s.
+Overall took 6.83397s.
