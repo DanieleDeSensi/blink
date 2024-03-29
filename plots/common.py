@@ -115,7 +115,17 @@ def get_bench_data(bench, input, metric, filename, ppn, nodes, system):
 
     if "gpubench" in bench:
         if metric == "Bandwidth":
-            return pd.read_csv(filename)["0_Bandwidth_GB/s"]*8
+            num_ranks = int(nodes) * int(ppn)
+            seconds = pd.read_csv(filename)["0_Transfer Time_s"]
+            input_bits = input_size_to_bytes(input)*8
+            input_gbits = input_bits / 1e9
+            if "gpubench-ar" in bench:
+                input_gbits *= 2 # I actually send twice the data (e.g., Rabenseifner's algorithm)
+            elif "gpubench-mpp" in bench:
+                input_gbits *= int(ppn)
+            elif "gpubench-a2a" in bench:
+                input_gbits *= (num_ranks-1) # I send that count to each of the other nodes
+            return input_gbits / seconds
         elif metric == "Runtime" or metric == "Latency":
             return pd.read_csv(filename)["0_Transfer Time_s"]*1e6
     elif bench in microbenchs:
