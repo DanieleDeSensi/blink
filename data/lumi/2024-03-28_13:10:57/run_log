@@ -1,0 +1,36 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/1MiB_plus_incast_gpu', node_file='auto', numnodes=32, allocationmode='l', allocationsplit='10:90', minruns=1, maxruns=5, timeout=300.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='ERDVZ65536', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 20", collection flag: True, ending condition: run until finished.
+1: with arguments:"-l 0 -x 17", collection flag: False, ending condition: wait until others finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 4 nodes:
+['nid005384' 'nid005385' 'nid005386' 'nid005387']
+1 on 28 nodes:
+['nid005388' 'nid005389' 'nid005750' 'nid005751' 'nid005752' 'nid005753'
+ 'nid005754' 'nid005755' 'nid005756' 'nid005757' 'nid005758' 'nid005759'
+ 'nid005760' 'nid005761' 'nid005762' 'nid005954' 'nid005955' 'nid005956'
+ 'nid005957' 'nid005958' 'nid005959' 'nid005960' 'nid005961' 'nid005962'
+ 'nid005963' 'nid005964' 'nid005965' 'nid005966']
+
+Schedule:
+0.0s: start 0
+0.0s: start 1
+
+Preparing took 2.55722s.
+
+Running...
+ Run 1:
+  0.00702s: started 0
+  0.0143s: started 1
+  3.98053s: awaited 0
+  4.98181s: killed waiting 1
+  Data collection took 0.00028s.
+  Convergence check took 0.00077s.
+Completed after reaching confidence interval, terminated after 1 runs taking 4.98 seconds.
+Writing data & meta-data took 0.00737s.
+Overall took 7.54753s.
