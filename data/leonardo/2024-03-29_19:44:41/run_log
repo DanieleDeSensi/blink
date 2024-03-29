@@ -1,0 +1,99 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/mpp-cudaaware/1B', beta=0.05, convergeall=False, datapath='./data', extrainfo='same_switch_SL0', maxruns=10, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn0400' 'lrdn0402']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.33252s.
+
+Running...
+ Run 1:
+  0.00327s: started 0
+  0.24445s: awaited 0
+  0.24447s: encountered an exception in 0
+srun: fatal: Can not execute /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/select_nic_leonardo
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.00242s: started 0
+  0.24228s: awaited 0
+  0.2423s: encountered an exception in 0
+srun: fatal: Can not execute /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/select_nic_leonardo
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 3:
+  0.00234s: started 0
+  0.24314s: awaited 0
+  0.24316s: encountered an exception in 0
+srun: fatal: Can not execute /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/select_nic_leonardo
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 4:
+  0.00218s: started 0
+  0.24355s: awaited 0
+  0.24357s: encountered an exception in 0
+srun: fatal: Can not execute /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/select_nic_leonardo
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 5:
+  0.00207s: started 0
+  0.24232s: awaited 0
+  0.24234s: encountered an exception in 0
+srun: fatal: Can not execute /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/select_nic_leonardo
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 6:
+  0.00205s: started 0
+  0.24185s: awaited 0
+  0.24187s: encountered an exception in 0
+srun: fatal: Can not execute /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/select_nic_leonardo
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 7:
+  0.00212s: started 0
+  0.24223s: awaited 0
+  0.24225s: encountered an exception in 0
+srun: fatal: Can not execute /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/select_nic_leonardo
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 8:
+  0.00209s: started 0
+  0.24178s: awaited 0
+  0.2418s: encountered an exception in 0
+srun: fatal: Can not execute /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/select_nic_leonardo
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 9:
+  0.00212s: started 0
+  0.24185s: awaited 0
+  0.24187s: encountered an exception in 0
+srun: fatal: Can not execute /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/select_nic_leonardo
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 10:
+  0.00211s: started 0
+  0.24202s: awaited 0
+  0.24203s: encountered an exception in 0
+srun: fatal: Can not execute /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/select_nic_leonardo
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+Completed maximum number of runs, terminated after 10 runs taking 2.43 seconds.
