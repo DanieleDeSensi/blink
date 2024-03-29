@@ -1,0 +1,26 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/a2a-cudaaware/2MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0_hcoll0', maxruns=5, minruns=1, node_file='auto', numnodes=4, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 21", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 4 nodes:
+['lrdn1584' 'lrdn1825' 'lrdn1932' 'lrdn2032']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.28703s.
+
+Running...
+ Run 1:
+  0.00248s: started 0
+  2.10172s: awaited 0
+  Data collection took 0.00026s.
+  Convergence check took 0.00075s.
+Completed after reaching confidence interval, terminated after 1 runs taking 2.1 seconds.
+Writing data & meta-data took 0.00517s.
+Overall took 2.39499s.
