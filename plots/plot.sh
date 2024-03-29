@@ -96,7 +96,9 @@ if [[ $PLOT_TWO_NODES = 1 ]]; then
         OUT_PATH="plots/out/two-nodes/pingpong/${SYSTEM}"
         # P2P
         INNER_YLIM="[0, 30]"
-        INNER_POS="[0.2, 0.6, .3, .2]"
+        # [left, bottom, width, height]     
+        INNER_POS="[0.21, 0.45, .35, .2625]"   
+        #INNER_POS="[0.2, 0.6, .3, .2]"
         if [ ${SYSTEM} == "alps" ]; then
             TREND_LIMIT=Bandwidth:800
         fi
