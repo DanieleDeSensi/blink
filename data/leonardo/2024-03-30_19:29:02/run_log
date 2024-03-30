@@ -1,0 +1,39 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/a2a-cudaaware/2MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0_hcoll0', maxruns=5, minruns=1, node_file='auto', numnodes=64, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 21", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 64 nodes:
+['lrdn0042' 'lrdn0104' 'lrdn0119' 'lrdn0142' 'lrdn0170' 'lrdn0176'
+ 'lrdn0204' 'lrdn0221' 'lrdn0225' 'lrdn0250' 'lrdn0253' 'lrdn0262'
+ 'lrdn0274' 'lrdn0281' 'lrdn0313' 'lrdn0320' 'lrdn0332' 'lrdn0453'
+ 'lrdn0515' 'lrdn0612' 'lrdn0732' 'lrdn0751' 'lrdn0782' 'lrdn0812'
+ 'lrdn0971' 'lrdn0997' 'lrdn1010' 'lrdn1018' 'lrdn1022' 'lrdn1042'
+ 'lrdn1053' 'lrdn1069' 'lrdn1073' 'lrdn1168' 'lrdn1170' 'lrdn1177'
+ 'lrdn1187' 'lrdn1206' 'lrdn1310' 'lrdn1377' 'lrdn1398' 'lrdn1404'
+ 'lrdn1433' 'lrdn1439' 'lrdn1447' 'lrdn1588' 'lrdn1595' 'lrdn1609'
+ 'lrdn1614' 'lrdn1633' 'lrdn1654' 'lrdn1670' 'lrdn1676' 'lrdn1687'
+ 'lrdn1708' 'lrdn1797' 'lrdn1819' 'lrdn1849' 'lrdn1864' 'lrdn1878'
+ 'lrdn1888' 'lrdn1897' 'lrdn2099' 'lrdn2114']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27944s.
+
+Running...
+ Run 1:
+  0.00274s: started 0
+  17.8488s: awaited 0
+  17.84882s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 256 with the number of requested nodes 64. Ignoring --ntasks-per-node.
+
+  Data collection took 0.00045s.
+  Convergence check took 0.0008s.
+Completed after reaching confidence interval, terminated after 1 runs taking 17.85 seconds.
+Writing data & meta-data took 0.00523s.
+Overall took 18.13481s.

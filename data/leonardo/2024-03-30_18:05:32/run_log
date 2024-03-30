@@ -1,0 +1,30 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/ar-cudaaware/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL1_hcoll0', maxruns=5, minruns=1, node_file='auto', numnodes=8, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 8 nodes:
+['lrdn0104' 'lrdn0119' 'lrdn0221' 'lrdn0250' 'lrdn0253' 'lrdn0266'
+ 'lrdn0277' 'lrdn0281']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.25705s.
+
+Running...
+ Run 1:
+  0.00236s: started 0
+  335.40787s: awaited 0
+  335.40789s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 32 with the number of requested nodes 8. Ignoring --ntasks-per-node.
+
+  Data collection took 0.00027s.
+  Convergence check took 0.00074s.
+Completed after reaching confidence interval, terminated after 1 runs taking 335.41 seconds.
+Writing data & meta-data took 0.00671s.
+Overall took 335.67283s.

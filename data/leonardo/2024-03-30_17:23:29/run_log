@@ -1,0 +1,36 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/ar-cudaaware/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL1_hcoll1', maxruns=5, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn2282' 'lrdn2286']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.25689s.
+
+Running...
+ Run 1:
+  0.00241s: started 0
+  331.09941s: awaited 0
+  331.09943s: encountered an exception in 0
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+
+  Data collection took 0.00025s.
+  Convergence check took 0.00074s.
+Completed after reaching confidence interval, terminated after 1 runs taking 331.1 seconds.
+Writing data & meta-data took 0.00527s.
+Overall took 331.36274s.

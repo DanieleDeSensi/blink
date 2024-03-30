@@ -1,0 +1,1312 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/a2a-cudaaware/2MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL1_hcoll1', maxruns=5, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 21", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn2282' 'lrdn2286']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.35943s.
+
+Running...
+ Run 1:
+  0.0024s: started 0
+  1.69544s: awaited 0
+  1.69546s: encountered an exception in 0
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[lrdn2282:158984:0:158984] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x14ab2a000000)
+[lrdn2282:158985:0:158985] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x149c76200000)
+[lrdn2286:137107:0:137107] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x148a6e800000)
+[lrdn2282:158986:0:158986] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x14f584400000)
+[lrdn2286:137108:0:137108] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x151d06a00000)
+[lrdn2282:158987:0:158987] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x14f276600000)
+[lrdn2286:137109:0:137109] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x149eeac00000)
+==== backtrace (tid: 158984) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14ab932a4edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14ab932a50bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14ab932a528a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x14abaeffb1e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14ab67dbb0da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14ab67db7c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x14ab83d3c024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x14ab88081b14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x14abb224a72c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14abaef65d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2286:137110:0:137110] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x149252e00000)
+==== backtrace (tid: 158985) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x149cdf2a5edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x149cdf2a60bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x149cdf2a628a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x149cf2fe21e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x149cb40c20da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x149cb40bec3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x149cd3db6024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x149cd4082b14]
+==== backtrace (tid: 137107) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x148ad609cedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x148ad609d0bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x148ad609d28a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x148af1dea1e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x148ac442c0da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x148ac4428c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x148ac6acb024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x148ac6d97b14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x149cf623172c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x149cf2f4cd85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2282:158985] *** Process received signal ***
+[lrdn2282:158985] Signal: Segmentation fault (11)
+[lrdn2282:158985] Signal code:  (-6)
+[lrdn2282:158985] Failing at address: 0x1ec0800026d09
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x148af503972c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x148af1d54d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+==== backtrace (tid: 158986) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14f5eb6b8edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14f5eb6b90bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14f5eb6b928a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x14f5ff2f11e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14f5c03750da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14f5c0371c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x14f5e01c9024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x14f5e0495b14]
+==== backtrace (tid: 137108) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x151d6bbb5edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x151d6bbb60bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x151d6bbb628a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x151d7f7d21e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x151d3ff5c0da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x151d3ff58c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x151d606c6024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x151d60992b14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x14f60254072c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14f5ff25bd85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2282:158986] *** Process received signal ***
+[lrdn2282:158986] Signal: Segmentation fault (11)
+[lrdn2282:158986] Signal code:  (-6)
+[lrdn2282:158986] Failing at address: 0x1ec0800026d0a
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x151d82a2172c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x151d7f73cd85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+==== backtrace (tid: 158987) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14f2dd44bedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14f2dd44c0bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14f2dd44c28a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x14f2f12151e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14f2b215a0da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14f2b2156c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x14f2d1f5c024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x14f2d2228b14]
+==== backtrace (tid: 137109) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x149f4fbb5edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x149f4fbb60bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x149f4fbb628a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x149f63a091e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x149f4014a0da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x149f40146c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x149f448d2024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x149f44b9eb14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x14f2f446472c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14f2f117fd85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2282:158987] *** Process received signal ***
+[lrdn2282:158987] Signal: Segmentation fault (11)
+[lrdn2282:158987] Signal code:  (-6)
+[lrdn2282:158987] Failing at address: 0x1ec0800026d0b
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x149f66c5872c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x149f63973d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2286:137109] *** Process received signal ***
+[lrdn2286:137109] Signal: Segmentation fault (11)
+[lrdn2286:137109] Signal code:  (-6)
+[lrdn2286:137109] Failing at address: 0x1ec0800021795
+[lrdn2282:158984] *** Process received signal ***
+[lrdn2282:158984] Signal: Segmentation fault (11)
+[lrdn2282:158984] Signal code:  (-6)
+[lrdn2282:158984] Failing at address: 0x1ec0800026d08
+[lrdn2282:158984] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14abafaa1cf0]
+==== backtrace (tid: 137110) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x1492ba4b2edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x1492ba4b30bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x1492ba4b328a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x1492ce2731e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14928ef270da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14928ef23c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x149296eef024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x1492971bbb14]
+[lrdn2282:158985] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x149cf3a88cf0]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x1492d14c272c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1492ce1ddd85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2286:137110] *** Process received signal ***
+[lrdn2286:137110] Signal: Segmentation fault (11)
+[lrdn2286:137110] Signal code:  (-6)
+[lrdn2286:137110] Failing at address: 0x1ec0800021796
+[lrdn2282:158986] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14f5ffd97cf0]
+[lrdn2286:137107] *** Process received signal ***
+[lrdn2286:137107] Signal: Segmentation fault (11)
+[lrdn2286:137107] Signal code:  (-6)
+[lrdn2286:137107] Failing at address: 0x1ec0800021793
+[lrdn2282:158987] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14f2f1cbbcf0]
+[lrdn2286:137108] *** Process received signal ***
+[lrdn2286:137108] Signal: Segmentation fault (11)
+[lrdn2286:137108] Signal code:  (-6)
+[lrdn2286:137108] Failing at address: 0x1ec0800021794
+[lrdn2286:137108] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x151d80278cf0]
+[lrdn2282:158984] [ 1] /lib64/libc.so.6(+0xd01e5)[0x14abaeffb1e5]
+[lrdn2282:158984] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14ab67dbb0da]
+[lrdn2282:158984] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14ab67db7c3c]
+[lrdn2286:137109] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x149f644afcf0]
+[lrdn2282:158985] [ 1] /lib64/libc.so.6(+0xd01e5)[0x149cf2fe21e5]
+[lrdn2282:158985] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x149cb40c20da]
+[lrdn2282:158985] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x149cb40bec3c]
+[lrdn2286:137110] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x1492ced19cf0]
+[lrdn2282:158986] [ 1] /lib64/libc.so.6(+0xd01e5)[0x14f5ff2f11e5]
+[lrdn2282:158986] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14f5c03750da]
+[lrdn2282:158986] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14f5c0371c3c]
+[lrdn2282:158986] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x14f5e01c9024]
+[lrdn2282:158986] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x14f5e0495b14]
+[lrdn2286:137107] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x148af2890cf0]
+[lrdn2282:158987] [ 1] /lib64/libc.so.6(+0xd01e5)[0x14f2f12151e5]
+[lrdn2282:158987] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14f2b215a0da]
+[lrdn2282:158987] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14f2b2156c3c]
+[lrdn2282:158987] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x14f2d1f5c024]
+[lrdn2282:158987] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x14f2d2228b14]
+[lrdn2286:137109] [ 1] /lib64/libc.so.6(+0xd01e5)[0x149f63a091e5]
+[lrdn2286:137109] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x149f4014a0da]
+[lrdn2282:158984] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x14ab83d3c024]
+[lrdn2282:158984] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x14ab88081b14]
+[lrdn2282:158984] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x14abb224a72c]
+[lrdn2282:158984] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137108] [ 1] /lib64/libc.so.6(+0xd01e5)[0x151d7f7d21e5]
+[lrdn2286:137108] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x151d3ff5c0da]
+[lrdn2286:137108] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x151d3ff58c3c]
+[lrdn2282:158985] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x149cd3db6024]
+[lrdn2282:158985] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x149cd4082b14]
+[lrdn2282:158985] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x149cf623172c]
+[lrdn2282:158985] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137109] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x149f40146c3c]
+[lrdn2282:158986] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x14f60254072c]
+[lrdn2282:158986] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137110] [ 1] /lib64/libc.so.6(+0xd01e5)[0x1492ce2731e5]
+[lrdn2286:137110] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14928ef270da]
+[lrdn2286:137110] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14928ef23c3c]
+[lrdn2282:158984] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14abaef65d85]
+[lrdn2282:158984] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:158984] *** End of error message ***
+[lrdn2286:137107] [ 1] /lib64/libc.so.6(+0xd01e5)[0x148af1dea1e5]
+[lrdn2286:137107] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x148ac442c0da]
+[lrdn2286:137107] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x148ac4428c3c]
+[lrdn2282:158985] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x149cf2f4cd85]
+[lrdn2282:158985] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:158985] *** End of error message ***
+[lrdn2286:137108] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x151d606c6024]
+[lrdn2286:137108] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x151d60992b14]
+[lrdn2282:158986] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14f5ff25bd85]
+[lrdn2282:158986] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:158986] *** End of error message ***
+[lrdn2286:137109] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x149f448d2024]
+[lrdn2286:137109] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x149f44b9eb14]
+[lrdn2282:158987] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x14f2f446472c]
+[lrdn2282:158987] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:158987] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14f2f117fd85]
+[lrdn2282:158987] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:158987] *** End of error message ***
+[lrdn2286:137110] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x149296eef024]
+[lrdn2286:137110] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x1492971bbb14]
+[lrdn2286:137107] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x148ac6acb024]
+[lrdn2286:137107] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x148ac6d97b14]
+[lrdn2286:137108] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x151d82a2172c]
+[lrdn2286:137108] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137109] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x149f66c5872c]
+[lrdn2286:137109] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137109] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x149f63973d85]
+[lrdn2286:137110] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x1492d14c272c]
+[lrdn2286:137110] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137110] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x1492ce1ddd85]
+[lrdn2286:137110] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137110] *** End of error message ***
+[lrdn2286:137107] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x148af503972c]
+[lrdn2286:137107] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137107] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x148af1d54d85]
+[lrdn2286:137108] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x151d7f73cd85]
+[lrdn2286:137108] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137108] *** End of error message ***
+[lrdn2286:137109] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137109] *** End of error message ***
+[lrdn2286:137107] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137107] *** End of error message ***
+srun: error: lrdn2282: tasks 1-3: Segmentation fault (core dumped)
+srun: error: lrdn2286: tasks 4-5,7: Segmentation fault (core dumped)
+srun: error: lrdn2282: task 0: Segmentation fault (core dumped)
+srun: error: lrdn2286: task 6: Segmentation fault (core dumped)
+
+  Data collection took 2e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.00315s: started 0
+  1.64438s: awaited 0
+  1.6444s: encountered an exception in 0
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[lrdn2286:137209:0:137209] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x15048e800000)
+[lrdn2282:159095:0:159095] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x1532b2200000)
+[lrdn2286:137210:0:137210] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x14c77aa00000)
+[lrdn2282:159094:0:159094] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x14a948000000)
+[lrdn2282:159096:0:159096] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x14b7ba400000)
+[lrdn2286:137212:0:137212] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x14d83ae00000)
+[lrdn2282:159097:0:159097] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x14f33e600000)
+[lrdn2286:137211:0:137211] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x153fb6c00000)
+==== backtrace (tid: 159096) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14b820826edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14b8208270bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14b82082728a]
+==== backtrace (tid: 137210) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14c7e297bedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14c7e297c0bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14c7e297c28a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x14c7f662a1e5]
+==== backtrace (tid: 159094) ====
+==== backtrace (tid: 159095) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x153319042edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x1533190430bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x15331904328a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x15332cd2c1e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x1532f41470da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x1532f4143c3c]
+==== backtrace (tid: 137209) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x1504f64b1edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x1504f64b20bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x1504f64b228a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x1505121a31e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x1504e4c710da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x1504e4c6dc3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x1504e6eef024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x1504e71bbb14]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x14b8345d11e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14b810cb10da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14b810cadc3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x14b815337024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x14b815603b14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x14b83782072c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14b83453bd85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x1505153f272c]
+=================================
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14a9aec73edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14a9aec740bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14a9aec7428a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x14a9caa8b1e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14a9a035f0da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14a9a035bc3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x14a9a3784024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x14a9a3a50b14]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14c7bd1830da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14c7bd17fc3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x14c7d3307024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x14c7d35d3b14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x14c7f987972c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14c7f6594d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+==== backtrace (tid: 137211) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x15401ec74edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x15401ec750bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x15401ec7528a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x1540329871e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x15401029e0da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x15401029ac3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x154013785024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x154013a51b14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x154035bd672c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1540328f1d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x14a9cdcda72c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14a9ca9f5d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+==== backtrace (tid: 137212) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14d8a24b2edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14d8a24b30bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14d8a24b328a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x14d8b61a71e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14d890c710da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14d890c6dc3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x14d892eef024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x14d8931bbb14]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x1532fd971024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x1532fdc3db14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x15332ff7b72c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x15332cc96d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2282:159095] *** Process received signal ***
+[lrdn2282:159095] Signal: Segmentation fault (11)
+[lrdn2282:159095] Signal code:  (-6)
+[lrdn2282:159095] Failing at address: 0x1ec0800026d77
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x14d8b93f672c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14d8b6111d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2286:137212] *** Process received signal ***
+[lrdn2286:137212] Signal: Segmentation fault (11)
+[lrdn2286:137212] Signal code:  (-6)
+[lrdn2286:137212] Failing at address: 0x1ec08000217fc
+[lrdn2282:159096] *** Process received signal ***
+[lrdn2282:159096] Signal: Segmentation fault (11)
+[lrdn2282:159096] Signal code:  (-6)
+[lrdn2282:159096] Failing at address: 0x1ec0800026d78
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x15051210dd85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2286:137209] *** Process received signal ***
+[lrdn2286:137209] Signal: Segmentation fault (11)
+[lrdn2286:137209] Signal code:  (-6)
+[lrdn2286:137209] Failing at address: 0x1ec08000217f9
+==== backtrace (tid: 159097) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14f3a4a2bedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14f3a4a2c0bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14f3a4a2c28a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x14f3b879f1e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14f37d36e0da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14f37d36ac3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x14f39953c024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x14f399808b14]
+[lrdn2286:137210] *** Process received signal ***
+[lrdn2286:137210] Signal: Segmentation fault (11)
+[lrdn2286:137210] Signal code:  (-6)
+[lrdn2286:137210] Failing at address: 0x1ec08000217fa
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x14f3bb9ee72c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14f3b8709d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2282:159097] *** Process received signal ***
+[lrdn2282:159097] Signal: Segmentation fault (11)
+[lrdn2282:159097] Signal code:  (-6)
+[lrdn2282:159097] Failing at address: 0x1ec0800026d79
+[lrdn2286:137211] *** Process received signal ***
+[lrdn2286:137211] Signal: Segmentation fault (11)
+[lrdn2286:137211] Signal code:  (-6)
+[lrdn2286:137211] Failing at address: 0x1ec08000217fb
+[lrdn2282:159094] *** Process received signal ***
+[lrdn2282:159094] Signal: Segmentation fault (11)
+[lrdn2282:159094] Signal code:  (-6)
+[lrdn2282:159094] Failing at address: 0x1ec0800026d76
+[lrdn2282:159094] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14a9cb531cf0]
+[lrdn2286:137210] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14c7f70d0cf0]
+[lrdn2282:159095] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x15332d7d2cf0]
+[lrdn2286:137212] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14d8b6c4dcf0]
+[lrdn2282:159096] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14b835077cf0]
+[lrdn2286:137209] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x150512c49cf0]
+[lrdn2282:159097] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14f3b9245cf0]
+[lrdn2286:137211] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x15403342dcf0]
+[lrdn2282:159094] [ 1] /lib64/libc.so.6(+0xd01e5)[0x14a9caa8b1e5]
+[lrdn2286:137210] [ 1] /lib64/libc.so.6(+0xd01e5)[0x14c7f662a1e5]
+[lrdn2282:159095] [ 1] /lib64/libc.so.6(+0xd01e5)[0x15332cd2c1e5]
+[lrdn2282:159095] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x1532f41470da]
+[lrdn2282:159095] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x1532f4143c3c]
+[lrdn2286:137210] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14c7bd1830da]
+[lrdn2282:159096] [ 1] /lib64/libc.so.6(+0xd01e5)[0x14b8345d11e5]
+[lrdn2282:159096] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14b810cb10da]
+[lrdn2282:159096] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14b810cadc3c]
+[lrdn2286:137211] [ 1] /lib64/libc.so.6(+0xd01e5)[0x1540329871e5]
+[lrdn2286:137211] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x15401029e0da]
+[lrdn2282:159094] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14a9a035f0da]
+[lrdn2282:159094] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14a9a035bc3c]
+[lrdn2282:159094] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x14a9a3784024]
+[lrdn2286:137212] [ 1] /lib64/libc.so.6(+0xd01e5)[0x14d8b61a71e5]
+[lrdn2286:137212] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14d890c710da]
+[lrdn2286:137212] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14d890c6dc3c]
+[lrdn2282:159095] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x1532fd971024]
+[lrdn2282:159095] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x1532fdc3db14]
+[lrdn2286:137209] [ 1] /lib64/libc.so.6(+0xd01e5)[0x1505121a31e5]
+[lrdn2286:137209] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x1504e4c710da]
+[lrdn2286:137209] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x1504e4c6dc3c]
+[lrdn2282:159096] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x14b815337024]
+[lrdn2282:159096] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x14b815603b14]
+[lrdn2286:137210] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14c7bd17fc3c]
+[lrdn2286:137210] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x14c7d3307024]
+[lrdn2286:137210] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x14c7d35d3b14]
+[lrdn2282:159097] [ 1] /lib64/libc.so.6(+0xd01e5)[0x14f3b879f1e5]
+[lrdn2282:159097] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14f37d36e0da]
+[lrdn2282:159097] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14f37d36ac3c]
+[lrdn2282:159097] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x14f39953c024]
+[lrdn2282:159097] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x14f399808b14]
+[lrdn2286:137211] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x15401029ac3c]
+[lrdn2286:137211] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x154013785024]
+[lrdn2286:137211] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x154013a51b14]
+[lrdn2282:159094] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x14a9a3a50b14]
+[lrdn2282:159094] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x14a9cdcda72c]
+[lrdn2282:159094] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137209] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x1504e6eef024]
+[lrdn2286:137209] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x1504e71bbb14]
+[lrdn2282:159095] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x15332ff7b72c]
+[lrdn2282:159095] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159095] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x15332cc96d85]
+[lrdn2282:159095] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:159095] *** End of error message ***
+[lrdn2286:137210] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x14c7f987972c]
+[lrdn2286:137210] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159096] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x14b83782072c]
+[lrdn2282:159096] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159096] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14b83453bd85]
+[lrdn2282:159096] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:159096] *** End of error message ***
+[lrdn2286:137212] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x14d892eef024]
+[lrdn2286:137212] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x14d8931bbb14]
+[lrdn2286:137212] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x14d8b93f672c]
+[lrdn2286:137212] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159097] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x14f3bb9ee72c]
+[lrdn2282:159097] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159097] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14f3b8709d85]
+[lrdn2282:159097] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:159097] *** End of error message ***
+[lrdn2286:137209] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x1505153f272c]
+[lrdn2286:137209] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137209] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x15051210dd85]
+[lrdn2286:137209] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:159094] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14a9ca9f5d85]
+[lrdn2282:159094] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:159094] *** End of error message ***
+[lrdn2286:137210] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14c7f6594d85]
+[lrdn2286:137210] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137210] *** End of error message ***
+[lrdn2286:137211] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x154035bd672c]
+[lrdn2286:137211] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137211] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x1540328f1d85]
+[lrdn2286:137211] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137211] *** End of error message ***
+[lrdn2286:137212] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14d8b6111d85]
+[lrdn2286:137212] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137212] *** End of error message ***
+[lrdn2286:137209] *** End of error message ***
+srun: error: lrdn2282: tasks 1-3: Segmentation fault (core dumped)
+srun: error: lrdn2286: tasks 4-6: Segmentation fault (core dumped)
+srun: error: lrdn2282: task 0: Segmentation fault (core dumped)
+srun: error: lrdn2286: task 7: Segmentation fault (core dumped)
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00323s: started 0
+  1.65917s: awaited 0
+  1.65919s: encountered an exception in 0
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[lrdn2282:159202:0:159202] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x14aabe000000)
+[lrdn2286:137308:0:137308] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x153282800000)
+[lrdn2282:159203:0:159203] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x148162200000)
+[lrdn2286:137309:0:137309] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x1541eaa00000)
+[lrdn2282:159204:0:159204] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x15433e400000)
+[lrdn2286:137310:0:137310] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x154ed6c00000)
+[lrdn2282:159205:0:159205] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x1473ca600000)
+[lrdn2286:137311:0:137311] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x146046e00000)
+==== backtrace (tid: 159203) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x1481cabb5edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x1481cabb60bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x1481cabb628a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x1481de6c11e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14819f3800da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14819f37cc3c]
+==== backtrace (tid: 159204) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x1543a5a71edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x1543a5a720bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x1543a5a7228a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x1543b97061e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x1543941960da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x154394192c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x154396496024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x154396762b14]
+==== backtrace (tid: 137309) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x15424f09dedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x15424f09e0bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x15424f09e28a]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x1543bc95572c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1543b9670d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+==== backtrace (tid: 137311) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x1460aec74edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x1460aec750bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x1460aec7528a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x1460c28cf1e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x1460a01dc0da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x1460a01d8c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x1460a3785024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x1460a3a51b14]
+==== backtrace (tid: 159205) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x147431862edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x1474318630bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14743186328a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x1474455a41e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14740c5600da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14740c55cc3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x147422295024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x147422561b14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x1460c5b1e72c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+==== backtrace (tid: 137308) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x1532e8e36edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x1532e8e370bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x1532e8e3728a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x153304b781e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x1532bd9b50da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x1532bd9b1c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x1532cd911024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x1532cdbddb14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x1474487f372c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14744550ed85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+==== backtrace (tid: 159202) ====
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x153307dc772c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x153304ae2d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x1481a750c024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x1481a77d8b14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x1481e191072c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1481de62bd85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2282:159203] *** Process received signal ***
+[lrdn2282:159203] Signal: Segmentation fault (11)
+[lrdn2282:159203] Signal code:  (-6)
+[lrdn2282:159203] Failing at address: 0x1ec0800026de3
+[lrdn2282:159205] *** Process received signal ***
+[lrdn2282:159205] Signal: Segmentation fault (11)
+[lrdn2282:159205] Signal code:  (-6)
+[lrdn2282:159205] Failing at address: 0x1ec0800026de5
+ 3  /lib64/libc.so.6(+0xd01e5) [0x154262cc31e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x1542239940da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x154223990c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x154243bae024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x154243e7ab14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x154265f1272c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x154262c2dd85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14ab2609cedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14ab2609d0bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14ab2609d28a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x14ab41d981e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14ab1442c0da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14ab14428c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x14ab16acb024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x14ab16d97b14]
+=================================
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x14ab44fe772c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14ab41d02d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+==== backtrace (tid: 137310) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x154f3e97bedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x154f3e97c0bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x154f3e97c28a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x154f526641e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x154f135af0da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x154f135abc3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x154f3348c024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x154f33758b14]
+[lrdn2282:159204] *** Process received signal ***
+[lrdn2282:159204] Signal: Segmentation fault (11)
+[lrdn2282:159204] Signal code:  (-6)
+[lrdn2282:159204] Failing at address: 0x1ec0800026de4
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x154f558b372c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x154f525ced85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2286:137310] *** Process received signal ***
+[lrdn2286:137310] Signal: Segmentation fault (11)
+[lrdn2286:137310] Signal code:  (-6)
+[lrdn2286:137310] Failing at address: 0x1ec080002185e
+[lrdn2282:159202] *** Process received signal ***
+[lrdn2282:159202] Signal: Segmentation fault (11)
+[lrdn2282:159202] Signal code:  (-6)
+[lrdn2282:159202] Failing at address: 0x1ec0800026de2
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1460c2839d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2286:137311] *** Process received signal ***
+[lrdn2286:137311] Signal: Segmentation fault (11)
+[lrdn2286:137311] Signal code:  (-6)
+[lrdn2286:137311] Failing at address: 0x1ec080002185f
+[lrdn2282:159203] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x1481df167cf0]
+[lrdn2286:137308] *** Process received signal ***
+[lrdn2286:137308] Signal: Segmentation fault (11)
+[lrdn2286:137308] Signal code:  (-6)
+[lrdn2286:137308] Failing at address: 0x1ec080002185c
+[lrdn2282:159204] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x1543ba1accf0]
+[lrdn2286:137309] *** Process received signal ***
+[lrdn2286:137309] Signal: Segmentation fault (11)
+[lrdn2286:137309] Signal code:  (-6)
+[lrdn2286:137309] Failing at address: 0x1ec080002185d
+[lrdn2282:159205] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14744604acf0]
+[lrdn2286:137310] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x154f5310acf0]
+[lrdn2282:159203] [ 1] /lib64/libc.so.6(+0xd01e5)[0x1481de6c11e5]
+[lrdn2286:137311] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x1460c3375cf0]
+[lrdn2282:159205] [ 1] /lib64/libc.so.6(+0xd01e5)[0x1474455a41e5]
+[lrdn2282:159205] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14740c5600da]
+[lrdn2286:137308] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x15330561ecf0]
+[lrdn2282:159202] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14ab4283ecf0]
+[lrdn2286:137309] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x154263769cf0]
+[lrdn2282:159203] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14819f3800da]
+[lrdn2282:159203] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14819f37cc3c]
+[lrdn2282:159203] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x1481a750c024]
+[lrdn2282:159203] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x1481a77d8b14]
+[lrdn2286:137310] [ 1] /lib64/libc.so.6(+0xd01e5)[0x154f526641e5]
+[lrdn2282:159204] [ 1] /lib64/libc.so.6(+0xd01e5)[0x1543b97061e5]
+[lrdn2282:159204] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x1543941960da]
+[lrdn2282:159204] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x154394192c3c]
+[lrdn2282:159204] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x154396496024]
+[lrdn2282:159204] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x154396762b14]
+[lrdn2286:137311] [ 1] /lib64/libc.so.6(+0xd01e5)[0x1460c28cf1e5]
+[lrdn2286:137311] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x1460a01dc0da]
+[lrdn2286:137311] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x1460a01d8c3c]
+[lrdn2282:159205] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14740c55cc3c]
+[lrdn2282:159205] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x147422295024]
+[lrdn2282:159205] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x147422561b14]
+[lrdn2286:137308] [ 1] /lib64/libc.so.6(+0xd01e5)[0x153304b781e5]
+[lrdn2286:137308] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x1532bd9b50da]
+[lrdn2286:137308] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x1532bd9b1c3c]
+[lrdn2282:159203] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x1481e191072c]
+[lrdn2282:159203] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137309] [ 1] /lib64/libc.so.6(+0xd01e5)[0x154262cc31e5]
+[lrdn2286:137309] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x1542239940da]
+[lrdn2286:137309] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x154223990c3c]
+[lrdn2282:159204] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x1543bc95572c]
+[lrdn2282:159204] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137310] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x154f135af0da]
+[lrdn2286:137310] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x154f135abc3c]
+[lrdn2286:137310] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x154f3348c024]
+[lrdn2286:137310] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x154f33758b14]
+[lrdn2282:159205] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x1474487f372c]
+[lrdn2282:159205] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159205] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14744550ed85]
+[lrdn2286:137311] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x1460a3785024]
+[lrdn2286:137311] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x1460a3a51b14]
+[lrdn2286:137311] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x1460c5b1e72c]
+[lrdn2282:159202] [ 1] /lib64/libc.so.6(+0xd01e5)[0x14ab41d981e5]
+[lrdn2282:159202] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14ab1442c0da]
+[lrdn2282:159202] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14ab14428c3c]
+[lrdn2282:159202] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x14ab16acb024]
+[lrdn2282:159202] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x14ab16d97b14]
+[lrdn2286:137308] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x1532cd911024]
+[lrdn2286:137308] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x1532cdbddb14]
+[lrdn2286:137308] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x153307dc772c]
+[lrdn2286:137308] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159203] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x1481de62bd85]
+[lrdn2282:159203] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:159203] *** End of error message ***
+[lrdn2286:137309] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x154243bae024]
+[lrdn2286:137309] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x154243e7ab14]
+[lrdn2286:137309] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x154265f1272c]
+[lrdn2286:137309] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159204] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x1543b9670d85]
+[lrdn2282:159204] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:159204] *** End of error message ***
+[lrdn2286:137310] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x154f558b372c]
+[lrdn2286:137310] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137310] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x154f525ced85]
+[lrdn2286:137310] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137310] *** End of error message ***
+[lrdn2282:159205] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:159205] *** End of error message ***
+[lrdn2286:137311] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137311] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x1460c2839d85]
+[lrdn2286:137311] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137311] *** End of error message ***
+[lrdn2282:159202] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x14ab44fe772c]
+[lrdn2282:159202] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137308] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x153304ae2d85]
+[lrdn2286:137308] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137308] *** End of error message ***
+[lrdn2282:159202] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14ab41d02d85]
+[lrdn2286:137309] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x154262c2dd85]
+[lrdn2286:137309] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137309] *** End of error message ***
+[lrdn2282:159202] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:159202] *** End of error message ***
+srun: error: lrdn2286: tasks 4-7: Segmentation fault (core dumped)
+srun: error: lrdn2282: tasks 0-3: Segmentation fault (core dumped)
+
+  Data collection took 2e-05s.
+  Convergence check took 0.0s.
+ Run 4:
+  0.00335s: started 0
+  1.64905s: awaited 0
+  1.64907s: encountered an exception in 0
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[lrdn2282:159307:0:159307] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x147c20000000)
+[lrdn2282:159308:0:159308] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x1516ea200000)
+[lrdn2282:159309:0:159309] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x150666400000)
+[lrdn2286:137408:0:137408] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x149462800000)
+[lrdn2282:159310:0:159310] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x149806600000)
+[lrdn2286:137409:0:137409] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x14cd5aa00000)
+[lrdn2286:137410:0:137410] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x14dc7ec00000)
+[lrdn2286:137411:0:137411] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x14a0cee00000)
+==== backtrace (tid: 137408) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x1494cb09cedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x1494cb09d0bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x1494cb09d28a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x1494e6deb1e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14949f5fd0da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14949f5f9c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x1494abb2d024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x1494abdf9b14]
+==== backtrace (tid: 159308) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x1517532a5edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x1517532a60bc]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x1494ea03a72c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1494e6d55d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+==== backtrace (tid: 137409) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14cdc4213edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14cdc42140bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14cdc421428a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x14cdd3e811e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14cdb05b90da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14cdb05b5c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x14cdb4b3b024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x14cdb4e07b14]
+==== backtrace (tid: 159310) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14986c620edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14986c6210bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14986c62128a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x1498804621e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x1498410f60da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x1498410f2c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x149861131024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x1498613fdb14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x14cdd70d072c]
+==== backtrace (tid: 159307) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x147c8697aedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x147c8697b0bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x147c8697b28a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x147ca25261e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x147c5b5af0da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x147c5b5abc3c]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x1517532a628a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x1517670a21e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x1517277740da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x151727770c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x151743d3c024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x151748082b14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x15176a2f172c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x15176700cd85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+==== backtrace (tid: 137410) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14dce8213edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14dce82140bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14dce821428a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x14dcf7ef31e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14dcd05df0da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14dcd05dbc3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x14dcd8b3b024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x14dcd8e07b14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x14dcfb14272c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14dcf7e5dd85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2286:137408] *** Process received signal ***
+[lrdn2286:137408] Signal: Segmentation fault (11)
+[lrdn2286:137408] Signal code:  (-6)
+[lrdn2286:137408] Failing at address: 0x1ec08000218c0
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x1498836b172c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1498803ccd85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2282:159310] *** Process received signal ***
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x147c77307024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x147c775d3b14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x147ca577572c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x147ca2490d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2282:159307] *** Process received signal ***
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14cdd3debd85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2286:137409] *** Process received signal ***
+[lrdn2286:137409] Signal: Segmentation fault (11)
+[lrdn2286:137409] Signal code:  (-6)
+[lrdn2286:137409] Failing at address: 0x1ec08000218c1
+[lrdn2286:137410] *** Process received signal ***
+[lrdn2286:137410] Signal: Segmentation fault (11)
+[lrdn2286:137410] Signal code:  (-6)
+[lrdn2286:137410] Failing at address: 0x1ec08000218c2
+[lrdn2282:159308] *** Process received signal ***
+[lrdn2282:159308] Signal: Segmentation fault (11)
+[lrdn2282:159308] Signal code:  (-6)
+[lrdn2282:159308] Failing at address: 0x1ec0800026e4c
+==== backtrace (tid: 137411) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14a135042edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14a1350430bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14a13504328a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x14a148d261e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14a1201470da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14a120143c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x14a129b53024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x14a129e1fb14]
+==== backtrace (tid: 159309) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x1506ce2a5edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x1506ce2a60bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x1506ce2a628a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x1506e1ecd1e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x1506c09f40da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x1506c09f0c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x1506c2db6024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x1506c3082b14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x14a14bf7572c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14a148c90d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2286:137411] *** Process received signal ***
+[lrdn2286:137411] Signal: Segmentation fault (11)
+[lrdn2286:137411] Signal code:  (-6)
+[lrdn2286:137411] Failing at address: 0x1ec08000218c3
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x1506e511c72c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1506e1e37d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2282:159309] *** Process received signal ***
+[lrdn2282:159309] Signal: Segmentation fault (11)
+[lrdn2282:159309] Signal code:  (-6)
+[lrdn2282:159309] Failing at address: 0x1ec0800026e4d
+[lrdn2286:137408] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x1494e7891cf0]
+[lrdn2282:159310] Signal: Segmentation fault (11)
+[lrdn2282:159310] Signal code:  (-6)
+[lrdn2282:159310] Failing at address: 0x1ec0800026e4e
+[lrdn2282:159310] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x149880f08cf0]
+[lrdn2286:137409] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14cdd4927cf0]
+[lrdn2282:159307] Signal: Segmentation fault (11)
+[lrdn2282:159307] Signal code:  (-6)
+[lrdn2282:159307] Failing at address: 0x1ec0800026e4b
+[lrdn2286:137410] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14dcf8999cf0]
+[lrdn2282:159308] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x151767b48cf0]
+[lrdn2286:137411] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14a1497cccf0]
+[lrdn2282:159307] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x147ca2fcccf0]
+[lrdn2286:137408] [ 1] /lib64/libc.so.6(+0xd01e5)[0x1494e6deb1e5]
+[lrdn2282:159310] [ 1] /lib64/libc.so.6(+0xd01e5)[0x1498804621e5]
+[lrdn2286:137408] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14949f5fd0da]
+[lrdn2286:137408] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14949f5f9c3c]
+[lrdn2282:159308] [ 1] /lib64/libc.so.6(+0xd01e5)[0x1517670a21e5]
+[lrdn2282:159308] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x1517277740da]
+[lrdn2286:137409] [ 1] /lib64/libc.so.6(+0xd01e5)[0x14cdd3e811e5]
+[lrdn2282:159309] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x1506e2973cf0]
+[lrdn2286:137410] [ 1] /lib64/libc.so.6(+0xd01e5)[0x14dcf7ef31e5]
+[lrdn2286:137410] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14dcd05df0da]
+[lrdn2282:159310] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x1498410f60da]
+[lrdn2282:159310] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x1498410f2c3c]
+[lrdn2282:159310] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x149861131024]
+[lrdn2282:159310] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x1498613fdb14]
+[lrdn2286:137411] [ 1] /lib64/libc.so.6(+0xd01e5)[0x14a148d261e5]
+[lrdn2286:137411] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14a1201470da]
+[lrdn2286:137411] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14a120143c3c]
+[lrdn2282:159307] [ 1] /lib64/libc.so.6(+0xd01e5)[0x147ca25261e5]
+[lrdn2282:159307] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x147c5b5af0da]
+[lrdn2282:159307] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x147c5b5abc3c]
+[lrdn2286:137408] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x1494abb2d024]
+[lrdn2286:137408] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x1494abdf9b14]
+[lrdn2282:159308] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x151727770c3c]
+[lrdn2282:159308] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x151743d3c024]
+[lrdn2282:159308] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x151748082b14]
+[lrdn2286:137409] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14cdb05b90da]
+[lrdn2286:137409] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14cdb05b5c3c]
+[lrdn2286:137409] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x14cdb4b3b024]
+[lrdn2286:137409] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x14cdb4e07b14]
+[lrdn2282:159307] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x147c77307024]
+[lrdn2282:159307] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x147c775d3b14]
+[lrdn2286:137410] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14dcd05dbc3c]
+[lrdn2286:137410] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x14dcd8b3b024]
+[lrdn2286:137410] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x14dcd8e07b14]
+[lrdn2282:159308] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x15176a2f172c]
+[lrdn2282:159308] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137408] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x1494ea03a72c]
+[lrdn2286:137408] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159309] [ 1] /lib64/libc.so.6(+0xd01e5)[0x1506e1ecd1e5]
+[lrdn2282:159309] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x1506c09f40da]
+[lrdn2282:159309] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x1506c09f0c3c]
+[lrdn2282:159309] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x1506c2db6024]
+[lrdn2286:137409] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x14cdd70d072c]
+[lrdn2286:137409] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159310] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x1498836b172c]
+[lrdn2282:159310] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159310] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x1498803ccd85]
+[lrdn2282:159310] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:159310] *** End of error message ***
+[lrdn2286:137410] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x14dcfb14272c]
+[lrdn2286:137410] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159307] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x147ca577572c]
+[lrdn2282:159307] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159307] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x147ca2490d85]
+[lrdn2282:159307] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:159307] *** End of error message ***
+[lrdn2286:137411] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x14a129b53024]
+[lrdn2286:137411] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x14a129e1fb14]
+[lrdn2286:137411] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x14a14bf7572c]
+[lrdn2286:137411] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159308] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x15176700cd85]
+[lrdn2282:159308] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:159308] *** End of error message ***
+[lrdn2286:137408] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x1494e6d55d85]
+[lrdn2286:137408] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137408] *** End of error message ***
+[lrdn2282:159309] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x1506c3082b14]
+[lrdn2286:137409] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14cdd3debd85]
+[lrdn2286:137409] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137409] *** End of error message ***
+[lrdn2282:159309] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x1506e511c72c]
+[lrdn2282:159309] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137410] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14dcf7e5dd85]
+[lrdn2286:137410] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137410] *** End of error message ***
+[lrdn2282:159309] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x1506e1e37d85]
+[lrdn2286:137411] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14a148c90d85]
+[lrdn2286:137411] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137411] *** End of error message ***
+[lrdn2282:159309] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:159309] *** End of error message ***
+srun: error: lrdn2282: tasks 0,2-3: Segmentation fault (core dumped)
+srun: error: lrdn2282: task 1: Segmentation fault (core dumped)
+srun: error: lrdn2286: tasks 5-7: Segmentation fault (core dumped)
+srun: error: lrdn2286: task 4: Segmentation fault (core dumped)
+
+  Data collection took 3e-05s.
+  Convergence check took 0.0s.
+ Run 5:
+  0.00321s: started 0
+  1.7906s: awaited 0
+  1.79062s: encountered an exception in 0
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[lrdn2282:159411:0:159411] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x1455e4000000)
+[lrdn2282:159412:0:159412] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x151632200000)
+[lrdn2282:159414:0:159414] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x14b5fa600000)
+[lrdn2282:159413:0:159413] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x1492ea400000)
+[lrdn2286:137507:0:137507] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x14a36e800000)
+[lrdn2286:137508:0:137508] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x1489e2a00000)
+[lrdn2286:137509:0:137509] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x152bd2c00000)
+[lrdn2286:137510:0:137510] Caught signal 11 (Segmentation fault: invalid permissions for mapped object at address 0x146032e00000)
+==== backtrace (tid: 159412) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x15169ae99edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x15169ae9a0bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x15169ae9a28a]
+==== backtrace (tid: 137507) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14a3d709cedc]
+==== backtrace (tid: 159413) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x149354417edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x1493544180bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14935441828a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x149363ff81e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x1493402ea0da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x1493402e6c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x149344d47024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x149345013b14]
+==== backtrace (tid: 137508) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x148a47bb5edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x148a47bb60bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x148a47bb628a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x148a5baa21e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x148a341ba0da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x148a341b6c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x148a3c8d2024]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x14936724772c]
+==== backtrace (tid: 159414) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14b6624b2edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14b6624b30bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14b6624b328a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x14b6762451e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14b6504c10da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14b6504bdc3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x14b652eef024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x14b6531bbb14]
+==== backtrace (tid: 137509) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x152c38a2bedc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x152c38a2c0bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x152c38a2c28a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x152c4c6f01e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x152c0d7870da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x152c0d783c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x152c2d53c024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x152c2d808b14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x14b67949472c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14b6761afd85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x152c4f93f72c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x152c4c65ad85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14a3d709d0bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14a3d709d28a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x14a3f2df71e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14a3aba160da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14a3aba12c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x14a3c7b2d024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x14a3c7df9b14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x14a3f604672c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x14a3f2d61d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x148a3cb9eb14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x148a5ecf172c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x148a5ba0cd85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+==== backtrace (tid: 159411) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x14564ae98edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x14564ae990bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x14564ae9928a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x145666bc11e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14561f3810da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14561f37dc3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x14562b91f024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x14562bbebb14]
+==== backtrace (tid: 137510) ====
+ 0  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(ucs_handle_error+0x2dc) [0x146098e37edc]
+ 1  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b0bc) [0x146098e380bc]
+ 2  /usr/lib/gcc/x86_64-redhat-linux/8/../../../../lib64/libucs.so.0(+0x2b28a) [0x146098e3828a]
+ 3  /lib64/libc.so.6(+0xd01e5) [0x1460acb501e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x14606d9b50da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x14606d9b1c3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x14607d911024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x14607dbddb14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x1460afd9f72c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1460acabad85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x145669e1072c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x145666b2bd85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2282:159411] *** Process received signal ***
+[lrdn2286:137507] *** Process received signal ***
+[lrdn2286:137507] Signal: Segmentation fault (11)
+[lrdn2286:137507] Signal code:  (-6)
+[lrdn2286:137507] Failing at address: 0x1ec0800021923
+ 3  /lib64/libc.so.6(+0xd01e5) [0x1516aeb981e5]
+ 4  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a) [0x15166f3810da]
+ 5  /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c) [0x15166f37dc3c]
+ 6  /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854) [0x15167b91f024]
+ 7  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214) [0x15167bbebb14]
+ 8  /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec) [0x1516b1de772c]
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x1516aeb02d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2282:159412] *** Process received signal ***
+[lrdn2282:159412] Signal: Segmentation fault (11)
+[lrdn2282:159412] Signal code:  (-6)
+[lrdn2282:159412] Failing at address: 0x1ec0800026eb4
+[lrdn2286:137508] *** Process received signal ***
+[lrdn2286:137508] Signal: Segmentation fault (11)
+[lrdn2286:137508] Signal code:  (-6)
+[lrdn2286:137508] Failing at address: 0x1ec0800021924
+ 9  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x4035aa]
+10  /lib64/libc.so.6(__libc_start_main+0xe5) [0x149363f62d85]
+11  /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware() [0x403e7e]
+=================================
+[lrdn2282:159413] *** Process received signal ***
+[lrdn2282:159413] Signal: Segmentation fault (11)
+[lrdn2282:159413] Signal code:  (-6)
+[lrdn2282:159413] Failing at address: 0x1ec0800026eb5
+[lrdn2286:137509] *** Process received signal ***
+[lrdn2286:137509] Signal: Segmentation fault (11)
+[lrdn2286:137509] Signal code:  (-6)
+[lrdn2286:137509] Failing at address: 0x1ec0800021925
+[lrdn2282:159414] *** Process received signal ***
+[lrdn2282:159414] Signal: Segmentation fault (11)
+[lrdn2282:159414] Signal code:  (-6)
+[lrdn2282:159414] Failing at address: 0x1ec0800026eb6
+[lrdn2286:137510] *** Process received signal ***
+[lrdn2286:137510] Signal: Segmentation fault (11)
+[lrdn2286:137510] Signal code:  (-6)
+[lrdn2286:137510] Failing at address: 0x1ec0800021926
+[lrdn2282:159411] Signal: Segmentation fault (11)
+[lrdn2282:159411] Signal code:  (-6)
+[lrdn2282:159411] Failing at address: 0x1ec0800026eb3
+[lrdn2282:159411] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x145667667cf0]
+[lrdn2286:137507] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14a3f389dcf0]
+[lrdn2282:159412] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x1516af63ecf0]
+[lrdn2286:137508] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x148a5c548cf0]
+[lrdn2282:159414] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x14b676cebcf0]
+[lrdn2286:137509] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x152c4d196cf0]
+[lrdn2282:159413] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x149364a9ecf0]
+[lrdn2286:137509] [ 1] /lib64/libc.so.6(+0xd01e5)[0x152c4c6f01e5]
+[lrdn2282:159411] [ 1] /lib64/libc.so.6(+0xd01e5)[0x145666bc11e5]
+[lrdn2286:137510] [ 0] /lib64/libpthread.so.0(+0x12cf0)[0x1460ad5f6cf0]
+[lrdn2282:159412] [ 1] /lib64/libc.so.6(+0xd01e5)[0x1516aeb981e5]
+[lrdn2282:159412] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x15166f3810da]
+[lrdn2282:159412] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x15166f37dc3c]
+[lrdn2286:137507] [ 1] /lib64/libc.so.6(+0xd01e5)[0x14a3f2df71e5]
+[lrdn2282:159411] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14561f3810da]
+[lrdn2282:159411] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14561f37dc3c]
+[lrdn2282:159411] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x14562b91f024]
+[lrdn2286:137508] [ 1] /lib64/libc.so.6(+0xd01e5)[0x148a5baa21e5]
+[lrdn2282:159412] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x15167b91f024]
+[lrdn2282:159412] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x15167bbebb14]
+[lrdn2286:137509] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x152c0d7870da]
+[lrdn2286:137509] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x152c0d783c3c]
+[lrdn2282:159413] [ 1] /lib64/libc.so.6(+0xd01e5)[0x149363ff81e5]
+[lrdn2282:159413] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x1493402ea0da]
+[lrdn2282:159413] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x1493402e6c3c]
+[lrdn2282:159413] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x149344d47024]
+[lrdn2282:159413] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x149345013b14]
+[lrdn2286:137507] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14a3aba160da]
+[lrdn2286:137507] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14a3aba12c3c]
+[lrdn2282:159414] [ 1] /lib64/libc.so.6(+0xd01e5)[0x14b6762451e5]
+[lrdn2282:159414] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14b6504c10da]
+[lrdn2282:159414] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14b6504bdc3c]
+[lrdn2282:159414] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x14b652eef024]
+[lrdn2282:159414] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x14b6531bbb14]
+[lrdn2286:137508] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x148a341ba0da]
+[lrdn2286:137508] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x148a341b6c3c]
+[lrdn2286:137508] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x148a3c8d2024]
+[lrdn2286:137508] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x148a3cb9eb14]
+[lrdn2282:159411] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x14562bbebb14]
+[lrdn2282:159411] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x145669e1072c]
+[lrdn2282:159411] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137509] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x152c2d53c024]
+[lrdn2286:137509] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x152c2d808b14]
+[lrdn2282:159412] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x1516b1de772c]
+[lrdn2282:159412] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137507] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x14a3c7b2d024]
+[lrdn2286:137507] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x14a3c7df9b14]
+[lrdn2282:159413] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x14936724772c]
+[lrdn2282:159413] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137509] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x152c4f93f72c]
+[lrdn2286:137509] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159414] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x14b67949472c]
+[lrdn2282:159414] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159414] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14b6761afd85]
+[lrdn2282:159414] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137507] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x14a3f604672c]
+[lrdn2286:137507] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159411] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x145666b2bd85]
+[lrdn2282:159411] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:159411] *** End of error message ***
+[lrdn2286:137508] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x148a5ecf172c]
+[lrdn2286:137508] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2282:159412] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x1516aeb02d85]
+[lrdn2282:159412] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:159412] *** End of error message ***
+[lrdn2286:137509] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x152c4c65ad85]
+[lrdn2286:137509] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137509] *** End of error message ***
+[lrdn2282:159413] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x149363f62d85]
+[lrdn2282:159413] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2282:159413] *** End of error message ***
+[lrdn2286:137507] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x14a3f2d61d85]
+[lrdn2286:137507] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137507] *** End of error message ***
+[lrdn2282:159414] *** End of error message ***
+[lrdn2286:137508] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x148a5ba0cd85]
+[lrdn2286:137508] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137508] *** End of error message ***
+[lrdn2286:137510] [ 1] /lib64/libc.so.6(+0xd01e5)[0x1460acb501e5]
+[lrdn2286:137510] [ 2] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_pairwise_progress+0x34a)[0x14606d9b50da]
+[lrdn2286:137510] [ 3] /opt/mellanox/hcoll/lib/hcoll/hmca_bcol_ucx_p2p.so(hmca_bcol_ucx_p2p_alltoall_tuned_init+0x18c)[0x14606d9b1c3c]
+[lrdn2286:137510] [ 4] /opt/mellanox/hcoll/lib/libhcoll.so.1(hmca_coll_ml_alltoall+0x854)[0x14607d911024]
+[lrdn2286:137510] [ 5] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/openmpi/mca_coll_hcoll.so(mca_coll_hcoll_alltoall+0x214)[0x14607dbddb14]
+[lrdn2286:137510] [ 6] /leonardo/prod/spack/03/install/0.19/linux-rhel8-icelake/nvhpc-23.1/openmpi-4.1.4-6ek2oqarjw755glr5papxirjmamqwvgd/lib/libmpi.so.40(MPI_Alltoall+0xec)[0x1460afd9f72c]
+[lrdn2286:137510] [ 7] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x4035aa]
+[lrdn2286:137510] [ 8] /lib64/libc.so.6(__libc_start_main+0xe5)[0x1460acabad85]
+[lrdn2286:137510] [ 9] /leonardo_work/IscrC_SHARP_0/ddesensi/blink//src/microbench-gpu/bin/a2a_CudaAware[0x403e7e]
+[lrdn2286:137510] *** End of error message ***
+srun: error: lrdn2286: tasks 5-7: Segmentation fault (core dumped)
+srun: error: lrdn2282: tasks 0-1,3: Segmentation fault (core dumped)
+srun: error: lrdn2286: task 4: Segmentation fault (core dumped)
+srun: error: lrdn2282: task 2: Segmentation fault (core dumped)
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 5 runs taking 8.44 seconds.

@@ -1,0 +1,44 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/ar-cudaaware/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL1_hcoll1', maxruns=5, minruns=1, node_file='auto', numnodes=4, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 4 nodes:
+['lrdn3041' 'lrdn3048' 'lrdn3049' 'lrdn3060']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.25676s.
+
+Running...
+ Run 1:
+  0.00244s: started 0
+  341.20134s: awaited 0
+  341.20136s: encountered an exception in 0
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+[LOG_CAT_GPU] GPU Support was request but no gpu environment was detected in runtime
+
+  Data collection took 0.00023s.
+  Convergence check took 0.00073s.
+Completed after reaching confidence interval, terminated after 1 runs taking 341.2 seconds.
+Writing data & meta-data took 0.00534s.
+Overall took 341.46459s.
