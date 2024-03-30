@@ -9,7 +9,7 @@
 #SBATCH --account=iscrc_sharp_0
 
 source conf.sh
-ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file --maxruns 5"
+ARGS="auto -n ${SLURM_NNODES} -sp 50:50 -am +r -ro +file --minruns 10 --maxruns 10"
 PPN=4
 for SL in 0 1; do
     export UCX_IB_SL=${SL}
@@ -17,12 +17,7 @@ for SL in 0 1; do
     # HCOLL Disabled
     HCOLL=0 
     EXTRA="SL${SL}_hcoll${HCOLL}"    
-    ./run.sh test_suites/coll-gpu-fast-congestion-cudaaware ${ARGS} --ppn ${PPN} -e ${EXTRA}
+    ./run.sh test_suites/coll-gpu-fast-congestion-cudaaware-leo ${ARGS} --ppn ${PPN} -e ${EXTRA}
     ./run.sh test_suites/coll-gpu-fast-congestion-nccl ${ARGS} --ppn ${PPN} -e ${EXTRA}
-
-    # HCOLL Enabled (CUDA-Aware only)
-    HCOLL=1 
-    EXTRA="SL${SL}_hcoll${HCOLL}"    
-    HCOLL_GPU=cuda HCOLL_GPU_ENABLE=1 OMPI_MCA_coll_hcoll_enable=${HCOLL} ./run.sh test_suites/coll-gpu-fast-congestion-cudaaware ${ARGS} --ppn ${PPN} -e ${EXTRA}
 done
 

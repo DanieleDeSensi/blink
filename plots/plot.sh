@@ -1,13 +1,14 @@
 #!/bin/bash
 rm -rf plots/out/*
 PLOT_SINGLE_NODE=0
-PLOT_TWO_NODES=1
+PLOT_TWO_NODES=0
 PLOT_DISTANCE=0
 PLOT_COLL_SCALABILITY=0
 PLOT_COLL_SCALABILITY_HEATMAP=0
 PLOT_COLL_SCALABILITY_NOISE=0
 PLOT_LUMI_GPU_PAIRS=0
 PLOT_HCOLL=0
+PLOT_HCOLL_NODES=1
 #ERRORBAR="(\"ci\", 90)"
 ERRORBAR="(\"pi\", 50)"
 
@@ -262,6 +263,31 @@ if [[ $PLOT_HCOLL = 1 ]]; then
     TREND_LIMIT=Bandwidth:0
     ./plots/plot_inputs_multiextras.py -s ${SYSTEM} -vn a2a-nccl -vi ${INPUTS} -n 64 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT}
 fi
+
+##########################
+# 64 nodes tests - HCOLL #
+##########################
+if [[ $PLOT_HCOLL_NODES = 1 ]]; then
+    SYSTEM="leonardo"
+    OUT_PATH="plots/out/multi-nodes/${SYSTEM}/hcoll_nodes"
+    PLOT_TYPE="line"
+    PPN=4
+    EXTRA="SL0_hcoll0,SL0_hcoll1,SL1_hcoll0,SL1_hcoll1"
+    NODES="2,4,8,16,32,64"
+    # AR
+    INPUTS="1GiB"
+    for TESTNAME in "ar-cudaaware" "ar-nccl"
+    do
+        ./plots/plot_extras_multinodes.py -s ${SYSTEM} -vn gpubench-${TESTNAME} -vi ${INPUTS} -n ${NODES} -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE}
+    done
+    # A2A
+    INPUTS="2MiB"
+    for TESTNAME in "a2a-cudaaware" "a2a-nccl"
+    do
+        ./plots/plot_extras_multinodes.py -s ${SYSTEM} -vn gpubench-${TESTNAME} -vi ${INPUTS} -n ${NODES} -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE}
+    done
+fi
+
 
 ##################
 # LUMI GPU Pairs #
