@@ -1,0 +1,71 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/ar-nccl/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL1_hcoll0', maxruns=5, minruns=1, node_file='auto', numnodes=256, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 256 nodes:
+['lrdn0027' 'lrdn0037' 'lrdn0040' 'lrdn0046' 'lrdn0051' 'lrdn0062'
+ 'lrdn0068' 'lrdn0069' 'lrdn0070' 'lrdn0091' 'lrdn0099' 'lrdn0122'
+ 'lrdn0129' 'lrdn0135' 'lrdn0164' 'lrdn0166' 'lrdn0168' 'lrdn0196'
+ 'lrdn0220' 'lrdn0226' 'lrdn0249' 'lrdn0261' 'lrdn0272' 'lrdn0279'
+ 'lrdn0301' 'lrdn0309' 'lrdn0331' 'lrdn0345' 'lrdn0362' 'lrdn0405'
+ 'lrdn0420' 'lrdn0422' 'lrdn0452' 'lrdn0459' 'lrdn0481' 'lrdn0489'
+ 'lrdn0511' 'lrdn0520' 'lrdn0582' 'lrdn0586' 'lrdn0601' 'lrdn0609'
+ 'lrdn0622' 'lrdn0631' 'lrdn0641' 'lrdn0670' 'lrdn0673' 'lrdn0675'
+ 'lrdn0703' 'lrdn0707' 'lrdn0714' 'lrdn0730' 'lrdn0756' 'lrdn0787'
+ 'lrdn0798' 'lrdn0805' 'lrdn0815' 'lrdn0849' 'lrdn0886' 'lrdn0942'
+ 'lrdn0957' 'lrdn0969' 'lrdn0973' 'lrdn0987' 'lrdn0993' 'lrdn1016'
+ 'lrdn1023' 'lrdn1057' 'lrdn1066' 'lrdn1067' 'lrdn1085' 'lrdn1090'
+ 'lrdn1096' 'lrdn1112' 'lrdn1122' 'lrdn1132' 'lrdn1145' 'lrdn1159'
+ 'lrdn1175' 'lrdn1181' 'lrdn1186' 'lrdn1216' 'lrdn1230' 'lrdn1241'
+ 'lrdn1245' 'lrdn1263' 'lrdn1278' 'lrdn1281' 'lrdn1292' 'lrdn1312'
+ 'lrdn1319' 'lrdn1331' 'lrdn1377' 'lrdn1384' 'lrdn1398' 'lrdn1404'
+ 'lrdn1433' 'lrdn1439' 'lrdn1447' 'lrdn1451' 'lrdn1461' 'lrdn1473'
+ 'lrdn1481' 'lrdn1486' 'lrdn1505' 'lrdn1517' 'lrdn1524' 'lrdn1532'
+ 'lrdn1549' 'lrdn1561' 'lrdn1575' 'lrdn1589' 'lrdn1592' 'lrdn1615'
+ 'lrdn1619' 'lrdn1624' 'lrdn1658' 'lrdn1668' 'lrdn1673' 'lrdn1685'
+ 'lrdn1709' 'lrdn1715' 'lrdn1740' 'lrdn1767' 'lrdn1769' 'lrdn1778'
+ 'lrdn1785' 'lrdn1799' 'lrdn1816' 'lrdn1872' 'lrdn1883' 'lrdn1898'
+ 'lrdn1908' 'lrdn1911' 'lrdn1922' 'lrdn1948' 'lrdn1949' 'lrdn1951'
+ 'lrdn1977' 'lrdn1993' 'lrdn2007' 'lrdn2009' 'lrdn2014' 'lrdn2031'
+ 'lrdn2048' 'lrdn2058' 'lrdn2080' 'lrdn2083' 'lrdn2094' 'lrdn2105'
+ 'lrdn2119' 'lrdn2123' 'lrdn2132' 'lrdn2151' 'lrdn2166' 'lrdn2178'
+ 'lrdn2182' 'lrdn2196' 'lrdn2205' 'lrdn2210' 'lrdn2224' 'lrdn2232'
+ 'lrdn2242' 'lrdn2262' 'lrdn2273' 'lrdn2282' 'lrdn2290' 'lrdn2296'
+ 'lrdn2311' 'lrdn2321' 'lrdn2331' 'lrdn2352' 'lrdn2356' 'lrdn2373'
+ 'lrdn2380' 'lrdn2386' 'lrdn2403' 'lrdn2423' 'lrdn2434' 'lrdn2442'
+ 'lrdn2445' 'lrdn2471' 'lrdn2474' 'lrdn2475' 'lrdn2500' 'lrdn2512'
+ 'lrdn2531' 'lrdn2541' 'lrdn2553' 'lrdn2566' 'lrdn2590' 'lrdn2594'
+ 'lrdn2603' 'lrdn2623' 'lrdn2632' 'lrdn2639' 'lrdn2646' 'lrdn2651'
+ 'lrdn2674' 'lrdn2687' 'lrdn2694' 'lrdn2703' 'lrdn2718' 'lrdn2721'
+ 'lrdn2731' 'lrdn2747' 'lrdn2751' 'lrdn2765' 'lrdn2779' 'lrdn2783'
+ 'lrdn2822' 'lrdn2848' 'lrdn2867' 'lrdn2881' 'lrdn2892' 'lrdn2902'
+ 'lrdn2917' 'lrdn2920' 'lrdn2925' 'lrdn2972' 'lrdn2981' 'lrdn2998'
+ 'lrdn3002' 'lrdn3015' 'lrdn3029' 'lrdn3031' 'lrdn3039' 'lrdn3045'
+ 'lrdn3061' 'lrdn3082' 'lrdn3096' 'lrdn3167' 'lrdn3186' 'lrdn3205'
+ 'lrdn3209' 'lrdn3224' 'lrdn3236' 'lrdn3248' 'lrdn3251' 'lrdn3265'
+ 'lrdn3272' 'lrdn3297' 'lrdn3299' 'lrdn3317' 'lrdn3326' 'lrdn3338'
+ 'lrdn3349' 'lrdn3358' 'lrdn3362' 'lrdn3375' 'lrdn3392' 'lrdn3402'
+ 'lrdn3432' 'lrdn3436' 'lrdn3439' 'lrdn3453']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.25765s.
+
+Running...
+ Run 1:
+  0.00396s: started 0
+  13.29546s: awaited 0
+  13.29548s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 1024 with the number of requested nodes 256. Ignoring --ntasks-per-node.
+
+  Data collection took 0.00074s.
+  Convergence check took 0.00076s.
+Completed after reaching confidence interval, terminated after 1 runs taking 13.3 seconds.
+Writing data & meta-data took 0.00557s.
+Overall took 13.56038s.

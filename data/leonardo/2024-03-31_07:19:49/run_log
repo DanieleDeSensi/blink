@@ -1,0 +1,111 @@
+
+Passed arguments:
+Namespace(allocationmode='+r', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/gpubench/a2a-nccl/2MiB_plus_alltoall_m', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL1_hcoll0', maxruns=10, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 21", collection flag: True, ending condition: run until finished.
+1: with arguments:"-msgsize 131072 -endl -iter 1 -grty 1", collection flag: False, ending condition: wait until others finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 1 nodes:
+['lrdn0100']
+1 on 1 nodes:
+['lrdn0070']
+
+Schedule:
+0.0s: start 0
+0.0s: start 1
+
+Preparing took 0.25906s.
+
+Running...
+ Run 1:
+  Reshuffled node allocation.
+  0.00235s: started 0
+  0.00464s: started 1
+  2.3641s: awaited 0
+  2.385s: killed waiting 1
+  Data collection took 0.00024s.
+ Run 2:
+  Reshuffled node allocation.
+  0.00321s: started 0
+  0.00558s: started 1
+  2.32796s: awaited 0
+  2.32854s: killed waiting 1
+  Data collection took 0.0002s.
+ Run 3:
+  Reshuffled node allocation.
+  0.00321s: started 0
+  0.0056s: started 1
+  2.39536s: awaited 0
+  2.39753s: killed waiting 1
+  Data collection took 0.0002s.
+ Run 4:
+  Reshuffled node allocation.
+  0.00306s: started 0
+  0.00554s: started 1
+  2.91778s: awaited 0
+  2.91978s: killed waiting 1
+  2.91979s: encountered an exception in 1
+srun: Job 3838809 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838809
+
+  Data collection took 0.00019s.
+ Run 5:
+  Reshuffled node allocation.
+  0.0031s: started 0
+  0.00561s: started 1
+  2.326s: awaited 0
+  2.32639s: killed waiting 1
+  Data collection took 0.00017s.
+ Run 6:
+  Reshuffled node allocation.
+  0.00225s: started 0
+  0.00445s: started 1
+  2.32824s: awaited 0
+  2.33029s: killed waiting 1
+  Data collection took 0.0002s.
+ Run 7:
+  Reshuffled node allocation.
+  0.00321s: started 0
+  0.00568s: started 1
+  2.35048s: awaited 0
+  2.35082s: killed waiting 1
+  2.35083s: encountered an exception in 1
+srun: Job 3838809 step creation temporarily disabled, retrying (Requested nodes are busy)
+
+  Data collection took 0.00018s.
+ Run 8:
+  Reshuffled node allocation.
+  0.00251s: started 0
+  0.00476s: started 1
+  2.36015s: awaited 0
+  3.01171s: killed waiting 1
+  Data collection took 0.00019s.
+ Run 9:
+  Reshuffled node allocation.
+  0.00318s: started 0
+  0.00557s: started 1
+  5.06177s: awaited 0
+  5.14904s: killed waiting 1
+  5.14905s: encountered an exception in 0
+srun: Job 3838809 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838809
+
+  Data collection took 0.00019s.
+ Run 10:
+  Reshuffled node allocation.
+  0.00305s: started 0
+  0.00545s: started 1
+  3.1647s: awaited 0
+  3.79349s: killed waiting 1
+  3.7935s: encountered an exception in 1
+srun: Job 3838809 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838809
+
+  Data collection took 0.0002s.
+  Convergence check took 0.0008s.
+Completed maximum number of runs, terminated after 10 runs taking 29.0 seconds.
+Writing data & meta-data took 0.00758s.
+Overall took 29.26242s.

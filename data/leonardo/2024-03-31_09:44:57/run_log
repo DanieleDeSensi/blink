@@ -1,0 +1,200 @@
+
+Passed arguments:
+Namespace(allocationmode='+r', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/gpubench/ar-nccl/1GiB_plus_incast', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0_hcoll0', maxruns=10, minruns=10, node_file='auto', numnodes=32, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+1: with arguments:"-msgsize 131072 -endl -iter 1 -grty 1", collection flag: False, ending condition: wait until others finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 16 nodes:
+['lrdn1720' 'lrdn1520' 'lrdn1297' 'lrdn1246' 'lrdn1745' 'lrdn0127'
+ 'lrdn1173' 'lrdn1161' 'lrdn1196' 'lrdn1500' 'lrdn1221' 'lrdn1550'
+ 'lrdn1836' 'lrdn1356' 'lrdn1570' 'lrdn0035']
+1 on 16 nodes:
+['lrdn1568' 'lrdn1757' 'lrdn1180' 'lrdn1301' 'lrdn1556' 'lrdn1587'
+ 'lrdn1463' 'lrdn1470' 'lrdn1151' 'lrdn1880' 'lrdn0136' 'lrdn1692'
+ 'lrdn1704' 'lrdn1733' 'lrdn1543' 'lrdn1202']
+
+Schedule:
+0.0s: start 0
+0.0s: start 1
+
+Preparing took 0.27019s.
+
+Running...
+ Run 1:
+  Reshuffled node allocation.
+  0.00254s: started 0
+  0.00489s: started 1
+  13.00048s: awaited 0
+  13.00311s: killed waiting 1
+  13.00312s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  13.00313s: encountered an exception in 1
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  Data collection took 0.00029s.
+ Run 2:
+  Reshuffled node allocation.
+  0.00373s: started 0
+  0.00626s: started 1
+  13.49362s: awaited 0
+  14.15668s: killed waiting 1
+  14.1567s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  14.1567s: encountered an exception in 1
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  Data collection took 0.00023s.
+ Run 3:
+  Reshuffled node allocation.
+  0.00405s: started 0
+  0.00665s: started 1
+  13.61308s: awaited 0
+  13.62099s: killed waiting 1
+  13.621s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  13.62101s: encountered an exception in 1
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  Data collection took 0.00022s.
+ Run 4:
+  Reshuffled node allocation.
+  0.00374s: started 0
+  0.0065s: started 1
+  12.99477s: awaited 0
+  12.99726s: killed waiting 1
+  12.99726s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  12.99727s: encountered an exception in 1
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  Data collection took 0.00023s.
+ Run 5:
+  Reshuffled node allocation.
+  0.00372s: started 0
+  0.00633s: started 1
+  14.01285s: awaited 0
+  14.42096s: killed waiting 1
+  14.42097s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  14.42098s: encountered an exception in 1
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  Data collection took 0.00023s.
+ Run 6:
+  Reshuffled node allocation.
+  0.00372s: started 0
+  0.00642s: started 1
+  14.5916s: awaited 0
+  15.03432s: killed waiting 1
+  15.03433s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  15.03434s: encountered an exception in 1
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  Data collection took 0.00022s.
+ Run 7:
+  Reshuffled node allocation.
+  0.00385s: started 0
+  0.00646s: started 1
+  14.84385s: awaited 0
+  14.85888s: killed waiting 1
+  14.85889s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  14.8589s: encountered an exception in 1
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  Data collection took 0.00022s.
+ Run 8:
+  Reshuffled node allocation.
+  0.00364s: started 0
+  0.00613s: started 1
+  13.62325s: awaited 0
+  13.62592s: killed waiting 1
+  13.62593s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  13.62594s: encountered an exception in 1
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  Data collection took 0.00024s.
+ Run 9:
+  Reshuffled node allocation.
+  0.00374s: started 0
+  0.0066s: started 1
+  14.61763s: awaited 0
+  14.62029s: killed waiting 1
+  14.6203s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  14.62034s: encountered an exception in 1
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  Data collection took 0.00021s.
+ Run 10:
+  Reshuffled node allocation.
+  0.00356s: started 0
+  0.00605s: started 1
+  14.10907s: awaited 0
+  14.11146s: killed waiting 1
+  14.11147s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  14.11147s: encountered an exception in 1
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  Data collection took 0.00022s.
+  Convergence check took 0.00084s.
+Completed maximum number of runs, terminated after 10 runs taking 140.45 seconds.
+Writing data & meta-data took 0.00793s.
+Overall took 140.73171s.

@@ -1,0 +1,72 @@
+
+Passed arguments:
+Namespace(allocationmode='+r', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/gpubench/ar-nccl/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0_hcoll0', maxruns=10, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 1 nodes:
+['lrdn0100']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.28546s.
+
+Running...
+ Run 1:
+  Reshuffled node allocation.
+  0.00244s: started 0
+  4.25699s: awaited 0
+  Data collection took 0.00024s.
+ Run 2:
+  Reshuffled node allocation.
+  0.00316s: started 0
+  3.89252s: awaited 0
+  Data collection took 0.00019s.
+ Run 3:
+  Reshuffled node allocation.
+  0.00326s: started 0
+  4.12677s: awaited 0
+  Data collection took 0.00018s.
+ Run 4:
+  Reshuffled node allocation.
+  0.00244s: started 0
+  3.84062s: awaited 0
+  Data collection took 0.00018s.
+ Run 5:
+  Reshuffled node allocation.
+  0.00226s: started 0
+  3.98567s: awaited 0
+  Data collection took 0.00018s.
+ Run 6:
+  Reshuffled node allocation.
+  0.00225s: started 0
+  3.94555s: awaited 0
+  Data collection took 0.00018s.
+ Run 7:
+  Reshuffled node allocation.
+  0.00222s: started 0
+  3.81276s: awaited 0
+  Data collection took 0.00017s.
+ Run 8:
+  Reshuffled node allocation.
+  0.0023s: started 0
+  4.27204s: awaited 0
+  Data collection took 0.00021s.
+ Run 9:
+  Reshuffled node allocation.
+  0.0032s: started 0
+  3.96833s: awaited 0
+  Data collection took 0.00018s.
+ Run 10:
+  Reshuffled node allocation.
+  0.00274s: started 0
+  3.91581s: awaited 0
+  Data collection took 0.00018s.
+  Convergence check took 0.00078s.
+Completed maximum number of runs, terminated after 10 runs taking 40.02 seconds.
+Writing data & meta-data took 0.00744s.
+Overall took 40.31317s.

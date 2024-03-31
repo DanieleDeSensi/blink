@@ -1,0 +1,84 @@
+
+Passed arguments:
+Namespace(allocationmode='+r', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/gpubench/a2a-nccl/2MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0_hcoll0', maxruns=10, minruns=10, node_file='auto', numnodes=8, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 21", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 4 nodes:
+['lrdn2084' 'lrdn3311' 'lrdn0136' 'lrdn3078']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.29807s.
+
+Running...
+ Run 1:
+  Reshuffled node allocation.
+  0.00246s: started 0
+  6.93004s: awaited 0
+  6.93005s: encountered an exception in 0
+srun: Job 3838811 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838811
+
+  Data collection took 0.00021s.
+ Run 2:
+  Reshuffled node allocation.
+  0.00248s: started 0
+  5.93885s: awaited 0
+  Data collection took 0.00018s.
+ Run 3:
+  Reshuffled node allocation.
+  0.00236s: started 0
+  6.44327s: awaited 0
+  Data collection took 0.00021s.
+ Run 4:
+  Reshuffled node allocation.
+  0.00366s: started 0
+  5.53462s: awaited 0
+  5.53464s: encountered an exception in 0
+srun: Job 3838811 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838811
+
+  Data collection took 0.00021s.
+ Run 5:
+  Reshuffled node allocation.
+  0.00372s: started 0
+  5.42235s: awaited 0
+  Data collection took 0.0002s.
+ Run 6:
+  Reshuffled node allocation.
+  0.00284s: started 0
+  5.43233s: awaited 0
+  Data collection took 0.00021s.
+ Run 7:
+  Reshuffled node allocation.
+  0.00339s: started 0
+  5.39232s: awaited 0
+  Data collection took 0.00021s.
+ Run 8:
+  Reshuffled node allocation.
+  0.00359s: started 0
+  5.6305s: awaited 0
+  5.63052s: encountered an exception in 0
+srun: Job 3838811 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838811
+
+  Data collection took 0.00021s.
+ Run 9:
+  Reshuffled node allocation.
+  0.00368s: started 0
+  6.03744s: awaited 0
+  Data collection took 0.0002s.
+ Run 10:
+  Reshuffled node allocation.
+  0.00367s: started 0
+  5.98301s: awaited 0
+  Data collection took 0.00021s.
+  Convergence check took 0.00083s.
+Completed maximum number of runs, terminated after 10 runs taking 58.75 seconds.
+Writing data & meta-data took 0.00773s.
+Overall took 59.05391s.

@@ -1,0 +1,144 @@
+
+Passed arguments:
+Namespace(allocationmode='+r', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/gpubench/ar-nccl/1GiB_plus_alltoall_m', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0_hcoll0', maxruns=10, minruns=10, node_file='auto', numnodes=4, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+1: with arguments:"-msgsize 131072 -endl -iter 1 -grty 1", collection flag: False, ending condition: wait until others finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn0302' 'lrdn0100']
+1 on 2 nodes:
+['lrdn0169' 'lrdn0130']
+
+Schedule:
+0.0s: start 0
+0.0s: start 1
+
+Preparing took 0.28282s.
+
+Running...
+ Run 1:
+  Reshuffled node allocation.
+  0.00219s: started 0
+  0.00436s: started 1
+  6.90119s: awaited 0
+  6.90323s: killed waiting 1
+  Data collection took 0.00025s.
+ Run 2:
+  Reshuffled node allocation.
+  0.00298s: started 0
+  0.00519s: started 1
+  9.82446s: awaited 0
+  9.82715s: killed waiting 1
+  9.82716s: encountered an exception in 0
+srun: Job 3838810 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838810
+
+  9.82717s: encountered an exception in 1
+srun: Job 3838810 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838810
+
+  Data collection took 0.0002s.
+ Run 3:
+  Reshuffled node allocation.
+  0.00333s: started 0
+  0.00574s: started 1
+  9.00539s: awaited 0
+  9.00708s: killed waiting 1
+  9.00708s: encountered an exception in 0
+srun: Job 3838810 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838810
+
+  Data collection took 0.00019s.
+ Run 4:
+  Reshuffled node allocation.
+  0.00322s: started 0
+  0.00551s: started 1
+  9.74242s: awaited 0
+  9.74507s: killed waiting 1
+  9.74508s: encountered an exception in 0
+srun: Job 3838810 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838810
+
+  Data collection took 0.00019s.
+ Run 5:
+  Reshuffled node allocation.
+  0.00345s: started 0
+  0.00596s: started 1
+  9.25118s: awaited 0
+  9.25337s: killed waiting 1
+  9.25337s: encountered an exception in 0
+srun: Job 3838810 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838810
+
+  9.25338s: encountered an exception in 1
+srun: Job 3838810 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838810
+
+  Data collection took 0.00019s.
+ Run 6:
+  Reshuffled node allocation.
+  0.00309s: started 0
+  0.00539s: started 1
+  6.97137s: awaited 0
+  7.03764s: killed waiting 1
+  7.03765s: encountered an exception in 1
+srun: Job 3838810 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838810
+
+  Data collection took 0.00019s.
+ Run 7:
+  Reshuffled node allocation.
+  0.00307s: started 0
+  0.00544s: started 1
+  10.28734s: awaited 0
+  10.28994s: killed waiting 1
+  10.28995s: encountered an exception in 0
+srun: Job 3838810 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838810
+
+  Data collection took 0.00024s.
+ Run 8:
+  Reshuffled node allocation.
+  0.00343s: started 0
+  0.00592s: started 1
+  8.98377s: awaited 0
+  8.98608s: killed waiting 1
+  8.98609s: encountered an exception in 0
+srun: Job 3838810 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838810
+
+  8.9861s: encountered an exception in 1
+srun: Job 3838810 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838810
+
+  Data collection took 0.00022s.
+ Run 9:
+  Reshuffled node allocation.
+  0.0032s: started 0
+  0.00555s: started 1
+  6.70426s: awaited 0
+  6.73877s: killed waiting 1
+  6.73878s: encountered an exception in 1
+srun: Job 3838810 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838810
+
+  Data collection took 0.0002s.
+ Run 10:
+  Reshuffled node allocation.
+  0.00325s: started 0
+  0.00565s: started 1
+  6.86682s: awaited 0
+  6.8689s: killed waiting 1
+  6.86891s: encountered an exception in 1
+srun: Job 3838810 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838810
+
+  Data collection took 0.0002s.
+  Convergence check took 0.00082s.
+Completed maximum number of runs, terminated after 10 runs taking 84.66 seconds.
+Writing data & meta-data took 0.00772s.
+Overall took 84.95114s.

@@ -1,0 +1,76 @@
+
+Passed arguments:
+Namespace(allocationmode='+r', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/gpubench/a2a-cudaaware/2MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL1_hcoll0', maxruns=10, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 21", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 1 nodes:
+['lrdn0100']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.25667s.
+
+Running...
+ Run 1:
+  Reshuffled node allocation.
+  0.00245s: started 0
+  2.45481s: awaited 0
+  2.45483s: encountered an exception in 0
+srun: Job 3838809 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838809
+
+  Data collection took 0.00024s.
+ Run 2:
+  Reshuffled node allocation.
+  0.0033s: started 0
+  1.42754s: awaited 0
+  Data collection took 0.00019s.
+ Run 3:
+  Reshuffled node allocation.
+  0.00334s: started 0
+  1.3792s: awaited 0
+  Data collection took 0.00018s.
+ Run 4:
+  Reshuffled node allocation.
+  0.00247s: started 0
+  1.65423s: awaited 0
+  Data collection took 0.00017s.
+ Run 5:
+  Reshuffled node allocation.
+  0.00217s: started 0
+  1.33771s: awaited 0
+  Data collection took 0.00017s.
+ Run 6:
+  Reshuffled node allocation.
+  0.00216s: started 0
+  1.69422s: awaited 0
+  Data collection took 0.00018s.
+ Run 7:
+  Reshuffled node allocation.
+  0.00215s: started 0
+  1.3815s: awaited 0
+  Data collection took 0.00017s.
+ Run 8:
+  Reshuffled node allocation.
+  0.00217s: started 0
+  1.92275s: awaited 0
+  Data collection took 0.00019s.
+ Run 9:
+  Reshuffled node allocation.
+  0.00335s: started 0
+  1.38071s: awaited 0
+  Data collection took 0.00017s.
+ Run 10:
+  Reshuffled node allocation.
+  0.00238s: started 0
+  1.3455s: awaited 0
+  Data collection took 0.00022s.
+  Convergence check took 0.00074s.
+Completed maximum number of runs, terminated after 10 runs taking 15.98 seconds.
+Writing data & meta-data took 0.00724s.
+Overall took 16.24525s.

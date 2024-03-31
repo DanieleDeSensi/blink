@@ -1,0 +1,106 @@
+
+Passed arguments:
+Namespace(allocationmode='+r', allocationsplit='50:50', alpha=0.05, app_mix='./apps_mix/gpubench/ar-nccl/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0_hcoll0', maxruns=10, minruns=10, node_file='auto', numnodes=32, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 16 nodes:
+['lrdn1720' 'lrdn1520' 'lrdn1297' 'lrdn1246' 'lrdn1745' 'lrdn0127'
+ 'lrdn1173' 'lrdn1161' 'lrdn1196' 'lrdn1500' 'lrdn1221' 'lrdn1550'
+ 'lrdn1836' 'lrdn1356' 'lrdn1570' 'lrdn0035']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27972s.
+
+Running...
+ Run 1:
+  Reshuffled node allocation.
+  0.00259s: started 0
+  13.5434s: awaited 0
+  13.54341s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+srun: Job 3838813 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3838813
+
+  Data collection took 0.00024s.
+ Run 2:
+  Reshuffled node allocation.
+  0.00305s: started 0
+  11.42272s: awaited 0
+  11.42274s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+
+  Data collection took 0.0002s.
+ Run 3:
+  Reshuffled node allocation.
+  0.00267s: started 0
+  11.54544s: awaited 0
+  11.54546s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+
+  Data collection took 0.00021s.
+ Run 4:
+  Reshuffled node allocation.
+  0.00264s: started 0
+  11.83586s: awaited 0
+  11.83588s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+
+  Data collection took 0.0002s.
+ Run 5:
+  Reshuffled node allocation.
+  0.00265s: started 0
+  11.84146s: awaited 0
+  11.84148s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+
+  Data collection took 0.00022s.
+ Run 6:
+  Reshuffled node allocation.
+  0.00389s: started 0
+  11.45002s: awaited 0
+  11.45004s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+
+  Data collection took 0.00022s.
+ Run 7:
+  Reshuffled node allocation.
+  0.00375s: started 0
+  11.97221s: awaited 0
+  11.97222s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+
+  Data collection took 0.00021s.
+ Run 8:
+  Reshuffled node allocation.
+  0.00289s: started 0
+  11.52635s: awaited 0
+  11.52637s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+
+  Data collection took 0.00021s.
+ Run 9:
+  Reshuffled node allocation.
+  0.00285s: started 0
+  11.80676s: awaited 0
+  11.80678s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+
+  Data collection took 0.00022s.
+ Run 10:
+  Reshuffled node allocation.
+  0.00361s: started 0
+  11.76067s: awaited 0
+  11.76069s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 64 with the number of requested nodes 16. Ignoring --ntasks-per-node.
+
+  Data collection took 0.00022s.
+  Convergence check took 0.00084s.
+Completed maximum number of runs, terminated after 10 runs taking 118.71 seconds.
+Writing data & meta-data took 0.00744s.
+Overall took 118.99568s.
