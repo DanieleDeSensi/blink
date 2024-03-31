@@ -1,0 +1,526 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-cudaaware/1GiB_plus_alltoall_m', node_file='auto', numnodes=64, allocationmode='+r', allocationsplit='50:50', minruns=10, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='SL0_hcoll0', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+1: with arguments:"-msgsize 131072 -endl -iter 1 -grty 1", collection flag: False, ending condition: wait until others finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 32 nodes:
+['nid005834' 'nid005824' 'nid005864' 'nid005815' 'nid005831' 'nid005817'
+ 'nid005872' 'nid005870' 'nid005814' 'nid005845' 'nid005822' 'nid005820'
+ 'nid005841' 'nid005838' 'nid005837' 'nid005821' 'nid005856' 'nid005830'
+ 'nid005874' 'nid005823' 'nid005859' 'nid005852' 'nid005827' 'nid005851'
+ 'nid005868' 'nid005869' 'nid005844' 'nid005835' 'nid005861' 'nid005855'
+ 'nid005833' 'nid005857']
+1 on 32 nodes:
+['nid005854' 'nid005846' 'nid005847' 'nid005858' 'nid005832' 'nid005873'
+ 'nid005849' 'nid005826' 'nid005875' 'nid005865' 'nid005812' 'nid005850'
+ 'nid005839' 'nid005862' 'nid005813' 'nid005867' 'nid005818' 'nid005825'
+ 'nid005836' 'nid005853' 'nid005842' 'nid005840' 'nid005871' 'nid005843'
+ 'nid005819' 'nid005828' 'nid005816' 'nid005860' 'nid005863' 'nid005866'
+ 'nid005848' 'nid005829']
+
+Schedule:
+0.0s: start 0
+0.0s: start 1
+
+Preparing took 0.46466s.
+
+Running...
+ Run 1:
+  Reshuffled node allocation.
+  0.00239s: started 0
+  0.00566s: started 1
+  15.75473s: awaited 0
+  15.75492s: killed waiting 1
+  15.75493s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746206.13] [Sun Mar 31 02:55:10 2024] [nid005812] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005836: tasks 88-95: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6746206.13
+srun: error: nid005825: tasks 64-71: Segmentation fault
+srun: error: nid005846: tasks 104-111: Segmentation fault
+srun: error: nid005819: tasks 24-31: Segmentation fault
+srun: error: nid005861: tasks 168-175: Segmentation fault
+srun: error: nid005816: tasks 8-15: Segmentation fault
+srun: error: nid005867: tasks 208-215: Segmentation fault
+srun: error: nid005874: tasks 248-255: Segmentation fault
+srun: error: nid005858: tasks 152-159: Segmentation fault
+srun: error: nid005821: tasks 40-47: Segmentation fault
+srun: error: nid005863: tasks 184-191: Segmentation fault
+srun: error: nid005850: tasks 120-127: Segmentation fault
+srun: error: nid005862: tasks 176-183: Segmentation fault
+srun: error: nid005869: tasks 216-223: Segmentation fault
+srun: error: nid005857: tasks 144-151: Segmentation fault
+srun: error: nid005871: tasks 224-231: Segmentation fault
+srun: error: nid005872: tasks 232-239: Segmentation fault
+srun: error: nid005864: tasks 192-199: Segmentation fault
+srun: error: nid005854: tasks 136-143: Segmentation fault
+srun: error: nid005817: tasks 16-23: Segmentation fault
+srun: error: nid005866: tasks 200-207: Segmentation fault
+srun: error: nid005844: tasks 96-103: Segmentation fault
+srun: error: nid005822: tasks 48-55: Segmentation fault
+srun: error: nid005873: tasks 240-247: Segmentation fault
+srun: error: nid005812: task 0: Exited with exit code 255
+srun: error: nid005851: tasks 128-135: Segmentation fault
+srun: error: nid005812: tasks 1-7: Segmentation fault
+srun: error: nid005824: tasks 56-63: Segmentation fault
+srun: error: nid005849: tasks 112-119: Segmentation fault
+srun: error: nid005833: tasks 80-87: Segmentation fault
+srun: error: nid005828: tasks 72-79: Segmentation fault
+srun: error: nid005860: tasks 160-167: Segmentation fault
+srun: error: nid005820: tasks 32-39: Segmentation fault
+
+  Data collection took 0.00054s.
+ Run 2:
+  Reshuffled node allocation.
+  0.00281s: started 0
+  0.00575s: started 1
+  16.13335s: awaited 0
+  16.13353s: killed waiting 1
+  16.13354s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746206.15] [Sun Mar 31 02:55:26 2024] [nid005812] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005841: tasks 144-151: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6746206.15
+srun: error: nid005817: tasks 24-31: Segmentation fault
+srun: error: nid005855: tasks 192-199: Segmentation fault
+srun: error: nid005859: tasks 200-207: Segmentation fault
+srun: error: nid005836: tasks 112-119: Segmentation fault
+srun: error: nid005813: tasks 8-15: Segmentation fault
+srun: error: nid005819: tasks 40-47: Segmentation fault
+srun: error: nid005825: tasks 72-79: Segmentation fault
+srun: error: nid005828: tasks 88-95: Segmentation fault
+srun: error: nid005821: tasks 48-55: Segmentation fault
+srun: error: nid005851: tasks 184-191: Segmentation fault
+srun: error: nid005812: task 0: Exited with exit code 255
+srun: error: nid005812: tasks 1-7: Segmentation fault
+srun: error: nid005837: tasks 120-127: Segmentation fault
+srun: error: nid005824: tasks 64-71: Segmentation fault
+srun: error: nid005816: tasks 16-23: Segmentation fault
+srun: error: nid005818: tasks 32-39: Segmentation fault
+srun: error: nid005840: tasks 136-143: Segmentation fault
+srun: error: nid005865: tasks 216-223: Segmentation fault
+srun: error: nid005846: tasks 176-183: Segmentation fault
+srun: error: nid005823: tasks 56-63: Segmentation fault
+srun: error: nid005875: tasks 248-255: Segmentation fault
+srun: error: nid005843: tasks 160-167: Segmentation fault
+srun: error: nid005845: tasks 168-175: Segmentation fault
+srun: error: nid005866: tasks 224-231: Segmentation fault
+srun: error: nid005826: tasks 80-87: Segmentation fault
+srun: error: nid005838: tasks 128-135: Segmentation fault
+srun: error: nid005864: tasks 208-215: Segmentation fault
+srun: error: nid005832: tasks 104-111: Segmentation fault
+srun: error: nid005829: tasks 96-103: Segmentation fault
+srun: error: nid005869: tasks 232-239: Segmentation fault
+srun: error: nid005842: tasks 152-159: Segmentation fault
+srun: error: nid005872: tasks 240-247: Segmentation fault
+
+  Data collection took 0.00046s.
+ Run 3:
+  Reshuffled node allocation.
+  0.00287s: started 0
+  0.00583s: started 1
+  15.63625s: awaited 0
+  15.63638s: killed waiting 1
+  15.63639s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746206.17] [Sun Mar 31 02:55:42 2024] [nid005812] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005840: tasks 112-119: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6746206.17
+srun: error: nid005824: tasks 56-63: Segmentation fault
+srun: error: nid005837: tasks 88-95: Segmentation fault
+srun: error: nid005869: tasks 232-239: Segmentation fault
+srun: error: nid005823: tasks 48-55: Segmentation fault
+srun: error: nid005867: tasks 216-223: Segmentation fault
+srun: error: nid005858: tasks 160-167: Segmentation fault
+srun: error: nid005820: tasks 32-39: Segmentation fault
+srun: error: nid005868: tasks 224-231: Segmentation fault
+srun: error: nid005846: tasks 128-135: Segmentation fault
+srun: error: nid005860: tasks 176-183: Segmentation fault
+srun: error: nid005814: tasks 8-15: Segmentation fault
+srun: error: nid005855: tasks 152-159: Segmentation fault
+srun: error: nid005859: tasks 168-175: Segmentation fault
+srun: error: nid005812: task 0: Exited with exit code 255
+srun: error: nid005866: tasks 208-215: Segmentation fault
+srun: error: nid005864: tasks 200-207: Segmentation fault
+srun: error: nid005836: tasks 80-87: Segmentation fault
+srun: error: nid005815: tasks 16-23: Segmentation fault
+srun: error: nid005821: tasks 40-47: Segmentation fault
+srun: error: nid005863: tasks 192-199: Segmentation fault
+srun: error: nid005862: tasks 184-191: Segmentation fault
+srun: error: nid005873: tasks 240-247: Segmentation fault
+srun: error: nid005849: tasks 144-151: Segmentation fault
+srun: error: nid005847: tasks 136-143: Segmentation fault
+srun: error: nid005845: tasks 120-127: Segmentation fault
+srun: error: nid005829: tasks 64-71: Segmentation fault
+srun: error: nid005838: tasks 96-103: Segmentation fault
+srun: error: nid005818: tasks 24-31: Segmentation fault
+srun: error: nid005839: tasks 104-111: Segmentation fault
+srun: error: nid005831: tasks 72-79: Segmentation fault
+srun: error: nid005874: tasks 248-255: Segmentation fault
+srun: error: nid005812: tasks 1-7: Segmentation fault
+
+  Data collection took 0.00042s.
+ Run 4:
+  Reshuffled node allocation.
+  0.00309s: started 0
+  0.00622s: started 1
+  15.87869s: awaited 0
+  15.87886s: killed waiting 1
+  15.87887s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746206.19] [Sun Mar 31 02:55:58 2024] [nid005812] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005865: tasks 216-223: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6746206.19
+srun: error: nid005873: tasks 240-247: Segmentation fault
+srun: error: nid005833: tasks 64-71: Segmentation fault
+srun: error: nid005858: tasks 184-191: Segmentation fault
+srun: error: nid005847: tasks 128-135: Segmentation fault
+srun: error: nid005828: tasks 40-47: Segmentation fault
+srun: error: nid005874: tasks 248-255: Segmentation fault
+srun: error: nid005829: tasks 48-55: Segmentation fault
+srun: error: nid005848: tasks 136-143: Segmentation fault
+srun: error: nid005838: tasks 88-95: Segmentation fault
+srun: error: nid005860: tasks 192-199: Segmentation fault
+srun: error: nid005821: tasks 24-31: Segmentation fault
+srun: error: nid005824: tasks 32-39: Segmentation fault
+srun: error: nid005857: tasks 176-183: Segmentation fault
+srun: error: nid005831: tasks 56-63: Segmentation fault
+srun: error: nid005867: tasks 224-231: Segmentation fault
+srun: error: nid005850: tasks 144-151: Segmentation fault
+srun: error: nid005812: task 0: Exited with exit code 255
+srun: error: nid005862: tasks 200-207: Segmentation fault
+srun: error: nid005872: tasks 232-239: Segmentation fault
+srun: error: nid005845: tasks 112-119: Segmentation fault
+srun: error: nid005835: tasks 80-87: Segmentation fault
+srun: error: nid005834: tasks 72-79: Segmentation fault
+srun: error: nid005819: tasks 16-23: Segmentation fault
+srun: error: nid005856: tasks 168-175: Segmentation fault
+srun: error: nid005863: tasks 208-215: Segmentation fault
+srun: error: nid005851: tasks 152-159: Segmentation fault
+srun: error: nid005816: tasks 8-15: Segmentation fault
+srun: error: nid005840: tasks 104-111: Segmentation fault
+srun: error: nid005846: tasks 120-127: Segmentation fault
+srun: error: nid005839: tasks 96-103: Segmentation fault
+srun: error: nid005854: tasks 160-167: Segmentation fault
+srun: error: nid005812: tasks 1-7: Segmentation fault
+
+  Data collection took 0.00042s.
+ Run 5:
+  Reshuffled node allocation.
+  0.00271s: started 0
+  0.00548s: started 1
+  15.75141s: awaited 0
+  15.75152s: killed waiting 1
+  15.75153s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746206.21] [Sun Mar 31 02:56:14 2024] [nid005812] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005852: tasks 160-167: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6746206.21
+srun: error: nid005828: tasks 64-71: Segmentation fault
+srun: error: nid005869: tasks 216-223: Segmentation fault
+srun: error: nid005826: tasks 56-63: Segmentation fault
+srun: error: nid005841: tasks 112-119: Segmentation fault
+srun: error: nid005848: tasks 144-151: Segmentation fault
+srun: error: nid005872: tasks 224-231: Segmentation fault
+srun: error: nid005857: tasks 184-191: Segmentation fault
+srun: error: nid005864: tasks 200-207: Segmentation fault
+srun: error: nid005842: tasks 120-127: Segmentation fault
+srun: error: nid005836: tasks 96-103: Segmentation fault
+srun: error: nid005834: tasks 80-87: Segmentation fault
+srun: error: nid005819: tasks 24-31: Segmentation fault
+srun: error: nid005812: task 0: Exited with exit code 255
+srun: error: nid005845: tasks 136-143: Segmentation fault
+srun: error: nid005874: tasks 240-247: Segmentation fault
+srun: error: nid005823: tasks 40-47: Segmentation fault
+srun: error: nid005837: tasks 104-111: Segmentation fault
+srun: error: nid005812: tasks 1-7: Segmentation fault
+srun: error: nid005873: tasks 232-239: Segmentation fault
+srun: error: nid005844: tasks 128-135: Segmentation fault
+srun: error: nid005849: tasks 152-159: Segmentation fault
+srun: error: nid005833: tasks 72-79: Segmentation fault
+srun: error: nid005818: tasks 16-23: Segmentation fault
+srun: error: nid005824: tasks 48-55: Segmentation fault
+srun: error: nid005820: tasks 32-39: Segmentation fault
+srun: error: nid005867: tasks 208-215: Segmentation fault
+srun: error: nid005875: tasks 248-255: Segmentation fault
+srun: error: nid005817: tasks 8-15: Segmentation fault
+srun: error: nid005856: tasks 176-183: Segmentation fault
+srun: error: nid005863: tasks 192-199: Segmentation fault
+srun: error: nid005835: tasks 88-95: Segmentation fault
+srun: error: nid005853: tasks 168-175: Segmentation fault
+
+  Data collection took 0.00034s.
+ Run 6:
+  Reshuffled node allocation.
+  0.00304s: started 0
+  0.0061s: started 1
+  16.04312s: awaited 0
+  16.04325s: killed waiting 1
+  16.04326s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746206.23] [Sun Mar 31 02:56:30 2024] [nid005814] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005840: tasks 104-111: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6746206.23
+srun: error: nid005814: task 0: Exited with exit code 255
+srun: error: nid005865: tasks 208-215: Segmentation fault
+srun: error: nid005843: tasks 120-127: Segmentation fault
+srun: error: nid005814: tasks 1-7: Segmentation fault
+srun: error: nid005874: tasks 240-247: Segmentation fault
+srun: error: nid005853: tasks 160-167: Segmentation fault
+srun: error: nid005832: tasks 72-79: Segmentation fault
+srun: error: nid005867: tasks 216-223: Segmentation fault
+srun: error: nid005839: tasks 96-103: Segmentation fault
+srun: error: nid005850: tasks 144-151: Segmentation fault
+srun: error: nid005826: tasks 40-47: Segmentation fault
+srun: error: nid005855: tasks 176-183: Segmentation fault
+srun: error: nid005823: tasks 24-31: Segmentation fault
+srun: error: nid005844: tasks 128-135: Segmentation fault
+srun: error: nid005818: tasks 16-23: Segmentation fault
+srun: error: nid005830: tasks 64-71: Segmentation fault
+srun: error: nid005856: tasks 184-191: Segmentation fault
+srun: error: nid005875: tasks 248-255: Segmentation fault
+srun: error: nid005828: tasks 56-63: Segmentation fault
+srun: error: nid005851: tasks 152-159: Segmentation fault
+srun: error: nid005838: tasks 88-95: Segmentation fault
+srun: error: nid005825: tasks 32-39: Segmentation fault
+srun: error: nid005859: tasks 192-199: Segmentation fault
+srun: error: nid005868: tasks 224-231: Segmentation fault
+srun: error: nid005869: tasks 232-239: Segmentation fault
+srun: error: nid005816: tasks 8-15: Segmentation fault
+srun: error: nid005854: tasks 168-175: Segmentation fault
+srun: error: nid005827: tasks 48-55: Segmentation fault
+srun: error: nid005845: tasks 136-143: Segmentation fault
+srun: error: nid005835: tasks 80-87: Segmentation fault
+srun: error: nid005863: tasks 200-207: Segmentation fault
+srun: error: nid005841: tasks 112-119: Segmentation fault
+
+  Data collection took 0.00045s.
+ Run 7:
+  Reshuffled node allocation.
+  0.04227s: started 0
+  0.04519s: started 1
+  16.0278s: awaited 0
+  16.02798s: killed waiting 1
+  16.02799s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746206.25] [Sun Mar 31 02:56:46 2024] [nid005812] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005817: tasks 32-39: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6746206.25
+srun: error: nid005845: tasks 112-119: Segmentation fault
+srun: error: nid005820: tasks 40-47: Segmentation fault
+srun: error: nid005812: task 0: Exited with exit code 255
+srun: error: nid005858: tasks 176-183: Segmentation fault
+srun: error: nid005865: tasks 200-207: Segmentation fault
+srun: error: nid005824: tasks 48-55: Segmentation fault
+srun: error: nid005864: tasks 192-199: Segmentation fault
+srun: error: nid005836: tasks 72-79: Segmentation fault
+srun: error: nid005812: tasks 1-7: Segmentation fault
+srun: error: nid005869: tasks 224-231: Segmentation fault
+srun: error: nid005814: tasks 8-15: Segmentation fault
+srun: error: nid005844: tasks 104-111: Segmentation fault
+srun: error: nid005866: tasks 208-215: Segmentation fault
+srun: error: nid005853: tasks 152-159: Segmentation fault
+srun: error: nid005875: tasks 248-255: Segmentation fault
+srun: error: nid005830: tasks 64-71: Segmentation fault
+srun: error: nid005847: tasks 120-127: Segmentation fault
+srun: error: nid005839: tasks 80-87: Segmentation fault
+srun: error: nid005848: tasks 128-135: Segmentation fault
+srun: error: nid005871: tasks 232-239: Segmentation fault
+srun: error: nid005843: tasks 96-103: Segmentation fault
+srun: error: nid005842: tasks 88-95: Segmentation fault
+srun: error: nid005851: tasks 136-143: Segmentation fault
+srun: error: nid005867: tasks 216-223: Segmentation fault
+srun: error: nid005815: tasks 16-23: Segmentation fault
+srun: error: nid005873: tasks 240-247: Segmentation fault
+srun: error: nid005854: tasks 160-167: Segmentation fault
+srun: error: nid005860: tasks 184-191: Segmentation fault
+srun: error: nid005852: tasks 144-151: Segmentation fault
+srun: error: nid005816: tasks 24-31: Segmentation fault
+srun: error: nid005826: tasks 56-63: Segmentation fault
+srun: error: nid005856: tasks 168-175: Segmentation fault
+
+  Data collection took 0.00048s.
+ Run 8:
+  Reshuffled node allocation.
+  0.00292s: started 0
+  0.00596s: started 1
+  15.95759s: awaited 0
+  15.95773s: killed waiting 1
+  15.95774s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746206.27] [Sun Mar 31 02:57:01 2024] [nid005813] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005864: tasks 184-191: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6746206.27
+srun: error: nid005870: tasks 216-223: Segmentation fault
+srun: error: nid005825: tasks 40-47: Segmentation fault
+srun: error: nid005852: tasks 160-167: Segmentation fault
+srun: error: nid005874: tasks 240-247: Segmentation fault
+srun: error: nid005813: task 0: Exited with exit code 255
+srun: error: nid005834: tasks 64-71: Segmentation fault
+srun: error: nid005815: tasks 8-15: Segmentation fault
+srun: error: nid005813: tasks 1-7: Segmentation fault
+srun: error: nid005850: tasks 152-159: Segmentation fault
+srun: error: nid005845: tasks 120-127: Segmentation fault
+srun: error: nid005841: tasks 104-111: Segmentation fault
+srun: error: nid005840: tasks 96-103: Segmentation fault
+srun: error: nid005822: tasks 24-31: Segmentation fault
+srun: error: nid005844: tasks 112-119: Segmentation fault
+srun: error: nid005867: tasks 200-207: Segmentation fault
+srun: error: nid005871: tasks 224-231: Segmentation fault
+srun: error: nid005839: tasks 88-95: Segmentation fault
+srun: error: nid005848: tasks 144-151: Segmentation fault
+srun: error: nid005846: tasks 128-135: Segmentation fault
+srun: error: nid005817: tasks 16-23: Segmentation fault
+srun: error: nid005859: tasks 176-183: Segmentation fault
+srun: error: nid005868: tasks 208-215: Segmentation fault
+srun: error: nid005826: tasks 48-55: Segmentation fault
+srun: error: nid005829: tasks 56-63: Segmentation fault
+srun: error: nid005824: tasks 32-39: Segmentation fault
+srun: error: nid005837: tasks 80-87: Segmentation fault
+srun: error: nid005856: tasks 168-175: Segmentation fault
+srun: error: nid005872: tasks 232-239: Segmentation fault
+srun: error: nid005875: tasks 248-255: Segmentation fault
+srun: error: nid005847: tasks 136-143: Segmentation fault
+srun: error: nid005866: tasks 192-199: Segmentation fault
+srun: error: nid005836: tasks 72-79: Segmentation fault
+
+  Data collection took 0.00047s.
+ Run 9:
+  Reshuffled node allocation.
+  0.0227s: started 0
+  0.02551s: started 1
+  16.0319s: awaited 0
+  16.03204s: killed waiting 1
+  16.03205s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746206.29] [Sun Mar 31 02:57:18 2024] [nid005814] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005864: tasks 216-223: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6746206.29
+srun: error: nid005844: tasks 144-151: Segmentation fault
+srun: error: nid005859: tasks 192-199: Segmentation fault
+srun: error: nid005814: task 0: Exited with exit code 255
+srun: error: nid005828: tasks 64-71: Segmentation fault
+srun: error: nid005841: tasks 120-127: Segmentation fault
+srun: error: nid005834: tasks 104-111: Segmentation fault
+srun: error: nid005832: tasks 88-95: Segmentation fault
+srun: error: nid005856: tasks 184-191: Segmentation fault
+srun: error: nid005846: tasks 152-159: Segmentation fault
+srun: error: nid005849: tasks 160-167: Segmentation fault
+srun: error: nid005861: tasks 200-207: Segmentation fault
+srun: error: nid005821: tasks 40-47: Segmentation fault
+srun: error: nid005874: tasks 240-247: Segmentation fault
+srun: error: nid005852: tasks 176-183: Segmentation fault
+srun: error: nid005825: tasks 56-63: Segmentation fault
+srun: error: nid005824: tasks 48-55: Segmentation fault
+srun: error: nid005817: tasks 16-23: Segmentation fault
+srun: error: nid005830: tasks 80-87: Segmentation fault
+srun: error: nid005872: tasks 232-239: Segmentation fault
+srun: error: nid005816: tasks 8-15: Segmentation fault
+srun: error: nid005835: tasks 112-119: Segmentation fault
+srun: error: nid005875: tasks 248-255: Segmentation fault
+srun: error: nid005843: tasks 136-143: Segmentation fault
+srun: error: nid005833: tasks 96-103: Segmentation fault
+srun: error: nid005818: tasks 24-31: Segmentation fault
+srun: error: nid005829: tasks 72-79: Segmentation fault
+srun: error: nid005842: tasks 128-135: Segmentation fault
+srun: error: nid005819: tasks 32-39: Segmentation fault
+srun: error: nid005851: tasks 168-175: Segmentation fault
+srun: error: nid005868: tasks 224-231: Segmentation fault
+srun: error: nid005862: tasks 208-215: Segmentation fault
+srun: error: nid005814: tasks 1-7: Segmentation fault
+
+  Data collection took 0.00043s.
+ Run 10:
+  Reshuffled node allocation.
+  0.00311s: started 0
+  0.02157s: started 1
+  15.63815s: awaited 0
+  15.63828s: killed waiting 1
+  15.63828s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746206.31] [Sun Mar 31 02:57:33 2024] [nid005812] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005826: tasks 80-87: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6746206.31
+srun: error: nid005823: tasks 56-63: Segmentation fault
+srun: error: nid005856: tasks 192-199: Segmentation fault
+srun: error: nid005865: tasks 216-223: Segmentation fault
+srun: error: nid005850: tasks 176-183: Segmentation fault
+srun: error: nid005838: tasks 136-143: Segmentation fault
+srun: error: nid005837: tasks 128-135: Segmentation fault
+srun: error: nid005875: tasks 248-255: Segmentation fault
+srun: error: nid005816: tasks 24-31: Segmentation fault
+srun: error: nid005822: tasks 48-55: Segmentation fault
+srun: error: nid005812: task 0: Exited with exit code 255
+srun: error: nid005860: tasks 200-207: Segmentation fault
+srun: error: nid005840: tasks 144-151: Segmentation fault
+srun: error: nid005853: tasks 184-191: Segmentation fault
+srun: error: nid005830: tasks 96-103: Segmentation fault
+srun: error: nid005841: tasks 152-159: Segmentation fault
+srun: error: nid005848: tasks 168-175: Segmentation fault
+srun: error: nid005825: tasks 72-79: Segmentation fault
+srun: error: nid005824: tasks 64-71: Segmentation fault
+srun: error: nid005814: tasks 8-15: Segmentation fault
+srun: error: nid005835: tasks 112-119: Segmentation fault
+srun: error: nid005867: tasks 224-231: Segmentation fault
+srun: error: nid005868: tasks 232-239: Segmentation fault
+srun: error: nid005836: tasks 120-127: Segmentation fault
+srun: error: nid005845: tasks 160-167: Segmentation fault
+srun: error: nid005834: tasks 104-111: Segmentation fault
+srun: error: nid005817: tasks 32-39: Segmentation fault
+srun: error: nid005815: tasks 16-23: Segmentation fault
+srun: error: nid005820: tasks 40-47: Segmentation fault
+srun: error: nid005862: tasks 208-215: Segmentation fault
+srun: error: nid005828: tasks 88-95: Segmentation fault
+srun: error: nid005871: tasks 240-247: Segmentation fault
+srun: error: nid005812: tasks 1-7: Segmentation fault
+
+  Data collection took 0.00041s.
+  Convergence check took 0.00072s.
+Completed maximum number of runs, terminated after 10 runs taking 158.86 seconds.
+Writing data & meta-data took 0.00551s.
+Overall took 159.33288s.

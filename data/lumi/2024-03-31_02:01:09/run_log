@@ -1,0 +1,168 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/1GiB_plus_alltoall_m', node_file='auto', numnodes=8, allocationmode='+r', allocationsplit='50:50', minruns=10, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='SL0_hcoll0', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+1: with arguments:"-msgsize 131072 -endl -iter 1 -grty 1", collection flag: False, ending condition: wait until others finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 4 nodes:
+['nid005891' 'nid005894' 'nid005889' 'nid005893']
+1 on 4 nodes:
+['nid005895' 'nid005888' 'nid005892' 'nid005890']
+
+Schedule:
+0.0s: start 0
+0.0s: start 1
+
+Preparing took 0.40307s.
+
+Running...
+ Run 1:
+  Reshuffled node allocation.
+  0.02915s: started 0
+  0.03578s: started 1
+  7.29394s: awaited 0
+  7.4148s: killed waiting 1
+  Data collection took 0.00046s.
+ Run 2:
+  Reshuffled node allocation.
+  0.00874s: started 0
+  0.01625s: started 1
+  10.91808s: awaited 0
+  11.02836s: killed waiting 1
+  11.02837s: encountered an exception in 0
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  11.02839s: encountered an exception in 1
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  Data collection took 0.00032s.
+ Run 3:
+  Reshuffled node allocation.
+  0.00869s: started 0
+  0.01597s: started 1
+  9.71145s: awaited 0
+  9.73062s: killed waiting 1
+  9.73064s: encountered an exception in 0
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  9.73065s: encountered an exception in 1
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  Data collection took 0.00035s.
+ Run 4:
+  Reshuffled node allocation.
+  0.00757s: started 0
+  0.01502s: started 1
+  10.76183s: awaited 0
+  11.40193s: killed waiting 1
+  11.40195s: encountered an exception in 0
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  11.40196s: encountered an exception in 1
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  Data collection took 0.00025s.
+ Run 5:
+  Reshuffled node allocation.
+  0.02393s: started 0
+  0.03077s: started 1
+  9.39314s: awaited 0
+  9.40245s: killed waiting 1
+  9.40247s: encountered an exception in 0
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  9.40248s: encountered an exception in 1
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  Data collection took 0.00033s.
+ Run 6:
+  Reshuffled node allocation.
+  0.00822s: started 0
+  0.01565s: started 1
+  9.8437s: awaited 0
+  11.40106s: killed waiting 1
+  11.40108s: encountered an exception in 0
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  11.4011s: encountered an exception in 1
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  Data collection took 0.00039s.
+ Run 7:
+  Reshuffled node allocation.
+  0.03205s: started 0
+  0.03901s: started 1
+  10.37475s: awaited 0
+  10.45925s: killed waiting 1
+  10.45927s: encountered an exception in 0
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  10.45928s: encountered an exception in 1
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  Data collection took 0.00025s.
+ Run 8:
+  Reshuffled node allocation.
+  0.00676s: started 0
+  0.01417s: started 1
+  9.57067s: awaited 0
+  9.57839s: killed waiting 1
+  9.57841s: encountered an exception in 0
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  9.57842s: encountered an exception in 1
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  Data collection took 0.00034s.
+ Run 9:
+  Reshuffled node allocation.
+  0.0074s: started 0
+  0.01519s: started 1
+  9.93159s: awaited 0
+  9.93902s: killed waiting 1
+  9.93904s: encountered an exception in 0
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  9.93905s: encountered an exception in 1
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  Data collection took 0.00031s.
+ Run 10:
+  Reshuffled node allocation.
+  0.00735s: started 0
+  0.01465s: started 1
+  9.62836s: awaited 0
+  9.65193s: killed waiting 1
+  9.65195s: encountered an exception in 0
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  9.65196s: encountered an exception in 1
+srun: Job 6746203 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746203
+
+  Data collection took 0.00046s.
+  Convergence check took 0.00116s.
+Completed maximum number of runs, terminated after 10 runs taking 100.01 seconds.
+Writing data & meta-data took 0.00711s.
+Overall took 100.42341s.

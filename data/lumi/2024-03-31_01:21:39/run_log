@@ -1,0 +1,199 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-cudaaware/2MiB_plus_alltoall_m', node_file='auto', numnodes=2, allocationmode='+r', allocationsplit='50:50', minruns=10, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='SL0_hcoll0', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 21", collection flag: True, ending condition: run until finished.
+1: with arguments:"-msgsize 131072 -endl -iter 1 -grty 1", collection flag: False, ending condition: wait until others finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 1 nodes:
+['nid005576']
+1 on 1 nodes:
+['nid005575']
+
+Schedule:
+0.0s: start 0
+0.0s: start 1
+
+Preparing took 0.35065s.
+
+Running...
+ Run 1:
+  Reshuffled node allocation.
+  0.02704s: started 0
+  0.02911s: started 1
+  1.05674s: awaited 0
+  1.19279s: killed waiting 1
+  1.19281s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746200.65] [Sun Mar 31 01:21:40 2024] [nid005576] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005576: task 0: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6746200.65
+
+  Data collection took 0.00032s.
+ Run 2:
+  Reshuffled node allocation.
+  0.01336s: started 0
+  0.01571s: started 1
+  1.01581s: awaited 0
+  1.01694s: killed waiting 1
+  Data collection took 0.00017s.
+ Run 3:
+  Reshuffled node allocation.
+  0.00285s: started 0
+  0.00581s: started 1
+  4.45139s: awaited 0
+  4.4515s: killed waiting 1
+  4.45151s: encountered an exception in 0
+srun: Job 6746200 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 6746200 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746200
+
+  4.45151s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746200.68] [Sun Mar 31 01:21:42 2024] [nid005575] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005575: task 0: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6746200.68
+srun: error: nid005575: tasks 1-7: Segmentation fault
+
+  Data collection took 0.00018s.
+ Run 4:
+  Reshuffled node allocation.
+  0.00216s: started 0
+  0.00516s: started 1
+  1.0113s: awaited 0
+  1.01145s: killed waiting 1
+  1.01146s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746200.71] [Sun Mar 31 01:21:46 2024] [nid005575] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005575: task 0: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6746200.71
+srun: error: nid005575: tasks 1-7: Segmentation fault
+
+  Data collection took 0.00027s.
+ Run 5:
+  Reshuffled node allocation.
+  0.0021s: started 0
+  0.00505s: started 1
+  1.01104s: awaited 0
+  1.01119s: killed waiting 1
+  1.0112s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746200.73] [Sun Mar 31 01:21:47 2024] [nid005575] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005575: task 0: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6746200.73
+srun: error: nid005575: tasks 1-7: Segmentation fault
+
+  Data collection took 0.00027s.
+ Run 6:
+  Reshuffled node allocation.
+  0.00212s: started 0
+  0.00519s: started 1
+  1.01114s: awaited 0
+  1.01129s: killed waiting 1
+  1.0113s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746200.75] [Sun Mar 31 01:21:48 2024] [nid005575] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005575: task 0: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6746200.75
+srun: error: nid005575: tasks 1-7: Segmentation fault
+
+  Data collection took 0.00027s.
+ Run 7:
+  Reshuffled node allocation.
+  0.00211s: started 0
+  0.00507s: started 1
+  1.01542s: awaited 0
+  1.01558s: killed waiting 1
+  1.01559s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746200.77] [Sun Mar 31 01:21:49 2024] [nid005575] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005575: task 0: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6746200.77
+srun: error: nid005575: tasks 1-7: Segmentation fault
+
+  Data collection took 0.00026s.
+ Run 8:
+  Reshuffled node allocation.
+  0.00204s: started 0
+  0.00433s: started 1
+  1.13009s: awaited 0
+  1.13023s: killed waiting 1
+  1.13024s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746200.79] [Sun Mar 31 01:21:50 2024] [nid005576] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005576: task 0: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6746200.79
+srun: error: nid005576: tasks 1-7: Segmentation fault
+
+  Data collection took 0.00022s.
+ Run 9:
+  Reshuffled node allocation.
+  0.0255s: started 0
+  0.02848s: started 1
+  1.03311s: awaited 0
+  1.03324s: killed waiting 1
+  1.03324s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746200.81] [Sun Mar 31 01:21:52 2024] [nid005575] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005575: task 0: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6746200.81
+srun: error: nid005575: tasks 1-7: Segmentation fault
+
+  Data collection took 0.0002s.
+ Run 10:
+  Reshuffled node allocation.
+  0.00279s: started 0
+  0.0057s: started 1
+  1.00724s: awaited 0
+  1.00734s: killed waiting 1
+  1.00735s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746200.83] [Sun Mar 31 01:21:53 2024] [nid005575] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005575: task 0: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6746200.83
+srun: error: nid005575: tasks 1-7: Segmentation fault
+
+  Data collection took 0.00018s.
+  Convergence check took 0.00077s.
+Completed maximum number of runs, terminated after 10 runs taking 13.89 seconds.
+Writing data & meta-data took 0.00561s.
+Overall took 14.24386s.

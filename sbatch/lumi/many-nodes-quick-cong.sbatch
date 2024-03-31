@@ -12,7 +12,13 @@ ARGS="auto -n ${SLURM_NNODES} -sp 50:50 -am +r -ro +file --minruns 10 --maxruns 
 PPN=8
 SL=0
 HCOLL=0 
-EXTRA="SL${SL}_hcoll${HCOLL}"    
+EXTRA="SL${SL}_hcoll${HCOLL}"
+
+source src/microbench-gpu/moduleload/load_CudaAware_modules.sh
+export MPICH_GPU_SUPPORT_ENABLED=1
 ./run.sh test_suites/coll-gpu-fast-congestion-cudaaware ${ARGS} --ppn ${PPN} -e ${EXTRA}
+unset MPICH_GPU_SUPPORT_ENABLED
+
+source src/microbench-gpu/moduleload/load_Nccl_modules.sh
 ./run.sh test_suites/coll-gpu-fast-congestion-nccl ${ARGS} --ppn ${PPN} -e ${EXTRA}
 

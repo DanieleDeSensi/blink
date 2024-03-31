@@ -1,0 +1,172 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-nccl/2MiB_plus_incast', node_file='auto', numnodes=32, allocationmode='+r', allocationsplit='50:50', minruns=10, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='SL0_hcoll0', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 21", collection flag: True, ending condition: run until finished.
+1: with arguments:"-msgsize 131072 -endl -iter 1 -grty 1", collection flag: False, ending condition: wait until others finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 16 nodes:
+['nid006360' 'nid006351' 'nid006345' 'nid006344' 'nid006362' 'nid006335'
+ 'nid006339' 'nid006338' 'nid006341' 'nid006350' 'nid006343' 'nid006353'
+ 'nid006364' 'nid006347' 'nid006356' 'nid006334']
+1 on 16 nodes:
+['nid006355' 'nid006363' 'nid006340' 'nid006346' 'nid006354' 'nid006357'
+ 'nid006348' 'nid006349' 'nid006337' 'nid006365' 'nid006336' 'nid006358'
+ 'nid006359' 'nid006361' 'nid006352' 'nid006342']
+
+Schedule:
+0.0s: start 0
+0.0s: start 1
+
+Preparing took 2.5392s.
+
+Running...
+ Run 1:
+  Reshuffled node allocation.
+  0.00681s: started 0
+  0.01388s: started 1
+  14.05263s: awaited 0
+  14.59128s: killed waiting 1
+  Data collection took 0.00055s.
+ Run 2:
+  Reshuffled node allocation.
+  0.00727s: started 0
+  0.01484s: started 1
+  15.44094s: awaited 0
+  15.44897s: killed waiting 1
+  15.44899s: encountered an exception in 0
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  15.449s: encountered an exception in 1
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  Data collection took 0.00046s.
+ Run 3:
+  Reshuffled node allocation.
+  0.00737s: started 0
+  0.01448s: started 1
+  15.39325s: awaited 0
+  15.42026s: killed waiting 1
+  15.42028s: encountered an exception in 0
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  15.42029s: encountered an exception in 1
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  Data collection took 0.00043s.
+ Run 4:
+  Reshuffled node allocation.
+  0.00644s: started 0
+  0.01308s: started 1
+  15.28981s: awaited 0
+  15.30925s: killed waiting 1
+  15.30926s: encountered an exception in 0
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  15.30927s: encountered an exception in 1
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  Data collection took 0.00047s.
+ Run 5:
+  Reshuffled node allocation.
+  0.00753s: started 0
+  0.01517s: started 1
+  16.80157s: awaited 0
+  16.82945s: killed waiting 1
+  16.82947s: encountered an exception in 0
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  16.82948s: encountered an exception in 1
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  Data collection took 0.00042s.
+ Run 6:
+  Reshuffled node allocation.
+  0.0074s: started 0
+  0.01527s: started 1
+  15.21131s: awaited 0
+  15.30015s: killed waiting 1
+  15.30016s: encountered an exception in 0
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  15.30017s: encountered an exception in 1
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  Data collection took 0.00038s.
+ Run 7:
+  Reshuffled node allocation.
+  0.00747s: started 0
+  0.01534s: started 1
+  16.17391s: awaited 0
+  16.1825s: killed waiting 1
+  16.18252s: encountered an exception in 0
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  16.18253s: encountered an exception in 1
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  Data collection took 0.00045s.
+ Run 8:
+  Reshuffled node allocation.
+  0.00722s: started 0
+  0.0151s: started 1
+  14.93363s: awaited 0
+  16.10664s: killed waiting 1
+  16.10666s: encountered an exception in 0
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  16.10667s: encountered an exception in 1
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  Data collection took 0.00045s.
+ Run 9:
+  Reshuffled node allocation.
+  0.00732s: started 0
+  0.0146s: started 1
+  14.68451s: awaited 0
+  14.71212s: killed waiting 1
+  14.71213s: encountered an exception in 0
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  14.71214s: encountered an exception in 1
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  Data collection took 0.00036s.
+ Run 10:
+  Reshuffled node allocation.
+  0.00726s: started 0
+  0.01485s: started 1
+  15.23703s: awaited 0
+  15.69961s: killed waiting 1
+  15.69963s: encountered an exception in 0
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  15.69965s: encountered an exception in 1
+srun: Job 6746205 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746205
+
+  Data collection took 0.00039s.
+  Convergence check took 0.00091s.
+Completed maximum number of runs, terminated after 10 runs taking 155.61 seconds.
+Writing data & meta-data took 0.00626s.
+Overall took 158.1517s.

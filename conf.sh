@@ -1,5 +1,5 @@
 #!/bin/bash
-export BLINK_SYSTEM="alps"
+export BLINK_SYSTEM="lumi"
 export BLINK_ROOT=$(pwd)/
 export BLINK_GPU_MICROBENCH_COMMIT="998c97a"
 export BLINK_NCCL_TESTS_COMMIT="128334135db5476a1553505ff30d26c9568df1ae"
