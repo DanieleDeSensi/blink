@@ -1,0 +1,83 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/pw-ping-pong_b/512B', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_group_SL0', maxruns=10, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 512 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn2187' 'lrdn3265']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27429s.
+
+Running...
+ Run 1:
+  0.00255s: started 0
+  1.16821s: awaited 0
+  Data collection took 0.00141s.
+  Convergence check took 0.0007s.
+ Run 2:
+  0.00267s: started 0
+  2.1125s: awaited 0
+  2.11254s: encountered an exception in 0
+srun: Job 3851746 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3851746
+
+  Data collection took 0.00212s.
+  Convergence check took 0.00076s.
+ Run 3:
+  0.00364s: started 0
+  1.14367s: awaited 0
+  Data collection took 0.00141s.
+  Convergence check took 0.00081s.
+ Run 4:
+  0.00352s: started 0
+  1.67486s: awaited 0
+  Data collection took 0.00147s.
+  Convergence check took 0.00082s.
+ Run 5:
+  0.00252s: started 0
+  1.14168s: awaited 0
+  Data collection took 0.00141s.
+  Convergence check took 0.00089s.
+ Run 6:
+  0.00232s: started 0
+  1.46359s: awaited 0
+  1.46361s: encountered an exception in 0
+srun: Job 3851746 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3851746
+
+  Data collection took 0.00146s.
+  Convergence check took 0.00094s.
+ Run 7:
+  0.00233s: started 0
+  1.17572s: awaited 0
+  Data collection took 0.00146s.
+  Convergence check took 0.00101s.
+ Run 8:
+  0.00232s: started 0
+  1.32179s: awaited 0
+  1.32181s: encountered an exception in 0
+srun: Job 3851746 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3851746
+
+  Data collection took 0.00152s.
+  Convergence check took 0.0011s.
+ Run 9:
+  0.00238s: started 0
+  1.16537s: awaited 0
+  Data collection took 0.0014s.
+  Convergence check took 0.00116s.
+ Run 10:
+  0.00237s: started 0
+  1.15446s: awaited 0
+  Data collection took 0.00146s.
+  Convergence check took 0.00127s.
+Completed maximum number of runs, terminated after 10 runs taking 13.55 seconds.
+Writing data & meta-data took 0.04863s.
+Overall took 13.87021s.

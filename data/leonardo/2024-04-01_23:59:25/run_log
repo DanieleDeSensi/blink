@@ -1,0 +1,75 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/mpp-cudaaware/256KiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_group_SL0', maxruns=10, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 18", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn2187' 'lrdn3265']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27343s.
+
+Running...
+ Run 1:
+  0.00235s: started 0
+  3.30168s: awaited 0
+  Data collection took 0.00021s.
+  Convergence check took 0.00064s.
+ Run 2:
+  0.00252s: started 0
+  1.39584s: awaited 0
+  Data collection took 0.00018s.
+  Convergence check took 0.00056s.
+ Run 3:
+  0.00239s: started 0
+  1.46593s: awaited 0
+  1.46595s: encountered an exception in 0
+srun: Job 3851746 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 3851746
+
+  Data collection took 0.00017s.
+  Convergence check took 0.00055s.
+ Run 4:
+  0.00223s: started 0
+  1.37167s: awaited 0
+  Data collection took 0.00019s.
+  Convergence check took 0.00054s.
+ Run 5:
+  0.00234s: started 0
+  1.36874s: awaited 0
+  Data collection took 0.00018s.
+  Convergence check took 0.00056s.
+ Run 6:
+  0.00239s: started 0
+  1.37433s: awaited 0
+  Data collection took 0.00018s.
+  Convergence check took 0.00057s.
+ Run 7:
+  0.00235s: started 0
+  1.34999s: awaited 0
+  Data collection took 0.00018s.
+  Convergence check took 0.00056s.
+ Run 8:
+  0.00226s: started 0
+  1.36293s: awaited 0
+  Data collection took 0.00018s.
+  Convergence check took 0.00056s.
+ Run 9:
+  0.00234s: started 0
+  1.39054s: awaited 0
+  Data collection took 0.00017s.
+  Convergence check took 0.00058s.
+ Run 10:
+  0.00216s: started 0
+  1.37104s: awaited 0
+  Data collection took 0.00019s.
+  Convergence check took 0.00057s.
+Completed maximum number of runs, terminated after 10 runs taking 15.76 seconds.
+Writing data & meta-data took 0.00724s.
+Overall took 16.04159s.
