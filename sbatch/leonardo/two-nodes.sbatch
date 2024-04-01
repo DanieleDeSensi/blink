@@ -11,6 +11,8 @@ source conf.sh
 ALLOCATION="same_switch"
 SERVER_HOSTNAME=$(scontrol show hostnames | head -n 1)
 
+UCX_PROTO_ENABLE=y
+
 for SL in 1; do
     export UCX_IB_SL=${SL}
     export NCCL_IB_SL=${SL}

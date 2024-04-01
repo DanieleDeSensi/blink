@@ -42,4 +42,4 @@ if [ -n "${UCX_IB_SL}" ]; then
 else
     export UCX_IB_SL=1
 fi
-
+export UCX_PROTO_ENABLE=y
