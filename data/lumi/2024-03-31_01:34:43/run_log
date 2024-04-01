@@ -1,0 +1,132 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/1GiB_plus_incast', node_file='auto', numnodes=2, allocationmode='+r', allocationsplit='50:50', minruns=10, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='SL0_hcoll0', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+1: with arguments:"-msgsize 131072 -endl -iter 1 -grty 1", collection flag: False, ending condition: wait until others finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 1 nodes:
+['nid005576']
+1 on 1 nodes:
+['nid005575']
+
+Schedule:
+0.0s: start 0
+0.0s: start 1
+
+Preparing took 2.53251s.
+
+Running...
+ Run 1:
+  Reshuffled node allocation.
+  0.00699s: started 0
+  0.0139s: started 1
+  5.36396s: awaited 0
+  5.38473s: killed waiting 1
+  Data collection took 0.00046s.
+ Run 2:
+  Reshuffled node allocation.
+  0.00706s: started 0
+  0.01458s: started 1
+  5.38349s: awaited 0
+  6.2246s: killed waiting 1
+  6.22461s: encountered an exception in 1
+srun: Job 6746201 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746201
+
+  Data collection took 0.00024s.
+ Run 3:
+  Reshuffled node allocation.
+  0.00685s: started 0
+  0.01387s: started 1
+  7.79348s: awaited 0
+  8.0522s: killed waiting 1
+  8.05221s: encountered an exception in 0
+srun: Job 6746201 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746201
+
+  Data collection took 0.0003s.
+ Run 4:
+  Reshuffled node allocation.
+  0.0072s: started 0
+  0.01472s: started 1
+  5.38199s: awaited 0
+  5.38906s: killed waiting 1
+  5.38909s: encountered an exception in 1
+srun: Job 6746201 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746201
+
+  Data collection took 0.00029s.
+ Run 5:
+  Reshuffled node allocation.
+  0.0072s: started 0
+  0.01498s: started 1
+  5.39804s: awaited 0
+  5.82076s: killed waiting 1
+  5.82078s: encountered an exception in 1
+srun: Job 6746201 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746201
+
+  Data collection took 0.00029s.
+ Run 6:
+  Reshuffled node allocation.
+  0.00754s: started 0
+  0.01437s: started 1
+  6.38424s: awaited 0
+  7.72868s: killed waiting 1
+  7.7287s: encountered an exception in 1
+srun: Job 6746201 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746201
+
+  Data collection took 0.00029s.
+ Run 7:
+  Reshuffled node allocation.
+  0.00746s: started 0
+  0.01414s: started 1
+  5.36539s: awaited 0
+  5.37957s: killed waiting 1
+  5.37959s: encountered an exception in 1
+srun: Job 6746201 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746201
+
+  Data collection took 0.00032s.
+ Run 8:
+  Reshuffled node allocation.
+  0.00715s: started 0
+  0.01384s: started 1
+  7.71594s: awaited 0
+  7.73984s: killed waiting 1
+  7.73986s: encountered an exception in 0
+srun: Job 6746201 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746201
+
+  Data collection took 0.00037s.
+ Run 9:
+  Reshuffled node allocation.
+  0.00753s: started 0
+  0.01501s: started 1
+  7.76189s: awaited 0
+  7.76943s: killed waiting 1
+  7.76944s: encountered an exception in 0
+srun: Job 6746201 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746201
+
+  Data collection took 0.00028s.
+ Run 10:
+  Reshuffled node allocation.
+  0.0072s: started 0
+  0.01375s: started 1
+  5.39993s: awaited 0
+  5.53452s: killed waiting 1
+  5.53454s: encountered an exception in 1
+srun: Job 6746201 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746201
+
+  Data collection took 0.0003s.
+  Convergence check took 0.00116s.
+Completed maximum number of runs, terminated after 10 runs taking 65.03 seconds.
+Writing data & meta-data took 0.00712s.
+Overall took 67.56802s.

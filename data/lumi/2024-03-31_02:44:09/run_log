@@ -1,0 +1,74 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-nccl/2MiB', node_file='auto', numnodes=32, allocationmode='+r', allocationsplit='50:50', minruns=10, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='SL0_hcoll0', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 21", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 16 nodes:
+['nid006360' 'nid006351' 'nid006345' 'nid006344' 'nid006362' 'nid006335'
+ 'nid006339' 'nid006338' 'nid006341' 'nid006350' 'nid006343' 'nid006353'
+ 'nid006364' 'nid006347' 'nid006356' 'nid006334']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 2.95259s.
+
+Running...
+ Run 1:
+  Reshuffled node allocation.
+  0.03097s: started 0
+  12.88201s: awaited 0
+  Data collection took 0.00058s.
+ Run 2:
+  Reshuffled node allocation.
+  0.0072s: started 0
+  12.62662s: awaited 0
+  Data collection took 0.00057s.
+ Run 3:
+  Reshuffled node allocation.
+  0.00694s: started 0
+  12.91293s: awaited 0
+  Data collection took 0.00039s.
+ Run 4:
+  Reshuffled node allocation.
+  0.00726s: started 0
+  12.99867s: awaited 0
+  Data collection took 0.00038s.
+ Run 5:
+  Reshuffled node allocation.
+  0.00677s: started 0
+  12.49741s: awaited 0
+  Data collection took 0.00037s.
+ Run 6:
+  Reshuffled node allocation.
+  0.03544s: started 0
+  12.8916s: awaited 0
+  Data collection took 0.00046s.
+ Run 7:
+  Reshuffled node allocation.
+  0.01998s: started 0
+  12.3627s: awaited 0
+  Data collection took 0.00045s.
+ Run 8:
+  Reshuffled node allocation.
+  0.00704s: started 0
+  13.40487s: awaited 0
+  Data collection took 0.00039s.
+ Run 9:
+  Reshuffled node allocation.
+  0.00683s: started 0
+  12.94604s: awaited 0
+  Data collection took 0.00038s.
+ Run 10:
+  Reshuffled node allocation.
+  0.0285s: started 0
+  12.61064s: awaited 0
+  Data collection took 0.00056s.
+  Convergence check took 0.00099s.
+Completed maximum number of runs, terminated after 10 runs taking 128.14 seconds.
+Writing data & meta-data took 0.00635s.
+Overall took 131.09863s.

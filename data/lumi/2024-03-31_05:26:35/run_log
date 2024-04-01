@@ -1,0 +1,1520 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-cudaaware/1GiB_plus_incast', node_file='auto', numnodes=256, allocationmode='+r', allocationsplit='50:50', minruns=10, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='SL0_hcoll0', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+1: with arguments:"-msgsize 131072 -endl -iter 1 -grty 1", collection flag: False, ending condition: wait until others finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 128 nodes:
+['nid006389' 'nid006410' 'nid005824' 'nid006338' 'nid005759' 'nid006366'
+ 'nid006390' 'nid006378' 'nid005877' 'nid006342' 'nid006282' 'nid006265'
+ 'nid005763' 'nid005951' 'nid005761' 'nid005780' 'nid006348' 'nid005762'
+ 'nid006381' 'nid005859' 'nid006335' 'nid006258' 'nid005784' 'nid006352'
+ 'nid005850' 'nid006401' 'nid005838' 'nid005831' 'nid005876' 'nid005842'
+ 'nid006358' 'nid006341' 'nid005812' 'nid006343' 'nid006259' 'nid006357'
+ 'nid006271' 'nid006264' 'nid006283' 'nid005829' 'nid005956' 'nid006383'
+ 'nid005772' 'nid005847' 'nid005953' 'nid006362' 'nid005879' 'nid005793'
+ 'nid006405' 'nid005849' 'nid006263' 'nid005782' 'nid005757' 'nid006391'
+ 'nid006394' 'nid005845' 'nid006373' 'nid006406' 'nid005756' 'nid005794'
+ 'nid006377' 'nid005940' 'nid006395' 'nid005783' 'nid006268' 'nid005840'
+ 'nid005818' 'nid005821' 'nid006262' 'nid005863' 'nid005865' 'nid005841'
+ 'nid005874' 'nid005825' 'nid006269' 'nid005764' 'nid005765' 'nid006275'
+ 'nid005781' 'nid005871' 'nid005854' 'nid005961' 'nid006353' 'nid005778'
+ 'nid005775' 'nid005779' 'nid005949' 'nid005815' 'nid006370' 'nid005754'
+ 'nid005753' 'nid005844' 'nid005748' 'nid005776' 'nid005954' 'nid005966'
+ 'nid005767' 'nid006386' 'nid006274' 'nid006266' 'nid006376' 'nid005773'
+ 'nid005860' 'nid006346' 'nid005834' 'nid005960' 'nid005786' 'nid005965'
+ 'nid005964' 'nid005837' 'nid005827' 'nid006388' 'nid006385' 'nid006345'
+ 'nid006396' 'nid005789' 'nid005862' 'nid006273' 'nid006278' 'nid005822'
+ 'nid006276' 'nid006344' 'nid005828' 'nid006368' 'nid005790' 'nid005869'
+ 'nid005819' 'nid005758']
+1 on 128 nodes:
+['nid005867' 'nid005796' 'nid005777' 'nid005856' 'nid005745' 'nid006382'
+ 'nid006380' 'nid005848' 'nid006355' 'nid005948' 'nid006409' 'nid006354'
+ 'nid006371' 'nid005795' 'nid005747' 'nid006379' 'nid006336' 'nid005963'
+ 'nid005787' 'nid006260' 'nid005836' 'nid005755' 'nid006400' 'nid006363'
+ 'nid005942' 'nid005852' 'nid006392' 'nid005950' 'nid005785' 'nid005771'
+ 'nid005947' 'nid006359' 'nid005766' 'nid005853' 'nid005957' 'nid005851'
+ 'nid005788' 'nid006347' 'nid005861' 'nid005820' 'nid005880' 'nid005752'
+ 'nid006280' 'nid005858' 'nid006334' 'nid005944' 'nid005967' 'nid005830'
+ 'nid005835' 'nid005792' 'nid006277' 'nid005946' 'nid006365' 'nid005945'
+ 'nid006337' 'nid005843' 'nid006404' 'nid005833' 'nid006364' 'nid006267'
+ 'nid005791' 'nid005769' 'nid006270' 'nid005959' 'nid005864' 'nid006374'
+ 'nid005832' 'nid005875' 'nid006402' 'nid006361' 'nid006279' 'nid006397'
+ 'nid005846' 'nid005817' 'nid005958' 'nid006403' 'nid005870' 'nid006387'
+ 'nid005814' 'nid005952' 'nid006375' 'nid006340' 'nid005866' 'nid005813'
+ 'nid006281' 'nid006398' 'nid005746' 'nid005955' 'nid006399' 'nid005750'
+ 'nid005749' 'nid006393' 'nid005839' 'nid005770' 'nid005968' 'nid005816'
+ 'nid006408' 'nid006339' 'nid006411' 'nid005872' 'nid006284' 'nid005744'
+ 'nid006351' 'nid006407' 'nid006261' 'nid005868' 'nid005857' 'nid006369'
+ 'nid006384' 'nid005751' 'nid005941' 'nid005768' 'nid005797' 'nid006356'
+ 'nid005855' 'nid006272' 'nid005878' 'nid005873' 'nid006349' 'nid005943'
+ 'nid005774' 'nid005823' 'nid005760' 'nid006350' 'nid006360' 'nid006372'
+ 'nid005962' 'nid005826']
+
+Schedule:
+0.0s: start 0
+0.0s: start 1
+
+Preparing took 0.60515s.
+
+Running...
+ Run 1:
+  Reshuffled node allocation.
+  0.00376s: started 0
+  0.00759s: started 1
+  18.85075s: awaited 0
+  18.85088s: killed waiting 1
+  18.85089s: encountered an exception in 1
+srun: Job 6746209 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746209
+MPICH ERROR [Rank 0] [job id 6746209.34] [Sun Mar 31 05:26:37 2024] [nid005744] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005744: task 0: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6746209.34
+srun: error: nid005744: tasks 1-7: Segmentation fault
+srun: error: nid005830: tasks 280-287: Segmentation fault
+srun: error: nid005767: tasks 72-79: Segmentation fault
+srun: error: nid006388: tasks 928-935: Segmentation fault
+srun: error: nid006265: tasks 672-679: Segmentation fault
+srun: error: nid006400: tasks 968-975: Segmentation fault
+srun: error: nid006282: tasks 728-735: Segmentation fault
+srun: error: nid005859: tasks 424-431: Segmentation fault
+srun: error: nid006338: tasks 768-775: Segmentation fault
+srun: error: nid006266: tasks 680-687: Segmentation fault
+srun: error: nid005757: tasks 40-47: Segmentation fault
+srun: error: nid005791: tasks 168-175: Segmentation fault
+srun: error: nid005843: tasks 368-375: Segmentation fault
+srun: error: nid005795: tasks 184-191: Segmentation fault
+srun: error: nid006408: tasks 1008-1015: Segmentation fault
+srun: error: nid005746: tasks 8-15: Segmentation fault
+srun: error: nid006406: tasks 1000-1007: Segmentation fault
+srun: error: nid006375: tasks 888-895: Segmentation fault
+srun: error: nid006411: tasks 1016-1023: Segmentation fault
+srun: error: nid005790: tasks 160-167: Segmentation fault
+srun: error: nid005787: tasks 144-151: Segmentation fault
+srun: error: nid006393: tasks 944-951: Segmentation fault
+srun: error: nid005840: tasks 352-359: Segmentation fault
+srun: error: nid005940: tasks 504-511: Segmentation fault
+srun: error: nid005776: tasks 104-111: Segmentation fault
+srun: error: nid006363: tasks 856-863: Segmentation fault
+srun: error: nid006399: tasks 960-967: Segmentation fault
+srun: error: nid005960: tasks 608-615: Segmentation fault
+srun: error: nid005837: tasks 328-335: Segmentation fault
+srun: error: nid005874: tasks 480-487: Segmentation fault
+srun: error: nid006262: tasks 656-663: Segmentation fault
+srun: error: nid005850: tasks 400-407: Segmentation fault
+srun: error: nid005955: tasks 576-583: Segmentation fault
+srun: error: nid005865: tasks 440-447: Segmentation fault
+srun: error: nid006284: tasks 736-743: Segmentation fault
+srun: error: nid005819: tasks 240-247: Segmentation fault
+srun: error: nid006351: tasks 800-807: Segmentation fault
+srun: error: nid006268: tasks 688-695: Segmentation fault
+srun: error: nid006392: tasks 936-943: Segmentation fault
+srun: error: nid005948: tasks 536-543: Segmentation fault
+srun: error: nid005771: tasks 88-95: Segmentation fault
+srun: error: nid005950: tasks 552-559: Segmentation fault
+srun: error: nid005769: tasks 80-87: Segmentation fault
+srun: error: nid006401: tasks 976-983: Segmentation fault
+srun: error: nid005751: tasks 24-31: Segmentation fault
+srun: error: nid005755: tasks 32-39: Segmentation fault
+srun: error: nid005764: tasks 64-71: Segmentation fault
+srun: error: nid006269: tasks 696-703: Segmentation fault
+srun: error: nid005968: tasks 632-639: Segmentation fault
+srun: error: nid005833: tasks 304-311: Segmentation fault
+srun: error: nid005838: tasks 336-343: Segmentation fault
+srun: error: nid006339: tasks 776-783: Segmentation fault
+srun: error: nid005812: tasks 208-215: Segmentation fault
+srun: error: nid005852: tasks 408-415: Segmentation fault
+srun: error: nid005941: tasks 512-519: Segmentation fault
+srun: error: nid006356: tasks 832-839: Segmentation fault
+srun: error: nid005834: tasks 312-319: Segmentation fault
+srun: error: nid006355: tasks 824-831: Segmentation fault
+srun: error: nid005880: tasks 496-503: Segmentation fault
+srun: error: nid005958: tasks 600-607: Segmentation fault
+srun: error: nid005870: tasks 464-471: Segmentation fault
+srun: error: nid005949: tasks 544-551: Segmentation fault
+srun: error: nid005860: tasks 432-439: Segmentation fault
+srun: error: nid006405: tasks 992-999: Segmentation fault
+srun: error: nid005957: tasks 592-599: Segmentation fault
+srun: error: nid006369: tasks 864-871: Segmentation fault
+srun: error: nid005820: tasks 248-255: Segmentation fault
+srun: error: nid005846: tasks 376-383: Segmentation fault
+srun: error: nid006402: tasks 984-991: Segmentation fault
+srun: error: nid006361: tasks 848-855: Segmentation fault
+srun: error: nid005963: tasks 616-623: Segmentation fault
+srun: error: nid005965: tasks 624-631: Segmentation fault
+srun: error: nid005759: tasks 56-63: Segmentation fault
+srun: error: nid005873: tasks 472-479: Segmentation fault
+srun: error: nid006353: tasks 816-823: Segmentation fault
+srun: error: nid005789: tasks 152-159: Segmentation fault
+srun: error: nid006258: tasks 640-647: Segmentation fault
+srun: error: nid006383: tasks 912-919: Segmentation fault
+srun: error: nid005952: tasks 560-567: Segmentation fault
+srun: error: nid005826: tasks 256-263: Segmentation fault
+srun: error: nid005831: tasks 288-295: Segmentation fault
+srun: error: nid005782: tasks 128-135: Segmentation fault
+srun: error: nid006336: tasks 760-767: Segmentation fault
+srun: error: nid005847: tasks 384-391: Segmentation fault
+srun: error: nid005956: tasks 584-591: Segmentation fault
+srun: error: nid005785: tasks 136-143: Segmentation fault
+srun: error: nid006360: tasks 840-847: Segmentation fault
+srun: error: nid005836: tasks 320-327: Segmentation fault
+srun: error: nid006371: tasks 880-887: Segmentation fault
+srun: error: nid005779: tasks 120-127: Segmentation fault
+srun: error: nid005815: tasks 224-231: Segmentation fault
+srun: error: nid005816: tasks 232-239: Segmentation fault
+srun: error: nid005947: tasks 528-535: Segmentation fault
+srun: error: nid005792: tasks 176-183: Segmentation fault
+srun: error: nid006264: tasks 664-671: Segmentation fault
+srun: error: nid006334: tasks 744-751: Segmentation fault
+srun: error: nid005828: tasks 272-279: Segmentation fault
+srun: error: nid006352: tasks 808-815: Segmentation fault
+srun: error: nid005758: tasks 48-55: Segmentation fault
+srun: error: nid006335: tasks 752-759: Segmentation fault
+srun: error: nid006273: tasks 712-719: Segmentation fault
+srun: error: nid005869: tasks 456-463: Segmentation fault
+srun: error: nid005839: tasks 344-351: Segmentation fault
+srun: error: nid006381: tasks 904-911: Segmentation fault
+srun: error: nid005827: tasks 264-271: Segmentation fault
+srun: error: nid005854: tasks 416-423: Segmentation fault
+srun: error: nid005778: tasks 112-119: Segmentation fault
+srun: error: nid006350: tasks 792-799: Segmentation fault
+srun: error: nid006377: tasks 896-903: Segmentation fault
+srun: error: nid006394: tasks 952-959: Segmentation fault
+srun: error: nid005813: tasks 216-223: Segmentation fault
+srun: error: nid005797: tasks 200-207: Segmentation fault
+srun: error: nid005954: tasks 568-575: Segmentation fault
+srun: error: nid005772: tasks 96-103: Segmentation fault
+srun: error: nid006272: tasks 704-711: Segmentation fault
+srun: error: nid005946: tasks 520-527: Segmentation fault
+srun: error: nid006259: tasks 648-655: Segmentation fault
+srun: error: nid006386: tasks 920-927: Segmentation fault
+srun: error: nid006348: tasks 784-791: Segmentation fault
+srun: error: nid006280: tasks 720-727: Segmentation fault
+srun: error: nid005832: tasks 296-303: Segmentation fault
+srun: error: nid005868: tasks 448-455: Segmentation fault
+srun: error: nid005842: tasks 360-367: Segmentation fault
+srun: error: nid005878: tasks 488-495: Segmentation fault
+srun: error: nid005747: tasks 16-23: Segmentation fault
+srun: error: nid005796: tasks 192-199: Segmentation fault
+srun: error: nid005849: tasks 392-399: Segmentation fault
+srun: error: nid006370: tasks 872-879: Segmentation fault
+
+  Data collection took 0.00132s.
+ Run 2:
+  Reshuffled node allocation.
+  0.00404s: started 0
+  0.00755s: started 1
+  18.32039s: awaited 0
+  18.3205s: killed waiting 1
+  18.32051s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746209.36] [Sun Mar 31 05:26:55 2024] [nid005744] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005744: task 0: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6746209.36
+srun: error: nid005787: tasks 168-175: Segmentation fault
+srun: error: nid006380: tasks 896-903: Segmentation fault
+srun: error: nid006355: tasks 808-815: Segmentation fault
+srun: error: nid006356: tasks 816-823: Segmentation fault
+srun: error: nid005759: tasks 56-63: Segmentation fault
+srun: error: nid005960: tasks 592-599: Segmentation fault
+srun: error: nid005782: tasks 144-151: Segmentation fault
+srun: error: nid006272: tasks 704-711: Segmentation fault
+srun: error: nid005747: tasks 16-23: Segmentation fault
+srun: error: nid005827: tasks 288-295: Segmentation fault
+srun: error: nid006354: tasks 800-807: Segmentation fault
+srun: error: nid005761: tasks 64-71: Segmentation fault
+srun: error: nid005768: tasks 96-103: Segmentation fault
+srun: error: nid006372: tasks 872-879: Segmentation fault
+srun: error: nid005944: tasks 520-527: Segmentation fault
+srun: error: nid006268: tasks 672-679: Segmentation fault
+srun: error: nid006280: tasks 752-759: Segmentation fault
+srun: error: nid006265: tasks 664-671: Segmentation fault
+srun: error: nid006382: tasks 912-919: Segmentation fault
+srun: error: nid005868: tasks 440-447: Segmentation fault
+srun: error: nid005861: tasks 424-431: Segmentation fault
+srun: error: nid005967: tasks 624-631: Segmentation fault
+srun: error: nid005946: tasks 536-543: Segmentation fault
+srun: error: nid006277: tasks 736-743: Segmentation fault
+srun: error: nid006364: tasks 840-847: Segmentation fault
+srun: error: nid005941: tasks 512-519: Segmentation fault
+srun: error: nid006259: tasks 640-647: Segmentation fault
+srun: error: nid006371: tasks 864-871: Segmentation fault
+srun: error: nid006269: tasks 680-687: Segmentation fault
+srun: error: nid005844: tasks 352-359: Segmentation fault
+srun: error: nid006263: tasks 648-655: Segmentation fault
+srun: error: nid005963: tasks 608-615: Segmentation fault
+srun: error: nid005793: tasks 184-191: Segmentation fault
+srun: error: nid005772: tasks 120-127: Segmentation fault
+srun: error: nid005959: tasks 584-591: Segmentation fault
+srun: error: nid006387: tasks 928-935: Segmentation fault
+srun: error: nid005831: tasks 312-319: Segmentation fault
+srun: error: nid005769: tasks 104-111: Segmentation fault
+srun: error: nid006274: tasks 712-719: Segmentation fault
+srun: error: nid006390: tasks 936-943: Segmentation fault
+srun: error: nid006343: tasks 776-783: Segmentation fault
+srun: error: nid006402: tasks 976-983: Segmentation fault
+srun: error: nid006284: tasks 768-775: Segmentation fault
+srun: error: nid006401: tasks 968-975: Segmentation fault
+srun: error: nid005830: tasks 304-311: Segmentation fault
+srun: error: nid005836: tasks 336-343: Segmentation fault
+srun: error: nid005746: tasks 8-15: Segmentation fault
+srun: error: nid005767: tasks 88-95: Segmentation fault
+srun: error: nid005950: tasks 552-559: Segmentation fault
+srun: error: nid005775: tasks 128-135: Segmentation fault
+srun: error: nid005949: tasks 544-551: Segmentation fault
+srun: error: nid005876: tasks 480-487: Segmentation fault
+srun: error: nid005817: tasks 224-231: Segmentation fault
+srun: error: nid005835: tasks 328-335: Segmentation fault
+srun: error: nid005762: tasks 72-79: Segmentation fault
+srun: error: nid005829: tasks 296-303: Segmentation fault
+srun: error: nid006281: tasks 760-767: Segmentation fault
+srun: error: nid006375: tasks 888-895: Segmentation fault
+srun: error: nid005855: tasks 392-399: Segmentation fault
+srun: error: nid006362: tasks 832-839: Segmentation fault
+srun: error: nid006271: tasks 696-703: Segmentation fault
+srun: error: nid006276: tasks 728-735: Segmentation fault
+srun: error: nid005853: tasks 376-383: Segmentation fault
+srun: error: nid006403: tasks 984-991: Segmentation fault
+srun: error: nid006258: tasks 632-639: Segmentation fault
+srun: error: nid005858: tasks 400-407: Segmentation fault
+srun: error: nid005824: tasks 264-271: Segmentation fault
+srun: error: nid006405: tasks 992-999: Segmentation fault
+srun: error: nid005786: tasks 160-167: Segmentation fault
+srun: error: nid005864: tasks 432-439: Segmentation fault
+srun: error: nid005952: tasks 560-567: Segmentation fault
+srun: error: nid006270: tasks 688-695: Segmentation fault
+srun: error: nid005854: tasks 384-391: Segmentation fault
+srun: error: nid005877: tasks 488-495: Segmentation fault
+srun: error: nid006397: tasks 952-959: Segmentation fault
+srun: error: nid005756: tasks 48-55: Segmentation fault
+srun: error: nid005821: tasks 248-255: Segmentation fault
+srun: error: nid005770: tasks 112-119: Segmentation fault
+srun: error: nid005961: tasks 600-607: Segmentation fault
+srun: error: nid006396: tasks 944-951: Segmentation fault
+srun: error: nid005956: tasks 568-575: Segmentation fault
+srun: error: nid005871: tasks 456-463: Segmentation fault
+srun: error: nid005837: tasks 344-351: Segmentation fault
+srun: error: nid005870: tasks 448-455: Segmentation fault
+srun: error: nid005880: tasks 504-511: Segmentation fault
+srun: error: nid006411: tasks 1016-1023: Segmentation fault
+srun: error: nid006381: tasks 904-911: Segmentation fault
+srun: error: nid006398: tasks 960-967: Segmentation fault
+srun: error: nid005873: tasks 464-471: Segmentation fault
+srun: error: nid005826: tasks 280-287: Segmentation fault
+srun: error: nid006275: tasks 720-727: Segmentation fault
+srun: error: nid005825: tasks 272-279: Segmentation fault
+srun: error: nid005965: tasks 616-623: Segmentation fault
+srun: error: nid005794: tasks 192-199: Segmentation fault
+srun: error: nid005834: tasks 320-327: Segmentation fault
+srun: error: nid005818: tasks 232-239: Segmentation fault
+srun: error: nid006279: tasks 744-751: Segmentation fault
+srun: error: nid005848: tasks 368-375: Segmentation fault
+srun: error: nid005874: tasks 472-479: Segmentation fault
+srun: error: nid006346: tasks 792-799: Segmentation fault
+srun: error: nid006365: tasks 848-855: Segmentation fault
+srun: error: nid005755: tasks 40-47: Segmentation fault
+srun: error: nid005819: tasks 240-247: Segmentation fault
+srun: error: nid006264: tasks 656-663: Segmentation fault
+srun: error: nid006373: tasks 880-887: Segmentation fault
+srun: error: nid005845: tasks 360-367: Segmentation fault
+srun: error: nid005795: tasks 200-207: Segmentation fault
+srun: error: nid006406: tasks 1000-1007: Segmentation fault
+srun: error: nid005859: tasks 408-415: Segmentation fault
+srun: error: nid005752: tasks 32-39: Segmentation fault
+srun: error: nid006344: tasks 784-791: Segmentation fault
+srun: error: nid005945: tasks 528-535: Segmentation fault
+srun: error: nid006360: tasks 824-831: Segmentation fault
+srun: error: nid005823: tasks 256-263: Segmentation fault
+srun: error: nid005749: tasks 24-31: Segmentation fault
+srun: error: nid005788: tasks 176-183: Segmentation fault
+srun: error: nid005778: tasks 136-143: Segmentation fault
+srun: error: nid006409: tasks 1008-1015: Segmentation fault
+srun: error: nid006386: tasks 920-927: Segmentation fault
+srun: error: nid006368: tasks 856-863: Segmentation fault
+srun: error: nid005816: tasks 216-223: Segmentation fault
+srun: error: nid005860: tasks 416-423: Segmentation fault
+srun: error: nid005878: tasks 496-503: Segmentation fault
+srun: error: nid005958: tasks 576-583: Segmentation fault
+srun: error: nid005766: tasks 80-87: Segmentation fault
+srun: error: nid005796: tasks 208-215: Segmentation fault
+srun: error: nid005744: tasks 1-7: Segmentation fault
+srun: error: nid005783: tasks 152-159: Segmentation fault
+
+  Data collection took 0.00089s.
+ Run 3:
+  Reshuffled node allocation.
+  0.00384s: started 0
+  0.00766s: started 1
+  18.32476s: awaited 0
+  18.32494s: killed waiting 1
+  18.32495s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746209.38] [Sun Mar 31 05:27:13 2024] [nid005744] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005855: tasks 392-399: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6746209.38
+srun: error: nid005749: tasks 24-31: Segmentation fault
+srun: error: nid006379: tasks 904-911: Segmentation fault
+srun: error: nid005788: tasks 184-191: Segmentation fault
+srun: error: nid005847: tasks 336-343: Segmentation fault
+srun: error: nid005782: tasks 160-167: Segmentation fault
+srun: error: nid005779: tasks 144-151: Segmentation fault
+srun: error: nid006258: tasks 608-615: Segmentation fault
+srun: error: nid005878: tasks 496-503: Segmentation fault
+srun: error: nid005967: tasks 600-607: Segmentation fault
+srun: error: nid006395: tasks 968-975: Segmentation fault
+srun: error: nid005873: tasks 472-479: Segmentation fault
+srun: error: nid005839: tasks 312-319: Segmentation fault
+srun: error: nid006404: tasks 1016-1023: Segmentation fault
+srun: error: nid005812: tasks 232-239: Segmentation fault
+srun: error: nid006387: tasks 936-943: Segmentation fault
+srun: error: nid005817: tasks 248-255: Segmentation fault
+srun: error: nid006400: tasks 1000-1007: Segmentation fault
+srun: error: nid005744: task 0: Exited with exit code 255
+srun: error: nid005787: tasks 176-183: Segmentation fault
+srun: error: nid006337: tasks 712-719: Segmentation fault
+srun: error: nid005784: tasks 168-175: Segmentation fault
+srun: error: nid006354: tasks 776-783: Segmentation fault
+srun: error: nid005845: tasks 328-335: Segmentation fault
+srun: error: nid006380: tasks 912-919: Segmentation fault
+srun: error: nid005956: tasks 560-567: Segmentation fault
+srun: error: nid006391: tasks 952-959: Segmentation fault
+srun: error: nid006343: tasks 744-751: Segmentation fault
+srun: error: nid005868: tasks 440-447: Segmentation fault
+srun: error: nid006260: tasks 616-623: Segmentation fault
+srun: error: nid005870: tasks 456-463: Segmentation fault
+srun: error: nid005791: tasks 200-207: Segmentation fault
+srun: error: nid005751: tasks 40-47: Segmentation fault
+srun: error: nid005829: tasks 288-295: Segmentation fault
+srun: error: nid005876: tasks 488-495: Segmentation fault
+srun: error: nid006359: tasks 808-815: Segmentation fault
+srun: error: nid006377: tasks 888-895: Segmentation fault
+srun: error: nid006373: tasks 872-879: Segmentation fault
+srun: error: nid005966: tasks 592-599: Segmentation fault
+srun: error: nid005744: tasks 1-7: Segmentation fault
+srun: error: nid006270: tasks 656-663: Segmentation fault
+srun: error: nid005825: tasks 280-287: Segmentation fault
+srun: error: nid006276: tasks 672-679: Segmentation fault
+srun: error: nid005965: tasks 584-591: Segmentation fault
+srun: error: nid005861: tasks 424-431: Segmentation fault
+srun: error: nid005752: tasks 48-55: Segmentation fault
+srun: error: nid005848: tasks 344-351: Segmentation fault
+srun: error: nid005856: tasks 400-407: Segmentation fault
+srun: error: nid005821: tasks 264-271: Segmentation fault
+srun: error: nid005948: tasks 536-543: Segmentation fault
+srun: error: nid005773: tasks 112-119: Segmentation fault
+srun: error: nid005789: tasks 192-199: Segmentation fault
+srun: error: nid006378: tasks 896-903: Segmentation fault
+srun: error: nid005849: tasks 352-359: Segmentation fault
+srun: error: nid005857: tasks 408-415: Segmentation fault
+srun: error: nid006262: tasks 632-639: Segmentation fault
+srun: error: nid006342: tasks 736-743: Segmentation fault
+srun: error: nid006366: tasks 840-847: Segmentation fault
+srun: error: nid006282: tasks 704-711: Segmentation fault
+srun: error: nid006273: tasks 664-671: Segmentation fault
+srun: error: nid005853: tasks 384-391: Segmentation fault
+srun: error: nid006277: tasks 680-687: Segmentation fault
+srun: error: nid005819: tasks 256-263: Segmentation fault
+srun: error: nid005947: tasks 528-535: Segmentation fault
+srun: error: nid005872: tasks 464-471: Segmentation fault
+srun: error: nid005792: tasks 208-215: Segmentation fault
+srun: error: nid005850: tasks 360-367: Segmentation fault
+srun: error: nid006388: tasks 944-951: Segmentation fault
+srun: error: nid006279: tasks 688-695: Segmentation fault
+srun: error: nid005875: tasks 480-487: Segmentation fault
+srun: error: nid005780: tasks 152-159: Segmentation fault
+srun: error: nid005852: tasks 376-383: Segmentation fault
+srun: error: nid006261: tasks 624-631: Segmentation fault
+srun: error: nid006382: tasks 920-927: Segmentation fault
+srun: error: nid005954: tasks 544-551: Segmentation fault
+srun: error: nid006394: tasks 960-967: Segmentation fault
+srun: error: nid005796: tasks 224-231: Segmentation fault
+srun: error: nid005767: tasks 88-95: Segmentation fault
+srun: error: nid005955: tasks 552-559: Segmentation fault
+srun: error: nid006399: tasks 992-999: Segmentation fault
+srun: error: nid005755: tasks 64-71: Segmentation fault
+srun: error: nid006268: tasks 648-655: Segmentation fault
+srun: error: nid005841: tasks 320-327: Segmentation fault
+srun: error: nid006365: tasks 832-839: Segmentation fault
+srun: error: nid005865: tasks 432-439: Segmentation fault
+srun: error: nid005823: tasks 272-279: Segmentation fault
+srun: error: nid006370: tasks 856-863: Segmentation fault
+srun: error: nid006340: tasks 720-727: Segmentation fault
+srun: error: nid005944: tasks 512-519: Segmentation fault
+srun: error: nid006376: tasks 880-887: Segmentation fault
+srun: error: nid006398: tasks 984-991: Segmentation fault
+srun: error: nid005858: tasks 416-423: Segmentation fault
+srun: error: nid005959: tasks 568-575: Segmentation fault
+srun: error: nid006350: tasks 768-775: Segmentation fault
+srun: error: nid005833: tasks 296-303: Segmentation fault
+srun: error: nid005869: tasks 448-455: Segmentation fault
+srun: error: nid006403: tasks 1008-1015: Segmentation fault
+srun: error: nid005776: tasks 128-135: Segmentation fault
+srun: error: nid006355: tasks 784-791: Segmentation fault
+srun: error: nid005774: tasks 120-127: Segmentation fault
+srun: error: nid006369: tasks 848-855: Segmentation fault
+srun: error: nid006349: tasks 760-767: Segmentation fault
+srun: error: nid005813: tasks 240-247: Segmentation fault
+srun: error: nid005851: tasks 368-375: Segmentation fault
+srun: error: nid005778: tasks 136-143: Segmentation fault
+srun: error: nid005763: tasks 72-79: Segmentation fault
+srun: error: nid005769: tasks 104-111: Segmentation fault
+srun: error: nid005946: tasks 520-527: Segmentation fault
+srun: error: nid006360: tasks 816-823: Segmentation fault
+srun: error: nid005750: tasks 32-39: Segmentation fault
+srun: error: nid006264: tasks 640-647: Segmentation fault
+srun: error: nid006371: tasks 864-871: Segmentation fault
+srun: error: nid005745: tasks 8-15: Segmentation fault
+srun: error: nid005747: tasks 16-23: Segmentation fault
+srun: error: nid005960: tasks 576-583: Segmentation fault
+srun: error: nid006357: tasks 800-807: Segmentation fault
+srun: error: nid006383: tasks 928-935: Segmentation fault
+srun: error: nid005768: tasks 96-103: Segmentation fault
+srun: error: nid006346: tasks 752-759: Segmentation fault
+srun: error: nid006397: tasks 976-983: Segmentation fault
+srun: error: nid006281: tasks 696-703: Segmentation fault
+srun: error: nid006341: tasks 728-735: Segmentation fault
+srun: error: nid005837: tasks 304-311: Segmentation fault
+srun: error: nid005943: tasks 504-511: Segmentation fault
+srun: error: nid005754: tasks 56-63: Segmentation fault
+srun: error: nid005793: tasks 216-223: Segmentation fault
+srun: error: nid005766: tasks 80-87: Segmentation fault
+srun: error: nid006356: tasks 792-799: Segmentation fault
+srun: error: nid006362: tasks 824-831: Segmentation fault
+
+  Data collection took 0.00098s.
+ Run 4:
+  Reshuffled node allocation.
+  0.00352s: started 0
+  0.00717s: started 1
+  17.96239s: awaited 0
+  17.9625s: killed waiting 1
+  17.96251s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746209.40] [Sun Mar 31 05:27:32 2024] [nid005744] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005744: task 0: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=6746209.40
+srun: error: nid005793: tasks 168-175: Segmentation fault
+srun: error: nid006282: tasks 728-735: Segmentation fault
+srun: error: nid006356: tasks 832-839: Segmentation fault
+srun: error: nid006372: tasks 888-895: Segmentation fault
+srun: error: nid005949: tasks 512-519: Segmentation fault
+srun: error: nid005797: tasks 184-191: Segmentation fault
+srun: error: nid006275: tasks 696-703: Segmentation fault
+srun: error: nid006374: tasks 896-903: Segmentation fault
+srun: error: nid006269: tasks 664-671: Segmentation fault
+srun: error: nid005876: tasks 480-487: Segmentation fault
+srun: error: nid006263: tasks 632-639: Segmentation fault
+srun: error: nid006284: tasks 736-743: Segmentation fault
+srun: error: nid005820: tasks 216-223: Segmentation fault
+srun: error: nid005866: tasks 416-423: Segmentation fault
+srun: error: nid006362: tasks 856-863: Segmentation fault
+srun: error: nid006266: tasks 648-655: Segmentation fault
+srun: error: nid006399: tasks 992-999: Segmentation fault
+srun: error: nid006404: tasks 1000-1007: Segmentation fault
+srun: error: nid005857: tasks 360-367: Segmentation fault
+srun: error: nid005968: tasks 608-615: Segmentation fault
+srun: error: nid005957: tasks 544-551: Segmentation fault
+srun: error: nid005751: tasks 24-31: Segmentation fault
+srun: error: nid006377: tasks 920-927: Segmentation fault
+srun: error: nid006260: tasks 616-623: Segmentation fault
+srun: error: nid005841: tasks 288-295: Segmentation fault
+srun: error: nid005813: tasks 200-207: Segmentation fault
+srun: error: nid005850: tasks 328-335: Segmentation fault
+srun: error: nid006280: tasks 720-727: Segmentation fault
+srun: error: nid006390: tasks 968-975: Segmentation fault
+srun: error: nid005840: tasks 280-287: Segmentation fault
+srun: error: nid005845: tasks 312-319: Segmentation fault
+srun: error: nid005834: tasks 248-255: Segmentation fault
+srun: error: nid005757: tasks 40-47: Segmentation fault
+srun: error: nid006363: tasks 864-871: Segmentation fault
+srun: error: nid005821: tasks 224-231: Segmentation fault
+srun: error: nid006278: tasks 712-719: Segmentation fault
+srun: error: nid006380: tasks 936-943: Segmentation fault
+srun: error: nid005880: tasks 488-495: Segmentation fault
+srun: error: nid005872: tasks 448-455: Segmentation fault
+srun: error: nid005873: tasks 456-463: Segmentation fault
+srun: error: nid005862: tasks 392-399: Segmentation fault
+srun: error: nid005776: tasks 112-119: Segmentation fault
+srun: error: nid005966: tasks 600-607: Segmentation fault
+srun: error: nid005956: tasks 536-543: Segmentation fault
+srun: error: nid005747: tasks 16-23: Segmentation fault
+srun: error: nid006407: tasks 1008-1015: Segmentation fault
+srun: error: nid005754: tasks 32-39: Segmentation fault
+srun: error: nid005785: tasks 136-143: Segmentation fault
+srun: error: nid006270: tasks 672-679: Segmentation fault
+srun: error: nid005843: tasks 296-303: Segmentation fault
+srun: error: nid005767: tasks 64-71: Segmentation fault
+srun: error: nid006334: tasks 744-751: Segmentation fault
+srun: error: nid005964: tasks 584-591: Segmentation fault
+srun: error: nid005770: tasks 88-95: Segmentation fault
+srun: error: nid006358: tasks 840-847: Segmentation fault
+srun: error: nid006336: tasks 752-759: Segmentation fault
+srun: error: nid005942: tasks 496-503: Segmentation fault
+srun: error: nid005812: tasks 192-199: Segmentation fault
+srun: error: nid005838: tasks 272-279: Segmentation fault
+srun: error: nid005844: tasks 304-311: Segmentation fault
+srun: error: nid005837: tasks 264-271: Segmentation fault
+srun: error: nid006360: tasks 848-855: Segmentation fault
+srun: error: nid005835: tasks 256-263: Segmentation fault
+srun: error: nid006346: tasks 792-799: Segmentation fault
+srun: error: nid006368: tasks 872-879: Segmentation fault
+srun: error: nid006344: tasks 784-791: Segmentation fault
+srun: error: nid005864: tasks 408-415: Segmentation fault
+srun: error: nid005874: tasks 464-471: Segmentation fault
+srun: error: nid005863: tasks 400-407: Segmentation fault
+srun: error: nid005772: tasks 96-103: Segmentation fault
+srun: error: nid006276: tasks 704-711: Segmentation fault
+srun: error: nid006349: tasks 808-815: Segmentation fault
+srun: error: nid005786: tasks 144-151: Segmentation fault
+srun: error: nid006383: tasks 944-951: Segmentation fault
+srun: error: nid005856: tasks 352-359: Segmentation fault
+srun: error: nid005861: tasks 384-391: Segmentation fault
+srun: error: nid005783: tasks 128-135: Segmentation fault
+srun: error: nid006273: tasks 688-695: Segmentation fault
+srun: error: nid006262: tasks 624-631: Segmentation fault
+srun: error: nid005773: tasks 104-111: Segmentation fault
+srun: error: nid005962: tasks 568-575: Segmentation fault
+srun: error: nid005963: tasks 576-583: Segmentation fault
+srun: error: nid005769: tasks 80-87: Segmentation fault
+srun: error: nid005819: tasks 208-215: Segmentation fault
+srun: error: nid005782: tasks 120-127: Segmentation fault
+srun: error: nid005855: tasks 344-351: Segmentation fault
+srun: error: nid006385: tasks 952-959: Segmentation fault
+srun: error: nid006396: tasks 984-991: Segmentation fault
+srun: error: nid006267: tasks 656-663: Segmentation fault
+srun: error: nid006264: tasks 640-647: Segmentation fault
+srun: error: nid006376: tasks 912-919: Segmentation fault
+srun: error: nid005858: tasks 368-375: Segmentation fault
+srun: error: nid005822: tasks 232-239: Segmentation fault
+srun: error: nid006353: tasks 816-823: Segmentation fault
+srun: error: nid005796: tasks 176-183: Segmentation fault
+srun: error: nid006394: tasks 976-983: Segmentation fault
+srun: error: nid006389: tasks 960-967: Segmentation fault
+srun: error: nid006347: tasks 800-807: Segmentation fault
+srun: error: nid005953: tasks 520-527: Segmentation fault
+srun: error: nid006341: tasks 768-775: Segmentation fault
+srun: error: nid006410: tasks 1016-1023: Segmentation fault
+srun: error: nid006378: tasks 928-935: Segmentation fault
+srun: error: nid005946: tasks 504-511: Segmentation fault
+srun: error: nid005871: tasks 440-447: Segmentation fault
+srun: error: nid006375: tasks 904-911: Segmentation fault
+srun: error: nid005958: tasks 552-559: Segmentation fault
+srun: error: nid006343: tasks 776-783: Segmentation fault
+srun: error: nid005965: tasks 592-599: Segmentation fault
+srun: error: nid005768: tasks 72-79: Segmentation fault
+srun: error: nid006272: tasks 680-687: Segmentation fault
+srun: error: nid006369: tasks 880-887: Segmentation fault
+srun: error: nid005853: tasks 336-343: Segmentation fault
+srun: error: nid005787: tasks 152-159: Segmentation fault
+srun: error: nid005875: tasks 472-479: Segmentation fault
+srun: error: nid005954: tasks 528-535: Segmentation fault
+srun: error: nid005849: tasks 320-327: Segmentation fault
+srun: error: nid005789: tasks 160-167: Segmentation fault
+srun: error: nid005760: tasks 48-55: Segmentation fault
+srun: error: nid006354: tasks 824-831: Segmentation fault
+srun: error: nid005867: tasks 424-431: Segmentation fault
+srun: error: nid005870: tasks 432-439: Segmentation fault
+srun: error: nid005766: tasks 56-63: Segmentation fault
+srun: error: nid005859: tasks 376-383: Segmentation fault
+srun: error: nid005828: tasks 240-247: Segmentation fault
+srun: error: nid005959: tasks 560-567: Segmentation fault
+srun: error: nid006339: tasks 760-767: Segmentation fault
+srun: error: nid005744: tasks 1-7: Segmentation fault
+srun: error: nid005745: tasks 8-15: Segmentation fault
+
+  Data collection took 0.00087s.
+ Run 5:
+  Reshuffled node allocation.
+  0.00368s: started 0
+  0.00745s: started 1
+  18.83831s: awaited 0
+  18.83844s: killed waiting 1
+  18.83845s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746209.41] [Sun Mar 31 05:27:50 2024] [nid005744] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid006385: tasks 904-911: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6746209.41
+srun: error: nid005763: tasks 72-79: Segmentation fault
+srun: error: nid005766: tasks 88-95: Segmentation fault
+srun: error: nid005873: tasks 432-439: Segmentation fault
+srun: error: nid006404: tasks 976-983: Segmentation fault
+srun: error: nid005769: tasks 96-103: Segmentation fault
+srun: error: nid006263: tasks 608-615: Segmentation fault
+srun: error: nid005959: tasks 544-551: Segmentation fault
+srun: error: nid005867: tasks 384-391: Segmentation fault
+srun: error: nid005788: tasks 176-183: Segmentation fault
+srun: error: nid006358: tasks 808-815: Segmentation fault
+srun: error: nid005960: tasks 552-559: Segmentation fault
+srun: error: nid005817: tasks 224-231: Segmentation fault
+srun: error: nid005952: tasks 520-527: Segmentation fault
+srun: error: nid006270: tasks 648-655: Segmentation fault
+srun: error: nid006411: tasks 1016-1023: Segmentation fault
+srun: error: nid005872: tasks 424-431: Segmentation fault
+srun: error: nid005953: tasks 528-535: Segmentation fault
+srun: error: nid005827: tasks 272-279: Segmentation fault
+srun: error: nid006266: tasks 616-623: Segmentation fault
+srun: error: nid005831: tasks 288-295: Segmentation fault
+srun: error: nid005745: tasks 8-15: Segmentation fault
+srun: error: nid006339: tasks 736-743: Segmentation fault
+srun: error: nid005787: tasks 168-175: Segmentation fault
+srun: error: nid005860: tasks 368-375: Segmentation fault
+srun: error: nid006393: tasks 928-935: Segmentation fault
+srun: error: nid005855: tasks 360-367: Segmentation fault
+srun: error: nid006345: tasks 752-759: Segmentation fault
+srun: error: nid006364: tasks 832-839: Segmentation fault
+srun: error: nid005744: task 0: Exited with exit code 255
+srun: error: nid005793: tasks 200-207: Segmentation fault
+srun: error: nid005844: tasks 328-335: Segmentation fault
+srun: error: nid005826: tasks 264-271: Segmentation fault
+srun: error: nid005967: tasks 584-591: Segmentation fault
+srun: error: nid006284: tasks 712-719: Segmentation fault
+srun: error: nid006341: tasks 744-751: Segmentation fault
+srun: error: nid005771: tasks 104-111: Segmentation fault
+srun: error: nid005940: tasks 448-455: Segmentation fault
+srun: error: nid005836: tasks 312-319: Segmentation fault
+srun: error: nid005868: tasks 392-399: Segmentation fault
+srun: error: nid005818: tasks 232-239: Segmentation fault
+srun: error: nid005777: tasks 120-127: Segmentation fault
+srun: error: nid006378: tasks 872-879: Segmentation fault
+srun: error: nid005797: tasks 208-215: Segmentation fault
+srun: error: nid006405: tasks 984-991: Segmentation fault
+srun: error: nid006279: tasks 680-687: Segmentation fault
+srun: error: nid005944: tasks 472-479: Segmentation fault
+srun: error: nid006282: tasks 696-703: Segmentation fault
+srun: error: nid005764: tasks 80-87: Segmentation fault
+srun: error: nid005830: tasks 280-287: Segmentation fault
+srun: error: nid006267: tasks 624-631: Segmentation fault
+srun: error: nid006372: tasks 848-855: Segmentation fault
+srun: error: nid006379: tasks 880-887: Segmentation fault
+srun: error: nid005941: tasks 456-463: Segmentation fault
+srun: error: nid005823: tasks 248-255: Segmentation fault
+srun: error: nid005756: tasks 40-47: Segmentation fault
+srun: error: nid005783: tasks 144-151: Segmentation fault
+srun: error: nid006283: tasks 704-711: Segmentation fault
+srun: error: nid006373: tasks 856-863: Segmentation fault
+srun: error: nid006386: tasks 912-919: Segmentation fault
+srun: error: nid006396: tasks 944-951: Segmentation fault
+srun: error: nid006397: tasks 952-959: Segmentation fault
+srun: error: nid006353: tasks 792-799: Segmentation fault
+srun: error: nid006403: tasks 968-975: Segmentation fault
+srun: error: nid006269: tasks 640-647: Segmentation fault
+srun: error: nid006399: tasks 960-967: Segmentation fault
+srun: error: nid005852: tasks 344-351: Segmentation fault
+srun: error: nid005762: tasks 64-71: Segmentation fault
+srun: error: nid006381: tasks 888-895: Segmentation fault
+srun: error: nid005760: tasks 56-63: Segmentation fault
+srun: error: nid005785: tasks 160-167: Segmentation fault
+srun: error: nid006394: tasks 936-943: Segmentation fault
+srun: error: nid006408: tasks 992-999: Segmentation fault
+srun: error: nid005779: tasks 136-143: Segmentation fault
+srun: error: nid005752: tasks 24-31: Segmentation fault
+srun: error: nid005942: tasks 464-471: Segmentation fault
+srun: error: nid005947: tasks 496-503: Segmentation fault
+srun: error: nid005945: tasks 480-487: Segmentation fault
+srun: error: nid005871: tasks 416-423: Segmentation fault
+srun: error: nid006351: tasks 784-791: Segmentation fault
+srun: error: nid005966: tasks 576-583: Segmentation fault
+srun: error: nid005755: tasks 32-39: Segmentation fault
+srun: error: nid005864: tasks 376-383: Segmentation fault
+srun: error: nid006366: tasks 840-847: Segmentation fault
+srun: error: nid005961: tasks 560-567: Segmentation fault
+srun: error: nid006280: tasks 688-695: Segmentation fault
+srun: error: nid006276: tasks 672-679: Segmentation fault
+srun: error: nid005874: tasks 440-447: Segmentation fault
+srun: error: nid005869: tasks 400-407: Segmentation fault
+srun: error: nid005948: tasks 504-511: Segmentation fault
+srun: error: nid005838: tasks 320-327: Segmentation fault
+srun: error: nid005824: tasks 256-263: Segmentation fault
+srun: error: nid005819: tasks 240-247: Segmentation fault
+srun: error: nid005949: tasks 512-519: Segmentation fault
+srun: error: nid005854: tasks 352-359: Segmentation fault
+srun: error: nid006410: tasks 1008-1015: Segmentation fault
+srun: error: nid006362: tasks 824-831: Segmentation fault
+srun: error: nid005775: tasks 112-119: Segmentation fault
+srun: error: nid005813: tasks 216-223: Segmentation fault
+srun: error: nid005778: tasks 128-135: Segmentation fault
+srun: error: nid006261: tasks 592-599: Segmentation fault
+srun: error: nid005870: tasks 408-415: Segmentation fault
+srun: error: nid006337: tasks 728-735: Segmentation fault
+srun: error: nid005746: tasks 16-23: Segmentation fault
+srun: error: nid006262: tasks 600-607: Segmentation fault
+srun: error: nid006350: tasks 776-783: Segmentation fault
+srun: error: nid006275: tasks 664-671: Segmentation fault
+srun: error: nid006334: tasks 720-727: Segmentation fault
+srun: error: nid005832: tasks 296-303: Segmentation fault
+srun: error: nid006409: tasks 1000-1007: Segmentation fault
+srun: error: nid005846: tasks 336-343: Segmentation fault
+srun: error: nid006356: tasks 800-807: Segmentation fault
+srun: error: nid005834: tasks 304-311: Segmentation fault
+srun: error: nid006348: tasks 768-775: Segmentation fault
+srun: error: nid006383: tasks 896-903: Segmentation fault
+srun: error: nid005789: tasks 184-191: Segmentation fault
+srun: error: nid005791: tasks 192-199: Segmentation fault
+srun: error: nid005958: tasks 536-543: Segmentation fault
+srun: error: nid006346: tasks 760-767: Segmentation fault
+srun: error: nid006374: tasks 864-871: Segmentation fault
+srun: error: nid006274: tasks 656-663: Segmentation fault
+srun: error: nid006361: tasks 816-823: Segmentation fault
+srun: error: nid006268: tasks 632-639: Segmentation fault
+srun: error: nid005744: tasks 1-7: Segmentation fault
+srun: error: nid005946: tasks 488-495: Segmentation fault
+srun: error: nid006390: tasks 920-927: Segmentation fault
+srun: error: nid005759: tasks 48-55: Segmentation fault
+srun: error: nid005962: tasks 568-575: Segmentation fault
+srun: error: nid005784: tasks 152-159: Segmentation fault
+
+  Data collection took 0.00092s.
+ Run 6:
+  Reshuffled node allocation.
+  0.00358s: started 0
+  0.00748s: started 1
+  18.93751s: awaited 0
+  18.93765s: killed waiting 1
+  18.93766s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746209.44] [Sun Mar 31 05:28:09 2024] [nid005745] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid006281: tasks 680-687: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6746209.44
+srun: error: nid006345: tasks 744-751: Segmentation fault
+srun: error: nid005843: tasks 296-303: Segmentation fault
+srun: error: nid005818: tasks 192-199: Segmentation fault
+srun: error: nid006346: tasks 752-759: Segmentation fault
+srun: error: nid006410: tasks 1008-1015: Segmentation fault
+srun: error: nid005813: tasks 176-183: Segmentation fault
+srun: error: nid005849: tasks 328-335: Segmentation fault
+srun: error: nid005865: tasks 384-391: Segmentation fault
+srun: error: nid005858: tasks 344-351: Segmentation fault
+srun: error: nid005870: tasks 400-407: Segmentation fault
+srun: error: nid005942: tasks 456-463: Segmentation fault
+srun: error: nid006401: tasks 968-975: Segmentation fault
+srun: error: nid005965: tasks 568-575: Segmentation fault
+srun: error: nid006369: tasks 816-823: Segmentation fault
+srun: error: nid006264: tasks 608-615: Segmentation fault
+srun: error: nid006283: tasks 688-695: Segmentation fault
+srun: error: nid005785: tasks 144-151: Segmentation fault
+srun: error: nid006380: tasks 872-879: Segmentation fault
+srun: error: nid005755: tasks 40-47: Segmentation fault
+srun: error: nid006397: tasks 936-943: Segmentation fault
+srun: error: nid005872: tasks 416-423: Segmentation fault
+srun: error: nid006271: tasks 640-647: Segmentation fault
+srun: error: nid005841: tasks 288-295: Segmentation fault
+srun: error: nid005746: tasks 8-15: Segmentation fault
+srun: error: nid006409: tasks 1000-1007: Segmentation fault
+srun: error: nid006361: tasks 792-799: Segmentation fault
+srun: error: nid005771: tasks 104-111: Segmentation fault
+srun: error: nid006344: tasks 736-743: Segmentation fault
+srun: error: nid005764: tasks 72-79: Segmentation fault
+srun: error: nid005861: tasks 368-375: Segmentation fault
+srun: error: nid005948: tasks 496-503: Segmentation fault
+srun: error: nid005745: task 0: Exited with exit code 255
+srun: error: nid005753: tasks 32-39: Segmentation fault
+srun: error: nid005953: tasks 520-527: Segmentation fault
+srun: error: nid006405: tasks 984-991: Segmentation fault
+srun: error: nid006411: tasks 1016-1023: Segmentation fault
+srun: error: nid005793: tasks 160-167: Segmentation fault
+srun: error: nid005838: tasks 264-271: Segmentation fault
+srun: error: nid005821: tasks 200-207: Segmentation fault
+srun: error: nid005776: tasks 112-119: Segmentation fault
+srun: error: nid006261: tasks 600-607: Segmentation fault
+srun: error: nid005964: tasks 560-567: Segmentation fault
+srun: error: nid005864: tasks 376-383: Segmentation fault
+srun: error: nid006341: tasks 720-727: Segmentation fault
+srun: error: nid005958: tasks 536-543: Segmentation fault
+srun: error: nid005844: tasks 304-311: Segmentation fault
+srun: error: nid006280: tasks 672-679: Segmentation fault
+srun: error: nid005759: tasks 56-63: Segmentation fault
+srun: error: nid006374: tasks 856-863: Segmentation fault
+srun: error: nid006335: tasks 696-703: Segmentation fault
+srun: error: nid006338: tasks 704-711: Segmentation fault
+srun: error: nid005859: tasks 352-359: Segmentation fault
+srun: error: nid005860: tasks 360-367: Segmentation fault
+srun: error: nid006373: tasks 848-855: Segmentation fault
+srun: error: nid005784: tasks 136-143: Segmentation fault
+srun: error: nid005946: tasks 480-487: Segmentation fault
+srun: error: nid006386: tasks 896-903: Segmentation fault
+srun: error: nid006390: tasks 904-911: Segmentation fault
+srun: error: nid006354: tasks 768-775: Segmentation fault
+srun: error: nid006395: tasks 920-927: Segmentation fault
+srun: error: nid005822: tasks 208-215: Segmentation fault
+srun: error: nid006372: tasks 840-847: Segmentation fault
+srun: error: nid006355: tasks 776-783: Segmentation fault
+srun: error: nid005873: tasks 424-431: Segmentation fault
+srun: error: nid005967: tasks 576-583: Segmentation fault
+srun: error: nid005836: tasks 248-255: Segmentation fault
+srun: error: nid005830: tasks 232-239: Segmentation fault
+srun: error: nid006400: tasks 960-967: Segmentation fault
+srun: error: nid005766: tasks 80-87: Segmentation fault
+srun: error: nid006278: tasks 664-671: Segmentation fault
+srun: error: nid005758: tasks 48-55: Segmentation fault
+srun: error: nid005828: tasks 224-231: Segmentation fault
+srun: error: nid006382: tasks 880-887: Segmentation fault
+srun: error: nid005751: tasks 24-31: Segmentation fault
+srun: error: nid005786: tasks 152-159: Segmentation fault
+srun: error: nid005961: tasks 544-551: Segmentation fault
+srun: error: nid005796: tasks 168-175: Segmentation fault
+srun: error: nid006342: tasks 728-735: Segmentation fault
+srun: error: nid005762: tasks 64-71: Segmentation fault
+srun: error: nid006384: tasks 888-895: Segmentation fault
+srun: error: nid005943: tasks 464-471: Segmentation fault
+srun: error: nid006402: tasks 976-983: Segmentation fault
+srun: error: nid005834: tasks 240-247: Segmentation fault
+srun: error: nid006370: tasks 824-831: Segmentation fault
+srun: error: nid006396: tasks 928-935: Segmentation fault
+srun: error: nid005827: tasks 216-223: Segmentation fault
+srun: error: nid005848: tasks 320-327: Segmentation fault
+srun: error: nid006356: tasks 784-791: Segmentation fault
+srun: error: nid006377: tasks 864-871: Segmentation fault
+srun: error: nid006268: tasks 632-639: Segmentation fault
+srun: error: nid005814: tasks 184-191: Segmentation fault
+srun: error: nid005845: tasks 312-319: Segmentation fault
+srun: error: nid005880: tasks 440-447: Segmentation fault
+srun: error: nid005837: tasks 256-263: Segmentation fault
+srun: error: nid005781: tasks 120-127: Segmentation fault
+srun: error: nid005947: tasks 488-495: Segmentation fault
+srun: error: nid006265: tasks 616-623: Segmentation fault
+srun: error: nid005745: tasks 1-7: Segmentation fault
+srun: error: nid006406: tasks 992-999: Segmentation fault
+srun: error: nid005769: tasks 88-95: Segmentation fault
+srun: error: nid006266: tasks 624-631: Segmentation fault
+srun: error: nid006398: tasks 944-951: Segmentation fault
+srun: error: nid006339: tasks 712-719: Segmentation fault
+srun: error: nid005770: tasks 96-103: Segmentation fault
+srun: error: nid005783: tasks 128-135: Segmentation fault
+srun: error: nid006260: tasks 592-599: Segmentation fault
+srun: error: nid006273: tasks 648-655: Segmentation fault
+srun: error: nid005839: tasks 272-279: Segmentation fault
+srun: error: nid005840: tasks 280-287: Segmentation fault
+srun: error: nid005871: tasks 408-415: Segmentation fault
+srun: error: nid006365: tasks 800-807: Segmentation fault
+srun: error: nid006347: tasks 760-767: Segmentation fault
+srun: error: nid005853: tasks 336-343: Segmentation fault
+srun: error: nid005869: tasks 392-399: Segmentation fault
+srun: error: nid005940: tasks 448-455: Segmentation fault
+srun: error: nid006391: tasks 912-919: Segmentation fault
+srun: error: nid006274: tasks 656-663: Segmentation fault
+srun: error: nid006399: tasks 952-959: Segmentation fault
+srun: error: nid005876: tasks 432-439: Segmentation fault
+srun: error: nid005968: tasks 584-591: Segmentation fault
+srun: error: nid006366: tasks 808-815: Segmentation fault
+srun: error: nid005949: tasks 504-511: Segmentation fault
+srun: error: nid005952: tasks 512-519: Segmentation fault
+srun: error: nid006371: tasks 832-839: Segmentation fault
+srun: error: nid005962: tasks 552-559: Segmentation fault
+srun: error: nid005747: tasks 16-23: Segmentation fault
+srun: error: nid005957: tasks 528-535: Segmentation fault
+srun: error: nid005945: tasks 472-479: Segmentation fault
+
+  Data collection took 0.00105s.
+ Run 7:
+  Reshuffled node allocation.
+  0.00424s: started 0
+  0.00822s: started 1
+  18.07513s: awaited 0
+  18.07524s: killed waiting 1
+  18.07525s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746209.46] [Sun Mar 31 05:28:29 2024] [nid005744] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005870: tasks 424-431: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6746209.46
+srun: error: nid005857: tasks 368-375: Segmentation fault
+srun: error: nid006369: tasks 848-855: Segmentation fault
+srun: error: nid005778: tasks 128-135: Segmentation fault
+srun: error: nid006278: tasks 688-695: Segmentation fault
+srun: error: nid005864: tasks 384-391: Segmentation fault
+srun: error: nid005756: tasks 32-39: Segmentation fault
+srun: error: nid005766: tasks 88-95: Segmentation fault
+srun: error: nid005763: tasks 72-79: Segmentation fault
+srun: error: nid005955: tasks 520-527: Segmentation fault
+srun: error: nid005873: tasks 432-439: Segmentation fault
+srun: error: nid006276: tasks 680-687: Segmentation fault
+srun: error: nid005762: tasks 64-71: Segmentation fault
+srun: error: nid006334: tasks 720-727: Segmentation fault
+srun: error: nid006282: tasks 704-711: Segmentation fault
+srun: error: nid005963: tasks 568-575: Segmentation fault
+srun: error: nid005744: task 0: Exited with exit code 255
+srun: error: nid005830: tasks 248-255: Segmentation fault
+srun: error: nid005788: tasks 160-167: Segmentation fault
+srun: error: nid005961: tasks 552-559: Segmentation fault
+srun: error: nid006375: tasks 872-879: Segmentation fault
+srun: error: nid006262: tasks 616-623: Segmentation fault
+srun: error: nid006368: tasks 840-847: Segmentation fault
+srun: error: nid005820: tasks 224-231: Segmentation fault
+srun: error: nid006405: tasks 1000-1007: Segmentation fault
+srun: error: nid005856: tasks 360-367: Segmentation fault
+srun: error: nid006341: tasks 752-759: Segmentation fault
+srun: error: nid005950: tasks 496-503: Segmentation fault
+srun: error: nid006374: tasks 864-871: Segmentation fault
+srun: error: nid006393: tasks 944-951: Segmentation fault
+srun: error: nid005835: tasks 280-287: Segmentation fault
+srun: error: nid005957: tasks 528-535: Segmentation fault
+srun: error: nid005942: tasks 464-471: Segmentation fault
+srun: error: nid005858: tasks 376-383: Segmentation fault
+srun: error: nid005836: tasks 288-295: Segmentation fault
+srun: error: nid005962: tasks 560-567: Segmentation fault
+srun: error: nid005840: tasks 304-311: Segmentation fault
+srun: error: nid005947: tasks 480-487: Segmentation fault
+srun: error: nid005793: tasks 176-183: Segmentation fault
+srun: error: nid006376: tasks 880-887: Segmentation fault
+srun: error: nid005964: tasks 576-583: Segmentation fault
+srun: error: nid005760: tasks 56-63: Segmentation fault
+srun: error: nid005849: tasks 328-335: Segmentation fault
+srun: error: nid006258: tasks 600-607: Segmentation fault
+srun: error: nid005954: tasks 512-519: Segmentation fault
+srun: error: nid005855: tasks 352-359: Segmentation fault
+srun: error: nid005755: tasks 24-31: Segmentation fault
+srun: error: nid006335: tasks 728-735: Segmentation fault
+srun: error: nid005878: tasks 448-455: Segmentation fault
+srun: error: nid006279: tasks 696-703: Segmentation fault
+srun: error: nid005876: tasks 440-447: Segmentation fault
+srun: error: nid005817: tasks 208-215: Segmentation fault
+srun: error: nid006379: tasks 888-895: Segmentation fault
+srun: error: nid006353: tasks 800-807: Segmentation fault
+srun: error: nid006384: tasks 904-911: Segmentation fault
+srun: error: nid005828: tasks 240-247: Segmentation fault
+srun: error: nid005869: tasks 416-423: Segmentation fault
+srun: error: nid005747: tasks 16-23: Segmentation fault
+srun: error: nid006266: tasks 624-631: Segmentation fault
+srun: error: nid005784: tasks 152-159: Segmentation fault
+srun: error: nid005960: tasks 544-551: Segmentation fault
+srun: error: nid005814: tasks 192-199: Segmentation fault
+srun: error: nid006380: tasks 896-903: Segmentation fault
+srun: error: nid005831: tasks 256-263: Segmentation fault
+srun: error: nid006355: tasks 816-823: Segmentation fault
+srun: error: nid005967: tasks 584-591: Segmentation fault
+srun: error: nid005813: tasks 184-191: Segmentation fault
+srun: error: nid005951: tasks 504-511: Segmentation fault
+srun: error: nid006268: tasks 632-639: Segmentation fault
+srun: error: nid006345: tasks 760-767: Segmentation fault
+srun: error: nid006395: tasks 960-967: Segmentation fault
+srun: error: nid006259: tasks 608-615: Segmentation fault
+srun: error: nid005866: tasks 400-407: Segmentation fault
+srun: error: nid006385: tasks 912-919: Segmentation fault
+srun: error: nid005848: tasks 320-327: Segmentation fault
+srun: error: nid006336: tasks 736-743: Segmentation fault
+srun: error: nid005772: tasks 120-127: Segmentation fault
+srun: error: nid006386: tasks 920-927: Segmentation fault
+srun: error: nid006269: tasks 640-647: Segmentation fault
+srun: error: nid005759: tasks 48-55: Segmentation fault
+srun: error: nid005854: tasks 344-351: Segmentation fault
+srun: error: nid005945: tasks 472-479: Segmentation fault
+srun: error: nid006352: tasks 792-799: Segmentation fault
+srun: error: nid006272: tasks 656-663: Segmentation fault
+srun: error: nid006351: tasks 784-791: Segmentation fault
+srun: error: nid005781: tasks 144-151: Segmentation fault
+srun: error: nid006350: tasks 776-783: Segmentation fault
+srun: error: nid005779: tasks 136-143: Segmentation fault
+srun: error: nid006271: tasks 648-655: Segmentation fault
+srun: error: nid006411: tasks 1016-1023: Segmentation fault
+srun: error: nid005968: tasks 592-599: Segmentation fault
+srun: error: nid005833: tasks 264-271: Segmentation fault
+srun: error: nid005745: tasks 8-15: Segmentation fault
+srun: error: nid006398: tasks 976-983: Segmentation fault
+srun: error: nid006275: tasks 672-679: Segmentation fault
+srun: error: nid005949: tasks 488-495: Segmentation fault
+srun: error: nid005757: tasks 40-47: Segmentation fault
+srun: error: nid005744: tasks 1-7: Segmentation fault
+srun: error: nid005769: tasks 104-111: Segmentation fault
+srun: error: nid005823: tasks 232-239: Segmentation fault
+srun: error: nid005819: tasks 216-223: Segmentation fault
+srun: error: nid005816: tasks 200-207: Segmentation fault
+srun: error: nid006357: tasks 832-839: Segmentation fault
+srun: error: nid005853: tasks 336-343: Segmentation fault
+srun: error: nid005865: tasks 392-399: Segmentation fault
+srun: error: nid006274: tasks 664-671: Segmentation fault
+srun: error: nid006410: tasks 1008-1015: Segmentation fault
+srun: error: nid005958: tasks 536-543: Segmentation fault
+srun: error: nid006394: tasks 952-959: Segmentation fault
+srun: error: nid005768: tasks 96-103: Segmentation fault
+srun: error: nid006403: tasks 992-999: Segmentation fault
+srun: error: nid006390: tasks 928-935: Segmentation fault
+srun: error: nid005880: tasks 456-463: Segmentation fault
+srun: error: nid005834: tasks 272-279: Segmentation fault
+srun: error: nid006371: tasks 856-863: Segmentation fault
+srun: error: nid005867: tasks 408-415: Segmentation fault
+srun: error: nid006356: tasks 824-831: Segmentation fault
+srun: error: nid006284: tasks 712-719: Segmentation fault
+srun: error: nid006339: tasks 744-751: Segmentation fault
+srun: error: nid005764: tasks 80-87: Segmentation fault
+srun: error: nid006354: tasks 808-815: Segmentation fault
+srun: error: nid005844: tasks 312-319: Segmentation fault
+srun: error: nid006397: tasks 968-975: Segmentation fault
+srun: error: nid005771: tasks 112-119: Segmentation fault
+srun: error: nid006391: tasks 936-943: Segmentation fault
+srun: error: nid005838: tasks 296-303: Segmentation fault
+srun: error: nid006402: tasks 984-991: Segmentation fault
+srun: error: nid006346: tasks 768-775: Segmentation fault
+srun: error: nid005792: tasks 168-175: Segmentation fault
+
+  Data collection took 0.00086s.
+ Run 8:
+  Reshuffled node allocation.
+  0.00397s: started 0
+  0.00793s: started 1
+  18.3782s: awaited 0
+  18.37838s: killed waiting 1
+  18.3784s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746209.48] [Sun Mar 31 05:28:45 2024] [nid005744] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005852: tasks 392-399: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6746209.48
+srun: error: nid005950: tasks 528-535: Segmentation fault
+srun: error: nid005813: tasks 200-207: Segmentation fault
+srun: error: nid006276: tasks 712-719: Segmentation fault
+srun: error: nid005964: tasks 600-607: Segmentation fault
+srun: error: nid006337: tasks 728-735: Segmentation fault
+srun: error: nid005824: tasks 256-263: Segmentation fault
+srun: error: nid005835: tasks 312-319: Segmentation fault
+srun: error: nid005833: tasks 296-303: Segmentation fault
+srun: error: nid006397: tasks 976-983: Segmentation fault
+srun: error: nid006346: tasks 768-775: Segmentation fault
+srun: error: nid005841: tasks 344-351: Segmentation fault
+srun: error: nid006373: tasks 856-863: Segmentation fault
+srun: error: nid005957: tasks 552-559: Segmentation fault
+srun: error: nid005822: tasks 248-255: Segmentation fault
+srun: error: nid006351: tasks 784-791: Segmentation fault
+srun: error: nid005944: tasks 504-511: Segmentation fault
+srun: error: nid006378: tasks 896-903: Segmentation fault
+srun: error: nid006360: tasks 808-815: Segmentation fault
+srun: error: nid005838: tasks 336-343: Segmentation fault
+srun: error: nid005827: tasks 272-279: Segmentation fault
+srun: error: nid006268: tasks 664-671: Segmentation fault
+srun: error: nid006334: tasks 720-727: Segmentation fault
+srun: error: nid005942: tasks 488-495: Segmentation fault
+srun: error: nid005856: tasks 400-407: Segmentation fault
+srun: error: nid005744: task 0: Exited with exit code 255
+srun: error: nid006363: tasks 824-831: Segmentation fault
+srun: error: nid005963: tasks 592-599: Segmentation fault
+srun: error: nid006381: tasks 912-919: Segmentation fault
+srun: error: nid005774: tasks 104-111: Segmentation fault
+srun: error: nid005943: tasks 496-503: Segmentation fault
+srun: error: nid005941: tasks 480-487: Segmentation fault
+srun: error: nid006410: tasks 1016-1023: Segmentation fault
+srun: error: nid005783: tasks 136-143: Segmentation fault
+srun: error: nid005857: tasks 408-415: Segmentation fault
+srun: error: nid006372: tasks 848-855: Segmentation fault
+srun: error: nid005949: tasks 520-527: Segmentation fault
+srun: error: nid005872: tasks 456-463: Segmentation fault
+srun: error: nid005860: tasks 416-423: Segmentation fault
+srun: error: nid005960: tasks 568-575: Segmentation fault
+srun: error: nid005754: tasks 24-31: Segmentation fault
+srun: error: nid005952: tasks 536-543: Segmentation fault
+srun: error: nid005878: tasks 472-479: Segmentation fault
+srun: error: nid006339: tasks 744-751: Segmentation fault
+srun: error: nid005958: tasks 560-567: Segmentation fault
+srun: error: nid005967: tasks 616-623: Segmentation fault
+srun: error: nid005826: tasks 264-271: Segmentation fault
+srun: error: nid005873: tasks 464-471: Segmentation fault
+srun: error: nid006338: tasks 736-743: Segmentation fault
+srun: error: nid006366: tasks 840-847: Segmentation fault
+srun: error: nid006270: tasks 680-687: Segmentation fault
+srun: error: nid006364: tasks 832-839: Segmentation fault
+srun: error: nid005784: tasks 144-151: Segmentation fault
+srun: error: nid006273: tasks 704-711: Segmentation fault
+srun: error: nid005757: tasks 40-47: Segmentation fault
+srun: error: nid005797: tasks 192-199: Segmentation fault
+srun: error: nid005846: tasks 368-375: Segmentation fault
+srun: error: nid006380: tasks 904-911: Segmentation fault
+srun: error: nid006264: tasks 648-655: Segmentation fault
+srun: error: nid006383: tasks 920-927: Segmentation fault
+srun: error: nid005834: tasks 304-311: Segmentation fault
+srun: error: nid006387: tasks 936-943: Segmentation fault
+srun: error: nid005836: tasks 320-327: Segmentation fault
+srun: error: nid005847: tasks 376-383: Segmentation fault
+srun: error: nid005866: tasks 432-439: Segmentation fault
+srun: error: nid006355: tasks 800-807: Segmentation fault
+srun: error: nid006404: tasks 1000-1007: Segmentation fault
+srun: error: nid005761: tasks 48-55: Segmentation fault
+srun: error: nid005770: tasks 80-87: Segmentation fault
+srun: error: nid005955: tasks 544-551: Segmentation fault
+srun: error: nid005844: tasks 360-367: Segmentation fault
+srun: error: nid006259: tasks 632-639: Segmentation fault
+srun: error: nid006376: tasks 880-887: Segmentation fault
+srun: error: nid005961: tasks 576-583: Segmentation fault
+srun: error: nid006349: tasks 776-783: Segmentation fault
+srun: error: nid005871: tasks 448-455: Segmentation fault
+srun: error: nid005821: tasks 240-247: Segmentation fault
+srun: error: nid006403: tasks 992-999: Segmentation fault
+srun: error: nid006263: tasks 640-647: Segmentation fault
+srun: error: nid006352: tasks 792-799: Segmentation fault
+srun: error: nid006267: tasks 656-663: Segmentation fault
+srun: error: nid005789: tasks 160-167: Segmentation fault
+srun: error: nid006374: tasks 864-871: Segmentation fault
+srun: error: nid005782: tasks 128-135: Segmentation fault
+srun: error: nid005771: tasks 88-95: Segmentation fault
+srun: error: nid005767: tasks 72-79: Segmentation fault
+srun: error: nid005749: tasks 8-15: Segmentation fault
+srun: error: nid006271: tasks 688-695: Segmentation fault
+srun: error: nid005851: tasks 384-391: Segmentation fault
+srun: error: nid006394: tasks 968-975: Segmentation fault
+srun: error: nid005765: tasks 64-71: Segmentation fault
+srun: error: nid006269: tasks 672-679: Segmentation fault
+srun: error: nid005819: tasks 224-231: Segmentation fault
+srun: error: nid005820: tasks 232-239: Segmentation fault
+srun: error: nid005744: tasks 1-7: Segmentation fault
+srun: error: nid006340: tasks 752-759: Segmentation fault
+srun: error: nid005753: tasks 16-23: Segmentation fault
+srun: error: nid006398: tasks 984-991: Segmentation fault
+srun: error: nid005793: tasks 176-183: Segmentation fault
+srun: error: nid005828: tasks 280-287: Segmentation fault
+srun: error: nid006377: tasks 888-895: Segmentation fault
+srun: error: nid005965: tasks 608-615: Segmentation fault
+srun: error: nid005796: tasks 184-191: Segmentation fault
+srun: error: nid006272: tasks 696-703: Segmentation fault
+srun: error: nid006388: tasks 944-951: Segmentation fault
+srun: error: nid006342: tasks 760-767: Segmentation fault
+srun: error: nid005832: tasks 288-295: Segmentation fault
+srun: error: nid005786: tasks 152-159: Segmentation fault
+srun: error: nid006384: tasks 928-935: Segmentation fault
+srun: error: nid005773: tasks 96-103: Segmentation fault
+srun: error: nid005870: tasks 440-447: Segmentation fault
+srun: error: nid006390: tasks 952-959: Segmentation fault
+srun: error: nid006393: tasks 960-967: Segmentation fault
+srun: error: nid005764: tasks 56-63: Segmentation fault
+srun: error: nid005862: tasks 424-431: Segmentation fault
+srun: error: nid005818: tasks 216-223: Segmentation fault
+srun: error: nid006375: tasks 872-879: Segmentation fault
+srun: error: nid005816: tasks 208-215: Segmentation fault
+srun: error: nid006406: tasks 1008-1015: Segmentation fault
+srun: error: nid005947: tasks 512-519: Segmentation fault
+srun: error: nid005842: tasks 352-359: Segmentation fault
+srun: error: nid006258: tasks 624-631: Segmentation fault
+srun: error: nid005755: tasks 32-39: Segmentation fault
+srun: error: nid005776: tasks 112-119: Segmentation fault
+srun: error: nid005791: tasks 168-175: Segmentation fault
+srun: error: nid005962: tasks 584-591: Segmentation fault
+srun: error: nid005837: tasks 328-335: Segmentation fault
+srun: error: nid005779: tasks 120-127: Segmentation fault
+srun: error: nid006361: tasks 816-823: Segmentation fault
+
+  Data collection took 0.00086s.
+ Run 9:
+  Reshuffled node allocation.
+  0.00404s: started 0
+  0.00803s: started 1
+  18.05784s: awaited 0
+  18.058s: killed waiting 1
+  18.05801s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746209.50] [Sun Mar 31 05:29:04 2024] [nid005744] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005756: tasks 40-47: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6746209.50
+srun: error: nid005786: tasks 168-175: Segmentation fault
+srun: error: nid006385: tasks 920-927: Segmentation fault
+srun: error: nid006350: tasks 808-815: Segmentation fault
+srun: error: nid006358: tasks 840-847: Segmentation fault
+srun: error: nid005752: tasks 32-39: Segmentation fault
+srun: error: nid006357: tasks 832-839: Segmentation fault
+srun: error: nid006364: tasks 864-871: Segmentation fault
+srun: error: nid006279: tasks 728-735: Segmentation fault
+srun: error: nid006266: tasks 688-695: Segmentation fault
+srun: error: nid005821: tasks 288-295: Segmentation fault
+srun: error: nid006284: tasks 752-759: Segmentation fault
+srun: error: nid006334: tasks 760-767: Segmentation fault
+srun: error: nid006345: tasks 792-799: Segmentation fault
+srun: error: nid005848: tasks 392-399: Segmentation fault
+srun: error: nid006344: tasks 784-791: Segmentation fault
+srun: error: nid006282: tasks 744-751: Segmentation fault
+srun: error: nid005854: tasks 416-423: Segmentation fault
+srun: error: nid005864: tasks 472-479: Segmentation fault
+srun: error: nid005964: tasks 648-655: Segmentation fault
+srun: error: nid005795: tasks 224-231: Segmentation fault
+srun: error: nid005960: tasks 616-623: Segmentation fault
+srun: error: nid006387: tasks 936-943: Segmentation fault
+srun: error: nid006394: tasks 968-975: Segmentation fault
+srun: error: nid005850: tasks 400-407: Segmentation fault
+srun: error: nid005750: tasks 24-31: Segmentation fault
+srun: error: nid006342: tasks 776-783: Segmentation fault
+srun: error: nid005879: tasks 544-551: Segmentation fault
+srun: error: nid005744: task 0: Exited with exit code 255
+srun: error: nid006359: tasks 848-855: Segmentation fault
+srun: error: nid005783: tasks 160-167: Segmentation fault
+srun: error: nid005856: tasks 432-439: Segmentation fault
+srun: error: nid006409: tasks 1016-1023: Segmentation fault
+srun: error: nid006375: tasks 904-911: Segmentation fault
+srun: error: nid005790: tasks 192-199: Segmentation fault
+srun: error: nid005863: tasks 464-471: Segmentation fault
+srun: error: nid005871: tasks 496-503: Segmentation fault
+srun: error: nid005944: tasks 576-583: Segmentation fault
+srun: error: nid005966: tasks 656-663: Segmentation fault
+srun: error: nid005814: tasks 256-263: Segmentation fault
+srun: error: nid005816: tasks 264-271: Segmentation fault
+srun: error: nid005878: tasks 536-543: Segmentation fault
+srun: error: nid005859: tasks 448-455: Segmentation fault
+srun: error: nid006408: tasks 1008-1015: Segmentation fault
+srun: error: nid005840: tasks 344-351: Segmentation fault
+srun: error: nid005855: tasks 424-431: Segmentation fault
+srun: error: nid005880: tasks 552-559: Segmentation fault
+srun: error: nid005858: tasks 440-447: Segmentation fault
+srun: error: nid006397: tasks 976-983: Segmentation fault
+srun: error: nid006274: tasks 720-727: Segmentation fault
+srun: error: nid006356: tasks 824-831: Segmentation fault
+srun: error: nid005833: tasks 304-311: Segmentation fault
+srun: error: nid005797: tasks 240-247: Segmentation fault
+srun: error: nid005791: tasks 200-207: Segmentation fault
+srun: error: nid005952: tasks 592-599: Segmentation fault
+srun: error: nid005961: tasks 624-631: Segmentation fault
+srun: error: nid005869: tasks 488-495: Segmentation fault
+srun: error: nid006407: tasks 1000-1007: Segmentation fault
+srun: error: nid005766: tasks 96-103: Segmentation fault
+srun: error: nid005759: tasks 56-63: Segmentation fault
+srun: error: nid006386: tasks 928-935: Segmentation fault
+srun: error: nid006270: tasks 696-703: Segmentation fault
+srun: error: nid005958: tasks 608-615: Segmentation fault
+srun: error: nid005760: tasks 64-71: Segmentation fault
+srun: error: nid005872: tasks 504-511: Segmentation fault
+srun: error: nid005873: tasks 512-519: Segmentation fault
+srun: error: nid005842: tasks 352-359: Segmentation fault
+srun: error: nid005774: tasks 120-127: Segmentation fault
+srun: error: nid005817: tasks 272-279: Segmentation fault
+srun: error: nid006369: tasks 880-887: Segmentation fault
+srun: error: nid005794: tasks 216-223: Segmentation fault
+srun: error: nid006265: tasks 680-687: Segmentation fault
+srun: error: nid005789: tasks 184-191: Segmentation fault
+srun: error: nid005954: tasks 600-607: Segmentation fault
+srun: error: nid005767: tasks 104-111: Segmentation fault
+srun: error: nid005820: tasks 280-287: Segmentation fault
+srun: error: nid005860: tasks 456-463: Segmentation fault
+srun: error: nid006366: tasks 872-879: Segmentation fault
+srun: error: nid005963: tasks 640-647: Segmentation fault
+srun: error: nid005846: tasks 384-391: Segmentation fault
+srun: error: nid006347: tasks 800-807: Segmentation fault
+srun: error: nid005763: tasks 88-95: Segmentation fault
+srun: error: nid005867: tasks 480-487: Segmentation fault
+srun: error: nid005940: tasks 560-567: Segmentation fault
+srun: error: nid006361: tasks 856-863: Segmentation fault
+srun: error: nid006381: tasks 912-919: Segmentation fault
+srun: error: nid006402: tasks 992-999: Segmentation fault
+srun: error: nid005777: tasks 136-143: Segmentation fault
+srun: error: nid006398: tasks 984-991: Segmentation fault
+srun: error: nid006271: tasks 704-711: Segmentation fault
+srun: error: nid005747: tasks 16-23: Segmentation fault
+srun: error: nid005843: tasks 360-367: Segmentation fault
+srun: error: nid005788: tasks 176-183: Segmentation fault
+srun: error: nid005845: tasks 376-383: Segmentation fault
+srun: error: nid005758: tasks 48-55: Segmentation fault
+srun: error: nid006391: tasks 944-951: Segmentation fault
+srun: error: nid005838: tasks 328-335: Segmentation fault
+srun: error: nid006393: tasks 960-967: Segmentation fault
+srun: error: nid005962: tasks 632-639: Segmentation fault
+srun: error: nid006281: tasks 736-743: Segmentation fault
+srun: error: nid006340: tasks 768-775: Segmentation fault
+srun: error: nid005813: tasks 248-255: Segmentation fault
+srun: error: nid005796: tasks 232-239: Segmentation fault
+srun: error: nid005839: tasks 336-343: Segmentation fault
+srun: error: nid006374: tasks 896-903: Segmentation fault
+srun: error: nid006392: tasks 952-959: Segmentation fault
+srun: error: nid005852: tasks 408-415: Segmentation fault
+srun: error: nid005844: tasks 368-375: Segmentation fault
+srun: error: nid005876: tasks 520-527: Segmentation fault
+srun: error: nid006370: tasks 888-895: Segmentation fault
+srun: error: nid005762: tasks 80-87: Segmentation fault
+srun: error: nid005792: tasks 208-215: Segmentation fault
+srun: error: nid005834: tasks 312-319: Segmentation fault
+srun: error: nid005836: tasks 320-327: Segmentation fault
+srun: error: nid006261: tasks 664-671: Segmentation fault
+srun: error: nid005780: tasks 144-151: Segmentation fault
+srun: error: nid005781: tasks 152-159: Segmentation fault
+srun: error: nid005773: tasks 112-119: Segmentation fault
+srun: error: nid005761: tasks 72-79: Segmentation fault
+srun: error: nid005832: tasks 296-303: Segmentation fault
+srun: error: nid005941: tasks 568-575: Segmentation fault
+srun: error: nid006355: tasks 816-823: Segmentation fault
+srun: error: nid005776: tasks 128-135: Segmentation fault
+srun: error: nid006273: tasks 712-719: Segmentation fault
+srun: error: nid005877: tasks 528-535: Segmentation fault
+srun: error: nid005745: tasks 8-15: Segmentation fault
+srun: error: nid006264: tasks 672-679: Segmentation fault
+srun: error: nid005948: tasks 584-591: Segmentation fault
+srun: error: nid005744: tasks 1-7: Segmentation fault
+
+  Data collection took 0.00086s.
+ Run 10:
+  Reshuffled node allocation.
+  0.00396s: started 0
+  0.00781s: started 1
+  18.55241s: awaited 0
+  18.55255s: killed waiting 1
+  18.55255s: encountered an exception in 1
+MPICH ERROR [Rank 0] [job id 6746209.51] [Sun Mar 31 05:29:22 2024] [nid005744] - Abort(-1) (rank 0 in comm 0): MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+ (Other MPI error)
+
+aborting job:
+MPIDI_CRAY_init: GPU_SUPPORT_ENABLED is requested, but GTL library is not linked
+
+srun: error: nid005843: tasks 368-375: Segmentation fault
+srun: launch/slurm: _step_signal: Terminating StepId=6746209.51
+srun: error: nid005744: task 0: Exited with exit code 255
+srun: error: nid006362: tasks 872-879: Segmentation fault
+srun: error: nid006376: tasks 904-911: Segmentation fault
+srun: error: nid006372: tasks 888-895: Segmentation fault
+srun: error: nid005828: tasks 296-303: Segmentation fault
+srun: error: nid005836: tasks 328-335: Segmentation fault
+srun: error: nid006336: tasks 744-751: Segmentation fault
+srun: error: nid006278: tasks 704-711: Segmentation fault
+srun: error: nid006391: tasks 952-959: Segmentation fault
+srun: error: nid005786: tasks 168-175: Segmentation fault
+srun: error: nid006381: tasks 920-927: Segmentation fault
+srun: error: nid006283: tasks 736-743: Segmentation fault
+srun: error: nid005780: tasks 144-151: Segmentation fault
+srun: error: nid006272: tasks 680-687: Segmentation fault
+srun: error: nid006345: tasks 784-791: Segmentation fault
+srun: error: nid005956: tasks 552-559: Segmentation fault
+srun: error: nid006400: tasks 992-999: Segmentation fault
+srun: error: nid005964: tasks 592-599: Segmentation fault
+srun: error: nid005866: tasks 432-439: Segmentation fault
+srun: error: nid005782: tasks 152-159: Segmentation fault
+srun: error: nid006401: tasks 1000-1007: Segmentation fault
+srun: error: nid006277: tasks 696-703: Segmentation fault
+srun: error: nid005963: tasks 584-591: Segmentation fault
+srun: error: nid005759: tasks 64-71: Segmentation fault
+srun: error: nid006346: tasks 792-799: Segmentation fault
+srun: error: nid005746: tasks 8-15: Segmentation fault
+srun: error: nid005861: tasks 424-431: Segmentation fault
+srun: error: nid005880: tasks 480-487: Segmentation fault
+srun: error: nid005793: tasks 200-207: Segmentation fault
+srun: error: nid005817: tasks 256-263: Segmentation fault
+srun: error: nid005873: tasks 456-463: Segmentation fault
+srun: error: nid005951: tasks 536-543: Segmentation fault
+srun: error: nid006349: tasks 808-815: Segmentation fault
+srun: error: nid005846: tasks 384-391: Segmentation fault
+srun: error: nid005776: tasks 128-135: Segmentation fault
+srun: error: nid005748: tasks 16-23: Segmentation fault
+srun: error: nid006393: tasks 960-967: Segmentation fault
+srun: error: nid006356: tasks 848-855: Segmentation fault
+srun: error: nid006275: tasks 688-695: Segmentation fault
+srun: error: nid005755: tasks 48-55: Segmentation fault
+srun: error: nid005940: tasks 488-495: Segmentation fault
+srun: error: nid005794: tasks 208-215: Segmentation fault
+srun: error: nid005947: tasks 504-511: Segmentation fault
+srun: error: nid005787: tasks 176-183: Segmentation fault
+srun: error: nid005844: tasks 376-383: Segmentation fault
+srun: error: nid005761: tasks 72-79: Segmentation fault
+srun: error: nid006282: tasks 728-735: Segmentation fault
+srun: error: nid005944: tasks 496-503: Segmentation fault
+srun: error: nid006260: tasks 624-631: Segmentation fault
+srun: error: nid006261: tasks 632-639: Segmentation fault
+srun: error: nid005783: tasks 160-167: Segmentation fault
+srun: error: nid005797: tasks 216-223: Segmentation fault
+srun: error: nid005752: tasks 32-39: Segmentation fault
+srun: error: nid005764: tasks 88-95: Segmentation fault
+srun: error: nid005815: tasks 240-247: Segmentation fault
+srun: error: nid006266: tasks 656-663: Segmentation fault
+srun: error: nid005870: tasks 448-455: Segmentation fault
+srun: error: nid005842: tasks 360-367: Segmentation fault
+srun: error: nid006351: tasks 824-831: Segmentation fault
+srun: error: nid006262: tasks 640-647: Segmentation fault
+srun: error: nid005853: tasks 408-415: Segmentation fault
+srun: error: nid005850: tasks 392-399: Segmentation fault
+srun: error: nid006259: tasks 616-623: Segmentation fault
+srun: error: nid005962: tasks 576-583: Segmentation fault
+srun: error: nid006409: tasks 1016-1023: Segmentation fault
+srun: error: nid006279: tasks 712-719: Segmentation fault
+srun: error: nid005789: tasks 192-199: Segmentation fault
+srun: error: nid005816: tasks 248-255: Segmentation fault
+srun: error: nid005961: tasks 568-575: Segmentation fault
+srun: error: nid006361: tasks 864-871: Segmentation fault
+srun: error: nid005769: tasks 104-111: Segmentation fault
+srun: error: nid006339: tasks 760-767: Segmentation fault
+srun: error: nid006342: tasks 768-775: Segmentation fault
+srun: error: nid005833: tasks 320-327: Segmentation fault
+srun: error: nid006382: tasks 928-935: Segmentation fault
+srun: error: nid006263: tasks 648-655: Segmentation fault
+srun: error: nid005813: tasks 224-231: Segmentation fault
+srun: error: nid005876: tasks 472-479: Segmentation fault
+srun: error: nid005775: tasks 120-127: Segmentation fault
+srun: error: nid005948: tasks 512-519: Segmentation fault
+srun: error: nid005841: tasks 352-359: Segmentation fault
+srun: error: nid005832: tasks 312-319: Segmentation fault
+srun: error: nid006388: tasks 944-951: Segmentation fault
+srun: error: nid006352: tasks 832-839: Segmentation fault
+srun: error: nid006405: tasks 1008-1015: Segmentation fault
+srun: error: nid006347: tasks 800-807: Segmentation fault
+srun: error: nid006371: tasks 880-887: Segmentation fault
+srun: error: nid006379: tasks 912-919: Segmentation fault
+srun: error: nid006394: tasks 968-975: Segmentation fault
+srun: error: nid005753: tasks 40-47: Segmentation fault
+srun: error: nid005819: tasks 264-271: Segmentation fault
+srun: error: nid005763: tasks 80-87: Segmentation fault
+srun: error: nid005814: tasks 232-239: Segmentation fault
+srun: error: nid006399: tasks 984-991: Segmentation fault
+srun: error: nid006373: tasks 896-903: Segmentation fault
+srun: error: nid006267: tasks 664-671: Segmentation fault
+srun: error: nid005750: tasks 24-31: Segmentation fault
+srun: error: nid005860: tasks 416-423: Segmentation fault
+srun: error: nid006358: tasks 856-863: Segmentation fault
+srun: error: nid006387: tasks 936-943: Segmentation fault
+srun: error: nid006258: tasks 608-615: Segmentation fault
+srun: error: nid005788: tasks 184-191: Segmentation fault
+srun: error: nid006355: tasks 840-847: Segmentation fault
+srun: error: nid006343: tasks 776-783: Segmentation fault
+srun: error: nid005825: tasks 280-287: Segmentation fault
+srun: error: nid006350: tasks 816-823: Segmentation fault
+srun: error: nid005869: tasks 440-447: Segmentation fault
+srun: error: nid005772: tasks 112-119: Segmentation fault
+srun: error: nid006280: tasks 720-727: Segmentation fault
+srun: error: nid005839: tasks 344-351: Segmentation fault
+srun: error: nid006396: tasks 976-983: Segmentation fault
+srun: error: nid005950: tasks 528-535: Segmentation fault
+srun: error: nid005758: tasks 56-63: Segmentation fault
+srun: error: nid005949: tasks 520-527: Segmentation fault
+srun: error: nid005826: tasks 288-295: Segmentation fault
+srun: error: nid005958: tasks 560-567: Segmentation fault
+srun: error: nid005831: tasks 304-311: Segmentation fault
+srun: error: nid005766: tasks 96-103: Segmentation fault
+srun: error: nid006337: tasks 752-759: Segmentation fault
+srun: error: nid005851: tasks 400-407: Segmentation fault
+srun: error: nid006270: tasks 672-679: Segmentation fault
+srun: error: nid005874: tasks 464-471: Segmentation fault
+srun: error: nid005953: tasks 544-551: Segmentation fault
+srun: error: nid005838: tasks 336-343: Segmentation fault
+srun: error: nid005821: tasks 272-279: Segmentation fault
+srun: error: nid005777: tasks 136-143: Segmentation fault
+srun: error: nid005968: tasks 600-607: Segmentation fault
+srun: error: nid005744: tasks 1-7: Segmentation fault
+
+  Data collection took 0.00089s.
+  Convergence check took 0.00067s.
+Completed maximum number of runs, terminated after 10 runs taking 184.31 seconds.
+Writing data & meta-data took 0.0054s.
+Overall took 184.92317s.

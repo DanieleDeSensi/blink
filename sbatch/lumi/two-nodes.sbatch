@@ -15,12 +15,9 @@ ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file"
 PPN_GPU=8
 PPN_CPU=4
 
-export NCCL_BUFFSIZE=33554432
-
 # GPU mapping and NUMA nodes mapping
 export USER_HIP_GPU_MAP="1,3,5,7,0,2,4,6"
 export BLINK_PINNING_FLAGS="--cpu-bind=map_cpu:57,25,9,41,49,17,1,33" # Pinning flags
-
 
 # NCCL    
 source src/microbench-gpu/moduleload/load_Nccl_modules.sh

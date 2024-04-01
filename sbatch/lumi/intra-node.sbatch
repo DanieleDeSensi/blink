@@ -9,11 +9,6 @@
 #SBATCH --job-name=blink-intra-node
 source conf.sh
 
-# Various env variables
-export NCCL_NET_GDR_LEVEL=3
-export FI_CXI_ATS=0
-export NCCL_BUFFSIZE=33554432
-
 # GPU mapping and NUMA nodes mapping
 export USER_HIP_GPU_MAP="0,1,2,3,4,5,6,7"
 export BLINK_PINNING_FLAGS="--cpu-bind=map_cpu:49,57,17,25,1,9,33,41" # Pinning flags

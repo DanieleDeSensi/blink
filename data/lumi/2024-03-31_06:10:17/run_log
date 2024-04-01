@@ -1,0 +1,3023 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nccl/1GiB_plus_incast', node_file='auto', numnodes=256, allocationmode='+r', allocationsplit='50:50', minruns=10, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='SL0_hcoll0', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 30", collection flag: True, ending condition: run until finished.
+1: with arguments:"-msgsize 131072 -endl -iter 1 -grty 1", collection flag: False, ending condition: wait until others finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 128 nodes:
+['nid006389' 'nid006410' 'nid005824' 'nid006338' 'nid005759' 'nid006366'
+ 'nid006390' 'nid006378' 'nid005877' 'nid006342' 'nid006282' 'nid006265'
+ 'nid005763' 'nid005951' 'nid005761' 'nid005780' 'nid006348' 'nid005762'
+ 'nid006381' 'nid005859' 'nid006335' 'nid006258' 'nid005784' 'nid006352'
+ 'nid005850' 'nid006401' 'nid005838' 'nid005831' 'nid005876' 'nid005842'
+ 'nid006358' 'nid006341' 'nid005812' 'nid006343' 'nid006259' 'nid006357'
+ 'nid006271' 'nid006264' 'nid006283' 'nid005829' 'nid005956' 'nid006383'
+ 'nid005772' 'nid005847' 'nid005953' 'nid006362' 'nid005879' 'nid005793'
+ 'nid006405' 'nid005849' 'nid006263' 'nid005782' 'nid005757' 'nid006391'
+ 'nid006394' 'nid005845' 'nid006373' 'nid006406' 'nid005756' 'nid005794'
+ 'nid006377' 'nid005940' 'nid006395' 'nid005783' 'nid006268' 'nid005840'
+ 'nid005818' 'nid005821' 'nid006262' 'nid005863' 'nid005865' 'nid005841'
+ 'nid005874' 'nid005825' 'nid006269' 'nid005764' 'nid005765' 'nid006275'
+ 'nid005781' 'nid005871' 'nid005854' 'nid005961' 'nid006353' 'nid005778'
+ 'nid005775' 'nid005779' 'nid005949' 'nid005815' 'nid006370' 'nid005754'
+ 'nid005753' 'nid005844' 'nid005748' 'nid005776' 'nid005954' 'nid005966'
+ 'nid005767' 'nid006386' 'nid006274' 'nid006266' 'nid006376' 'nid005773'
+ 'nid005860' 'nid006346' 'nid005834' 'nid005960' 'nid005786' 'nid005965'
+ 'nid005964' 'nid005837' 'nid005827' 'nid006388' 'nid006385' 'nid006345'
+ 'nid006396' 'nid005789' 'nid005862' 'nid006273' 'nid006278' 'nid005822'
+ 'nid006276' 'nid006344' 'nid005828' 'nid006368' 'nid005790' 'nid005869'
+ 'nid005819' 'nid005758']
+1 on 128 nodes:
+['nid005867' 'nid005796' 'nid005777' 'nid005856' 'nid005745' 'nid006382'
+ 'nid006380' 'nid005848' 'nid006355' 'nid005948' 'nid006409' 'nid006354'
+ 'nid006371' 'nid005795' 'nid005747' 'nid006379' 'nid006336' 'nid005963'
+ 'nid005787' 'nid006260' 'nid005836' 'nid005755' 'nid006400' 'nid006363'
+ 'nid005942' 'nid005852' 'nid006392' 'nid005950' 'nid005785' 'nid005771'
+ 'nid005947' 'nid006359' 'nid005766' 'nid005853' 'nid005957' 'nid005851'
+ 'nid005788' 'nid006347' 'nid005861' 'nid005820' 'nid005880' 'nid005752'
+ 'nid006280' 'nid005858' 'nid006334' 'nid005944' 'nid005967' 'nid005830'
+ 'nid005835' 'nid005792' 'nid006277' 'nid005946' 'nid006365' 'nid005945'
+ 'nid006337' 'nid005843' 'nid006404' 'nid005833' 'nid006364' 'nid006267'
+ 'nid005791' 'nid005769' 'nid006270' 'nid005959' 'nid005864' 'nid006374'
+ 'nid005832' 'nid005875' 'nid006402' 'nid006361' 'nid006279' 'nid006397'
+ 'nid005846' 'nid005817' 'nid005958' 'nid006403' 'nid005870' 'nid006387'
+ 'nid005814' 'nid005952' 'nid006375' 'nid006340' 'nid005866' 'nid005813'
+ 'nid006281' 'nid006398' 'nid005746' 'nid005955' 'nid006399' 'nid005750'
+ 'nid005749' 'nid006393' 'nid005839' 'nid005770' 'nid005968' 'nid005816'
+ 'nid006408' 'nid006339' 'nid006411' 'nid005872' 'nid006284' 'nid005744'
+ 'nid006351' 'nid006407' 'nid006261' 'nid005868' 'nid005857' 'nid006369'
+ 'nid006384' 'nid005751' 'nid005941' 'nid005768' 'nid005797' 'nid006356'
+ 'nid005855' 'nid006272' 'nid005878' 'nid005873' 'nid006349' 'nid005943'
+ 'nid005774' 'nid005823' 'nid005760' 'nid006350' 'nid006360' 'nid006372'
+ 'nid005962' 'nid005826']
+
+Schedule:
+0.0s: start 0
+0.0s: start 1
+
+Preparing took 27.803s.
+
+Running...
+ Run 1:
+  Reshuffled node allocation.
+  0.00764s: started 0
+  0.01545s: started 1
+  70.12285s: awaited 0
+  70.13132s: killed waiting 1
+  70.13134s: encountered an exception in 0
+srun: Job 6746209 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746209
+srun: error: Task launch for StepId=6746209.112 failed on node nid005835: Socket timed out on send/recv operation
+srun: error: Task launch for StepId=6746209.112 failed on node nid005845: Socket timed out on send/recv operation
+srun: error: Task launch for StepId=6746209.112 failed on node nid005856: Socket timed out on send/recv operation
+srun: error: Task launch for StepId=6746209.112 failed on node nid005858: Socket timed out on send/recv operation
+srun: error: Application launch failed: Socket timed out on send/recv operation
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 6746209.112 ON nid005745 CANCELLED AT 2024-03-31T06:11:55 ***
+Sun Mar 31 06:11:55 2024: [PE_104]:inet_recv:inet_recv: recv error on nid005766 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_104]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_104]:control_nets_join:network_barrier failed
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005766] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_680]:inet_recv:inet_recv: recv error on nid006283 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_680]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_680]:control_nets_join:network_barrier failed
+Sun Mar 31 06:11:55 2024: [PE_488]:inet_recv:inet_recv: recv error on nid005943 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_488]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_488]:control_nets_join:network_barrier failed
+Sun Mar 31 06:11:55 2024: [PE_111]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006283] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_8]:inet_recv:inet_recv: recv error on nid005748 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_8]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_8]:control_nets_join:network_barrier failed
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005748] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_424]:inet_recv:inet_recv: recv error on nid005867 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_424]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_424]:control_nets_join:network_barrier failed
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005867] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_520]:inet_recv:inet_recv: recv error on nid005953 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_520]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_520]:control_nets_join:network_barrier failed
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005953] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_168]:inet_recv:inet_recv: recv error on nid005781 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_168]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_168]:control_nets_join:network_barrier failed
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005781] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_968]:inet_recv:inet_recv: recv error on nid006397 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_968]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_968]:control_nets_join:network_barrier failed
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006397] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005943] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_200]:inet_recv:inet_recv: recv error on nid005788 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_200]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_200]:control_nets_join:network_barrier failed
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005788] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_392]:inet_recv:inet_recv: recv error on nid005862 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_392]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_392]:control_nets_join:network_barrier failed
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005862] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_232]:inet_recv:inet_recv: recv error on nid005817 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_232]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_232]:control_nets_join:network_barrier failed
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005817] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_712]:inet_recv:inet_recv: recv error on nid006342 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_712]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_712]:control_nets_join:network_barrier failed
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006342] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_328]:inet_recv:inet_recv: recv error on nid005848 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_328]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_328]:control_nets_join:network_barrier failed
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005848] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_40]:inet_recv:inet_recv: recv error on nid005753 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_40]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_40]:control_nets_join:network_barrier failed
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005753] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_9]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005748] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_425]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005867] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_872]:inet_recv:inet_recv: recv error on nid006378 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_872]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_872]:control_nets_join:network_barrier failed
+Sun Mar 31 06:11:55 2024: [PE_904]:inet_recv:inet_recv: recv error on nid006384 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_904]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_904]:control_nets_join:network_barrier failed
+Sun Mar 31 06:11:55 2024: [PE_521]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005953] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_1000]:inet_recv:inet_recv: recv error on nid006407 from nid005745 (fd=6) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_1000]:_pmi_network_barrier:_pmi_inet_recv from target 2 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_1000]:control_nets_join:network_barrier failed
+Sun Mar 31 06:11:55 2024: [PE_72]:inet_recv:inet_recv: recv error on nid005761 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_72]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_72]:control_nets_join:network_barrier failed
+Sun Mar 31 06:11:55 2024: [PE_169]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005781] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_969]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006397] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_105]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_201]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005788] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_456]:inet_recv:inet_recv: recv error on nid005876 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_456]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_456]:control_nets_join:network_barrier failed
+Sun Mar 31 06:11:55 2024: [PE_552]:inet_recv:inet_recv: recv error on nid005964 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_552]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_552]:control_nets_join:network_barrier failed
+Sun Mar 31 06:11:55 2024: [PE_393]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005862] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_681]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_233]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005817] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_136]:inet_recv:inet_recv: recv error on nid005774 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_136]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_136]:control_nets_join:network_barrier failed
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005774] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_713]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006342] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_329]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005848] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_41]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005753] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_808]:inet_recv:inet_recv: recv error on nid006364 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_808]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_808]:control_nets_join:network_barrier failed
+Sun Mar 31 06:11:55 2024: [PE_744]:inet_recv:inet_recv: recv error on nid006346 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_744]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_744]:control_nets_join:network_barrier failed
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006346] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_10]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005748] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_776]:inet_recv:inet_recv: recv error on nid006357 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_776]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_776]:control_nets_join:network_barrier failed
+Sun Mar 31 06:11:55 2024: [PE_426]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005867] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_264]:inet_recv:inet_recv: recv error on nid005823 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_264]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_264]:control_nets_join:network_barrier failed
+Sun Mar 31 06:11:55 2024: [PE_840]:inet_recv:inet_recv: recv error on nid006372 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_840]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_840]:control_nets_join:network_barrier failed
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006378] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006384] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_522]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005953] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006407] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_79]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_170]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005781] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_970]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006397] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_489]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_106]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005766] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+Sun Mar 31 06:11:55 2024: [PE_202]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005788] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_584]:inet_recv:inet_recv: recv error on nid006261 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_584]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_584]:control_nets_join:network_barrier failed
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005876] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005964] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_648]:inet_recv:inet_recv: recv error on nid006277 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_648]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_648]:control_nets_join:network_barrier failed
+Sun Mar 31 06:11:55 2024: [PE_394]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005862] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_682]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_234]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005817] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_137]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005774] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_714]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006342] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_330]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005848] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_42]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005753] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006364] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_745]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006346] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_11]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005748] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_777]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_427]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005867] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005823] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006372] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_873]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_905]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_523]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005953] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_1002]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_936]:inet_recv:inet_recv: recv error on nid006390 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_936]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_936]:control_nets_join:network_barrier failed
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005761] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_171]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005781] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_971]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006397] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_490]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_107]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_203]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005788] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006261] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+Sun Mar 31 06:11:55 2024: [PE_457]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_555]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006277] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_395]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005862] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_684]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_235]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005817] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_138]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005774] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_715]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006342] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_331]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005848] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_43]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005753] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_809]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_746]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006346] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_12]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005748] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006357] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_616]:inet_recv:inet_recv: recv error on nid006271 from nid005745 (fd=7) Connection reset by peer
+Sun Mar 31 06:11:55 2024: [PE_616]:_pmi_network_barrier:_pmi_inet_recv from target 3 failed pmi errno -1
+Sun Mar 31 06:11:55 2024: [PE_616]:control_nets_join:network_barrier failed
+Sun Mar 31 06:11:55 2024: [PE_841]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_874]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_906]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_524]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005953] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_1003]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006390] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_73]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_172]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005781] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_972]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006397] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_491]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_108]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005766] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_204]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005788] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_585]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_459]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_559]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_649]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_396]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005862] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_685]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_236]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005817] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_139]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005774] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_716]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006342] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_332]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005848] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_44]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005753] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_811]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_747]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006346] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_13]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005748] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_778]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006271] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_428]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005867] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_265]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_842]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_875]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_908]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_525]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005953] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_1004]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_937]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_74]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_173]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005781] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_973]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006397] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_492]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_109]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005766] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_205]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005788] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_586]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_460]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_553]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_650]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_397]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005862] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_686]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_237]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005817] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_140]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005774] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_717]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006342] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_333]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005848] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_45]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005753] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_812]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_748]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006346] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_14]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005748] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_779]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_617]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_429]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005867] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_266]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_843]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_876]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_911]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_526]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005953] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_1005]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_938]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_75]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_174]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005781] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_974]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006397] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_493]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005943] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+Sun Mar 31 06:11:55 2024: [PE_110]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005766] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_206]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005788] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_587]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_461]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_554]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_651]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_398]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005862] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_687]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_141]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005774] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_718]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006342] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_334]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005848] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_46]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005753] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_813]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_15]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005748] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_780]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_618]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_430]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005867] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_267]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_844]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_877]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_907]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006384] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+Sun Mar 31 06:11:55 2024: [PE_527]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005953] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_1006]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_939]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_76]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_175]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005781] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_975]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006397] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_494]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005943] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005766] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_207]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005788] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_589]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_463]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_556]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_653]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_399]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005862] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006283] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_238]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005817] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_142]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005774] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_719]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006342] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_335]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005848] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_47]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005753] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_815]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_749]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006346] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_781]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_619]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_431]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005867] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_268]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_845]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_879]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_909]:control_nets_join:_pmi_smp_barrier failed -1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_1007]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_940]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_77]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_495]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005943] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_590]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005876] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_557]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005964] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+Sun Mar 31 06:11:55 2024: [PE_654]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006283] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_239]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005817] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_143]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005774] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006364] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+Sun Mar 31 06:11:55 2024: [PE_750]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006346] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_782]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_620]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_269]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_847]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006378] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_910]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_1001]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006407] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_941]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_78]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005943] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005766] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_591]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_458]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005876] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_558]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005964] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+Sun Mar 31 06:11:55 2024: [PE_655]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_683]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006283] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_810]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006364] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_751]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006346] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_783]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_621]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_270]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006372] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006378] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006384] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006407] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_942]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005761] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005943] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005766] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005876] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005964] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006277] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006283] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006364] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006357] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+Sun Mar 31 06:11:55 2024: [PE_622]:control_nets_join:_pmi_smp_barrier failed -1
+Sun Mar 31 06:11:55 2024: [PE_271]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006372] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006378] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006384] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006407] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_943]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005761] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005943] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006261] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005876] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005964] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006277] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006283] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006364] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006357] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_623]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005823] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006372] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006378] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006407] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006390] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005761] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005943] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006261] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_462]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005876] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005964] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006277] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006283] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006364] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006357] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006271] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005823] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006372] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006378] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006384] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006407] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006390] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005761] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006261] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005876] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005964] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_652]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006277] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006283] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_814]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006364] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006357] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006271] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005823] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006372] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_878]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006378] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006384] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006407] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006390] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005761] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_588]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006261] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006277] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006364] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006357] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006271] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005823] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_846]:control_nets_join:_pmi_smp_barrier failed -1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006372] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006378] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006384] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006407] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006390] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005761] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006261] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006277] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006357] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006271] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005823] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006372] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006384] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006390] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005761] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006261] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005876] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005964] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006277] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006357] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006271] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005823] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006390] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006261] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006271] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid005823] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006390] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+MPICH ERROR [Rank 0] [job id unknown] [Sun Mar 31 06:11:55 2024] [nid006271] - Abort(1092111) (rank 0 in comm 0): Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+
+aborting job:
+Fatal error in PMPI_Init: Other MPI error, error stack:
+MPIR_Init_thread(170): 
+MPID_Init(441).......: 
+MPIR_pmi_init(110)...: PMI_Init returned 1
+Sun Mar 31 06:11:55 2024: [PE_16]:inet_recv:inet_recv: unexpected socket EOF on nid005749 from nid005748: Success
+Sun Mar 31 06:11:55 2024: [PE_112]:inet_recv:inet_recv: unexpected socket EOF on nid005768 from nid005766: Success
+Sun Mar 31 06:11:55 2024: [PE_512]:inet_recv:inet_recv: unexpected socket EOF on nid005951 from nid005943: Success
+Sun Mar 31 06:11:55 2024: [PE_416]:inet_recv:inet_recv: unexpected socket EOF on nid005866 from nid005862: Success
+Sun Mar 31 06:11:55 2024: [PE_120]:inet_recv:inet_recv: unexpected socket EOF on nid005770 from nid005766: Success
+Sun Mar 31 06:11:55 2024: [PE_192]:inet_recv:inet_recv: unexpected socket EOF on nid005786 from nid005781: Success
+Sun Mar 31 06:11:55 2024: [PE_48]:inet_recv:inet_recv: unexpected socket EOF on nid005754 from nid005753: Success
+Sun Mar 31 06:11:55 2024: [PE_992]:inet_recv:inet_recv: unexpected socket EOF on nid006404 from nid006397: Success
+Sun Mar 31 06:11:55 2024: [PE_152]:inet_recv:inet_recv: unexpected socket EOF on nid005777 from nid005774: Success
+Sun Mar 31 06:11:55 2024: [PE_32]:inet_recv:inet_recv: unexpected socket EOF on nid005752 from nid005748: Success
+Sun Mar 31 06:11:55 2024: [PE_752]:inet_recv:inet_recv: unexpected socket EOF on nid006347 from nid006346: Success
+Sun Mar 31 06:11:55 2024: [PE_160]:inet_recv:inet_recv: unexpected socket EOF on nid005780 from nid005774: Success
+Sun Mar 31 06:11:55 2024: [PE_400]:inet_recv:inet_recv: unexpected socket EOF on nid005863 from nid005862: Success
+Sun Mar 31 06:11:55 2024: [PE_432]:inet_recv:inet_recv: unexpected socket EOF on nid005871 from nid005867: Success
+Sun Mar 31 06:11:55 2024: [PE_896]:inet_recv:inet_recv: unexpected socket EOF on nid006382 from nid006378: Success
+Sun Mar 31 06:11:55 2024: [PE_208]:inet_recv:inet_recv: unexpected socket EOF on nid005793 from nid005788: Success
+Sun Mar 31 06:11:55 2024: [PE_888]:inet_recv:inet_recv: unexpected socket EOF on nid006380 from nid006378: Success
+Sun Mar 31 06:11:55 2024: [PE_984]:inet_recv:inet_recv: unexpected socket EOF on nid006403 from nid006397: Success
+Sun Mar 31 06:11:55 2024: [PE_144]:inet_recv:inet_recv: unexpected socket EOF on nid005775 from nid005774: Success
+Sun Mar 31 06:11:55 2024: [PE_128]:inet_recv:inet_recv: unexpected socket EOF on nid005773 from nid005766: Success
+Sun Mar 31 06:11:55 2024: [PE_224]:inet_recv:inet_recv: unexpected socket EOF on nid005814 from nid005788: Success
+Sun Mar 31 06:11:55 2024: [PE_768]:inet_recv:inet_recv: unexpected socket EOF on nid006354 from nid006346: Success
+Sun Mar 31 06:11:55 2024: [PE_720]:inet_recv:inet_recv: unexpected socket EOF on nid006343 from nid006342: Success
+Sun Mar 31 06:11:55 2024: [PE_728]:inet_recv:inet_recv: unexpected socket EOF on nid006344 from nid006342: Success
+Sun Mar 31 06:11:55 2024: [PE_440]:inet_recv:inet_recv: unexpected socket EOF on nid005872 from nid005867: Success
+Sun Mar 31 06:11:55 2024: [PE_544]:inet_recv:inet_recv: unexpected socket EOF on nid005962 from nid005953: Success
+Sun Mar 31 06:11:55 2024: [PE_760]:inet_recv:inet_recv: unexpected socket EOF on nid006349 from nid006346: Success
+Sun Mar 31 06:11:55 2024: [PE_688]:inet_recv:inet_recv: unexpected socket EOF on nid006337 from nid006283: Success
+Sun Mar 31 06:11:55 2024: [PE_736]:inet_recv:inet_recv: unexpected socket EOF on nid006345 from nid006342: Success
+Sun Mar 31 06:11:55 2024: [PE_256]:inet_recv:inet_recv: unexpected socket EOF on nid005822 from nid005817: Success
+Sun Mar 31 06:11:55 2024: [PE_248]:inet_recv:inet_recv: unexpected socket EOF on nid005821 from nid005817: Success
+Sun Mar 31 06:11:55 2024: [PE_880]:inet_recv:inet_recv: unexpected socket EOF on nid006379 from nid006378: Success
+Sun Mar 31 06:11:55 2024: [PE_64]:inet_recv:inet_recv: unexpected socket EOF on nid005760 from nid005753: Success
+Sun Mar 31 06:11:55 2024: [PE_976]:inet_recv:inet_recv: unexpected socket EOF on nid006398 from nid006397: Success
+Sun Mar 31 06:11:55 2024: [PE_504]:inet_recv:inet_recv: unexpected socket EOF on nid005945 from nid005943: Success
+Sun Mar 31 06:11:55 2024: [PE_176]:inet_recv:inet_recv: unexpected socket EOF on nid005783 from nid005781: Success
+Sun Mar 31 06:11:55 2024: [PE_528]:inet_recv:inet_recv: unexpected socket EOF on nid005959 from nid005953: Success
+Sun Mar 31 06:11:55 2024: [PE_576]:inet_recv:inet_recv: unexpected socket EOF on nid006260 from nid005964: Success
+Sun Mar 31 06:11:55 2024: [PE_240]:inet_recv:inet_recv: unexpected socket EOF on nid005818 from nid005817: Success
+Sun Mar 31 06:11:55 2024: [PE_336]:inet_recv:inet_recv: unexpected socket EOF on nid005851 from nid005848: Success
+Sun Mar 31 06:11:55 2024: [PE_696]:inet_recv:inet_recv: unexpected socket EOF on nid006340 from nid006283: Success
+Sun Mar 31 06:11:55 2024: [PE_672]:inet_recv:inet_recv: unexpected socket EOF on nid006281 from nid006277: Success
+Sun Mar 31 06:11:55 2024: [PE_560]:inet_recv:inet_recv: unexpected socket EOF on nid005966 from nid005964: Success
+Sun Mar 31 06:11:55 2024: [PE_536]:inet_recv:inet_recv: unexpected socket EOF on nid005961 from nid005953: Success
+Sun Mar 31 06:11:55 2024: [PE_344]:inet_recv:inet_recv: unexpected socket EOF on nid005853 from nid005848: Success
+Sun Mar 31 06:11:55 2024: [PE_704]:inet_recv:inet_recv: unexpected socket EOF on nid006341 from nid006283: Success
+Sun Mar 31 06:11:55 2024: [PE_800]:inet_recv:inet_recv: unexpected socket EOF on nid006362 from nid006357: Success
+Sun Mar 31 06:11:55 2024: [PE_656]:inet_recv:inet_recv: unexpected socket EOF on nid006278 from nid006277: Success
+Sun Mar 31 06:11:55 2024: [PE_184]:inet_recv:inet_recv: unexpected socket EOF on nid005784 from nid005781: Success
+Sun Mar 31 06:11:55 2024: [PE_568]:inet_recv:inet_recv: unexpected socket EOF on nid005967 from nid005964: Success
+Sun Mar 31 06:11:55 2024: [PE_448]:inet_recv:inet_recv: unexpected socket EOF on nid005875 from nid005867: Success
+Sun Mar 31 06:11:55 2024: [PE_664]:inet_recv:inet_recv: unexpected socket EOF on nid006279 from nid006277: Success
+Sun Mar 31 06:11:55 2024: [PE_784]:inet_recv:inet_recv: unexpected socket EOF on nid006358 from nid006357: Success
+Sun Mar 31 06:11:55 2024: [PE_24]:inet_recv:inet_recv: unexpected socket EOF on nid005750 from nid005748: Success
+Sun Mar 31 06:11:55 2024: [PE_792]:inet_recv:inet_recv: unexpected socket EOF on nid006359 from nid006357: Success
+Sun Mar 31 06:11:55 2024: [PE_352]:inet_recv:inet_recv: unexpected socket EOF on nid005855 from nid005848: Success
+Sun Mar 31 06:11:55 2024: [PE_280]:inet_recv:inet_recv: unexpected socket EOF on nid005825 from nid005823: Success
+Sun Mar 31 06:11:55 2024: [PE_288]:inet_recv:inet_recv: unexpected socket EOF on nid005829 from nid005823: Success
+Sun Mar 31 06:11:55 2024: [PE_848]:inet_recv:inet_recv: unexpected socket EOF on nid006373 from nid006372: Success
+Sun Mar 31 06:11:55 2024: [PE_920]:inet_recv:inet_recv: unexpected socket EOF on nid006387 from nid006384: Success
+Sun Mar 31 06:11:55 2024: [PE_856]:inet_recv:inet_recv: unexpected socket EOF on nid006374 from nid006372: Success
+Sun Mar 31 06:11:55 2024: [PE_928]:inet_recv:inet_recv: unexpected socket EOF on nid006389 from nid006384: Success
+Sun Mar 31 06:11:55 2024: [PE_496]:inet_recv:inet_recv: unexpected socket EOF on nid005944 from nid005943: Success
+Sun Mar 31 06:11:55 2024: [PE_88]:inet_recv:inet_recv: unexpected socket EOF on nid005763 from nid005761: Success
+Sun Mar 31 06:11:55 2024: [PE_912]:inet_recv:inet_recv: unexpected socket EOF on nid006385 from nid006384: Success
+Sun Mar 31 06:11:55 2024: [PE_96]:inet_recv:inet_recv: unexpected socket EOF on nid005765 from nid005761: Success
+Sun Mar 31 06:11:55 2024: [PE_1008]:inet_recv:inet_recv: unexpected socket EOF on nid006409 from nid006407: Success
+Sun Mar 31 06:11:55 2024: [PE_464]:inet_recv:inet_recv: unexpected socket EOF on nid005877 from nid005876: Success
+Sun Mar 31 06:11:55 2024: [PE_80]:inet_recv:inet_recv: unexpected socket EOF on nid005762 from nid005761: Success
+Sun Mar 31 06:11:55 2024: [PE_1016]:inet_recv:inet_recv: unexpected socket EOF on nid006410 from nid006407: Success
+Sun Mar 31 06:11:55 2024: [PE_216]:inet_recv:inet_recv: unexpected socket EOF on nid005794 from nid005788: Success
+Sun Mar 31 06:11:55 2024: [PE_600]:inet_recv:inet_recv: unexpected socket EOF on nid006267 from nid006261: Success
+Sun Mar 31 06:11:55 2024: [PE_608]:inet_recv:inet_recv: unexpected socket EOF on nid006270 from nid006261: Success
+Sun Mar 31 06:11:55 2024: [PE_592]:inet_recv:inet_recv: unexpected socket EOF on nid006263 from nid006261: Success
+Sun Mar 31 06:11:55 2024: [PE_864]:inet_recv:inet_recv: unexpected socket EOF on nid006376 from nid006372: Success
+Sun Mar 31 06:11:55 2024: [PE_272]:inet_recv:inet_recv: unexpected socket EOF on nid005824 from nid005823: Success
+Sun Mar 31 06:11:55 2024: [PE_952]:inet_recv:inet_recv: unexpected socket EOF on nid006395 from nid006390: Success
+Sun Mar 31 06:11:55 2024: [PE_472]:inet_recv:inet_recv: unexpected socket EOF on nid005879 from nid005876: Success
+Sun Mar 31 06:11:55 2024: [PE_480]:inet_recv:inet_recv: unexpected socket EOF on nid005942 from nid005876: Success
+Sun Mar 31 06:11:55 2024: [PE_944]:inet_recv:inet_recv: unexpected socket EOF on nid006391 from nid006390: Success
+Sun Mar 31 06:11:55 2024: [PE_624]:inet_recv:inet_recv: unexpected socket EOF on nid006274 from nid006271: Success
+Sun Mar 31 06:11:55 2024: [PE_640]:inet_recv:inet_recv: unexpected socket EOF on nid006276 from nid006271: Success
+Sun Mar 31 06:11:55 2024: [PE_960]:inet_recv:inet_recv: unexpected socket EOF on nid006396 from nid006390: Success
+Sun Mar 31 06:11:55 2024: [PE_632]:inet_recv:inet_recv: unexpected socket EOF on nid006275 from nid006271: Success
+srun: error: nid005756: tasks 56-63: Killed
+srun: launch/slurm: _step_signal: Terminating StepId=6746209.112
+srun: error: nid006365: tasks 816-823: Killed
+srun: error: nid005745: tasks 0-7: Killed
+srun: error: nid006366: tasks 824-831: Killed
+srun: error: nid005964: tasks 552-559: Exited with exit code 255
+srun: error: nid005862: tasks 392-399: Exited with exit code 255
+srun: error: nid005753: tasks 40-47: Exited with exit code 255
+srun: error: nid005876: tasks 456-463: Exited with exit code 255
+srun: error: nid006378: tasks 872-879: Exited with exit code 255
+srun: error: nid005848: tasks 328-335: Exited with exit code 255
+srun: error: nid006372: tasks 840-847: Exited with exit code 255
+srun: error: nid006397: tasks 968-975: Exited with exit code 255
+srun: error: nid005867: tasks 424-431: Exited with exit code 255
+srun: error: nid005781: tasks 168-175: Exited with exit code 255
+srun: error: nid005748: tasks 8-15: Exited with exit code 255
+srun: error: nid006384: tasks 904-911: Exited with exit code 255
+srun: error: nid006277: tasks 648-655: Exited with exit code 255
+srun: error: nid006283: tasks 680-687: Exited with exit code 255
+srun: error: nid006342: tasks 712-719: Exited with exit code 255
+srun: error: nid006346: tasks 744-751: Exited with exit code 255
+srun: error: nid006261: tasks 584-591: Exited with exit code 255
+srun: error: nid005774: tasks 136-143: Exited with exit code 255
+srun: error: nid005823: tasks 264-271: Exited with exit code 255
+srun: error: nid005766: tasks 104-111: Exited with exit code 255
+srun: error: nid005953: tasks 520-527: Exited with exit code 255
+srun: error: nid005761: tasks 72-79: Exited with exit code 255
+srun: error: nid005788: tasks 200-207: Exited with exit code 255
+srun: error: nid006364: tasks 808-815: Exited with exit code 255
+srun: error: nid006390: tasks 936-943: Exited with exit code 255
+srun: error: nid005943: tasks 488-495: Exited with exit code 255
+srun: error: nid006271: tasks 616-623: Exited with exit code 255
+srun: error: nid005864: tasks 408-415: Killed
+srun: error: nid005817: tasks 232-239: Exited with exit code 255
+srun: error: nid006373: tasks 848-855: Killed
+srun: error: nid006368: tasks 832-839: Killed
+srun: error: nid006407: tasks 1000-1007: Exited with exit code 255
+srun: error: nid006374: tasks 856-863: Killed
+srun: error: nid006376: tasks 864-871: Killed
+srun: error: nid005877: tasks 464-471: Killed
+srun: error: nid005942: tasks 480-487: Killed
+srun: error: nid005961: tasks 536-543: Killed
+srun: error: nid005962: tasks 544-551: Killed
+srun: error: nid005879: tasks 472-479: Killed
+srun: error: nid006379: tasks 880-887: Killed
+srun: error: nid006380: tasks 888-895: Killed
+srun: error: nid006382: tasks 896-903: Killed
+srun: error: nid005966: tasks 560-567: Killed
+srun: error: nid005780: tasks 160-167: Killed
+srun: error: nid005762: tasks 80-87: Killed
+srun: error: nid005967: tasks 568-575: Killed
+srun: error: nid005765: tasks 96-103: Killed
+srun: error: nid005773: tasks 128-135: Killed
+srun: error: nid005944: tasks 496-503: Killed
+srun: error: nid005794: tasks 216-223: Killed
+srun: error: nid005777: tasks 152-159: Killed
+srun: error: nid005768: tasks 112-119: Killed
+srun: error: nid005770: tasks 120-127: Killed
+srun: error: nid005951: tasks 512-519: Killed
+srun: error: nid005763: tasks 88-95: Killed
+srun: error: nid005775: tasks 144-151: Killed
+srun: error: nid005783: tasks 176-183: Killed
+srun: error: nid005784: tasks 184-191: Killed
+srun: error: nid005945: tasks 504-511: Killed
+srun: error: nid005814: tasks 224-231: Killed
+srun: error: nid005760: tasks 64-71: Killed
+srun: error: nid006260: tasks 576-583: Killed
+srun: error: nid006263: tasks 592-599: Killed
+srun: error: nid005959: tasks 528-535: Killed
+srun: error: nid005793: tasks 208-215: Killed
+srun: error: nid005786: tasks 192-199: Killed
+srun: error: nid005818: tasks 240-247: Killed
+srun: error: nid006385: tasks 912-919: Killed
+srun: error: nid006387: tasks 920-927: Killed
+srun: error: nid006389: tasks 928-935: Killed
+srun: error: nid006391: tasks 944-951: Killed
+srun: error: nid006395: tasks 952-959: Killed
+srun: error: nid006396: tasks 960-967: Killed
+srun: error: nid005853: tasks 344-351: Killed
+srun: error: nid005851: tasks 336-343: Killed
+srun: error: nid005822: tasks 256-263: Killed
+srun: error: nid005821: tasks 248-255: Killed
+srun: error: nid005855: tasks 352-359: Killed
+srun: error: nid005754: tasks 48-55: Killed
+srun: error: nid006278: tasks 656-663: Killed
+srun: error: nid006398: tasks 976-983: Killed
+srun: error: nid006340: tasks 696-703: Killed
+srun: error: nid006270: tasks 608-615: Killed
+srun: error: nid006276: tasks 640-647: Killed
+srun: error: nid006281: tasks 672-679: Killed
+srun: error: nid006344: tasks 728-735: Killed
+srun: error: nid006279: tasks 664-671: Killed
+srun: error: nid006274: tasks 624-631: Killed
+srun: error: nid006341: tasks 704-711: Killed
+srun: error: nid006345: tasks 736-743: Killed
+srun: error: nid006267: tasks 600-607: Killed
+srun: error: nid006275: tasks 632-639: Killed
+srun: error: nid005825: tasks 280-287: Killed
+srun: error: nid006343: tasks 720-727: Killed
+srun: error: nid006404: tasks 992-999: Killed
+srun: error: nid005863: tasks 400-407: Killed
+srun: error: nid006403: tasks 984-991: Killed
+srun: error: nid005752: tasks 32-39: Killed
+srun: error: nid005841: tasks 304-311: Killed
+srun: error: nid005829: tasks 288-295: Killed
+srun: error: nid006362: tasks 800-807: Killed
+srun: error: nid006349: tasks 760-767: Killed
+srun: error: nid005844: tasks 312-319: Killed
+srun: error: nid006347: tasks 752-759: Killed
+srun: error: nid006358: tasks 784-791: Killed
+srun: error: nid005861: tasks 384-391: Killed
+srun: error: nid005872: tasks 440-447: Killed
+srun: error: nid005749: tasks 16-23: Killed
+srun: error: nid005750: tasks 24-31: Killed
+srun: error: nid006410: tasks 1016-1023: Killed
+srun: error: nid006337: tasks 688-695: Killed
+srun: error: nid006409: tasks 1008-1015: Killed
+srun: error: nid005866: tasks 416-423: Killed
+srun: error: nid005875: tasks 448-455: Killed
+srun: error: nid006354: tasks 768-775: Killed
+srun: error: nid005857: tasks 368-375: Killed
+srun: error: nid006359: tasks 792-799: Killed
+srun: error: nid005871: tasks 432-439: Killed
+srun: error: nid006357: tasks 776-783: Exited with exit code 255
+srun: error: nid005824: tasks 272-279: Killed
+
+  70.1316s: encountered an exception in 1
+srun: Job 6746209 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746209
+
+  Data collection took 2e-05s.
+ Run 2:
+  Reshuffled node allocation.
+  0.0087s: started 0
+  0.01665s: started 1
+  73.37248s: awaited 0
+  74.70896s: killed waiting 1
+  74.70898s: encountered an exception in 0
+srun: Job 6746209 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 6746209 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746209
+pthread_mutex_unlock: No such file or directory
+
+  74.70899s: encountered an exception in 1
+srun: Job 6746209 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Job 6746209 step creation still disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6746209
+
+  Data collection took 0.00114s.
+ Run 3:
+  Reshuffled node allocation.
+  0.00828s: started 0
+  0.01623s: started 1
+  455.73104s: timed out 0
+  456.06663s: killed waiting 1
+  No data collection due to timeout.
+Completed after timeout, terminated after 2 runs taking 600.91 seconds.
+Writing data & meta-data took 0.02465s.
+Overall took 628.73623s.
