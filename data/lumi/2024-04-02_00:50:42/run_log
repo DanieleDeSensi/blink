@@ -1,0 +1,79 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/mpp-cudaaware/64B', node_file='auto', numnodes=2, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='diff_switch', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 6", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['nid005306' 'nid005357']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.96031s.
+
+Running...
+ Run 1:
+  0.00534s: started 0
+  0.87568s: awaited 0
+  Data collection took 0.0004s.
+  Convergence check took 0.00118s.
+ Run 2:
+  0.0053s: started 0
+  1.35752s: awaited 0
+  Data collection took 0.00039s.
+  Convergence check took 0.00106s.
+ Run 3:
+  0.00504s: started 0
+  0.86739s: awaited 0
+  Data collection took 0.00039s.
+  Convergence check took 0.00113s.
+ Run 4:
+  0.00576s: started 0
+  1.87217s: awaited 0
+  1.87223s: encountered an exception in 0
+srun: Job 6757631 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6757631
+
+  Data collection took 0.00037s.
+  Convergence check took 0.00108s.
+ Run 5:
+  0.00529s: started 0
+  0.86254s: awaited 0
+  Data collection took 0.00041s.
+  Convergence check took 0.00116s.
+ Run 6:
+  0.00489s: started 0
+  0.88325s: awaited 0
+  Data collection took 0.00037s.
+  Convergence check took 0.00112s.
+ Run 7:
+  0.0052s: started 0
+  1.66105s: awaited 0
+  1.66113s: encountered an exception in 0
+srun: Job 6757631 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 6757631
+
+  Data collection took 0.00042s.
+  Convergence check took 0.0013s.
+ Run 8:
+  0.00516s: started 0
+  0.87927s: awaited 0
+  Data collection took 0.00038s.
+  Convergence check took 0.00117s.
+ Run 9:
+  0.00486s: started 0
+  1.36125s: awaited 0
+  Data collection took 0.00037s.
+  Convergence check took 0.00133s.
+ Run 10:
+  0.00486s: started 0
+  0.85037s: awaited 0
+  Data collection took 0.00039s.
+  Convergence check took 0.00124s.
+Completed maximum number of runs, terminated after 10 runs taking 11.49 seconds.
+Writing data & meta-data took 0.01064s.
+Overall took 12.45907s.
