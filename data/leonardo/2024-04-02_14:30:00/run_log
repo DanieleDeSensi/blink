@@ -1,0 +1,68 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/a2a-cudaaware/2MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL1_hcoll0', maxruns=5, minruns=1, node_file='auto', numnodes=256, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 21", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 256 nodes:
+['lrdn0034' 'lrdn0047' 'lrdn0053' 'lrdn0066' 'lrdn0072' 'lrdn0095'
+ 'lrdn0107' 'lrdn0122' 'lrdn0130' 'lrdn0171' 'lrdn0203' 'lrdn0219'
+ 'lrdn0257' 'lrdn0261' 'lrdn0278' 'lrdn0281' 'lrdn0302' 'lrdn0311'
+ 'lrdn0332' 'lrdn0346' 'lrdn0365' 'lrdn0400' 'lrdn0405' 'lrdn0458'
+ 'lrdn0494' 'lrdn0542' 'lrdn0556' 'lrdn0560' 'lrdn0579' 'lrdn0592'
+ 'lrdn0603' 'lrdn0610' 'lrdn0633' 'lrdn0642' 'lrdn0672' 'lrdn0684'
+ 'lrdn0693' 'lrdn0708' 'lrdn0730' 'lrdn0751' 'lrdn0787' 'lrdn0792'
+ 'lrdn0801' 'lrdn0817' 'lrdn0820' 'lrdn0861' 'lrdn0870' 'lrdn0876'
+ 'lrdn0887' 'lrdn0891' 'lrdn0912' 'lrdn0944' 'lrdn0947' 'lrdn0974'
+ 'lrdn0984' 'lrdn0990' 'lrdn0994' 'lrdn1006' 'lrdn1009' 'lrdn1027'
+ 'lrdn1030' 'lrdn1035' 'lrdn1055' 'lrdn1059' 'lrdn1065' 'lrdn1083'
+ 'lrdn1098' 'lrdn1160' 'lrdn1167' 'lrdn1176' 'lrdn1181' 'lrdn1194'
+ 'lrdn1207' 'lrdn1226' 'lrdn1253' 'lrdn1263' 'lrdn1269' 'lrdn1276'
+ 'lrdn1295' 'lrdn1305' 'lrdn1323' 'lrdn1339' 'lrdn1344' 'lrdn1361'
+ 'lrdn1363' 'lrdn1365' 'lrdn1384' 'lrdn1390' 'lrdn1395' 'lrdn1431'
+ 'lrdn1447' 'lrdn1496' 'lrdn1510' 'lrdn1527' 'lrdn1531' 'lrdn1540'
+ 'lrdn1545' 'lrdn1569' 'lrdn1576' 'lrdn1591' 'lrdn1599' 'lrdn1605'
+ 'lrdn1621' 'lrdn1631' 'lrdn1635' 'lrdn1661' 'lrdn1665' 'lrdn1681'
+ 'lrdn1689' 'lrdn1695' 'lrdn1717' 'lrdn1719' 'lrdn1731' 'lrdn1747'
+ 'lrdn1750' 'lrdn1762' 'lrdn1780' 'lrdn1783' 'lrdn1792' 'lrdn1801'
+ 'lrdn1812' 'lrdn1815' 'lrdn1831' 'lrdn1847' 'lrdn1868' 'lrdn1879'
+ 'lrdn1884' 'lrdn1898' 'lrdn1910' 'lrdn1915' 'lrdn1921' 'lrdn1930'
+ 'lrdn1946' 'lrdn1953' 'lrdn1959' 'lrdn1966' 'lrdn1982' 'lrdn1989'
+ 'lrdn1995' 'lrdn2011' 'lrdn2019' 'lrdn2025' 'lrdn2041' 'lrdn2049'
+ 'lrdn2055' 'lrdn2073' 'lrdn2079' 'lrdn2086' 'lrdn2101' 'lrdn2109'
+ 'lrdn2121' 'lrdn2131' 'lrdn2139' 'lrdn2146' 'lrdn2161' 'lrdn2169'
+ 'lrdn2175' 'lrdn2192' 'lrdn2202' 'lrdn2212' 'lrdn2221' 'lrdn2235'
+ 'lrdn2251' 'lrdn2260' 'lrdn2266' 'lrdn2281' 'lrdn2289' 'lrdn2295'
+ 'lrdn2312' 'lrdn2326' 'lrdn2340' 'lrdn2341' 'lrdn2349' 'lrdn2355'
+ 'lrdn2379' 'lrdn2385' 'lrdn2402' 'lrdn2409' 'lrdn2416' 'lrdn2431'
+ 'lrdn2439' 'lrdn2446' 'lrdn2461' 'lrdn2470' 'lrdn2475' 'lrdn2492'
+ 'lrdn2499' 'lrdn2506' 'lrdn2521' 'lrdn2529' 'lrdn2535' 'lrdn2552'
+ 'lrdn2559' 'lrdn2565' 'lrdn2581' 'lrdn2589' 'lrdn2596' 'lrdn2612'
+ 'lrdn2619' 'lrdn2625' 'lrdn2641' 'lrdn2649' 'lrdn2655' 'lrdn2671'
+ 'lrdn2679' 'lrdn2685' 'lrdn2702' 'lrdn2709' 'lrdn2715' 'lrdn2731'
+ 'lrdn2739' 'lrdn2745' 'lrdn2761' 'lrdn2769' 'lrdn2781' 'lrdn2792'
+ 'lrdn2799' 'lrdn2805' 'lrdn2821' 'lrdn2829' 'lrdn2835' 'lrdn2852'
+ 'lrdn2860' 'lrdn2866' 'lrdn2881' 'lrdn2890' 'lrdn2896' 'lrdn2911'
+ 'lrdn2919' 'lrdn2925' 'lrdn2945' 'lrdn2949' 'lrdn2955' 'lrdn2971'
+ 'lrdn2979' 'lrdn2985' 'lrdn3010' 'lrdn3015' 'lrdn3032' 'lrdn3039'
+ 'lrdn3045' 'lrdn3071' 'lrdn3076' 'lrdn3098' 'lrdn3108' 'lrdn3111'
+ 'lrdn3123' 'lrdn3136' 'lrdn3153' 'lrdn3162' 'lrdn3171' 'lrdn3181'
+ 'lrdn3190' 'lrdn3195' 'lrdn3219' 'lrdn3225']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.26866s.
+
+Running...
+ Run 1:
+  0.00551s: started 0
+  29.63046s: awaited 0
+  Data collection took 0.00121s.
+  Convergence check took 0.00079s.
+Completed after reaching confidence interval, terminated after 1 runs taking 29.63 seconds.
+Writing data & meta-data took 0.00568s.
+Overall took 29.90709s.
