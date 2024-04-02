@@ -1,0 +1,149 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench-comm/nccl', node_file='auto', numnodes=1, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=4, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo=None, replace_mix_args=None)
+
+Apps:
+0: with arguments:"", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 1 nodes:
+['nid005608']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.97012s.
+
+Running...
+ Run 1:
+  0.00361s: started 0
+  0.32307s: awaited 0
+  0.32309s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid005608: tasks 0-3: Exited with exit code 2
+srun: Terminating StepId=65588.210
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.00356s: started 0
+  0.33004s: awaited 0
+  0.33006s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid005608: tasks 0-3: Exited with exit code 2
+srun: Terminating StepId=65588.211
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 3:
+  0.00346s: started 0
+  0.30609s: awaited 0
+  0.3061s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid005608: tasks 0-3: Exited with exit code 2
+srun: Terminating StepId=65588.212
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 4:
+  0.00358s: started 0
+  0.47553s: awaited 0
+  0.47555s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid005608: tasks 0-3: Exited with exit code 2
+srun: Terminating StepId=65588.213
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 5:
+  0.00354s: started 0
+  0.46988s: awaited 0
+  0.4699s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid005608: tasks 0-3: Exited with exit code 2
+srun: Terminating StepId=65588.214
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 6:
+  0.00329s: started 0
+  0.3206s: awaited 0
+  0.32062s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid005608: tasks 0-3: Exited with exit code 2
+srun: Terminating StepId=65588.215
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 7:
+  0.00352s: started 0
+  0.3311s: awaited 0
+  0.33111s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid005608: tasks 0-3: Exited with exit code 2
+srun: Terminating StepId=65588.216
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 8:
+  0.00337s: started 0
+  0.3238s: awaited 0
+  0.32382s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid005608: tasks 0-3: Exited with exit code 2
+srun: Terminating StepId=65588.217
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 9:
+  0.00357s: started 0
+  0.32219s: awaited 0
+  0.32221s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid005608: tasks 0-3: Exited with exit code 2
+srun: Terminating StepId=65588.218
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 10:
+  0.0035s: started 0
+  0.31849s: awaited 0
+  0.31851s: encountered an exception in 0
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+slurmstepd: error: execve(): /bret/scratch/cscs/lfusco/blink//src/microbench-gpu/bin/comm_Nccl: No such file or directory
+srun: error: nid005608: tasks 0-3: Exited with exit code 2
+srun: Terminating StepId=65588.219
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+Completed maximum number of runs, terminated after 10 runs taking 3.52 seconds.
