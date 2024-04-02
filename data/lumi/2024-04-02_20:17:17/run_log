@@ -1,0 +1,173 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/ar-nvlink/64B', node_file='auto', numnodes=1, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='0-1', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 6", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 1 nodes:
+['nid005440']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.40423s.
+
+Running...
+ Run 1:
+  0.00467s: started 0
+  0.44662s: awaited 0
+  0.44669s: encountered an exception in 0
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+srun: error: nid005440: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6771136.45
+
+  Data collection took 3e-05s.
+  Convergence check took 1e-05s.
+ Run 2:
+  0.00479s: started 0
+  0.35177s: awaited 0
+  0.35181s: encountered an exception in 0
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+srun: error: nid005440: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6771136.46
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 3:
+  0.00469s: started 0
+  0.36075s: awaited 0
+  0.36082s: encountered an exception in 0
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+srun: error: nid005440: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6771136.47
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 4:
+  0.00458s: started 0
+  0.37182s: awaited 0
+  0.37185s: encountered an exception in 0
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+srun: error: nid005440: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6771136.48
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 5:
+  0.00438s: started 0
+  0.38354s: awaited 0
+  0.38362s: encountered an exception in 0
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+srun: error: nid005440: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6771136.49
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 6:
+  0.00531s: started 0
+  0.36304s: awaited 0
+  0.36309s: encountered an exception in 0
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+srun: error: nid005440: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6771136.50
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 7:
+  0.00464s: started 0
+  0.35012s: awaited 0
+  0.35016s: encountered an exception in 0
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+srun: error: nid005440: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6771136.51
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+ Run 8:
+  0.00495s: started 0
+  0.39567s: awaited 0
+  0.39572s: encountered an exception in 0
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+srun: error: nid005440: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6771136.52
+
+  Data collection took 2e-05s.
+  Convergence check took 1e-05s.
+ Run 9:
+  0.00367s: started 0
+  0.34s: awaited 0
+  0.34005s: encountered an exception in 0
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+slurmstepd: error: execve(): /project/project_465000997/ddesensi/blink//src/microbench-gpu/bin/ar_Nvlink: No such file or directory
+srun: error: nid005440: tasks 0-7: Exited with exit code 2
+srun: launch/slurm: _step_signal: Terminating StepId=6771136.53
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 10:
+  0.00363s: started 0

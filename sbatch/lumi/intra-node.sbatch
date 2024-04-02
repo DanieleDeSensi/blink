@@ -13,6 +13,7 @@ source conf.sh
 export USER_HIP_GPU_MAP="0,1,2,3,4,5,6,7"
 export BLINK_PINNING_FLAGS="--cpu-bind=map_cpu:49,57,17,25,1,9,33,41" # Pinning flags
 EXTRA="0-1"
+export MPICH_GPU_ALLREDUCE_BLK_SIZE=134217728
 
 
 ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file --maxruns 10 -e ${EXTRA}"
