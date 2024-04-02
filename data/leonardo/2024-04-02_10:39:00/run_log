@@ -1,0 +1,50 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/a2a-cudaaware/2MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='SL0_hcoll0', maxruns=5, minruns=1, node_file='auto', numnodes=128, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 21", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 128 nodes:
+['lrdn0560' 'lrdn0568' 'lrdn0590' 'lrdn1051' 'lrdn1073' 'lrdn1093'
+ 'lrdn1101' 'lrdn1112' 'lrdn1122' 'lrdn1133' 'lrdn1153' 'lrdn1158'
+ 'lrdn1172' 'lrdn1180' 'lrdn1202' 'lrdn1210' 'lrdn1215' 'lrdn1277'
+ 'lrdn1286' 'lrdn1298' 'lrdn1299' 'lrdn1304' 'lrdn1315' 'lrdn1330'
+ 'lrdn1334' 'lrdn1358' 'lrdn1393' 'lrdn1404' 'lrdn1407' 'lrdn1410'
+ 'lrdn1430' 'lrdn1432' 'lrdn1440' 'lrdn1445' 'lrdn1451' 'lrdn1456'
+ 'lrdn1473' 'lrdn1480' 'lrdn1550' 'lrdn1558' 'lrdn1566' 'lrdn1588'
+ 'lrdn1597' 'lrdn1600' 'lrdn1608' 'lrdn1611' 'lrdn1612' 'lrdn1641'
+ 'lrdn1654' 'lrdn1688' 'lrdn1706' 'lrdn1728' 'lrdn1764' 'lrdn1766'
+ 'lrdn1773' 'lrdn1799' 'lrdn1828' 'lrdn1829' 'lrdn1835' 'lrdn1842'
+ 'lrdn1858' 'lrdn1880' 'lrdn1891' 'lrdn1892' 'lrdn1912' 'lrdn1916'
+ 'lrdn1919' 'lrdn1933' 'lrdn1940' 'lrdn1945' 'lrdn1952' 'lrdn1970'
+ 'lrdn1971' 'lrdn1984' 'lrdn1991' 'lrdn1998' 'lrdn2002' 'lrdn2006'
+ 'lrdn2017' 'lrdn2021' 'lrdn2023' 'lrdn2033' 'lrdn2058' 'lrdn2063'
+ 'lrdn2067' 'lrdn2075' 'lrdn2098' 'lrdn2107' 'lrdn2114' 'lrdn2123'
+ 'lrdn2134' 'lrdn2137' 'lrdn2142' 'lrdn2163' 'lrdn2172' 'lrdn2184'
+ 'lrdn2200' 'lrdn2203' 'lrdn2234' 'lrdn2252' 'lrdn2272' 'lrdn2274'
+ 'lrdn2283' 'lrdn2299' 'lrdn2304' 'lrdn2396' 'lrdn2408' 'lrdn2444'
+ 'lrdn2460' 'lrdn2479' 'lrdn2489' 'lrdn2508' 'lrdn2516' 'lrdn2534'
+ 'lrdn2539' 'lrdn2733' 'lrdn2940' 'lrdn3014' 'lrdn3097' 'lrdn3155'
+ 'lrdn3161' 'lrdn3214' 'lrdn3263' 'lrdn3271' 'lrdn3281' 'lrdn3337'
+ 'lrdn3360' 'lrdn3389']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.3125s.
+
+Running...
+ Run 1:
+  0.00425s: started 0
+  264.63819s: awaited 0
+  264.63821s: encountered an exception in 0
+srun: Warning: can't honor --ntasks-per-node set to 17 which doesn't match the requested tasks 512 with the number of requested nodes 128. Ignoring --ntasks-per-node.
+
+  Data collection took 0.0007s.
+  Convergence check took 0.00954s.
+Completed after reaching confidence interval, terminated after 1 runs taking 264.65 seconds.
+Writing data & meta-data took 0.0063s.
+Overall took 264.96743s.
