@@ -1,6 +1,6 @@
 #!/bin/bash
 rm -rf plots/out/*
-PLOT_SINGLE_NODE=0
+PLOT_SINGLE_NODE=1
 PLOT_TWO_NODES=0
 PLOT_DISTANCE=0
 PLOT_COLL_SCALABILITY=0
@@ -8,7 +8,8 @@ PLOT_COLL_SCALABILITY_HEATMAP=0
 PLOT_COLL_SCALABILITY_NOISE=0
 PLOT_LUMI_GPU_PAIRS=0
 PLOT_HCOLL=0
-PLOT_HCOLL_NODES=1
+PLOT_HCOLL_NODES=0
+PLOT_CONG_NODES=0
 #ERRORBAR="(\"ci\", 90)"
 ERRORBAR="(\"pi\", 50)"
 
@@ -23,8 +24,13 @@ if [[ $PLOT_SINGLE_NODE = 1 ]]; then
         PLOT_TYPE="line"
         for TESTNAME in "gpubench-pp" "gpubench-a2a" "gpubench-ar"
         do
-            VICTIM_NAMES="${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink"
-            LABELS="*CCL,Trivial Staging,GPU-Aware MPI,Device-Device Copy"
+            if [ ${SYSTEM} == "alps" ] || [ ${TESTNAME} == "gpubench-ar" ]; then
+                VICTIM_NAMES="${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware"
+                LABELS="*CCL,Trivial Staging,GPU-Aware MPI"
+            else
+                VICTIM_NAMES="${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware,${TESTNAME}-nvlink"
+                LABELS="*CCL,Trivial Staging,GPU-Aware MPI,Device-Device Copy"
+            fi
             EXTRA="NULL"
             if [ ${SYSTEM} == "lumi" ]; then
                 EXTRA="0-1"            
@@ -34,19 +40,19 @@ if [[ $PLOT_SINGLE_NODE = 1 ]]; then
                 PPN=2
                 if [ ${SYSTEM} == "lumi" ]; then
                     INNER_YLIM="[0, 30]"
-                    TREND_LIMIT=Bandwidth:1600:Expected_Bandwidth,Bandwidth:72:Exp._Trivial_Bw
+                    TREND_LIMIT=Bandwidth:1600:Expected_Bandwidth,Bandwidth:168:Exp._Trivial_Bw
                 elif [ ${SYSTEM} == "leonardo" ]; then
                     INNER_YLIM="[0, 30]"
                     TREND_LIMIT=Bandwidth:800:Expected_Bandwidth,Bandwidth:112:Exp._Trivial_Bw
                 else # Alps
                     INNER_YLIM="[0, 30]"
-                    TREND_LIMIT=Bandwidth:1200:Expected_Bandwidth,Bandwidth:88:Exp._Trivial_Bw
+                    TREND_LIMIT=Bandwidth:1200:Expected_Bandwidth,Bandwidth:168:Exp._Trivial_Bw
                 fi
             fi
             if [ ${TESTNAME} == "gpubench-a2a" ]; then
                 if [ ${SYSTEM} == "lumi" ]; then
                     INNER_YLIM="[0, 100]"
-                    TREND_LIMIT=Bandwidth:700:Expected_Bandwidth
+                    TREND_LIMIT=Bandwidth:600:Expected_Bandwidth
                     PPN=8
                 elif [ ${SYSTEM} == "alps" ]; then
                     INNER_YLIM="[0, 100]"
@@ -96,9 +102,9 @@ if [[ $PLOT_TWO_NODES = 1 ]]; then
     do
         OUT_PATH="plots/out/two-nodes/pingpong/${SYSTEM}"
         # P2P
-        INNER_YLIM="[0, 30]"
+        INNER_YLIM="[0, 50]"
         # [left, bottom, width, height]     
-        INNER_POS="[0.21, 0.45, .35, .2625]"   
+        INNER_POS="[0.21, 0.55, .3, .2625]"   
         #INNER_POS="[0.2, 0.6, .3, .2]"
         if [ ${SYSTEM} == "alps" ]; then
             TREND_LIMIT=Bandwidth:800
@@ -121,16 +127,16 @@ if [[ $PLOT_DISTANCE = 1 ]]; then
     EXTRAS=#same_switch,#diff_switch,#diff_group
     INPUT="#"
     XTICKLABELS="[\"Same\nSwitch\", \"Different\nSwitch\", \"Different\nGroup\"]"
-    for DIST in "distance-cpu" "distance-gpu"
-    do
-        if [ ${DIST} = "distance-cpu" ]; then
-            SYSTEMS="alps,leonardo,lumi"
+    for DIST in "distance-gpu" #"distance-cpu" "distance-gpu"
+    do        
+        SYSTEMS="alps,leonardo,lumi"
+        if [ ${DIST} = "distance-cpu" ]; then            
+            MAX_Y="alps|Latency:6,leonardo|Latency:6,lumi|Latency:6"
         else
-            SYSTEMS="alps,leonardo"
+            MAX_Y="alps|Latency:40,leonardo|Latency:40,lumi|Latency:40"
         fi
-        OUT_PATH="plots/out/two-nodes/${DIST}"
-        MAX_Y="alps|Latency:6,leonardo|Latency:6,lumi|Latency:6"
-        ./plots/plot_extras.py -s ${SYSTEMS} -vn "#${DIST}" -vi ${INPUT} -n 2 -am l -sp 100 --metrics "Latency,Bandwidth" -o ${OUT_PATH} --ppn 4 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --max_y "${MAX_Y}" --xticklabels "${XTICKLABELS}"
+        OUT_PATH="plots/out/two-nodes/${DIST}"        
+        ./plots/plot_extras.py -s ${SYSTEMS} -vn "#${DIST}" -vi ${INPUT} -n 2 -am l -sp 100 --metrics "Latency,Bandwidth" -o ${OUT_PATH} --ppn DEFAULT_MULTINODE -e ${EXTRAS} --plot_types ${PLOT_TYPE} --max_y "${MAX_Y}" --xticklabels "${XTICKLABELS}"
     done
 fi
 
@@ -139,7 +145,7 @@ if [[ $PLOT_COLL_SCALABILITY = 1 ]]; then
     # Multi nodes tests - Coll. scalability #
     #########################################
     SYSTEMS="alps,leonardo,lumi"
-    OUT_PATH="plots/out/multi-nodes/${SYSTEM}"
+    OUT_PATH="plots/out/multi-nodes/"
     PLOT_TYPE="line,box,bar"
     EXTRA="#"
     NNODES="2,4,8,16,32,64,128,256,512"
@@ -269,11 +275,11 @@ fi
 ##########################
 if [[ $PLOT_HCOLL_NODES = 1 ]]; then
     SYSTEM="leonardo"
-    OUT_PATH="plots/out/multi-nodes/${SYSTEM}/hcoll_nodes"
+    OUT_PATH="plots/out/multi-nodes/hcoll_nodes/${SYSTEM}"
     PLOT_TYPE="line"
     PPN=4
     EXTRA="SL0_hcoll0,SL0_hcoll1,SL1_hcoll0,SL1_hcoll1"
-    NODES="2,4,8,16,32,64"
+    NODES="2,4,8,16,32,64,128,256"
     # AR
     INPUTS="1GiB"
     for TESTNAME in "ar-cudaaware" "ar-nccl"
@@ -303,6 +309,37 @@ if [[ $PLOT_LUMI_GPU_PAIRS = 1 ]]; then
     BARPLOT_TOPS="1600,400,400,400,400,800,800"
     ./plots/plot_extras_multivictim.py -s ${SYSTEM} -vn "${BENCHS}" -vi ${INPUT} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH} --ppn 2 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --labels "${LABELS}" --barplot_tops "${BARPLOT_TOPS}"
 fi
+
+###################
+# Cong vs. #nodes #
+###################
+if [[ $PLOT_CONG_NODES = 1 ]]; then
+    SYSTEM="lumi"
+    OUT_PATH="plots/out/cong/${SYSTEM}"
+    PLOT_TYPE="line,box"
+    EXTRA="SL0_hcoll0"
+    for BENCH in "gpubench-ar-nccl" "gpubench-a2a-nccl" "gpubench-a2a-cudaaware"
+    do
+        if [ ${BENCH} == "gpubench-ar-nccl" ] || [ ${BENCH} == "gpubench-ar-cudaaware" ]; then
+            INPUT="1GiB"
+            FULLNAME="Allreduce"
+        else
+            INPUT="2MiB"
+            FULLNAME="Alltoall"
+        fi
+        if [ ${SYSTEM} == "lumi" ]; then
+            PPN=8
+            NUMNODES="4,8,16,32,64,128,256,512"
+        else
+            PPN=4
+            NUMNODES="4,8,16,32,64,128"
+        fi
+        #LABELS="${FULLNAME}\nIsolated,${FULLNAME}\n+Alltoall,${FULLNAME}\n+Incast"
+        TESTNAME="${BENCH}"
+        ./plots/plot_agg_multinodes.py -s ${SYSTEM} -vn ${BENCH} -vi ${INPUT} --aggressor_names ",a2a_man,inc_b" --aggressor_inputs ",128KiB,128KiB" -n ${NUMNODES} -am "+r" -sp 50:50 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} #--labels "${LABELS}"
+    done
+fi
+
 exit 0
 
 

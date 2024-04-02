@@ -131,7 +131,8 @@ def main():
         df_pivot = df_pivot.reindex(labels=args.victim_inputs.split(","), level=0) # Sort "Input"
         df_pivot = df_pivot[x_labels] # Sort "Nodes"/"#GPUs"
 
-        ax = sns.heatmap(df_pivot, annot=True, fmt=".2f", cbar_kws={'label': args.victim_types.split(",")[0] + "/" + args.victim_types.split(",")[1]})
+        #ax = sns.heatmap(df_pivot, annot=True, fmt=".2f", vmin=0, center=1, cmap="RdYlGn_r", cbar_kws={'label': args.victim_types.split(",")[0] + "/" + args.victim_types.split(",")[1]})
+        ax = sns.heatmap(df_pivot, annot=True, fmt=".2f", cmap='viridis', cbar_kws={'label': args.victim_types.split(",")[0] + "/" + args.victim_types.split(",")[1]})
         ax.set_ylabel("")       
         ax.figure.savefig(outname + "_hm.pdf", bbox_inches='tight')
         plt.clf()

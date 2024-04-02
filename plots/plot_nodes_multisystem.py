@@ -18,6 +18,7 @@ from common import *
 matplotlib.rc('pdf', fonttype=42) # To avoid issues with camera-ready submission
 sns.set_style("whitegrid")
 #sns.set_context("paper")
+#rcParams['figure.figsize'] = 12,4.5
 rcParams['figure.figsize'] = 8,4.5
 
 def main():
@@ -51,7 +52,12 @@ def main():
     xticklabels = []
     xticks = []
     ideal_label_pos = 256
+    available_dashes = ["", (2, 2)]
     for metric_hr in args.metrics.split(","):      
+        palette = {}
+        dashes = {}
+        palette_idx = 0
+        dashes_idx = 0
         global_df = pd.DataFrame()
         global_df_ideal = pd.DataFrame()
         ideals = {}
@@ -77,6 +83,21 @@ def main():
 
                 outname = args.outfile + os.path.sep + metric_hr
                 outname = outname.lower()
+                
+                matches   = [value for key, value in palette.items() if system_to_human_readable(sys) in key]
+                matches_d = [value for key, value in dashes.items() if bench_to_human_readable_impl(vn) in key]
+                if len(matches):
+                    palette[system_to_human_readable(sys) + " (" + bench_to_human_readable_impl(vn) + ")"] = matches[0]                    
+                else:
+                    palette[system_to_human_readable(sys) + " (" + bench_to_human_readable_impl(vn) + ")"] = sns.color_palette()[palette_idx]                    
+                    palette_idx += 1
+            
+                if len(matches_d):
+                    dashes[system_to_human_readable(sys) + " (" + bench_to_human_readable_impl(vn) + ")"] = matches_d[0]
+                else:
+                    dashes[system_to_human_readable(sys) + " (" + bench_to_human_readable_impl(vn) + ")"] = available_dashes[dashes_idx]
+                    dashes_idx += 1
+
                 for nodes in args.numnodes.split(","):
                     if metric_hr == "Bandwidth": # For bandwidth, we also get the data for runtime to plot the inner plot
                         actual_metrics = ["Runtime", "Bandwidth"]
@@ -119,11 +140,14 @@ def main():
                             xticklabels += [(int(nodes)*int(ppn))]
                             xticks += [(int(nodes)*int(ppn))]
 
+                        if not args.bw_per_node and int(nodes)*int(ppn) < 16: # Start from 16 GPUs (at least two nodes for LUMI)
+                            continue
+
                         if metric_hr == "Bandwidth" and actual_metric == "Runtime": # Save the data for the inner plot in the bandwidth plots
                             global_df_time = pd.concat([global_df_time, data], ignore_index=True)
                         else:
                             global_df = pd.concat([global_df, data], ignore_index=True)
-
+                    
         plot_types = args.plot_types.split(",")
 
         if args.bw_per_node:
@@ -138,7 +162,8 @@ def main():
         errorbar = ast.literal_eval(args.errorbar)
         if "line" in plot_types:
             # Setup the plot
-            ax = sns.lineplot(data=global_df, x=x, y=metric_hr, hue="System", style="System", markers=True, linewidth=3, markersize=8, errorbar=errorbar)
+            #print(dashes)
+            ax = sns.lineplot(data=global_df, x=x, y=metric_hr, hue="System", style="System", markers=True, linewidth=4, markersize=10, errorbar=errorbar, palette=palette, dashes=dashes)
 
             # Plots the limit if specified
             if args.trend_limit != "AUTO":
@@ -170,9 +195,6 @@ def main():
                 ax.set_ylim(0, None)
             # Remove legend title
             ax.legend_.set_title(None)
-
-            #if not args.bw_per_node:
-            #    ax.set_xlim(16, 2048)
         
             if not args.bw_per_node:
                 plt.xscale('log')
@@ -181,7 +203,7 @@ def main():
 
             # Move legend outside
             sns.move_legend(ax, "lower center",
-                            bbox_to_anchor=(.5, 1), ncol=2, title=None, frameon=False)
+                            bbox_to_anchor=(.5, 1), ncol=3, title=None, frameon=False)
 
             # Save to file
             #ax.figure.savefig(outname + "_line.png", bbox_inches='tight')

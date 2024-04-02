@@ -212,7 +212,7 @@ def get_actual_bench_name(bench, system, input):
                 else:
                     return "ib_send_lat"
         elif bench == "#distance-gpu":        
-            return "gpubench-mpp-nccl"
+            return "gpubench-mpp-cudaaware"
         elif bench == "#a2a-gpu": # TODO: FIX
             if system == "leonardo":
                 return "gpubench-a2a-nccl"
@@ -344,15 +344,13 @@ def get_data_filename(data_folder, system, numnodes, allocation_mode, allocation
         reader = csv.DictReader(infile)    
         for line in reader:
             row = {key: value for key, value in line.items()}      
-            #if row["system"] == "alps" and not "03-24" in row["path"]:
-            #    continue 
             # Check if the fields in the description match the ones in the arguments
+            #print(f"{system} {numnodes} {allocation_mode} {allocation_split} {int(ppn)} {extra}")
             if row["system"] == system and int(row["numnodes"]) == int(numnodes) and \
                row["allocation_mode"] == allocation_mode and row["allocation_split"] == allocation_split and \
                int(row["ppn"]) == int(ppn) and row["extra"] == extra:   
                 # Check if the mix matches the victim and aggressor
                 info = extract_info(row["app_mix"])                
-                
                 # Get the bench name from the Python wrapper filename and load the python wrapper to get the full name and the input name
                 victim_shortname = info["victim_wrapper"].split("/")[-1][:-3]                
                 victim_in = get_input_and_full_name_from_args(os.environ["BLINK_ROOT"] + os.path.sep + info["victim_wrapper"], info["victim_args"])
@@ -363,6 +361,8 @@ def get_data_filename(data_folder, system, numnodes, allocation_mode, allocation
                     aggressor_shortname = ""
                     aggressor_fn = ""
                     aggressor_in = ""
+                #print(f"{victim_name} {victim_input} {aggressor_name} {aggressor_input}")
+                #print(f"{victim_shortname} {victim_in} {aggressor_shortname} {aggressor_in}")
                 if victim_name == victim_shortname and victim_input == victim_in and \
                    aggressor_name == aggressor_shortname and aggressor_input == aggressor_in:
                     to_return = row["path"] + "/data.csv"

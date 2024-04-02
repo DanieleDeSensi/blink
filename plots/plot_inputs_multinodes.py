@@ -83,9 +83,6 @@ def main():
                     else:
                         print("Data not found for metric " + actual_metric + " victim " + vn + " with input " + args.victim_input)
                         data[actual_metric] = [np.nan]
-                    
-                    if not args.bw_per_node and metric_hr == "Bandwidth":
-                        data[actual_metric] /= int(ppn)
 
                     if data.empty:
                         raise Exception("Error: data file " + filename + " does not contain data for metric " + actual_metric)
