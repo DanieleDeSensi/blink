@@ -1,0 +1,71 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/gpubench/a2a-cudaaware/8B', node_file='auto', numnodes=1, allocationmode='l', allocationsplit='100', minruns=1, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=8, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='0-1', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-l 100 -x 3", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 8
+0 on 1 nodes:
+['nid005294']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.45063s.
+
+Running...
+ Run 1:
+  0.00726s: started 0
+  0.94235s: awaited 0
+  Data collection took 0.00041s.
+  Convergence check took 0.00112s.
+ Run 2:
+  0.0048s: started 0
+  1.31489s: awaited 0
+  Data collection took 0.00038s.
+  Convergence check took 0.00096s.
+ Run 3:
+  0.00464s: started 0
+  0.93796s: awaited 0
+  Data collection took 0.00038s.
+  Convergence check took 0.00099s.
+ Run 4:
+  0.00478s: started 0
+  0.93433s: awaited 0
+  Data collection took 0.0004s.
+  Convergence check took 0.00112s.
+ Run 5:
+  0.00486s: started 0
+  0.94283s: awaited 0
+  Data collection took 0.00038s.
+  Convergence check took 0.00106s.
+ Run 6:
+  0.00467s: started 0
+  1.27004s: awaited 0
+  Data collection took 0.00037s.
+  Convergence check took 0.00105s.
+ Run 7:
+  0.00324s: started 0
+  0.94404s: awaited 0
+  Data collection took 0.00038s.
+  Convergence check took 0.00112s.
+ Run 8:
+  0.00475s: started 0
+  0.95286s: awaited 0
+  Data collection took 0.00046s.
+  Convergence check took 0.00142s.
+ Run 9:
+  0.00514s: started 0
+  0.95074s: awaited 0
+  Data collection took 0.00037s.
+  Convergence check took 0.00116s.
+ Run 10:
+  0.00482s: started 0
+  1.09786s: awaited 0
+  Data collection took 0.00043s.
+  Convergence check took 0.00123s.
+Completed maximum number of runs, terminated after 10 runs taking 10.3 seconds.
+Writing data & meta-data took 0.01037s.
+Overall took 10.7658s.
