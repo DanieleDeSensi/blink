@@ -87,7 +87,7 @@ def main():
 
                 for actual_metric in actual_metrics:
                     filename = get_data_filename(args.data_folder, args.system, args.numnodes, args.allocation_mode, allocation_split, ppn, get_actual_extra_name(args.extra, args.system, vn, args.numnodes), vn, vi, args.aggressor_name, args.aggressor_input)
-                    
+
                     data = pd.DataFrame()
                     if filename and os.path.exists(filename):                    
                         data[actual_metric] = get_bench_data(vn, vi, actual_metric, filename, ppn, args.numnodes, args.system)
@@ -122,7 +122,7 @@ def main():
         errorbar = ast.literal_eval(args.errorbar)
         if "line" in plot_types:
             # Setup the plot
-            ax = sns.lineplot(data=global_df, x="Input", y=metric_hr, hue="Application", style="Application", markers=True, linewidth=3, markersize=8, hue_order=labels, errorbar=errorbar)
+            ax = sns.lineplot(data=global_df, x="Input", y=metric_hr, hue="Application", style="Application", markers=True, linewidth=4, markersize=10, hue_order=labels, errorbar=errorbar)
 
             # Plots the limit if specified
             if args.trend_limit:
@@ -158,7 +158,7 @@ def main():
             if global_df_time is not None:
                 ax2 = plt.axes(ast.literal_eval(args.inner_pos), facecolor='w')
                 global_df_time["Runtime (us)"] = global_df_time["Runtime"] # Was already scaled before
-                sns.lineplot(data=global_df_time, x="Input", y="Runtime (us)", hue="Application", style="Application", marker="o", ax=ax2, errorbar=errorbar)
+                sns.lineplot(data=global_df_time, x="Input", y="Runtime (us)", hue="Application", style="Application", linewidth=4, markersize=10, markers=True, ax=ax2, errorbar=errorbar)
                 ax2.set_xlim([0, 5])
                 if args.inner_ylim:
                     ax2.set_ylim(ast.literal_eval(args.inner_ylim))

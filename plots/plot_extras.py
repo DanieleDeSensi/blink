@@ -113,7 +113,10 @@ def main():
                 victim_name = get_actual_bench_name(args.victim_name, system, victim_input)                
                 e = get_actual_extra_name(ea, system, victim_name, args.numnodes)
                 allocation_split = args.allocation_split
-                ppn = args.ppn            
+                if args.ppn == "DEFAULT_MULTINODE":
+                    ppn = get_default_multinode_ppn(system, victim_name)
+                else:
+                    ppn = int(args.ppn)          
                 if victim_name == "ib_send_lat": # TODO: This is a hack, make it cleaner
                     if ppn != 1:
                         ppn = 1
@@ -128,11 +131,13 @@ def main():
                     print("Error: data file " + filename + " does not exist")
                     continue
                 data[extra_fullname[e]] = get_bench_data(victim_name, victim_input, metric_hr, filename, ppn, args.numnodes, system)
+                print("Data for " + system + " " + metric_hr + " " + ea + " Min: " + str(data[extra_fullname[e]].min()) + " Max: " + str(data[extra_fullname[e]].max()))
                 if data.empty:
                     raise Exception("Error: data file " + filename + " does not contain data for metric " + metric_hr)
                 global_df = pd.concat([global_df, data], axis=1)
             key = system + "|" + metric_hr
             data_dict[key] = global_df
+
 
     outname = args.outfile + os.path.sep
     outname = outname.lower()
@@ -153,7 +158,8 @@ def main():
                     continue
                 global_df = data_dict[key]
                 ax = fig.add_subplot(num_rows, num_cols, index)
-
+                #print(system)
+                #print(global_df)
                 # Violins        
                 if plot_type == "violin":            
                     plot_violin(global_df, metric, ax)                
@@ -161,6 +167,7 @@ def main():
                     patch_violinplot(sns.color_palette(), len(args.extras.split(",")), ax)            
                 elif plot_type == "box":
                     plot_box(global_df, metric, ax)
+                    #patch_violinplot(sns.color_palette(), len(args.extras.split(",")), ax)            
                 elif plot_type == "boxnofliers":
                     plot_box(global_df, metric, ax, False)                      
                 elif plot_type == "dist":
