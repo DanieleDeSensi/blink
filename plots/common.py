@@ -114,13 +114,14 @@ def get_bench_data(bench, input, metric, filename, ppn, nodes, system):
     microbenchs = ["ping-pong_b", "pw-ping-pong_b", "a2a_b", "ardc_b"]
 
     if "gpubench" in bench:
-        if metric == "Bandwidth":
+        if metric == "Bandwidth" or metric == "Goodput":
             num_ranks = int(nodes) * int(ppn)
             seconds = pd.read_csv(filename)["0_Transfer Time_s"]
             input_bits = input_size_to_bytes(input)*8
             input_gbits = input_bits / 1e9
             if "gpubench-ar" in bench:
-                input_gbits *= 2 # I actually send twice the data (e.g., Rabenseifner's algorithm)
+                if metric == "Bandwidth":
+                    input_gbits *= 2 # I actually send twice the data (e.g., Rabenseifner's algorithm)
             elif "gpubench-mpp" in bench:
                 input_gbits *= int(ppn)
             elif "gpubench-a2a" in bench:
@@ -135,7 +136,7 @@ def get_bench_data(bench, input, metric, filename, ppn, nodes, system):
             time_str = "0_Max-Duration_s"
         if metric == "Runtime" or metric == "Latency":
             return pd.read_csv(filename)[time_str]*1e6
-        elif metric == "Bandwidth":
+        elif metric == "Bandwidth" or metric == "Goodput":
             input_bits = input_size_to_bytes(input)*8
             input_gbits = input_bits / 1e9
             gbit_s = input_gbits / (pd.read_csv(filename)[time_str]) # Time is already in seconds
@@ -145,7 +146,8 @@ def get_bench_data(bench, input, metric, filename, ppn, nodes, system):
                 ranks = int(nodes) * int(ppn)
                 gbit_s *= (ranks - 1) # I send that count to each of the other nodes
             elif bench == "ardc_b":
-                gbit_s *= 2 # I actually send twice the data (e.g., Rabenseifner's algorithm)
+                if metric == "Goodput":
+                    gbit_s *= 2 # I actually send twice the data (e.g., Rabenseifner's algorithm)
             return gbit_s
     elif bench == "nccl-sendrecv" or bench == "nccl-allreduce" or bench == "nccl-alltoall":
         if metric == "Bandwidth":
@@ -166,6 +168,8 @@ def get_bench_data(bench, input, metric, filename, ppn, nodes, system):
 def add_unit_to_metric(metric_hr):
     if metric_hr == "Bandwidth":
         return "Bandwidth (Gb/s)"
+    elif metric_hr == "Goodput":
+        return "Goodput (Gb/s)"
     elif metric_hr == "Runtime":
         return "Runtime (us)"
     elif metric_hr == "Latency":
@@ -271,7 +275,7 @@ def get_actual_input_name(input, metric):
     if input == "#":
         if metric == "Latency":
             return "1B"
-        elif metric == "Bandwidth":
+        elif metric == "Bandwidth" or metric == "Goodput":
             return "1GiB"
     else:
         return input

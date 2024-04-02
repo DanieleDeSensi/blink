@@ -79,8 +79,8 @@ def main():
             outname = args.outfile + os.path.sep + metric_hr
             outname = outname.lower()
             for extra in args.extras.split(","):
-                if metric_hr == "Bandwidth": # For bandwidth, we also get the data for runtime to plot the inner plot
-                    actual_metrics = ["Runtime", "Bandwidth"]
+                if metric_hr == "Goodput": # For bandwidth, we also get the data for runtime to plot the inner plot
+                    actual_metrics = ["Runtime", "Goodput"]
                 else:
                     actual_metrics = [metric_hr]
 
@@ -97,7 +97,7 @@ def main():
                         raise Exception("Error: data file " + filename + " does not contain data for metric " + actual_metric)
                     data["Extra"] = extra_fullname[extra]
                     data["Application"] = vn # victim_fn
-                    if metric_hr == "Bandwidth" and actual_metric == "Runtime": # Save the data for the inner plot in the bandwidth plots
+                    if metric_hr == "Goodput" and actual_metric == "Runtime": # Save the data for the inner plot in the bandwidth plots
                         global_df_time = pd.concat([global_df_time, data], ignore_index=True)
                     else:
                         global_df = pd.concat([global_df, data], ignore_index=True)

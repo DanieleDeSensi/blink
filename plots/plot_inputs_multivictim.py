@@ -66,7 +66,7 @@ def main():
                 ppn = int(args.ppn)
 
             scaling_factor = 1
-            if args.bw_per_node and metric_hr == "Bandwidth":
+            if args.bw_per_node and (metric_hr == "Bandwidth" or metric_hr == "Goodput"):
                 scaling_factor = ppn
             
             allocation_split = args.allocation_split
@@ -82,6 +82,8 @@ def main():
             for vi in victim_inputs:
                 if metric_hr == "Bandwidth": # For bandwidth, we also get the data for runtime to plot the inner plot
                     actual_metrics = ["Runtime", "Bandwidth"]
+                elif metric_hr == "Goodput":
+                    actual_metrics = ["Runtime", "Goodput"]
                 else:
                     actual_metrics = [metric_hr]
 
@@ -101,7 +103,7 @@ def main():
                     data[actual_metric] *= scaling_factor
                     data["Input"] = vi
                     data["Application"] = vn # victim_fn
-                    if metric_hr == "Bandwidth" and actual_metric == "Runtime": # Save the data for the inner plot in the bandwidth plots
+                    if (metric_hr == "Bandwidth" or metric_hr == "Goodput") and actual_metric == "Runtime": # Save the data for the inner plot in the bandwidth plots
                         global_df_time = pd.concat([global_df_time, data], ignore_index=True)
                     else:
                         global_df = pd.concat([global_df, data], ignore_index=True)

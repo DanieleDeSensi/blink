@@ -40,48 +40,48 @@ if [[ $PLOT_SINGLE_NODE = 1 ]]; then
                 PPN=2
                 if [ ${SYSTEM} == "lumi" ]; then
                     INNER_YLIM="[0, 30]"
-                    TREND_LIMIT=Bandwidth:1600:Expected_Bandwidth,Bandwidth:168:Exp._Trivial_Bw
+                    TREND_LIMIT=Goodput:1600:Expected_Goodput,Goodput:168:Exp._Trivial_Gdpt
                 elif [ ${SYSTEM} == "leonardo" ]; then
                     INNER_YLIM="[0, 30]"
-                    TREND_LIMIT=Bandwidth:800:Expected_Bandwidth,Bandwidth:112:Exp._Trivial_Bw
+                    TREND_LIMIT=Goodput:800:Expected_Goodput,Goodput:112:Exp._Trivial_Gdpt
                 else # Alps
                     INNER_YLIM="[0, 30]"
-                    TREND_LIMIT=Bandwidth:1200:Expected_Bandwidth,Bandwidth:168:Exp._Trivial_Bw
+                    TREND_LIMIT=Goodput:1200:Expected_Goodput,Goodput:168:Exp._Trivial_Gdpt
                 fi
             fi
             if [ ${TESTNAME} == "gpubench-a2a" ]; then
                 if [ ${SYSTEM} == "lumi" ]; then
                     INNER_YLIM="[0, 100]"
-                    TREND_LIMIT=Bandwidth:600:Expected_Bandwidth
+                    TREND_LIMIT=Goodput:600:Expected_Goodput
                     PPN=8
                 elif [ ${SYSTEM} == "alps" ]; then
                     INNER_YLIM="[0, 100]"
-                    TREND_LIMIT=Bandwidth:3600:Expected_Bandwidth
+                    TREND_LIMIT=Goodput:3600:Expected_Goodput
                     PPN=4
                 else
                     INNER_YLIM="[0, 100]"                
-                    TREND_LIMIT=Bandwidth:2400:Expected_Bandwidth
+                    TREND_LIMIT=Goodput:2400:Expected_Goodput
                     PPN=4
                 fi
             fi
             if [ ${TESTNAME} == "gpubench-ar" ]; then
                 if [ ${SYSTEM} == "lumi" ]; then
                     INNER_YLIM="[0, 100]"
-                    TREND_LIMIT=Bandwidth:1600:Expected_Bandwidth
+                    TREND_LIMIT=Goodput:800:Expected_Goodput
                     PPN=8
                 elif [ ${SYSTEM} == "alps" ]; then
                     INNER_YLIM="[0, 100]"
-                    TREND_LIMIT=Bandwidth:3600:Expected_Bandwidth
+                    TREND_LIMIT=Goodput:3600:Expected_Goodput
                     PPN=4
                 else
                     INNER_YLIM="[0, 100]"
-                    TREND_LIMIT=Bandwidth:2400:Expected_Bandwidth
+                    TREND_LIMIT=Goodput:2400:Expected_Goodput
                     PPN=4
                 fi
             fi    
             # [left, bottom, width, height]     
             INNER_POS="[0.21, 0.45, .35, .2625]"   
-            ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn "${VICTIM_NAMES}" -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --labels "${LABELS}" -e "${EXTRA}" --errorbar "${ERRORBAR}" --inner_pos "${INNER_POS}"
+            ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn "${VICTIM_NAMES}" -vi ${INPUTS} -n 1 -am l -sp 100 --metrics "Goodput" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} --trend_limit ${TREND_LIMIT} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --labels "${LABELS}" -e "${EXTRA}" --errorbar "${ERRORBAR}" --inner_pos "${INNER_POS}"
         done
     done
 fi
@@ -107,15 +107,15 @@ if [[ $PLOT_TWO_NODES = 1 ]]; then
         INNER_POS="[0.21, 0.55, .3, .2625]"   
         #INNER_POS="[0.2, 0.6, .3, .2]"
         if [ ${SYSTEM} == "alps" ]; then
-            TREND_LIMIT=Bandwidth:800
+            TREND_LIMIT=Goodput:800:Expected_Goodput
         fi
         if [ ${SYSTEM} == "lumi" ]; then
-            TREND_LIMIT=Bandwidth:800
+            TREND_LIMIT=Goodput:800:Expected_Goodput
         fi
         if [ ${SYSTEM} == "leonardo" ]; then
-            TREND_LIMIT=Bandwidth:400
+            TREND_LIMIT=Goodput:400:Expected_Goodput
         fi
-        ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn ${BENCH_NAMES} -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT} --inner_pos "${INNER_POS}" --labels "${LABELS}"  --errorbar "${ERRORBAR}"
+        ./plots/plot_inputs_multivictim.py -s ${SYSTEM} -vn ${BENCH_NAMES} -vi ${INPUTS} -n 2 -am l -sp 100 --metrics "Goodput" -o ${OUT_PATH} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} --inner_ylim "${INNER_YLIM}" --trend_limit ${TREND_LIMIT} --inner_pos "${INNER_POS}" --labels "${LABELS}"  --errorbar "${ERRORBAR}"
     done
 fi
 
@@ -169,17 +169,17 @@ if [[ $PLOT_COLL_SCALABILITY = 1 ]]; then
             if [ ${BENCH} == "ar" ]; then
                 CPU_BENCH="ardc_b"
                 TREND_LIMIT_GPU="X:X:X"
-                TREND_LIMIT_CPU="Bandwidth:100:Expected_Bandwidth_(Leonardo),Bandwidth:200:Expected_Bandwidth_(LUMI)"
+                TREND_LIMIT_CPU="Goodput:100:Expected_Goodput_(Leonardo),Goodput:200:Expected_Goodput_(LUMI)"
             else
                 CPU_BENCH="a2a_b"
-                TREND_LIMIT_GPU="Bandwidth:100:Asymptotically_Expected_Bandwidth_(Leonardo_and_LUMI),Bandwidth:200:Asymptotically_Expected_Bandwidth_(Alps)"
+                TREND_LIMIT_GPU="Goodput:100:Asymptotically_Expected_Goodput_(Leonardo_and_LUMI),Goodput:200:Asymptotically_Expected_Goodput_(Alps)"
                 #TREND_LIMIT_GPU="AUTO"
-                TREND_LIMIT_CPU="Bandwidth:100:Asymptotically_Expected_Bandwidth_(Leonardo),Bandwidth:200:Asymptotically_Expected_Bandwidth_(LUMI)"
+                TREND_LIMIT_CPU="Goodput:100:Asymptotically_Expected_Goodput_(Leonardo),Goodput:200:Asymptotically_Expected_Goodput_(LUMI)"
             fi
             TESTNAME="${BENCH}"_gpu_${INPUT}            
-            ./plots/plot_nodes_multisystem.py -s ${SYSTEMS} -vn gpubench-${BENCH}-nccl,gpubench-${BENCH}-cudaaware -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types ${PLOT_TYPE} -e ${EXTRA} --errorbar "${ERRORBAR}" --trend_limit "${TREND_LIMIT_GPU}" #--bw_per_node #
+            ./plots/plot_nodes_multisystem.py -s ${SYSTEMS} -vn gpubench-${BENCH}-nccl,gpubench-${BENCH}-cudaaware -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Goodput" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types ${PLOT_TYPE} -e ${EXTRA} --errorbar "${ERRORBAR}" --trend_limit "${TREND_LIMIT_GPU}" #--bw_per_node #
             TESTNAME="${BENCH}"_cpu_${INPUT}
-            ./plots/plot_nodes_multisystem.py -s ${SYSTEMS} -vn ${CPU_BENCH} -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types ${PLOT_TYPE} -e ${EXTRA} --errorbar "${ERRORBAR}" --trend_limit "${TREND_LIMIT_CPU}" #--bw_per_node #
+            ./plots/plot_nodes_multisystem.py -s ${SYSTEMS} -vn ${CPU_BENCH} -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Goodput" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types ${PLOT_TYPE} -e ${EXTRA} --errorbar "${ERRORBAR}" --trend_limit "${TREND_LIMIT_CPU}" #--bw_per_node #
         done
     done
 fi
@@ -208,7 +208,7 @@ if [[ $PLOT_COLL_SCALABILITY_NOISE = 1 ]]; then
         for INPUT in "${INPUTS[@]}"
         do        
             TESTNAME="${BENCH}"_${INPUT}
-            ./plots/plot_inputs_multinodes.py -s ${SYSTEM} -vn gpubench-${BENCH}-nccl -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE} --labels "${LABELS}" --errorbar "${ERRORBAR}" --no_inner
+            ./plots/plot_inputs_multinodes.py -s ${SYSTEM} -vn gpubench-${BENCH}-nccl -vi ${INPUT} -n ${NNODES} -am "l" -sp 100 --metric "Goodput" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE} --labels "${LABELS}" --errorbar "${ERRORBAR}" --no_inner
         done
     done
 fi
@@ -307,7 +307,7 @@ if [[ $PLOT_LUMI_GPU_PAIRS = 1 ]]; then
     BENCHS="gpubench-pp-baseline,gpubench-pp-nccl,gpubench-pp-nvlink,gpubench-pp-cudaaware"
     LABELS="Trivial Staging,RCCL,Device-Device Copy,GPU-Aware MPI"
     BARPLOT_TOPS="1600,400,400,400,400,800,800"
-    ./plots/plot_extras_multivictim.py -s ${SYSTEM} -vn "${BENCHS}" -vi ${INPUT} -n 1 -am l -sp 100 --metrics "Bandwidth" -o ${OUT_PATH} --ppn 2 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --labels "${LABELS}" --barplot_tops "${BARPLOT_TOPS}"
+    ./plots/plot_extras_multivictim.py -s ${SYSTEM} -vn "${BENCHS}" -vi ${INPUT} -n 1 -am l -sp 100 --metrics "Goodput" -o ${OUT_PATH} --ppn 2 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --labels "${LABELS}" --barplot_tops "${BARPLOT_TOPS}"
 fi
 
 ###################

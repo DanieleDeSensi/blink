@@ -25,12 +25,12 @@ def main():
     parser.add_argument('-s', '--system', help='System name.', required=True)
     parser.add_argument('-vn', '--victim_name', help='Victim name. It must match the filename of the Python wrapper.', required=True)
     parser.add_argument('-vi', '--victim_input', help='Victim input.', required=True)
-    parser.add_argument('-an', '--aggressor_name', help='Name of the aggressor. It must match the filename of the Python wrapper.', default="")
-    parser.add_argument('-ai', '--aggressor_input', help='Aggressor input.', default="")    
+    parser.add_argument('-an', '--aggressor_names', help='Name of the aggressor. It must match the filename of the Python wrapper.', default="")
+    parser.add_argument('-ai', '--aggressor_inputs', help='Aggressor inputs (one per aggressor, comma-separated).', default="128KiB")    
     parser.add_argument('-n', '--numnodes', help='Comma separated list of nodes the mix was executed on (total).', required=True)
     parser.add_argument('-am', '--allocation_mode', help='The allocation mode the mix was executed with.', required=True)
     parser.add_argument('-sp', '--allocation_split', help='The allocation split the mix was executed with.', required=True)
-    parser.add_argument('-e', '--extras', help='Comma-separated list of extras.', default="")
+    parser.add_argument('-e', '--extra', help='Extra.', default="")
     parser.add_argument('-m', '--metrics', help='Comma-separated string of metrics to plot.', default="0_Avg-Duration_s")
     parser.add_argument('-p', '--ppn', help='Processes per node.', default=1)
     parser.add_argument('-tl', '--trend_limit', help='Y-axis upper limit. (format metric:limit)')
@@ -58,42 +58,44 @@ def main():
         vn = get_actual_bench_name(args.victim_name, args.system, None)
         ppn = args.ppn
         allocation_split = args.allocation_split
-        # TODO: This is a hack, make it cleaner
-        if vn == "ib_send_lat":
-            if ppn != 1:
-                ppn = 1
-            if allocation_split == "100":
-                allocation_split = "50:50"
 
         outname = args.outfile + os.path.sep + metric_hr
         outname = outname.lower()
-        for extra_r in args.extras.split(","):
+        agg_pos = 0
+        for agg in args.aggressor_names.split(","):
+            agg_in = args.aggressor_inputs.split(",")[agg_pos]
+            agg_pos += 1
             for n in args.numnodes.split(","):
-                extra = get_actual_extra_name(extra_r, args.system, vn, n)
-                if metric_hr == "Goodput": # For bandwidth, we also get the data for runtime to plot the inner plot
-                    actual_metrics = ["Runtime", "Goodput"]
+                extra = get_actual_extra_name(args.extra, args.system, vn, n)
+                if metric_hr == "Bandwidth": # For bandwidth, we also get the data for runtime to plot the inner plot
+                    actual_metrics = ["Runtime", "Bandwidth"]
                 else:
                     actual_metrics = [metric_hr]
 
                 for actual_metric in actual_metrics:
-                    filename = get_data_filename(args.data_folder, args.system, n, args.allocation_mode, allocation_split, ppn, extra, vn, args.victim_input, args.aggressor_name, args.aggressor_input)
+                    filename = get_data_filename(args.data_folder, args.system, n, args.allocation_mode, allocation_split, ppn, extra, vn, args.victim_input, agg, agg_in)
                     data = pd.DataFrame()
                     if filename and os.path.exists(filename):                    
                         data[actual_metric] = get_bench_data(vn, args.victim_input, actual_metric, filename, ppn, n, args.system)
                     else:
+                        #print(f"{args.data_folder}, {args.system}, {n}, {args.allocation_mode}, {allocation_split}, {ppn}, {extra}, {vn}, {args.victim_input}, {agg}, {agg_in}")
                         print("Data not found for metric " + actual_metric + " victim " + vn + " with input " + args.victim_input)
                         data[actual_metric] = [np.nan]
-
+                    
                     if data.empty:
                         raise Exception("Error: data file " + filename + " does not contain data for metric " + actual_metric)
                     data["Nodes"] = n
                     data["#GPUs"] = int(n)*int(ppn)
-                    data["Extra"] = extra
+                    if agg == "":
+                        data["Aggressor"] = "Isolated"
+                    else:
+                        data["Aggressor"] = agg
+
                     if not args.bw_per_node:
                         xticklabels += [(int(n)*int(ppn))]
                         xticks += [(int(n)*int(ppn))]
 
-                    if metric_hr == "Goodput" and actual_metric == "Runtime": # Save the data for the inner plot in the bandwidth plots
+                    if metric_hr == "Bandwidth" and actual_metric == "Runtime": # Save the data for the inner plot in the bandwidth plots
                         global_df_time = pd.concat([global_df_time, data], ignore_index=True)
                     else:
                         global_df = pd.concat([global_df, data], ignore_index=True)
@@ -102,11 +104,11 @@ def main():
         if args.labels:
             index = 0
             labels = args.labels.split(",")
-            for e in args.extras.split(","):
+            for e in args.aggressor_names.split(","):
                 global_df.replace(e, labels[index], inplace=True)
                 index += 1
         else:
-            labels = args.extras.split(",")
+            labels = args.aggressor_names.split(",")
 
         x = "Nodes"
         if not args.bw_per_node:
@@ -117,15 +119,18 @@ def main():
         # Line plot #
         #############
         errorbar = ast.literal_eval(args.errorbar)
+        #print(global_df)
         if "line" in plot_types:
             # Setup the plot
-            ax = sns.lineplot(data=global_df, x=x, y=metric_hr, hue="Extra", style="Extra", markers=True, linewidth=3, markersize=8, hue_order=labels, errorbar=errorbar)
+            # TODO: restore hue_order
+            #print(global_df)
+            ax = sns.lineplot(data=global_df, x=x, y=metric_hr, hue="Aggressor", style="Aggressor", markers=True, linewidth=3, markersize=8, errorbar=errorbar)
 
             # Plots the limit if specified
-            if args.trend_limit:
-                m, limit = args.trend_limit.split(":")
-                if metric_hr == m:
-                    ax.axhline(y=float(limit), color='black', linestyle='--')
+            #if args.trend_limit:
+            #    m, limit = args.trend_limit.split(":")
+            #    if metric_hr == m:
+            #        ax.axhline(y=float(limit), color='black', linestyle='--')
 
             # Set the title and labels
             #ax.set_title(title)
@@ -145,19 +150,6 @@ def main():
                 ax.set_xticks(xticks)
                 ax.set_xticklabels(xticklabels)   
 
-            # Inner latency plot
-            if global_df_time is not None and not args.no_inner:
-                ax2 = plt.axes(ast.literal_eval(args.inner_pos), facecolor='w')
-                global_df_time["Runtime (us)"] = global_df_time["Runtime"] # Was already scaled before
-                sns.lineplot(data=global_df_time, x=x, y="Runtime (us)", hue="Extra", style="Extra", marker="o", ax=ax2, errorbar=errorbar)
-                ax2.set_xlim([0, 5])
-                ax2.set_ylim(ast.literal_eval(args.inner_ylim))
-                inner_fontsize = 9
-                ax2.tick_params(labelsize=inner_fontsize)
-                ax2.set_xlabel("")
-                ax2.set_ylabel("Runtime (us)", fontdict={'fontsize': inner_fontsize})
-                ax2.get_legend().remove()
-
             # Save to file
             #ax.figure.savefig(outname + "_line.png", bbox_inches='tight')
             ax.figure.savefig(outname + "_line.pdf", bbox_inches='tight')
@@ -167,7 +159,7 @@ def main():
         # Boxes #
         #########
         if "box" in plot_types:
-            ax = sns.boxplot(data=global_df, x=x, y=metric_hr, hue="Extra")
+            ax = sns.boxplot(data=global_df, x=x, y=metric_hr, hue="Aggressor")
             ax.figure.savefig(outname + "_box.pdf", bbox_inches='tight')
             plt.clf()
 
@@ -175,7 +167,7 @@ def main():
         # Bars #
         ########
         if "bar" in plot_types:
-            ax = sns.barplot(data=global_df, x=x, y=metric_hr, hue="Extra")
+            ax = sns.barplot(data=global_df, x=x, y=metric_hr, hue="Aggressor")
             ax.figure.savefig(outname + "_bar.pdf", bbox_inches='tight')
             plt.clf()
 
