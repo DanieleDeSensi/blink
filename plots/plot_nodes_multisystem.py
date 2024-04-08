@@ -127,7 +127,7 @@ def main():
                         else:
                             #print("Data not found for metric " + actual_metric + " victim " + vn + " with input " + args.victim_input)
                             data[actual_metric] = [np.nan]
-
+                        
                         if data.empty:
                             raise Exception("Error: data file " + filename + " does not contain data for metric " + actual_metric)
                         
@@ -208,6 +208,8 @@ def main():
             # Save to file
             #ax.figure.savefig(outname + "_line.png", bbox_inches='tight')
             ax.figure.savefig(outname + "_line.pdf", bbox_inches='tight')
+            ax.get_legend().remove()
+            ax.figure.savefig(outname + "_line_nol.pdf", bbox_inches='tight')
             plt.clf()
 
         #########

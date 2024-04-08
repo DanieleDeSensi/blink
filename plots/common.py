@@ -157,7 +157,7 @@ def get_bench_data(bench, input, metric, filename, ppn, nodes, system):
     elif bench == "ib_send_lat":
         if metric == "Runtime" or metric == "Latency":
             return pd.read_csv(filename)["1_time_us"] # 0_ is the server
-        elif metric == "Bandwidth":
+        elif metric == "Bandwidth" or metric == "Goodput":
             num_devices = get_num_ib_devices(system)
             input_bits = input_size_to_bytes(input)*8*num_devices
             input_gbits = input_bits / 1e9

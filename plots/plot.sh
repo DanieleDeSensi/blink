@@ -1,15 +1,16 @@
 #!/bin/bash
 rm -rf plots/out/*
 PLOT_SINGLE_NODE=1
-PLOT_TWO_NODES=0
-PLOT_DISTANCE=0
-PLOT_COLL_SCALABILITY=0
-PLOT_COLL_SCALABILITY_HEATMAP=0
-PLOT_COLL_SCALABILITY_NOISE=0
-PLOT_LUMI_GPU_PAIRS=0
+PLOT_TWO_NODES=1
+PLOT_DISTANCE=1
+PLOT_COLL_SCALABILITY=1
+PLOT_COLL_SCALABILITY_HEATMAP=1
+PLOT_COLL_SCALABILITY_NOISE=1
+PLOT_LUMI_GPU_PAIRS=1
 PLOT_HCOLL=0
 PLOT_HCOLL_NODES=0
 PLOT_CONG_NODES=0
+PLOT_SL_CONG=0
 #ERRORBAR="(\"ci\", 90)"
 ERRORBAR="(\"pi\", 50)"
 
@@ -24,7 +25,7 @@ if [[ $PLOT_SINGLE_NODE = 1 ]]; then
         PLOT_TYPE="line"
         for TESTNAME in "gpubench-pp" "gpubench-a2a" "gpubench-ar"
         do
-            if [ ${SYSTEM} == "alps" ] || [ ${TESTNAME} == "gpubench-ar" ]; then
+            if [ ${SYSTEM} == "alps" ]; then
                 VICTIM_NAMES="${TESTNAME}-nccl,${TESTNAME}-baseline,${TESTNAME}-cudaaware"
                 LABELS="*CCL,Trivial Staging,GPU-Aware MPI"
             else
@@ -126,8 +127,8 @@ if [[ $PLOT_DISTANCE = 1 ]]; then
     PLOT_TYPE="box,boxnofliers,violin,dist"
     EXTRAS=#same_switch,#diff_switch,#diff_group
     INPUT="#"
-    XTICKLABELS="[\"Same\nSwitch\", \"Different\nSwitch\", \"Different\nGroup\"]"
-    for DIST in "distance-gpu" #"distance-cpu" "distance-gpu"
+    XTICKLABELS="[\"Same\nSwitch\", \"Diff.\nSwitch\", \"Diff.\nGroup\"]"
+    for DIST in "distance-gpu" "distance-cpu"
     do        
         SYSTEMS="alps,leonardo,lumi"
         if [ ${DIST} = "distance-cpu" ]; then            
@@ -136,7 +137,7 @@ if [[ $PLOT_DISTANCE = 1 ]]; then
             MAX_Y="alps|Latency:40,leonardo|Latency:40,lumi|Latency:40"
         fi
         OUT_PATH="plots/out/two-nodes/${DIST}"        
-        ./plots/plot_extras.py -s ${SYSTEMS} -vn "#${DIST}" -vi ${INPUT} -n 2 -am l -sp 100 --metrics "Latency,Bandwidth" -o ${OUT_PATH} --ppn DEFAULT_MULTINODE -e ${EXTRAS} --plot_types ${PLOT_TYPE} --max_y "${MAX_Y}" --xticklabels "${XTICKLABELS}"
+        ./plots/plot_extras.py -s ${SYSTEMS} -vn "#${DIST}" -vi ${INPUT} -n 2 -am l -sp 100 --metrics "Latency,Goodput" -o ${OUT_PATH} --ppn DEFAULT_MULTINODE -e ${EXTRAS} --plot_types ${PLOT_TYPE} --xticklabels "${XTICKLABELS}" # --max_y "${MAX_Y}" 
     done
 fi
 
@@ -193,7 +194,7 @@ if [[ $PLOT_COLL_SCALABILITY_NOISE = 1 ]]; then
     OUT_PATH="plots/out/multi-nodes/${SYSTEM}/noise"
     PLOT_TYPE="line,box,bar"
     EXTRA="SL0_hcoll0,SL1_hcoll0"
-    NNODES="8,16,32,64,128" #,256
+    NNODES="2,4,8,16,32,64,128,256"
     LABELS="Default Service Level, Non-Default Service Level"    
     for BENCH in "ar" "a2a"
     do
@@ -234,13 +235,14 @@ if [[ $PLOT_COLL_SCALABILITY_HEATMAP = 1 ]]; then
         do  
             OUT_PATH="plots/out/multi-nodes/heatmap/${SYSTEM}/${BENCH}"
             CPU_BENCH=""
+            CBARLABEL="*CCL/GPU-aware MPI Goodput"
             if [ ${BENCH} == "ar" ]; then
                 TREND_LIMIT_GPU="X:X:X"
             else
                 TREND_LIMIT_GPU="Bandwidth:100:Expected_Bandwidth_(Leonardo_and_LUMI)"
             fi
             TESTNAME="${BENCH}"_gpu_${SYSTEM}            
-            ./plots/plot_heatmap_nodes_v_size.py -s ${SYSTEM} -vn gpubench-${BENCH} --victim_types nccl,cudaaware -vi ${INPUTS} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types ${PLOT_TYPE} -e ${EXTRA} --errorbar "${ERRORBAR}" --trend_limit "${TREND_LIMIT_GPU}" #--bw_per_node #
+            ./plots/plot_heatmap_nodes_v_size.py -s ${SYSTEM} -vn gpubench-${BENCH} --victim_types nccl,cudaaware -vi ${INPUTS} -n ${NNODES} -am "l" -sp 100 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn DEFAULT_MULTINODE --plot_types ${PLOT_TYPE} -e ${EXTRA} --errorbar "${ERRORBAR}" --trend_limit "${TREND_LIMIT_GPU}" --cbarlabel "${CBARLABEL}" #--bw_per_node #
         done
     done
 fi
@@ -304,8 +306,8 @@ if [[ $PLOT_LUMI_GPU_PAIRS = 1 ]]; then
     EXTRAS="0-1,0-2,0-3,0-4,0-5,0-6,0-7"
     INPUT="1GiB"    
     OUT_PATH="plots/out/single_node/gpupairs/${SYSTEM}"
-    BENCHS="gpubench-pp-baseline,gpubench-pp-nccl,gpubench-pp-nvlink,gpubench-pp-cudaaware"
-    LABELS="Trivial Staging,RCCL,Device-Device Copy,GPU-Aware MPI"
+    BENCHS="gpubench-pp-nccl,gpubench-pp-baseline,gpubench-pp-cudaaware,gpubench-pp-nvlink"
+    LABELS="RCCL,Trivial Staging,GPU-Aware MPI,Device-Device Copy"
     BARPLOT_TOPS="1600,400,400,400,400,800,800"
     ./plots/plot_extras_multivictim.py -s ${SYSTEM} -vn "${BENCHS}" -vi ${INPUT} -n 1 -am l -sp 100 --metrics "Goodput" -o ${OUT_PATH} --ppn 2 -e ${EXTRAS} --plot_types ${PLOT_TYPE} --labels "${LABELS}" --barplot_tops "${BARPLOT_TOPS}"
 fi
@@ -314,31 +316,60 @@ fi
 # Cong vs. #nodes #
 ###################
 if [[ $PLOT_CONG_NODES = 1 ]]; then
-    SYSTEM="lumi"
-    OUT_PATH="plots/out/cong/${SYSTEM}"
-    PLOT_TYPE="line,box"
-    EXTRA="SL0_hcoll0"
-    for BENCH in "gpubench-ar-nccl" "gpubench-a2a-nccl" "gpubench-a2a-cudaaware"
+    for SYSTEM in "lumi" "leonardo"
     do
-        if [ ${BENCH} == "gpubench-ar-nccl" ] || [ ${BENCH} == "gpubench-ar-cudaaware" ]; then
-            INPUT="1GiB"
-            FULLNAME="Allreduce"
-        else
-            INPUT="2MiB"
-            FULLNAME="Alltoall"
-        fi
-        if [ ${SYSTEM} == "lumi" ]; then
-            PPN=8
-            NUMNODES="4,8,16,32,64,128,256,512"
-        else
-            PPN=4
-            NUMNODES="4,8,16,32,64,128"
-        fi
-        #LABELS="${FULLNAME}\nIsolated,${FULLNAME}\n+Alltoall,${FULLNAME}\n+Incast"
-        TESTNAME="${BENCH}"
-        ./plots/plot_agg_multinodes.py -s ${SYSTEM} -vn ${BENCH} -vi ${INPUT} --aggressor_names ",a2a_man,inc_b" --aggressor_inputs ",128KiB,128KiB" -n ${NUMNODES} -am "+r" -sp 50:50 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} #--labels "${LABELS}"
+        OUT_PATH="plots/out/cong/${SYSTEM}"
+        PLOT_TYPE="line,box"
+        EXTRA="SL0_hcoll0"
+        for BENCH in "gpubench-ar-nccl" "gpubench-a2a-nccl" "gpubench-a2a-cudaaware"
+        do
+            if [ ${BENCH} == "gpubench-ar-nccl" ] || [ ${BENCH} == "gpubench-ar-cudaaware" ]; then
+                INPUT="1GiB"
+                FULLNAME="Allreduce"
+            else
+                INPUT="2MiB"
+                FULLNAME="Alltoall"
+            fi
+            if [ ${SYSTEM} == "lumi" ]; then
+                PPN=8
+                NUMNODES="4,8,16,32,64,128,256,512"
+            else
+                PPN=4
+                NUMNODES="4,8,16,32,64,128"
+            fi
+            #LABELS="${FULLNAME}\nIsolated,${FULLNAME}\n+Alltoall,${FULLNAME}\n+Incast"
+            TESTNAME="${BENCH}"
+            ./plots/plot_agg_multinodes.py -s ${SYSTEM} -vn ${BENCH} -vi ${INPUT} --aggressor_names ",a2a_man,inc_b" --aggressor_inputs ",128KiB,128KiB" -n ${NUMNODES} -am "+r" -sp 50:50 --metric "Bandwidth" -o ${OUT_PATH}/${TESTNAME} --ppn ${PPN} -e ${EXTRA} --plot_types ${PLOT_TYPE} #--labels "${LABELS}"
+        done
     done
 fi
+
+###############################
+# 64 nodes tests - SL1 - Cong #
+###############################
+if [[ $PLOT_SL_CONG = 1 ]]; then
+    SYSTEM="leonardo"
+    OUT_PATH="plots/out/64-nodes/cong/${SYSTEM}"
+    PLOT_TYPE="box"
+    EXTRA="SL0,SL1"
+    for BENCH in "ar" "a2a"
+    do
+        if [ ${BENCH} == "ar" ]; then
+            declare -a INPUTS=("1B" "1GiB")
+            FULLNAME="Allreduce"
+        else
+            declare -a INPUTS=("1B" "16MiB")
+            FULLNAME="Alltoall"
+        fi
+        XTICKLABELS="[\"${FULLNAME}\nIsolated\", \"${FULLNAME}\n+Alltoall\", \"${FULLNAME}\n+Incast\"]"
+        for INPUT in "${INPUTS[@]}"
+        do        
+            TESTNAME="${BENCH}"_${INPUT}
+            ./plots/plot_va.py -s ${SYSTEM} -vn gpubench-${BENCH}-nccl -vi ${INPUT} --aggressor_names ",a2a_b,inc_b" -n 64 -am "r" -sp 50:50 --metric "Goodput" -o ${OUT_PATH}/${TESTNAME} --ppn 4 -e ${EXTRA} --plot_types ${PLOT_TYPE} --xticklabels "${XTICKLABELS}"
+        done
+    done
+fi
+
 
 exit 0
 

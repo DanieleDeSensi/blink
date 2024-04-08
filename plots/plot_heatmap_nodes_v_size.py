@@ -41,6 +41,7 @@ def main():
     parser.add_argument('-o', '--outfile', help='Path of output files.', required=True)
     parser.add_argument('--bw_per_node', help='Report bandwidth per-node rather than per-rank.', action='store_true')
     parser.add_argument('--errorbar', help='Error bar.', default="(\"ci\", 90)")
+    parser.add_argument('--cbarlabel', help='Cbar label.', default="")
 
     args = parser.parse_args()
 
@@ -132,7 +133,7 @@ def main():
         df_pivot = df_pivot[x_labels] # Sort "Nodes"/"#GPUs"
 
         #ax = sns.heatmap(df_pivot, annot=True, fmt=".2f", vmin=0, center=1, cmap="RdYlGn_r", cbar_kws={'label': args.victim_types.split(",")[0] + "/" + args.victim_types.split(",")[1]})
-        ax = sns.heatmap(df_pivot, annot=True, fmt=".2f", cmap='viridis', cbar_kws={'label': args.victim_types.split(",")[0] + "/" + args.victim_types.split(",")[1]})
+        ax = sns.heatmap(df_pivot, annot=True, fmt=".2f", cmap='viridis', cbar_kws={'label': args.cbarlabel})
         ax.set_ylabel("")       
         ax.figure.savefig(outname + "_hm.pdf", bbox_inches='tight')
         plt.clf()

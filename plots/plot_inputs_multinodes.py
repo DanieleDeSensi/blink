@@ -168,7 +168,11 @@ def main():
         #########
         if "box" in plot_types:
             ax = sns.boxplot(data=global_df, x=x, y=metric_hr, hue="Extra")
+            ax.set_ylabel(add_unit_to_metric(metric_hr))
+            sns.move_legend(ax, "lower center", bbox_to_anchor=(.5, 1), ncol=2, title=None, frameon=False)
             ax.figure.savefig(outname + "_box.pdf", bbox_inches='tight')
+            ax.get_legend().remove()
+            ax.figure.savefig(outname + "_box_nol.pdf", bbox_inches='tight')
             plt.clf()
 
         ########

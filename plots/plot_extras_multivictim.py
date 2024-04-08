@@ -17,7 +17,7 @@ from common import *
 matplotlib.rc('pdf', fonttype=42) # To avoid issues with camera-ready submission
 sns.set_style("whitegrid")
 #sns.set_context("paper")
-rcParams['figure.figsize'] = 8,4.5
+rcParams['figure.figsize'] = 10,4.5
 
 extra_fullname = {}
 extra_fullname["0-1"] = "0 to 1"

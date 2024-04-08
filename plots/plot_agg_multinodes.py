@@ -161,6 +161,8 @@ def main():
         if "box" in plot_types:
             ax = sns.boxplot(data=global_df, x=x, y=metric_hr, hue="Aggressor")
             ax.figure.savefig(outname + "_box.pdf", bbox_inches='tight')
+            ax.get_legend().remove()
+            ax.figure.savefig(outname + "_box_nol.pdf", bbox_inches='tight')
             plt.clf()
 
         ########

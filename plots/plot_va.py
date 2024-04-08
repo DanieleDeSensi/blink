@@ -16,7 +16,7 @@ from common import *
 matplotlib.rc('pdf', fonttype=42) # To avoid issues with camera-ready submission
 sns.set_style("whitegrid")
 #sns.set_context("paper")
-rcParams['figure.figsize'] = 8,4.5
+rcParams['figure.figsize'] = 10,2.8
 
 extra_fullname = {}
 extra_fullname["same_switch_AR0"] = "Same switch\nStat. Rout."
@@ -172,7 +172,8 @@ def main():
                 
                 # Remove y-axis label for all but the first column
                 if index % num_cols == 1:
-                    ax.set_ylabel(get_human_readable_allocation_mode(allocation_mode) + "\n" + add_unit_to_metric(args.metric))
+                    #ax.set_ylabel(get_human_readable_allocation_mode(allocation_mode) + "\n" + add_unit_to_metric(args.metric))
+                    ax.set_ylabel(add_unit_to_metric(args.metric))
                 else:
                     ax.set_ylabel("")
                 

@@ -16,7 +16,9 @@ from common import *
 matplotlib.rc('pdf', fonttype=42) # To avoid issues with camera-ready submission
 sns.set_style("whitegrid")
 #sns.set_context("paper")
-rcParams['figure.figsize'] = 12,4.5
+#rcParams['figure.figsize'] = 8,4.5
+#rcParams['figure.figsize'] = 10,5.65
+rcParams['figure.figsize'] = 12,6.75
 
 extra_fullname = {}
 extra_fullname["same_switch_AR0"] = "Same switch\nStat. Rout."
@@ -131,7 +133,7 @@ def main():
                     print("Error: data file " + filename + " does not exist")
                     continue
                 data[extra_fullname[e]] = get_bench_data(victim_name, victim_input, metric_hr, filename, ppn, args.numnodes, system)
-                print("Data for " + system + " " + metric_hr + " " + ea + " Min: " + str(data[extra_fullname[e]].min()) + " Max: " + str(data[extra_fullname[e]].max()))
+                print("Data for " + system + " " + metric_hr + " " + ea + " Min: " + str(data[extra_fullname[e]].min()) + " Max: " + str(data[extra_fullname[e]].max()) + " Mean: " + str(data[extra_fullname[e]].mean()))
                 if data.empty:
                     raise Exception("Error: data file " + filename + " does not contain data for metric " + metric_hr)
                 global_df = pd.concat([global_df, data], axis=1)
