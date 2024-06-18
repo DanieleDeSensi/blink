@@ -1,0 +1,129 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/ar-cudaaware/128MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo=None, maxruns=10, minruns=1, node_file='auto', numnodes=1, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 27", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 1 nodes:
+['lrdn3272']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 1.333s.
+
+Running...
+ Run 1:
+  0.00323s: started 0
+  0.26532s: awaited 0
+  0.26533s: encountered an exception in 0
+srun: error: CPU binding outside of job step allocation, allocated CPUs are: 0xFFFFFFFF.
+srun: error: Task launch for StepId=5327704.375 failed on node lrdn3272: Unable to satisfy cpu bind request
+srun: error: Application launch failed: Unable to satisfy cpu bind request
+srun: Job step aborted
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 2:
+  0.00246s: started 0
+  0.26569s: awaited 0
+  0.26571s: encountered an exception in 0
+srun: error: CPU binding outside of job step allocation, allocated CPUs are: 0xFFFFFFFF.
+srun: error: Task launch for StepId=5327704.376 failed on node lrdn3272: Unable to satisfy cpu bind request
+srun: error: Application launch failed: Unable to satisfy cpu bind request
+srun: Job step aborted
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 3:
+  0.00234s: started 0
+  0.2791s: awaited 0
+  0.27911s: encountered an exception in 0
+srun: error: CPU binding outside of job step allocation, allocated CPUs are: 0xFFFFFFFF.
+srun: error: Task launch for StepId=5327704.377 failed on node lrdn3272: Unable to satisfy cpu bind request
+srun: error: Application launch failed: Unable to satisfy cpu bind request
+srun: Job step aborted
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 4:
+  0.00222s: started 0
+  0.26487s: awaited 0
+  0.26488s: encountered an exception in 0
+srun: error: CPU binding outside of job step allocation, allocated CPUs are: 0xFFFFFFFF.
+srun: error: Task launch for StepId=5327704.378 failed on node lrdn3272: Unable to satisfy cpu bind request
+srun: error: Application launch failed: Unable to satisfy cpu bind request
+srun: Job step aborted
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 5:
+  0.00224s: started 0
+  1.22524s: awaited 0
+  1.22525s: encountered an exception in 0
+srun: error: CPU binding outside of job step allocation, allocated CPUs are: 0xFFFFFFFF.
+srun: error: Task launch for StepId=5327704.379 failed on node lrdn3272: Unable to satisfy cpu bind request
+srun: error: Application launch failed: Unable to satisfy cpu bind request
+srun: Job step aborted
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 6:
+  0.00229s: started 0
+  0.26338s: awaited 0
+  0.26339s: encountered an exception in 0
+srun: error: CPU binding outside of job step allocation, allocated CPUs are: 0xFFFFFFFF.
+srun: error: Task launch for StepId=5327704.380 failed on node lrdn3272: Unable to satisfy cpu bind request
+srun: error: Application launch failed: Unable to satisfy cpu bind request
+srun: Job step aborted
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 7:
+  0.0023s: started 0
+  0.26465s: awaited 0
+  0.26466s: encountered an exception in 0
+srun: error: CPU binding outside of job step allocation, allocated CPUs are: 0xFFFFFFFF.
+srun: error: Task launch for StepId=5327704.381 failed on node lrdn3272: Unable to satisfy cpu bind request
+srun: error: Application launch failed: Unable to satisfy cpu bind request
+srun: Job step aborted
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 8:
+  0.00227s: started 0
+  0.26374s: awaited 0
+  0.26375s: encountered an exception in 0
+srun: error: CPU binding outside of job step allocation, allocated CPUs are: 0xFFFFFFFF.
+srun: error: Task launch for StepId=5327704.382 failed on node lrdn3272: Unable to satisfy cpu bind request
+srun: error: Application launch failed: Unable to satisfy cpu bind request
+srun: Job step aborted
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 9:
+  0.00235s: started 0
+  0.27811s: awaited 0
+  0.27812s: encountered an exception in 0
+srun: error: CPU binding outside of job step allocation, allocated CPUs are: 0xFFFFFFFF.
+srun: error: Task launch for StepId=5327704.383 failed on node lrdn3272: Unable to satisfy cpu bind request
+srun: error: Application launch failed: Unable to satisfy cpu bind request
+srun: Job step aborted
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+ Run 10:
+  0.00227s: started 0
+  0.33912s: awaited 0
+  0.33913s: encountered an exception in 0
+srun: error: CPU binding outside of job step allocation, allocated CPUs are: 0xFFFFFFFF.
+srun: error: Task launch for StepId=5327704.384 failed on node lrdn3272: Unable to satisfy cpu bind request
+srun: error: Application launch failed: Unable to satisfy cpu bind request
+srun: Job step aborted
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+Completed maximum number of runs, terminated after 10 runs taking 3.71 seconds.
