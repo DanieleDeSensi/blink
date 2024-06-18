@@ -1,0 +1,45 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/pp-cudaaware/64B', beta=0.05, convergeall=False, datapath='./data', extrainfo=None, maxruns=10, minruns=1, node_file='auto', numnodes=1, outformat='csv', ppn=2, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 6", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 2
+0 on 1 nodes:
+['lrdn1560']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.30358s.
+
+Running...
+ Run 1:
+  0.00253s: started 0
+  3.39527s: awaited 0
+  Data collection took 0.00022s.
+  Convergence check took 0.00072s.
+ Run 2:
+  0.00315s: started 0
+  1.2676s: awaited 0
+  Data collection took 0.00019s.
+  Convergence check took 0.00065s.
+ Run 3:
+  0.00326s: started 0
+  1.51894s: awaited 0
+  1.51896s: encountered an exception in 0
+srun: Job 5329612 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5329612
+
+  Data collection took 0.00018s.
+  Convergence check took 0.00065s.
+ Run 4:
+  0.00328s: started 0
+  1.25981s: awaited 0
+  Data collection took 0.00019s.
+  Convergence check took 0.00064s.
+Completed after reaching confidence interval, terminated after 4 runs taking 7.45 seconds.
+Writing data & meta-data took 0.00603s.
+Overall took 7.75491s.
