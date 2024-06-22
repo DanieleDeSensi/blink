@@ -1,0 +1,74 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/pw-ping-pong_b/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_group_SL0', maxruns=10, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1073741824 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn0115' 'lrdn0356']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.30043s.
+
+Running...
+ Run 1:
+  0.00351s: started 0
+  42.7756s: awaited 0
+  Data collection took 0.00025s.
+ Run 2:
+  0.00381s: started 0
+  42.63621s: awaited 0
+  Data collection took 0.00018s.
+ Run 3:
+  0.004s: started 0
+  42.52189s: awaited 0
+  Data collection took 0.00019s.
+ Run 4:
+  0.00405s: started 0
+  42.90686s: awaited 0
+  42.90689s: encountered an exception in 0
+srun: Job 5406323 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5406323
+
+  Data collection took 0.0002s.
+ Run 5:
+  0.00393s: started 0
+  42.74548s: awaited 0
+  Data collection took 0.0002s.
+ Run 6:
+  0.00393s: started 0
+  42.92848s: awaited 0
+  Data collection took 0.0002s.
+ Run 7:
+  0.00401s: started 0
+  42.86802s: awaited 0
+  Data collection took 0.00021s.
+ Run 8:
+  0.00402s: started 0
+  42.91784s: awaited 0
+  42.91787s: encountered an exception in 0
+srun: Job 5406323 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5406323
+
+  Data collection took 0.00021s.
+ Run 9:
+  0.00402s: started 0
+  42.73321s: awaited 0
+  Data collection took 0.0002s.
+ Run 10:
+  0.0041s: started 0
+  41.70486s: awaited 0
+  41.7049s: encountered an exception in 0
+srun: Job 5406323 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5406323
+
+  Data collection took 0.0002s.
+  Convergence check took 0.00089s.
+Completed maximum number of runs, terminated after 10 runs taking 426.74 seconds.
+Writing data & meta-data took 0.01405s.
+Overall took 427.05749s.
