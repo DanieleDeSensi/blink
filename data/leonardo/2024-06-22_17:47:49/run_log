@@ -1,0 +1,82 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/pp-cudaaware/1B', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_group_SL0', maxruns=10, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['lrdn0566' 'lrdn0769']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.59507s.
+
+Running...
+ Run 1:
+  0.00389s: started 0
+  1.75503s: awaited 0
+  Data collection took 0.00023s.
+ Run 2:
+  0.00356s: started 0
+  1.29385s: awaited 0
+  Data collection took 0.00019s.
+ Run 3:
+  0.00344s: started 0
+  1.73699s: awaited 0
+  1.73703s: encountered an exception in 0
+srun: Job 5403192 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5403192
+
+  Data collection took 0.00019s.
+ Run 4:
+  0.00354s: started 0
+  1.2889s: awaited 0
+  Data collection took 0.0002s.
+ Run 5:
+  0.0035s: started 0
+  1.8513s: awaited 0
+  1.85133s: encountered an exception in 0
+srun: Job 5403192 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5403192
+
+  Data collection took 0.0002s.
+ Run 6:
+  0.00351s: started 0
+  1.35024s: awaited 0
+  Data collection took 0.00019s.
+ Run 7:
+  0.00348s: started 0
+  1.58403s: awaited 0
+  1.58406s: encountered an exception in 0
+srun: Job 5403192 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5403192
+
+  Data collection took 0.00019s.
+ Run 8:
+  0.00354s: started 0
+  1.35639s: awaited 0
+  Data collection took 0.00019s.
+ Run 9:
+  0.00353s: started 0
+  3.66805s: awaited 0
+  3.66809s: encountered an exception in 0
+srun: Job 5403192 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5403192
+
+  Data collection took 0.00019s.
+ Run 10:
+  0.00357s: started 0
+  1.25554s: awaited 0
+  1.25557s: encountered an exception in 0
+srun: Job 5403192 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5403192
+
+  Data collection took 0.00019s.
+  Convergence check took 0.00079s.
+Completed maximum number of runs, terminated after 10 runs taking 17.14 seconds.
+Writing data & meta-data took 0.00766s.
+Overall took 17.74679s.

@@ -1,0 +1,70 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/pw-ping-pong_b/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_group_SL0', maxruns=10, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1073741824 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn0566' 'lrdn0769']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.28405s.
+
+Running...
+ Run 1:
+  0.00301s: started 0
+  42.44864s: awaited 0
+  Data collection took 0.00025s.
+ Run 2:
+  0.00461s: started 0
+  41.86254s: awaited 0
+  Data collection took 0.0002s.
+ Run 3:
+  0.00446s: started 0
+  42.8232s: awaited 0
+  42.82323s: encountered an exception in 0
+srun: Job 5403192 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5403192
+
+  Data collection took 0.00019s.
+ Run 4:
+  0.00451s: started 0
+  41.55838s: awaited 0
+  41.55842s: encountered an exception in 0
+srun: Job 5403192 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5403192
+
+  Data collection took 0.00019s.
+ Run 5:
+  0.00448s: started 0
+  41.2763s: awaited 0
+  Data collection took 0.0002s.
+ Run 6:
+  0.00449s: started 0
+  40.87626s: awaited 0
+  Data collection took 0.0002s.
+ Run 7:
+  0.00455s: started 0
+  40.96856s: awaited 0
+  Data collection took 0.00021s.
+ Run 8:
+  0.00449s: started 0
+  41.99816s: awaited 0
+  Data collection took 0.00021s.
+ Run 9:
+  0.0045s: started 0
+  40.91229s: awaited 0
+  Data collection took 0.00019s.
+ Run 10:
+  0.00458s: started 0
+  40.79777s: awaited 0
+  Data collection took 0.0002s.
+  Convergence check took 0.00088s.
+Completed maximum number of runs, terminated after 10 runs taking 415.53 seconds.
+Writing data & meta-data took 0.01487s.
+Overall took 415.82487s.
