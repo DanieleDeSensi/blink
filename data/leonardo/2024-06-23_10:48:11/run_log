@@ -1,0 +1,62 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/mpp-cudaaware/1B', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_group_SL0', maxruns=10, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn2896' 'lrdn2902']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27444s.
+
+Running...
+ Run 1:
+  0.00315s: started 0
+  1.98599s: awaited 0
+  Data collection took 0.00026s.
+ Run 2:
+  0.00458s: started 0
+  1.57871s: awaited 0
+  Data collection took 0.00021s.
+ Run 3:
+  0.00434s: started 0
+  1.49288s: awaited 0
+  Data collection took 0.00022s.
+ Run 4:
+  0.00455s: started 0
+  1.56633s: awaited 0
+  Data collection took 0.00021s.
+ Run 5:
+  0.00445s: started 0
+  1.60017s: awaited 0
+  Data collection took 0.00021s.
+ Run 6:
+  0.0048s: started 0
+  1.54094s: awaited 0
+  Data collection took 0.00021s.
+ Run 7:
+  0.00447s: started 0
+  1.51843s: awaited 0
+  Data collection took 0.00021s.
+ Run 8:
+  0.00433s: started 0
+  1.54108s: awaited 0
+  Data collection took 0.00021s.
+ Run 9:
+  0.00452s: started 0
+  1.56261s: awaited 0
+  Data collection took 0.0002s.
+ Run 10:
+  0.00432s: started 0
+  1.5002s: awaited 0
+  Data collection took 0.00022s.
+  Convergence check took 0.00095s.
+Completed maximum number of runs, terminated after 10 runs taking 15.89 seconds.
+Writing data & meta-data took 0.00781s.
+Overall took 16.17365s.
