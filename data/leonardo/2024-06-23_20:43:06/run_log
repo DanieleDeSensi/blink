@@ -1,0 +1,87 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/mpp-cudaaware/1B', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_group_SL0', maxruns=10, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['lrdn0546' 'lrdn3384']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.35795s.
+
+Running...
+ Run 1:
+  0.00354s: started 0
+  1.57297s: awaited 0
+  Data collection took 0.00026s.
+  Convergence check took 0.00977s.
+ Run 2:
+  0.00377s: started 0
+  2.82809s: awaited 0
+  2.82812s: encountered an exception in 0
+srun: Job 5418640 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5418640
+
+  Data collection took 0.0002s.
+  Convergence check took 0.00066s.
+ Run 3:
+  0.00387s: started 0
+  1.14353s: awaited 0
+  Data collection took 0.00019s.
+  Convergence check took 0.00066s.
+ Run 4:
+  0.00386s: started 0
+  2.5271s: awaited 0
+  Data collection took 0.00019s.
+  Convergence check took 0.00067s.
+ Run 5:
+  0.00398s: started 0
+  1.15293s: awaited 0
+  Data collection took 0.00021s.
+  Convergence check took 0.00068s.
+ Run 6:
+  0.0038s: started 0
+  2.11373s: awaited 0
+  2.11377s: encountered an exception in 0
+srun: Job 5418640 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5418640
+
+  Data collection took 0.00019s.
+  Convergence check took 0.00068s.
+ Run 7:
+  0.00408s: started 0
+  1.16617s: awaited 0
+  Data collection took 0.00018s.
+  Convergence check took 0.00069s.
+ Run 8:
+  0.00345s: started 0
+  2.69782s: awaited 0
+  2.69785s: encountered an exception in 0
+srun: Job 5418640 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5418640
+
+  Data collection took 0.00019s.
+  Convergence check took 0.00069s.
+ Run 9:
+  0.00403s: started 0
+  1.15168s: awaited 0
+  Data collection took 0.00018s.
+  Convergence check took 0.0007s.
+ Run 10:
+  0.00383s: started 0
+  2.00928s: awaited 0
+  2.00931s: encountered an exception in 0
+srun: Job 5418640 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5418640
+
+  Data collection took 0.0002s.
+  Convergence check took 0.00071s.
+Completed maximum number of runs, terminated after 10 runs taking 18.38 seconds.
+Writing data & meta-data took 0.00878s.
+Overall took 18.74904s.
