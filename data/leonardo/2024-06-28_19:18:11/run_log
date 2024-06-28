@@ -1,0 +1,66 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/pw-ping-pong_b/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_switch_SL0', maxruns=10, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1073741824 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn2779' 'lrdn2799']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.28925s.
+
+Running...
+ Run 1:
+  0.00341s: started 0
+  39.23714s: awaited 0
+  Data collection took 0.00023s.
+ Run 2:
+  0.00405s: started 0
+  39.70253s: awaited 0
+  39.70257s: encountered an exception in 0
+srun: Job 5643947 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5643947
+
+  Data collection took 0.00019s.
+ Run 3:
+  0.00439s: started 0
+  39.3794s: awaited 0
+  Data collection took 0.00019s.
+ Run 4:
+  0.00412s: started 0
+  39.20307s: awaited 0
+  Data collection took 0.00033s.
+ Run 5:
+  0.00484s: started 0
+  39.57732s: awaited 0
+  Data collection took 0.0002s.
+ Run 6:
+  0.00406s: started 0
+  39.25093s: awaited 0
+  Data collection took 0.00019s.
+ Run 7:
+  0.00394s: started 0
+  39.53575s: awaited 0
+  Data collection took 0.00019s.
+ Run 8:
+  0.00391s: started 0
+  39.24393s: awaited 0
+  Data collection took 0.0002s.
+ Run 9:
+  0.0039s: started 0
+  39.18291s: awaited 0
+  Data collection took 0.00019s.
+ Run 10:
+  0.00384s: started 0
+  39.60692s: awaited 0
+  Data collection took 0.0002s.
+  Convergence check took 0.00085s.
+Completed maximum number of runs, terminated after 10 runs taking 393.92 seconds.
+Writing data & meta-data took 0.01287s.
+Overall took 394.22579s.
