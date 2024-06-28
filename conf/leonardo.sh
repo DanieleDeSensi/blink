@@ -2,6 +2,7 @@
 module load openmpi
 module load nvhpc
 module load nccl
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/leonardo/smcx_home/bench/software/lib/ucx/nvhpc-22.2_pgi_cuda/lib/
 
 # Mandatory variables to compile/run microbenchmarks
 export BLINK_CC=mpicc # MPI C Compiler
@@ -42,4 +43,4 @@ if [ -n "${UCX_IB_SL}" ]; then
 else
     export UCX_IB_SL=1
 fi
-export UCX_PROTO_ENABLE=y
+#export UCX_PROTO_ENABLE=y

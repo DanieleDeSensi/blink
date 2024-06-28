@@ -11,9 +11,9 @@ source conf.sh
 ALLOCATION="same_switch"
 SERVER_HOSTNAME=$(scontrol show hostnames | head -n 1)
 
-UCX_PROTO_ENABLE=y
+#UCX_PROTO_ENABLE=y
 
-for SL in 1; do
+for SL in 0; do
     export UCX_IB_SL=${SL}
     export NCCL_IB_SL=${SL}
     EXTRA="${ALLOCATION}_SL${SL}"
@@ -29,18 +29,19 @@ for SL in 1; do
         ./run.sh test_suites/pp-cudaaware ${ARGS} --ppn ${PPN} -e ${EXTRA} 
         # MPI
         ./run.sh test_suites/pp-mpi ${ARGS} --ppn ${PPN} -e ${EXTRA} 
-        if [ ${PPN} == 1 ]; then
-            # Perftest is always ran with 1 PPN, and then spawns by itself the other processes
-            # IB/Perftest
-            TRANSPORT="RC"
-            ./run.sh test_suites/pp-ib ${ARGS_IBV} --ppn 1 -e ${EXTRA} --replace_mix_args "%SERVER_ADDRESS:${SERVER_HOSTNAME},%SERVICE_LEVEL:${SL},%TRANSPORT:${TRANSPORT},%IB_DEVICES_LIST:${BLINK_IB_DEVICES}"
-        fi
+
+	#if [ ${PPN} == 1 ]; then
+        #    # Perftest is always ran with 1 PPN, and then spawns by itself the other processes
+        #    # IB/Perftest
+        #    TRANSPORT="RC"
+        #    ./run.sh test_suites/pp-ib ${ARGS_IBV} --ppn 1 -e ${EXTRA} --replace_mix_args "%SERVER_ADDRESS:${SERVER_HOSTNAME},%SERVICE_LEVEL:${SL},%TRANSPORT:${TRANSPORT},%IB_DEVICES_LIST:${BLINK_IB_DEVICES}"
+        #fi
 
         # Collectives (with/without HCOLL)
-        for HCOLL in 0 1
-        do
-            OMPI_MCA_coll_hcoll_enable=${HCOLL} ./run.sh test_suites/two-nodes-coll-cpu ${ARGS} --ppn ${PPN} -e ${EXTRA}_hcoll${HCOLL}
-            HCOLL_GPU=cuda HCOLL_GPU_ENABLE=1 OMPI_MCA_coll_hcoll_enable=${HCOLL} ./run.sh test_suites/two-nodes-coll-gpu ${ARGS} --ppn ${PPN} -e ${EXTRA}_hcoll${HCOLL}
-        done
+        #for HCOLL in 0 1
+        #do
+        #    OMPI_MCA_coll_hcoll_enable=${HCOLL} ./run.sh test_suites/two-nodes-coll-cpu ${ARGS} --ppn ${PPN} -e ${EXTRA}_hcoll${HCOLL}
+        #    HCOLL_GPU=cuda HCOLL_GPU_ENABLE=1 OMPI_MCA_coll_hcoll_enable=${HCOLL} ./run.sh test_suites/two-nodes-coll-gpu ${ARGS} --ppn ${PPN} -e ${EXTRA}_hcoll${HCOLL}
+        #done
     done
 done

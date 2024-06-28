@@ -10,9 +10,5 @@
 source conf.sh
 ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file"
 
-export UCX_PROTO_ENABLE=y
-
 ./run.sh test_suites/gpubench_pp ${ARGS} --ppn 2
 ./run.sh test_suites/gpubench_coll ${ARGS} --ppn 4
-#./run.sh test_suites/nccl_sendrecv ${ARGS} --ppn 2 # Just to test bandwidth between a pair of GPUs
-#./run.sh test_suites/nccl_coll ${ARGS} --ppn 4
