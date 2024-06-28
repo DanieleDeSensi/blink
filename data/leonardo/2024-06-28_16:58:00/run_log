@@ -1,0 +1,70 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/gpubench/mpp-cudaaware/1B', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_group_SL0', maxruns=10, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-l 100 -x 0", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['lrdn1708' 'lrdn1892']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27391s.
+
+Running...
+ Run 1:
+  0.00397s: started 0
+  1.37204s: awaited 0
+  Data collection took 0.00027s.
+ Run 2:
+  0.00436s: started 0
+  1.12881s: awaited 0
+  Data collection took 0.0002s.
+ Run 3:
+  0.00447s: started 0
+  1.4421s: awaited 0
+  Data collection took 0.0002s.
+ Run 4:
+  0.0044s: started 0
+  1.12828s: awaited 0
+  Data collection took 0.00021s.
+ Run 5:
+  0.0043s: started 0
+  1.34576s: awaited 0
+  1.3458s: encountered an exception in 0
+srun: Job 5634956 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5634956
+
+  Data collection took 0.00019s.
+ Run 6:
+  0.00418s: started 0
+  1.11043s: awaited 0
+  Data collection took 0.00021s.
+ Run 7:
+  0.00401s: started 0
+  1.371s: awaited 0
+  1.37104s: encountered an exception in 0
+srun: Job 5634956 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5634956
+
+  Data collection took 0.00019s.
+ Run 8:
+  0.00414s: started 0
+  1.13943s: awaited 0
+  Data collection took 0.00021s.
+ Run 9:
+  0.00424s: started 0
+  1.16418s: awaited 0
+  Data collection took 0.0002s.
+ Run 10:
+  0.00445s: started 0
+  1.12362s: awaited 0
+  Data collection took 0.00021s.
+  Convergence check took 0.01019s.
+Completed maximum number of runs, terminated after 10 runs taking 12.34 seconds.
+Writing data & meta-data took 0.01037s.
+Overall took 12.62325s.
