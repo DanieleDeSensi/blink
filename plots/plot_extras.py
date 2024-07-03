@@ -132,8 +132,10 @@ def main():
                 if not os.path.exists(filename):
                     print("Error: data file " + filename + " does not exist")
                     continue
+                if system == "leonardo":
+                    print(filename)
                 data[extra_fullname[e]] = get_bench_data(victim_name, victim_input, metric_hr, filename, ppn, args.numnodes, system)
-                print("Data for " + system + " " + metric_hr + " " + ea + " Min: " + str(data[extra_fullname[e]].min()) + " Max: " + str(data[extra_fullname[e]].max()) + " Mean: " + str(data[extra_fullname[e]].mean()))
+                print("Data for " + system + " " + metric_hr + " " + ea + " Min: " + str(data[extra_fullname[e]].min()) + " Max: " + str(data[extra_fullname[e]].max()) + " Mean: " + str(data[extra_fullname[e]].mean()) + " Median: " + str(data[extra_fullname[e]].median()))
                 if data.empty:
                     raise Exception("Error: data file " + filename + " does not contain data for metric " + metric_hr)
                 global_df = pd.concat([global_df, data], axis=1)

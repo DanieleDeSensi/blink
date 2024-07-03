@@ -1,0 +1,71 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/pw-ping-pong_b/1B', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_group_SL0', maxruns=10, minruns=1, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['lrdn0021' 'lrdn2976']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.26685s.
+
+Running...
+ Run 1:
+  0.00268s: started 0
+  2.36536s: awaited 0
+  Data collection took 0.00145s.
+  Convergence check took 0.0008s.
+ Run 2:
+  0.00342s: started 0
+  1.02531s: awaited 0
+  Data collection took 0.00204s.
+  Convergence check took 0.00074s.
+ Run 3:
+  0.00287s: started 0
+  1.03786s: awaited 0
+  Data collection took 0.00146s.
+  Convergence check took 0.00084s.
+ Run 4:
+  0.00347s: started 0
+  1.01052s: awaited 0
+  Data collection took 0.00146s.
+  Convergence check took 0.00088s.
+ Run 5:
+  0.00294s: started 0
+  1.01792s: awaited 0
+  Data collection took 0.00149s.
+  Convergence check took 0.00102s.
+ Run 6:
+  0.00356s: started 0
+  1.02562s: awaited 0
+  Data collection took 0.0015s.
+  Convergence check took 0.00106s.
+ Run 7:
+  0.00327s: started 0
+  1.04128s: awaited 0
+  Data collection took 0.0015s.
+  Convergence check took 0.00112s.
+ Run 8:
+  0.00323s: started 0
+  1.0223s: awaited 0
+  Data collection took 0.00156s.
+  Convergence check took 0.00125s.
+ Run 9:
+  0.00342s: started 0
+  1.00914s: awaited 0
+  Data collection took 0.00146s.
+  Convergence check took 0.0013s.
+ Run 10:
+  0.00315s: started 0
+  1.02759s: awaited 0
+  Data collection took 0.00156s.
+  Convergence check took 0.00145s.
+Completed maximum number of runs, terminated after 10 runs taking 11.61 seconds.
+Writing data & meta-data took 0.04889s.
+Overall took 11.92547s.

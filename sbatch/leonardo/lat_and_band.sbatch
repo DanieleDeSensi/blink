@@ -10,13 +10,16 @@
 source conf.sh
 ALLOCATION="diff_group"
 
-for SL in 0 1; do
+#for SL in 0 1; do
+for SL in 0; do
     export UCX_IB_SL=${SL}
     export NCCL_IB_SL=${SL}
     EXTRA="${ALLOCATION}_SL${SL}"
-    ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file -e ${EXTRA}"
+    ARGS="auto -n ${SLURM_NNODES} -sp 100 -am l -ro +file -e ${EXTRA} -mn 10" # -mn 10
     # We run latency test with 1 PPN
-    ./run.sh test_suites/latency ${ARGS} --ppn 1
+    ./run.sh test_suites/latency_mpi ${ARGS} --ppn 1
+    # We run latency test with 1 PPN
+    ./run.sh test_suites/latency_mpi ${ARGS} --ppn 4    
     # We run bandwidth test with 4 PPN
-    ./run.sh test_suites/bandwidth ${ARGS} --ppn 4
+    ./run.sh test_suites/bandwidth_mpi ${ARGS} --ppn 4
 done

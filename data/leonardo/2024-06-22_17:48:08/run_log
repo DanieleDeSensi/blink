@@ -1,0 +1,66 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/pingpong/1B', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_group_SL0', maxruns=10, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['lrdn0566' 'lrdn0769']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.29442s.
+
+Running...
+ Run 1:
+  0.00272s: started 0
+  1.61866s: awaited 0
+  Data collection took 0.00088s.
+ Run 2:
+  0.00435s: started 0
+  1.12053s: awaited 0
+  Data collection took 0.00156s.
+ Run 3:
+  0.00448s: started 0
+  1.89518s: awaited 0
+  Data collection took 0.00085s.
+ Run 4:
+  0.00456s: started 0
+  1.08712s: awaited 0
+  Data collection took 0.00088s.
+ Run 5:
+  0.00456s: started 0
+  1.97821s: awaited 0
+  Data collection took 0.00089s.
+ Run 6:
+  0.00459s: started 0
+  1.10405s: awaited 0
+  Data collection took 0.00091s.
+ Run 7:
+  0.00447s: started 0
+  1.99866s: awaited 0
+  Data collection took 0.00094s.
+ Run 8:
+  0.00461s: started 0
+  1.17353s: awaited 0
+  Data collection took 0.00094s.
+ Run 9:
+  0.0046s: started 0
+  1.9149s: awaited 0
+  1.91493s: encountered an exception in 0
+srun: Job 5403192 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5403192
+
+  Data collection took 0.00089s.
+ Run 10:
+  0.00474s: started 0
+  1.08472s: awaited 0
+  Data collection took 0.00089s.
+  Convergence check took 0.00143s.
+Completed maximum number of runs, terminated after 10 runs taking 14.99 seconds.
+Writing data & meta-data took 0.02752s.
+Overall took 15.3094s.

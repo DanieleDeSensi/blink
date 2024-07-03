@@ -208,13 +208,7 @@ def bench_to_human_readable_impl(bench):
 def get_actual_bench_name(bench, system, input):
     if bench.startswith("#"):
         if bench == "#distance-cpu":
-            if system == "lumi" or system == "alps":
-                return "pw-ping-pong_b"
-            elif system == "leonardo":
-                if input == "1B":
-                    return "pw-ping-pong_b"
-                else:
-                    return "ib_send_lat"
+            return "pw-ping-pong_b"
         elif bench == "#distance-gpu":        
             return "gpubench-mpp-cudaaware"
         elif bench == "#a2a-gpu": # TODO: FIX

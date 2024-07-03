@@ -1,0 +1,82 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/pw-ping-pong_b/1B', beta=0.05, convergeall=False, datapath='./data', extrainfo='diff_group_SL0', maxruns=10, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=4, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 4
+0 on 2 nodes:
+['lrdn2896' 'lrdn2902']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27132s.
+
+Running...
+ Run 1:
+  0.00291s: started 0
+  1.19501s: awaited 0
+  Data collection took 0.0015s.
+ Run 2:
+  0.00446s: started 0
+  1.41818s: awaited 0
+  1.41821s: encountered an exception in 0
+srun: Job 5409738 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5409738
+
+  Data collection took 0.00231s.
+ Run 3:
+  0.00447s: started 0
+  1.19616s: awaited 0
+  Data collection took 0.00183s.
+ Run 4:
+  0.00432s: started 0
+  1.73007s: awaited 0
+  1.73011s: encountered an exception in 0
+srun: Job 5409738 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5409738
+
+  Data collection took 0.00152s.
+ Run 5:
+  0.00453s: started 0
+  1.19449s: awaited 0
+  Data collection took 0.00153s.
+ Run 6:
+  0.00449s: started 0
+  1.72361s: awaited 0
+  1.72364s: encountered an exception in 0
+srun: Job 5409738 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5409738
+
+  Data collection took 0.00154s.
+ Run 7:
+  0.00447s: started 0
+  1.18018s: awaited 0
+  Data collection took 0.00157s.
+ Run 8:
+  0.0044s: started 0
+  1.87117s: awaited 0
+  1.8712s: encountered an exception in 0
+srun: Job 5409738 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5409738
+
+  Data collection took 0.00185s.
+ Run 9:
+  0.00469s: started 0
+  1.24765s: awaited 0
+  Data collection took 0.00152s.
+ Run 10:
+  0.00467s: started 0
+  1.68568s: awaited 0
+  1.68572s: encountered an exception in 0
+srun: Job 5409738 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 5409738
+
+  Data collection took 0.00302s.
+  Convergence check took 0.00281s.
+Completed maximum number of runs, terminated after 10 runs taking 14.46 seconds.
+Writing data & meta-data took 0.09471s.
+Overall took 14.83021s.

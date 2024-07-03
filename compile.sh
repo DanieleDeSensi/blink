@@ -85,34 +85,36 @@ if [ "$BLINK_XCCL_BENCH" = "true" ]; then
 fi
 
 # Compile netgauge
-pushd src/netgauge-2.4.6
-    if [ ! -f "Makefile" ]; then
-        CC=${BLINK_CC} ./configure ${BLINK_NG_CONFIGURE_FLAGS}
+if [ "$BLINK_NG_BENCH" = "true" ]; then
+    pushd src/netgauge-2.4.6
+        if [ ! -f "Makefile" ]; then
+            CC=${BLINK_CC} ./configure ${BLINK_NG_CONFIGURE_FLAGS}
+            if [ $? -ne 0 ]; then
+                echo "${RED}[Error] netgauge compilation failed, please check error messages above.${NC}"
+                exit 1
+            fi
+        fi
+        CC=${BLINK_CC} make
         if [ $? -ne 0 ]; then
             echo "${RED}[Error] netgauge compilation failed, please check error messages above.${NC}"
             exit 1
         fi
-    fi
-    CC=${BLINK_CC} make
-    if [ $? -ne 0 ]; then
-        echo "${RED}[Error] netgauge compilation failed, please check error messages above.${NC}"
-        exit 1
-    fi
 
-    HAS_MPI=$(cat config.h | grep NG_MPI | cut -d ' ' -f 3)
-    if [ "$HAS_MPI" != 1 ] ; then
-        echo "${RED}[Error] netgauge did not find MPI. Please specify MPI path in ./configure${NC}"
-        exit 1
-    fi
-popd
+        HAS_MPI=$(cat config.h | grep NG_MPI | cut -d ' ' -f 3)
+        if [ "$HAS_MPI" != 1 ] ; then
+            echo "${RED}[Error] netgauge did not find MPI. Please specify MPI path in ./configure${NC}"
+            exit 1
+        fi
+    popd
+fi
 
 # Compile ember
-pushd src/ember
-    CC=${BLINK_CC} ./make_script.sh all
-    if [ $? -ne 0 ]; then
-        echo "${RED}[Error] internals compilation failed, please check error messages above.${NC}"
-        exit 1
-    fi
-popd
+#pushd src/ember
+#    CC=${BLINK_CC} ./make_script.sh all
+#    if [ $? -ne 0 ]; then
+#        echo "${RED}[Error] internals compilation failed, please check error messages above.${NC}"
+#        exit 1
+#    fi
+#popd
 
 echo "${GREEN}Everything compiled successfully.${NC}"
