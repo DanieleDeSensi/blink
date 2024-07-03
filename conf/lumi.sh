@@ -5,7 +5,8 @@ module load cray-python
 export BLINK_CC=cc # MPI C Compiler
 export BLINK_CXX=CC # MPI C++ Compiler
 export BLINK_GPU_BENCH="true" # Shall we run GPU interconnect tests?
-export BLINK_XCCL_BENCH="false"
+export BLINK_XCCL_BENCH="false" # Shall we run xCCL tests?
+export BLINK_NG_BENCH="false" # Shall we run Netgauge tests?
 export BLINK_CUDA_HOME=""
 export BLINK_NCCL_HOME=""
 export BLINK_MPI_HOME="" # MPI home folder
