@@ -23,8 +23,9 @@ source src/microbench-gpu/moduleload/load_Baseline_modules.sh
 ./run.sh test_suites/gpubench_coll_baseline ${ARGS} --ppn 8
 
 # NCCL
-source src/microbench-gpu/moduleload/load_Nccl_modules.sh
+source src/microbench-gpu/moduleload/load_Nccl_new_modules.sh
 ./run.sh test_suites/gpubench_pp_nccl ${ARGS} --ppn 2
+source src/microbench-gpu/moduleload/load_Nccl_modules.sh
 ./run.sh test_suites/gpubench_coll_nccl ${ARGS} --ppn 8
 #./run.sh test_suites/comm-nccl ${ARGS} --ppn 8
 

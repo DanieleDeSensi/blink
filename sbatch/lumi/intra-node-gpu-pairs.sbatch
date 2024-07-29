@@ -32,7 +32,7 @@ do
     ./run.sh test_suites/gpubench_pp_baseline_1GiB ${ARGS} --ppn 2
 
     # NCCL
-    source src/microbench-gpu/moduleload/load_Nccl_modules.sh
+    source src/microbench-gpu/moduleload/load_Nccl_new_modules.sh
     ./run.sh test_suites/gpubench_pp_nccl_1GiB ${ARGS} --ppn 2
 
     # NVLink
