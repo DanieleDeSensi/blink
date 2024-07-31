@@ -1,0 +1,100 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/4KiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-eth', maxruns=10, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=128, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 4096 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 128
+0 on 2 nodes:
+['cn19' 'cn20']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.05816s.
+
+Running...
+ Run 1:
+  0.00247s: started 0
+  88.34052s: awaited 0
+  88.34057s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: Job 10799 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 10799
+
+  Data collection took 0.00219s.
+ Run 2:
+  0.01255s: started 0
+  79.50005s: awaited 0
+  79.50009s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00333s.
+ Run 3:
+  0.01252s: started 0
+  81.21235s: awaited 0
+  81.21239s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00226s.
+ Run 4:
+  0.01268s: started 0
+  81.62017s: awaited 0
+  81.62021s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00228s.
+ Run 5:
+  0.01277s: started 0
+  0.02673s: awaited 0
+  0.02674s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: error: Unable to create step for job 10799: Job/step already completing or completed
+
+  Data collection took 3e-05s.
+ Run 6:
+  0.00246s: started 0
+  0.01165s: awaited 0
+  0.01167s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: error: Unable to create step for job 10799: Job/step already completing or completed
+
+  Data collection took 1e-05s.
+ Run 7:
+  0.00238s: started 0
+  0.01099s: awaited 0
+  0.011s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: error: Unable to create step for job 10799: Job/step already completing or completed
+
+  Data collection took 1e-05s.
+ Run 8:
+  0.00231s: started 0
+  0.01092s: awaited 0
+  0.01094s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: error: Unable to create step for job 10799: Job/step already completing or completed
+
+  Data collection took 1e-05s.
+ Run 9:
+  0.00233s: started 0
+  0.01065s: awaited 0
+  0.01067s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: error: Unable to create step for job 10799: Job/step already completing or completed
+
+  Data collection took 1e-05s.
+ Run 10:
+  0.00234s: started 0
+  0.01109s: awaited 0
+  0.01111s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: error: Unable to create step for job 10799: Job/step already completing or completed
+
+  Data collection took 1e-05s.
+  Convergence check took 0.00155s.
+Completed maximum number of runs, terminated after 10 runs taking 330.77 seconds.
+Writing data & meta-data took 0.07224s.
+Overall took 330.89953s.

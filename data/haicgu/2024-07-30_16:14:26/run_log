@@ -1,0 +1,92 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/inc_b/128MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-eth', maxruns=10, minruns=10, node_file='auto', numnodes=8, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 134217728 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 8 nodes:
+['cn19' 'cn20' 'cn21' 'cn22' 'cn23' 'cn24' 'cn25' 'cn26']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.03476s.
+
+Running...
+ Run 1:
+  0.00247s: started 0
+  10.7454s: awaited 0
+  10.74542s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00023s.
+ Run 2:
+  0.00289s: started 0
+  10.74864s: awaited 0
+  10.74867s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00024s.
+ Run 3:
+  0.0058s: started 0
+  10.84415s: awaited 0
+  10.84418s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00024s.
+ Run 4:
+  0.00304s: started 0
+  10.80741s: awaited 0
+  10.80744s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00025s.
+ Run 5:
+  0.00294s: started 0
+  10.80153s: awaited 0
+  10.80156s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00024s.
+ Run 6:
+  0.00289s: started 0
+  10.8072s: awaited 0
+  10.80722s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00025s.
+ Run 7:
+  0.00307s: started 0
+  10.77329s: awaited 0
+  10.77331s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00025s.
+ Run 8:
+  0.00295s: started 0
+  10.7682s: awaited 0
+  10.76822s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00025s.
+ Run 9:
+  0.00644s: started 0
+  10.80364s: awaited 0
+  10.80366s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00025s.
+ Run 10:
+  0.00297s: started 0
+  10.7601s: awaited 0
+  10.76013s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00025s.
+  Convergence check took 0.00098s.
+Completed maximum number of runs, terminated after 10 runs taking 107.86 seconds.
+Writing data & meta-data took 0.02916s.
+Overall took 107.92772s.

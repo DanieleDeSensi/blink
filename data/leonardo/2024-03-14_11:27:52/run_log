@@ -1,7 +1,0 @@
-
-Passed arguments:
-Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/ib_send_bw/ib_send_bw', beta=0.05, convergeall=False, datapath='./data', extrainfo='ib-RC', maxruns=100, minruns=1, node_file='conf/auto_node_file.txt', numnodes=2, outformat='csv', ppn=1, replace_mix_args='%SERVER_ADDRESS:lrdn0970,%SERVICE_LEVEL:1,%TRANSPORT:RC,%MESSAGE_SIZE:134217728', runtimeout='+file', seed=1, timeout=600.0)
-
-Apps:
-0: with arguments:"-c RC -S 1 -s 134217728 --report_gbits -F --out_json --out_json_file=ib_send_bw.json", collection flag: False, ending condition: run until finished.
-1: with arguments:"-c RC -S 1 -s 134217728 --report_gbits -F --out_json --out_json_file=ib_send_bw.json lrdn0970", collection flag: True, ending condition: run until finished.

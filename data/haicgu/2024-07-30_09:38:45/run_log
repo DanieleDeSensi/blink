@@ -1,0 +1,76 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/64B', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-eth', maxruns=10, minruns=10, node_file='auto', numnodes=2, outformat='csv', ppn=128, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 64 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 128
+0 on 2 nodes:
+['cn19' 'cn20']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.05533s.
+
+Running...
+ Run 1:
+  0.00251s: started 0
+  89.87729s: awaited 0
+  89.87732s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: Job 10799 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 10799
+
+  Data collection took 0.00213s.
+ Run 2:
+  0.0111s: started 0
+  76.57305s: awaited 0
+  76.57309s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00364s.
+ Run 3:
+  0.01258s: started 0
+  86.74554s: awaited 0
+  86.74557s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.0023s.
+ Run 4:
+  0.01155s: started 0
+  85.92566s: awaited 0
+  85.92569s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00227s.
+ Run 5:
+  0.01079s: started 0
+  86.36833s: awaited 0
+  86.36836s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00228s.
+ Run 6:
+  0.011s: started 0
+  83.1498s: awaited 0
+  83.14983s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.0023s.
+ Run 7:
+  0.01081s: started 0
+  84.84603s: awaited 0
+  84.84608s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00251s.
+ Run 8:
+  0.01265s: started 0
+  6.516s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 7 runs taking 600.02 seconds.
+Writing data & meta-data took 0.09894s.
+Overall took 600.17682s.

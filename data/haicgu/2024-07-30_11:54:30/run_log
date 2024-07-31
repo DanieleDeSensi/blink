@@ -1,0 +1,48 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/512B', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-eth', maxruns=10, minruns=10, node_file='auto', numnodes=8, outformat='csv', ppn=128, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 512 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 128
+0 on 8 nodes:
+['cn19' 'cn20' 'cn21' 'cn22' 'cn23' 'cn24' 'cn25' 'cn26']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.06146s.
+
+Running...
+ Run 1:
+  0.0025s: started 0
+  190.25747s: awaited 0
+  190.25749s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: Job 10801 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 10801
+
+  Data collection took 0.00212s.
+ Run 2:
+  0.0111s: started 0
+  157.62391s: awaited 0
+  157.62394s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00314s.
+ Run 3:
+  0.0116s: started 0
+  159.51597s: awaited 0
+  159.516s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00225s.
+ Run 4:
+  0.01084s: started 0
+  92.68989s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 3 runs taking 600.1 seconds.
+Writing data & meta-data took 0.04686s.
+Overall took 600.20453s.

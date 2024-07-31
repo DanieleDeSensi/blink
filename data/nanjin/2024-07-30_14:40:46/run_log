@@ -1,0 +1,94 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='nanjin', maxruns=10, minruns=10, node_file='/root/hpc/host/hostfile11_14', numnodes=4, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1073741824 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 4 nodes:
+['host231' 'host232' 'host233' 'host234']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.00562s.
+
+Running...
+ Run 1:
+  0.00517s: started 0
+  5.0104s: awaited 0
+  5.01044s: encountered an exception in 0
+[host231:23060:0:23060]        rndv.c:2360 Assertion `status == UCS_OK' failed
+[host233:54597:0:54597]        rndv.c:2360 Assertion `status == UCS_OK' failed
+==== backtrace (tid:  23060) ====
+ 0 0x000000000006f804 ucp_rndv_rtr_handler()  ???:0
+ 1 0x000000000003cb10 uct_rc_mlx5_iface_check_rx_completion()  ???:0
+ 2 0x00000000000444f0 ucp_worker_progress()  ???:0
+ 3 0x0000000000005174 mca_pml_ucx_send()  :0
+ 4 0x00000000000a12ac ompi_coll_base_sendrecv_actual()  :0
+ 5 0x00000000000a4304 ompi_coll_base_alltoall_intra_pairwise()  :0
+ 6 0x00000000000608cc PMPI_Alltoall()  :0
+ 7 0x0000000000401728 main()  :0
+ 8 0x0000000000021724 __libc_start_main()  :0
+ 9 0x0000000000401984 _start()  :0
+=================================
+[host231:23060] *** Process received signal ***
+[host231:23060] Signal: Aborted (6)
+[host231:23060] Signal code:  (-6)
+[host231:23060] [ 0] [0x40003299066c]
+[host231:23060] [ 1] /lib64/libc.so.6(gsignal+0x4c)[0x400032c35238]
+[host231:23060] [ 2] /lib64/libc.so.6(abort+0x11c)[0x400032c368b0]
+[host231:23060] [ 3] /lib64/libucs.so.0(ucs_fatal_error_message+0x5c)[0x40003cbd1ebc]
+[host231:23060] [ 4] /lib64/libucs.so.0(+0x5201c)[0x40003cbd201c]
+[host231:23060] [ 5] /lib64/libucp.so.0(ucp_rndv_rtr_handler+0xa44)[0x40003c86f804]
+[host231:23060] [ 6] /lib64/ucx/libuct_ib.so.0(+0x3cb10)[0x40003cd3cb10]
+[host231:23060] [ 7] /lib64/libucp.so.0(ucp_worker_progress+0x60)[0x40003c8444f0]
+[host231:23060] [ 8] /root/hpc/openmpi/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x114)[0x400033ee5174]
+[host231:23060] [ 9] /root/hpc/openmpi/lib/libmpi.so.40(ompi_coll_base_sendrecv_actual+0x8c)[0x400032b212ac]
+[host231:23060] [10] /root/hpc/openmpi/lib/libmpi.so.40(ompi_coll_base_alltoall_intra_pairwise+0x94)[0x400032b24304]
+[host231:23060] [11] /root/hpc/openmpi/lib/libmpi.so.40(MPI_Alltoall+0x10c)[0x400032ae08cc]
+[host231:23060] [12] /root/hpc/blink//src/microbench/bin/a2a_b[0x401728]
+[host231:23060] [13] /lib64/libc.so.6(__libc_start_main+0xf0)[0x400032c21724]
+[host231:23060] [14] /root/hpc/blink//src/microbench/bin/a2a_b[0x401984]
+[host231:23060] *** End of error message ***
+==== backtrace (tid:  54597) ====
+ 0 0x000000000006f804 ucp_rndv_rtr_handler()  ???:0
+ 1 0x000000000003cb10 uct_rc_mlx5_iface_check_rx_completion()  ???:0
+ 2 0x00000000000444f0 ucp_worker_progress()  ???:0
+ 3 0x0000000000005174 mca_pml_ucx_send()  :0
+ 4 0x00000000000a12ac ompi_coll_base_sendrecv_actual()  :0
+ 5 0x00000000000a4304 ompi_coll_base_alltoall_intra_pairwise()  :0
+ 6 0x00000000000608cc PMPI_Alltoall()  :0
+ 7 0x0000000000401728 main()  :0
+ 8 0x00000000000215d4 __libc_start_main()  :0
+ 9 0x0000000000401984 _start()  :0
+=================================
+[host233:54597] *** Process received signal ***
+[host233:54597] Signal: Aborted (6)
+[host233:54597] Signal code:  (-6)
+[host233:54597] [ 0] [0x40002fe7066c]
+[host233:54597] [ 1] /lib64/libc.so.6(gsignal+0x4c)[0x4000301050e8]
+[host233:54597] [ 2] /lib64/libc.so.6(abort+0x11c)[0x400030106760]
+[host233:54597] [ 3] /lib64/libucs.so.0(ucs_fatal_error_message+0x5c)[0x400032081ebc]
+[host233:54597] [ 4] /lib64/libucs.so.0(+0x5201c)[0x40003208201c]
+[host233:54597] [ 5] /lib64/libucp.so.0(ucp_rndv_rtr_handler+0xa44)[0x400031cef804]
+[host233:54597] [ 6] /lib64/ucx/libuct_ib.so.0(+0x3cb10)[0x4000321ecb10]
+[host233:54597] [ 7] /lib64/libucp.so.0(ucp_worker_progress+0x60)[0x400031cc44f0]
+[host233:54597] [ 8] /root/hpc/openmpi/lib/openmpi/mca_pml_ucx.so(mca_pml_ucx_send+0x114)[0x400031bc5174]
+[host233:54597] [ 9] /root/hpc/openmpi/lib/libmpi.so.40(ompi_coll_base_sendrecv_actual+0x8c)[0x40002fff12ac]
+[host233:54597] [10] /root/hpc/openmpi/lib/libmpi.so.40(ompi_coll_base_alltoall_intra_pairwise+0x94)[0x40002fff4304]
+[host233:54597] [11] /root/hpc/openmpi/lib/libmpi.so.40(MPI_Alltoall+0x10c)[0x40002ffb08cc]
+[host233:54597] [12] /root/hpc/blink//src/microbench/bin/a2a_b[0x401728]
+[host233:54597] [13] /lib64/libc.so.6(__libc_start_main+0xf0)[0x4000300f15d4]
+[host233:54597] [14] /root/hpc/blink//src/microbench/bin/a2a_b[0x401984]
+[host233:54597] *** End of error message ***
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 0 on node host231 exited on signal 6 (Aborted).
+--------------------------------------------------------------------------
+

@@ -1,0 +1,210 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/inc_b/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-eth', maxruns=10, minruns=10, node_file='auto', numnodes=10, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1073741824 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 10 nodes:
+['cn19' 'cn20' 'cn21' 'cn22' 'cn23' 'cn24' 'cn25' 'cn26' 'cn27' 'cn28']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02626s.
+
+Running...
+ Run 1:
+  0.00254s: started 0
+  2.97008s: awaited 0
+  2.97011s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 10810.110 ON cn19 CANCELLED AT 2024-07-30T17:16:56 ***
+srun: error: cn19: task 0: Exited with exit code 17
+srun: error: cn23: task 4: Killed
+srun: error: cn21: task 2: Killed
+srun: error: cn27: task 8: Killed
+srun: error: cn26: task 7: Killed
+srun: error: cn20: task 1: Killed
+srun: error: cn25: task 6: Killed
+srun: error: cn24: task 5: Killed
+srun: error: cn22: task 3: Killed
+srun: error: cn28: task 9: Killed
+
+  Data collection took 1e-05s.
+ Run 2:
+  0.00289s: started 0
+  2.92359s: awaited 0
+  2.92362s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 10810.111 ON cn19 CANCELLED AT 2024-07-30T17:16:58 ***
+srun: error: cn19: task 0: Exited with exit code 17
+srun: error: cn26: task 7: Killed
+srun: error: cn22: task 3: Killed
+srun: error: cn24: task 5: Killed
+srun: error: cn23: task 4: Killed
+srun: error: cn21: task 2: Killed
+srun: error: cn27: task 8: Killed
+srun: error: cn20: task 1: Killed
+srun: error: cn25: task 6: Killed
+srun: error: cn28: task 9: Killed
+
+  Data collection took 1e-05s.
+ Run 3:
+  0.00293s: started 0
+  2.93411s: awaited 0
+  2.93414s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 10810.112 ON cn19 CANCELLED AT 2024-07-30T17:17:01 ***
+srun: error: cn19: task 0: Exited with exit code 17
+srun: error: cn21: task 2: Killed
+srun: error: cn20: task 1: Killed
+srun: error: cn23: task 4: Killed
+srun: error: cn27: task 8: Killed
+srun: error: cn25: task 6: Killed
+srun: error: cn26: task 7: Killed
+srun: error: cn28: task 9: Killed
+srun: error: cn22: task 3: Killed
+srun: error: cn24: task 5: Killed
+
+  Data collection took 1e-05s.
+ Run 4:
+  0.00625s: started 0
+  2.97804s: awaited 0
+  2.97806s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 10810.113 ON cn19 CANCELLED AT 2024-07-30T17:17:04 ***
+srun: error: cn19: task 0: Exited with exit code 17
+srun: error: cn26: task 7: Killed
+srun: error: cn21: task 2: Killed
+srun: error: cn22: task 3: Killed
+srun: error: cn23: task 4: Killed
+srun: error: cn24: task 5: Killed
+srun: error: cn20: task 1: Killed
+srun: error: cn25: task 6: Killed
+srun: error: cn27: task 8: Killed
+srun: error: cn28: task 9: Killed
+
+  Data collection took 1e-05s.
+ Run 5:
+  0.00302s: started 0
+  2.94379s: awaited 0
+  2.94382s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 10810.114 ON cn19 CANCELLED AT 2024-07-30T17:17:07 ***
+srun: error: cn21: task 2: Killed
+srun: error: cn19: task 0: Exited with exit code 17
+srun: error: cn20: task 1: Killed
+srun: error: cn23: task 4: Killed
+srun: error: cn27: task 8: Killed
+srun: error: cn25: task 6: Killed
+srun: error: cn26: task 7: Killed
+srun: error: cn24: task 5: Killed
+srun: error: cn28: task 9: Killed
+srun: error: cn22: task 3: Killed
+
+  Data collection took 1e-05s.
+ Run 6:
+  0.00289s: started 0
+  2.96984s: awaited 0
+  2.96986s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 10810.115 ON cn19 CANCELLED AT 2024-07-30T17:17:10 ***
+srun: error: cn19: task 0: Exited with exit code 17
+srun: error: cn23: task 4: Killed
+srun: error: cn22: task 3: Killed
+srun: error: cn26: task 7: Killed
+srun: error: cn21: task 2: Killed
+srun: error: cn24: task 5: Killed
+srun: error: cn20: task 1: Killed
+srun: error: cn27: task 8: Killed
+srun: error: cn25: task 6: Killed
+srun: error: cn28: task 9: Killed
+
+  Data collection took 1e-05s.
+ Run 7:
+  0.00284s: started 0
+  2.91873s: awaited 0
+  2.91875s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 10810.116 ON cn19 CANCELLED AT 2024-07-30T17:17:13 ***
+srun: error: cn19: task 0: Exited with exit code 17
+srun: error: cn23: task 4: Killed
+srun: error: cn25: task 6: Killed
+srun: error: cn28: task 9: Killed
+srun: error: cn21: task 2: Killed
+srun: error: cn20: task 1: Killed
+srun: error: cn27: task 8: Killed
+srun: error: cn26: task 7: Killed
+srun: error: cn22: task 3: Killed
+srun: error: cn24: task 5: Killed
+
+  Data collection took 1e-05s.
+ Run 8:
+  0.00295s: started 0
+  2.95443s: awaited 0
+  2.95446s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 10810.117 ON cn19 CANCELLED AT 2024-07-30T17:17:16 ***
+srun: error: cn19: task 0: Exited with exit code 17
+srun: error: cn28: task 9: Killed
+srun: error: cn22: task 3: Killed
+srun: error: cn23: task 4: Killed
+srun: error: cn21: task 2: Killed
+srun: error: cn27: task 8: Killed
+srun: error: cn24: task 5: Killed
+srun: error: cn20: task 1: Killed
+srun: error: cn26: task 7: Killed
+srun: error: cn25: task 6: Killed
+
+  Data collection took 1e-05s.
+ Run 9:
+  0.00292s: started 0
+  2.98813s: awaited 0
+  2.98815s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 10810.118 ON cn19 CANCELLED AT 2024-07-30T17:17:19 ***
+srun: error: cn21: task 2: Killed
+srun: error: cn19: task 0: Exited with exit code 17
+srun: error: cn26: task 7: Killed
+srun: error: cn28: task 9: Killed
+srun: error: cn23: task 4: Killed
+srun: error: cn27: task 8: Killed
+srun: error: cn20: task 1: Killed
+srun: error: cn25: task 6: Killed
+srun: error: cn22: task 3: Killed
+srun: error: cn24: task 5: Killed
+
+  Data collection took 1e-05s.
+ Run 10:
+  0.00287s: started 0
+  2.93415s: awaited 0
+  2.93418s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 10810.119 ON cn19 CANCELLED AT 2024-07-30T17:17:22 ***
+srun: error: cn28: task 9: Killed
+srun: error: cn22: task 3: Killed
+srun: error: cn19: task 0: Exited with exit code 17
+srun: error: cn21: task 2: Killed
+srun: error: cn24: task 5: Killed
+srun: error: cn23: task 4: Killed
+srun: error: cn26: task 7: Killed
+srun: error: cn27: task 8: Killed
+srun: error: cn20: task 1: Killed
+srun: error: cn25: task 6: Killed
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 10 runs taking 29.52 seconds.

@@ -1,0 +1,1130 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-eth', maxruns=10, minruns=10, node_file='auto', numnodes=8, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1073741824 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 8 nodes:
+['cn19' 'cn20' 'cn21' 'cn22' 'cn23' 'cn24' 'cn25' 'cn26']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.03992s.
+
+Running...
+ Run 1:
+  0.00239s: started 0
+  3.13776s: awaited 0
+  3.13779s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn26:8581 :0:8581] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x2367bfff0)
+[cn23:8647 :0:8647] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1563dfff0)
+[cn21:24318:0:24318] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xdc22fff0)
+[cn24:8777 :0:8777] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1a6f0fff0)
+[cn22:25152:0:25152] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x128f6fff0)
+[cn25:8551 :0:8551] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1d276fff0)
+[cn20:45380:0:45380] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x9afafff0)
+[cn19:62748:0:62748] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x53d2fff0)
+==== backtrace (tid:  25152) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  24318) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  62748) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  45380) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8581) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8647) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8777) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8551) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn21: task 2: Segmentation fault (core dumped)
+srun: error: cn22: task 3: Segmentation fault (core dumped)
+srun: error: cn20: task 1: Segmentation fault (core dumped)
+srun: error: cn23: task 4: Segmentation fault (core dumped)
+srun: error: cn19: task 0: Segmentation fault (core dumped)
+srun: error: cn24: task 5: Segmentation fault (core dumped)
+srun: error: cn26: task 7: Segmentation fault (core dumped)
+srun: error: cn25: task 6: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 2:
+  0.00297s: started 0
+  3.10049s: awaited 0
+  3.10051s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn26:8605 :0:8605] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x20fe8fff0)
+[cn24:8801 :0:8801] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x187c7fff0)
+[cn20:45406:0:45406] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x9014fff0)
+[cn25:8578 :0:8578] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1f22bfff0)
+[cn23:8673 :0:8673] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1714afff0)
+[cn21:24344:0:24344] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xeb6dfff0)
+[cn22:25178:0:25178] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1288dfff0)
+[cn19:62803:0:62803] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x67d7fff0)
+==== backtrace (tid:   8578) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8605) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8673) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  45406) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8801) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  24344) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  62803) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  25178) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn25: task 6: Segmentation fault (core dumped)
+srun: error: cn21: task 2: Segmentation fault (core dumped)
+srun: error: cn26: task 7: Segmentation fault (core dumped)
+srun: error: cn23: task 4: Segmentation fault (core dumped)
+srun: error: cn24: task 5: Segmentation fault (core dumped)
+srun: error: cn19: task 0: Segmentation fault (core dumped)
+srun: error: cn22: task 3: Segmentation fault (core dumped)
+srun: error: cn20: task 1: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 3:
+  0.00303s: started 0
+  3.05795s: awaited 0
+  3.05798s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn23:8699 :0:8699] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x17d10fff0)
+[cn20:45433:0:45433] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x9306fff0)
+[cn26:8631 :0:8631] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x21917fff0)
+[cn21:24370:0:24370] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xfad5fff0)
+[cn25:8605 :0:8605] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1e8fffff0)
+[cn22:25202:0:25202] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x123defff0)
+[cn24:8829 :0:8829] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1af86fff0)
+[cn19:62858:0:62858] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x5420fff0)
+==== backtrace (tid:   8631) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8699) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8605) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8829) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  62858) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  25202) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  45433) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  24370) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn23: task 4: Segmentation fault (core dumped)
+srun: error: cn24: task 5: Segmentation fault (core dumped)
+srun: error: cn25: task 6: Segmentation fault (core dumped)
+srun: error: cn21: task 2: Segmentation fault (core dumped)
+srun: error: cn19: task 0: Segmentation fault (core dumped)
+srun: error: cn26: task 7: Segmentation fault (core dumped)
+srun: error: cn22: task 3: Segmentation fault (core dumped)
+srun: error: cn20: task 1: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 4:
+  0.00285s: started 0
+  3.08005s: awaited 0
+  3.08007s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn23:8723 :0:8723] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x158d5fff0)
+[cn20:45457:0:45457] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xbf19fff0)
+[cn24:8855 :0:8855] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x19665fff0)
+[cn25:8629 :0:8629] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1ef4afff0)
+[cn21:24394:0:24394] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xdebffff0)
+[cn26:8655 :0:8655] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x20f88fff0)
+[cn22:25227:0:25227] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1075efff0)
+[cn19:62912:0:62912] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x4139fff0)
+==== backtrace (tid:   8723) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8629) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8655) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8855) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  25227) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  45457) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  62912) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  24394) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn23: task 4: Segmentation fault (core dumped)
+srun: error: cn26: task 7: Segmentation fault (core dumped)
+srun: error: cn21: task 2: Segmentation fault (core dumped)
+srun: error: cn22: task 3: Segmentation fault (core dumped)
+srun: error: cn19: task 0: Segmentation fault (core dumped)
+srun: error: cn25: task 6: Segmentation fault (core dumped)
+srun: error: cn24: task 5: Segmentation fault (core dumped)
+srun: error: cn20: task 1: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 5:
+  0.00285s: started 0
+  3.08012s: awaited 0
+  3.08015s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn22:25251:0:25251] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x12885fff0)
+[cn21:24418:0:24418] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xfa4bfff0)
+[cn23:8749 :0:8749] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1434bfff0)
+[cn26:8679 :0:8679] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x22b03fff0)
+[cn25:8653 :0:8653] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1f8e3fff0)
+[cn24:8879 :0:8879] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x19dd6fff0)
+[cn20:45482:0:45482] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xb28cfff0)
+[cn19:62965:0:62965] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x5485fff0)
+==== backtrace (tid:  25251) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8879) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8653) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8679) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  62965) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  45482) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8749) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  24418) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn26: task 7: Segmentation fault (core dumped)
+srun: error: cn22: task 3: Segmentation fault (core dumped)
+srun: error: cn20: task 1: Segmentation fault (core dumped)
+srun: error: cn24: task 5: Segmentation fault (core dumped)
+srun: error: cn25: task 6: Segmentation fault (core dumped)
+srun: error: cn19: task 0: Segmentation fault (core dumped)
+srun: error: cn23: task 4: Segmentation fault (core dumped)
+srun: error: cn21: task 2: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 6:
+  0.00291s: started 0
+  3.11034s: awaited 0
+  3.11036s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn26:8703 :0:8703] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x238dffff0)
+[cn25:8677 :0:8677] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1c849fff0)
+[cn24:8903 :0:8903] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x19dd9fff0)
+[cn23:8773 :0:8773] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1797efff0)
+[cn21:24442:0:24442] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xf8cffff0)
+[cn22:25277:0:25277] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x100c8fff0)
+[cn20:45507:0:45507] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x86b5fff0)
+[cn19:63019:0:63019] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x61f9fff0)
+==== backtrace (tid:   8903) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  25277) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+==== backtrace (tid:   8773) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8677) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  63019) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8703) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  45507) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  24442) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn23: task 4: Segmentation fault (core dumped)
+srun: error: cn21: task 2: Segmentation fault (core dumped)
+srun: error: cn20: task 1: Segmentation fault (core dumped)
+srun: error: cn24: task 5: Segmentation fault (core dumped)
+srun: error: cn19: task 0: Segmentation fault (core dumped)
+srun: error: cn26: task 7: Segmentation fault (core dumped)
+srun: error: cn25: task 6: Segmentation fault (core dumped)
+srun: error: cn22: task 3: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 7:
+  0.00286s: started 0
+  3.09435s: awaited 0
+  3.09438s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn22:25301:0:25301] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x10551fff0)
+[cn26:8727 :0:8727] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x21dbcfff0)
+[cn24:8927 :0:8927] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x185dafff0)
+[cn21:24466:0:24466] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xf4cafff0)
+[cn25:8701 :0:8701] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1dd92fff0)
+[cn23:8797 :0:8797] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x159f6fff0)
+[cn20:45531:0:45531] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xc09afff0)
+[cn19:63072:0:63072] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x58e4fff0)
+==== backtrace (tid:   8797) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8927) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8727) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8701) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  25301) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  63072) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  24466) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  45531) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn26: task 7: Segmentation fault (core dumped)
+srun: error: cn24: task 5: Segmentation fault (core dumped)
+srun: error: cn21: task 2: Segmentation fault (core dumped)
+srun: error: cn20: task 1: Segmentation fault (core dumped)
+srun: error: cn25: task 6: Segmentation fault (core dumped)
+srun: error: cn22: task 3: Segmentation fault (core dumped)
+srun: error: cn23: task 4: Segmentation fault (core dumped)
+srun: error: cn19: task 0: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 8:
+  0.00291s: started 0
+  3.06425s: awaited 0
+  3.06428s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn26:8754 :0:8754] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x216c7fff0)
+[cn20:45556:0:45556] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xa966fff0)
+[cn25:8726 :0:8726] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1caa1fff0)
+[cn24:8952 :0:8952] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1a677fff0)
+[cn23:8823 :0:8823] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x17b08fff0)
+[cn22:25326:0:25326] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x12344fff0)
+[cn21:24493:0:24493] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xe4a7fff0)
+[cn19:63126:0:63126] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x7f32fff0)
+==== backtrace (tid:   8754) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8823) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8952) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  63126) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+==== backtrace (tid:   8726) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  25326) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  24493) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  45556) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn25: task 6: Segmentation fault (core dumped)
+srun: error: cn19: task 0: Segmentation fault (core dumped)
+srun: error: cn21: task 2: Segmentation fault (core dumped)
+srun: error: cn20: task 1: Segmentation fault (core dumped)
+srun: error: cn22: task 3: Segmentation fault (core dumped)
+srun: error: cn23: task 4: Segmentation fault (core dumped)
+srun: error: cn24: task 5: Segmentation fault (core dumped)
+srun: error: cn26: task 7: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 9:
+  0.00291s: started 0
+  3.07568s: awaited 0
+  3.07571s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn21:24517:0:24517] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xc843fff0)
+[cn23:8847 :0:8847] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x16673fff0)
+[cn25:8750 :0:8750] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1d1c4fff0)
+[cn26:8778 :0:8778] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x20a15fff0)
+[cn24:8976 :0:8976] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1b4a7fff0)
+[cn22:25350:0:25350] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x10a51fff0)
+[cn20:45580:0:45580] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xae82fff0)
+[cn19:63180:0:63180] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x5171fff0)
+==== backtrace (tid:   8976) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8778) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8750) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8847) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  63180) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  25350) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  24517) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  45580) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn23: task 4: Segmentation fault (core dumped)
+srun: error: cn25: task 6: Segmentation fault (core dumped)
+srun: error: cn26: task 7: Segmentation fault (core dumped)
+srun: error: cn20: task 1: Segmentation fault (core dumped)
+srun: error: cn24: task 5: Segmentation fault (core dumped)
+srun: error: cn21: task 2: Segmentation fault (core dumped)
+srun: error: cn22: task 3: Segmentation fault (core dumped)
+srun: error: cn19: task 0: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 10:
+  0.00287s: started 0
+  3.03463s: awaited 0
+  3.03465s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn24:9000 :0:9000] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1a471fff0)
+[cn26:8802 :0:8802] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x2177bfff0)
+[cn25:8776 :0:8776] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1e414fff0)
+[cn22:25374:0:25374] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x136dcfff0)
+[cn23:8871 :0:8871] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x17643fff0)
+[cn20:45604:0:45604] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xb442fff0)
+[cn21:24541:0:24541] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xd1c5fff0)
+[cn19:63233:0:63233] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x568efff0)
+==== backtrace (tid:   8802) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8776) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   8871) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  45604) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   9000) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  25374) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  24541) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+==== backtrace (tid:  63233) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn26: task 7: Segmentation fault (core dumped)
+srun: error: cn23: task 4: Segmentation fault (core dumped)
+srun: error: cn21: task 2: Segmentation fault (core dumped)
+srun: error: cn25: task 6: Segmentation fault (core dumped)
+srun: error: cn22: task 3: Segmentation fault (core dumped)
+srun: error: cn24: task 5: Segmentation fault (core dumped)
+srun: error: cn19: task 0: Segmentation fault (core dumped)
+srun: error: cn20: task 1: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 10 runs taking 30.84 seconds.

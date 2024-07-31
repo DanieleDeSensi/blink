@@ -1,0 +1,271 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/inc_b/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='nanjin', maxruns=10, minruns=10, node_file='/root/hpc/host/hostfile', numnodes=8, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1073741824 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 8 nodes:
+['host231' 'host232' 'host233' 'host234' 'host239' 'host240' 'host241'
+ 'host242']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.0058s.
+
+Running...
+ Run 1:
+  0.00417s: started 0
+  4.51695s: awaited 0
+  4.51699s: encountered an exception in 0
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[6481,1],3]
+  Exit code:    255
+--------------------------------------------------------------------------
+
+  Data collection took 2e-05s.
+ Run 2:
+  0.00423s: started 0
+  4.53019s: awaited 0
+  4.53023s: encountered an exception in 0
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[6476,1],0]
+  Exit code:    255
+--------------------------------------------------------------------------
+
+  Data collection took 1e-05s.
+ Run 3:
+  0.00479s: started 0
+  4.52143s: awaited 0
+  4.52147s: encountered an exception in 0
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[6523,1],0]
+  Exit code:    255
+--------------------------------------------------------------------------
+
+  Data collection took 1e-05s.
+ Run 4:
+  0.00468s: started 0
+  4.51659s: awaited 0
+  4.51663s: encountered an exception in 0
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+Failed to allocate memory on rank
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[6422,1],0]
+  Exit code:    255
+--------------------------------------------------------------------------
+
+  Data collection took 1e-05s.
+ Run 5:
+  0.00461s: started 0
+  4.5305s: awaited 0
+  4.53054s: encountered an exception in 0
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[6404,1],0]
+  Exit code:    255
+--------------------------------------------------------------------------
+
+  Data collection took 1e-05s.
+ Run 6:
+  0.00451s: started 0
+  4.52841s: awaited 0
+  4.52845s: encountered an exception in 0
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+Failed to allocate memory on rank
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[6451,1],3]
+  Exit code:    255
+--------------------------------------------------------------------------
+
+  Data collection took 1e-05s.
+ Run 7:
+  0.0047s: started 0
+  4.53546s: awaited 0
+  4.5355s: encountered an exception in 0
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+Failed to allocate memory on rank
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[6446,1],0]
+  Exit code:    255
+--------------------------------------------------------------------------
+
+  Data collection took 1e-05s.
+ Run 8:
+  0.00366s: started 0
+  4.51804s: awaited 0
+  4.51808s: encountered an exception in 0
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[6620,1],0]
+  Exit code:    255
+--------------------------------------------------------------------------
+
+  Data collection took 1e-05s.
+ Run 9:
+  0.00349s: started 0
+  4.51653s: awaited 0
+  4.51657s: encountered an exception in 0
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+Failed to allocate memory on rank
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[6603,1],0]
+  Exit code:    255
+--------------------------------------------------------------------------
+
+  Data collection took 1e-05s.
+ Run 10:
+  0.00443s: started 0
+  4.53299s: awaited 0
+  4.53303s: encountered an exception in 0
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[6630,1],7]
+  Exit code:    255
+--------------------------------------------------------------------------
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 10 runs taking 45.25 seconds.

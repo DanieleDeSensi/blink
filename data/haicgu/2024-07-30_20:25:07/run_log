@@ -1,0 +1,67 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/1B', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-ib', maxruns=10, minruns=10, node_file='auto', numnodes=8, outformat='csv', ppn=128, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 128
+0 on 8 nodes:
+['cn09' 'cn10' 'cn11' 'cn12' 'cn13' 'cn14' 'cn15' 'cn16']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.03167s.
+
+Running...
+ Run 1:
+  0.00233s: started 0
+  92.99967s: awaited 0
+  92.9997s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00215s.
+ Run 2:
+  0.00648s: started 0
+  93.5687s: awaited 0
+  93.56873s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00312s.
+ Run 3:
+  0.00578s: started 0
+  94.37052s: awaited 0
+  94.37055s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00224s.
+ Run 4:
+  0.00595s: started 0
+  93.28379s: awaited 0
+  93.28382s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00229s.
+ Run 5:
+  0.0059s: started 0
+  91.59235s: awaited 0
+  91.59238s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00234s.
+ Run 6:
+  0.00652s: started 0
+  91.21887s: awaited 0
+  91.2189s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00229s.
+ Run 7:
+  0.00645s: started 0
+  42.99513s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 6 runs taking 600.05 seconds.
+Writing data & meta-data took 0.0932s.
+Overall took 600.17061s.

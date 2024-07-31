@@ -1,0 +1,67 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/1B', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-ib', maxruns=10, minruns=10, node_file='auto', numnodes=10, outformat='csv', ppn=128, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 128
+0 on 10 nodes:
+['cn09' 'cn10' 'cn11' 'cn12' 'cn13' 'cn14' 'cn15' 'cn16' 'cn17' 'cn18']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02217s.
+
+Running...
+ Run 1:
+  0.00236s: started 0
+  96.43866s: awaited 0
+  96.43869s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00214s.
+ Run 2:
+  0.00649s: started 0
+  96.16564s: awaited 0
+  96.16568s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00322s.
+ Run 3:
+  0.00611s: started 0
+  97.9124s: awaited 0
+  97.91243s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00229s.
+ Run 4:
+  0.00646s: started 0
+  96.7198s: awaited 0
+  96.71983s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00226s.
+ Run 5:
+  0.00579s: started 0
+  98.33369s: awaited 0
+  98.33372s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00234s.
+ Run 6:
+  0.00653s: started 0
+  98.79677s: awaited 0
+  98.7968s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00229s.
+ Run 7:
+  0.00594s: started 0
+  15.6329s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 6 runs taking 600.02 seconds.
+Writing data & meta-data took 0.10532s.
+Overall took 600.14435s.

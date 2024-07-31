@@ -1,0 +1,100 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/inc_b/128MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-ib', maxruns=10, minruns=10, node_file='auto', numnodes=4, outformat='csv', ppn=128, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 134217728 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 128
+0 on 4 nodes:
+['cn09' 'cn10' 'cn11' 'cn12']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.03589s.
+
+Running...
+ Run 1:
+  0.00235s: started 0
+  0.01132s: awaited 0
+  0.01133s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: error: Unable to create step for job 10821: Job/step already completing or completed
+
+  Data collection took 1e-05s.
+ Run 2:
+  0.00231s: started 0
+  0.01071s: awaited 0
+  0.01072s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: error: Unable to create step for job 10821: Job/step already completing or completed
+
+  Data collection took 1e-05s.
+ Run 3:
+  0.00222s: started 0
+  0.01037s: awaited 0
+  0.01039s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: error: Unable to create step for job 10821: Job/step already completing or completed
+
+  Data collection took 1e-05s.
+ Run 4:
+  0.00229s: started 0
+  0.01071s: awaited 0
+  0.01072s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: error: Unable to create step for job 10821: Job/step already completing or completed
+
+  Data collection took 1e-05s.
+ Run 5:
+  0.00223s: started 0
+  0.01044s: awaited 0
+  0.01045s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: error: Unable to create step for job 10821: Job/step already completing or completed
+
+  Data collection took 1e-05s.
+ Run 6:
+  0.00223s: started 0
+  0.01062s: awaited 0
+  0.01064s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: error: Unable to create step for job 10821: Job/step already completing or completed
+
+  Data collection took 1e-05s.
+ Run 7:
+  0.00223s: started 0
+  0.01049s: awaited 0
+  0.0105s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: error: Unable to create step for job 10821: Job/step already completing or completed
+
+  Data collection took 1e-05s.
+ Run 8:
+  0.00223s: started 0
+  0.01056s: awaited 0
+  0.01057s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: error: Unable to create step for job 10821: Job/step already completing or completed
+
+  Data collection took 1e-05s.
+ Run 9:
+  0.00225s: started 0
+  0.0106s: awaited 0
+  0.01061s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: error: Unable to create step for job 10821: Job/step already completing or completed
+
+  Data collection took 1e-05s.
+ Run 10:
+  0.00224s: started 0
+  0.01081s: awaited 0
+  0.01082s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: error: Unable to create step for job 10821: Job/step already completing or completed
+
+  Data collection took 1e-05s.
+  Convergence check took 0.0s.
+Completed maximum number of runs, terminated after 10 runs taking 0.11 seconds.

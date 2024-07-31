@@ -1,0 +1,610 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-ib', maxruns=10, minruns=10, node_file='auto', numnodes=4, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1073741824 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 4 nodes:
+['cn09' 'cn10' 'cn11' 'cn12']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.03351s.
+
+Running...
+ Run 1:
+  0.00229s: started 0
+  2.89893s: awaited 0
+  2.89895s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn12:10298:0:10298] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x133befff0)
+[cn10:39275:0:39275] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x80e8fff0)
+[cn11:9882 :0:9882] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xf399fff0)
+[cn09:49799:0:49799] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x67acfff0)
+==== backtrace (tid:  39275) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  49799) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  10298) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   9882) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn11: task 2: Segmentation fault (core dumped)
+srun: error: cn09: task 0: Segmentation fault (core dumped)
+srun: error: cn10: task 1: Segmentation fault (core dumped)
+srun: error: cn12: task 3: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 2:
+  0.00271s: started 0
+  2.95924s: awaited 0
+  2.95927s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn11:9909 :0:9909] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xcce9fff0)
+[cn10:39301:0:39301] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x9d93fff0)
+[cn12:10322:0:10322] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x12c52fff0)
+[cn09:49836:0:49836] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x47f3fff0)
+==== backtrace (tid:  10322) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  49836) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  39301) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   9909) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn11: task 2: Segmentation fault (core dumped)
+srun: error: cn12: task 3: Segmentation fault (core dumped)
+srun: error: cn09: task 0: Segmentation fault (core dumped)
+srun: error: cn10: task 1: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 3:
+  0.00268s: started 0
+  3.01878s: awaited 0
+  3.0188s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn10:39328:0:39328] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x9973fff0)
+[cn12:10352:0:10352] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x121cefff0)
+[cn11:9933 :0:9933] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xd643fff0)
+[cn09:49874:0:49874] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x41c3fff0)
+==== backtrace (tid:   9933) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  10352) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  49874) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  39328) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn09: task 0: Segmentation fault (core dumped)
+srun: error: cn12: task 3: Segmentation fault (core dumped)
+srun: error: cn10: task 1: Segmentation fault (core dumped)
+srun: error: cn11: task 2: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 4:
+  0.0027s: started 0
+  3.32171s: awaited 0
+  3.32173s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn12:10377:0:10377] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x11dd4fff0)
+[cn10:39355:0:39355] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x9aa6fff0)
+[cn11:9961 :0:9961] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xdde0fff0)
+[cn09:49909:0:49909] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x40fffff0)
+==== backtrace (tid:  10377) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+==== backtrace (tid:  49909) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   9961) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  39355) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn11: task 2: Segmentation fault (core dumped)
+srun: error: cn09: task 0: Segmentation fault (core dumped)
+srun: error: cn12: task 3: Segmentation fault (core dumped)
+srun: error: cn10: task 1: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 5:
+  0.00266s: started 0
+  2.85883s: awaited 0
+  2.85886s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn10:39379:0:39379] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xb38cfff0)
+[cn11:9986 :0:9986] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xe59cfff0)
+[cn12:10401:0:10401] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x1406bfff0)
+[cn09:49947:0:49947] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x46a6fff0)
+==== backtrace (tid:  49947) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  10401) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:   9986) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+==== backtrace (tid:  39379) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+=================================
+srun: error: cn09: task 0: Segmentation fault (core dumped)
+srun: error: cn11: task 2: Segmentation fault (core dumped)
+srun: error: cn10: task 1: Segmentation fault (core dumped)
+srun: error: cn12: task 3: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 6:
+  0.00266s: started 0
+  2.89349s: awaited 0
+  2.89351s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn12:10425:0:10425] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x13f4dfff0)
+[cn11:10010:0:10010] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xfa6cfff0)
+[cn10:39404:0:39404] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x84eafff0)
+[cn09:49982:0:49982] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x7a71fff0)
+==== backtrace (tid:  10425) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  10010) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  39404) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  49982) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn10: task 1: Segmentation fault (core dumped)
+srun: error: cn11: task 2: Segmentation fault (core dumped)
+srun: error: cn12: task 3: Segmentation fault (core dumped)
+srun: error: cn09: task 0: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 7:
+  0.00278s: started 0
+  2.86641s: awaited 0
+  2.86643s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn10:39428:0:39428] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x8d4cfff0)
+[cn12:10449:0:10449] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x12ba5fff0)
+[cn11:10035:0:10035] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xe180fff0)
+[cn09:50017:0:50017] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x5ca3fff0)
+==== backtrace (tid:  39428) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  10035) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  10449) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  50017) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn12: task 3: Segmentation fault (core dumped)
+srun: error: cn09: task 0: Segmentation fault (core dumped)
+srun: error: cn11: task 2: Segmentation fault (core dumped)
+srun: error: cn10: task 1: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 8:
+  0.00416s: started 0
+  2.90899s: awaited 0
+  2.90901s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn12:10473:0:10473] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x10643fff0)
+[cn11:10059:0:10059] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xceb4fff0)
+[cn10:39452:0:39452] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x94f5fff0)
+[cn09:50052:0:50052] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x451cfff0)
+==== backtrace (tid:  39452) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  10059) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  10473) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  50052) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn11: task 2: Segmentation fault (core dumped)
+srun: error: cn12: task 3: Segmentation fault (core dumped)
+srun: error: cn09: task 0: Segmentation fault (core dumped)
+srun: error: cn10: task 1: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 9:
+  0.00271s: started 0
+  2.90012s: awaited 0
+  2.90015s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn12:10497:0:10497] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x13da3fff0)
+[cn11:10083:0:10083] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xeb50fff0)
+[cn10:39478:0:39478] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x9cfbfff0)
+[cn09:50087:0:50087] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x7e33fff0)
+==== backtrace (tid:  39478) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  10083) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+==== backtrace (tid:  10497) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  50087) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn11: task 2: Segmentation fault (core dumped)
+srun: error: cn10: task 1: Segmentation fault (core dumped)
+srun: error: cn09: task 0: Segmentation fault (core dumped)
+srun: error: cn12: task 3: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+ Run 10:
+  0.0027s: started 0
+  2.86911s: awaited 0
+  2.86913s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+[cn10:39503:0:39503] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xa7fbfff0)
+[cn11:10107:0:10107] Caught signal 11 (Segmentation fault: address not mapped to object at address 0xfc6cfff0)
+[cn12:10521:0:10521] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x11e67fff0)
+[cn09:50122:0:50122] Caught signal 11 (Segmentation fault: address not mapped to object at address 0x5fdafff0)
+==== backtrace (tid:  39503) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  50122) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  10107) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+==== backtrace (tid:  10521) ====
+ 0 0x0000000000021f10 __GI_memcpy()  :0
+ 1 0x000000000005c6d0 overlap_accelerator_copy_content_same_ddt()  opal_datatype_copy.c:0
+ 2 0x00000000000a1858 ompi_datatype_sndrcv()  ???:0
+ 3 0x00000000000fd4b8 ompi_coll_base_alltoall_intra_basic_linear()  ???:0
+ 4 0x0000000000122f08 ompi_coll_tuned_alltoall_intra_dec_fixed()  ???:0
+ 5 0x00000000000a3fac MPI_Alltoall()  ???:0
+ 6 0x0000000000401818 main()  ???:0
+ 7 0x0000000000024384 __libc_start_main()  ???:0
+ 8 0x0000000000401bc4 _start()  ???:0
+=================================
+srun: error: cn10: task 1: Segmentation fault (core dumped)
+srun: error: cn12: task 3: Segmentation fault (core dumped)
+srun: error: cn09: task 0: Segmentation fault (core dumped)
+srun: error: cn11: task 2: Segmentation fault (core dumped)
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 10 runs taking 29.5 seconds.

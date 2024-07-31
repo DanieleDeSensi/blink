@@ -1,0 +1,69 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/64B', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-ib', maxruns=10, minruns=10, node_file='auto', numnodes=10, outformat='csv', ppn=128, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 64 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 128
+0 on 10 nodes:
+['cn09' 'cn10' 'cn11' 'cn12' 'cn13' 'cn14' 'cn15' 'cn16' 'cn17' 'cn18']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02345s.
+
+Running...
+ Run 1:
+  0.00259s: started 0
+  103.84475s: awaited 0
+  103.84478s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: Job 10815 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 10815
+
+  Data collection took 0.00221s.
+ Run 2:
+  0.00652s: started 0
+  98.08979s: awaited 0
+  98.08982s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.0032s.
+ Run 3:
+  0.00642s: started 0
+  96.00533s: awaited 0
+  96.00536s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00233s.
+ Run 4:
+  0.00657s: started 0
+  96.39253s: awaited 0
+  96.39256s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00234s.
+ Run 5:
+  0.00617s: started 0
+  97.32978s: awaited 0
+  97.32981s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00238s.
+ Run 6:
+  0.00618s: started 0
+  96.09954s: awaited 0
+  96.09958s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00233s.
+ Run 7:
+  0.00608s: started 0
+  12.2344s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 6 runs taking 600.01 seconds.
+Writing data & meta-data took 0.12034s.
+Overall took 600.15693s.

@@ -1,0 +1,62 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/64B', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-eth', maxruns=10, minruns=10, node_file='auto', numnodes=10, outformat='csv', ppn=128, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 64 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 128
+0 on 10 nodes:
+['cn19' 'cn20' 'cn21' 'cn22' 'cn23' 'cn24' 'cn25' 'cn26' 'cn27' 'cn28']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02553s.
+
+Running...
+ Run 1:
+  0.00255s: started 0
+  104.18055s: awaited 0
+  104.18057s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: Job 10802 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 10802
+
+  Data collection took 0.00215s.
+ Run 2:
+  0.01099s: started 0
+  101.04623s: awaited 0
+  101.04627s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00311s.
+ Run 3:
+  0.01171s: started 0
+  101.2522s: awaited 0
+  101.25224s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00255s.
+ Run 4:
+  0.01306s: started 0
+  101.14414s: awaited 0
+  101.14419s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00243s.
+ Run 5:
+  0.01256s: started 0
+  101.58353s: awaited 0
+  101.58356s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00235s.
+ Run 6:
+  0.01102s: started 0
+  90.8674s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 5 runs taking 600.09 seconds.
+Writing data & meta-data took 0.10413s.
+Overall took 600.21874s.
