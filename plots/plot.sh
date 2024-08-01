@@ -5,6 +5,7 @@ filter_fields() {
 	sys=$(  echo "$1" | awk -F, '{ print $2 }' )
 	nnod=$( echo "$1" | awk -F, '{ print $3 }' )
 	ppn=$(  echo "$1" | awk -F, '{ print $6 }' )
+	extra=$( echo "$1" | awk -F, '{ print $8 }' )
 	fold=$( echo "$1" | awk -F, '{ print $9 }' )
 	datapath="${fold}/data.csv"
 
@@ -13,18 +14,19 @@ filter_fields() {
 	exp=$(  echo "$tmp" | cut -d/ -f1 )
 	size=$( echo "$tmp" | cut -d/ -f2 )
 	
-	echo -e "\tpath: ${path}"
+	echo -e "\tpath:  ${path}"
 	echo -e "\t\texp:  ${exp}"
 	echo -e "\t\tsize: ${size}"
-	echo -e "\tsys:  ${sys}"
-	echo -e "\tnnod: ${nnod}"
-	echo -e "\tppn:  ${ppn}"
-	echo -e "\tfold: ${fold}"
+	echo -e "\tsys:   ${sys}"
+	echo -e "\tnnod:  ${nnod}"
+	echo -e "\tppn:   ${ppn}"
+	echo -e "\textra: ${extra}"
+	echo -e "\tfold:  ${fold}"
 	echo -e "\t\tdatapath: ${datapath}"
 }
 
 addToExpfile () {
-	echo "$2, $3" >> $1
+	echo "$2, $3, $4" >> $1
 }
 
 mkdir -p "./plots"
@@ -46,7 +48,7 @@ while IFS= read -r line; do
 	if [[ ! -f "${plotpath}/${filename}" ]]
 	then
 		echo "# ststem: ${sys}, experiment: ${exp}, nnodes: ${nnod}, process-per-node: ${ppn}" > "${plotpath}/${filename}"
-		echo "# msg_size, datafile" >> "${plotpath}/${filename}"
+		echo "# msg_size, extra, datafile" >> "${plotpath}/${filename}"
 	fi
 
 	echo -e "\t\tplotpath: ${plotpath}"
@@ -54,7 +56,7 @@ while IFS= read -r line; do
 	
 	if [[ -f "${datapath}" ]]
 	then
-		addToExpfile "${plotpath}/${filename}" "${size}" "${datapath}"
+		addToExpfile "${plotpath}/${filename}" "${size}" "${extra}" "${datapath}"
 	else
 		echo "ERROR: ${datapath} does not exist"
 	fi

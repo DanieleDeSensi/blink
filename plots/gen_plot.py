@@ -1,4 +1,5 @@
 import os
+import itertools
 import subprocess
 import statistics
 import pandas as pd
@@ -80,11 +81,6 @@ def read_data(file_path):
             i = i + 1
     return lables, data
 
-def transpose_array(array):
-    # Transpose the array using zip and unpacking
-    #transposed = list(zip(*array))
-    transposed = list(map(set, zip(*array)))
-    return transposed
 
 def parse_infoline(infoline):
     # Remove the leading "# " and split by commas
@@ -121,11 +117,10 @@ def process_file(file_path, current_exp):
                 system, experiment, nnodes, process_per_node = parse_infoline(line)
                 first_line = False
             if "#" not in line:
-                size, current_datafile = [item.strip() for item in line.strip().split(',')]
-                print(f"\t\tcurrent_datafile: {current_datafile}, size: {size}")
+                size, extra, current_datafile = [item.strip() for item in line.strip().split(',')]
+                print(f"\t\tcurrent_datafile: {current_datafile}, extra: {extra}, size: {size}")
                     
                 lables, data_array = read_data(current_datafile)
-                #transposed_array = transpose_array(data_array)
 
                 #print("\t\t", lables)
                 #print("\t\tlen of transposed_array: ", len(transposed_array) )
@@ -136,6 +131,7 @@ def process_file(file_path, current_exp):
                 lables.insert(0, 'process_per_node')
                 lables.insert(0, 'nnodes')
                 lables.insert(0, 'experiment')
+                lables.insert(0, 'extra')
                 lables.insert(0, 'system')
 
                 for j in range(0, len(data_array)):
@@ -144,6 +140,7 @@ def process_file(file_path, current_exp):
                     data_array[j].insert(0, process_per_node)
                     data_array[j].insert(0, nnodes)
                     data_array[j].insert(0, experiment)
+                    data_array[j].insert(0, extra)
                     data_array[j].insert(0, system)
 
                 #print(lables)
@@ -160,31 +157,62 @@ def process_file(file_path, current_exp):
                     data.append(e)
     return true_lables, data
 
-def mediancol(df, collectorname, valuename):
+
+def mediancol(df, collectorname, valuename, extraname=None):
     sizes=df[collectorname].unique()
-    #print(sizes)
+    print("sizes: ", sizes)
+    if extraname == None:
+        distinguisher = sizes
+    else:
+        extras=df[extraname].unique()
+        distinguisher = list(itertools.product(sizes, extras))
+        print("extras: ", extras)
+    print("distinguisher: ", distinguisher)
 
     medians={}
-    for s in sizes:
-        sub_df=df[df[collectorname]==s]
-        #print(sub_df)
-        medians[s] = statistics.median(sub_df[valuename])
-    #print("medians: ", medians)
+    for s in distinguisher:
+        if extraname == None:
+            sub_df=df[df[collectorname]==s]
+            search_for = s
+        else:
+            sub_df=df[(df[collectorname]==s[0]) & (df[extraname]==s[1])]
+            search_for = str(s[0]) + str(s[1])
+        print("sub_df for ", search_for, " has len: ", len(sub_df))
+        if len(sub_df) > 0:
+            medians[search_for] = statistics.median(sub_df[valuename])
+        else:
+            medians[search_for] = 0
+    print("medians: ", medians)
 
     newvalname= valuename + '-median'
-    df['Median'] = df[collectorname].map(medians)
+    
+    if extraname == None:
+        df['MeshedNames'] = df[collectorname].astype(str)
+    else:
+        df['MeshedNames'] = df[collectorname].astype(str) + df[extraname].astype(str)
+    print("---- MeshedNames ----")
+    print(df['MeshedNames'])
+    df['Median'] = df['MeshedNames'].map(medians)
+    print("---- Median ----")
+    print(df['Median'])
+    
+    print("---- DF ----")
+    print(df)
+    #exit()
+
     df[newvalname] = df[valuename] / df['Median']
+    df.drop(columns=['MeshedNames'], inplace=True)
     df.drop(columns=['Median'], inplace=True)
-    #print(df)
+    print(df)
 
     return newvalname
 
-def boxPlot(df, outname, title, collectorname, valuename, xlable='Message Size', ylable='Time'):
-    newvaluename = mediancol(df, collectorname, valuename)
+def boxPlot(df, outname, title, collectorname, valuename, xlable='Message Size', ylable='Time', extraname=None):
+    newvaluename = mediancol(df, collectorname, valuename, extraname)
 
     sns.set(style="whitegrid")
     plt.figure(figsize=(12, 8))
-    sns.boxplot(data=df, x=collectorname, y=newvaluename, hue="system", showfliers=False)
+    sns.boxplot(data=df, x=collectorname, y=newvaluename, hue="extra", showfliers=False)
     plt.title(title)
     plt.xlabel(xlable)
     plt.ylabel(ylable)
@@ -199,8 +227,8 @@ def linePlot(df, outname, title, collectorname, valuename, xlable='Message Size'
     sns.set(style="whitegrid")
     plt.figure(figsize=(12, 8))
     sns.lineplot(data=df,
-        x=collectorname, y=valuename, hue="system", style="system",
-        markers=True, dashes=False, errorbar=('ci', 95)
+        x=collectorname, y=valuename, hue="extra", style="extra",
+        markers=True, dashes=False, errorbar=('pi', 50)
     )
 
     plt.title(title)
@@ -211,8 +239,8 @@ def linePlot(df, outname, title, collectorname, valuename, xlable='Message Size'
     if mnp_coords != None:
         mnp_ax = plt.axes(mnp_coords, facecolor='w')
         sns.lineplot(data=df[~df["hrsize"].str.contains('iB')],
-            x=mnp_collectorname, y=mnp_valuename, hue="system", style="system",
-            markers=True, dashes=False, ax=mnp_ax, legend=False, errorbar=('ci', 95)
+            x=mnp_collectorname, y=mnp_valuename, hue="extra", style="extra",
+            markers=True, dashes=False, ax=mnp_ax, legend=False, errorbar=('pi', 50)
         )
 
         plt.xticks(rotation=30)
@@ -252,7 +280,7 @@ def main():
 
                         basename=file_path.removesuffix('.csv')
                         outname=basename + '_boxplot' + '.png'
-                        boxPlot(df, outname, file_path, 'hrsize', '0_MainRank-Duration_s')
+                        boxPlot(df, outname, file_path, 'hrsize', '0_MainRank-Duration_s', extraname='extra')
 
 
                         # Plotting with Seaborn
@@ -269,7 +297,7 @@ def main():
                     if current_exp == 'inc_b' or current_exp == 'a2a_b' or current_exp == 'ardc_b':
                         basename=file_path.removesuffix('.csv')
                         outname=basename + '_boxplot' + '.png'
-                        boxPlot(df, outname, file_path, 'hrsize', '0_Avg-Duration_s', ylable='Avg Duration (s)')
+                        boxPlot(df, outname, file_path, 'hrsize', '0_Avg-Duration_s', ylable='Avg Duration (s)', extraname='extra')
 
 
 if __name__ == "__main__":
