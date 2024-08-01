@@ -210,7 +210,7 @@ def linePlot(df, outname, title, collectorname, valuename, xlable='Message Size'
 
     if mnp_coords != None:
         mnp_ax = plt.axes(mnp_coords, facecolor='w')
-        sns.lineplot(data=df,
+        sns.lineplot(data=df[~df["hrsize"].str.contains('iB')],
             x=mnp_collectorname, y=mnp_valuename, hue="system", style="system",
             markers=True, dashes=False, ax=mnp_ax, legend=False, errorbar=('ci', 95)
         )
