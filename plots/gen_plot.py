@@ -251,6 +251,27 @@ def linePlot(df, outname, title, collectorname, valuename, xlable='Message Size'
     plt.savefig(plotname)
     plt.close()
 
+def addBandwidth(df, exptype, durationlable, newlable):
+    df['nproc'] = df['nnodes'] * df['process_per_node']
+
+    if 'inc' in exptype:
+        df['totaldatatrasfer_B'] = (df['nproc'] - 1 ) * df['size']
+    elif 'a2a' in exptype:
+        df['totaldatatrasfer_B'] = df['nproc'] * (df['nproc'] - 1) * df['size']
+    elif 'ar' in exptype:
+        df['totaldatatrasfer_B'] = df['nproc'] * (df['nproc'] - 1) * df['size']
+    else:
+        print("Error: unsupported exptype %s" % exptype)
+        exit(1)
+
+    df[newlable] = ( ( df['totaldatatrasfer_B'] / 1e+9 ) / df[durationlable] ) * 8 # ( ( B --> GB ) --> GB/s ) --> Gb/s
+    #print(df[['experiment', 'nnodes', 'process_per_node', 'size', 'nproc', 'totaldatatrasfer_B', durationlable, newlable]])
+    #exit(1)
+
+    #df.drop(columns=['totaldatatrasfer_B'], inplace=True)
+    df.drop(columns=['nproc'], inplace=True)
+
+
 def main():
     base_dir = './plots'
     for root, dirs, files in os.walk(base_dir):
@@ -295,9 +316,23 @@ def main():
                                 mnp_coords=[0.2, 0.6, 0.4, 0.2], mnp_valuename='0_MainRank-Duration_s', mnp_collectorname='hrsize', mnp_ylable='Runtime (s)')
 
                     if current_exp == 'inc_b' or current_exp == 'a2a_b' or current_exp == 'ardc_b':
+
+                        addBandwidth(df, current_exp, '0_Max-Duration_s', '0_Min-Bandwidth_Gb/s')
+                        #addBandwidth(df, current_exp, '0_Median-Duration_s', '0_Bandwidth_Gb/s')
+                        #print(df)
+                        #exit(1)
+
                         basename=file_path.removesuffix('.csv')
                         outname=basename + '_boxplot' + '.png'
                         boxPlot(df, outname, file_path, 'hrsize', '0_Avg-Duration_s', ylable='Avg Duration (s)', extraname='extra')
+
+                        df = df.drop(df[df['hrsize'] == '8GiB'].index) #debug
+                        print(df[['hrsize', '0_Max-Duration_s', 'totaldatatrasfer_B', '0_Min-Bandwidth_Gb/s']])
+                        #exit(1)
+
+                        outname=basename + '_lineplot_combined' + '.png'
+                        linePlot(df, outname, file_path, 'hrsize', '0_Min-Bandwidth_Gb/s', ylable='Bandwidth (Gb/s)',
+                                mnp_coords=[0.2, 0.6, 0.4, 0.2], mnp_valuename='0_Max-Duration_s', mnp_collectorname='hrsize', mnp_ylable='Runtime (s)')
 
 
 if __name__ == "__main__":
