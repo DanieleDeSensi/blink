@@ -221,7 +221,7 @@ def boxPlot(df, outname, title, collectorname, valuename, xlable='Message Size',
     plt.savefig(plotname)
     plt.close()
 
-def linePlot(df, outname, title, collectorname, valuename, xlable='Message Size', ylable='Time', 
+def linePlot(df, outname, title, collectorname, valuename, xlable='Message Size', ylable='Time', peak=None, 
         mnp_coords=None, mnp_valuename=None, mnp_collectorname=None, mnp_xlable=None, mnp_ylable=None):
     
     sns.set(style="whitegrid")
@@ -231,10 +231,18 @@ def linePlot(df, outname, title, collectorname, valuename, xlable='Message Size'
         markers=True, dashes=False, errorbar=('pi', 50)
     )
 
+    if peak != None:
+        plt.axhline(y=peak, color='r', linestyle='--')
+        peak_lable = f"Theoretical peak: {peak:.2f}"
+        x_min, x_max = plt.gca().get_xlim()
+        x_center = (x_min + x_max) / 2
+        plt.text(x=x_center, y=peak, s=peak_lable, color='r', va='center', ha='center', backgroundcolor='w')
+
     plt.title(title)
     plt.xlabel(xlable)
     plt.ylabel(ylable)
     plt.xticks(rotation=30)
+    plt.legend(loc='lower right', bbox_to_anchor=(1, 0), ncol=1)
 
     if mnp_coords != None:
         mnp_ax = plt.axes(mnp_coords, facecolor='w')
@@ -251,25 +259,31 @@ def linePlot(df, outname, title, collectorname, valuename, xlable='Message Size'
     plt.savefig(plotname)
     plt.close()
 
-def addBandwidth(df, exptype, durationlable, newlable):
-    df['nproc'] = df['nnodes'] * df['process_per_node']
+def addBandwidth(df, exptype, durationlable, newlable, ty='complessive'):
+    if ty == 'complessive':
+        df['nproc'] = df['nnodes'] * df['process_per_node']
 
-    if 'inc' in exptype:
-        df['totaldatatrasfer_B'] = (df['nproc'] - 1 ) * df['size']
-    elif 'a2a' in exptype:
-        df['totaldatatrasfer_B'] = df['nproc'] * (df['nproc'] - 1) * df['size']
-    elif 'ar' in exptype:
-        df['totaldatatrasfer_B'] = df['nproc'] * (df['nproc'] - 1) * df['size']
+        if 'inc' in exptype:
+            df['totaldatatrasfer_B'] = (df['nproc'] - 1 ) * df['size']
+        elif 'a2a' in exptype:
+            df['totaldatatrasfer_B'] = df['nproc'] * (df['nproc'] - 1) * df['size']
+        elif 'ar' in exptype:
+            df['totaldatatrasfer_B'] = df['nproc'] * (df['nproc'] - 1) * df['size']
+        else:
+            print("Error: unsupported exptype %s" % exptype)
+            exit(1)
+
+        df[newlable] = ( ( df['totaldatatrasfer_B'] / 1e+9 ) / df[durationlable] ) * 8 # ( ( B --> GB ) --> GB/s ) --> Gb/s
+        #print(df[['experiment', 'nnodes', 'process_per_node', 'size', 'nproc', 'totaldatatrasfer_B', durationlable, newlable]])
+        #exit(1)
+
+        #df.drop(columns=['totaldatatrasfer_B'], inplace=True)
+        df.drop(columns=['nproc'], inplace=True)
+    elif ty == 'single':
+        df[newlable] = ( ( df['size'] / 1e+9 ) / df[durationlable] ) * 8
     else:
-        print("Error: unsupported exptype %s" % exptype)
+        print("Error: unsupported type %s" % ty)
         exit(1)
-
-    df[newlable] = ( ( df['totaldatatrasfer_B'] / 1e+9 ) / df[durationlable] ) * 8 # ( ( B --> GB ) --> GB/s ) --> Gb/s
-    #print(df[['experiment', 'nnodes', 'process_per_node', 'size', 'nproc', 'totaldatatrasfer_B', durationlable, newlable]])
-    #exit(1)
-
-    #df.drop(columns=['totaldatatrasfer_B'], inplace=True)
-    df.drop(columns=['nproc'], inplace=True)
 
 
 def main():
@@ -293,7 +307,17 @@ def main():
                     #        print("\t\t\t", type(data[0][j][0]))
 
                     df = pd.DataFrame(data, columns=lables)
+                    tmp = df['nnodes'].unique()
+                    if len(tmp) == 1:
+                        nnodes = tmp[0]
+                    else:
+                        print("Error: the experiment include multiple node sizes (%s)" % str(tmp))
+                        exit(1)
+
+                    df = df.drop(df[df['hrsize'] == '8GiB'].index) #debug
+                    print('nnodes: ', nnodes)
                     print(df)
+                    #exit()
 
                     # Plotting
                     if current_exp == 'pingpong':
@@ -303,21 +327,19 @@ def main():
                         outname=basename + '_boxplot' + '.png'
                         boxPlot(df, outname, file_path, 'hrsize', '0_MainRank-Duration_s', extraname='extra')
 
-
-                        # Plotting with Seaborn
-                        #outname=basename + '_lineplot_bandwidth' + '.png'
-                        #linePlot(df, outname, file_path, 'hrsize', '0_MainRank-Bandwidth_Gb/s', ylable='Bandwidth (Gb/s)')
-
-                        #outname=basename + '_lineplot_duration' + '.png'
-                        #linePlot(df, outname, file_path, 'hrsize', '0_MainRank-Duration_s', ylable='Runtime (s)')
-
                         outname=basename + '_lineplot_combined' + '.png'
-                        linePlot(df, outname, file_path, 'hrsize', '0_MainRank-Bandwidth_Gb/s', ylable='Bandwidth (Gb/s)',
+                        linePlot(df, outname, file_path, 'hrsize', '0_MainRank-Bandwidth_Gb/s', ylable='Bandwidth (Gb/s)', peak=200,
                                 mnp_coords=[0.2, 0.6, 0.4, 0.2], mnp_valuename='0_MainRank-Duration_s', mnp_collectorname='hrsize', mnp_ylable='Runtime (s)')
 
                     if current_exp == 'inc_b' or current_exp == 'a2a_b' or current_exp == 'ardc_b':
 
-                        addBandwidth(df, current_exp, '0_Max-Duration_s', '0_Min-Bandwidth_Gb/s')
+                        if current_exp == 'inc_b':
+                            ty = 'single'
+                            pk = 200 / (nnodes - 1)
+                        else:
+                            ty = 'complessive'
+                            pk = None
+                        addBandwidth(df, current_exp, '0_Max-Duration_s', '0_Min-Bandwidth_Gb/s', ty)
                         #addBandwidth(df, current_exp, '0_Median-Duration_s', '0_Bandwidth_Gb/s')
                         #print(df)
                         #exit(1)
@@ -326,12 +348,11 @@ def main():
                         outname=basename + '_boxplot' + '.png'
                         boxPlot(df, outname, file_path, 'hrsize', '0_Avg-Duration_s', ylable='Avg Duration (s)', extraname='extra')
 
-                        df = df.drop(df[df['hrsize'] == '8GiB'].index) #debug
-                        print(df[['hrsize', '0_Max-Duration_s', 'totaldatatrasfer_B', '0_Min-Bandwidth_Gb/s']])
+                        #print(df[['hrsize', '0_Max-Duration_s', 'totaldatatrasfer_B', '0_Min-Bandwidth_Gb/s']])
                         #exit(1)
 
                         outname=basename + '_lineplot_combined' + '.png'
-                        linePlot(df, outname, file_path, 'hrsize', '0_Min-Bandwidth_Gb/s', ylable='Bandwidth (Gb/s)',
+                        linePlot(df, outname, file_path, 'hrsize', '0_Min-Bandwidth_Gb/s', ylable='Bandwidth (Gb/s)', peak=pk,
                                 mnp_coords=[0.2, 0.6, 0.4, 0.2], mnp_valuename='0_Max-Duration_s', mnp_collectorname='hrsize', mnp_ylable='Runtime (s)')
 
 
