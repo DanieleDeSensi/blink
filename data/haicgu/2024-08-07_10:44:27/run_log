@@ -1,0 +1,62 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/a2a_b/4B', node_file='auto', numnodes=8, allocationmode='l', allocationsplit='100', minruns=10, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=128, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='haicgu2', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-msgsize 4 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 128
+0 on 8 nodes:
+['cn19' 'cn20' 'cn21' 'cn22' 'cn23' 'cn24' 'cn25' 'cn26']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02073s.
+
+Running...
+ Run 1:
+  0.0009s: started 0
+  107.3098s: awaited 0
+  107.30983s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+srun: Job 10909 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 10909
+
+  Data collection took 0.00292s.
+ Run 2:
+  0.00928s: started 0
+  100.11518s: awaited 0
+  100.1152s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00185s.
+ Run 3:
+  0.00919s: started 0
+  100.74123s: awaited 0
+  100.74127s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00208s.
+ Run 4:
+  0.01028s: started 0
+  100.9964s: awaited 0
+  100.99644s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00209s.
+ Run 5:
+  0.01054s: started 0
+  101.27936s: awaited 0
+  101.27939s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+
+  Data collection took 0.00198s.
+ Run 6:
+  0.00933s: started 0
+  89.63214s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 5 runs taking 600.09 seconds.
+Writing data & meta-data took 0.06871s.
+Overall took 600.1767s.

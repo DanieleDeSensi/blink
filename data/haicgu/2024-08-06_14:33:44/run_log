@@ -1,0 +1,130 @@
+
+Passed arguments:
+Namespace(app_mix='./apps_mix/a2a_b/1GiB', node_file='auto', numnodes=2, allocationmode='l', allocationsplit='100', minruns=10, maxruns=10, timeout=600.0, alpha=0.05, beta=0.05, ppn=1, convergeall=False, outformat='csv', runtimeout='+file', seed=1, datapath='./data', extrainfo='haicgu2', replace_mix_args=None)
+
+Apps:
+0: with arguments:"-msgsize 1073741824 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['cn19' 'cn20']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.0411s.
+
+Running...
+ Run 1:
+  0.00082s: started 0
+  1.70429s: awaited 0
+  1.70431s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+srun: error: cn20: task 1: Exited with exit code 255
+srun: error: cn19: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+ Run 2:
+  0.00099s: started 0
+  1.70088s: awaited 0
+  1.7009s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+srun: error: cn20: task 1: Exited with exit code 255
+srun: error: cn19: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+ Run 3:
+  0.00096s: started 0
+  1.70286s: awaited 0
+  1.70288s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+srun: error: cn20: task 1: Exited with exit code 255
+srun: error: cn19: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+ Run 4:
+  0.00098s: started 0
+  1.70458s: awaited 0
+  1.7046s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+srun: error: cn20: task 1: Exited with exit code 255
+srun: error: cn19: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+ Run 5:
+  0.00095s: started 0
+  1.70245s: awaited 0
+  1.70247s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+srun: error: cn20: task 1: Exited with exit code 255
+srun: error: cn19: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+ Run 6:
+  0.00096s: started 0
+  1.70211s: awaited 0
+  1.70213s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+srun: error: cn20: task 1: Exited with exit code 255
+srun: error: cn19: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+ Run 7:
+  0.00097s: started 0
+  1.69849s: awaited 0
+  1.6985s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+srun: error: cn20: task 1: Exited with exit code 255
+srun: error: cn19: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+ Run 8:
+  0.00096s: started 0
+  1.70314s: awaited 0
+  1.70315s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+srun: error: cn20: task 1: Exited with exit code 255
+srun: error: cn19: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+ Run 9:
+  0.00096s: started 0
+  1.69875s: awaited 0
+  1.69877s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+srun: error: cn20: task 1: Exited with exit code 255
+srun: error: cn19: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+ Run 10:
+  0.00097s: started 0
+  1.70051s: awaited 0
+  1.70053s: encountered an exception in 0
+srun: cluster configuration lacks support for cpu binding
+Failed to allocate memory on rank
+Failed to allocate memory on rank
+srun: error: cn20: task 1: Exited with exit code 255
+srun: error: cn19: task 0: Exited with exit code 255
+
+  Data collection took 1e-05s.
+  Convergence check took 1e-05s.
+Completed maximum number of runs, terminated after 10 runs taking 17.02 seconds.
