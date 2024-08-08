@@ -1,0 +1,62 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/pingpong/4KiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='nanjin', maxruns=10, minruns=10, node_file='/root/hpc/host/hostfile11_12', numnodes=2, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 4096 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 2 nodes:
+['host231' 'host232']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.0055s.
+
+Running...
+ Run 1:
+  0.005s: started 0
+  0.50899s: awaited 0
+  Data collection took 0.00159s.
+ Run 2:
+  0.00468s: started 0
+  0.5168s: awaited 0
+  Data collection took 0.00154s.
+ Run 3:
+  0.00465s: started 0
+  0.50032s: awaited 0
+  Data collection took 0.0016s.
+ Run 4:
+  0.00464s: started 0
+  0.50826s: awaited 0
+  Data collection took 0.00232s.
+ Run 5:
+  0.0047s: started 0
+  0.50683s: awaited 0
+  Data collection took 0.00161s.
+ Run 6:
+  0.00449s: started 0
+  0.50901s: awaited 0
+  Data collection took 0.00158s.
+ Run 7:
+  0.00458s: started 0
+  0.50847s: awaited 0
+  Data collection took 0.00162s.
+ Run 8:
+  0.00461s: started 0
+  0.50825s: awaited 0
+  Data collection took 0.00157s.
+ Run 9:
+  0.00466s: started 0
+  0.50855s: awaited 0
+  Data collection took 0.00155s.
+ Run 10:
+  0.00459s: started 0
+  0.5156s: awaited 0
+  Data collection took 0.00165s.
+  Convergence check took 0.00258s.
+Completed maximum number of runs, terminated after 10 runs taking 5.11 seconds.
+Writing data & meta-data took 0.03969s.
+Overall took 5.15653s.

@@ -1,0 +1,63 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/8GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='nanjin', maxruns=10, minruns=10, node_file='/root/hpc/host/hostfile', numnodes=8, outformat='csv', ppn=64, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 8589934592 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 64
+0 on 8 nodes:
+['host231' 'host232' 'host233' 'host239' 'host234' 'host240' 'host241'
+ 'host242']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.00575s.
+
+Running...
+ Run 1:
+  0.00403s: started 0
+  0.60105s: awaited 0
+  Data collection took 0.00029s.
+ Run 2:
+  0.00343s: started 0
+  0.60617s: awaited 0
+  Data collection took 0.00031s.
+ Run 3:
+  0.00348s: started 0
+  0.6134s: awaited 0
+  Data collection took 0.00031s.
+ Run 4:
+  0.00337s: started 0
+  0.59589s: awaited 0
+  Data collection took 0.00031s.
+ Run 5:
+  0.00306s: started 0
+  0.59567s: awaited 0
+  Data collection took 0.00031s.
+ Run 6:
+  0.00327s: started 0
+  0.60045s: awaited 0
+  Data collection took 0.00031s.
+ Run 7:
+  0.00425s: started 0
+  0.67826s: awaited 0
+  Data collection took 0.00032s.
+ Run 8:
+  0.00448s: started 0
+  0.60821s: awaited 0
+  Data collection took 0.00031s.
+ Run 9:
+  0.00457s: started 0
+  0.61595s: awaited 0
+  Data collection took 0.00031s.
+ Run 10:
+  0.00448s: started 0
+  0.59896s: awaited 0
+  Data collection took 0.00033s.
+  Convergence check took 0.00139s.
+Completed maximum number of runs, terminated after 10 runs taking 6.12 seconds.
+Writing data & meta-data took 0.01012s.
+Overall took 6.13526s.

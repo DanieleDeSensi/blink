@@ -1,0 +1,54 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/ardc_b/1GiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='nanjin2', maxruns=10, minruns=10, node_file='/root/hpc/host/hostfile', numnodes=8, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 1073741824 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 8 nodes:
+['host231' 'host232' 'host233' 'host239' 'host234' 'host240' 'host241'
+ 'host242']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.00565s.
+
+Running...
+ Run 1:
+  0.00497s: started 0
+  85.26754s: awaited 0
+  Data collection took 0.0003s.
+ Run 2:
+  0.00456s: started 0
+  87.07864s: awaited 0
+  Data collection took 0.00032s.
+ Run 3:
+  0.00372s: started 0
+  85.0695s: awaited 0
+  Data collection took 0.00032s.
+ Run 4:
+  0.00353s: started 0
+  85.35254s: awaited 0
+  Data collection took 0.00032s.
+ Run 5:
+  0.00351s: started 0
+  84.9206s: awaited 0
+  Data collection took 0.00032s.
+ Run 6:
+  0.00353s: started 0
+  84.3835s: awaited 0
+  Data collection took 0.00033s.
+ Run 7:
+  0.00355s: started 0
+  84.66172s: awaited 0
+  Data collection took 0.00031s.
+ Run 8:
+  0.00355s: started 0
+  5.3069s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 7 runs taking 602.04 seconds.
+Writing data & meta-data took 0.00934s.
+Overall took 602.05886s.
