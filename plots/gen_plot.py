@@ -223,26 +223,43 @@ def boxPlot(df, outname, title, collectorname, valuename, xlable='Message Size',
 
 def linePlot(df, outname, title, collectorname, valuename, xlable='Message Size', ylable='Time', peak=None, 
         mnp_coords=None, mnp_valuename=None, mnp_collectorname=None, mnp_xlable=None, mnp_ylable=None):
-    
+  
+    # Set global font size
+    my_fontsize = 20
+
     sns.set(style="whitegrid")
     plt.figure(figsize=(12, 8))
     sns.lineplot(data=df,
         x=collectorname, y=valuename, hue="extra", style="extra",
-        markers=True, dashes=False, errorbar=('pi', 50)
+        markers=True, dashes=False, errorbar=('pi', 50),
+        linewidth=3, markersize=8
     )
 
     if peak != None:
         plt.axhline(y=peak, color='r', linestyle='--')
         peak_lable = f"Theoretical peak: {peak:.2f}"
         x_min, x_max = plt.gca().get_xlim()
-        x_center = (x_min + x_max) / 2
-        plt.text(x=x_center, y=peak, s=peak_lable, color='r', va='center', ha='center', backgroundcolor='w')
+        x_center = (x_min + x_max) / 3
+        plt.text(x=x_center, y=peak, s=peak_lable, color='r', va='center', ha='center', backgroundcolor='w', fontsize=my_fontsize)
 
-    plt.title(title)
-    plt.xlabel(xlable)
-    plt.ylabel(ylable)
-    plt.xticks(rotation=30)
-    plt.legend(loc='lower right', bbox_to_anchor=(1, 0), ncol=1)
+    max_acheved = df[valuename].max() 
+    #plt.axhline(y=max_acheved, color='g', linestyle='--')
+    max_lable = f"Max acheved value: {max_acheved:.2f}"
+    x_min, x_max = plt.gca().get_xlim()
+    x_center = (x_min + x_max) / 2
+    if peak != None:
+        y_centre = peak / 2
+    else:
+        y_centre = max_acheved / 2
+    plt.text(x=x_max+0.5, y=y_centre, s=max_lable, color='g', va='center', ha='left', backgroundcolor='w', rotation = 90, fontsize=my_fontsize)
+
+    plt.title(title, fontsize=my_fontsize)
+    plt.xlabel(xlable, fontsize=my_fontsize)
+    plt.ylabel(ylable, fontsize=my_fontsize)
+    plt.xticks(rotation=30, fontsize=my_fontsize)
+    plt.yticks(fontsize=my_fontsize)
+    plt.legend(loc='lower right', bbox_to_anchor=(1, 0), ncol=1, fontsize=my_fontsize)
+    plt.tight_layout(pad=1.5)
 
     if mnp_coords != None:
         mnp_ax = plt.axes(mnp_coords, facecolor='w')
@@ -261,14 +278,14 @@ def linePlot(df, outname, title, collectorname, valuename, xlable='Message Size'
 
 def addBandwidth(df, exptype, durationlable, newlable, ty='complessive'):
     if ty == 'complessive':
-        df['nproc'] = df['nnodes'] * df['process_per_node']
+        #df['nproc'] = df['nnodes'] * df['process_per_node']
 
         if 'inc' in exptype:
-            df['totaldatatrasfer_B'] = (df['nproc'] - 1 ) * df['size']
+            df['totaldatatrasfer_B'] = (df['nnodes'] - 1 ) * df['size']
         elif 'a2a' in exptype:
-            df['totaldatatrasfer_B'] = df['nproc'] * (df['nproc'] - 1) * df['size']
+            df['totaldatatrasfer_B'] = df['nnodes'] * (df['nnodes'] - 1) * df['size']
         elif 'ar' in exptype:
-            df['totaldatatrasfer_B'] = df['nproc'] * (df['nproc'] - 1) * df['size']
+            df['totaldatatrasfer_B'] = df['nnodes'] * (df['nnodes'] - 1) * df['size']
         else:
             print("Error: unsupported exptype %s" % exptype)
             exit(1)
@@ -278,9 +295,11 @@ def addBandwidth(df, exptype, durationlable, newlable, ty='complessive'):
         #exit(1)
 
         #df.drop(columns=['totaldatatrasfer_B'], inplace=True)
-        df.drop(columns=['nproc'], inplace=True)
+        #df.drop(columns=['nproc'], inplace=True)
     elif ty == 'single':
-        df[newlable] = ( ( df['size'] / 1e+9 ) / df[durationlable] ) * 8
+        df[newlable] = ( ( ( df['size'] * df['process_per_node'] ) / 1e+9 ) / df[durationlable] ) * 8
+    elif ty == 'alltoall':
+        df[newlable] = ( ( ( df['size'] * ( df['nnodes'] - 1 ) * df['process_per_node'] ) / 1e+9 ) / df[durationlable] ) * 8
     else:
         print("Error: unsupported type %s" % ty)
         exit(1)
@@ -313,11 +332,40 @@ def main():
                     else:
                         print("Error: the experiment include multiple node sizes (%s)" % str(tmp))
                         exit(1)
+                    tmp = df['system'].unique()
+                    if len(tmp) == 1:
+                        system = tmp[0]
+                    else:
+                        print("Error: the experiment include multiple node sizes (%s)" % str(tmp))
+                        exit(1)
+                    tmp = df['process_per_node'].unique()
+                    if len(tmp) == 1:
+                        ppn = tmp[0]
+                    else:
+                        print("Error: the experiment include multiple process_per_node values (%s)" % str(tmp))
+                        exit(1)
+
+                    multiswitch_falg = 0
+                    if system == 'nanjin':
+                        multiswitch_falg = 1
+                        totalspinepeak = 400
 
                     df = df.drop(df[df['hrsize'] == '8GiB'].index) #debug
+                    if system == 'nanjin' and nnodes == 8 and ppn == 1:
+                        df = df.drop(df[df['extra'] != 'nanjin2'].index)
                     print('nnodes: ', nnodes)
+                    print('system: ', system)
+                    print('ppn:    ', ppn)
+                    print('msf:    ', multiswitch_falg)
                     print(df)
                     #exit()
+
+                    if system == 'nanjin':
+                        cnpeak = 200
+                    elif system == 'haicgu':
+                        cnpeak = 100
+                    else:
+                        cnpeak = None
 
                     # Plotting
                     if current_exp == 'pingpong':
@@ -328,17 +376,32 @@ def main():
                         boxPlot(df, outname, file_path, 'hrsize', '0_MainRank-Duration_s', extraname='extra')
 
                         outname=basename + '_lineplot_combined' + '.png'
-                        linePlot(df, outname, file_path, 'hrsize', '0_MainRank-Bandwidth_Gb/s', ylable='Bandwidth (Gb/s)', peak=200,
-                                mnp_coords=[0.2, 0.6, 0.4, 0.2], mnp_valuename='0_MainRank-Duration_s', mnp_collectorname='hrsize', mnp_ylable='Runtime (s)')
+                        linePlot(df, outname, file_path, 'hrsize', '0_MainRank-Bandwidth_Gb/s', ylable='Bandwidth (Gb/s)', peak=cnpeak,
+                                mnp_coords=[0.17, 0.65, 0.35, 0.2], mnp_valuename='0_MainRank-Duration_s', mnp_collectorname='hrsize', mnp_ylable='Runtime (s)')
 
                     if current_exp == 'inc_b' or current_exp == 'a2a_b' or current_exp == 'ardc_b':
 
                         if current_exp == 'inc_b':
-                            ty = 'single'
-                            pk = 200 / (nnodes - 1)
+                            ty = 'single' 
+                            if cnpeak != None:
+                                pk = cnpeak / (nnodes - 1)
+                            else:
+                                pk = None
                         else:
-                            ty = 'complessive'
-                            pk = None
+                            #ty = 'complessive'
+                            ty = 'alltoall'
+                            if cnpeak != None:
+                                if not multiswitch_falg:
+                                    pk = cnpeak
+                                else:
+                                    # Here we suppose that processes are equally distributed on two switch
+                                    singlespinepeak = ( 2 * totalspinepeak ) / nnodes
+                                    pk = ( ( nnodes/2 - 1 ) * cnpeak + (nnodes/2) * singlespinepeak ) / ( nnodes - 1 )
+                                    if pk > cnpeak:
+                                        pk = cnpeak
+                            else:
+                                pk = None
+
                         addBandwidth(df, current_exp, '0_Max-Duration_s', '0_Min-Bandwidth_Gb/s', ty)
                         #addBandwidth(df, current_exp, '0_Median-Duration_s', '0_Bandwidth_Gb/s')
                         #print(df)
@@ -353,7 +416,7 @@ def main():
 
                         outname=basename + '_lineplot_combined' + '.png'
                         linePlot(df, outname, file_path, 'hrsize', '0_Min-Bandwidth_Gb/s', ylable='Bandwidth (Gb/s)', peak=pk,
-                                mnp_coords=[0.2, 0.6, 0.4, 0.2], mnp_valuename='0_Max-Duration_s', mnp_collectorname='hrsize', mnp_ylable='Runtime (s)')
+                                mnp_coords=[0.17, 0.65, 0.4, 0.2], mnp_valuename='0_Max-Duration_s', mnp_collectorname='hrsize', mnp_ylable='Runtime (s)')
 
 
 if __name__ == "__main__":
