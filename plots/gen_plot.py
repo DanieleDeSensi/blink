@@ -160,14 +160,14 @@ def process_file(file_path, current_exp):
 
 def mediancol(df, collectorname, valuename, extraname=None):
     sizes=df[collectorname].unique()
-    print("sizes: ", sizes)
+    #print("sizes: ", sizes)
     if extraname == None:
         distinguisher = sizes
     else:
         extras=df[extraname].unique()
         distinguisher = list(itertools.product(sizes, extras))
-        print("extras: ", extras)
-    print("distinguisher: ", distinguisher)
+        #print("extras: ", extras)
+    #print("distinguisher: ", distinguisher)
 
     medians={}
     for s in distinguisher:
@@ -177,12 +177,12 @@ def mediancol(df, collectorname, valuename, extraname=None):
         else:
             sub_df=df[(df[collectorname]==s[0]) & (df[extraname]==s[1])]
             search_for = str(s[0]) + str(s[1])
-        print("sub_df for ", search_for, " has len: ", len(sub_df))
+        #print("sub_df for ", search_for, " has len: ", len(sub_df))
         if len(sub_df) > 0:
             medians[search_for] = statistics.median(sub_df[valuename])
         else:
             medians[search_for] = 0
-    print("medians: ", medians)
+    #print("medians: ", medians)
 
     newvalname= valuename + '-median'
     
@@ -190,14 +190,14 @@ def mediancol(df, collectorname, valuename, extraname=None):
         df['MeshedNames'] = df[collectorname].astype(str)
     else:
         df['MeshedNames'] = df[collectorname].astype(str) + df[extraname].astype(str)
-    print("---- MeshedNames ----")
-    print(df['MeshedNames'])
+    #print("---- MeshedNames ----")
+    #print(df['MeshedNames'])
     df['Median'] = df['MeshedNames'].map(medians)
-    print("---- Median ----")
-    print(df['Median'])
+    #print("---- Median ----")
+    #print(df['Median'])
     
-    print("---- DF ----")
-    print(df)
+    #print("---- DF ----")
+    #print(df)
     #exit()
 
     df[newvalname] = df[valuename] / df['Median']
@@ -242,6 +242,50 @@ def linePlot(df, outname, title, collectorname, valuename, xlable='Message Size'
         x_center = (x_min + x_max) / 3
         plt.text(x=x_center, y=peak, s=peak_lable, color='r', va='center', ha='center', backgroundcolor='w', fontsize=my_fontsize)
 
+        means = {}
+        percentages = {}
+        sizes = df['hrsize'].unique()
+        extras = df['extra'].unique()
+        for e in extras:
+            for s in sizes:
+                tmpmean = df[(df['hrsize'] == s) & (df['extra'] == e)][valuename].mean()
+                means[(s,e)] = tmpmean
+                percentages[(s,e)] = tmpmean / peak
+
+        for s in sizes:
+            for e in extras:
+                for f in extras:
+                    if e != f:
+                        percentages[(s, (e,f))] = means[(s, e)] / means[(s, f)]
+
+        #print('Means: ', means)
+        #print('Percentages: ', percentages)
+
+        def extra2string(t):
+            if isinstance(t, str):
+                return "%s vs peak" % str(t)
+            elif isinstance(t, tuple) and len(t) == 2:
+                return "%s vs %s" % (str(t[0]), str(t[1]))
+            else:
+                print("Error: ", t)
+                exit(1)
+
+        list4dataframe = []
+        for key, value in percentages.items():
+            list4dataframe.append([key[0], key[1], value])
+
+        #print('list4dataframe: ', list4dataframe)
+
+        percentagedf = pd.DataFrame(list4dataframe, columns=['size', 'comparison', 'percentage'])
+        pivot_table = percentagedf.pivot(index='size', columns='comparison', values='percentage')
+        print(pivot_table)
+
+        basename=outname.removesuffix('.png')
+        percentagesname=basename + '_percentages.txt'
+        pivot_table.to_csv(percentagesname)
+        #exit(1)
+
+
     max_acheved = df[valuename].max() 
     #plt.axhline(y=max_acheved, color='g', linestyle='--')
     max_lable = f"Max acheved value: {max_acheved:.2f}"
@@ -253,7 +297,7 @@ def linePlot(df, outname, title, collectorname, valuename, xlable='Message Size'
         y_centre = max_acheved / 2
     plt.text(x=x_max+0.5, y=y_centre, s=max_lable, color='g', va='center', ha='left', backgroundcolor='w', rotation = 90, fontsize=my_fontsize)
 
-    plt.title(title, fontsize=my_fontsize)
+    #plt.title(title, fontsize=my_fontsize)
     plt.xlabel(xlable, fontsize=my_fontsize)
     plt.ylabel(ylable, fontsize=my_fontsize)
     plt.xticks(rotation=30, fontsize=my_fontsize)
@@ -352,7 +396,7 @@ def main():
 
                     df = df.drop(df[df['hrsize'] == '8GiB'].index) #debug
                     if system == 'nanjin' and nnodes == 8 and ppn == 1:
-                        df = df.drop(df[df['extra'] != 'nanjin2'].index)
+                        df = df.drop(df[df['extra'] != 'inter-switch'].index)
                     print('nnodes: ', nnodes)
                     print('system: ', system)
                     print('ppn:    ', ppn)
@@ -370,6 +414,8 @@ def main():
                     # Plotting
                     if current_exp == 'pingpong':
                         print("-----------------------------")
+                        if system == 'haicgu':
+                            df = df.drop(df[df['hrsize'] == '1GiB'].index) #debug
 
                         basename=file_path.removesuffix('.csv')
                         outname=basename + '_boxplot' + '.png'

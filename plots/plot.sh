@@ -63,3 +63,9 @@ while IFS= read -r line; do
     fi
     i=$(( i + 1))
 done < "${descriptionfile}"
+
+for f in plots/nanjin/*/*.csv
+do
+       grep "#" $f > tmp.txt ; grep -v "#" $f | sed "s/nanjin,/intra-switch,/g" | sed "s/nanjin2,/inter-switch,/g" >> tmp.txt
+       mv tmp.txt ${f}
+done
