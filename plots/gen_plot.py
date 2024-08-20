@@ -12,11 +12,11 @@ def format_bytes_binary(b):
     KiB = 2**10  # 1 KiB = 2^10 bytes
 
     if b >= GiB:
-        return f"{b / GiB:.2f} GiB"
+        return f"{b / GiB:.0f} GiB"
     elif b >= MiB:
-        return f"{b / MiB:.2f} MiB"
+        return f"{b / MiB:.0f} MiB"
     elif b >= KiB:
-        return f"{b / KiB:.2f} KiB"
+        return f"{b / KiB:.0f} KiB"
     else:
         return f"{b} B"
 
@@ -344,10 +344,15 @@ def addBandwidth(df, exptype, durationlable, newlable, ty='complessive'):
         df[newlable] = ( ( ( df['size'] * df['process_per_node'] ) / 1e+9 ) / df[durationlable] ) * 8
     elif ty == 'alltoall':
         df[newlable] = ( ( ( df['size'] * ( df['nnodes'] - 1 ) * df['process_per_node'] ) / 1e+9 ) / df[durationlable] ) * 8
+    elif ty == 'allreduce':
+        df[newlable] = ( ( ( 2 * df['size'] * ( (df['nnodes']-1)/df['nnodes'] ) * df['process_per_node'] ) / 1e+9 ) / df[durationlable] ) * 8
     else:
         print("Error: unsupported type %s" % ty)
         exit(1)
 
+def addBuffersize(df, sizelable, newlable):
+    #df[newlable] = format_bytes_binary( df['size'] * df['nnodes'] * df['process_per_node'] )
+    df[newlable] = df.apply(lambda row: format_bytes_binary(row[sizelable] * row['nnodes'] * row['process_per_node']), axis=1)
 
 def main():
     base_dir = './plots'
@@ -433,36 +438,49 @@ def main():
                                 pk = cnpeak / (nnodes - 1)
                             else:
                                 pk = None
-                        else:
+                            collectorlable = 'hrsize'
+                            ylab='Bandwidth (Gb/s)'
+                            xlab='Message Size'
+                        elif current_exp == 'a2a_b':
                             #ty = 'complessive'
                             ty = 'alltoall'
-                            if cnpeak != None:
-                                if not multiswitch_falg:
-                                    pk = cnpeak
-                                else:
-                                    # Here we suppose that processes are equally distributed on two switch
-                                    singlespinepeak = ( 2 * totalspinepeak ) / nnodes
-                                    pk = ( ( nnodes/2 - 1 ) * cnpeak + (nnodes/2) * singlespinepeak ) / ( nnodes - 1 )
-                                    if pk > cnpeak:
-                                        pk = cnpeak
-                            else:
-                                pk = None
+                            #if cnpeak != None:
+                            #    if not multiswitch_falg:
+                            #        pk = cnpeak
+                            #    else:
+                            #        # Here we suppose that processes are equally distributed on two switch
+                            #        singlespinepeak = ( 2 * totalspinepeak ) / nnodes
+                            #        pk = ( ( nnodes/2 - 1 ) * cnpeak + (nnodes/2) * singlespinepeak ) / ( nnodes - 1 )
+                            #        if pk > cnpeak:
+                            #            pk = cnpeak
+                            #else:
+                            #    pk = None
+                            pk = cnpeak
+                            #addBuffersize(df, 'size', 'hrbuffersize')
+                            #collectorlable = 'hrbuffersize'
+                            collectorlable = 'hrsize'
+                            ylab='Goodput (Gb/s)'
+                            #xlab='Buffer Size'
+                            xlab='Message Size'
+                        else:
+                            ty = 'allreduce'
+                            pk = cnpeak / 2
+                            #addBuffersize(df, 'size', 'hrbuffersize')
+                            #collectorlable = 'hrbuffersize'
+                            collectorlable = 'hrsize'
+                            ylab='Goodput (Gb/s)'
+                            #xlab='Buffer Size'
+                            xlab='Message Size'
 
                         addBandwidth(df, current_exp, '0_Max-Duration_s', '0_Min-Bandwidth_Gb/s', ty)
-                        #addBandwidth(df, current_exp, '0_Median-Duration_s', '0_Bandwidth_Gb/s')
-                        #print(df)
-                        #exit(1)
 
                         basename=file_path.removesuffix('.csv')
                         outname=basename + '_boxplot' + '.png'
-                        boxPlot(df, outname, file_path, 'hrsize', '0_Avg-Duration_s', ylable='Avg Duration (s)', extraname='extra')
-
-                        #print(df[['hrsize', '0_Max-Duration_s', 'totaldatatrasfer_B', '0_Min-Bandwidth_Gb/s']])
-                        #exit(1)
+                        boxPlot(df, outname, file_path, collectorlable, '0_Avg-Duration_s', ylable='Avg Duration (s)', extraname='extra')
 
                         outname=basename + '_lineplot_combined' + '.png'
-                        linePlot(df, outname, file_path, 'hrsize', '0_Min-Bandwidth_Gb/s', ylable='Bandwidth (Gb/s)', peak=pk,
-                                mnp_coords=[0.17, 0.65, 0.4, 0.2], mnp_valuename='0_Max-Duration_s', mnp_collectorname='hrsize', mnp_ylable='Runtime (s)')
+                        linePlot(df, outname, file_path, collectorlable, '0_Min-Bandwidth_Gb/s', xlable=xlab, ylable=ylab, peak=pk,
+                                mnp_coords=[0.17, 0.65, 0.4, 0.2], mnp_valuename='0_Max-Duration_s', mnp_collectorname=collectorlable, mnp_ylable='Runtime (s)')
 
 
 if __name__ == "__main__":

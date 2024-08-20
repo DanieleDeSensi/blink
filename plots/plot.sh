@@ -67,5 +67,10 @@ done < "${descriptionfile}"
 for f in plots/nanjin/*/*.csv
 do
        grep "#" $f > tmp.txt ; grep -v "#" $f | sed "s/nanjin,/intra-switch,/g" | sed "s/nanjin2,/inter-switch,/g" >> tmp.txt
-       mv tmp.txt ${f}
+       mv tmp.txt ${f}.new
+done
+
+for f in plots/nanjin/*/*.csv
+do
+       mv ${f}.new ${f}
 done
