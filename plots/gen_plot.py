@@ -225,14 +225,16 @@ def linePlot(df, outname, title, collectorname, valuename, xlable='Message Size'
         mnp_coords=None, mnp_valuename=None, mnp_collectorname=None, mnp_xlable=None, mnp_ylable=None):
   
     # Set global font size
-    my_fontsize = 20
+    my_fontsize   = 25
+    my_linewidth  = 5
+    my_markersize = 15
 
     sns.set(style="whitegrid")
     plt.figure(figsize=(12, 8))
     sns.lineplot(data=df,
         x=collectorname, y=valuename, hue="extra", style="extra",
         markers=True, dashes=False, errorbar=('pi', 50),
-        linewidth=3, markersize=8
+        linewidth=my_linewidth, markersize=my_markersize
     )
 
     if peak != None:
@@ -307,14 +309,20 @@ def linePlot(df, outname, title, collectorname, valuename, xlable='Message Size'
 
     if mnp_coords != None:
         mnp_ax = plt.axes(mnp_coords, facecolor='w')
+        df[mnp_valuename + '2us'] = df[mnp_valuename] * 1e+6
+
         sns.lineplot(data=df[~df["hrsize"].str.contains('iB')],
-            x=mnp_collectorname, y=mnp_valuename, hue="extra", style="extra",
-            markers=True, dashes=False, ax=mnp_ax, legend=False, errorbar=('pi', 50)
+            x=mnp_collectorname, y=mnp_valuename + '2us', hue="extra", style="extra",
+            markers=True, dashes=False, ax=mnp_ax, legend=False, errorbar=('pi', 50),
+            linewidth=my_linewidth, markersize=my_markersize
         )
 
-        plt.xticks(rotation=30)
-        plt.xlabel(mnp_xlable)
-        plt.ylabel(mnp_ylable)
+        df.drop(columns=[mnp_valuename + '2us'], inplace=True)
+
+        plt.yticks(rotation=30, fontsize=my_fontsize*3/4)
+        plt.xticks(rotation=30, fontsize=my_fontsize*3/4)
+        plt.xlabel(mnp_xlable, fontsize=my_fontsize*3/4)
+        plt.ylabel(mnp_ylable, fontsize=my_fontsize*3/4)
 
     plotname=outname
     plt.savefig(plotname)
@@ -421,6 +429,13 @@ def main():
                         print("-----------------------------")
                         if system == 'haicgu':
                             df = df.drop(df[df['hrsize'] == '1GiB'].index) #debug
+                        if system == 'nanjin':
+                            intralatency = df[ (df['hrsize'] == '1B') & (df['extra'] == 'intra-switch') ]['0_MainRank-Duration_s'].mean()
+                            interlatency = df[ (df['hrsize'] == '1B') & (df['extra'] == 'inter-switch') ]['0_MainRank-Duration_s'].mean()
+                            print("intralatency: ", intralatency)
+                            print("interlatency: ", interlatency)
+                            print("result: ", (interlatency - intralatency) / 2 )
+                            #exit(1)
 
                         basename=file_path.removesuffix('.csv')
                         outname=basename + '_boxplot' + '.png'
@@ -428,7 +443,7 @@ def main():
 
                         outname=basename + '_lineplot_combined' + '.png'
                         linePlot(df, outname, file_path, 'hrsize', '0_MainRank-Bandwidth_Gb/s', ylable='Bandwidth (Gb/s)', peak=cnpeak,
-                                mnp_coords=[0.17, 0.65, 0.35, 0.2], mnp_valuename='0_MainRank-Duration_s', mnp_collectorname='hrsize', mnp_ylable='Runtime (s)')
+                                mnp_coords=[0.19, 0.65, 0.35, 0.2], mnp_valuename='0_MainRank-Duration_s', mnp_collectorname='hrsize', mnp_ylable='Runtime (us)')
 
                     if current_exp == 'inc_b' or current_exp == 'a2a_b' or current_exp == 'ardc_b':
 
@@ -478,9 +493,13 @@ def main():
                         outname=basename + '_boxplot' + '.png'
                         boxPlot(df, outname, file_path, collectorlable, '0_Avg-Duration_s', ylable='Avg Duration (s)', extraname='extra')
 
+                        if current_exp == 'a2a_b':
+                            my_mnp_coords = [0.19, 0.65, 0.35, 0.2]
+                        else:
+                            my_mnp_coords = [0.19, 0.65, 0.4, 0.2]
                         outname=basename + '_lineplot_combined' + '.png'
                         linePlot(df, outname, file_path, collectorlable, '0_Min-Bandwidth_Gb/s', xlable=xlab, ylable=ylab, peak=pk,
-                                mnp_coords=[0.17, 0.65, 0.4, 0.2], mnp_valuename='0_Max-Duration_s', mnp_collectorname=collectorlable, mnp_ylable='Runtime (s)')
+                                mnp_coords=my_mnp_coords, mnp_valuename='0_Max-Duration_s', mnp_collectorname=collectorlable, mnp_ylable='Runtime (us)')
 
 
 if __name__ == "__main__":
