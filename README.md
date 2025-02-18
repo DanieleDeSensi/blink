@@ -1,5 +1,5 @@
 # Introduction
-Blink (Benchmarking Large-scale INterconnection networKs) is designed to run multiple applications and/or benchmarks together and collect data on the interconnection network performance. 
+Blink (**B**enchmark for **L**arge-Scale **In**terconnection Networ**k**s) is designed to run multiple applications and/or benchmarks together and collect data on the interconnection network performance. 
 
 ## Requirements
 - Python >= 3.6.8
