@@ -53,3 +53,5 @@ Let's assume that the system name is `newsystem`'.
 1) Add a `newsystem.sh` file in the `conf/` directory. Copy the content from one of the existing files and adjust the parameters to match the new system.
 2) Set the `SYSTEM` variable to `newsystem` in the `conf.sh` script. 
 
+# Acknowledgement
+Loic Holbein developed a preliminary version of Blink as part of his bachelor thesis at ETH Zurich.
