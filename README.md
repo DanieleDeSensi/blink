@@ -1,5 +1,5 @@
 # Introduction
-This framework is designed to run multiple applications and/or benchmarks together and collect data from them to estimate congestion on the interconnect network. 
+Blink (Benchmarking Large-scale INterconnection networKs) is designed to run multiple applications and/or benchmarks together and collect data on the interconnection network performance. 
 
 ## Requirements
 - Python >= 3.6.8
