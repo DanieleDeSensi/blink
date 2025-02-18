@@ -1,5 +1,5 @@
 # Introduction
-Blink (**B**enchmark for **L**arge-Scale **In**terconnection Networ**k**s) is designed to run multiple applications and/or benchmarks together and collect data on the interconnection network performance. 
+Blink (<ins>B</ins>enchmark for <ins>L</ins>arge-Scale <ins>In</ins>terconnection Networ<ins>k</ins>s) is designed to run multiple applications and/or benchmarks together and collect data on the interconnection network performance. 
 
 ## Requirements
 - Python >= 3.6.8
