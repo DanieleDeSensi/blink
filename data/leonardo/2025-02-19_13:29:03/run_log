@@ -1,0 +1,71 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/4KiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='boost_usr_prod', maxruns=10, minruns=1, node_file='auto', numnodes=4, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 4096 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 4 nodes:
+['lrdn3439' 'lrdn3440' 'lrdn3441' 'lrdn3442']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27473s.
+
+Running...
+ Run 1:
+  0.00374s: started 0
+  1.22494s: awaited 0
+  Data collection took 0.00144s.
+  Convergence check took 0.00083s.
+ Run 2:
+  0.00413s: started 0
+  1.02404s: awaited 0
+  Data collection took 0.00219s.
+  Convergence check took 0.00078s.
+ Run 3:
+  0.00391s: started 0
+  1.69843s: awaited 0
+  Data collection took 0.00148s.
+  Convergence check took 0.00085s.
+ Run 4:
+  0.00355s: started 0
+  1.0331s: awaited 0
+  Data collection took 0.0015s.
+  Convergence check took 0.00095s.
+ Run 5:
+  0.00397s: started 0
+  2.01734s: awaited 0
+  Data collection took 0.00148s.
+  Convergence check took 0.00101s.
+ Run 6:
+  0.0036s: started 0
+  1.07159s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00117s.
+ Run 7:
+  0.00478s: started 0
+  1.59694s: awaited 0
+  Data collection took 0.00154s.
+  Convergence check took 0.00123s.
+ Run 8:
+  0.00505s: started 0
+  1.03358s: awaited 0
+  Data collection took 0.0016s.
+  Convergence check took 0.00133s.
+ Run 9:
+  0.00402s: started 0
+  1.26613s: awaited 0
+  Data collection took 0.00145s.
+  Convergence check took 0.0024s.
+ Run 10:
+  0.00403s: started 0
+  1.03946s: awaited 0
+  Data collection took 0.00154s.
+  Convergence check took 0.00157s.
+Completed maximum number of runs, terminated after 10 runs taking 13.03 seconds.
+Writing data & meta-data took 0.05204s.
+Overall took 13.36126s.

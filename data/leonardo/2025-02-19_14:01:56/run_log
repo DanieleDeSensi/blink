@@ -1,0 +1,87 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/redscat_b/4B', beta=0.05, convergeall=False, datapath='./data', extrainfo='boost_usr_prod', maxruns=10, minruns=1, node_file='auto', numnodes=4, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 4 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 4 nodes:
+['lrdn3439' 'lrdn3440' 'lrdn3441' 'lrdn3442']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27933s.
+
+Running...
+ Run 1:
+  0.00366s: started 0
+  1.15193s: awaited 0
+  Data collection took 0.00168s.
+  Convergence check took 0.00083s.
+ Run 2:
+  0.00373s: started 0
+  1.70127s: awaited 0
+  1.70129s: encountered an exception in 0
+srun: Job 12738087 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 12738087
+
+  Data collection took 0.00216s.
+  Convergence check took 0.00156s.
+ Run 3:
+  0.00371s: started 0
+  2.47023s: awaited 0
+  Data collection took 0.00145s.
+  Convergence check took 0.00085s.
+ Run 4:
+  0.00375s: started 0
+  3.30074s: awaited 0
+  3.30076s: encountered an exception in 0
+srun: Job 12738087 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 12738087
+
+  Data collection took 0.00147s.
+  Convergence check took 0.00094s.
+ Run 5:
+  0.00384s: started 0
+  2.97181s: awaited 0
+  2.97183s: encountered an exception in 0
+srun: Job 12738087 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 12738087
+
+  Data collection took 0.00242s.
+  Convergence check took 0.00106s.
+ Run 6:
+  0.00418s: started 0
+  1.05809s: awaited 0
+  Data collection took 0.00151s.
+  Convergence check took 0.00116s.
+ Run 7:
+  0.00424s: started 0
+  1.09151s: awaited 0
+  1.09153s: encountered an exception in 0
+srun: Job 12738087 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 12738087
+
+  Data collection took 0.00178s.
+  Convergence check took 0.00121s.
+ Run 8:
+  0.00432s: started 0
+  1.03825s: awaited 0
+  Data collection took 0.00157s.
+  Convergence check took 0.00133s.
+ Run 9:
+  0.00482s: started 0
+  1.3286s: awaited 0
+  Data collection took 0.00146s.
+  Convergence check took 0.00141s.
+ Run 10:
+  0.00437s: started 0
+  1.0108s: awaited 0
+  Data collection took 0.00163s.
+  Convergence check took 0.00151s.
+Completed maximum number of runs, terminated after 10 runs taking 17.15 seconds.
+Writing data & meta-data took 0.05316s.
+Overall took 17.48552s.

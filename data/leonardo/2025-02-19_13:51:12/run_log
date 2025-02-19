@@ -1,0 +1,23 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/ardc_b/128MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='boost_usr_prod', maxruns=10, minruns=1, node_file='auto', numnodes=4, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 134217728 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 4 nodes:
+['lrdn3439' 'lrdn3440' 'lrdn3441' 'lrdn3442']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.28117s.
+
+Running...
+ Run 1:
+  0.00404s: started 0
+  600.10437s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 0 runs taking 600.1 seconds.

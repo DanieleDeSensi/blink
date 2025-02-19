@@ -1,0 +1,71 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/ardc_b/8B', beta=0.05, convergeall=False, datapath='./data', extrainfo='boost_usr_prod', maxruns=10, minruns=1, node_file='auto', numnodes=4, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 8 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 4 nodes:
+['lrdn3439' 'lrdn3440' 'lrdn3441' 'lrdn3442']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27548s.
+
+Running...
+ Run 1:
+  0.00354s: started 0
+  1.69544s: awaited 0
+  Data collection took 0.00144s.
+  Convergence check took 0.00081s.
+ Run 2:
+  0.00359s: started 0
+  1.02224s: awaited 0
+  Data collection took 0.00223s.
+  Convergence check took 0.00078s.
+ Run 3:
+  0.0042s: started 0
+  2.37466s: awaited 0
+  Data collection took 0.0015s.
+  Convergence check took 0.00091s.
+ Run 4:
+  0.00471s: started 0
+  1.03177s: awaited 0
+  Data collection took 0.00148s.
+  Convergence check took 0.00097s.
+ Run 5:
+  0.00396s: started 0
+  1.74364s: awaited 0
+  Data collection took 0.00148s.
+  Convergence check took 0.00102s.
+ Run 6:
+  0.00392s: started 0
+  1.0136s: awaited 0
+  Data collection took 0.0015s.
+  Convergence check took 0.00116s.
+ Run 7:
+  0.00404s: started 0
+  1.74436s: awaited 0
+  Data collection took 0.00154s.
+  Convergence check took 0.00123s.
+ Run 8:
+  0.0043s: started 0
+  1.02417s: awaited 0
+  Data collection took 0.00159s.
+  Convergence check took 0.0025s.
+ Run 9:
+  0.00402s: started 0
+  1.72172s: awaited 0
+  Data collection took 0.00144s.
+  Convergence check took 0.00141s.
+ Run 10:
+  0.00389s: started 0
+  1.06427s: awaited 0
+  Data collection took 0.00151s.
+  Convergence check took 0.00153s.
+Completed maximum number of runs, terminated after 10 runs taking 14.46 seconds.
+Writing data & meta-data took 0.05303s.
+Overall took 14.7932s.

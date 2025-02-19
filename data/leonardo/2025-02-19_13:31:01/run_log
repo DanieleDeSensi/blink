@@ -1,0 +1,45 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/ardc_b/32KiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='boost_usr_prod', maxruns=10, minruns=1, node_file='auto', numnodes=4, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 32768 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 4 nodes:
+['lrdn3439' 'lrdn3440' 'lrdn3441' 'lrdn3442']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27376s.
+
+Running...
+ Run 1:
+  0.00399s: started 0
+  1.09741s: awaited 0
+  Data collection took 0.00145s.
+  Convergence check took 0.00082s.
+ Run 2:
+  0.00388s: started 0
+  1.06122s: awaited 0
+  Data collection took 0.00218s.
+  Convergence check took 0.00077s.
+ Run 3:
+  0.00388s: started 0
+  1.1919s: awaited 0
+  1.19192s: encountered an exception in 0
+srun: Job 12738087 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 12738087
+
+  Data collection took 0.00175s.
+  Convergence check took 0.00091s.
+ Run 4:
+  0.00395s: started 0
+  1.04322s: awaited 0
+  Data collection took 0.00147s.
+  Convergence check took 0.00092s.
+Completed after reaching confidence interval, terminated after 4 runs taking 4.4 seconds.
+Writing data & meta-data took 0.02586s.
+Overall took 4.70398s.

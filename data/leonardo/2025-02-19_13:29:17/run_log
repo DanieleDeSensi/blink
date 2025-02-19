@@ -1,0 +1,70 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/32KiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='boost_usr_prod', maxruns=10, minruns=1, node_file='auto', numnodes=4, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 32768 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 4 nodes:
+['lrdn3439' 'lrdn3440' 'lrdn3441' 'lrdn3442']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27445s.
+
+Running...
+ Run 1:
+  0.00385s: started 0
+  1.05847s: awaited 0
+  Data collection took 0.00146s.
+  Convergence check took 0.00085s.
+ Run 2:
+  0.00419s: started 0
+  1.08341s: awaited 0
+  Data collection took 0.00225s.
+  Convergence check took 0.00079s.
+ Run 3:
+  0.00433s: started 0
+  1.05203s: awaited 0
+  Data collection took 0.0015s.
+  Convergence check took 0.00088s.
+ Run 4:
+  0.00393s: started 0
+  1.07629s: awaited 0
+  Data collection took 0.00149s.
+  Convergence check took 0.00097s.
+ Run 5:
+  0.00424s: started 0
+  1.35859s: awaited 0
+  1.35861s: encountered an exception in 0
+srun: Job 12738087 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 12738087
+
+  Data collection took 0.00149s.
+  Convergence check took 0.00105s.
+ Run 6:
+  0.00406s: started 0
+  1.05119s: awaited 0
+  Data collection took 0.00153s.
+  Convergence check took 0.00116s.
+ Run 7:
+  0.00391s: started 0
+  1.68425s: awaited 0
+  Data collection took 0.00154s.
+  Convergence check took 0.00121s.
+ Run 8:
+  0.00404s: started 0
+  1.063s: awaited 0
+  Data collection took 0.00163s.
+  Convergence check took 0.00133s.
+ Run 9:
+  0.00449s: started 0
+  1.75527s: awaited 0
+  Data collection took 0.00148s.
+  Convergence check took 0.00142s.
+Completed after reaching confidence interval, terminated after 9 runs taking 11.21 seconds.
+Writing data & meta-data took 0.04924s.
+Overall took 11.53093s.

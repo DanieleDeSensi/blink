@@ -1,0 +1,25 @@
+#!/bin/bash
+#SBATCH --output=tmp_slrm_logs/%j.out
+#SBATCH --error=tmp_slrm_logs/%j.err
+#SBATCH --ntasks=4             
+#SBATCH --nodes=4                 
+#SBATCH --ntasks-per-node=1           
+#SBATCH --time=01:00:00         
+#SBATCH --partition=boost_usr_prod   
+#SBATCH --account=iscrc_ascend        
+
+#export OMPI_MCA_base_verbose=100
+#export OMPI_MCA_btl_base_verbose=100
+
+#export OMPI_MCA_coll_base_verbose=1
+#export OMPI_MCA_coll_tuned_use_dynamic_rules=1
+#export OMPI_MCA_coll_tuned_allreduce_algorithm=4
+#export OMPI_MCA_coll_tuned_allreduce_algorithm_segmentsize=4096
+#export OMPI_MCA_coll_tuned_allreduce_algorithm_tree_fanout=4
+#export OMPI_MCA_coll_tuned_dynamic_rules_filename="/home/lpiarulli/rules.txt"
+
+source conf/leonardo_env/bin/activate
+
+./run.sh test_suites/coll-cpu-many auto -n 4 -sp 100 -am l -ro +file -e boost_usr_prod  
+
+

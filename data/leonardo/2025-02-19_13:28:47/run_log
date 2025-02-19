@@ -1,0 +1,71 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/64B', beta=0.05, convergeall=False, datapath='./data', extrainfo='boost_usr_prod', maxruns=10, minruns=1, node_file='auto', numnodes=4, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 64 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 4 nodes:
+['lrdn3439' 'lrdn3440' 'lrdn3441' 'lrdn3442']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.27627s.
+
+Running...
+ Run 1:
+  0.00376s: started 0
+  1.08575s: awaited 0
+  Data collection took 0.00143s.
+  Convergence check took 0.00082s.
+ Run 2:
+  0.00363s: started 0
+  1.03062s: awaited 0
+  Data collection took 0.00224s.
+  Convergence check took 0.00081s.
+ Run 3:
+  0.00511s: started 0
+  1.04203s: awaited 0
+  Data collection took 0.00176s.
+  Convergence check took 0.00086s.
+ Run 4:
+  0.00382s: started 0
+  1.02653s: awaited 0
+  Data collection took 0.00258s.
+  Convergence check took 0.00097s.
+ Run 5:
+  0.00407s: started 0
+  1.68342s: awaited 0
+  Data collection took 0.00149s.
+  Convergence check took 0.00104s.
+ Run 6:
+  0.00393s: started 0
+  1.02608s: awaited 0
+  Data collection took 0.0015s.
+  Convergence check took 0.00116s.
+ Run 7:
+  0.00538s: started 0
+  1.70319s: awaited 0
+  Data collection took 0.00154s.
+  Convergence check took 0.00121s.
+ Run 8:
+  0.00411s: started 0
+  1.01362s: awaited 0
+  Data collection took 0.00178s.
+  Convergence check took 0.00131s.
+ Run 9:
+  0.00415s: started 0
+  1.63396s: awaited 0
+  Data collection took 0.00149s.
+  Convergence check took 0.00143s.
+ Run 10:
+  0.00404s: started 0
+  1.024s: awaited 0
+  Data collection took 0.00155s.
+  Convergence check took 0.00157s.
+Completed maximum number of runs, terminated after 10 runs taking 12.3 seconds.
+Writing data & meta-data took 0.05285s.
+Overall took 12.62768s.

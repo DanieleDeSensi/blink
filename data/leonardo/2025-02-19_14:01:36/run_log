@@ -1,0 +1,75 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/agtr_b/32KiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='boost_usr_prod', maxruns=10, minruns=1, node_file='auto', numnodes=4, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 32768 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 4 nodes:
+['lrdn3439' 'lrdn3440' 'lrdn3441' 'lrdn3442']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.28518s.
+
+Running...
+ Run 1:
+  0.00385s: started 0
+  1.05548s: awaited 0
+  Data collection took 0.00149s.
+  Convergence check took 0.00086s.
+ Run 2:
+  0.00416s: started 0
+  1.06732s: awaited 0
+  Data collection took 0.00221s.
+  Convergence check took 0.00079s.
+ Run 3:
+  0.00425s: started 0
+  1.21791s: awaited 0
+  1.21793s: encountered an exception in 0
+srun: Job 12738087 step creation temporarily disabled, retrying (Requested nodes are busy)
+srun: Step created for job 12738087
+
+  Data collection took 0.00149s.
+  Convergence check took 0.00087s.
+ Run 4:
+  0.00388s: started 0
+  1.0553s: awaited 0
+  Data collection took 0.0015s.
+  Convergence check took 0.00193s.
+ Run 5:
+  0.00412s: started 0
+  1.32588s: awaited 0
+  Data collection took 0.00154s.
+  Convergence check took 0.00105s.
+ Run 6:
+  0.00424s: started 0
+  1.05751s: awaited 0
+  Data collection took 0.00157s.
+  Convergence check took 0.00115s.
+ Run 7:
+  0.004s: started 0
+  1.28094s: awaited 0
+  Data collection took 0.00162s.
+  Convergence check took 0.00125s.
+ Run 8:
+  0.00404s: started 0
+  1.08188s: awaited 0
+  Data collection took 0.00161s.
+  Convergence check took 0.00134s.
+ Run 9:
+  0.00403s: started 0
+  1.26138s: awaited 0
+  Data collection took 0.00148s.
+  Convergence check took 0.00144s.
+ Run 10:
+  0.00422s: started 0
+  1.04162s: awaited 0
+  Data collection took 0.00159s.
+  Convergence check took 0.00247s.
+Completed maximum number of runs, terminated after 10 runs taking 11.48 seconds.
+Writing data & meta-data took 0.05276s.
+Overall took 11.81322s.
