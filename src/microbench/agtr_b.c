@@ -10,15 +10,6 @@
 #include <sched.h>
 #include "common.h"
 
-
-void noop(void *in, void *inout, int *len, MPI_Datatype *datatype) {
-    // Simply copy input to output without any computation
-    return;
-    for (int i = 0; i < *len; i++) {
-        ((int*)inout)[i] = -((int*)in)[i]; // Identity operation
-    }
-}
-
 int main(int argc, char** argv){
 
     /*init MPI world*/
@@ -121,8 +112,8 @@ int main(int argc, char** argv){
         }
     }
     
-    msg_size_ints=msg_size/sizeof(int);
-    send_buf_size=msg_size;
+    send_buf_size=msg_size/w_size;
+    msg_size_ints=send_buf_size/sizeof(int);
     recv_buf_size=msg_size;
     
     send_buf=(int*)malloc_align(send_buf_size);
@@ -158,10 +149,6 @@ int main(int argc, char** argv){
     double burst_pause_mean=burst_pause;
     bool burst_cont=false;
     curr_iters=0;
-
-    // Defining a new reduction
-    MPI_Op noop_op;
-    MPI_Op_create((MPI_User_function *)noop, 1, &noop_op);
     
     MPI_Barrier(MPI_COMM_WORLD);
     do{
@@ -174,7 +161,7 @@ int main(int argc, char** argv){
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
-                    MPI_Allreduce(send_buf,recv_buf,msg_size_ints,MPI_INT,MPI_MAX,MPI_COMM_WORLD);
+                    MPI_Allgather(send_buf, msg_size_ints, MPI_INT, recv_buf, msg_size_ints, MPI_INT, MPI_COMM_WORLD);
                 }
                 durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
                 curr_iters++;

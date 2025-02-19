@@ -10,13 +10,68 @@
 #include <sched.h>
 #include "common.h"
 
+static inline int copy_buffer_different_dt (const void *input_buffer, size_t scount,
+                                            const MPI_Datatype sdtype, void *output_buffer,
+                                            size_t rcount, const MPI_Datatype rdtype) {
+  if (input_buffer == NULL || output_buffer == NULL || scount <= 0 || rcount <= 0) {
+    return MPI_ERR_UNKNOWN;
+  }
 
-void noop(void *in, void *inout, int *len, MPI_Datatype *datatype) {
-    // Simply copy input to output without any computation
-    return;
-    for (int i = 0; i < *len; i++) {
-        ((int*)inout)[i] = -((int*)in)[i]; // Identity operation
-    }
+  int sdtype_size;
+  MPI_Type_size(sdtype, &sdtype_size);
+  int rdtype_size;
+  MPI_Type_size(rdtype, &rdtype_size);
+
+  size_t s_size = (size_t) sdtype_size * scount;
+  size_t r_size = (size_t) rdtype_size * rcount;
+
+  if (r_size < s_size) {
+    memcpy(output_buffer, input_buffer, r_size); // Copy as much as possible
+    return MPI_ERR_TRUNCATE;      // Indicate truncation
+  }
+
+  memcpy(output_buffer, input_buffer, s_size);        // Perform the memory copy
+
+  return MPI_SUCCESS;
+}
+
+int allgather_ring(const void *sbuf, size_t scount, MPI_Datatype sdtype,
+                   void* rbuf, size_t rcount, MPI_Datatype rdtype, MPI_Comm comm)
+{
+  int line = -1, rank, size, sendto, recvfrom, i, recvdatafrom, senddatafrom;
+  ptrdiff_t rlb, rext;
+  char *tmpsend = NULL, *tmprecv = NULL;
+
+  MPI_Comm_size(comm, &size);
+  MPI_Comm_rank(comm, &rank);
+
+  MPI_Type_get_extent (rdtype, &rlb, &rext);
+
+  tmprecv = (char*) rbuf + (ptrdiff_t)rank * (ptrdiff_t)rcount * rext;
+  if (MPI_IN_PLACE != sbuf) {
+    tmpsend = (char*) sbuf;
+    copy_buffer_different_dt(tmpsend, scount, sdtype, tmprecv, rcount, rdtype);
+  }
+
+  sendto = (rank + 1) % size;
+  recvfrom  = (rank - 1 + size) % size;
+
+  for (i = 0; i < size - 1; i++) {
+    recvdatafrom = (rank - i - 1 + size) % size;
+    senddatafrom = (rank - i + size) % size;
+
+    tmprecv = (char*)rbuf + (ptrdiff_t)recvdatafrom * (ptrdiff_t)rcount * rext;
+    tmpsend = (char*)rbuf + (ptrdiff_t)senddatafrom * (ptrdiff_t)rcount * rext;
+
+    /* Sendreceive */
+    MPI_Sendrecv(tmpsend, rcount, rdtype, sendto, 0,
+                       tmprecv, rcount, rdtype, recvfrom, 0,
+                       comm, MPI_STATUS_IGNORE);
+
+  }
+
+  return MPI_SUCCESS;
+
 }
 
 int main(int argc, char** argv){
@@ -126,7 +181,7 @@ int main(int argc, char** argv){
     recv_buf_size=msg_size;
     
     send_buf=(int*)malloc_align(send_buf_size);
-    recv_buf=(int*)malloc_align(recv_buf_size);
+    recv_buf=(int*)malloc_align(recv_buf_size * w_size);
     durations=(double *)malloc_align(sizeof(double)*max_samples);
     
     if(send_buf==NULL || recv_buf==NULL || durations==NULL){
@@ -158,10 +213,6 @@ int main(int argc, char** argv){
     double burst_pause_mean=burst_pause;
     bool burst_cont=false;
     curr_iters=0;
-
-    // Defining a new reduction
-    MPI_Op noop_op;
-    MPI_Op_create((MPI_User_function *)noop, 1, &noop_op);
     
     MPI_Barrier(MPI_COMM_WORLD);
     do{
@@ -174,7 +225,7 @@ int main(int argc, char** argv){
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
-                    MPI_Allreduce(send_buf,recv_buf,msg_size_ints,MPI_INT,MPI_MAX,MPI_COMM_WORLD);
+                    allgather_ring(send_buf, msg_size_ints, MPI_INT, recv_buf, msg_size_ints, MPI_INT, MPI_COMM_WORLD);
                 }
                 durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
                 curr_iters++;
