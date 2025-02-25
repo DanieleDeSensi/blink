@@ -122,7 +122,7 @@ int main(int argc, char** argv){
     send_buf=(int*)malloc_align(send_buf_size);
     recv_buf=(int*)malloc_align(recv_buf_size);
     durations=(double *)malloc_align(sizeof(double)*max_samples);
-    recv_counts =(int*)malloc_align(w_size * sizeof(int));
+    recv_counts =(int*)malloc_align(w_size);
     
     if(send_buf==NULL || recv_buf==NULL || durations==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
@@ -132,6 +132,10 @@ int main(int argc, char** argv){
     /*fill send buffer with dummies*/
     for(i=0;i<msg_size_ints;i++){
         send_buf[i]=1;
+    }
+
+    for(i=0; i<w_size; i++){
+        recv_counts[i] = msg_size_ints/w_size;
     }
 
     
@@ -165,7 +169,7 @@ int main(int argc, char** argv){
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
-                    MPI_Reduce_scatter(send_buf, recv_buf, recv_counts, MPI_FLOAT, MPI_SUM, MPI_COMM_WORLD);
+                    MPI_Reduce_scatter(send_buf, recv_buf, recv_counts, MPI_FLOAT, MPI_MAX, MPI_COMM_WORLD);
                 }
                 durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
                 curr_iters++;
@@ -193,6 +197,7 @@ int main(int argc, char** argv){
     free(durations);
     free(recv_buf);
     free(send_buf);
+    free(recv_counts);
     
     /*exit MPI library*/
     MPI_Finalize();

@@ -1,0 +1,51 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/ardc_noop_b/64B', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-eth', maxruns=10, minruns=1, node_file='auto', numnodes=4, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 64 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 4 nodes:
+['cn24' 'cn25' 'cn26' 'cn27']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02995s.
+
+Running...
+ Run 1:
+  0.00363s: started 0
+  1.78352s: awaited 0
+  Data collection took 0.00213s.
+  Convergence check took 0.00113s.
+ Run 2:
+  0.00437s: started 0
+  1.7836s: awaited 0
+  Data collection took 0.00331s.
+  Convergence check took 0.00116s.
+ Run 3:
+  0.00434s: started 0
+  1.73873s: awaited 0
+  Data collection took 0.00221s.
+  Convergence check took 0.00129s.
+ Run 4:
+  0.00432s: started 0
+  1.73254s: awaited 0
+  Data collection took 0.00224s.
+  Convergence check took 0.00143s.
+ Run 5:
+  0.00438s: started 0
+  1.76919s: awaited 0
+  Data collection took 0.00224s.
+  Convergence check took 0.00159s.
+ Run 6:
+  0.00341s: started 0
+  1.74582s: awaited 0
+  Data collection took 0.00224s.
+  Convergence check took 0.00169s.
+Completed after reaching confidence interval, terminated after 6 runs taking 10.58 seconds.
+Writing data & meta-data took 0.06711s.
+Overall took 10.67373s.

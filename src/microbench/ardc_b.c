@@ -11,14 +11,6 @@
 #include "common.h"
 
 
-void noop(void *in, void *inout, int *len, MPI_Datatype *datatype) {
-    // Simply copy input to output without any computation
-    return;
-    for (int i = 0; i < *len; i++) {
-        ((int*)inout)[i] = -((int*)in)[i]; // Identity operation
-    }
-}
-
 int main(int argc, char** argv){
 
     /*init MPI world*/
@@ -159,10 +151,6 @@ int main(int argc, char** argv){
     bool burst_cont=false;
     curr_iters=0;
 
-    // Defining a new reduction
-    MPI_Op noop_op;
-    MPI_Op_create((MPI_User_function *)noop, 1, &noop_op);
-    
     MPI_Barrier(MPI_COMM_WORLD);
     do{
         for(k=0;k<max_iters+warm_up_iters;k++){
