@@ -14,9 +14,6 @@
 void noop(void *in, void *inout, int *len, MPI_Datatype *datatype) {
     // Simply copy input to output without any computation
     return;
-    for (int i = 0; i < *len; i++) {
-        ((int*)inout)[i] = -((int*)in)[i]; // Identity operation
-    }
 }
 
 int main(int argc, char** argv){

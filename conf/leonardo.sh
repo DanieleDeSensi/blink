@@ -39,9 +39,10 @@ if [ -n "${NCCL_IB_SL}" ]; then
 else
     export NCCL_IB_SL=1
 fi
+
 if [ -n "${UCX_IB_SL}" ]; then 
     export UCX_IB_SL=${UCX_IB_SL}
 else
     export UCX_IB_SL=1
 fi
-#export UCX_PROTO_ENABLE=y
+export UCX_PROTO_ENABLE=y

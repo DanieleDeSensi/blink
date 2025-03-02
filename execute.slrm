@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH --output=tmp_slrm_logs/%j.out
 #SBATCH --error=tmp_slrm_logs/%j.err
-#SBATCH --nodelist=cn[24,25,26,27]
 #SBATCH --ntasks=4           
 #SBATCH --nodes=4                
 #SBATCH --ntasks-per-node=1           
 #SBATCH --time=01:00:00         
-#SBATCH --partition=cn-eth
+#SBATCH --partition=boost_usr_prod   
+#SBATCH --account=iscrc_ascend
 #SBATCH --exclusive
 
 #export OMPI_MCA_base_verbose=100
@@ -21,6 +21,6 @@
 
 #source conf/leonardo_env/bin/activate
 
-./run.sh test_suites/coll-cpu-many auto -n 4 -sp 100 -am l -ro +file -e cn-eth
+./run.sh test_suites/coll-cpu-many auto -n 4 -sp 100 -am l -ro +file -e boost_usr_prod
 
 
