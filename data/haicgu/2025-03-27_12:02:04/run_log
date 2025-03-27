@@ -1,0 +1,33 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/redscat_noop_b/4B', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-eth', maxruns=10, minruns=1, node_file='auto', numnodes=4, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 4 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 4 nodes:
+['cn21' 'cn26' 'cn27' 'cn28']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.17919s.
+
+Running...
+ Run 1:
+  0.02011s: started 0
+  2.76263s: awaited 0
+  2.76265s: encountered an exception in 0
+[cn27.guoehi.cluster:476003] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn26.guoehi.cluster:209840] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn28.guoehi.cluster:1958826] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1309436] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1309436] coll:han:get_algorithm barrier size:0 algorithm:0 default
+
+  Data collection took 0.00206s.
+  Convergence check took 0.00097s.
+Completed after reaching confidence interval, terminated after 1 runs taking 2.77 seconds.
+Writing data & meta-data took 0.03335s.
+Overall took 2.97832s.
