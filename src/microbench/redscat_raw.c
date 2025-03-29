@@ -11,234 +11,171 @@
 #include "common.h"
 
 
-static inline int copy_buffer_different_dt (const void *input_buffer, size_t scount,
-    const MPI_Datatype sdtype, void *output_buffer,
-    size_t rcount, const MPI_Datatype rdtype) {
-
-    int sdtype_size;
-    MPI_Type_size(sdtype, &sdtype_size);
-    int rdtype_size;
-    MPI_Type_size(rdtype, &rdtype_size);
-
-    size_t s_size = (size_t) sdtype_size * scount;
-    size_t r_size = (size_t) rdtype_size * rcount;
-
-    if(r_size < s_size) {
-        memcpy(output_buffer, input_buffer, r_size); // Copy as much as possible
-        return MPI_ERR_TRUNCATE;      // Indicate truncation
+static inline ptrdiff_t datatype_span(MPI_Datatype dtype, size_t count, ptrdiff_t *gap) {
+    if(count == 0) {
+      *gap = 0;
+      return 0;                                 // No memory span required for zero repetitions
     }
+  
+    MPI_Aint lb, extent;
+    MPI_Aint true_lb, true_extent;
+    
+    // Get extend and true extent (true extent does not include padding)
+    MPI_Type_get_extent(dtype, &lb, &extent);
+    MPI_Type_get_true_extent(dtype, &true_lb, &true_extent);
+  
+    *gap = true_lb;                             // Store the true lower bound
+  
+    return true_extent + extent * (count - 1);  // Calculate the total memory span
+}
+  
 
-    memcpy(output_buffer, input_buffer, s_size);        // Perform the memory copy
+static inline int copy_buffer(const void *input_buffer, void *output_buffer,
+    size_t count, const MPI_Datatype datatype) {
+
+    int datatype_size;
+    MPI_Type_size(datatype, &datatype_size);                // Get the size of the MPI datatype
+
+    size_t total_size = count * (size_t)datatype_size;
+
+    memcpy(output_buffer, input_buffer, total_size);        // Perform the memory copy
 
     return MPI_SUCCESS;
 }
 
-static inline int next_poweroftwo(int value)
-{
 
-  if(0 == value) {
-    return 1;
-  }
-
-  return 1 << (8 * sizeof(int) - __builtin_clz(value));
-}
-
-int reduce_scatter_recursivehalving(const void *sbuf, void *rbuf, const int rcounts[],
+int reduce_scatter_ring( const void *sbuf, void *rbuf, const int rcounts[],
     MPI_Datatype dtype, MPI_Op op, MPI_Comm comm)
 {
-    int i, rank, size, err = MPI_SUCCESS;
-    int tmp_size, remain = 0, tmp_rank;
-    size_t count;
-    ptrdiff_t *disps = NULL;
-    ptrdiff_t extent, true_extent, lb, buf_size, gap = 0;
-    char *recv_buf = NULL, *recv_buf_free = NULL;
-    char *result_buf = NULL, *result_buf_free = NULL;
+    int ret, line, rank, size, i, k, recv_from, send_to;
+    int inbi;
+    size_t total_count, max_block_count;
+    ptrdiff_t *displs = NULL;
+    char *tmpsend = NULL, *tmprecv = NULL, *accumbuf = NULL, *accumbuf_free = NULL;
+    char *inbuf_free[2] = {NULL, NULL}, *inbuf[2] = {NULL, NULL};
+    ptrdiff_t extent, lb, max_real_segsize, dsize, gap = 0;
+    MPI_Request reqs[2] = {MPI_REQUEST_NULL, MPI_REQUEST_NULL};
 
-    err = MPI_Comm_size(comm, &size);
-    err = MPI_Comm_rank(comm, &rank);
+    ret = MPI_Comm_size(comm, &size);
+    ret = MPI_Comm_rank(comm, &rank);
 
-    /* Find displacements and the like */
-    disps = (ptrdiff_t*) malloc(sizeof(ptrdiff_t) * size);
-
-    disps[0] = 0;
-    for(i = 0; i < (size - 1); ++i) {
-        disps[i + 1] = disps[i] + rcounts[i];
+    /* Determine the maximum number of elements per node,
+    corresponding block size, and displacements array.
+    */
+    displs = (ptrdiff_t*) malloc(size * sizeof(ptrdiff_t));
+    displs[0] = 0;
+    total_count = rcounts[0];
+    max_block_count = rcounts[0];
+    for(i = 1; i < size; i++) {
+        displs[i] = total_count;
+        total_count += rcounts[i];
+        if(max_block_count < rcounts[i]) max_block_count = rcounts[i];
     }
-    count = disps[size - 1] + rcounts[size - 1];
 
-    /* short cut the trivial case */
-    if(0 == count) {
-        free(disps);
+    /* Special case for size == 1 */
+    if(1 == size) {
+        if(MPI_IN_PLACE != sbuf) {
+            ret = copy_buffer((char*) sbuf, (char*) rbuf,total_count, dtype);
+        }
+        free(displs);
         return MPI_SUCCESS;
     }
 
-    /* get datatype information */
-    MPI_Type_get_extent(dtype, &lb, &extent);
-    MPI_Type_get_true_extent(dtype, &gap, &true_extent);
+    /* Allocate and initialize temporary buffers, we need:
+    - a temporary buffer to perform reduction (size total_count) since
+    rbuf can be of rcounts[rank] size.
+    - up to two temporary buffers used for communication/computation overlap.
+    */
+    ret = MPI_Type_get_extent(dtype, &lb, &extent);
 
-    // Calculate the total memory span
-    buf_size = true_extent + extent * (count - 1);
+    max_real_segsize = datatype_span(dtype, max_block_count, &gap);
+    dsize = datatype_span(dtype, total_count, &gap);
 
-    /* Handle MPI_IN_PLACE */
+    accumbuf_free = (char*)malloc(dsize);
+    accumbuf = accumbuf_free - gap;
+
+    inbuf_free[0] = (char*)malloc(max_real_segsize);
+    inbuf[0] = inbuf_free[0] - gap;
+
+    if(size > 2) {
+        inbuf_free[1] = (char*)malloc(max_real_segsize);
+        inbuf[1] = inbuf_free[1] - gap;
+    }
+
+    /* Handle MPI_IN_PLACE for size > 1 */
     if(MPI_IN_PLACE == sbuf) {
         sbuf = rbuf;
     }
 
-    /* Allocate temporary receive buffer. */
-    recv_buf_free = (char*) malloc(buf_size);
-    recv_buf = recv_buf_free - gap;
+    ret = copy_buffer((char*) sbuf, accumbuf, total_count, dtype);
 
-    /* allocate temporary buffer for results */
-    result_buf_free = (char*) malloc(buf_size);
-    result_buf = result_buf_free - gap;
+    /* Computation loop */
 
-    /* copy local buffer into the temporary results */
-    err = copy_buffer_different_dt(sbuf, count, dtype, result_buf, count, dtype);
+    /*
+    For each of the remote nodes:
+    - post irecv for block (r-2) from (r-1) with wrap around
+    - send block (r-1) to (r+1)
+    - in loop for every step k = 2 .. n
+    - post irecv for block (r - 1 + n - k) % n
+    - wait on block (r + n - k) % n to arrive
+    - compute on block (r + n - k ) % n
+    - send block (r + n - k) % n
+    - wait on block (r)
+    - compute on block (r)
+    - copy block (r) to rbuf
+    Note that we must be careful when computing the beginning of buffers and
+    for send operations and computation we must compute the exact block size.
+    */
+    send_to = (rank + 1) % size;
+    recv_from = (rank + size - 1) % size;
 
-    /* figure out power of two mapping: grow until larger than
-    comm size, then go back one, to get the largest power of
-    two less than comm size */
-    tmp_size = next_poweroftwo (size);
-    tmp_size >>= 1;
-    remain = size - tmp_size;
+    inbi = 0;
+    /* Initialize first receive from the neighbor on the left */
+    ret = MPI_Irecv(inbuf[inbi], max_block_count, dtype, recv_from, 0, comm, &reqs[inbi]);
+    tmpsend = accumbuf + displs[recv_from] * extent;
+    ret = MPI_Send(tmpsend, rcounts[recv_from], dtype, send_to, 0, comm);
 
-    /* If comm size is not a power of two, have the first "remain"
-    procs with an even rank send to rank + 1, leaving a power of
-    two procs to do the rest of the algorithm */
-    if(rank < 2 * remain) {
-        if((rank & 1) == 0) {
-            err = MPI_Send(result_buf, count, dtype, rank + 1, 0, comm);
+    for(k = 2; k < size; k++) {
+        const int prevblock = (rank + size - k) % size;
 
-            /* we don't participate from here on out */
-            tmp_rank = -1;
-        } else {
-            err = MPI_Recv(recv_buf, count, dtype, rank - 1, 0, comm, MPI_STATUS_IGNORE);
+        inbi = inbi ^ 0x1;
 
-            /* integrate their results into our temp results */
-            MPI_Reduce_local(recv_buf, result_buf, count, dtype, op);
+        /* Post irecv for the current block */
+        ret = MPI_Irecv(inbuf[inbi], max_block_count, dtype, recv_from, 0, comm, &reqs[inbi]);
 
-            /* adjust rank to be the bottom "remain" ranks */
-            tmp_rank = rank / 2;
-        }
-    } else {
-        /* just need to adjust rank to show that the bottom "even
-        remain" ranks dropped out */
-        tmp_rank = rank - remain;
+        /* Wait on previous block to arrive */
+        ret = MPI_Wait(&reqs[inbi ^ 0x1], MPI_STATUS_IGNORE);
+
+        /* Apply operation on previous block: result goes to rbuf
+        rbuf[prevblock] = inbuf[inbi ^ 0x1] (op) rbuf[prevblock]
+        */
+        tmprecv = accumbuf + displs[prevblock] * extent;
+        MPI_Reduce_local(inbuf[inbi ^ 0x1], tmprecv, rcounts[prevblock], dtype, op);
+
+        /* send previous block to send_to */
+        ret = MPI_Send(tmprecv, rcounts[prevblock], dtype, send_to, 0, comm);
     }
 
-    /* For ranks not kicked out by the above code, perform the
-    recursive halving */
-    if(tmp_rank >= 0) {
-        size_t *tmp_rcounts = NULL;
-        ptrdiff_t *tmp_disps = NULL;
-        int mask, send_index, recv_index, last_index;
+    /* Wait on the last block to arrive */
+    ret = MPI_Wait(&reqs[inbi], MPI_STATUS_IGNORE);
 
-        /* recalculate disps and rcounts to account for the
-        special "remainder" processes that are no longer doing
-        anything */
-        tmp_rcounts = (size_t*) malloc(tmp_size * sizeof(size_t));
-        tmp_disps = (ptrdiff_t*) malloc(tmp_size * sizeof(ptrdiff_t));
+    /* Apply operation on the last block (my block)
+    rbuf[rank] = inbuf[inbi] (op) rbuf[rank] */
+    tmprecv = accumbuf + displs[rank] * extent;
+    MPI_Reduce_local(inbuf[inbi], tmprecv, rcounts[rank], dtype, op);
 
-        for(i = 0 ; i < tmp_size ; ++i) {
-            if(i < remain) {
-                /* need to include old neighbor as well */
-                tmp_rcounts[i] = rcounts[i * 2 + 1] + rcounts[i * 2];
-            } else {
-               tmp_rcounts[i] = rcounts[i + remain];
-            }
-        }
+    /* Copy result from tmprecv to rbuf */
+    ret = copy_buffer(tmprecv, (char *)rbuf, rcounts[rank], dtype);
 
-        tmp_disps[0] = 0;
-        for(i = 0; i < tmp_size - 1; ++i) {
-            tmp_disps[i + 1] = tmp_disps[i] + tmp_rcounts[i];
-        }
+    if(NULL != displs) free(displs);
+    if(NULL != accumbuf_free) free(accumbuf_free);
+    if(NULL != inbuf_free[0]) free(inbuf_free[0]);
+    if(NULL != inbuf_free[1]) free(inbuf_free[1]);
 
-        /* do the recursive halving communication.  Don't use the
-        dimension information on the communicator because I
-        think the information is invalidated by our "shrinking"
-        of the communicator */
-        mask = tmp_size >> 1;
-        send_index = recv_index = 0;
-        last_index = tmp_size;
-        while (mask > 0) {
-            int tmp_peer, peer;
-            size_t send_count, recv_count;
-            MPI_Request request;
-
-            tmp_peer = tmp_rank ^ mask;
-            peer = (tmp_peer < remain) ? tmp_peer * 2 + 1 : tmp_peer + remain;
-
-            /* figure out if we're sending, receiving, or both */
-            send_count = recv_count = 0;
-            if(tmp_rank < tmp_peer) {
-                send_index = recv_index + mask;
-                for(i = send_index ; i < last_index ; ++i) {
-                    send_count += tmp_rcounts[i];
-                }
-                for(i = recv_index ; i < send_index ; ++i) {
-                    recv_count += tmp_rcounts[i];
-                }
-            } else {
-                recv_index = send_index + mask;
-                for(i = send_index ; i < recv_index ; ++i) {
-                    send_count += tmp_rcounts[i];
-                }
-                for(i = recv_index ; i < last_index ; ++i) {
-                    recv_count += tmp_rcounts[i];
-                }
-            }
-
-            /* actual data transfer.  Send from result_buf,
-            receive into recv_buf */
-            if(recv_count > 0) {
-                err = MPI_Irecv(recv_buf + tmp_disps[recv_index] * extent,
-                recv_count, dtype, peer, 0, comm, &request);
-            }
-            if(send_count > 0) {
-                err = MPI_Send(result_buf + tmp_disps[send_index] * extent,
-                            send_count, dtype, peer, 0, comm);
-            }
-
-            /* if we received something on this step, push it into
-            the results buffer */
-            if(recv_count > 0) {
-                err = MPI_Wait(&request, MPI_STATUS_IGNORE);
-
-                MPI_Reduce_local(recv_buf + tmp_disps[recv_index] * extent,
-                            result_buf + tmp_disps[recv_index] * extent,
-                            recv_count, dtype, op);
-            }
-            /* update for next iteration */
-            send_index = recv_index;
-            last_index = recv_index + mask;
-            mask >>= 1;
-        }
-
-        /* copy local results from results buffer into real receive buffer */
-        if(0 != rcounts[rank]) {
-            err = copy_buffer_different_dt(result_buf + disps[rank] * extent, rcounts[rank],
-                                        dtype, rbuf, rcounts[rank], dtype);
-        }
-
-        free(tmp_rcounts);
-        free(tmp_disps);
-    }
-
-    /* Now fix up the non-power of two case, by having the odd
-    procs send the even procs the proper results */
-    if(rank < (2 * remain)) {
-        if((rank & 1) == 0) {
-            if(rcounts[rank]) {
-                err = MPI_Recv(rbuf, rcounts[rank], dtype, rank + 1, 0, comm, MPI_STATUS_IGNORE);
-            }
-        } else {
-            if(rcounts[rank - 1]) {
-                err = MPI_Send(result_buf + disps[rank - 1] * extent,
-                rcounts[rank - 1], dtype, rank - 1, 0, comm);
-            }
-        }
-    }
+    return MPI_SUCCESS;
 }
+
+
 
 int main(int argc, char** argv){
 
@@ -399,7 +336,7 @@ int main(int argc, char** argv){
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
-                    reduce_scatter_recursivehalving(send_buf, recv_buf, recv_counts, MPI_FLOAT, MPI_MAX, MPI_COMM_WORLD);
+                    reduce_scatter_ring(send_buf, recv_buf, recv_counts, MPI_FLOAT, MPI_MAX, MPI_COMM_WORLD);
                 }
                 durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
                 curr_iters++;

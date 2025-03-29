@@ -1,0 +1,141 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/redscat_noop_b/128MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-eth', maxruns=10, minruns=1, node_file='auto', numnodes=4, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 134217728 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 4 nodes:
+['cn21' 'cn26' 'cn27' 'cn28']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.06259s.
+
+Running...
+ Run 1:
+  0.02774s: started 0
+  49.86028s: awaited 0
+  49.8603s: encountered an exception in 0
+[cn27.guoehi.cluster:501012] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn28.guoehi.cluster:1983660] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1347684] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn26.guoehi.cluster:234585] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1347684] coll:han:get_algorithm barrier size:0 algorithm:0 default
+
+  Data collection took 0.00024s.
+  Convergence check took 0.00085s.
+ Run 2:
+  0.03649s: started 0
+  56.35878s: awaited 0
+  56.35881s: encountered an exception in 0
+[cn21.guoehi.cluster:1347713] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn27.guoehi.cluster:501030] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn26.guoehi.cluster:234604] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn28.guoehi.cluster:1983678] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1347713] coll:han:get_algorithm barrier size:0 algorithm:0 default
+
+  Data collection took 0.00028s.
+  Convergence check took 0.00084s.
+ Run 3:
+  0.04033s: started 0
+  47.51881s: awaited 0
+  47.51884s: encountered an exception in 0
+[cn28.guoehi.cluster:1983697] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn26.guoehi.cluster:234622] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn27.guoehi.cluster:501049] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1347746] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1347746] coll:han:get_algorithm barrier size:0 algorithm:0 default
+
+  Data collection took 0.00025s.
+  Convergence check took 0.00085s.
+ Run 4:
+  0.03691s: started 0
+  50.27876s: awaited 0
+  50.27879s: encountered an exception in 0
+[cn28.guoehi.cluster:1983715] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn27.guoehi.cluster:501066] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn26.guoehi.cluster:234641] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1347776] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1347776] coll:han:get_algorithm barrier size:0 algorithm:0 default
+
+  Data collection took 0.00024s.
+  Convergence check took 0.00087s.
+ Run 5:
+  0.04007s: started 0
+  55.52883s: awaited 0
+  55.52886s: encountered an exception in 0
+[cn27.guoehi.cluster:501086] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn28.guoehi.cluster:1983733] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1347805] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn26.guoehi.cluster:234659] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1347805] coll:han:get_algorithm barrier size:0 algorithm:0 default
+
+  Data collection took 0.00024s.
+  Convergence check took 0.00087s.
+ Run 6:
+  0.03678s: started 0
+  64.93883s: awaited 0
+  64.93886s: encountered an exception in 0
+[cn21.guoehi.cluster:1347834] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn26.guoehi.cluster:234677] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn27.guoehi.cluster:501104] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn28.guoehi.cluster:1983752] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1347834] coll:han:get_algorithm barrier size:0 algorithm:0 default
+
+  Data collection took 0.00025s.
+  Convergence check took 0.00089s.
+ Run 7:
+  0.04504s: started 0
+  50.13841s: awaited 0
+  50.13843s: encountered an exception in 0
+[cn27.guoehi.cluster:501124] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn28.guoehi.cluster:1983773] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn26.guoehi.cluster:234697] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1347864] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1347864] coll:han:get_algorithm barrier size:0 algorithm:0 default
+
+  Data collection took 0.00024s.
+  Convergence check took 0.0009s.
+ Run 8:
+  0.0364s: started 0
+  60.63877s: awaited 0
+  60.6388s: encountered an exception in 0
+[cn21.guoehi.cluster:1347895] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn27.guoehi.cluster:501143] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn26.guoehi.cluster:234716] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn28.guoehi.cluster:1983792] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1347895] coll:han:get_algorithm barrier size:0 algorithm:0 default
+
+  Data collection took 0.00025s.
+  Convergence check took 0.00091s.
+ Run 9:
+  0.045s: started 0
+  60.42843s: awaited 0
+  60.42846s: encountered an exception in 0
+[cn27.guoehi.cluster:501164] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1347928] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn28.guoehi.cluster:1983814] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn26.guoehi.cluster:234738] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1347928] coll:han:get_algorithm barrier size:0 algorithm:0 default
+
+  Data collection took 0.00024s.
+  Convergence check took 0.00092s.
+ Run 10:
+  0.04634s: started 0
+  46.36852s: awaited 0
+  46.36854s: encountered an exception in 0
+[cn26.guoehi.cluster:234757] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn27.guoehi.cluster:501182] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn28.guoehi.cluster:1983833] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1347957] (0/MPI_COMM_WORLD): no underlying reduce; disqualifying myself
+[cn21.guoehi.cluster:1347957] coll:han:get_algorithm barrier size:0 algorithm:0 default
+
+  Data collection took 0.00025s.
+  Convergence check took 0.00093s.
+Completed maximum number of runs, terminated after 10 runs taking 542.07 seconds.
+Writing data & meta-data took 0.04463s.
+Overall took 542.17875s.
