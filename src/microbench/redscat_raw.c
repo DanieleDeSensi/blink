@@ -336,7 +336,7 @@ int main(int argc, char** argv){
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
-                    reduce_scatter_ring(send_buf, recv_buf, recv_counts, MPI_FLOAT, MPI_MAX, MPI_COMM_WORLD);
+                    reduce_scatter_ring(send_buf, recv_buf, recv_counts, MPI_INT, MPI_MAX, MPI_COMM_WORLD);
                 }
                 durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
                 curr_iters++;
