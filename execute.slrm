@@ -5,8 +5,9 @@
 #SBATCH --nodes=4                
 #SBATCH --ntasks-per-node=1           
 #SBATCH --time=01:00:00         
-#SBATCH --partition=cn-eth
-#SBATCH --account=dcn
+#SBATCH --partition=boost_usr_prod   
+#SBATCH --account=iscrc_ascend
+#SBATCH --exclusive
 
 #export OMPI_MCA_base_verbose=100
 #export OMPI_MCA_btl_base_verbose=100
