@@ -1,0 +1,46 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/redscat_noop_b/128MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-ib', maxruns=10, minruns=1, node_file='auto', numnodes=4, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 134217728 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 4 nodes:
+['cn09' 'cn10' 'cn11' 'cn18']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02367s.
+
+Running...
+ Run 1:
+  0.00253s: started 0
+  8.6475s: awaited 0
+  Data collection took 0.00024s.
+  Convergence check took 0.00095s.
+ Run 2:
+  0.0032s: started 0
+  8.1505s: awaited 0
+  Data collection took 0.00029s.
+  Convergence check took 0.00088s.
+ Run 3:
+  0.00317s: started 0
+  8.8519s: awaited 0
+  Data collection took 0.00026s.
+  Convergence check took 0.00089s.
+ Run 4:
+  0.00314s: started 0
+  9.05101s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.0009s.
+ Run 5:
+  0.00323s: started 0
+  8.55468s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00091s.
+Completed after reaching confidence interval, terminated after 5 runs taking 43.26 seconds.
+Writing data & meta-data took 0.0228s.
+Overall took 43.30835s.

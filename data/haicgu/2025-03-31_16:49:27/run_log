@@ -1,0 +1,36 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/redscat_noop_b/4B', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-eth', maxruns=10, minruns=1, node_file='auto', numnodes=4, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 4 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 4 nodes:
+['cn20' 'cn21' 'cn22' 'cn23']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02504s.
+
+Running...
+ Run 1:
+  0.00246s: started 0
+  1.81089s: awaited 0
+  Data collection took 0.00213s.
+  Convergence check took 0.00098s.
+ Run 2:
+  0.00281s: started 0
+  1.7894s: awaited 0
+  Data collection took 0.00308s.
+  Convergence check took 0.00107s.
+ Run 3:
+  0.00305s: started 0
+  1.7507s: awaited 0
+  Data collection took 0.0022s.
+  Convergence check took 0.00115s.
+Completed after reaching confidence interval, terminated after 3 runs taking 5.36 seconds.
+Writing data & meta-data took 0.0409s.
+Overall took 5.42784s.

@@ -1,0 +1,71 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/ardc_b/128MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-eth', maxruns=10, minruns=1, node_file='auto', numnodes=4, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 134217728 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 4 nodes:
+['cn20' 'cn21' 'cn22' 'cn23']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.03998s.
+
+Running...
+ Run 1:
+  0.00243s: started 0
+  51.56132s: awaited 0
+  Data collection took 0.00024s.
+  Convergence check took 0.00087s.
+ Run 2:
+  0.00697s: started 0
+  59.90014s: awaited 0
+  Data collection took 0.00029s.
+  Convergence check took 0.00084s.
+ Run 3:
+  0.00308s: started 0
+  46.62598s: awaited 0
+  Data collection took 0.00026s.
+  Convergence check took 0.00086s.
+ Run 4:
+  0.00628s: started 0
+  56.97986s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00085s.
+ Run 5:
+  0.00312s: started 0
+  50.64085s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00087s.
+ Run 6:
+  0.00644s: started 0
+  55.56063s: awaited 0
+  Data collection took 0.00024s.
+  Convergence check took 0.0009s.
+ Run 7:
+  0.00306s: started 0
+  51.19652s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00091s.
+ Run 8:
+  0.00671s: started 0
+  43.81249s: awaited 0
+  Data collection took 0.00026s.
+  Convergence check took 0.0009s.
+ Run 9:
+  0.0031s: started 0
+  46.63113s: awaited 0
+  Data collection took 0.00024s.
+  Convergence check took 0.00093s.
+ Run 10:
+  0.00674s: started 0
+  53.02388s: awaited 0
+  Data collection took 0.00026s.
+  Convergence check took 0.00097s.
+Completed maximum number of runs, terminated after 10 runs taking 515.95 seconds.
+Writing data & meta-data took 0.02936s.
+Overall took 516.01481s.
