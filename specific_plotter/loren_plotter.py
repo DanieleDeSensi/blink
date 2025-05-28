@@ -16,7 +16,7 @@ def DrawLinePlot(data, coll, yax):
     #fig = sns.barplot(df, x='name', y='time', hue='name', edgecolor=".3", linewidth=.5, errorbar="sd", ax=ax1)
     fig = sns.lineplot(data=df, x='message_size', y=yax, hue='cluster', style='cluster', markers=True, markersize=10, linewidth=3)
     if yax == 'bandwidth':
-        ax1.axhline(y=93.1323, color='red', linestyle='--', linewidth=2, label=f'Theoretical Peak {93.1323} Gib/s')
+        ax1.axhline(y=100, color='red', linestyle='--', linewidth=2, label=f'Theoretical Peak {100} Gib/s')
 
     plt.tick_params(axis='both', which='major', labelsize=18)
     measure = '(GiB)'
