@@ -21,7 +21,7 @@ def DrawLinePlot(data, coll, yax):
     plt.tick_params(axis='both', which='major', labelsize=18)
     measure = '(GiB)'
     if yax == 'bandwidth':
-        measure = '(Gib/s)'
+        measure = '(Gb/s)'
     elif yax == 'latency':
         measure = '(s)'
     plt.ylabel(f'{yax} {measure}', fontsize=28)
@@ -33,7 +33,7 @@ def DrawLinePlot(data, coll, yax):
     plt.savefig(f'plot_{coll}_{yax}.png')
 
 
-def LoadData(data, path, coll):
+def LoadData(data, path, coll, size):
 
     print("Loading data for collective: "+coll)
 
@@ -73,19 +73,19 @@ def LoadData(data, path, coll):
 
 
         if coll == "ardc_b" or coll == "ardc_noop_b":
-            message_bytes = 2*(message_bytes/4)*(3)
+            message_bytes = 2*(message_bytes/size)*(size-1)
         elif coll == "a2a_b":
-            message_bytes = message_bytes*(3)
-        else:  #"agtr_b", "agtr_raw", "redscat_b", "red_scat" also noop versions
-            message_bytes = (message_bytes/4)*(3)
+            message_bytes = message_bytes*(size-1)
+        else:  #"agtr_b", "agtr_raw", "redscat_b", "red_scat" also noop and raw versions
+            message_bytes = (message_bytes/size)*(size-1)
 
-        bandwidth = [(message_bytes/x)*8 for x in df_data["0_Max-Duration_s"]]
+        bandwidth = [(message_bytes/x)*8*1.073741824 for x in df_data["0_Max-Duration_s"]]
 
         data['message_size'].extend([message_size]*len(df_data["0_Max-Duration_s"]))
         data['latency'].extend(df_data["0_Max-Duration_s"])
         data['message_GiB'].extend([message_bytes]*len(df_data["0_Max-Duration_s"]))
         data['bandwidth'].extend(bandwidth)
-        data['cluster'].extend([df_description['system'][i]+"-"+df_description['extra'][i]]*len(df_data["0_Max-Duration_s"]))
+        data['cluster'].extend([coll+"-"+df_description['system'][i]+"-"+df_description['extra'][i]]*len(df_data["0_Max-Duration_s"]))
 
     with open(f'debug_{coll}.txt', 'a') as debug:
         for i in range(len(data['latency'])):
@@ -111,38 +111,27 @@ if __name__ == "__main__":
 
     description_path = "./blink/data/description.csv"
     
-    data = LoadData(data, description_path, 'ardc_b')
-    DrawLinePlot(data, 'ardc_b', 'latency')
-    DrawLinePlot(data, 'ardc_b', 'bandwidth')
+    data = LoadData(data, description_path, 'agtr_b', 10)
+    data = LoadData(data, description_path, 'ardc_b', 10)
+    data = LoadData(data, description_path, 'a2a_b', 10)
+    data = LoadData(data, description_path, 'redscat_b', 10)
+    data = LoadData(data, description_path, 'ping-pong_b', 10)
+    DrawLinePlot(data, 'HAICGU Blink Comparison', 'bandwidth')
     erase_dict(data)
 
-    data = LoadData(data, description_path, 'ardc_noop_b')
-    DrawLinePlot(data, 'ardc_noop_b', 'latency')
-    DrawLinePlot(data, 'ardc_noop_b', 'bandwidth')
+
+    '''
+    #DrawLinePlot(data, 'All Gather', 'latency')
+    DrawLinePlot(data, 'All Gather', 'bandwidth', 10)
     erase_dict(data)
 
-    data = LoadData(data, description_path, 'a2a_b')
-    DrawLinePlot(data, 'a2a_b', 'latency')
+    data = LoadData(data, description_path, 'redscat_raw')
+    #DrawLinePlot(data, 'All Gather', 'latency')
     DrawLinePlot(data, 'a2a_b', 'bandwidth')
     erase_dict(data)
 
-    data = LoadData(data, description_path, 'agtr_b')
-    DrawLinePlot(data, 'agtr_b', 'latency')
+    data = LoadData(data, description_path, 'redscat_raw_nomemcpy')
+    #DrawLinePlot(data, 'agtr_b', 'latency')
     DrawLinePlot(data, 'agtr_b', 'bandwidth')
     erase_dict(data)
-
-    data = LoadData(data, description_path, 'redscat_b')
-    DrawLinePlot(data, 'redscat_b', 'latency')
-    DrawLinePlot(data, 'redscat_b', 'bandwidth')
-    erase_dict(data)
-
-    data = LoadData(data, description_path, 'redscat_noop_b')
-    DrawLinePlot(data, 'redscat_noop_b', 'latency')
-    DrawLinePlot(data, 'redscat_noop_b', 'bandwidth')
-    erase_dict(data)
-
-    '''
-    data = LoadData(data, description_path, 'agtr_raw')
-    DrawLinePlot(data, 'agtr_raw', 'latency')
-    DrawLinePlot(data, 'agtr_raw', 'bandwidth')
     '''

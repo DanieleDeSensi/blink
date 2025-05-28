@@ -192,8 +192,9 @@ int main(int argc, char** argv){
     }while(endless);
     /*write results to file*/
     MPI_Barrier(MPI_COMM_WORLD);
-    
+    write_results();
 
+    /*
     // For pingpong we can avoid doing allgather etc from common.h (we just need to report rank 0 time)
     if(my_rank==master_rank){
         int num_samples;
@@ -217,6 +218,7 @@ int main(int argc, char** argv){
         printf("Ran %d iterations. Measured %d iterations.\n", curr_iters, num_samples);
         fflush(stdout);
     }
+    */
 
     
     /*free allocated buffers*/
