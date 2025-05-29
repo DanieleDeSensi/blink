@@ -1,0 +1,61 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/a2a_b/64B', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-eth', maxruns=10, minruns=1, node_file='auto', numnodes=8, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 64 -iter 1000 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 8 nodes:
+['cn19' 'cn20' 'cn21' 'cn22' 'cn23' 'cn24' 'cn25' 'cn26']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.02369s.
+
+Running...
+ Run 1:
+  0.0024s: started 0
+  1.77904s: awaited 0
+  Data collection took 0.00298s.
+  Convergence check took 0.00093s.
+ Run 2:
+  0.00273s: started 0
+  1.75411s: awaited 0
+  Data collection took 0.00219s.
+  Convergence check took 0.00104s.
+ Run 3:
+  0.00294s: started 0
+  1.79306s: awaited 0
+  Data collection took 0.00217s.
+  Convergence check took 0.00113s.
+ Run 4:
+  0.00282s: started 0
+  1.75264s: awaited 0
+  Data collection took 0.00224s.
+  Convergence check took 0.00129s.
+ Run 5:
+  0.003s: started 0
+  1.75257s: awaited 0
+  Data collection took 0.00224s.
+  Convergence check took 0.00139s.
+ Run 6:
+  0.00281s: started 0
+  1.74659s: awaited 0
+  Data collection took 0.00225s.
+  Convergence check took 0.00152s.
+ Run 7:
+  0.00276s: started 0
+  1.79769s: awaited 0
+  Data collection took 0.00239s.
+  Convergence check took 0.00166s.
+ Run 8:
+  0.0031s: started 0
+  1.75529s: awaited 0
+  Data collection took 0.00227s.
+  Convergence check took 0.00179s.
+Completed after reaching confidence interval, terminated after 8 runs taking 14.16 seconds.
+Writing data & meta-data took 0.09153s.
+Overall took 14.2764s.

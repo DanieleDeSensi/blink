@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --output=tmp_slrm_logs/%j.out
 #SBATCH --error=tmp_slrm_logs/%j.err
-#SBATCH --ntasks=10           
-#SBATCH --nodes=10                
+#SBATCH --ntasks=8           
+#SBATCH --nodes=8             
 #SBATCH --ntasks-per-node=1           
 #SBATCH --time=02:00:00         
 #SBATCH --partition=cn-eth
@@ -23,7 +23,7 @@
 #export OMPI_MCA_coll_tuned_dynamic_rules_filename="/home/lpiarulli/rules.txt"
 
 #source conf/leonardo_env/bin/activate
-soruce conf.sh
-./run.sh test_suites/coll-cpu-many auto -n 10 -sp 100 -am l -ro +file -e cn-eth -ppn 1
+source conf.sh
+./run.sh test_suites/coll-cpu-many auto -n 8 -sp 100 -am l -ro +file -e cn-eth
 
 
