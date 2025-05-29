@@ -595,9 +595,6 @@ def main():
     if ro_mode == 'file' or ro_mode == '+file':
         ro_file.close()
 
-    if(node_file=="auto")
-        os.remove(node_file)
-
 
 if __name__ == '__main__':
     main()
