@@ -4,33 +4,54 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-def DrawLinePlot(data, coll, yax):
 
-    print("Plotting data collective: "+coll)
+def DrawLinePlot(data, name):
+    print(f"Plotting data collective: {name}")
 
-    f, ax1 = plt.subplots(figsize=(25, 10))
+    # Use a dark theme for the plot
+    sns.set_style("whitegrid")  # darker background for axes
+
+    # Create the figure and axes
+    f, ax1 = plt.subplots(figsize=(20, 10))
+    
+    # Convert input data to a DataFrame
     df = pd.DataFrame(data)
-    sns.set_context("talk")
-    sns.set_palette("tab10")
 
-    #fig = sns.barplot(df, x='name', y='time', hue='name', edgecolor=".3", linewidth=.5, errorbar="sd", ax=ax1)
-    fig = sns.lineplot(data=df, x='message_size', y=yax, hue='cluster', style='cluster', markers=True, markersize=10, linewidth=3)
-    if yax == 'bandwidth':
-        ax1.axhline(y=100, color='red', linestyle='--', linewidth=2, label=f'Theoretical Peak {100} Gib/s')
+    df['cluster_collective'] = df['cluster'].astype(str) + '_' + df['collective'].astype(str)
 
-    plt.tick_params(axis='both', which='major', labelsize=18)
-    measure = '(GiB)'
-    if yax == 'bandwidth':
-        measure = '(Gb/s)'
-    elif yax == 'latency':
-        measure = '(s)'
-    plt.ylabel(f'{yax} {measure}', fontsize=28)
-    plt.xlabel('Message Size', fontsize=28)
-    plt.title(f'{coll}', fontsize=28)
-    plt.legend()
-    plt.tight_layout(h_pad=2)
+    # Plot with seaborn
+    fig = sns.lineplot(
+        data=df,
+        x='message_size',
+        y='bandwidth',
+        hue='cluster_collective',
+        style='cluster_collective',
+        markers=True,
+        markersize=10,
+        linewidth=3,
+        ax=ax1
+    )
 
-    plt.savefig(f'plot_{coll}_{yax}.png')
+    ax1.axhline(
+        y=100,
+        color='red',
+        linestyle='--',
+        linewidth=2,
+        label=f'Theoretical Peak {100} Gb/s'
+    )
+
+    # Labeling and formatting
+    ax1.tick_params(axis='both', which='major', labelsize=18)
+    ax1.set_ylabel('Bandwidth (Gb/s)', fontsize=28, labelpad=20)
+    ax1.set_xlabel('Message Size', fontsize=28, labelpad=20)
+    ax1.set_title(f'{name}', fontsize=38, pad=30)
+
+    # Show legend and layout
+    ax1.legend(fontsize=20)
+    plt.tight_layout()
+
+    # Save the figure
+    plt.savefig(f'../plots/{name}.png')  # save with dark background
 
 
 def LoadData(data, path, coll, size):
@@ -46,7 +67,7 @@ def LoadData(data, path, coll, size):
 
         message_size = df_description['app_mix'][i].strip().split('/')[-1]
         path = df_description['path'][i]
-        global_path = "./blink"+path[1:len(path)]+"/data.csv"
+        global_path = ".."+path[1:len(path)]+"/data.csv"
 
         try:
             df_data = pd.read_csv(global_path)
@@ -62,68 +83,77 @@ def LoadData(data, path, coll, size):
             else:
                 message_mult += char
 
-        message_bytes = int(message_digit)
+        message_digit = int(message_digit)
 
         if message_mult == "B":
-            message_bytes /= 1024**3
+            message_bytes = message_digit
         elif message_mult == 'KiB':
-            message_bytes /= 1024**2
+            message_bytes = message_digit*1024
         elif message_mult == 'MiB':
-            message_bytes /= 1024
+            message_bytes = message_digit*1024*1024
 
+        message_gb = (message_bytes/1e9) * 8
 
         if coll == "ardc_b" or coll == "ardc_noop_b":
-            message_bytes = 2*(message_bytes/size)*(size-1)
+            message_gb = 2*message_gb*((size-1)/size)
         elif coll == "a2a_b":
-            message_bytes = message_bytes*(size-1)
+            message_gb = message_gb*(size-1)
         else:  #"agtr_b", "agtr_raw", "redscat_b", "red_scat" also noop and raw versions
-            message_bytes = (message_bytes/size)*(size-1)
+            message_gb = message_gb*((size-1)/size)
 
-        bandwidth = [(message_bytes/x)*8*1.073741824 for x in df_data["0_Max-Duration_s"]]
+        latencies = [x for x in df_data["0_Max-Duration_s"]]
+        bandwidth = [message_gb / x for x in latencies]
 
-        data['message_size'].extend([message_size]*len(df_data["0_Max-Duration_s"]))
-        data['latency'].extend(df_data["0_Max-Duration_s"])
-        data['message_GiB'].extend([message_bytes]*len(df_data["0_Max-Duration_s"]))
+        avg_bandwidth = np.mean(bandwidth)
+        avg_latency = np.mean(latencies)
+
+        if coll == "agtr_b":
+            print("----")
+            print(f"AGTR Bandwidth: {avg_bandwidth} Gb/s")
+            print(f"AGTR Latency: {avg_latency} s")
+            print(f"AGTR Message Size: {message_size} ({message_bytes} B)")
+            print(f"AGTR Message Gb: {message_gb} Gb")
+            print("----")
+
+        data['message_size'].extend([message_size]*len(latencies))
+        data['latency'].extend(latencies)
+        data['message_Gb'].extend([message_gb]*len(latencies))
         data['bandwidth'].extend(bandwidth)
-        data['cluster'].extend([coll+"-"+df_description['system'][i]+"-"+df_description['extra'][i]]*len(df_data["0_Max-Duration_s"]))
-
-    with open(f'debug_{coll}.txt', 'a') as debug:
-        for i in range(len(data['latency'])):
-            debug.write(f"{data['message_size'][i]} - {data['latency'][i]} : {data['bandwidth'][i]}\n")
+        data['cluster'].extend([df_description['system'][i]+"-"+df_description['extra'][i]]*len(latencies))
+        data['collective'].extend([coll]*len(latencies))
 
     return data
 
-def erase_dict(dictionary):
-    for key in dictionary:
-        dictionary[key] = [] 
+def CleanData(data):
+    for key in data.keys():
+        data[key] = []
+    return data
 
 if __name__ == "__main__":
 
-    sns.set_theme(style="darkgrid")
-
     data = {
         'message_size': [],
-        'message_GiB': [],
+        'message_Gb': [],
         'latency': [],
         'bandwidth': [],
         'cluster': [],
+        'collective': []
     }
 
-    description_path = "./blink/data/description.csv"
+    description_path = "../data/description.csv"
     
-    data = LoadData(data, description_path, 'agtr_b', 10)
-    data = LoadData(data, description_path, 'ardc_b', 10)
-    data = LoadData(data, description_path, 'a2a_b', 10)
-    data = LoadData(data, description_path, 'redscat_b', 10)
-    data = LoadData(data, description_path, 'ping-pong_b', 10)
-    DrawLinePlot(data, 'HAICGU Blink Comparison', 'bandwidth')
-    erase_dict(data)
+    data = LoadData(data, description_path, 'agtr_b', 8)
+    data = LoadData(data, description_path, 'ardc_b', 8)
+    data = LoadData(data, description_path, 'a2a_b', 8)
+    data = LoadData(data, description_path, 'redscat_b', 8)
+    DrawLinePlot(data, 'HAICGU_blink')
+    CleanData(data)
 
 
     '''
     #DrawLinePlot(data, 'All Gather', 'latency')
     DrawLinePlot(data, 'All Gather', 'bandwidth', 10)
-    erase_dict(data)
+    CleanData(data)
 
     data = LoadData(data, description_path, 'redscat_raw')
     #DrawLinePlot(data, 'All Gather', 'latency')
