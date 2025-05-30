@@ -1,0 +1,71 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/redscat_b/128MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-eth', maxruns=10, minruns=1, node_file='auto', numnodes=4, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 134217728 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 4 nodes:
+['cn19' 'cn20' 'cn21' 'cn22']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.04174s.
+
+Running...
+ Run 1:
+  0.00265s: started 0
+  25.84718s: awaited 0
+  Data collection took 0.00024s.
+  Convergence check took 0.00086s.
+ Run 2:
+  0.00723s: started 0
+  27.33663s: awaited 0
+  Data collection took 0.00024s.
+  Convergence check took 0.00082s.
+ Run 3:
+  0.00285s: started 0
+  27.60771s: awaited 0
+  Data collection took 0.00024s.
+  Convergence check took 0.00083s.
+ Run 4:
+  0.00284s: started 0
+  29.7219s: awaited 0
+  Data collection took 0.00024s.
+  Convergence check took 0.00084s.
+ Run 5:
+  0.00716s: started 0
+  29.21932s: awaited 0
+  Data collection took 0.00024s.
+  Convergence check took 0.00085s.
+ Run 6:
+  0.00285s: started 0
+  26.4581s: awaited 0
+  Data collection took 0.00027s.
+  Convergence check took 0.00087s.
+ Run 7:
+  0.00284s: started 0
+  27.31801s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00088s.
+ Run 8:
+  0.00632s: started 0
+  28.41035s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00088s.
+ Run 9:
+  0.00283s: started 0
+  27.74899s: awaited 0
+  Data collection took 0.00024s.
+  Convergence check took 0.00089s.
+ Run 10:
+  0.00287s: started 0
+  29.2387s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00091s.
+Completed maximum number of runs, terminated after 10 runs taking 278.92 seconds.
+Writing data & meta-data took 0.03219s.
+Overall took 278.9927s.

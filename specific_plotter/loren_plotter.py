@@ -65,6 +65,9 @@ def LoadData(data, path, coll, size):
         if df_description['app_mix'][i].strip().split('/')[-2] != coll:
             continue
 
+        if int(df_description['numnodes'][i]) != size:
+            continue
+
         message_size = df_description['app_mix'][i].strip().split('/')[-1]
         path = df_description['path'][i]
         global_path = ".."+path[1:len(path)]+"/data.csv"
@@ -141,27 +144,21 @@ if __name__ == "__main__":
     }
 
     description_path = "../data/description.csv"
-    
-    data = LoadData(data, description_path, 'agtr_b', 8)
-    data = LoadData(data, description_path, 'ardc_b', 8)
-    data = LoadData(data, description_path, 'a2a_b', 8)
-    data = LoadData(data, description_path, 'redscat_b', 8)
-    DrawLinePlot(data, 'HAICGU_blink')
+
+    node_count = 10
+
+    data = LoadData(data, description_path, 'a2a_b', node_count)
+    DrawLinePlot(data, f'HAICGU Blink {node_count} Nodes a2a')
     CleanData(data)
 
-
-    '''
-    #DrawLinePlot(data, 'All Gather', 'latency')
-    DrawLinePlot(data, 'All Gather', 'bandwidth', 10)
+    data = LoadData(data, description_path, 'agtr_b', node_count)
+    DrawLinePlot(data, f'HAICGU Blink {node_count} Nodes agtr')
     CleanData(data)
 
-    data = LoadData(data, description_path, 'redscat_raw')
-    #DrawLinePlot(data, 'All Gather', 'latency')
-    DrawLinePlot(data, 'a2a_b', 'bandwidth')
-    erase_dict(data)
+    data = LoadData(data, description_path, 'ardc_b', node_count)
+    DrawLinePlot(data, f'HAICGU Blink {node_count} Nodes ardc')
+    CleanData(data)
 
-    data = LoadData(data, description_path, 'redscat_raw_nomemcpy')
-    #DrawLinePlot(data, 'agtr_b', 'latency')
-    DrawLinePlot(data, 'agtr_b', 'bandwidth')
-    erase_dict(data)
-    '''
+    data = LoadData(data, description_path, 'redscat_b', node_count)
+    DrawLinePlot(data, f'HAICGU Blink {node_count} Nodes redscat')
+    CleanData(data)

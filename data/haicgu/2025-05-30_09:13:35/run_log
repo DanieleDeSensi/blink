@@ -1,0 +1,58 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/ardc_b/128MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-eth', maxruns=10, minruns=1, node_file='auto', numnodes=8, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 134217728 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 8 nodes:
+['cn20' 'cn21' 'cn22' 'cn23' 'cn24' 'cn25' 'cn26' 'cn27']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.06305s.
+
+Running...
+ Run 1:
+  0.00258s: started 0
+  76.9579s: awaited 0
+  Data collection took 0.00024s.
+  Convergence check took 0.00085s.
+ Run 2:
+  0.01162s: started 0
+  97.39907s: awaited 0
+  97.3991s: encountered an exception in 0
+srun: Step created for StepId=15322.60
+
+  Data collection took 0.00024s.
+  Convergence check took 0.00083s.
+ Run 3:
+  0.01166s: started 0
+  91.45378s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00083s.
+ Run 4:
+  0.01203s: started 0
+  95.56739s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00084s.
+ Run 5:
+  0.01137s: started 0
+  83.92236s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00085s.
+ Run 6:
+  0.01141s: started 0
+  94.92278s: awaited 0
+  Data collection took 0.00028s.
+  Convergence check took 0.00086s.
+ Run 7:
+  0.01166s: started 0
+  59.83127s: timed out 0
+  No data collection due to timeout.
+Completed after timeout, terminated after 6 runs taking 600.06 seconds.
+Writing data & meta-data took 0.03587s.
+Overall took 600.16211s.

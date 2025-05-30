@@ -1,0 +1,71 @@
+
+Passed arguments:
+Namespace(allocationmode='l', allocationsplit='100', alpha=0.05, app_mix='./apps_mix/agtr_b/16MiB', beta=0.05, convergeall=False, datapath='./data', extrainfo='cn-eth', maxruns=10, minruns=1, node_file='auto', numnodes=10, outformat='csv', ppn=1, replace_mix_args=None, runtimeout='+file', seed=1, timeout=600.0)
+
+Apps:
+0: with arguments:"-msgsize 16777216 -iter 100 -grty 1", collection flag: True, ending condition: run until finished.
+
+Node allocation:
+Processes per node (ppn): 1
+0 on 10 nodes:
+['cn19' 'cn20' 'cn21' 'cn22' 'cn23' 'cn24' 'cn25' 'cn26' 'cn27' 'cn28']
+
+Schedule:
+0.0s: start 0
+
+Preparing took 0.03891s.
+
+Running...
+ Run 1:
+  0.00245s: started 0
+  3.41992s: awaited 0
+  Data collection took 0.00024s.
+  Convergence check took 0.00088s.
+ Run 2:
+  0.00294s: started 0
+  3.48275s: awaited 0
+  Data collection took 0.00024s.
+  Convergence check took 0.00085s.
+ Run 3:
+  0.00315s: started 0
+  3.3074s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00085s.
+ Run 4:
+  0.00303s: started 0
+  3.45694s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00085s.
+ Run 5:
+  0.00286s: started 0
+  3.38733s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00089s.
+ Run 6:
+  0.00307s: started 0
+  3.20932s: awaited 0
+  Data collection took 0.00026s.
+  Convergence check took 0.0009s.
+ Run 7:
+  0.00301s: started 0
+  3.21309s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.0009s.
+ Run 8:
+  0.00305s: started 0
+  3.27767s: awaited 0
+  Data collection took 0.00026s.
+  Convergence check took 0.0009s.
+ Run 9:
+  0.0031s: started 0
+  3.45428s: awaited 0
+  Data collection took 0.00025s.
+  Convergence check took 0.00094s.
+ Run 10:
+  0.00309s: started 0
+  3.1666s: awaited 0
+  Data collection took 0.00024s.
+  Convergence check took 0.00096s.
+Completed maximum number of runs, terminated after 10 runs taking 33.39 seconds.
+Writing data & meta-data took 0.03675s.
+Overall took 33.46322s.
