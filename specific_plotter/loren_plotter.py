@@ -147,18 +147,20 @@ if __name__ == "__main__":
 
     node_count = 10
 
+    system = "Nanjing"
+
     data = LoadData(data, description_path, 'a2a_b', node_count)
-    DrawLinePlot(data, f'HAICGU Blink {node_count} Nodes a2a')
+    DrawLinePlot(data, f'{system} Blink {node_count} Nodes a2a')
     CleanData(data)
 
     data = LoadData(data, description_path, 'agtr_b', node_count)
-    DrawLinePlot(data, f'HAICGU Blink {node_count} Nodes agtr')
+    DrawLinePlot(data, f'{system} Blink {node_count} Nodes agtr')
     CleanData(data)
 
     data = LoadData(data, description_path, 'ardc_b', node_count)
-    DrawLinePlot(data, f'HAICGU Blink {node_count} Nodes ardc')
+    DrawLinePlot(data, f'{system} Blink {node_count} Nodes ardc')
     CleanData(data)
 
     data = LoadData(data, description_path, 'redscat_b', node_count)
-    DrawLinePlot(data, f'HAICGU Blink {node_count} Nodes redscat')
+    DrawLinePlot(data, f'{system} Blink {node_count} Nodes redscat')
     CleanData(data)
