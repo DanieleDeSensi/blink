@@ -145,7 +145,7 @@ if __name__ == "__main__":
 
     description_path = "../data/description.csv"
 
-    node_count = 10
+    node_count = 8
 
     system = "Nanjing"
 
