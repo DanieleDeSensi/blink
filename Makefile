@@ -2,9 +2,8 @@
 SRC_DIR = .
 BIN_DIR = bin
 
-# Compilers (Make defaults to cc and g++, but it's good practice to define them)
-CC = gcc
-CXX = g++
+CC = mpicc
+CXX = mpicxx
 
 # Source files
 C_SRCS = $(wildcard $(SRC_DIR)/*.c)
