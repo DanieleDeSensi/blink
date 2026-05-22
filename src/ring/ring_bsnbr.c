@@ -109,7 +109,6 @@ int main(int argc, char** argv){
     unsigned char *recv_buf;
     int *targets;
     MPI_Request *recv_requests;
-    MPI_Request *send_requests;
     
     send_buf_size=msg_size;
     recv_buf_size=2*measure_granularity*msg_size;
@@ -119,9 +118,8 @@ int main(int argc, char** argv){
     targets=(int*)malloc_align(sizeof(int)*w_size);
     durations=(double *)malloc_align(sizeof(double)*max_samples);
     recv_requests=(MPI_Request*)malloc_align(sizeof(MPI_Request)*2*measure_granularity);
-    send_requests=(MPI_Request*)malloc_align(2*sizeof(MPI_Request)*measure_granularity);
     
-    if(send_buf==NULL || recv_buf==NULL || recv_requests==NULL || targets==NULL || durations==NULL || send_requests==NULL){
+    if(send_buf==NULL || recv_buf==NULL || recv_requests==NULL || targets==NULL || durations==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
         exit(-1);
     }
@@ -153,6 +151,7 @@ int main(int argc, char** argv){
                     ,w_size,(rand_ring?"true":"false"),msg_size,max_iters);
         }
     }
+    
     /*measured iterations*/
     double burst_start_time;
     double measure_start_time;
@@ -177,14 +176,11 @@ int main(int argc, char** argv){
                             ,antideadlock_tag, MPI_COMM_WORLD,&recv_requests[2*i]);
                     MPI_Irecv(&recv_buf[(2*i+1)*msg_size],recv_buf_size,MPI_BYTE,MPI_ANY_SOURCE
                             ,antideadlock_tag, MPI_COMM_WORLD,&recv_requests[2*i+1]);
-                    MPI_Isend(send_buf,msg_size,MPI_BYTE,left_neighbor
-                            ,antideadlock_tag,MPI_COMM_WORLD, &send_requests[2*i]);
-                    MPI_Isend(send_buf,msg_size,MPI_BYTE,right_neighbor
-                            ,antideadlock_tag,MPI_COMM_WORLD, &send_requests[2*i+1]);
+                    MPI_Send(send_buf,msg_size,MPI_BYTE,left_neighbor,antideadlock_tag,MPI_COMM_WORLD);
+                    MPI_Send(send_buf,msg_size,MPI_BYTE,right_neighbor,antideadlock_tag,MPI_COMM_WORLD);
                     antideadlock_tag++;
                 }
-                MPI_Waitall(2*measure_granularity,send_requests,MPI_STATUS_IGNORE);
-                MPI_Waitall(2*measure_granularity,recv_requests,MPI_STATUS_IGNORE);
+                MPI_Waitall(2*measure_granularity,recv_requests,MPI_STATUSES_IGNORE);
                 durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
                 curr_iters++;
                 if(burst_length!=0){ /*bcast needed for synch if bursts timed*/
@@ -213,7 +209,6 @@ int main(int argc, char** argv){
     free(send_buf);
     free(recv_buf);
     free(recv_requests);
-    free(send_requests);
     
     /*exit MPI library*/
     MPI_Finalize();

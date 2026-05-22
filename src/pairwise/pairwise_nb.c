@@ -160,10 +160,10 @@ int main(int argc, char** argv){
     /*print basic info to stdout*/
     if(my_rank==master_rank){
         if(endless){
-            printf("One-to-one with %d processes, mode: %s, msg-size: %d, test iterations: endless.\n"
+            printf("Pairwise with %d processes, mode: %s, msg-size: %d, test iterations: endless.\n"
                     ,w_size,comm_mode,msg_size);
         }else{
-            printf("One-to-one with %d processes, mode: %s, msg-size: %d, test iterations: %d.\n"
+            printf("Pairwise with %d processes, mode: %s, msg-size: %d, test iterations: %d.\n"
                     ,w_size,comm_mode,msg_size,max_iters);
         }
     }
@@ -192,8 +192,8 @@ int main(int argc, char** argv){
                     MPI_Isend(send_buf,msg_size,MPI_BYTE,targets[my_rank]
                         ,my_rank,MPI_COMM_WORLD,&send_requests[i]);
                 }
-                MPI_Waitall(measure_granularity,send_requests,MPI_STATUS_IGNORE);
-                MPI_Waitall(measure_granularity,recv_requests,MPI_STATUS_IGNORE);
+                MPI_Waitall(measure_granularity,send_requests,MPI_STATUSES_IGNORE);
+                MPI_Waitall(measure_granularity,recv_requests,MPI_STATUSES_IGNORE);
                 durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
                 curr_iters++;
                 if(burst_length!=0){ /*bcast needed for synch if bursts timed*/

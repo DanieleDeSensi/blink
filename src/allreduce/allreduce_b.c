@@ -39,9 +39,7 @@ int main(int argc, char** argv){
     double burst_pause=0.0;
     bool burst_pause_rand=false;
     
-    bool rand_ring=false;
-    
-    int i,k;
+    int i,j,k;
 
     /*read cmd line args*/
     for(i=1;i<argc;i++){
@@ -50,8 +48,6 @@ int main(int argc, char** argv){
             master_rank=atoi(argv[i]);
         }else if(strcmp(argv[i],"-mrand")==0){
             master_rand=true;
-        }else if(strcmp(argv[i],"-rring")==0){
-            rand_ring=true;
         }else if(strcmp(argv[i],"-msgsize")==0){
             ++i;
             msg_size=atoi(argv[i]);
@@ -104,51 +100,45 @@ int main(int argc, char** argv){
     sched_setaffinity(0, sizeof(mask), &mask);*/
     
     /*allocate buffers*/
+    int msg_size_ints;
     int send_buf_size, recv_buf_size;
-    unsigned char *send_buf;
-    unsigned char *recv_buf;
-    int *targets;
-    MPI_Request *recv_requests;
+    int *send_buf;
+    int *recv_buf;
     
+    if(msg_size%sizeof(int)!=0){
+        if(my_rank==master_rank){
+                fprintf(stderr, "Msg-size (%d) must be divisible by size of int (%ld)",msg_size,sizeof(int));
+                exit(-1);
+        }
+    }
+    
+    msg_size_ints=msg_size/sizeof(int);
     send_buf_size=msg_size;
-    recv_buf_size=2*measure_granularity*msg_size;
+    recv_buf_size=msg_size;
     
-    send_buf=(unsigned char*)malloc_align(send_buf_size);
-    recv_buf=(unsigned char*)malloc_align(recv_buf_size);
-    targets=(int*)malloc_align(sizeof(int)*w_size);
+    send_buf=(int*)malloc_align(send_buf_size);
+    recv_buf=(int*)malloc_align(recv_buf_size);
     durations=(double *)malloc_align(sizeof(double)*max_samples);
-    recv_requests=(MPI_Request*)malloc_align(sizeof(MPI_Request)*2*measure_granularity);
     
-    if(send_buf==NULL || recv_buf==NULL || recv_requests==NULL || targets==NULL || durations==NULL){
+    if(send_buf==NULL || recv_buf==NULL || durations==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
         exit(-1);
     }
     
     /*fill send buffer with dummies*/
-    for(i=0;i<send_buf_size;i++){
-        send_buf[i]='a';
+    for(i=0;i<msg_size_ints;i++){
+        send_buf[i]=1;
     }
-    
-    /*setup ring*/
-    for(i=0;i<w_size;i++){
-        targets[i]=i;
-    }
-    if(rand_ring){
-        permute(targets,w_size);
-    }
-    
-    int left_neighbor=targets[mod(my_rank-1,w_size)];
-    int right_neighbor=targets[mod(my_rank+1,w_size)];
-    int antideadlock_tag;
+
     
     /*print basic info to stdout*/
     if(my_rank==master_rank){
         if(endless){
-            printf("Ring with %d processes, randomized: %s, msg-size: %d, test iterations: endless.\n"
-                    ,w_size,(rand_ring?"true":"false"),msg_size);
+            printf("All-reduce with %d processes, msg-size: %d, test iterations: endless.\n"
+                    ,w_size,msg_size);
         }else{
-            printf("Ring with %d processes, randomized: %s, msg-size: %d, test iterations: %d.\n"
-                    ,w_size,(rand_ring?"true":"false"),msg_size,max_iters);
+            printf("All-reduce with %d processes, msg-size: %d, test iterations: %d.\n"
+                    ,w_size,msg_size,max_iters);
         }
     }
     
@@ -160,7 +150,6 @@ int main(int argc, char** argv){
     bool burst_cont=false;
     curr_iters=0;
     
-    antideadlock_tag=0;
     MPI_Barrier(MPI_COMM_WORLD);
     do{
         for(k=0;k<max_iters+warm_up_iters;k++){
@@ -172,15 +161,8 @@ int main(int argc, char** argv){
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
-                    MPI_Irecv(&recv_buf[2*i*msg_size],recv_buf_size,MPI_BYTE,MPI_ANY_SOURCE
-                            ,antideadlock_tag, MPI_COMM_WORLD,&recv_requests[2*i]);
-                    MPI_Irecv(&recv_buf[(2*i+1)*msg_size],recv_buf_size,MPI_BYTE,MPI_ANY_SOURCE
-                            ,antideadlock_tag, MPI_COMM_WORLD,&recv_requests[2*i+1]);
-                    MPI_Send(send_buf,msg_size,MPI_BYTE,left_neighbor,antideadlock_tag,MPI_COMM_WORLD);
-                    MPI_Send(send_buf,msg_size,MPI_BYTE,right_neighbor,antideadlock_tag,MPI_COMM_WORLD);
-                    antideadlock_tag++;
+                    MPI_Allreduce(send_buf,recv_buf,msg_size_ints,MPI_INT,MPI_SUM,MPI_COMM_WORLD);
                 }
-                MPI_Waitall(2*measure_granularity,recv_requests,MPI_STATUS_IGNORE);
                 durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
                 curr_iters++;
                 if(burst_length!=0){ /*bcast needed for synch if bursts timed*/
@@ -204,11 +186,9 @@ int main(int argc, char** argv){
     write_results();
     
     /*free allocated buffers*/
-    free(targets);
     free(durations);
-    free(send_buf);
     free(recv_buf);
-    free(recv_requests);
+    free(send_buf);
     
     /*exit MPI library*/
     MPI_Finalize();

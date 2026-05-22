@@ -16,32 +16,32 @@ int main(int argc, char** argv){
     MPI_Init(&argc,&argv);
     MPI_Comm_size(MPI_COMM_WORLD, &w_size);
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
-    
+
     /*register signal handler*/
-    signal(SIGUSR1,sig_handler); //or SIGUSR1 here
+    signal(SIGUSR1,sig_handler);
 
     /*default values*/
     int master_rank=0;
     bool master_rand=false;
-    
+
     int rand_seed=1;
-    
+
     int msg_size=1024;
     int measure_granularity=1;
     max_samples=1000;
-    
+
     warm_up_iters=5;
     int max_iters=1;
     bool endless=false;
-    
+
     double burst_length=0.0;
     bool burst_length_rand=false;
     double burst_pause=0.0;
     bool burst_pause_rand=false;
-    
+
     char *comm_mode="offpair";
     int target_offset=1;
-    
+
     int i,k;
 
     /*read cmd line args*/
@@ -96,44 +96,42 @@ int main(int argc, char** argv){
     }
     /*set seed such that all ranks share rands*/
     srand(rand_seed);
-    
+
     /*randomized master rank*/
     if(master_rand){
         master_rank=rand()%w_size;
     }
-    
+
     /*pin to core*/
     /*cpu_set_t mask;
     CPU_ZERO(&mask);
     CPU_SET(1, &mask);
     sched_setaffinity(0, sizeof(mask), &mask);*/
-    
+
     /*allocate buffers*/
     int send_buf_size, recv_buf_size;
     unsigned char *send_buf;
     unsigned char *recv_buf;
     int *targets;
-    MPI_Request *recv_requests;
-    
+
     send_buf_size=msg_size;
     recv_buf_size=measure_granularity*msg_size;
-    
+
     send_buf=(unsigned char*)malloc_align(send_buf_size);
     recv_buf=(unsigned char*)malloc_align(recv_buf_size);
     targets=(int*)malloc_align(sizeof(int)*w_size);
     durations=(double *)malloc_align(sizeof(double)*max_samples);
-    recv_requests=(MPI_Request*)malloc_align(sizeof(MPI_Request)*measure_granularity);
-    
-    if(send_buf==NULL || recv_buf==NULL || recv_requests==NULL || targets==NULL || durations==NULL){
+
+    if(send_buf==NULL || recv_buf==NULL || targets==NULL || durations==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
         exit(-1);
     }
-    
+
     /*fill send buffer with dummies*/
     for(i=0;i<send_buf_size;i++){
         send_buf[i]='a';
     }
-    
+
     /*setup target mode*/
     if(strcmp(comm_mode,"perm")==0){
         for(i=0;i<w_size;i++){
@@ -154,27 +152,18 @@ int main(int argc, char** argv){
             exit(-1);
         }
     }
-    
-    /* //print for target mode debugging
-    if(my_rank==master_rank){
-        printf("Targets:");
-        for(int i=0;i<w_size;i++){
-            printf(" %d",targets[i]);
-        }
-        printf("\n");   
-    }*/
-    
+
     /*print basic info to stdout*/
     if(my_rank==master_rank){
         if(endless){
-            printf("One-to-one with %d processes, mode: %s, msg-size: %d, test iterations: endless.\n"
+            printf("Pairwise with %d processes, mode: %s, msg-size: %d, test iterations: endless.\n"
                     ,w_size,comm_mode,msg_size);
         }else{
-            printf("One-to-one with %d processes, mode: %s, msg-size: %d, test iterations: %d.\n"
+            printf("Pairwise with %d processes, mode: %s, msg-size: %d, test iterations: %d.\n"
                     ,w_size,comm_mode,msg_size,max_iters);
         }
     }
-    
+
     /*measured iterations*/
     double burst_start_time;
     double measure_start_time;
@@ -182,28 +171,22 @@ int main(int argc, char** argv){
     double burst_pause_mean=burst_pause;
     bool burst_cont=false;
     curr_iters=0;
-    
+
     MPI_Barrier(MPI_COMM_WORLD);
     do{
         for(k=0;k<max_iters+warm_up_iters;k++){
             if(burst_length_rand){ /*randomized burst length*/
                 burst_length=rand_expo(burst_length_mean);
-            }        
+            }
             burst_start_time=MPI_Wtime();
             do{
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
-                    MPI_Irecv(&recv_buf[i*msg_size],recv_buf_size,MPI_BYTE,MPI_ANY_SOURCE
-                        ,MPI_ANY_TAG, MPI_COMM_WORLD,&recv_requests[i]);
-                    MPI_Send(send_buf,msg_size,MPI_BYTE,targets[my_rank]
-                        ,my_rank,MPI_COMM_WORLD);
-                    MPI_Irecv(&recv_buf[i*msg_size],recv_buf_size,MPI_BYTE,MPI_ANY_SOURCE
-                        ,MPI_ANY_TAG, MPI_COMM_WORLD,&recv_requests[i]);
-                    MPI_Send(send_buf,msg_size,MPI_BYTE,targets[my_rank]
-                        ,my_rank,MPI_COMM_WORLD);
+                    MPI_Sendrecv(send_buf,msg_size,MPI_BYTE,targets[my_rank],my_rank,
+                                 &recv_buf[i*msg_size],msg_size,MPI_BYTE,MPI_ANY_SOURCE,MPI_ANY_TAG,
+                                 MPI_COMM_WORLD,MPI_STATUS_IGNORE);
                 }
-                MPI_Waitall(measure_granularity,recv_requests,MPI_STATUS_IGNORE);
                 durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
                 curr_iters++;
                 if(burst_length!=0){ /*bcast needed for synch if bursts timed*/
@@ -225,15 +208,13 @@ int main(int argc, char** argv){
     /*write results to file*/
     MPI_Barrier(MPI_COMM_WORLD);
     write_results();
-    
+
     /*free allocated buffers*/
     free(targets);
     free(durations);
     free(send_buf);
     free(recv_buf);
-    free(recv_requests);
-    
+
     /*exit MPI library*/
     MPI_Finalize();
 }
-
