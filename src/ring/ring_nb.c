@@ -20,83 +20,22 @@ int main(int argc, char** argv){
     /*register signal handler*/
     signal(SIGUSR1,sig_handler); //or SIGUSR1 here
 
-    /*default values*/
-    int master_rank=0;
-    bool master_rand=false;
-    
-    int rand_seed=1;
-    
-    int msg_size=1024;
-    int measure_granularity=1;
-    max_samples=1000;
-    
-    warm_up_iters=5;
-    int max_iters=1;
-    bool endless=false;
-    
-    double burst_length=0.0;
-    bool burst_length_rand=false;
-    double burst_pause=0.0;
-    bool burst_pause_rand=false;
-    
     bool rand_ring=false;
-    
-    int i,k;
 
-    /*read cmd line args*/
-    for(i=1;i<argc;i++){
-        if(strcmp(argv[i],"-mrank")==0){
-            ++i;
-            master_rank=atoi(argv[i]);
-        }else if(strcmp(argv[i],"-mrand")==0){
-            master_rand=true;
-        }else if(strcmp(argv[i],"-rring")==0){
-            rand_ring=true;
-        }else if(strcmp(argv[i],"-msgsize")==0){
-            ++i;
-            msg_size=atoi(argv[i]);
-        }else if(strcmp(argv[i],"-endl")==0){
-            endless=true;
-        }else if(strcmp(argv[i],"-iter")==0){
-            ++i;
-            max_iters=atoi(argv[i]);
-        }else if(strcmp(argv[i],"-warmup")==0){
-            ++i;
-            warm_up_iters=atoi(argv[i]);
-        }else if(strcmp(argv[i],"-blength")==0){
-            ++i;
-            burst_length=atof(argv[i]);
-        }else if(strcmp(argv[i],"-bpause")==0){
-            ++i;
-            burst_pause=atof(argv[i]);
-        }else if(strcmp(argv[i],"-bprand")==0){
-            burst_pause_rand=true;
-        }else if(strcmp(argv[i],"-blrand")==0){
-            burst_length_rand=true;
-        }else if(strcmp(argv[i],"-seed")==0){
-            ++i;
-            rand_seed=atoi(argv[i]);
-        }else if(strcmp(argv[i],"-grty")==0){
-            ++i;
-            measure_granularity=atoi(argv[i]);
-        }else if(strcmp(argv[i],"-maxsamples")==0){
-            ++i;
-            max_samples=atoi(argv[i]);
-        }else{
-            if(my_rank==master_rank){
+    /*parse command line*/
+    int i, k;
+    argc = parse_common_args(argc, argv);
+    for (i = 1; i < argc; i++) {
+        if (strcmp(argv[i], "-rring") == 0) {
+            rand_ring = true;
+        } else {
+            if (my_rank == master_rank) {
                 fprintf(stderr, "Unknown argument: %s\n", argv[i]);
                 exit(-1);
             }
         }
     }
-    /*set seed such that all ranks share rands*/
-    srand(rand_seed);
-    
-    /*randomized master rank*/
-    if(master_rand){
-        master_rank=rand()%w_size;
-    }
-    
+
     /*pin to core*/
     /*cpu_set_t mask;
     CPU_ZERO(&mask);
