@@ -1,7 +1,5 @@
 <div align="center">
-  <img src="assets/blink.svg" width="220" alt="Blink logo" />
-  <h1>Blink</h1>
-  <p>MPI micro-benchmarks for collective and point-to-point communication patterns</p>
+  <img src="assets/blink.svg" width="400" alt="Blink logo" />
 </div>
 
 ---
