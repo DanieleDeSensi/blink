@@ -105,7 +105,7 @@ int main(int argc, char** argv){
     do{
         for(k=0;k<max_iters+warm_up_iters;k++){
             if(burst_length_rand){ /*randomized burst length*/
-                burst_length=rand_expo(burst_length_mean);
+                burst_length=sample_burst_length(burst_length_mean);
             }        
             burst_start_time=MPI_Wtime();
             do{
@@ -135,7 +135,7 @@ int main(int argc, char** argv){
             }while(burst_cont);
             if(burst_pause!=0){
                 if(burst_pause_rand){ /*randomized break length*/
-                    burst_pause=rand_expo(burst_pause_mean);
+                    burst_pause=sample_pause_length(burst_pause_mean);
                 }
                 dsleep(burst_pause);
             }

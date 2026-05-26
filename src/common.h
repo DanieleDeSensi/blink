@@ -9,12 +9,50 @@
 #include <stdbool.h>
 #include <sched.h>
 
-/*draw a exponentially distributed number with expectation=mean*/
-static double rand_expo(double mean)
+/* ── random duration samplers ────────────────────────────────────────────── */
+
+/* Exponential: shape parameter accepted for API uniformity but not used —
+ * the distribution is fully determined by its mean.                         */
+static double rand_exp(double mean, double shape)
 {
-    double lambda = 1.0 / mean;
+    (void)shape;
     double u = rand() / (RAND_MAX + 1.0);
-    return -log(1 - u) / lambda;
+    return -mean * log(1.0 - u);
+}
+
+/* Pareto: shape = tail exponent α.  Must be > 1 for a finite mean.
+ * Parameterised so that E[X] = mean regardless of α.
+ * Inverse-CDF method: x = x_m * u^(-1/α), u ~ Uniform(0,1).               */
+static double rand_pareto(double mean, double shape)
+{
+    double alpha = shape;
+    if (alpha <= 1.0) {
+        fprintf(stderr, "rand_pareto: shape (alpha) must be > 1, got %g\n", alpha);
+        exit(-1);
+    }
+    double x_m = mean * (alpha - 1.0) / alpha;
+    double u   = (rand() + 0.5) / (RAND_MAX + 1.0); /* shift away from 0 */
+    return x_m * pow(u, -1.0 / alpha);
+}
+
+/* Log-normal: shape = σ of the underlying normal.
+ * Parameterised so that E[X] = mean regardless of σ.
+ * Box-Muller transform.                                                      */
+static double rand_lognormal(double mean, double sigma)
+{
+    double mu = log(mean) - 0.5 * sigma * sigma;
+    double u1 = (rand() + 0.5) / (RAND_MAX + 1.0); /* shift away from 0 */
+    double u2 = (rand() + 0.5) / (RAND_MAX + 1.0);
+    double z  = sqrt(-2.0 * log(u1)) * cos(2.0 * M_PI * u2);
+    return exp(mu + sigma * z);
+}
+
+/* Dispatch to the selected sampler. */
+static double rand_duration(double mean, const char *dist, double shape)
+{
+    if (strcmp(dist, "pareto")    == 0) return rand_pareto(mean, shape);
+    if (strcmp(dist, "lognormal") == 0) return rand_lognormal(mean, shape);
+    return rand_exp(mean, shape);
 }
 
 /*sleep seconds given as double*/
@@ -53,10 +91,18 @@ static int    rand_seed           = 1;
 static int    max_iters           = 1;
 static int    endless             = 0;
 static double burst_length        = 0.0;
-static int    burst_length_rand   = 0;
+static int    burst_length_rand   = 0;   /* set by -bldist */
 static double burst_pause         = 0.0;
-static int    burst_pause_rand    = 0;
+static int    burst_pause_rand    = 0;   /* set by -bpdist */
 static int    pretty_output       = 0;
+
+/* distribution selection for burst length and pause (-bldist / -bpdist).
+ * Values: "exp", "pareto", "lognormal".  shape: α for Pareto, σ for log-normal
+ * (ignored for exp).  Defaults give exponential with shape unused.          */
+static char   burst_dist[16]  = "exp";
+static double burst_shape     = 1.5;
+static char   pause_dist[16]  = "exp";
+static double pause_shape     = 1.5;
 
 /*
  * Parse the standard set of command-line flags shared by every benchmark.
@@ -79,8 +125,14 @@ static int parse_common_args(int argc, char **argv)
         else if (strcmp(argv[i], "-warmup")       == 0) { warm_up_iters       = atoi(argv[++i]); }
         else if (strcmp(argv[i], "-blength")      == 0) { burst_length        = atof(argv[++i]); }
         else if (strcmp(argv[i], "-bpause")       == 0) { burst_pause         = atof(argv[++i]); }
-        else if (strcmp(argv[i], "-bprand")       == 0) { burst_pause_rand    = 1;               }
-        else if (strcmp(argv[i], "-blrand")       == 0) { burst_length_rand   = 1;               }
+        else if (strcmp(argv[i], "-bldist")       == 0) { strncpy(burst_dist, argv[++i], 15);
+                                                          burst_dist[15] = '\0';
+                                                          burst_length_rand = 1;                  }
+        else if (strcmp(argv[i], "-bpdist")       == 0) { strncpy(pause_dist, argv[++i], 15);
+                                                          pause_dist[15] = '\0';
+                                                          burst_pause_rand  = 1;                  }
+        else if (strcmp(argv[i], "-blshape")      == 0) { burst_shape        = atof(argv[++i]); }
+        else if (strcmp(argv[i], "-bpshape")      == 0) { pause_shape        = atof(argv[++i]); }
         else if (strcmp(argv[i], "-seed")         == 0) { rand_seed           = atoi(argv[++i]); }
         else if (strcmp(argv[i], "-grty")         == 0) { measure_granularity = atoi(argv[++i]); }
         else if (strcmp(argv[i], "-maxsamples")   == 0) { max_samples         = atoi(argv[++i]); }
@@ -95,6 +147,10 @@ static int parse_common_args(int argc, char **argv)
 
     return new_argc;
 }
+
+/* Convenience wrappers used by benchmark measurement loops. */
+static double sample_burst_length(double mean) { return rand_duration(mean, burst_dist, burst_shape); }
+static double sample_pause_length(double mean)  { return rand_duration(mean, pause_dist, pause_shape); }
 
 /* ── output helpers ──────────────────────────────────────────────────────── */
 
