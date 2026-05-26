@@ -1,8 +1,7 @@
 <div align="center">
-  <img src="assets/blink.svg" width="400" alt="Blink logo" />
+  <img src="assets/blink.svg" width="600" alt="Blink logo" />
 </div>
 
----
 
 Blink is a collection of MPI benchmarks designed for long-running, in-situ measurement of network behaviour under realistic traffic conditions.  Each benchmark runs for a configurable number of iterations (or endlessly until interrupted), records per-iteration latency on every rank, and emits a CSV summary when it finishes — either naturally or via `SIGUSR1`.
 
