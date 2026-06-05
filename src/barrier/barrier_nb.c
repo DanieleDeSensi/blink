@@ -18,7 +18,7 @@ int main(int argc, char** argv){
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
 
     /*register signal handler*/
-    signal(SIGUSR1,sig_handler);
+    install_shutdown_handler();
 
     /*parse command line*/
     int i, k;
@@ -26,7 +26,7 @@ int main(int argc, char** argv){
     for (i = 1; i < argc; i++) {
         if (my_rank == master_rank) {
             fprintf(stderr, "Unknown argument: %s\n", argv[i]);
-            exit(-1);
+            MPI_Abort(MPI_COMM_WORLD, -1);
         }
     }
 
@@ -44,7 +44,7 @@ int main(int argc, char** argv){
 
     if(durations==NULL || requests==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
-        exit(-1);
+        MPI_Abort(MPI_COMM_WORLD, -1);
     }
 
     /*print basic info to stdout*/
@@ -63,12 +63,14 @@ int main(int argc, char** argv){
     double measure_start_time;
     double burst_length_mean=burst_length;
     double burst_pause_mean=burst_pause;
-    bool burst_cont=false;
+    int burst_cont=0;
     curr_iters=0;
+    measured_iters=0;
 
     MPI_Barrier(MPI_COMM_WORLD);
     do{
         for(k=0;k<max_iters+warm_up_iters;k++){
+            if (check_shutdown()) goto done;
             if(burst_length_rand){ /*randomized burst length*/
                 burst_length=sample_burst_length(burst_length_mean);
             }
@@ -80,7 +82,7 @@ int main(int argc, char** argv){
                     MPI_Ibarrier(MPI_COMM_WORLD,&requests[i]);
                 }
                 MPI_Waitall(measure_granularity,requests,MPI_STATUSES_IGNORE);
-                durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
+                if (k >= warm_up_iters) record_duration(MPI_Wtime()-measure_start_time);
                 curr_iters++;
                 if(burst_length!=0){ /*bcast needed for synch if bursts timed*/
                     if(my_rank==master_rank){ /*master decides if burst should be continued*/
@@ -98,6 +100,12 @@ int main(int argc, char** argv){
         }
     }while(endless);
 
+    if (debug_mode) {
+        printf("DEBUG rank=%d nprocs=%d check=OK\n", my_rank, w_size);
+        fflush(stdout);
+        MPI_Barrier(MPI_COMM_WORLD);
+    }
+done:
     /*write results to file*/
     MPI_Barrier(MPI_COMM_WORLD);
     write_results();

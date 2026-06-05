@@ -16,9 +16,9 @@ int main(int argc, char** argv){
     MPI_Init(&argc,&argv);
     MPI_Comm_size(MPI_COMM_WORLD, &w_size);
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
-    
+
     /*register signal handler*/
-    signal(SIGUSR1,sig_handler); //or SIGUSR1 here
+    install_shutdown_handler();
 
     /*parse command line*/
     int i, k;
@@ -26,32 +26,32 @@ int main(int argc, char** argv){
     for (i = 1; i < argc; i++) {
         if (my_rank == master_rank) {
             fprintf(stderr, "Unknown argument: %s\n", argv[i]);
-            exit(-1);
         }
+        MPI_Abort(MPI_COMM_WORLD, -1);
     }
 
     /*allocate buffers*/
-    int send_buf_size, recv_buf_size;
+    size_t send_buf_size, recv_buf_size;
     unsigned char *send_buf;
     unsigned char *recv_buf;
 
-    send_buf_size=msg_size*w_size;
-    recv_buf_size=msg_size*w_size;
-    
+    send_buf_size=(size_t)msg_size*w_size;
+    recv_buf_size=(size_t)msg_size*w_size;
+
     send_buf=(unsigned char*)malloc_align(send_buf_size);
     recv_buf=(unsigned char*)malloc_align(recv_buf_size);
     durations=(double *)malloc_align(sizeof(double)*max_samples);
-    
+
     if(send_buf==NULL || recv_buf==NULL || durations==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
-        exit(-1);
+        MPI_Abort(MPI_COMM_WORLD, -1);
     }
-    
+
     /*fill send buffer with dummies*/
-    for(i=0;i<send_buf_size;i++){
-        send_buf[i]='a';
+    for(size_t bi=0;bi<send_buf_size;bi++){
+        send_buf[bi]='a';
     }
-    
+
     /*print basic info to stdout*/
     if(my_rank==master_rank){
         if(endless){
@@ -67,42 +67,45 @@ int main(int argc, char** argv){
     double measure_start_time;
     double burst_length_mean=burst_length;
     double burst_pause_mean=burst_pause;
-    bool burst_cont=false;
+    int burst_cont=0;
     curr_iters=0;
-    
+    measured_iters=0;
+
     //-----------------
-    time_t t = time(NULL);
-    struct tm *tm = localtime(&t);
-    char s[64];
-    strftime(s, sizeof(s), "checker_%Y%m%d_%H%M%S.log", tm);
-    FILE *fd_temp=fopen(s,"w");
-    if(fd_temp==NULL){
-        fprintf(stderr,"Failed to open log file %s on rank %d\n",s,my_rank);
-        MPI_Finalize();
-        exit(-1);
-    }
+    /* per-iteration timestamp log — opened and written only on the master rank */
+    FILE *fd_temp=NULL;
     if(my_rank==master_rank){
-                    struct timeval time_now;
-                    gettimeofday(&time_now, NULL);
-                    struct tm *time_str_tm;
-                    time_str_tm = gmtime(&time_now.tv_sec);
-                    if(endless){
-                        fprintf(fd_temp, "endless, %i B, %i iter, %i grty\n",msg_size,max_iters,measure_granularity);
-                    }else{
-                        fprintf(fd_temp, "limited, %i B, %i iter, %i grty\n",msg_size,max_iters,measure_granularity);
-                    }
-                    fprintf(fd_temp, "%02i:%02i:%02i:%06li\n---------------\n"
-                       , time_str_tm->tm_hour
-                       , time_str_tm->tm_min
-                       , time_str_tm->tm_sec
-                       , time_now.tv_usec);
-                    fflush(fd_temp);
+        time_t t = time(NULL);
+        struct tm *tm = localtime(&t);
+        char s[64];
+        strftime(s, sizeof(s), "checker_%Y%m%d_%H%M%S.log", tm);
+        fd_temp=fopen(s,"w");
+        if(fd_temp==NULL){
+            fprintf(stderr,"Failed to open log file %s on rank %d\n",s,my_rank);
+            MPI_Abort(MPI_COMM_WORLD, -1);
+        }
+        struct timeval time_now;
+        gettimeofday(&time_now, NULL);
+        struct tm *time_str_tm;
+        time_str_tm = gmtime(&time_now.tv_sec);
+        if(endless){
+            fprintf(fd_temp, "endless, %i B, %i iter, %i grty\n",msg_size,max_iters,measure_granularity);
+        }else{
+            fprintf(fd_temp, "limited, %i B, %i iter, %i grty\n",msg_size,max_iters,measure_granularity);
+        }
+        fprintf(fd_temp, "%02i:%02i:%02i:%06li\n---------------\n"
+           , time_str_tm->tm_hour
+           , time_str_tm->tm_min
+           , time_str_tm->tm_sec
+           , time_now.tv_usec);
+        fflush(fd_temp);
     }
     //-----------------
 
     MPI_Barrier(MPI_COMM_WORLD);
     do{
         for(k=0;k<max_iters+warm_up_iters;k++){
+            if (check_shutdown()) goto done;
             if(burst_length_rand){ /*randomized burst length*/
                 burst_length=sample_burst_length(burst_length_mean);
             }
@@ -113,15 +116,15 @@ int main(int argc, char** argv){
                 for(i=0;i<measure_granularity;i++){
                     MPI_Alltoall(send_buf,msg_size,MPI_BYTE,recv_buf,msg_size,MPI_BYTE,MPI_COMM_WORLD);
                 }
-                durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
+                if (k >= warm_up_iters) record_duration(MPI_Wtime()-measure_start_time); /*write result to ring buffer*/
                 curr_iters++;
                 //-----------------
-                if(my_rank==master_rank){ 
+                if(my_rank==master_rank){
                     struct timeval time_now;
                     gettimeofday(&time_now, NULL);
                     struct tm *time_str_tm;
                     time_str_tm = gmtime(&time_now.tv_sec);
-                    fprintf(fd_temp, "%02i:%02i:%02i:%06li | %i | %i\n"
+                    fprintf(fd_temp, "%02i:%02i:%02i:%06li | %i | %i\n"
                        , time_str_tm->tm_hour
                        , time_str_tm->tm_min
                        , time_str_tm->tm_sec
@@ -147,20 +150,20 @@ int main(int argc, char** argv){
         }
     }while(endless);
 
+done:
     /*write results to file*/
     MPI_Barrier(MPI_COMM_WORLD);
     write_results();
-    
+
     //-----------------
-    fclose(fd_temp);
+    if(my_rank==master_rank && fd_temp!=NULL) fclose(fd_temp);
     //-----------------
-    
+
     /*free allocated buffers*/
     free(durations);
     free(send_buf);
     free(recv_buf);
-    
+
     /*exit MPI library*/
     MPI_Finalize();
 }
-

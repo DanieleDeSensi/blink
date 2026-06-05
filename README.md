@@ -11,7 +11,7 @@ Most MPI benchmark suites run a fixed iteration sweep and report a single aggreg
 
 **Temporal evolution.** Blink records one measurement per iteration rather than collapsing everything into a final summary. This lets you observe how latency evolves over time, detect jitter events, and correlate performance spikes with external activity on the system.
 
-**Burst traffic modeling.** Real applications rarely issue communication at a steady, uniform rate. Blink supports configurable burst-pause cycles, including exponentially distributed burst lengths and pause durations, so the generated traffic pattern can more closely reflect the bursty nature of production workloads.
+**Burst traffic modeling.** Real applications rarely issue communication at a steady, uniform rate. Blink supports configurable burst-pause cycles with pluggable inter-arrival distributions — exponential, Pareto, and log-normal — so the generated traffic pattern can more closely reflect the bursty, heavy-tailed nature of production workloads.
 
 **Long-running operation.** Blink is designed to run alongside real workloads or as a background monitor. It can run endlessly (`-endl`), keeps only the most recent *N* samples in a ring buffer (`-maxsamples`), and responds to `SIGUSR1` with a clean shutdown — collecting and printing whatever has been measured so far before calling `MPI_Finalize`.
 
@@ -25,6 +25,54 @@ cmake --build build -j$(nproc)
 ```
 
 Binaries are placed in `build/bin/`.  Adding a new `.c` or `.cpp` file anywhere under `src/` is enough — CMake picks it up automatically on the next configure.
+
+
+## Testing
+
+Correctness tests are built automatically alongside the benchmarks (requires GTest >= 1.14, fetched automatically if not found on the system).  Pass `-DBLINK_TESTS=OFF` to skip them.
+
+Each test is a single-process GTest binary that spawns the actual benchmark under `mpirun -n N <binary> -debug` via `popen()` and parses structured `DEBUG key=val` output.  Most suites require **8 MPI ranks**; `test_pingpong` also covers a 2-rank case for `pingpong_b`.
+
+### Run all tests
+
+```bash
+ctest --test-dir build --output-on-failure
+```
+
+| Useful flags | Effect |
+|---|---|
+| `-j <N>` | Run up to N test suites in parallel |
+| `-V` | Always print test output (verbose) |
+| `--output-on-failure` | Print output only on failure |
+| `-R <regex>` | Run only suites whose name matches |
+
+### Run a single test suite
+
+```bash
+ctest --test-dir build -R test_collectives --output-on-failure
+```
+
+### Test suites
+
+| Suite | Benchmarks covered | Properties verified |
+|---|---|---|
+| `test_collectives` | `allgather_b/nb/comm_only`, `allreduce_b/nb`, `alltoall_b/nb/man/comm_only`, `barrier_b/nb`, `broadcast_b/nb`, `gather_b/nb`, `scatter_b/nb`, `reduce_b/nb`, `reduce_scatter_b/nb` | Coverage, communicator size, root rank, data integrity (plain + burst), b/nb agreement, allgather transfer-volume agreement |
+| `test_pairwise` | `pairwise_b/nb/bsnbr` | Coverage, validity, symmetry (offpair/rpair), bijection, exact pairs, non-reciprocal modes (perm/rot) (plain + burst) |
+| `test_ring` | `ring_nb`, `ring_bsnbr` | Coverage, validity, exact sequential neighbours, consistency (sequential + random), completeness (plain + burst) |
+| `test_incast` | `incast_b/nb/bsnbr/get/put` | Coverage, roles (one receiver, N-1 senders), target correctness (plain + burst) |
+| `test_pingpong` | `pingpong_b` (2 ranks), `pingpong_pairwise_b` (8 ranks) | Coverage, communicator size, data integrity (plain + burst) |
+| `test_kpartners` | `kpartners_nb` | Coverage, communicator size, k value, slot coherence (plain + burst) |
+| `test_stencil` | `stencil_2d_nb` | Coverage, communicator size, data integrity, neighbour-graph consistency (plain, periodic, burst) |
+| `test_misc` | cross-cutting (`barrier_nb`, `incast_b`, `dist_test`, `alltoall_nb`) | Ring-buffer wrap, warm-up exclusion, pretty-print formatter, `-mrand` determinism, sampler self-check, SIGUSR1 clean shutdown |
+
+### Overriding MPI launcher
+
+The test binaries bake in the MPI launcher paths at configure time.  Override them at runtime with environment variables:
+
+```bash
+BLINK_MPIEXEC=/opt/mpi/bin/mpirun BLINK_NPROC_FLAG=-np BLINK_BIN_DIR=/custom/bin ctest --test-dir build
+```
+
 
 ## Common flags
 
@@ -41,11 +89,36 @@ Every benchmark understands the following flags:
 | `-mrank <R>` | `0` | Rank that collects and prints results |
 | `-mrand` | off | Pick master rank randomly |
 | `-seed <S>` | `1` | RNG seed (shared across ranks) |
-| `-blength <s>` | `0` | Burst length in seconds (0 = single shot per iteration) |
-| `-blrand` | off | Randomise burst length (exponential distribution, mean = `-blength`) |
-| `-bpause <s>` | `0` | Pause between bursts in seconds |
-| `-bprand` | off | Randomise pause length (exponential distribution, mean = `-bpause`) |
+| `-blength <s>` | `0` | Mean burst length in seconds (0 = single shot per iteration) |
+| `-bldist <D>` | — | Randomise burst length using distribution `D` (`exp`, `pareto`, `lognormal`) |
+| `-blshape <S>` | `1.5` | Shape parameter for burst distribution (α for Pareto, σ for log-normal) |
+| `-bpause <s>` | `0` | Mean pause between bursts in seconds |
+| `-bpdist <D>` | — | Randomise pause length using distribution `D` (`exp`, `pareto`, `lognormal`) |
+| `-bpshape <S>` | `1.5` | Shape parameter for pause distribution (α for Pareto, σ for log-normal) |
 | `-pretty-print` | off | Human-readable table output instead of CSV (see [Output format](#output-format)) |
+
+### Burst distributions
+
+When `-bldist` or `-bpdist` is supplied, burst lengths / pauses are drawn independently on each iteration from the chosen distribution, parameterised so that the empirical mean equals `-blength` / `-bpause` regardless of the shape parameter:
+
+| Distribution | Flag value | Shape parameter | Notes |
+|---|---|---|---|
+| Exponential | `exp` | — (ignored) | Light-tailed; fully determined by its mean |
+| Pareto | `pareto` | α (`-blshape` / `-bpshape`, must be > 1) | Heavy-tailed; α ≤ 2 → infinite variance |
+| Log-normal | `lognormal` | σ (`-blshape` / `-bpshape`, > 0) | Log-symmetric; larger σ → heavier tail |
+
+```bash
+# Pareto bursts (α=2, heavy tail) with exponential pauses
+mpirun -n 8 build/bin/alltoall_nb -iter 500 \
+    -blength 0.01 -bldist pareto  -blshape 2.0 \
+    -bpause  0.05 -bpdist exp
+```
+
+The sampler implementations can be verified independently:
+
+```bash
+mpirun -n 1 build/bin/dist_test
+```
 
 ## Benchmarks
 
@@ -82,7 +155,7 @@ Every rank broadcasts its buffer; all ranks collect the full result.
 | `allgather_comm_only` | `MPI_Isend` / `MPI_Irecv` (C++) |
 
 #### All-reduce — `allreduce/`
-Global reduction (`MPI_SUM` over `double`) delivered to all ranks.
+Global reduction (`MPI_SUM` over `int`) delivered to all ranks.
 
 | Binary | MPI primitive |
 |--------|--------------|
@@ -121,7 +194,7 @@ Root distributes a distinct chunk to every rank.
 | `scatter_nb` | `MPI_Iscatter` |
 
 #### Reduce — `reduce/`
-Global reduction (`MPI_SUM` over `double`) to root only.
+Global reduction (`MPI_SUM` over `int`) to root only.
 
 | Binary | MPI primitive |
 |--------|--------------|
@@ -168,10 +241,17 @@ Each rank exchanges messages with exactly one partner.  Partners are chosen by o
 | `pairwise_nb` | Non-blocking (`MPI_Isend` / `MPI_Irecv`) |
 | `pairwise_bsnbr` | Non-blocking send, blocking receive |
 
-Extra flags: `-offset <O>` (default `1`) — fixed partner offset; `-mode <M>` (default `offpair`) — pairing mode (`offpair` for fixed offset, `rand` for random pairing).
+Extra flags: `-offset <O>` (default `1`) — fixed partner offset; `-mode <M>` (default `offpair`) — pairing mode. Supported modes:
+
+| Mode | Meaning |
+|------|---------|
+| `offpair` | Disjoint reciprocal pairs at fixed offset `O` (e.g. `(0,1) (2,3) …`) |
+| `rpair` | Uniformly random disjoint pairs (same seed on all ranks) |
+| `perm` | Random permutation: each rank sends to one partner (not necessarily reciprocal) |
+| `rot` | Ring rotation: rank `i` sends to `(i+O) mod n` |
 
 #### Ring — `ring/`
-Each rank sends to its right neighbour and receives from its left.
+Each rank simultaneously sends to both its left and right neighbours and receives one message from each (bidirectional ring exchange).
 
 | Binary | Variant |
 |--------|---------|

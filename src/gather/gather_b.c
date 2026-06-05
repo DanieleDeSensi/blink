@@ -18,7 +18,7 @@ int main(int argc, char** argv){
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
 
     /*register signal handler*/
-    signal(SIGUSR1,sig_handler);
+    install_shutdown_handler();
 
     /*parse command line*/
     int i, k;
@@ -26,7 +26,7 @@ int main(int argc, char** argv){
     for (i = 1; i < argc; i++) {
         if (my_rank == master_rank) {
             fprintf(stderr, "Unknown argument: %s\n", argv[i]);
-            exit(-1);
+            MPI_Abort(MPI_COMM_WORLD, -1);
         }
     }
 
@@ -45,21 +45,21 @@ int main(int argc, char** argv){
     durations=(double *)malloc_align(sizeof(double)*max_samples);
 
     if(my_rank==master_rank){
-        recv_buf=(unsigned char*)malloc_align(w_size*msg_size);
+        recv_buf=(unsigned char*)malloc_align((size_t)w_size*msg_size);
         if(recv_buf==NULL){
             fprintf(stderr,"Failed to allocate recv_buf on rank %d\n",my_rank);
-            exit(-1);
+            MPI_Abort(MPI_COMM_WORLD, -1);
         }
     }
 
     if(send_buf==NULL || durations==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
-        exit(-1);
+        MPI_Abort(MPI_COMM_WORLD, -1);
     }
 
     /*fill send buffer with dummies*/
     for(i=0;i<msg_size;i++){
-        send_buf[i]='a';
+        send_buf[i] = debug_mode ? (unsigned char)my_rank : 'a';
     }
 
     /*print basic info to stdout*/
@@ -78,12 +78,14 @@ int main(int argc, char** argv){
     double measure_start_time;
     double burst_length_mean=burst_length;
     double burst_pause_mean=burst_pause;
-    bool burst_cont=false;
+    int burst_cont=0;
     curr_iters=0;
+    measured_iters=0;
 
     MPI_Barrier(MPI_COMM_WORLD);
     do{
         for(k=0;k<max_iters+warm_up_iters;k++){
+            if (check_shutdown()) goto done;
             if(burst_length_rand){ /*randomized burst length*/
                 burst_length=sample_burst_length(burst_length_mean);
             }
@@ -94,7 +96,7 @@ int main(int argc, char** argv){
                 for(i=0;i<measure_granularity;i++){
                     MPI_Gather(send_buf,msg_size,MPI_BYTE,recv_buf,msg_size,MPI_BYTE,master_rank,MPI_COMM_WORLD);
                 }
-                durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
+                if (k >= warm_up_iters) record_duration(MPI_Wtime()-measure_start_time);
                 curr_iters++;
                 if(burst_length!=0){ /*bcast needed for synch if bursts timed*/
                     if(my_rank==master_rank){ /*master decides if burst should be continued*/
@@ -112,6 +114,18 @@ int main(int argc, char** argv){
         }
     }while(endless);
 
+    if (debug_mode) {
+        int _r, _b, _ok = 1;
+        if (my_rank == master_rank)
+            for (_r = 0; _r < w_size && _ok; _r++)
+                for (_b = 0; _b < msg_size && _ok; _b++)
+                    if (recv_buf[(size_t)_r * msg_size + _b] != (unsigned char)_r) _ok = 0;
+        printf("DEBUG rank=%d nprocs=%d root=%d check=%s\n",
+               my_rank, w_size, master_rank, _ok ? "OK" : "FAIL");
+        fflush(stdout);
+        MPI_Barrier(MPI_COMM_WORLD);
+    }
+done:
     /*write results to file*/
     MPI_Barrier(MPI_COMM_WORLD);
     write_results();

@@ -17,7 +17,7 @@ int main(int argc, char** argv){
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
     
     /*register signal handler*/
-    signal(SIGUSR1,sig_handler); //or SIGUSR1 here
+    install_shutdown_handler();
 
     /*parse command line*/
     int i, k;
@@ -25,7 +25,7 @@ int main(int argc, char** argv){
     for (i = 1; i < argc; i++) {
         if (my_rank == master_rank) {
             fprintf(stderr, "Unknown argument: %s\n", argv[i]);
-            exit(-1);
+            MPI_Abort(MPI_COMM_WORLD, -1);
         }
     }
 
@@ -48,17 +48,17 @@ int main(int argc, char** argv){
     
     if(send_buf==NULL || recv_buf==NULL ||  durations==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
-        exit(-1);
+        MPI_Abort(MPI_COMM_WORLD, -1);
     }
     
     if(w_size!=2){
         fprintf(stderr,"Needs two processes to ping-pong. %d\n",my_rank);
-        exit(-1);
+        MPI_Abort(MPI_COMM_WORLD, -1);
     }
     
     /*fill send buffer with dummies*/
     for(i=0;i<send_buf_size;i++){
-        send_buf[i]='a';
+        send_buf[i] = debug_mode ? (unsigned char)my_rank : 'a';
     }
     
     
@@ -77,9 +77,10 @@ int main(int argc, char** argv){
     double measure_start_time;
     double burst_length_mean=burst_length;
     double burst_pause_mean=burst_pause;
-    bool burst_cont=false;
+    int burst_cont=0;
     int receiver_rank;
     curr_iters=0;
+    measured_iters=0;
     
     if(master_rank==0){
         receiver_rank=1;
@@ -90,6 +91,7 @@ int main(int argc, char** argv){
     MPI_Barrier(MPI_COMM_WORLD);
     do{
         for(k=0;k<max_iters+warm_up_iters;k++){
+            if (check_shutdown()) goto done;
             if(burst_length_rand){ /*randomized burst length*/
                 burst_length=sample_burst_length(burst_length_mean);
             }        
@@ -101,16 +103,15 @@ int main(int argc, char** argv){
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
                     if(my_rank==master_rank){
-                        MPI_Send(send_buf,msg_size,MPI_BYTE,receiver_rank,my_rank,MPI_COMM_WORLD);
-                        MPI_Recv(recv_buf,msg_size,MPI_BYTE, MPI_ANY_SOURCE
-                                    ,MPI_ANY_TAG, MPI_COMM_WORLD,MPI_STATUS_IGNORE); // TODO: Any tag is not good!
+                        MPI_Send(send_buf,msg_size,MPI_BYTE,receiver_rank,0,MPI_COMM_WORLD);
+                        MPI_Recv(recv_buf,msg_size,MPI_BYTE,receiver_rank,0,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
                     }else{
-                        MPI_Recv(recv_buf,msg_size,MPI_BYTE,MPI_ANY_SOURCE,MPI_ANY_TAG,
-                                MPI_COMM_WORLD,MPI_STATUS_IGNORE);
-                        MPI_Send(send_buf,msg_size,MPI_BYTE,master_rank,my_rank,MPI_COMM_WORLD);
+                        MPI_Recv(recv_buf,msg_size,MPI_BYTE,master_rank,0,MPI_COMM_WORLD,MPI_STATUS_IGNORE);
+                        MPI_Send(send_buf,msg_size,MPI_BYTE,master_rank,0,MPI_COMM_WORLD);
                     }
                 }
-                durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
+                /* record one-way latency (round-trip / 2) */
+                if (k >= warm_up_iters) record_duration((MPI_Wtime()-measure_start_time)/2.0);
                 curr_iters++;
                 if(burst_length!=0){ /*bcast needed for synch if bursts timed*/
                     if(my_rank==master_rank){ /*master decides if burst should be continued*/
@@ -127,35 +128,21 @@ int main(int argc, char** argv){
             }
         }
     }while(endless);
+    if (debug_mode) {
+        unsigned char _expected = (my_rank == master_rank)
+            ? (unsigned char)receiver_rank : (unsigned char)master_rank;
+        int _b, _ok = 1;
+        for (_b = 0; _b < msg_size && _ok; _b++)
+            if (recv_buf[_b] != _expected) _ok = 0;
+        printf("DEBUG rank=%d nprocs=%d check=%s\n", my_rank, w_size, _ok ? "OK" : "FAIL");
+        fflush(stdout);
+        MPI_Barrier(MPI_COMM_WORLD);
+    }
+done:
     /*write results to file*/
     MPI_Barrier(MPI_COMM_WORLD);
-    
+    write_results();
 
-    // For pingpong we can avoid doing allgather etc from common.h (we just need to report rank 0 time)
-    if(my_rank==master_rank){
-        int num_samples;
-        int start_index;
-        if (curr_iters - warm_up_iters > max_samples)
-        {
-            num_samples = max_samples;
-            start_index = curr_iters % max_samples;        
-        }
-        else
-        {
-            num_samples = curr_iters - warm_up_iters;
-            start_index = warm_up_iters;
-        }
-        printf("Time,Bandwidth\n");
-        for(i = 0; i < num_samples; i++){
-            float time = durations[(start_index + i) % max_samples]/2;
-            float bandwidth = ((msg_size * 8.0) / 1000000000.0) / time;
-            printf("%.9f,%.9f\n", time, bandwidth);
-        }
-        printf("Ran %d iterations. Measured %d iterations.\n", curr_iters, num_samples);
-        fflush(stdout);
-    }
-
-    
     /*free allocated buffers*/
     free(durations);
     free(send_buf);

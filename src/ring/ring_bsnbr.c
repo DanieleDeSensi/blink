@@ -18,7 +18,7 @@ int main(int argc, char** argv){
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
     
     /*register signal handler*/
-    signal(SIGUSR1,sig_handler); //or SIGUSR1 here
+    install_shutdown_handler();
 
     bool rand_ring=false;
 
@@ -31,7 +31,7 @@ int main(int argc, char** argv){
         } else {
             if (my_rank == master_rank) {
                 fprintf(stderr, "Unknown argument: %s\n", argv[i]);
-                exit(-1);
+                MPI_Abort(MPI_COMM_WORLD, -1);
             }
         }
     }
@@ -43,14 +43,14 @@ int main(int argc, char** argv){
     sched_setaffinity(0, sizeof(mask), &mask);*/
     
     /*allocate buffers*/
-    int send_buf_size, recv_buf_size;
+    size_t send_buf_size, recv_buf_size;
     unsigned char *send_buf;
     unsigned char *recv_buf;
     int *targets;
     MPI_Request *recv_requests;
-    
+
     send_buf_size=msg_size;
-    recv_buf_size=2*measure_granularity*msg_size;
+    recv_buf_size=(size_t)2*measure_granularity*msg_size;
     
     send_buf=(unsigned char*)malloc_align(send_buf_size);
     recv_buf=(unsigned char*)malloc_align(recv_buf_size);
@@ -60,12 +60,12 @@ int main(int argc, char** argv){
     
     if(send_buf==NULL || recv_buf==NULL || recv_requests==NULL || targets==NULL || durations==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
-        exit(-1);
+        MPI_Abort(MPI_COMM_WORLD, -1);
     }
     
-    /*fill send buffer with dummies*/
+    /*fill send buffer: rank-as-payload under -debug so neighbours can verify*/
     for(i=0;i<send_buf_size;i++){
-        send_buf[i]='a';
+        send_buf[i] = debug_mode ? (unsigned char)my_rank : 'a';
     }
     
     /*setup ring*/
@@ -75,11 +75,23 @@ int main(int argc, char** argv){
     if(rand_ring){
         permute(targets,w_size);
     }
-    
-    int left_neighbor=targets[mod(my_rank-1,w_size)];
-    int right_neighbor=targets[mod(my_rank+1,w_size)];
+
+    /* Treat targets[] as "position -> rank" map; build the inverse so each
+     * rank can find its position in the (possibly permuted) ring.  Then the
+     * left/right neighbours are the ranks at adjacent positions, which
+     * guarantees a single Hamiltonian cycle in both directions and full
+     * reciprocity (A.left = B  <=>  B.right = A).                          */
+    int *positions = (int*)malloc_align(sizeof(int)*w_size);
+    if (positions == NULL) {
+        fprintf(stderr, "Failed to allocate positions on rank %d\n", my_rank);
+        MPI_Abort(MPI_COMM_WORLD, -1);
+    }
+    for(i=0;i<w_size;i++) positions[targets[i]] = i;
+    int my_pos = positions[my_rank];
+    int left_neighbor  = targets[mod(my_pos - 1, w_size)];
+    int right_neighbor = targets[mod(my_pos + 1, w_size)];
     int antideadlock_tag;
-    
+
     /*print basic info to stdout*/
     if(my_rank==master_rank){
         if(endless){
@@ -96,13 +108,15 @@ int main(int argc, char** argv){
     double measure_start_time;
     double burst_length_mean=burst_length;
     double burst_pause_mean=burst_pause;
-    bool burst_cont=false;
+    int burst_cont=0;
     curr_iters=0;
+    measured_iters=0;
     
     antideadlock_tag=0;
     MPI_Barrier(MPI_COMM_WORLD);
     do{
         for(k=0;k<max_iters+warm_up_iters;k++){
+            if (check_shutdown()) goto done;
             if(burst_length_rand){ /*randomized burst length*/
                 burst_length=sample_burst_length(burst_length_mean);
             }        
@@ -111,16 +125,16 @@ int main(int argc, char** argv){
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
-                    MPI_Irecv(&recv_buf[2*i*msg_size],recv_buf_size,MPI_BYTE,MPI_ANY_SOURCE
+                    MPI_Irecv(&recv_buf[2*i*msg_size],msg_size,MPI_BYTE,MPI_ANY_SOURCE
                             ,antideadlock_tag, MPI_COMM_WORLD,&recv_requests[2*i]);
-                    MPI_Irecv(&recv_buf[(2*i+1)*msg_size],recv_buf_size,MPI_BYTE,MPI_ANY_SOURCE
+                    MPI_Irecv(&recv_buf[(2*i+1)*msg_size],msg_size,MPI_BYTE,MPI_ANY_SOURCE
                             ,antideadlock_tag, MPI_COMM_WORLD,&recv_requests[2*i+1]);
                     MPI_Send(send_buf,msg_size,MPI_BYTE,left_neighbor,antideadlock_tag,MPI_COMM_WORLD);
                     MPI_Send(send_buf,msg_size,MPI_BYTE,right_neighbor,antideadlock_tag,MPI_COMM_WORLD);
                     antideadlock_tag++;
                 }
                 MPI_Waitall(2*measure_granularity,recv_requests,MPI_STATUSES_IGNORE);
-                durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
+                if (k >= warm_up_iters) record_duration(MPI_Wtime()-measure_start_time);
                 curr_iters++;
                 if(burst_length!=0){ /*bcast needed for synch if bursts timed*/
                     if(my_rank==master_rank){ /*master decides if burst should be continued*/
@@ -138,12 +152,40 @@ int main(int argc, char** argv){
         }
     }while(endless);
 
+    /* debug: deterministic post-loop exchange to verify both ring neighbours
+     * sent the expected payload (their rank).  Uses specific sources so a
+     * broken topology (e.g. the old -rring bug) is detected.  Barrier
+     * first to drain any measurement-loop ANY_TAG receives.                */
+    if (debug_mode) {
+        MPI_Barrier(MPI_COMM_WORLD);
+        /* reuse the already-allocated recv_buf (>= 2*msg_size) instead of a
+         * stack VLA, which would risk a stack overflow for large msg_size   */
+        unsigned char *left_buf  = recv_buf;
+        unsigned char *right_buf = recv_buf + msg_size;
+        MPI_Request reqs[2];
+        int _ok = 1, _b;
+        MPI_Irecv(left_buf,  msg_size, MPI_BYTE, left_neighbor,  0xD, MPI_COMM_WORLD, &reqs[0]);
+        MPI_Irecv(right_buf, msg_size, MPI_BYTE, right_neighbor, 0xD, MPI_COMM_WORLD, &reqs[1]);
+        MPI_Send(send_buf,   msg_size, MPI_BYTE, left_neighbor,  0xD, MPI_COMM_WORLD);
+        MPI_Send(send_buf,   msg_size, MPI_BYTE, right_neighbor, 0xD, MPI_COMM_WORLD);
+        MPI_Waitall(2, reqs, MPI_STATUSES_IGNORE);
+        for (_b = 0; _b < msg_size && _ok; _b++)
+            if (left_buf[_b]  != (unsigned char)left_neighbor)  _ok = 0;
+        for (_b = 0; _b < msg_size && _ok; _b++)
+            if (right_buf[_b] != (unsigned char)right_neighbor) _ok = 0;
+        printf("DEBUG rank=%d nprocs=%d left=%d right=%d check=%s\n",
+               my_rank, w_size, left_neighbor, right_neighbor, _ok ? "OK" : "FAIL");
+        fflush(stdout);
+        MPI_Barrier(MPI_COMM_WORLD);
+    }
+done:
     /*write results to file*/
     MPI_Barrier(MPI_COMM_WORLD);
     write_results();
     
     /*free allocated buffers*/
     free(targets);
+    free(positions);
     free(durations);
     free(send_buf);
     free(recv_buf);

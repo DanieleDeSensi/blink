@@ -16,7 +16,7 @@
 static double rand_exp(double mean, double shape)
 {
     (void)shape;
-    double u = rand() / (RAND_MAX + 1.0);
+    double u = (rand() + 0.5) / (RAND_MAX + 1.0); /* shift away from 0 and 1 */
     return -mean * log(1.0 - u);
 }
 
@@ -30,6 +30,10 @@ static double rand_pareto(double mean, double shape)
         fprintf(stderr, "rand_pareto: shape (alpha) must be > 1, got %g\n", alpha);
         exit(-1);
     }
+    if (mean <= 0.0) {
+        fprintf(stderr, "rand_pareto: mean must be > 0, got %g\n", mean);
+        exit(-1);
+    }
     double x_m = mean * (alpha - 1.0) / alpha;
     double u   = (rand() + 0.5) / (RAND_MAX + 1.0); /* shift away from 0 */
     return x_m * pow(u, -1.0 / alpha);
@@ -40,6 +44,14 @@ static double rand_pareto(double mean, double shape)
  * Box-Muller transform.                                                      */
 static double rand_lognormal(double mean, double sigma)
 {
+    if (mean <= 0.0) {
+        fprintf(stderr, "rand_lognormal: mean must be > 0, got %g\n", mean);
+        exit(-1);
+    }
+    if (sigma <= 0.0) {
+        fprintf(stderr, "rand_lognormal: sigma must be > 0, got %g\n", sigma);
+        exit(-1);
+    }
     double mu = log(mean) - 0.5 * sigma * sigma;
     double u1 = (rand() + 0.5) / (RAND_MAX + 1.0); /* shift away from 0 */
     double u2 = (rand() + 0.5) / (RAND_MAX + 1.0);
@@ -65,7 +77,7 @@ static int dsleep(double t)
 }
 
 /*double comparison function for quicksort*/
-int compare_doubles(const void *p1, const void *p2)
+static int compare_doubles(const void *p1, const void *p2)
 {
     if (*(double *)p1 < *(double *)p2)
         return -1;
@@ -79,10 +91,17 @@ int compare_doubles(const void *p1, const void *p2)
 static int    my_rank;
 static int    w_size;
 static int    master_rank     = 0;
-static int    curr_iters;
+static int    curr_iters;       /* total outer iterations executed (warmup + measured) */
+static int    measured_iters;   /* number of recorded samples (excludes warmup) */
 static int    warm_up_iters   = 5;
 static int    max_samples     = 1000;
 static double *durations;
+
+/* Async-signal-safe shutdown flag set by sig_handler; checked in measurement
+ * loops. The signal handler does no MPI / no malloc / no stdio — only sets
+ * this flag. The main thread observes it between iterations and exits the
+ * loop cleanly, then calls write_results() + MPI_Finalize() itself.        */
+static volatile sig_atomic_t shutdown_requested = 0;
 
 /* common benchmark parameters – initialised to defaults, set by parse_common_args() */
 static int    msg_size            = 1024;
@@ -95,6 +114,7 @@ static int    burst_length_rand   = 0;   /* set by -bldist */
 static double burst_pause         = 0.0;
 static int    burst_pause_rand    = 0;   /* set by -bpdist */
 static int    pretty_output       = 0;
+static int    debug_mode          = 0;
 
 /* distribution selection for burst length and pause (-bldist / -bpdist).
  * Values: "exp", "pareto", "lognormal".  shape: α for Pareto, σ for log-normal
@@ -103,6 +123,43 @@ static char   burst_dist[16]  = "exp";
 static double burst_shape     = 1.5;
 static char   pause_dist[16]  = "exp";
 static double pause_shape     = 1.5;
+
+/* Bounds-checked accessor for a flag's value argument.  Aborts with a clear
+ * message instead of dereferencing argv[argc] (== NULL) when a value-taking
+ * flag is supplied as the final command-line token.                         */
+static const char *arg_value(int argc, char **argv, int *i)
+{
+    if (*i + 1 >= argc) {
+        if (my_rank == master_rank)
+            fprintf(stderr, "Missing value for option %s\n", argv[*i]);
+        MPI_Abort(MPI_COMM_WORLD, -1);
+    }
+    return argv[++(*i)];
+}
+
+/* Validate a distribution name / shape pair selected via -bldist/-bpdist so a
+ * misconfiguration fails loudly at startup rather than silently producing
+ * garbage durations later (e.g. log-normal with a non-positive mean).        */
+static void validate_burst_dist(const char *what, const char *dist,
+                                double mean, double shape)
+{
+    if (mean <= 0.0) {
+        if (my_rank == master_rank)
+            fprintf(stderr, "%s: randomised distribution requires a positive mean, got %g\n",
+                    what, mean);
+        MPI_Abort(MPI_COMM_WORLD, -1);
+    }
+    if (strcmp(dist, "pareto") == 0 && shape <= 1.0) {
+        if (my_rank == master_rank)
+            fprintf(stderr, "%s: pareto shape (alpha) must be > 1, got %g\n", what, shape);
+        MPI_Abort(MPI_COMM_WORLD, -1);
+    }
+    if (strcmp(dist, "lognormal") == 0 && shape <= 0.0) {
+        if (my_rank == master_rank)
+            fprintf(stderr, "%s: lognormal shape (sigma) must be > 0, got %g\n", what, shape);
+        MPI_Abort(MPI_COMM_WORLD, -1);
+    }
+}
 
 /*
  * Parse the standard set of command-line flags shared by every benchmark.
@@ -117,28 +174,48 @@ static int parse_common_args(int argc, char **argv)
     int i;
 
     for (i = 1; i < argc; i++) {
-        if      (strcmp(argv[i], "-mrank")        == 0) { master_rank         = atoi(argv[++i]); }
+        if      (strcmp(argv[i], "-mrank")        == 0) { master_rank         = atoi(arg_value(argc, argv, &i)); }
         else if (strcmp(argv[i], "-mrand")        == 0) { do_rand_master      = 1;               }
-        else if (strcmp(argv[i], "-msgsize")      == 0) { msg_size            = atoi(argv[++i]); }
+        else if (strcmp(argv[i], "-msgsize")      == 0) { msg_size            = atoi(arg_value(argc, argv, &i)); }
         else if (strcmp(argv[i], "-endl")         == 0) { endless             = 1;               }
-        else if (strcmp(argv[i], "-iter")         == 0) { max_iters           = atoi(argv[++i]); }
-        else if (strcmp(argv[i], "-warmup")       == 0) { warm_up_iters       = atoi(argv[++i]); }
-        else if (strcmp(argv[i], "-blength")      == 0) { burst_length        = atof(argv[++i]); }
-        else if (strcmp(argv[i], "-bpause")       == 0) { burst_pause         = atof(argv[++i]); }
-        else if (strcmp(argv[i], "-bldist")       == 0) { strncpy(burst_dist, argv[++i], 15);
+        else if (strcmp(argv[i], "-iter")         == 0) { max_iters           = atoi(arg_value(argc, argv, &i)); }
+        else if (strcmp(argv[i], "-warmup")       == 0) { warm_up_iters       = atoi(arg_value(argc, argv, &i)); }
+        else if (strcmp(argv[i], "-blength")      == 0) { burst_length        = atof(arg_value(argc, argv, &i)); }
+        else if (strcmp(argv[i], "-bpause")       == 0) { burst_pause         = atof(arg_value(argc, argv, &i)); }
+        else if (strcmp(argv[i], "-bldist")       == 0) { strncpy(burst_dist, arg_value(argc, argv, &i), 15);
                                                           burst_dist[15] = '\0';
                                                           burst_length_rand = 1;                  }
-        else if (strcmp(argv[i], "-bpdist")       == 0) { strncpy(pause_dist, argv[++i], 15);
+        else if (strcmp(argv[i], "-bpdist")       == 0) { strncpy(pause_dist, arg_value(argc, argv, &i), 15);
                                                           pause_dist[15] = '\0';
                                                           burst_pause_rand  = 1;                  }
-        else if (strcmp(argv[i], "-blshape")      == 0) { burst_shape        = atof(argv[++i]); }
-        else if (strcmp(argv[i], "-bpshape")      == 0) { pause_shape        = atof(argv[++i]); }
-        else if (strcmp(argv[i], "-seed")         == 0) { rand_seed           = atoi(argv[++i]); }
-        else if (strcmp(argv[i], "-grty")         == 0) { measure_granularity = atoi(argv[++i]); }
-        else if (strcmp(argv[i], "-maxsamples")   == 0) { max_samples         = atoi(argv[++i]); }
+        else if (strcmp(argv[i], "-blshape")      == 0) { burst_shape        = atof(arg_value(argc, argv, &i)); }
+        else if (strcmp(argv[i], "-bpshape")      == 0) { pause_shape        = atof(arg_value(argc, argv, &i)); }
+        else if (strcmp(argv[i], "-seed")         == 0) { rand_seed           = atoi(arg_value(argc, argv, &i)); }
+        else if (strcmp(argv[i], "-grty")         == 0) { measure_granularity = atoi(arg_value(argc, argv, &i)); }
+        else if (strcmp(argv[i], "-maxsamples")   == 0) { max_samples         = atoi(arg_value(argc, argv, &i)); }
         else if (strcmp(argv[i], "-pretty-print") == 0) { pretty_output       = 1;               }
+        else if (strcmp(argv[i], "-debug")        == 0) { debug_mode          = 1;               }
         else { argv[new_argc++] = argv[i]; } /* pass through unknown flags */
     }
+
+    /* fail fast on nonsensical numeric parameters */
+    if (max_samples < 1) {
+        if (my_rank == master_rank)
+            fprintf(stderr, "-maxsamples must be >= 1, got %d\n", max_samples);
+        MPI_Abort(MPI_COMM_WORLD, -1);
+    }
+    if (measure_granularity < 1) {
+        if (my_rank == master_rank)
+            fprintf(stderr, "-grty must be >= 1, got %d\n", measure_granularity);
+        MPI_Abort(MPI_COMM_WORLD, -1);
+    }
+
+    /* a randomised burst/pause distribution needs a positive mean and a valid
+     * shape — validate now so we never feed log(0)/negative values to a sampler */
+    if (burst_length_rand)
+        validate_burst_dist("-bldist", burst_dist, burst_length, burst_shape);
+    if (burst_pause_rand)
+        validate_burst_dist("-bpdist", pause_dist, burst_pause, pause_shape);
 
     /* seed RNG (shared across all ranks) and resolve randomised master */
     srand(rand_seed);
@@ -152,9 +229,23 @@ static int parse_common_args(int argc, char **argv)
 static double sample_burst_length(double mean) { return rand_duration(mean, burst_dist, burst_shape); }
 static double sample_pause_length(double mean)  { return rand_duration(mean, pause_dist, pause_shape); }
 
+/* Record a single measured-iteration latency into the ring buffer.
+ * Skips writes during warm-up: callers gate this by `if (k >= warm_up_iters)`
+ * at the outer iteration level — see the standard benchmark loop.
+ *
+ * The ring buffer of size `max_samples` therefore only ever holds measured
+ * samples (no warmup pollution); the (oldest → newest) ordering is
+ * (measured_iters % max_samples) ... (measured_iters - 1) % max_samples.   */
+static inline void record_duration(double t)
+{
+    durations[measured_iters % max_samples] = t;
+    measured_iters++;
+}
+
 /* ── output helpers ──────────────────────────────────────────────────────── */
 
-/*format a duration (seconds) into a fixed 12-char string with auto-scaled units*/
+/*format a duration (seconds) with auto-scaled units; "%9.2f UU" is normally
+ * 12 chars wide (9 is a minimum field width, so extreme outliers can exceed it)*/
 static void format_duration(char *buf, size_t len, double t)
 {
     if (t < 1e-3)
@@ -174,29 +265,42 @@ static void write_results()
     int start_index;
     double *tmp_buf = NULL;
 
-    if (curr_iters > max_samples) /* wrapped the sampling ring buffer */
+    if (measured_iters > max_samples) /* wrapped the sampling ring buffer */
     {
         num_samples = max_samples;
-        start_index = curr_iters % max_samples;
-        tmp_buf = (double *)malloc(sizeof(double)*num_samples);
-        /* copy in chronological order */
-        memcpy(tmp_buf, &(durations[start_index]), sizeof(double)*(num_samples - start_index));
-        memcpy(&tmp_buf[num_samples - start_index], durations, sizeof(double)*start_index);
+        start_index = measured_iters % max_samples;
     }
     else
     {
-        num_samples = curr_iters - warm_up_iters;
-        start_index = warm_up_iters;
-        tmp_buf = (double *)malloc(sizeof(double)*num_samples);
-        memcpy(tmp_buf, &(durations[start_index]), sizeof(double)*num_samples);
+        num_samples = measured_iters;
+        start_index = 0;
     }
 
-    double *all_data    = (double *)malloc(sizeof(double)*num_samples*w_size);
+    /* MPI_Gather below uses num_samples as BOTH send- and recv-count, which is
+     * only valid if every rank contributes the same count.  Ranks normally stay
+     * in lockstep, but to be robust (e.g. a SIGUSR1 shutdown that reaches ranks
+     * at slightly different iterations) collectively agree on the common minimum
+     * so the gather can never mismatch.                                        */
+    {
+        int common_samples = num_samples;
+        MPI_Allreduce(&num_samples, &common_samples, 1, MPI_INT, MPI_MIN, MPI_COMM_WORLD);
+        /* keep only the most recent common_samples (drop the oldest extras) */
+        start_index += (num_samples - common_samples);
+        num_samples  = common_samples;
+    }
+
+    tmp_buf = (double *)malloc(sizeof(double) * (num_samples > 0 ? num_samples : 1));
+    /* copy in chronological order (oldest → newest) using circular indexing */
+    for (i = 0; i < num_samples; i++) {
+        tmp_buf[i] = durations[(start_index + i) % max_samples];
+    }
+
+    double *all_data    = (double *)malloc(sizeof(double)*(num_samples > 0 ? num_samples : 1)*w_size);
     double *sorting_buf = (double *)malloc(sizeof(double)*w_size);
 
     if (all_data == NULL || sorting_buf == NULL) {
         fprintf(stderr, "Failed to allocate a buffer on rank %d\n", my_rank);
-        exit(-1);
+        MPI_Abort(MPI_COMM_WORLD, -1);
     }
 
     /* print header before the gather so it appears first */
@@ -265,12 +369,40 @@ static void write_results()
     free(tmp_buf);
 }
 
-/*signal handler*/
-void sig_handler(int sig)
+/* Async-signal-safe handler: only sets a flag.  The measurement loop in each
+ * benchmark observes the flag and exits cleanly; write_results() and
+ * MPI_Finalize() happen on the main thread, never from signal context.    */
+static void sig_handler(int sig)
 {
-    write_results();
-    MPI_Finalize();
-    exit(0);
+    (void)sig;
+    shutdown_requested = 1;
+}
+
+/* Install the SIGUSR1 shutdown handler with sigaction() rather than signal(),
+ * for portable, persistent (non-one-shot) semantics across platforms.       */
+static void install_shutdown_handler(void)
+{
+    struct sigaction sa;
+    memset(&sa, 0, sizeof(sa));
+    sa.sa_handler = sig_handler;
+    sigemptyset(&sa.sa_mask);
+    sa.sa_flags = SA_RESTART;
+    sigaction(SIGUSR1, &sa, NULL);
+}
+
+/* Collectively decide whether to shut down.  SIGUSR1 only sets the flag on the
+ * rank that received it, so a purely local check would make ranks leave the
+ * measurement loop at different iterations — desynchronising the per-iteration
+ * collectives and the final MPI_Gather (deadlock / mismatch).  This all-reduce
+ * (called once per outer iteration, OUTSIDE the timed region) guarantees every
+ * rank breaks on the same iteration.  Returns non-zero if any rank requested
+ * shutdown.                                                                   */
+static int check_shutdown(void)
+{
+    int local = (int)shutdown_requested;
+    int global = 0;
+    MPI_Allreduce(&local, &global, 1, MPI_INT, MPI_MAX, MPI_COMM_WORLD);
+    return global;
 }
 
 /* ── combinatorics helpers ───────────────────────────────────────────────── */
@@ -297,43 +429,56 @@ static int mod(int a, int b)
     return c;
 }
 
-/*produce random pairs*/
+/* Produce a uniformly random matching of [0..n-1] (each entry pairs with
+ * exactly one other entry).  Algorithm: shuffle the index list, then pair
+ * adjacent elements.  This is provably uniform over the set of perfect
+ * matchings (and far simpler than the prior slot-counting version).
+ *
+ * For odd n the last element targets itself (it has no partner).
+ */
 static void random_pairs(int *a, int n)
 {
-    int i, j;
-    for (i = 0; i < n; i++)
-        a[i] = -1;
-    if (n % 2 == 1)
-    {
-        n--;
-        a[n] = n; /*if odd last rank targets itself*/
+    int i;
+    int has_self = (n % 2 == 1);
+    int pair_n   = has_self ? n - 1 : n;
+    int *shuf    = (int *)malloc(sizeof(int) * n);
+
+    if (shuf == NULL) {
+        fprintf(stderr, "random_pairs: malloc failed\n");
+        MPI_Abort(MPI_COMM_WORLD, -1);
     }
-    int k = 1;
-    int t;
-    for (i = 0; i < n; i++)
-    {
-        if (a[i] == -1)
-        {
-            t = rand() % (n - k);
-            for (j = i + 1; j < n; j++)
-            {
-                if (a[j] == -1)
-                {
-                    if (t == 0)
-                    {
-                        a[i] = j;
-                        a[j] = i;
-                        k += 2;
-                        break;
-                    }
-                    t--;
-                }
-            }
-        }
+    for (i = 0; i < n; i++) shuf[i] = i;
+    permute(shuf, n);
+
+    for (i = 0; i < n; i++) a[i] = -1;
+
+    for (i = 0; i < pair_n; i += 2) {
+        int x = shuf[i];
+        int y = shuf[i + 1];
+        a[x] = y;
+        a[y] = x;
     }
+    if (has_self) {
+        /* odd n: one rank has no partner — target itself */
+        int lone = shuf[n - 1];
+        a[lone] = lone;
+    }
+    free(shuf);
 }
 
-/*produce fixed offset pairs*/
+/* Produce fixed-offset pairs: walks i from 0 upward and pairs i with (i+o)
+ * whenever both ranks are still free and the partner is not a wrap-around
+ * (n - i >= o).  This guarantees disjoint pairs (i, i+o), (i+2o, i+3o), …
+ * — for offset o=1 you get (0,1) (2,3) (4,5)…, for o=2 you get (0,2)
+ * (1,3) (4,6) (5,7)…, etc.
+ *
+ * Only non-wrapping reciprocal pairs (i, i+o) are formed; any rank that cannot
+ * be matched without wrapping around falls through to a self-pair (a[i] = i,
+ * i.e. it performs no communication).  This happens for every offset > n/2, and
+ * also for many offsets <= n/2 when n is not a multiple of 2*o (e.g. n=12, o=4
+ * leaves ranks 8..11 self-paired).  Full disjoint tiling is only guaranteed when
+ * 2*o divides n (notably o=1).  Recommended usage: 1 <= o <= n/2.
+ */
 static void offset_pairs(int *a, int n, int o)
 {
     int i, t;
@@ -354,7 +499,7 @@ static void offset_pairs(int *a, int n, int o)
     for (i = 0; i < n; i++)
     {
         if (a[i] == -1)
-            a[i] = i;
+            a[i] = i; /* no reciprocal partner — self */
     }
 }
 
@@ -365,7 +510,7 @@ static void* malloc_align(size_t size)
     int ret = posix_memalign(&p, ALIGNMENT, size);
     if (ret != 0) {
         fprintf(stderr, "Failed to allocate memory on rank\n");
-        exit(-1);
+        MPI_Abort(MPI_COMM_WORLD, -1);
     }
     return p;
 }

@@ -18,7 +18,7 @@ int main(int argc, char** argv){
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
 
     /*register signal handler*/
-    signal(SIGUSR1,sig_handler);
+    install_shutdown_handler();
 
     int dimx=0; /*0 means auto-factor via MPI_Dims_create*/
     bool periodic=false;
@@ -34,7 +34,7 @@ int main(int argc, char** argv){
         } else {
             if (my_rank == master_rank) {
                 fprintf(stderr, "Unknown argument: %s\n", argv[i]);
-                exit(-1);
+                MPI_Abort(MPI_COMM_WORLD, -1);
             }
         }
     }
@@ -47,7 +47,7 @@ int main(int argc, char** argv){
         if(w_size%dimx!=0){
             if(my_rank==master_rank){
                 fprintf(stderr,"dimx (%d) does not divide w_size (%d)\n",dimx,w_size);
-                exit(-1);
+                MPI_Abort(MPI_COMM_WORLD, -1);
             }
         }
         dims[0]=dimx;
@@ -81,14 +81,14 @@ int main(int argc, char** argv){
 
     /*allocate buffers*/
     /*4 directions, each of size msg_size; granularity batches them*/
-    int send_buf_size, recv_buf_size;
+    size_t send_buf_size, recv_buf_size;
     unsigned char *send_buf;
     unsigned char *recv_buf;
     MPI_Request *send_requests;
     MPI_Request *recv_requests;
 
     send_buf_size=msg_size;
-    recv_buf_size=4*measure_granularity*msg_size;
+    recv_buf_size=(size_t)4*measure_granularity*msg_size;
 
     send_buf=(unsigned char*)malloc_align(send_buf_size);
     recv_buf=(unsigned char*)malloc_align(recv_buf_size);
@@ -98,12 +98,12 @@ int main(int argc, char** argv){
 
     if(send_buf==NULL || recv_buf==NULL || durations==NULL || send_requests==NULL || recv_requests==NULL){
         fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
-        exit(-1);
+        MPI_Abort(MPI_COMM_WORLD, -1);
     }
 
     /*fill send buffer with dummies*/
     for(i=0;i<send_buf_size;i++){
-        send_buf[i]='a';
+        send_buf[i] = debug_mode ? (unsigned char)my_rank : 'a';
     }
 
     /*print basic info to stdout*/
@@ -122,8 +122,9 @@ int main(int argc, char** argv){
     double measure_start_time;
     double burst_length_mean=burst_length;
     double burst_pause_mean=burst_pause;
-    bool burst_cont=false;
+    int burst_cont=0;
     curr_iters=0;
+    measured_iters=0;
 
     int antideadlock_tag=0;
     int d;
@@ -131,6 +132,7 @@ int main(int argc, char** argv){
     MPI_Barrier(MPI_COMM_WORLD);
     do{
         for(k=0;k<max_iters+warm_up_iters;k++){
+            if (check_shutdown()) goto done;
             if(burst_length_rand){ /*randomized burst length*/
                 burst_length=sample_burst_length(burst_length_mean);
             }
@@ -150,7 +152,7 @@ int main(int argc, char** argv){
                 }
                 MPI_Waitall(4*measure_granularity,send_requests,MPI_STATUSES_IGNORE);
                 MPI_Waitall(4*measure_granularity,recv_requests,MPI_STATUSES_IGNORE);
-                durations[curr_iters%max_samples]=MPI_Wtime()-measure_start_time; /*write result to buffer (lru space)*/
+                if (k >= warm_up_iters) record_duration(MPI_Wtime()-measure_start_time);
                 curr_iters++;
                 if(burst_length!=0){ /*bcast needed for synch if bursts timed*/
                     if(my_rank==master_rank){ /*master decides if burst should be continued*/
@@ -168,6 +170,20 @@ int main(int argc, char** argv){
         }
     }while(endless);
 
+    if (debug_mode) {
+        int _d, _b, _ok = 1;
+        const int _dirs[4] = {north, south, west, east};
+        for (_d = 0; _d < 4 && _ok; _d++) {
+            if (_dirs[_d] < 0) continue; /* MPI_PROC_NULL — no neighbour, no data */
+            for (_b = 0; _b < msg_size && _ok; _b++)
+                if (recv_buf[(size_t)_d * msg_size + _b] != (unsigned char)_dirs[_d]) _ok = 0;
+        }
+        printf("DEBUG rank=%d nprocs=%d north=%d south=%d west=%d east=%d check=%s\n",
+               my_rank, w_size, north, south, west, east, _ok ? "OK" : "FAIL");
+        fflush(stdout);
+        MPI_Barrier(MPI_COMM_WORLD);
+    }
+done:
     /*write results to file*/
     MPI_Barrier(MPI_COMM_WORLD);
     write_results();
