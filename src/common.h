@@ -116,6 +116,15 @@ static int    burst_pause_rand    = 0;   /* set by -bpdist */
 static int    pretty_output       = 0;
 static int    debug_mode          = 0;
 
+/* runtime-distribution plot (-plot).  plot_stat selects which per-iteration
+ * cross-rank reduction is histogrammed; plot_bin_size (seconds, > 0) overrides
+ * plot_bins with a fixed bin width; plot_log selects geometric bins.          */
+static int    plot_output     = 0;
+static char   plot_stat[16]   = "max";   /* avg | min | max | median | mainrank */
+static int    plot_bins       = 10;
+static double plot_bin_size   = 0.0;     /* 0 => use plot_bins                  */
+static int    plot_log        = 0;
+
 /* distribution selection for burst length and pause (-bldist / -bpdist).
  * Values: "exp", "pareto", "lognormal".  shape: α for Pareto, σ for log-normal
  * (ignored for exp).  Defaults give exponential with shape unused.          */
@@ -161,6 +170,23 @@ static inline void validate_burst_dist(const char *what, const char *dist,
     }
 }
 
+/* Parse a duration: a number with an optional unit suffix (s, ms, us, ns).
+ * A bare number is interpreted as seconds (consistent with -blength/-bpause).
+ * Returns the value in seconds, or NAN on a malformed string / unknown unit. */
+static inline double parse_duration(const char *s)
+{
+    char *end = NULL;
+    double v = strtod(s, &end);
+    if (end == s) return NAN;                 /* no leading number       */
+    while (*end == ' ') end++;
+    if (*end == '\0')           return v;     /* bare number => seconds  */
+    if (strcmp(end, "s")  == 0) return v;
+    if (strcmp(end, "ms") == 0) return v * 1e-3;
+    if (strcmp(end, "us") == 0) return v * 1e-6;
+    if (strcmp(end, "ns") == 0) return v * 1e-9;
+    return NAN;                                /* unknown unit            */
+}
+
 /*
  * Parse the standard set of command-line flags shared by every benchmark.
  * Unrecognised flags are compacted to the front of argv (after argv[0]) and
@@ -195,6 +221,19 @@ static inline int parse_common_args(int argc, char **argv)
         else if (strcmp(argv[i], "-maxsamples")   == 0) { max_samples         = atoi(arg_value(argc, argv, &i)); }
         else if (strcmp(argv[i], "-pretty-print") == 0) { pretty_output       = 1;               }
         else if (strcmp(argv[i], "-debug")        == 0) { debug_mode          = 1;               }
+        else if (strcmp(argv[i], "-plot")         == 0) { plot_output         = 1;               }
+        else if (strcmp(argv[i], "-plotstat")     == 0) { strncpy(plot_stat, arg_value(argc, argv, &i), 15);
+                                                          plot_stat[15] = '\0';                   }
+        else if (strcmp(argv[i], "-plotbins")     == 0) { plot_bins           = atoi(arg_value(argc, argv, &i)); }
+        else if (strcmp(argv[i], "-plotlog")      == 0) { plot_log            = 1;               }
+        else if (strcmp(argv[i], "-plotbinsize")  == 0) { const char *_bs = arg_value(argc, argv, &i);
+                                                          plot_bin_size = parse_duration(_bs);
+                                                          if (isnan(plot_bin_size) || plot_bin_size <= 0.0) {
+                                                              if (my_rank == master_rank)
+                                                                  fprintf(stderr, "-plotbinsize must be a positive duration "
+                                                                          "(e.g. 2ms, 500us, 0.001), got '%s'\n", _bs);
+                                                              MPI_Abort(MPI_COMM_WORLD, -1);
+                                                          }                                       }
         else { argv[new_argc++] = argv[i]; } /* pass through unknown flags */
     }
 
@@ -232,6 +271,27 @@ static inline int parse_common_args(int argc, char **argv)
         MPI_Abort(MPI_COMM_WORLD, -1);
     }
 
+    /* validate -plot options */
+    if (plot_output) {
+        if (strcmp(plot_stat, "avg") && strcmp(plot_stat, "min") && strcmp(plot_stat, "max")
+            && strcmp(plot_stat, "median") && strcmp(plot_stat, "mainrank")) {
+            if (my_rank == master_rank)
+                fprintf(stderr, "-plotstat must be one of avg|min|max|median|mainrank, got %s\n", plot_stat);
+            MPI_Abort(MPI_COMM_WORLD, -1);
+        }
+        if (plot_bin_size > 0.0 && plot_log) {
+            if (my_rank == master_rank)
+                fprintf(stderr, "-plotbinsize cannot be combined with -plotlog "
+                                "(a constant width is meaningless on a log axis)\n");
+            MPI_Abort(MPI_COMM_WORLD, -1);
+        }
+        if (plot_bin_size <= 0.0 && plot_bins < 1) {
+            if (my_rank == master_rank)
+                fprintf(stderr, "-plotbins must be >= 1, got %d\n", plot_bins);
+            MPI_Abort(MPI_COMM_WORLD, -1);
+        }
+    }
+
     return new_argc;
 }
 
@@ -264,6 +324,116 @@ static inline void format_duration(char *buf, size_t len, double t)
         snprintf(buf, len, "%9.2f ms", t * 1e3);
     else
         snprintf(buf, len, "%9.2f  s", t);
+}
+
+/* Strip the leading spaces format_duration adds (it right-pads to %9.2f). */
+static inline const char *ltrim_spaces(const char *s)
+{
+    while (*s == ' ') s++;
+    return s;
+}
+
+#ifndef BLINK_PLOT_MAX_BINS
+#define BLINK_PLOT_MAX_BINS 64
+#endif
+#define BLINK_PLOT_BAR_MAX  40
+
+/* Render an ASCII histogram of `n` per-iteration timing samples (seconds),
+ * followed by a percentile footer.  Binning modes:
+ *   logscale     : `bins` geometric bins between min and max (needs min > 0);
+ *   bin_size > 0 : fixed-width linear bins, lower edge aligned to a multiple of
+ *                  bin_size, capped at BLINK_PLOT_MAX_BINS with the tail folded
+ *                  into the last bin (a note is printed when this triggers);
+ *   otherwise    : `bins` equal-width linear bins between min and max.
+ * `vals` is sorted in place — pass a scratch array you no longer need.        */
+static inline void print_runtime_histogram(double *vals, int n, const char *statname,
+                                            int bins, double bin_size, int logscale)
+{
+    int i, k;
+    printf("\n");
+    if (n <= 0) { printf("  (-plot: no measured samples to plot)\n"); return; }
+
+    qsort(vals, n, sizeof(double), compare_doubles);
+    double vmin = vals[0], vmax = vals[n - 1];
+
+    double sum = 0.0;
+    for (i = 0; i < n; i++) sum += vals[i];
+
+    if (vmax <= vmin) {                       /* degenerate: all identical */
+        char one[24];
+        format_duration(one, sizeof(one), vmin);
+        printf("\033[1m\033[36m  Per-iteration latency  \xc2\xb7  stat=%s  \xc2\xb7  n=%d\033[0m\n",
+               statname, n);
+        printf("  all samples = %s\n", ltrim_spaces(one));
+        return;
+    }
+
+    int    use_log  = (logscale && vmin > 0.0);
+    int    nb;
+    int    overflow = 0;
+    double lo0 = vmin, width = 0.0, ratio = 1.0;
+
+    if (use_log) {
+        nb = bins > 0 ? bins : 10;
+        ratio = pow(vmax / vmin, 1.0 / nb);
+    } else if (bin_size > 0.0) {
+        lo0 = floor(vmin / bin_size) * bin_size;
+        long need = (long)floor((vmax - lo0) / bin_size) + 1;
+        if (need < 1) need = 1;
+        if (need > BLINK_PLOT_MAX_BINS) { nb = BLINK_PLOT_MAX_BINS; overflow = 1; }
+        else                            { nb = (int)need; }
+        width = bin_size;
+    } else {
+        nb = bins > 0 ? bins : 10;
+        width = (vmax - vmin) / nb;
+    }
+    if (nb < 1) nb = 1;
+
+    int *counts = (int *)calloc((size_t)nb, sizeof(int));
+    if (!counts) { printf("  (-plot: allocation failed)\n"); return; }
+    for (i = 0; i < n; i++) {
+        int b = use_log ? (int)floor(log(vals[i] / vmin) / log(ratio))
+                        : (int)floor((vals[i] - lo0) / width);
+        if (b < 0)   b = 0;
+        if (b >= nb) b = nb - 1;              /* fold any overflow into the last bin */
+        counts[b]++;
+    }
+    int maxc = 1;
+    for (i = 0; i < nb; i++) if (counts[i] > maxc) maxc = counts[i];
+
+    printf("\033[1m\033[36m  Per-iteration latency  \xc2\xb7  stat=%s  \xc2\xb7  n=%d  \xc2\xb7  %s\033[0m\n",
+           statname, n, use_log ? "log bins" : (bin_size > 0.0 ? "fixed bins" : "linear bins"));
+    if (overflow)
+        printf("\033[33m  note: -plotbinsize would need %ld bins for the observed range; "
+               "capped at %d (tail folded into the last bin)\033[0m\n",
+               (long)floor((vmax - lo0) / bin_size) + 1, BLINK_PLOT_MAX_BINS);
+    printf("\033[2m  ----------------------------------------------------------------------\033[0m\n");
+
+    for (i = 0; i < nb; i++) {
+        double lo = use_log ? vmin * pow(ratio, i)     : lo0 + i * width;
+        double hi = use_log ? vmin * pow(ratio, i + 1) : lo0 + (i + 1) * width;
+        char lo_s[24], hi_s[24];
+        format_duration(lo_s, sizeof(lo_s), lo);
+        format_duration(hi_s, sizeof(hi_s), hi);
+        int bar = (int)floor((double)counts[i] / maxc * BLINK_PLOT_BAR_MAX + 0.5);
+        printf("  [%s - %s]  ", lo_s, hi_s);
+        for (k = 0; k < bar; k++)                  printf("\xe2\x96\x88"); /* full block */
+        for (k = bar; k < BLINK_PLOT_BAR_MAX; k++) printf(" ");
+        printf("  %5.1f%%\n", 100.0 * counts[i] / n);
+    }
+    printf("\033[2m  ----------------------------------------------------------------------\033[0m\n");
+
+    char s_min[24], s_mean[24], s_p50[24], s_p90[24], s_p99[24], s_max[24];
+    format_duration(s_min,  sizeof(s_min),  vmin);
+    format_duration(s_mean, sizeof(s_mean), sum / n);
+    format_duration(s_p50,  sizeof(s_p50),  vals[(int)(0.50 * (n - 1) + 0.5)]);
+    format_duration(s_p90,  sizeof(s_p90),  vals[(int)(0.90 * (n - 1) + 0.5)]);
+    format_duration(s_p99,  sizeof(s_p99),  vals[(int)(0.99 * (n - 1) + 0.5)]);
+    format_duration(s_max,  sizeof(s_max),  vmax);
+    printf("  n=%d \xc2\xb7 min %s \xc2\xb7 mean %s \xc2\xb7 p50 %s \xc2\xb7 p90 %s \xc2\xb7 p99 %s \xc2\xb7 max %s\n",
+           n, ltrim_spaces(s_min), ltrim_spaces(s_mean), ltrim_spaces(s_p50),
+           ltrim_spaces(s_p90), ltrim_spaces(s_p99), ltrim_spaces(s_max));
+    free(counts);
 }
 
 static inline void write_results()
@@ -333,6 +503,20 @@ static inline void write_results()
                master_rank, MPI_COMM_WORLD);
 
     if (my_rank == master_rank) {
+        /* -plot: capture one chosen cross-rank statistic per iteration */
+        int     plot_stat_id = 0;   /* 0=avg 1=min 2=max 3=median 4=mainrank */
+        double *plot_vals    = NULL;
+        if (plot_output) {
+            if      (strcmp(plot_stat, "min")      == 0) plot_stat_id = 1;
+            else if (strcmp(plot_stat, "max")      == 0) plot_stat_id = 2;
+            else if (strcmp(plot_stat, "median")   == 0) plot_stat_id = 3;
+            else if (strcmp(plot_stat, "mainrank") == 0) plot_stat_id = 4;
+            plot_vals = (double *)malloc(sizeof(double) * (num_samples > 0 ? num_samples : 1));
+            if (plot_vals == NULL) {
+                fprintf(stderr, "Failed to allocate plot buffer on rank %d\n", my_rank);
+                MPI_Abort(MPI_COMM_WORLD, -1);
+            }
+        }
         for (i = 0; i < num_samples; i++) {
             int j;
             duration_sum = 0;
@@ -346,6 +530,16 @@ static inline void write_results()
                 duration_median = (sorting_buf[(w_size-1)/2] + sorting_buf[w_size/2]) / 2.0;
             else                 /* odd: median is the middle value */
                 duration_median = sorting_buf[(w_size-1)/2];
+
+            if (plot_output) {
+                switch (plot_stat_id) {
+                    case 1:  plot_vals[i] = sorting_buf[0];          break;
+                    case 2:  plot_vals[i] = sorting_buf[w_size - 1]; break;
+                    case 3:  plot_vals[i] = duration_median;         break;
+                    case 4:  plot_vals[i] = tmp_buf[i];              break;
+                    default: plot_vals[i] = duration_sum / w_size;   break;
+                }
+            }
 
             if (pretty_output) {
                 char avg_s[24], min_s[24], max_s[24], med_s[24];
@@ -371,6 +565,14 @@ static inline void write_results()
         } else {
             printf("Ran %lld iterations. Measured %d iterations.\n", curr_iters, num_samples);
         }
+
+        /* -plot: additive ASCII histogram of the chosen per-iteration statistic */
+        if (plot_output) {
+            print_runtime_histogram(plot_vals, num_samples, plot_stat,
+                                    plot_bins, plot_bin_size, plot_log);
+            free(plot_vals);
+        }
+
         fflush(stdout);
     }
 

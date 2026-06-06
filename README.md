@@ -120,6 +120,11 @@ Every benchmark understands the following flags:
 | `-bpdist <D>` | — | Randomise pause length using distribution `D` (`exp`, `pareto`, `lognormal`) |
 | `-bpshape <S>` | `1.5` | Shape parameter for pause distribution (α for Pareto, σ for log-normal) |
 | `-pretty-print` | off | Human-readable table output instead of CSV (see [Output format](#output-format)) |
+| `-plot` | off | Append an ASCII histogram of the per-iteration timing distribution (see [Output format](#output-format)) |
+| `-plotstat <S>` | `max` | Which cross-rank statistic to histogram each iteration: `avg`, `min`, `max`, `median`, `mainrank` |
+| `-plotbins <N>` | `10` | Number of histogram bins |
+| `-plotbinsize <D>` | — | Fixed bin width with optional unit (e.g. `2ms`, `500us`, `0.001`); overrides `-plotbins`, linear bins only |
+| `-plotlog` | off | Use logarithmic (geometric) bins — good for heavy-tailed latencies |
 
 ### Burst distributions
 
@@ -364,6 +369,33 @@ mpirun -n 8 build/bin/alltoall_nb -iter 5 -pretty-print
 ```
 
 The `MainRank` column is omitted in pretty mode.  Pipe through a tool such as `sed 's/\x1b\[[0-9;]*m//g'` to strip ANSI colour codes if needed.
+
+### Distribution plot
+
+Pass `-plot` to **append** an ASCII histogram of the per-iteration timing distribution (the CSV / pretty table is still printed first).  Each iteration contributes one value — the cross-rank statistic chosen with `-plotstat` (default `max`, i.e. the slowest rank, which is the completion time of a collective).  A percentile footer summarises the tail regardless of how the bins fall.
+
+```bash
+mpirun -n 8 build/bin/alltoall_nb -iter 400 -plot -plotstat max
+```
+
+```
+  Per-iteration latency  ·  stat=max  ·  n=400  ·  linear bins
+  ----------------------------------------------------------------------
+  [     6.05 us -     32.88 us]  ████████████████████████████████████████   97.8%
+  [    32.88 us -     59.70 us]                                              1.0%
+       ...
+  [   247.49 us -    274.31 us]                                              0.2%
+  ----------------------------------------------------------------------
+  n=400 · min 6.05 us · mean 9.09 us · p50 6.62 us · p90 7.15 us · p99 74.71 us · max 274.31 us
+```
+
+Binning options:
+
+- `-plotbins <N>` — number of bins (default `10`); always produces a readable, fixed-height histogram.
+- `-plotbinsize <D>` — fixed bin **width** with an optional unit (`2ms`, `500us`, `100ns`, or a bare number = seconds).  Edges are aligned to multiples of the width so plots from different runs line up.  Overrides `-plotbins`; capped at 64 bins (the tail folds into the last bin, with a note) so a tiny width can't flood the terminal.
+- `-plotlog` — logarithmic (geometric) bins, which reveal the shape of heavy-tailed latency distributions far better than linear bins.  Cannot be combined with `-plotbinsize`.
+
+As with pretty-print, pipe through `sed 's/\x1b\[[0-9;]*m//g'` to strip the ANSI colours.
 
 ## Early termination
 

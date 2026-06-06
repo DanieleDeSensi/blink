@@ -240,3 +240,51 @@ TEST(CliGuards, MissingFlagValueAbortsCleanly)
     EXPECT_NE(r.stderr_raw.find("Missing value for option -mode"), std::string::npos)
         << "expected a 'Missing value' diagnostic on stderr.\nstderr:\n" << r.stderr_raw;
 }
+
+/* ── -plot distribution histogram ───────────────────────────────────────────── */
+
+TEST(Plot, RendersHistogramAdditively)
+{
+    DebugRun r = run_debug_capture("alltoall_nb", 8, "-iter 100 -plot");
+    ASSERT_TRUE(r.normal_exit) << "stderr:\n" << r.stderr_raw;
+    ASSERT_EQ(r.exit_code, 0)  << "stderr:\n" << r.stderr_raw;
+    EXPECT_NE(r.stdout_raw.find("Per-iteration latency"), std::string::npos)
+        << "no plot header.\nstdout:\n" << r.stdout_raw;
+    EXPECT_NE(r.stdout_raw.find("stat=max"), std::string::npos)        /* default stat */
+        << "default -plotstat should be max.\nstdout:\n" << r.stdout_raw;
+    EXPECT_NE(r.stdout_raw.find("Measured"), std::string::npos)        /* additive */
+        << "plot should be additive (the listing is still printed).\nstdout:\n" << r.stdout_raw;
+}
+
+TEST(Plot, StatAndBinningSelectors)
+{
+    DebugRun avg = run_debug_capture("alltoall_nb", 8, "-iter 100 -plot -plotstat avg");
+    EXPECT_EQ(avg.exit_code, 0) << avg.stderr_raw;
+    EXPECT_NE(avg.stdout_raw.find("stat=avg"), std::string::npos) << avg.stdout_raw;
+
+    DebugRun lg = run_debug_capture("alltoall_nb", 8, "-iter 100 -plot -plotlog");
+    EXPECT_EQ(lg.exit_code, 0) << lg.stderr_raw;
+    EXPECT_NE(lg.stdout_raw.find("log bins"), std::string::npos) << lg.stdout_raw;
+
+    DebugRun fx = run_debug_capture("alltoall_nb", 8, "-iter 100 -plot -plotbinsize 1us");
+    EXPECT_EQ(fx.exit_code, 0) << fx.stderr_raw;
+    EXPECT_NE(fx.stdout_raw.find("fixed bins"), std::string::npos) << fx.stdout_raw;
+}
+
+TEST(Plot, InvalidStatAbortsCleanly)
+{
+    DebugRun r = run_debug_capture("alltoall_nb", 8, "-plot -plotstat bogus");
+    EXPECT_FALSE(r.normal_exit && r.exit_code == 0)
+        << "invalid -plotstat should abort.\nstdout:\n" << r.stdout_raw;
+    EXPECT_NE(r.stderr_raw.find("plotstat must be one of"), std::string::npos)
+        << "expected a -plotstat diagnostic.\nstderr:\n" << r.stderr_raw;
+}
+
+TEST(Plot, BinsizeWithLogConflictAborts)
+{
+    DebugRun r = run_debug_capture("alltoall_nb", 8, "-plot -plotbinsize 1us -plotlog");
+    EXPECT_FALSE(r.normal_exit && r.exit_code == 0)
+        << "combining -plotbinsize with -plotlog should abort.\nstdout:\n" << r.stdout_raw;
+    EXPECT_NE(r.stderr_raw.find("cannot be combined with -plotlog"), std::string::npos)
+        << "expected a conflict diagnostic.\nstderr:\n" << r.stderr_raw;
+}
