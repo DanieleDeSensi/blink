@@ -44,7 +44,9 @@ int main(int argc, char** argv){
     MPI_Request *recv_requests;
 
     send_buf_size=(size_t)w_size*msg_size;
-    recv_buf_size=(size_t)w_size*msg_size;
+    /* one slot per (granularity, peer) pair so the concurrently outstanding
+     * MPI_Irecv ops never share a receive buffer (-grty > 1). */
+    recv_buf_size=(size_t)measure_granularity*w_size*msg_size;
     
     send_buf=(unsigned char*)malloc_align(send_buf_size);
     recv_buf=(unsigned char*)malloc_align(recv_buf_size);
@@ -95,7 +97,7 @@ int main(int argc, char** argv){
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
                     for(j=0;j<w_size;j++){
-                        MPI_Irecv(&recv_buf[j*msg_size],msg_size,MPI_BYTE, MPI_ANY_SOURCE
+                        MPI_Irecv(&recv_buf[(size_t)(i*w_size+j)*msg_size],msg_size,MPI_BYTE, MPI_ANY_SOURCE
                                     ,j,MPI_COMM_WORLD,&recv_requests[i*w_size+j]);
                     }
                     for(j=0;j<w_size;j++){

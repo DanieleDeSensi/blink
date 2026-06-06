@@ -119,10 +119,9 @@ int main(int argc, char** argv){
     int *recv_buf;
     
     if(msg_size%sizeof(int)!=0){
-        if(my_rank==master_rank){
-                fprintf(stderr, "Msg-size (%d) must be divisible by size of int (%ld)",msg_size,sizeof(int));
-                MPI_Abort(MPI_COMM_WORLD, -1);
-        }
+        if(my_rank==master_rank)
+            fprintf(stderr, "Msg-size (%d) must be divisible by size of int (%zu)\n",msg_size,sizeof(int));
+        MPI_Abort(MPI_COMM_WORLD, -1);
     }
 
     /* -msgsize is the per-rank contribution (matches allgather_b/nb); the full
@@ -177,6 +176,12 @@ int main(int argc, char** argv){
             burst_start_time=MPI_Wtime();
             do{
                 MPI_Barrier(MPI_COMM_WORLD);
+                /* comm_only metric: accumulate only the pure inter-rank transfer
+                 * time across the granularity batch.  The local self-copy
+                 * (allgather_memcpy) is intentionally outside the timed region, so
+                 * this isolates communication.  This is a deliberately different
+                 * measurement than the _b/_nb variants, which time the whole
+                 * batched window as a single sample. */
                 measure_total_time=0.0;
                 for(i=0;i<measure_granularity;i++){
                     allgather_memcpy(send_buf, msg_size_ints, MPI_INT, recv_buf, msg_size_ints, MPI_INT, MPI_COMM_WORLD);

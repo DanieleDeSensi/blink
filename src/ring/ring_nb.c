@@ -125,6 +125,7 @@ int main(int argc, char** argv){
             burst_start_time=MPI_Wtime();
             do{
                 MPI_Barrier(MPI_COMM_WORLD);
+                antideadlock_tag=0; /* reset per timed window so the tag never grows unbounded (stays < MPI_TAG_UB on long/endless runs) */
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
                     MPI_Irecv(&recv_buf[2*i*msg_size],msg_size,MPI_BYTE,MPI_ANY_SOURCE

@@ -12,6 +12,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+#include <algorithm>   /* std::count */
 #include "popen_helpers.h"
 
 using blink::run_debug_capture;
@@ -205,4 +206,37 @@ TEST(Shutdown, Sigusr1ToSingleRankShutsDownCleanly)
         << "orchestration:\n" << out << "\nbenchmark output:\n" << bench;
     EXPECT_NE(bench.find("Measured"), std::string::npos)
         << "no results footer after clean shutdown.\nbenchmark output:\n" << bench;
+}
+
+/* ── CLI validation guards ──────────────────────────────────────────────────── */
+
+/*
+ * An out-of-range -mrank must fail loudly (clean MPI_Abort with a diagnostic),
+ * never crash or run with an invalid collective root.  Regression guard for the
+ * master_rank range check added to parse_common_args().
+ */
+TEST(CliGuards, OutOfRangeMrankAbortsCleanly)
+{
+    DebugRun r = run_debug_capture("alltoall_b", 8, "-mrank 99");
+    EXPECT_FALSE(r.normal_exit && r.exit_code == 0)
+        << "out-of-range -mrank should abort, but the run exited 0.\n"
+        << "stdout:\n" << r.stdout_raw;
+    EXPECT_NE(r.stderr_raw.find("mrank must be in"), std::string::npos)
+        << "expected an -mrank range diagnostic on stderr.\nstderr:\n" << r.stderr_raw;
+}
+
+/*
+ * A value-taking flag supplied as the final token must be rejected with a
+ * "Missing value" message rather than dereferencing argv[argc] (== NULL).
+ * Regression guard for arg_value() and the benchmark-specific parsers that
+ * now route through it.
+ */
+TEST(CliGuards, MissingFlagValueAbortsCleanly)
+{
+    DebugRun r = run_debug_capture("pairwise_b", 8, "-mode");
+    EXPECT_FALSE(r.normal_exit && r.exit_code == 0)
+        << "missing -mode value should abort, but the run exited 0.\n"
+        << "stdout:\n" << r.stdout_raw;
+    EXPECT_NE(r.stderr_raw.find("Missing value for option -mode"), std::string::npos)
+        << "expected a 'Missing value' diagnostic on stderr.\nstderr:\n" << r.stderr_raw;
 }

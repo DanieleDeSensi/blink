@@ -28,7 +28,7 @@ int main(int argc, char** argv){
     argc = parse_common_args(argc, argv);
     for (i = 1; i < argc; i++) {
         if (strcmp(argv[i], "-dimx") == 0) {
-            dimx = atoi(argv[++i]);
+            dimx = atoi(arg_value(argc, argv, &i));
         } else if (strcmp(argv[i], "-periodic") == 0) {
             periodic = true;
         } else {
@@ -139,6 +139,7 @@ int main(int argc, char** argv){
             burst_start_time=MPI_Wtime();
             do{
                 MPI_Barrier(MPI_COMM_WORLD);
+                antideadlock_tag=0; /* reset per timed window so the tag never grows unbounded (stays < MPI_TAG_UB on long/endless runs) */
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
                     /*exchange with all 4 neighbors; MPI_PROC_NULL ops complete immediately*/

@@ -47,7 +47,9 @@ int main(int argc, char** argv){
     requests=(MPI_Request*)malloc_align(sizeof(MPI_Request)*measure_granularity);
 
     if(my_rank==master_rank){
-        recv_buf=(unsigned char*)malloc_align((size_t)w_size*msg_size);
+        /* one full gathered block per batched (granularity) call so the
+         * concurrently outstanding MPI_Igather ops never share a buffer. */
+        recv_buf=(unsigned char*)malloc_align((size_t)measure_granularity*w_size*msg_size);
         if(recv_buf==NULL){
             fprintf(stderr,"Failed to allocate recv_buf on rank %d\n",my_rank);
             MPI_Abort(MPI_COMM_WORLD, -1);
@@ -96,7 +98,10 @@ int main(int argc, char** argv){
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
-                    MPI_Igather(send_buf,msg_size,MPI_BYTE,recv_buf,msg_size,MPI_BYTE,master_rank,MPI_COMM_WORLD,&requests[i]);
+                    /* recvbuf is significant only at the root; keep it NULL elsewhere
+                     * to avoid pointer arithmetic on a non-root's NULL buffer.       */
+                    unsigned char *rbuf = (my_rank==master_rank) ? recv_buf+(size_t)i*w_size*msg_size : NULL;
+                    MPI_Igather(send_buf,msg_size,MPI_BYTE,rbuf,msg_size,MPI_BYTE,master_rank,MPI_COMM_WORLD,&requests[i]);
                 }
                 MPI_Waitall(measure_granularity,requests,MPI_STATUSES_IGNORE);
                 if (k >= warm_up_iters) record_duration(MPI_Wtime()-measure_start_time);

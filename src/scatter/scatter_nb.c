@@ -53,7 +53,9 @@ int main(int argc, char** argv){
         }
     }
 
-    recv_buf=(unsigned char*)malloc_align(msg_size);
+    /* one received chunk per batched (granularity) call so the concurrently
+     * outstanding MPI_Iscatter ops never share a receive buffer (-grty > 1). */
+    recv_buf=(unsigned char*)malloc_align((size_t)measure_granularity*msg_size);
     durations=(double *)malloc_align(sizeof(double)*max_samples);
     requests=(MPI_Request*)malloc_align(sizeof(MPI_Request)*measure_granularity);
 
@@ -94,7 +96,7 @@ int main(int argc, char** argv){
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
-                    MPI_Iscatter(send_buf,msg_size,MPI_BYTE,recv_buf,msg_size,MPI_BYTE,master_rank,MPI_COMM_WORLD,&requests[i]);
+                    MPI_Iscatter(send_buf,msg_size,MPI_BYTE,&recv_buf[(size_t)i*msg_size],msg_size,MPI_BYTE,master_rank,MPI_COMM_WORLD,&requests[i]);
                 }
                 MPI_Waitall(measure_granularity,requests,MPI_STATUSES_IGNORE);
                 if (k >= warm_up_iters) record_duration(MPI_Wtime()-measure_start_time);

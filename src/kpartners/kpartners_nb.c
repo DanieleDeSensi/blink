@@ -27,7 +27,7 @@ int main(int argc, char** argv){
     argc = parse_common_args(argc, argv);
     for (i = 1; i < argc; i++) {
         if (strcmp(argv[i], "-k") == 0) {
-            npartners = atoi(argv[++i]);
+            npartners = atoi(arg_value(argc, argv, &i));
         } else {
             if (my_rank == master_rank) {
                 fprintf(stderr, "Unknown argument: %s\n", argv[i]);
@@ -182,6 +182,7 @@ int main(int argc, char** argv){
             burst_start_time=MPI_Wtime();
             do{
                 MPI_Barrier(MPI_COMM_WORLD);
+                antideadlock_tag=0; /* reset per timed window so the tag never grows unbounded (stays < MPI_TAG_UB on long/endless runs) */
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
                     /*post npartners receives (MPI_ANY_SOURCE: each perm maps exactly one sender to this rank)*/

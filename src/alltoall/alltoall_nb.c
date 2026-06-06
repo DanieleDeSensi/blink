@@ -43,7 +43,9 @@ int main(int argc, char** argv){
     MPI_Request *requests;
     
     send_buf_size=(size_t)msg_size*w_size;
-    recv_buf_size=(size_t)msg_size*w_size;
+    /* one full result block per batched (granularity) call so the concurrently
+     * outstanding MPI_Ialltoall ops never share a receive buffer (-grty > 1).  */
+    recv_buf_size=(size_t)measure_granularity*msg_size*w_size;
     
     send_buf=(unsigned char*)malloc_align(send_buf_size);
     recv_buf=(unsigned char*)malloc_align(recv_buf_size);
@@ -92,7 +94,7 @@ int main(int argc, char** argv){
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
-                    MPI_Ialltoall(send_buf,msg_size,MPI_BYTE,recv_buf,msg_size,MPI_BYTE,MPI_COMM_WORLD,&requests[i]);
+                    MPI_Ialltoall(send_buf,msg_size,MPI_BYTE,&recv_buf[(size_t)i*w_size*msg_size],msg_size,MPI_BYTE,MPI_COMM_WORLD,&requests[i]);
                 }
                 MPI_Waitall(measure_granularity,requests,MPI_STATUSES_IGNORE);
                 if (k >= warm_up_iters) record_duration(MPI_Wtime()-measure_start_time);

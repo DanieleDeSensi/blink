@@ -44,17 +44,18 @@ int main(int argc, char** argv){
     MPI_Request *requests;
 
     if(msg_size%sizeof(int)!=0){
-        if(my_rank==master_rank){
-            fprintf(stderr, "Msg-size (%d) must be divisible by size of int (%ld)",msg_size,sizeof(int));
-            MPI_Abort(MPI_COMM_WORLD, -1);
-        }
+        if(my_rank==master_rank)
+            fprintf(stderr, "Msg-size (%d) must be divisible by size of int (%zu)\n",msg_size,sizeof(int));
+        MPI_Abort(MPI_COMM_WORLD, -1);
     }
 
     msg_size_ints=msg_size/sizeof(int);
 
     /*each rank sends w_size*msg_size total, receives msg_size*/
     send_buf=(int*)malloc_align((size_t)w_size*msg_size);
-    recv_buf=(int*)malloc_align(msg_size);
+    /* one received chunk per batched (granularity) call so the concurrently
+     * outstanding MPI_Ireduce_scatter ops never share a receive buffer (-grty > 1). */
+    recv_buf=(int*)malloc_align((size_t)measure_granularity*msg_size);
     recvcounts=(int*)malloc_align(sizeof(int)*w_size);
     durations=(double *)malloc_align(sizeof(double)*max_samples);
     requests=(MPI_Request*)malloc_align(sizeof(MPI_Request)*measure_granularity);
@@ -106,7 +107,7 @@ int main(int argc, char** argv){
                 MPI_Barrier(MPI_COMM_WORLD);
                 measure_start_time=MPI_Wtime();
                 for(i=0;i<measure_granularity;i++){
-                    MPI_Ireduce_scatter(send_buf,recv_buf,recvcounts,MPI_INT,MPI_SUM,MPI_COMM_WORLD,&requests[i]);
+                    MPI_Ireduce_scatter(send_buf,&recv_buf[(size_t)i*msg_size_ints],recvcounts,MPI_INT,MPI_SUM,MPI_COMM_WORLD,&requests[i]);
                 }
                 MPI_Waitall(measure_granularity,requests,MPI_STATUSES_IGNORE);
                 if (k >= warm_up_iters) record_duration(MPI_Wtime()-measure_start_time);

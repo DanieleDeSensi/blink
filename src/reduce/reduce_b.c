@@ -42,10 +42,9 @@ int main(int argc, char** argv){
     int *recv_buf;
 
     if(msg_size%sizeof(int)!=0){
-        if(my_rank==master_rank){
-            fprintf(stderr, "Msg-size (%d) must be divisible by size of int (%ld)",msg_size,sizeof(int));
-            MPI_Abort(MPI_COMM_WORLD, -1);
-        }
+        if(my_rank==master_rank)
+            fprintf(stderr, "Msg-size (%d) must be divisible by size of int (%zu)\n",msg_size,sizeof(int));
+        MPI_Abort(MPI_COMM_WORLD, -1);
     }
 
     msg_size_ints=msg_size/sizeof(int);

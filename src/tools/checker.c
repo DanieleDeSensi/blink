@@ -26,8 +26,8 @@ int main(int argc, char** argv){
     for (i = 1; i < argc; i++) {
         if (my_rank == master_rank) {
             fprintf(stderr, "Unknown argument: %s\n", argv[i]);
+            MPI_Abort(MPI_COMM_WORLD, -1);
         }
-        MPI_Abort(MPI_COMM_WORLD, -1);
     }
 
     /*allocate buffers*/
@@ -87,7 +87,7 @@ int main(int argc, char** argv){
         struct timeval time_now;
         gettimeofday(&time_now, NULL);
         struct tm *time_str_tm;
-        time_str_tm = gmtime(&time_now.tv_sec);
+        time_str_tm = localtime(&time_now.tv_sec); /* local time, consistent with the local-time log filename */
         if(endless){
             fprintf(fd_temp, "endless, %i B, %i iter, %i grty\n",msg_size,max_iters,measure_granularity);
         }else{
@@ -123,8 +123,8 @@ int main(int argc, char** argv){
                     struct timeval time_now;
                     gettimeofday(&time_now, NULL);
                     struct tm *time_str_tm;
-                    time_str_tm = gmtime(&time_now.tv_sec);
-                    fprintf(fd_temp, "%02i:%02i:%02i:%06li | %i | %i\n"
+                    time_str_tm = localtime(&time_now.tv_sec); /* local time, consistent with the local-time log filename */
+                    fprintf(fd_temp, "%02i:%02i:%02i:%06li | %i | %lld\n"
                        , time_str_tm->tm_hour
                        , time_str_tm->tm_min
                        , time_str_tm->tm_sec

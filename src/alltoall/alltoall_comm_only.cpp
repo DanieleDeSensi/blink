@@ -145,6 +145,12 @@ int main(int argc, char** argv){
             burst_start_time=MPI_Wtime();
             do{
                 MPI_Barrier(MPI_COMM_WORLD);
+                /* comm_only metric: accumulate only the pure inter-rank transfer
+                 * time across the granularity batch.  The local self-copy
+                 * (all2all_memcpy) is intentionally outside the timed region, so
+                 * this isolates communication.  This is a deliberately different
+                 * measurement than the _b/_nb variants, which time the whole
+                 * batched window as a single sample. */
                 measure_total_time=0.0;
                 for(i=0;i<measure_granularity;i++){
                     all2all_memcpy(send_buf, msg_size, MPI_BYTE, recv_buf, msg_size, MPI_BYTE, MPI_COMM_WORLD);

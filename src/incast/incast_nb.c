@@ -44,7 +44,9 @@ int main(int argc, char** argv){
     MPI_Request *recv_requests;
     
     send_buf_size=msg_size;
-    recv_buf_size=(size_t)(w_size-1)*msg_size;
+    /* one slot per (granularity, sender) pair so the concurrently outstanding
+     * MPI_Irecv ops at the root never share a receive buffer (-grty > 1). */
+    recv_buf_size=(size_t)measure_granularity*(w_size-1)*msg_size;
     
     send_buf=(unsigned char*)malloc_align(send_buf_size);
     recv_buf=(unsigned char*)malloc_align(recv_buf_size);
@@ -98,7 +100,7 @@ int main(int argc, char** argv){
                 for(i=0;i<measure_granularity;i++){
                     if (my_rank==master_rank){
                         for(j=0;j<w_size-1;j++){
-                            MPI_Irecv(&recv_buf[j*msg_size],msg_size,MPI_BYTE, MPI_ANY_SOURCE
+                            MPI_Irecv(&recv_buf[(size_t)(i*(w_size-1)+j)*msg_size],msg_size,MPI_BYTE, MPI_ANY_SOURCE
                                     ,MPI_ANY_TAG, MPI_COMM_WORLD,&recv_requests[i*(w_size-1)+j]);
                         }
                     }else{

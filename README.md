@@ -120,6 +120,16 @@ The sampler implementations can be verified independently:
 mpirun -n 1 build/bin/dist_test
 ```
 
+## Auxiliary tools
+
+Besides the benchmarks, `src/tools/` builds a few helper binaries:
+
+| Binary | Purpose |
+|--------|---------|
+| `dist_test` | Verifies the burst-distribution samplers against their theoretical CDFs (ASCII histogram + mean / variance checks + KS test).  Run single-rank: `mpirun -n 1 build/bin/dist_test`. |
+| `checker` | An all-to-all workload (like `alltoall_b`) that additionally writes a per-iteration wall-clock timestamp log on the master rank (`checker_<YYYYMMDD_HHMMSS>.log`, local time) — useful for correlating throughput dips with external system activity over a long run.  Accepts the common flags. |
+| `null_dummy` | Bare `MPI_Init` / `MPI_Finalize` with no communication; a baseline for measuring MPI startup / teardown overhead. |
+
 ## Benchmarks
 
 Benchmarks are grouped by traffic pattern.  The suffix convention is:

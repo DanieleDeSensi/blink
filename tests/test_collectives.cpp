@@ -74,6 +74,15 @@ TEST_P(UnrootedCollectiveTest, DataIntegrity_burst) {
     check_coverage(m, N, GetParam() + " burst");
     check_all_ok(m, GetParam() + " burst");
 }
+/* Granularity batching (-grty > 1): the _nb / manual variants issue grty
+ * concurrent operations per timed window.  Each must write a DISJOINT receive
+ * slot — a shared buffer would be an MPI overlap violation that can corrupt
+ * data.  This exercises that path (default -grty 1 would never catch it).   */
+TEST_P(UnrootedCollectiveTest, DataIntegrity_grty) {
+    auto m = run_debug(GetParam(), N, "-grty 4");
+    check_coverage(m, N, GetParam() + " grty=4");
+    check_all_ok(m, GetParam() + " grty=4");
+}
 
 INSTANTIATE_TEST_SUITE_P(
     Collectives, UnrootedCollectiveTest,
@@ -116,6 +125,13 @@ TEST_P(RootedCollectiveTest, DataIntegrity_burst) {
     auto m = run_debug(GetParam(), N, "-blength 0.001");
     check_coverage(m, N, GetParam() + " burst");
     check_all_ok(m, GetParam() + " burst");
+}
+/* Granularity batching (-grty > 1): grty concurrent rooted ops per window,
+ * each into a disjoint receive slot.  Guards the buffer-indexing fix.        */
+TEST_P(RootedCollectiveTest, DataIntegrity_grty) {
+    auto m = run_debug(GetParam(), N, "-grty 4");
+    check_coverage(m, N, GetParam() + " grty=4");
+    check_all_ok(m, GetParam() + " grty=4");
 }
 TEST_P(RootedCollectiveTest, NonDefaultRoot) {
     auto m = run_debug(GetParam(), N, "-mrank " + std::to_string(ALT));

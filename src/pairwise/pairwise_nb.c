@@ -20,7 +20,7 @@ int main(int argc, char** argv){
     /*register signal handler*/
     install_shutdown_handler();
 
-    char *comm_mode="offpair";
+    const char *comm_mode="offpair";
     int target_offset=1;
 
     /*parse command line*/
@@ -28,9 +28,9 @@ int main(int argc, char** argv){
     argc = parse_common_args(argc, argv);
     for (i = 1; i < argc; i++) {
         if (strcmp(argv[i], "-offset") == 0) {
-            target_offset = atoi(argv[++i]);
+            target_offset = atoi(arg_value(argc, argv, &i));
         } else if (strcmp(argv[i], "-mode") == 0) {
-            comm_mode = argv[++i];
+            comm_mode = arg_value(argc, argv, &i);
         } else {
             if (my_rank == master_rank) {
                 fprintf(stderr, "Unknown argument: %s\n", argv[i]);

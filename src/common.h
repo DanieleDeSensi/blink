@@ -13,7 +13,7 @@
 
 /* Exponential: shape parameter accepted for API uniformity but not used —
  * the distribution is fully determined by its mean.                         */
-static double rand_exp(double mean, double shape)
+static inline double rand_exp(double mean, double shape)
 {
     (void)shape;
     double u = (rand() + 0.5) / (RAND_MAX + 1.0); /* shift away from 0 and 1 */
@@ -23,7 +23,7 @@ static double rand_exp(double mean, double shape)
 /* Pareto: shape = tail exponent α.  Must be > 1 for a finite mean.
  * Parameterised so that E[X] = mean regardless of α.
  * Inverse-CDF method: x = x_m * u^(-1/α), u ~ Uniform(0,1).               */
-static double rand_pareto(double mean, double shape)
+static inline double rand_pareto(double mean, double shape)
 {
     double alpha = shape;
     if (alpha <= 1.0) {
@@ -42,7 +42,7 @@ static double rand_pareto(double mean, double shape)
 /* Log-normal: shape = σ of the underlying normal.
  * Parameterised so that E[X] = mean regardless of σ.
  * Box-Muller transform.                                                      */
-static double rand_lognormal(double mean, double sigma)
+static inline double rand_lognormal(double mean, double sigma)
 {
     if (mean <= 0.0) {
         fprintf(stderr, "rand_lognormal: mean must be > 0, got %g\n", mean);
@@ -60,7 +60,7 @@ static double rand_lognormal(double mean, double sigma)
 }
 
 /* Dispatch to the selected sampler. */
-static double rand_duration(double mean, const char *dist, double shape)
+static inline double rand_duration(double mean, const char *dist, double shape)
 {
     if (strcmp(dist, "pareto")    == 0) return rand_pareto(mean, shape);
     if (strcmp(dist, "lognormal") == 0) return rand_lognormal(mean, shape);
@@ -68,7 +68,7 @@ static double rand_duration(double mean, const char *dist, double shape)
 }
 
 /*sleep seconds given as double*/
-static int dsleep(double t)
+static inline int dsleep(double t)
 {
     struct timespec t1, t2;
     t1.tv_sec = (long)t;
@@ -77,7 +77,7 @@ static int dsleep(double t)
 }
 
 /*double comparison function for quicksort*/
-static int compare_doubles(const void *p1, const void *p2)
+static inline int compare_doubles(const void *p1, const void *p2)
 {
     if (*(double *)p1 < *(double *)p2)
         return -1;
@@ -91,8 +91,8 @@ static int compare_doubles(const void *p1, const void *p2)
 static int    my_rank;
 static int    w_size;
 static int    master_rank     = 0;
-static int    curr_iters;       /* total outer iterations executed (warmup + measured) */
-static int    measured_iters;   /* number of recorded samples (excludes warmup) */
+static long long curr_iters;       /* total outer iterations executed (warmup + measured) */
+static long long measured_iters;   /* number of recorded samples (excludes warmup) */
 static int    warm_up_iters   = 5;
 static int    max_samples     = 1000;
 static double *durations;
@@ -127,7 +127,7 @@ static double pause_shape     = 1.5;
 /* Bounds-checked accessor for a flag's value argument.  Aborts with a clear
  * message instead of dereferencing argv[argc] (== NULL) when a value-taking
  * flag is supplied as the final command-line token.                         */
-static const char *arg_value(int argc, char **argv, int *i)
+static inline const char *arg_value(int argc, char **argv, int *i)
 {
     if (*i + 1 >= argc) {
         if (my_rank == master_rank)
@@ -140,7 +140,7 @@ static const char *arg_value(int argc, char **argv, int *i)
 /* Validate a distribution name / shape pair selected via -bldist/-bpdist so a
  * misconfiguration fails loudly at startup rather than silently producing
  * garbage durations later (e.g. log-normal with a non-positive mean).        */
-static void validate_burst_dist(const char *what, const char *dist,
+static inline void validate_burst_dist(const char *what, const char *dist,
                                 double mean, double shape)
 {
     if (mean <= 0.0) {
@@ -167,7 +167,7 @@ static void validate_burst_dist(const char *what, const char *dist,
  * the new argc is returned, so each benchmark can do a second pass for its
  * own flags.  Also seeds the RNG and resolves -mrand after parsing.
  */
-static int parse_common_args(int argc, char **argv)
+static inline int parse_common_args(int argc, char **argv)
 {
     int new_argc       = 1; /* always keep argv[0] (program name) */
     int do_rand_master = 0;
@@ -222,12 +222,22 @@ static int parse_common_args(int argc, char **argv)
     if (do_rand_master)
         master_rank = rand() % w_size;
 
+    /* validate the resolved master rank is a real rank.  An out-of-range -mrank
+     * would otherwise become an invalid root in MPI_Gather/Bcast/Reduce, and can
+     * deadlock benchmarks that branch on (my_rank == master_rank).  Gate the
+     * message on rank 0 because master_rank itself may be the bad value.       */
+    if (master_rank < 0 || master_rank >= w_size) {
+        if (my_rank == 0)
+            fprintf(stderr, "-mrank must be in [0, %d), got %d\n", w_size, master_rank);
+        MPI_Abort(MPI_COMM_WORLD, -1);
+    }
+
     return new_argc;
 }
 
 /* Convenience wrappers used by benchmark measurement loops. */
-static double sample_burst_length(double mean) { return rand_duration(mean, burst_dist, burst_shape); }
-static double sample_pause_length(double mean)  { return rand_duration(mean, pause_dist, pause_shape); }
+static inline double sample_burst_length(double mean) { return rand_duration(mean, burst_dist, burst_shape); }
+static inline double sample_pause_length(double mean)  { return rand_duration(mean, pause_dist, pause_shape); }
 
 /* Record a single measured-iteration latency into the ring buffer.
  * Skips writes during warm-up: callers gate this by `if (k >= warm_up_iters)`
@@ -246,7 +256,7 @@ static inline void record_duration(double t)
 
 /*format a duration (seconds) with auto-scaled units; "%9.2f UU" is normally
  * 12 chars wide (9 is a minimum field width, so extreme outliers can exceed it)*/
-static void format_duration(char *buf, size_t len, double t)
+static inline void format_duration(char *buf, size_t len, double t)
 {
     if (t < 1e-3)
         snprintf(buf, len, "%9.2f us", t * 1e6);
@@ -256,7 +266,7 @@ static void format_duration(char *buf, size_t len, double t)
         snprintf(buf, len, "%9.2f  s", t);
 }
 
-static void write_results()
+static inline void write_results()
 {
     double duration_sum;
     double duration_median;
@@ -268,11 +278,11 @@ static void write_results()
     if (measured_iters > max_samples) /* wrapped the sampling ring buffer */
     {
         num_samples = max_samples;
-        start_index = measured_iters % max_samples;
+        start_index = (int)(measured_iters % max_samples);
     }
     else
     {
-        num_samples = measured_iters;
+        num_samples = (int)measured_iters;
         start_index = 0;
     }
 
@@ -357,9 +367,9 @@ static void write_results()
             printf("\033[2m"
                    "  -------------------------------------------------------------"
                    "\033[0m\n");
-            printf("  %d samples · %d iterations total\n", num_samples, curr_iters);
+            printf("  %d samples · %lld iterations total\n", num_samples, curr_iters);
         } else {
-            printf("Ran %d iterations. Measured %d iterations.\n", curr_iters, num_samples);
+            printf("Ran %lld iterations. Measured %d iterations.\n", curr_iters, num_samples);
         }
         fflush(stdout);
     }
@@ -372,7 +382,7 @@ static void write_results()
 /* Async-signal-safe handler: only sets a flag.  The measurement loop in each
  * benchmark observes the flag and exits cleanly; write_results() and
  * MPI_Finalize() happen on the main thread, never from signal context.    */
-static void sig_handler(int sig)
+static inline void sig_handler(int sig)
 {
     (void)sig;
     shutdown_requested = 1;
@@ -380,7 +390,7 @@ static void sig_handler(int sig)
 
 /* Install the SIGUSR1 shutdown handler with sigaction() rather than signal(),
  * for portable, persistent (non-one-shot) semantics across platforms.       */
-static void install_shutdown_handler(void)
+static inline void install_shutdown_handler(void)
 {
     struct sigaction sa;
     memset(&sa, 0, sizeof(sa));
@@ -397,7 +407,7 @@ static void install_shutdown_handler(void)
  * (called once per outer iteration, OUTSIDE the timed region) guarantees every
  * rank breaks on the same iteration.  Returns non-zero if any rank requested
  * shutdown.                                                                   */
-static int check_shutdown(void)
+static inline int check_shutdown(void)
 {
     int local = (int)shutdown_requested;
     int global = 0;
@@ -408,7 +418,7 @@ static int check_shutdown(void)
 /* ── combinatorics helpers ───────────────────────────────────────────────── */
 
 /*use Fisher-Yates to permute array*/
-static void permute(int *a, int n)
+static inline void permute(int *a, int n)
 {
     int j, t, i;
     for (i = n; i > 1; i--)
@@ -421,7 +431,7 @@ static void permute(int *a, int n)
 }
 
 /*mathematical mod without negative numbers*/
-static int mod(int a, int b)
+static inline int mod(int a, int b)
 {
     int c = a % b;
     if (c < 0)
@@ -436,7 +446,7 @@ static int mod(int a, int b)
  *
  * For odd n the last element targets itself (it has no partner).
  */
-static void random_pairs(int *a, int n)
+static inline void random_pairs(int *a, int n)
 {
     int i;
     int has_self = (n % 2 == 1);
@@ -479,7 +489,7 @@ static void random_pairs(int *a, int n)
  * leaves ranks 8..11 self-paired).  Full disjoint tiling is only guaranteed when
  * 2*o divides n (notably o=1).  Recommended usage: 1 <= o <= n/2.
  */
-static void offset_pairs(int *a, int n, int o)
+static inline void offset_pairs(int *a, int n, int o)
 {
     int i, t;
     for (i = 0; i < n; i++)
@@ -504,7 +514,7 @@ static void offset_pairs(int *a, int n, int o)
 }
 
 #define ALIGNMENT (sysconf(_SC_PAGESIZE))
-static void* malloc_align(size_t size)
+static inline void* malloc_align(size_t size)
 {
     void *p = NULL;
     int ret = posix_memalign(&p, ALIGNMENT, size);

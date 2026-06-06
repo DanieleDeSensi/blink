@@ -117,6 +117,14 @@ TEST_F(IncastNbTest, Burst) {
     check_roles(m, N, MASTER, "incast_nb burst");
     check_all_ok(m, "incast_nb burst");
 }
+/* -grty>1: the root posts grty*(N-1) concurrent Irecvs, each into a disjoint
+ * slot.  A shared slot would be an MPI overlap violation; this guards it.   */
+TEST_F(IncastNbTest, Grty) {
+    auto m = run_debug("incast_nb", N, "-grty 4");
+    check_coverage(m, N, "incast_nb grty=4");
+    check_roles(m, N, MASTER, "incast_nb grty=4");
+    check_all_ok(m, "incast_nb grty=4");
+}
 TEST_F(IncastNbTest, NonDefaultMaster) {
     const int ALT = 3;
     auto m = run_debug("incast_nb", N, "-mrank " + std::to_string(ALT));
@@ -207,6 +215,14 @@ TEST_F(IncastGetTest, Burst) {
     check_roles(m, N, MASTER, "incast_get burst");
     check_all_ok(m, "incast_get burst");
 }
+/* -grty>1: the root issues grty Gets per sender into distinct window-offset
+ * slots; guards the RMA displacement math (j*M*grty + i*M).                 */
+TEST_F(IncastGetTest, Grty) {
+    auto m = run_debug("incast_get", N, "-grty 4");
+    check_coverage(m, N, "incast_get grty=4");
+    check_roles(m, N, MASTER, "incast_get grty=4");
+    check_all_ok(m, "incast_get grty=4");
+}
 TEST_F(IncastGetTest, NonDefaultMaster) {
     const int ALT = 3;
     auto m = run_debug("incast_get", N, "-mrank " + std::to_string(ALT));
@@ -251,6 +267,14 @@ TEST_F(IncastPutTest, Burst) {
     check_coverage(m, N, "incast_put burst");
     check_roles(m, N, MASTER, "incast_put burst");
     check_all_ok(m, "incast_put burst");
+}
+/* -grty>1: each sender issues grty Puts into distinct window-offset slots;
+ * guards the RMA displacement math (rank*M*grty + i*M).                     */
+TEST_F(IncastPutTest, Grty) {
+    auto m = run_debug("incast_put", N, "-grty 4");
+    check_coverage(m, N, "incast_put grty=4");
+    check_roles(m, N, MASTER, "incast_put grty=4");
+    check_all_ok(m, "incast_put grty=4");
 }
 TEST_F(IncastPutTest, NonDefaultMaster) {
     const int ALT = 3;

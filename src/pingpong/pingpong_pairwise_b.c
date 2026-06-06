@@ -67,15 +67,6 @@ int main(int argc, char** argv){
         send_buf[i] = debug_mode ? (unsigned char)my_rank : 'a';
     }
     
-    /* //print for target mode debugging
-    if(my_rank==master_rank){
-        printf("Targets:");
-        for(int i=0;i<w_size;i++){
-            printf(" %d",targets[i]);
-        }
-        printf("\n");   
-    }*/
-    
     /*print basic info to stdout*/
     if(my_rank==master_rank){
         if(endless){
