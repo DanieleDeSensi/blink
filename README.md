@@ -4,8 +4,8 @@
 
 <div align="left">
 
-[![CI](https://github.com/DanieleDeSensi/blink/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/DanieleDeSensi/blink/actions/workflows/ci.yml?query=branch%3Adev)
-[![codecov](https://codecov.io/gh/DanieleDeSensi/blink/branch/dev/graph/badge.svg)](https://codecov.io/gh/DanieleDeSensi/blink/tree/dev)
+[![CI](https://github.com/hlc-lab/blink/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/hlc-lab/blink/actions/workflows/ci.yml?query=branch%3Adev)
+[![codecov](https://codecov.io/gh/hlc-lab/blink/branch/dev/graph/badge.svg)](https://codecov.io/gh/hlc-lab/blink/tree/dev)
 
 </div>
 
