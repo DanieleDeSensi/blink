@@ -2,7 +2,7 @@
   <img src="assets/blink.svg" width="600" alt="Blink logo" />
 </div>
 
-<div align="center">
+<div align="left">
 
 [![CI](https://github.com/DanieleDeSensi/blink/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/DanieleDeSensi/blink/actions/workflows/ci.yml?query=branch%3Adev)
 [![codecov](https://codecov.io/gh/DanieleDeSensi/blink/branch/dev/graph/badge.svg)](https://codecov.io/gh/DanieleDeSensi/blink/tree/dev)
@@ -97,12 +97,6 @@ cmake --build build-cov -j$(nproc)
 ctest --test-dir build-cov --output-on-failure
 gcovr --root . --filter 'src/' --print-summary
 ```
-
-> **Coverage badge setup (one-time):** the test badge works out of the box.  To activate
-> the coverage badge, sign in at <https://codecov.io> with GitHub, enable this repository,
-> and add a `CODECOV_TOKEN` repository secret (Settings → Secrets and variables → Actions).
-> Until then CI still publishes the coverage summary in each run's job-summary and artifact.
-
 
 ## Common flags
 
