@@ -1,0 +1,11 @@
+# Coverage is informational: it reports numbers but never fails a commit or PR.
+# Only the test results (the CI "test" job) gate merges.  Flip informational to
+# false and set a target if you later want coverage regressions to block.
+coverage:
+  status:
+    project:
+      default:
+        informational: true
+    patch:
+      default:
+        informational: true

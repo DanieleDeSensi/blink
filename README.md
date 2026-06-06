@@ -2,6 +2,13 @@
   <img src="assets/blink.svg" width="600" alt="Blink logo" />
 </div>
 
+<div align="center">
+
+[![CI](https://github.com/DanieleDeSensi/blink/actions/workflows/ci.yml/badge.svg)](https://github.com/DanieleDeSensi/blink/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/DanieleDeSensi/blink/graph/badge.svg)](https://codecov.io/gh/DanieleDeSensi/blink)
+
+</div>
+
 
 Blink is a collection of MPI benchmarks designed for long-running, in-situ measurement of network behaviour under realistic traffic conditions.  Each benchmark runs for a configurable number of iterations (or endlessly until interrupted), records per-iteration latency on every rank, and emits a CSV summary when it finishes — either naturally or via `SIGUSR1`.
 
@@ -72,6 +79,29 @@ The test binaries bake in the MPI launcher paths at configure time.  Override th
 ```bash
 BLINK_MPIEXEC=/opt/mpi/bin/mpirun BLINK_NPROC_FLAG=-np BLINK_BIN_DIR=/custom/bin ctest --test-dir build
 ```
+
+### Continuous integration
+
+Every push and pull request triggers the [CI workflow](.github/workflows/ci.yml): it
+builds every benchmark and the test suite on Ubuntu with OpenMPI, runs `ctest`, and
+produces a coverage report.  The badges at the top of this file show the latest result.
+
+The build is instrumented via `-DBLINK_COVERAGE=ON` (`-O0 --coverage`, atomic counters
+so concurrent MPI ranks don't corrupt the `.gcda` files); a [`gcovr`](https://gcovr.com)
+summary of `src/` is printed to the run's job summary, attached as an artifact, and
+uploaded to Codecov.  To reproduce a coverage run locally:
+
+```bash
+cmake -B build-cov -DBLINK_TESTS=ON -DBLINK_COVERAGE=ON
+cmake --build build-cov -j$(nproc)
+ctest --test-dir build-cov --output-on-failure
+gcovr --root . --filter 'src/' --print-summary
+```
+
+> **Coverage badge setup (one-time):** the test badge works out of the box.  To activate
+> the coverage badge, sign in at <https://codecov.io> with GitHub, enable this repository,
+> and add a `CODECOV_TOKEN` repository secret (Settings → Secrets and variables → Actions).
+> Until then CI still publishes the coverage summary in each run's job-summary and artifact.
 
 
 ## Common flags

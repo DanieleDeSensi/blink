@@ -1,0 +1,76 @@
+name: CI
+
+# Run on every push and pull request so each commit is validated.
+on:
+  push:
+  pull_request:
+
+# Cancel an in-progress run if a newer commit is pushed to the same ref.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: build • test • coverage (OpenMPI)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      # GitHub-hosted runners have fewer cores than the 8 ranks some suites
+      # launch, so allow MPI to oversubscribe.  (rmaps_base for OpenMPI 4.x,
+      # the PRTE policy for OpenMPI 5.x — setting the unused one is harmless.)
+      OMPI_MCA_rmaps_base_oversubscribe: "1"
+      PRTE_MCA_rmaps_default_mapping_policy: ":oversubscribe"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install toolchain (CMake, OpenMPI, gcovr)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            cmake build-essential openmpi-bin libopenmpi-dev gcovr
+
+      - name: Configure (tests + coverage)
+        run: cmake -B build -DBLINK_TESTS=ON -DBLINK_COVERAGE=ON
+
+      - name: Build
+        run: cmake --build build -j"$(nproc)"
+
+      - name: Run tests
+        run: ctest --test-dir build --output-on-failure --no-tests=error
+
+      # ---- coverage (best-effort: never flips the test verdict) ----
+      - name: Coverage report (gcovr)
+        if: always()
+        continue-on-error: true
+        run: |
+          gcovr --root . --filter 'src/' \
+                --xml-pretty -o coverage.xml \
+                --print-summary | tee coverage_summary.txt
+          {
+            echo '## Coverage (src/)'
+            echo '```'
+            cat coverage_summary.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload coverage to Codecov
+        if: always()
+        continue-on-error: true
+        uses: codecov/codecov-action@v4
+        with:
+          files: coverage.xml
+          fail_ci_if_error: false
+        env:
+          # Optional: set this repo secret to enable Codecov uploads/badge.
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload coverage artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: |
+            coverage.xml
+            coverage_summary.txt
+          if-no-files-found: ignore
