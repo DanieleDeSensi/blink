@@ -5,7 +5,9 @@
 <div align="left">
 
 [![CI](https://github.com/hlc-lab/blink/actions/workflows/ci.yml/badge.svg?branch=dev)](https://github.com/hlc-lab/blink/actions/workflows/ci.yml?query=branch%3Adev)
+[![CodeQL](https://github.com/hlc-lab/blink/actions/workflows/codeql.yml/badge.svg?branch=dev)](https://github.com/hlc-lab/blink/actions/workflows/codeql.yml?query=branch%3Adev)
 [![codecov](https://codecov.io/gh/hlc-lab/blink/branch/dev/graph/badge.svg)](https://codecov.io/gh/hlc-lab/blink/tree/dev)
+[![License: MIT](https://img.shields.io/github/license/hlc-lab/blink)](LICENSE)
 
 </div>
 
