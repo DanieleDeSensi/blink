@@ -21,7 +21,6 @@
 
 #define N_SAMPLES     100000
 #define HIST_NBINS    8
-#define HIST_BAR_MAX  36
 
 /* Bin edges expressed as multiples of mean.  The last bin is open-ended (overflow). */
 static const double EDGES[] = { 0.0, 0.5, 1.0, 1.5, 2.0, 3.0, 5.0, 10.0 };
@@ -96,25 +95,12 @@ static void print_histogram(double *sorted, int n,
 
     printf("\n");
     for (b = 0; b < HIST_NBINS; b++) {
-        double lo      = EDGES[b] * mean;
-        double hi      = (b < HIST_NBINS - 1) ? EDGES[b + 1] * mean : INFINITY;
-        double theory  = cdf(isinf(hi) ? 1e300 : hi, p1, p2) - cdf(lo, p1, p2);
-        double emp     = (double)counts[b] / n;
-        int    bar_len = (int)round(emp / ((double)max_count / n) * HIST_BAR_MAX);
-
-        /* format the two bin-edge strings (12 chars each, from format_duration) */
-        char lo_s[24], hi_s[24];
-        format_duration(lo_s, sizeof(lo_s), lo);
-        if (isinf(hi))
-            snprintf(hi_s, sizeof(hi_s), "    %8s", "inf");
-        else
-            format_duration(hi_s, sizeof(hi_s), hi);
-
-        /* print range, bar, empirical %, theoretical % */
-        printf("  [%s - %s]  ", lo_s, hi_s);
-        for (i = 0; i < bar_len;          i++) printf("█");
-        for (i = bar_len; i < HIST_BAR_MAX; i++) printf(" ");
-        printf("  %5.1f%%  (theory %5.1f%%)\n", emp * 100.0, theory * 100.0);
+        double lo     = EDGES[b] * mean;
+        double hi     = (b < HIST_NBINS - 1) ? EDGES[b + 1] * mean : INFINITY;
+        double theory = cdf(isinf(hi) ? 1e300 : hi, p1, p2) - cdf(lo, p1, p2);
+        /* shared renderer (common.h): range label, scaled bar, empirical %,
+         * and the theoretical % overlay (theory >= 0) */
+        print_histogram_row(lo, hi, counts[b], max_count, n, theory);
     }
     printf("\n");
 }

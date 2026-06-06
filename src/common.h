@@ -338,6 +338,27 @@ static inline const char *ltrim_spaces(const char *s)
 #endif
 #define BLINK_PLOT_BAR_MAX  40
 
+/* Print one histogram row: an aligned [lo - hi] range label, a bar scaled to
+ * the tallest bin (`maxc`), the empirical percentage, and — when `theory` >= 0
+ * — a theoretical percentage alongside it (dist_test's CDF overlay).  An
+ * infinite `hi` is rendered as "inf" for an open-ended overflow bin.  Shared by
+ * the -plot histogram and dist_test's sampler-verification histogram.         */
+static inline void print_histogram_row(double lo, double hi, int count, int maxc,
+                                        int n, double theory)
+{
+    char lo_s[24], hi_s[24];
+    int  k, bar;
+    format_duration(lo_s, sizeof(lo_s), lo);
+    if (isinf(hi)) snprintf(hi_s, sizeof(hi_s), "    %8s", "inf");
+    else           format_duration(hi_s, sizeof(hi_s), hi);
+    bar = (maxc > 0) ? (int)floor((double)count / maxc * BLINK_PLOT_BAR_MAX + 0.5) : 0;
+    printf("  [%s - %s]  ", lo_s, hi_s);
+    for (k = 0; k < bar; k++)                  printf("\xe2\x96\x88"); /* full block */
+    for (k = bar; k < BLINK_PLOT_BAR_MAX; k++) printf(" ");
+    if (theory >= 0.0) printf("  %5.1f%%  (theory %5.1f%%)\n", 100.0 * count / n, 100.0 * theory);
+    else               printf("  %5.1f%%\n", 100.0 * count / n);
+}
+
 /* Render an ASCII histogram of `n` per-iteration timing samples (seconds),
  * followed by a percentile footer.  Binning modes:
  *   logscale     : `bins` geometric bins between min and max (needs min > 0);
@@ -349,7 +370,7 @@ static inline const char *ltrim_spaces(const char *s)
 static inline void print_runtime_histogram(double *vals, int n, const char *statname,
                                             int bins, double bin_size, int logscale)
 {
-    int i, k;
+    int i;
     printf("\n");
     if (n <= 0) { printf("  (-plot: no measured samples to plot)\n"); return; }
 
@@ -412,14 +433,7 @@ static inline void print_runtime_histogram(double *vals, int n, const char *stat
     for (i = 0; i < nb; i++) {
         double lo = use_log ? vmin * pow(ratio, i)     : lo0 + i * width;
         double hi = use_log ? vmin * pow(ratio, i + 1) : lo0 + (i + 1) * width;
-        char lo_s[24], hi_s[24];
-        format_duration(lo_s, sizeof(lo_s), lo);
-        format_duration(hi_s, sizeof(hi_s), hi);
-        int bar = (int)floor((double)counts[i] / maxc * BLINK_PLOT_BAR_MAX + 0.5);
-        printf("  [%s - %s]  ", lo_s, hi_s);
-        for (k = 0; k < bar; k++)                  printf("\xe2\x96\x88"); /* full block */
-        for (k = bar; k < BLINK_PLOT_BAR_MAX; k++) printf(" ");
-        printf("  %5.1f%%\n", 100.0 * counts[i] / n);
+        print_histogram_row(lo, hi, counts[i], maxc, n, -1.0);   /* -1 => no theory overlay */
     }
     printf("\033[2m  ----------------------------------------------------------------------\033[0m\n");
 
