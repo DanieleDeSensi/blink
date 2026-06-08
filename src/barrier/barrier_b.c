@@ -39,10 +39,6 @@ int main(int argc, char** argv){
     /*allocate buffers*/
     durations=(double *)malloc_align(sizeof(double)*max_samples);
     
-    if(durations==NULL){
-        fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
-        MPI_Abort(MPI_COMM_WORLD, -1);
-    }
 
     /*print basic info to stdout*/
     if(my_rank==master_rank){

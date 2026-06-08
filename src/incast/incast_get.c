@@ -53,10 +53,6 @@ int main(int argc, char** argv){
 
     /* MPI_Win is an opaque handle, not a pointer — do not compare to NULL.
      * Window creation errors are surfaced via the runtime error handler.   */
-    if(send_buf==NULL || recv_buf==NULL || durations==NULL){
-        fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
-        MPI_Abort(MPI_COMM_WORLD, -1);
-    }
 
     /*fill send buffer: rank-as-payload under -debug so the master can verify
      *  delivered RMA contents.  Initialise even on master so any peer that

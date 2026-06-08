@@ -52,10 +52,6 @@ int main(int argc, char** argv){
         }
     }
 
-    if(send_buf==NULL || durations==NULL){
-        fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
-        MPI_Abort(MPI_COMM_WORLD, -1);
-    }
 
     /*fill send buffer with dummies*/
     for(i=0;i<msg_size;i++){

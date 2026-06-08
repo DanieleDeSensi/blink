@@ -59,10 +59,6 @@ int main(int argc, char** argv){
     targets=(int*)malloc_align(sizeof(int)*w_size);
     durations=(double *)malloc_align(sizeof(double)*max_samples);
 
-    if(send_buf==NULL || recv_buf==NULL || targets==NULL || durations==NULL){
-        fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
-        MPI_Abort(MPI_COMM_WORLD, -1);
-    }
 
     /*fill send buffer: rank-as-payload under -debug so partners can verify*/
     for(i=0;i<send_buf_size;i++){

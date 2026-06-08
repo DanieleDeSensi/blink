@@ -54,10 +54,6 @@ int main(int argc, char** argv){
     recv_requests=(MPI_Request*)malloc_align(sizeof(MPI_Request)*(w_size-1)*measure_granularity);
     durations=(double *)malloc_align(sizeof(double)*max_samples);
     
-    if(send_buf==NULL || recv_buf==NULL || durations==NULL || send_requests==NULL || recv_requests==NULL){
-        fprintf(stderr,"Failed to allocate a buffer on rank %d\n",my_rank);
-        MPI_Abort(MPI_COMM_WORLD, -1);
-    }
     
     /*fill send buffer: rank-as-payload under -debug so receivers can verify*/
     if(my_rank!=master_rank){
