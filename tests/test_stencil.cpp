@@ -109,6 +109,11 @@ TEST_F(StencilTest, DataIntegrity_burst) {
     check_coverage(m, N, "stencil burst");
     check_all_ok(m, "stencil burst");
 }
+TEST_F(StencilTest, DataIntegrity_burstdist) {
+    auto m = run_debug("stencil_2d_nb", N, "-iter 3 -blength 0.0004 -bldist exp -bpause 0.0003 -bpdist exp");
+    check_coverage(m, N, "stencil burstdist");
+    check_all_ok(m, "stencil burstdist");
+}
 TEST_F(StencilTest, Consistency_burst) {
     auto m = run_debug("stencil_2d_nb", N, "-blength 0.001");
     check_coverage(m, N, "stencil burst");

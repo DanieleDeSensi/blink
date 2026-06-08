@@ -158,6 +158,12 @@ TEST_F(RingNbTest, Burst) {
     check_consistency(m, "ring_nb burst");
     check_all_ok(m, "ring_nb burst");
 }
+TEST_F(RingNbTest, Burstdist) {
+    auto m = run_debug("ring_nb", N, "-iter 3 -blength 0.0004 -bldist exp -bpause 0.0003 -bpdist exp");
+    check_coverage(m, N, "ring_nb burstdist");
+    check_consistency(m, "ring_nb burstdist");
+    check_all_ok(m, "ring_nb burstdist");
+}
 /* Random ring must differ from sequential (sanity: permutation actually happened). */
 TEST_F(RingNbTest, Random_DiffersFromSequential) {
     auto seq = run_debug("ring_nb", N);
@@ -218,6 +224,12 @@ TEST_F(RingBsnbrTest, Burst) {
     check_coverage(m, N, "ring_bsnbr burst");
     check_consistency(m, "ring_bsnbr burst");
     check_all_ok(m, "ring_bsnbr burst");
+}
+TEST_F(RingBsnbrTest, Burstdist) {
+    auto m = run_debug("ring_bsnbr", N, "-iter 3 -blength 0.0004 -bldist exp -bpause 0.0003 -bpdist exp");
+    check_coverage(m, N, "ring_bsnbr burstdist");
+    check_consistency(m, "ring_bsnbr burstdist");
+    check_all_ok(m, "ring_bsnbr burstdist");
 }
 TEST_F(RingBsnbrTest, AgreesWith_RingNb_Random) {
     auto nb    = run_debug("ring_nb",    N, "-rring -seed 42");

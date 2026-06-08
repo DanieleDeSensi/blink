@@ -83,6 +83,14 @@ TEST_P(UnrootedCollectiveTest, DataIntegrity_grty) {
     check_coverage(m, N, GetParam() + " grty=4");
     check_all_ok(m, GetParam() + " grty=4");
 }
+/* Randomised burst length (-bldist) + a pause (-bpause): exercises the
+ * if(burst_length_rand) / if(burst_pause!=0) / if(burst_pause_rand) branches in
+ * this benchmark's measurement loop, which the fixed -blength burst test misses. */
+TEST_P(UnrootedCollectiveTest, DataIntegrity_burstdist) {
+    auto m = run_debug(GetParam(), N, "-iter 3 -blength 0.0004 -bldist exp -bpause 0.0003 -bpdist exp");
+    check_coverage(m, N, GetParam() + " burstdist");
+    check_all_ok(m, GetParam() + " burstdist");
+}
 
 INSTANTIATE_TEST_SUITE_P(
     Collectives, UnrootedCollectiveTest,
@@ -132,6 +140,12 @@ TEST_P(RootedCollectiveTest, DataIntegrity_grty) {
     auto m = run_debug(GetParam(), N, "-grty 4");
     check_coverage(m, N, GetParam() + " grty=4");
     check_all_ok(m, GetParam() + " grty=4");
+}
+/* Randomised burst + pause: see the unrooted note. */
+TEST_P(RootedCollectiveTest, DataIntegrity_burstdist) {
+    auto m = run_debug(GetParam(), N, "-iter 3 -blength 0.0004 -bldist exp -bpause 0.0003 -bpdist exp");
+    check_coverage(m, N, GetParam() + " burstdist");
+    check_all_ok(m, GetParam() + " burstdist");
 }
 TEST_P(RootedCollectiveTest, NonDefaultRoot) {
     auto m = run_debug(GetParam(), N, "-mrank " + std::to_string(ALT));

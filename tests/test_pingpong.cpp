@@ -51,6 +51,12 @@ TEST_F(PingpongBTest, DataIntegrity_burst) {
     check_all_ok(m, "pingpong_b burst");
 }
 
+TEST_F(PingpongBTest, DataIntegrity_burstdist) {
+    auto m = run_debug("pingpong_b", N, "-iter 3 -blength 0.0004 -bldist exp -bpause 0.0003 -bpdist exp");
+    check_coverage(m, N, "pingpong_b burstdist");
+    check_all_ok(m, "pingpong_b burstdist");
+}
+
 /* ── pingpong_pairwise_b (8 ranks) ─────────────────────────────────────────── */
 
 class PingpongPairwiseBTest : public ::testing::Test {
@@ -75,4 +81,9 @@ TEST_F(PingpongPairwiseBTest, DataIntegrity_burst) {
     auto m = run_debug("pingpong_pairwise_b", N, "-blength 0.001");
     check_coverage(m, N, "pingpong_pairwise_b burst");
     check_all_ok(m, "pingpong_pairwise_b burst");
+}
+TEST_F(PingpongPairwiseBTest, DataIntegrity_burstdist) {
+    auto m = run_debug("pingpong_pairwise_b", N, "-iter 3 -blength 0.0004 -bldist exp -bpause 0.0003 -bpdist exp");
+    check_coverage(m, N, "pingpong_pairwise_b burstdist");
+    check_all_ok(m, "pingpong_pairwise_b burstdist");
 }

@@ -86,6 +86,12 @@ TEST_F(IncastBTest, Burst) {
     check_roles(m, N, MASTER, "incast_b burst");
     check_all_ok(m, "incast_b burst");
 }
+TEST_F(IncastBTest, Burstdist) {
+    auto m = run_debug("incast_b", N, "-iter 3 -blength 0.0004 -bldist exp -bpause 0.0003 -bpdist exp");
+    check_coverage(m, N, "incast_b burstdist");
+    check_roles(m, N, MASTER, "incast_b burstdist");
+    check_all_ok(m, "incast_b burstdist");
+}
 TEST_F(IncastBTest, NonDefaultMaster) {
     const int ALT = 3;
     auto m = run_debug("incast_b", N, "-mrank " + std::to_string(ALT));
@@ -116,6 +122,12 @@ TEST_F(IncastNbTest, Burst) {
     check_coverage(m, N, "incast_nb burst");
     check_roles(m, N, MASTER, "incast_nb burst");
     check_all_ok(m, "incast_nb burst");
+}
+TEST_F(IncastNbTest, Burstdist) {
+    auto m = run_debug("incast_nb", N, "-iter 3 -blength 0.0004 -bldist exp -bpause 0.0003 -bpdist exp");
+    check_coverage(m, N, "incast_nb burstdist");
+    check_roles(m, N, MASTER, "incast_nb burstdist");
+    check_all_ok(m, "incast_nb burstdist");
 }
 /* -grty>1: the root posts grty*(N-1) concurrent Irecvs, each into a disjoint
  * slot.  A shared slot would be an MPI overlap violation; this guards it.   */
@@ -170,6 +182,12 @@ TEST_F(IncastBsnbrTest, Burst) {
     check_roles(m, N, MASTER, "incast_bsnbr burst");
     check_all_ok(m, "incast_bsnbr burst");
 }
+TEST_F(IncastBsnbrTest, Burstdist) {
+    auto m = run_debug("incast_bsnbr", N, "-iter 3 -blength 0.0004 -bldist exp -bpause 0.0003 -bpdist exp");
+    check_coverage(m, N, "incast_bsnbr burstdist");
+    check_roles(m, N, MASTER, "incast_bsnbr burstdist");
+    check_all_ok(m, "incast_bsnbr burstdist");
+}
 TEST_F(IncastBsnbrTest, NonDefaultMaster) {
     const int ALT = 3;
     auto m = run_debug("incast_bsnbr", N, "-mrank " + std::to_string(ALT));
@@ -214,6 +232,12 @@ TEST_F(IncastGetTest, Burst) {
     check_coverage(m, N, "incast_get burst");
     check_roles(m, N, MASTER, "incast_get burst");
     check_all_ok(m, "incast_get burst");
+}
+TEST_F(IncastGetTest, Burstdist) {
+    auto m = run_debug("incast_get", N, "-iter 3 -blength 0.0004 -bldist exp -bpause 0.0003 -bpdist exp");
+    check_coverage(m, N, "incast_get burstdist");
+    check_roles(m, N, MASTER, "incast_get burstdist");
+    check_all_ok(m, "incast_get burstdist");
 }
 /* -grty>1: the root issues grty Gets per sender into distinct window-offset
  * slots; guards the RMA displacement math (j*M*grty + i*M).                 */
@@ -267,6 +291,12 @@ TEST_F(IncastPutTest, Burst) {
     check_coverage(m, N, "incast_put burst");
     check_roles(m, N, MASTER, "incast_put burst");
     check_all_ok(m, "incast_put burst");
+}
+TEST_F(IncastPutTest, Burstdist) {
+    auto m = run_debug("incast_put", N, "-iter 3 -blength 0.0004 -bldist exp -bpause 0.0003 -bpdist exp");
+    check_coverage(m, N, "incast_put burstdist");
+    check_roles(m, N, MASTER, "incast_put burstdist");
+    check_all_ok(m, "incast_put burstdist");
 }
 /* -grty>1: each sender issues grty Puts into distinct window-offset slots;
  * guards the RMA displacement math (rank*M*grty + i*M).                     */

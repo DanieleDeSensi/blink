@@ -70,3 +70,8 @@ TEST_F(KpartnersTest, DataIntegrity_burst) {
     check_coverage(m, N, "k=1 burst");
     check_all_ok(m, "k=1 burst");
 }
+TEST_F(KpartnersTest, DataIntegrity_burstdist) {
+    auto m = run_debug("kpartners_nb", N, "-iter 3 -blength 0.0004 -bldist exp -bpause 0.0003 -bpdist exp");
+    check_coverage(m, N, "k=1 burstdist");
+    check_all_ok(m, "k=1 burstdist");
+}

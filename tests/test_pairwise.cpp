@@ -133,6 +133,11 @@ TEST_F(PairwiseBTest, Burst) {
     check_symmetric(m, "pairwise_b burst");
     check_all_ok(m, "pairwise_b burst");
 }
+TEST_F(PairwiseBTest, Burstdist) {
+    auto m = run_debug("pairwise_b", N, "-mode offpair -offset 1 -iter 3 -blength 0.0004 -bldist exp -bpause 0.0003 -bpdist exp");
+    check_coverage(m, N, "pairwise_b burstdist");
+    check_all_ok(m, "pairwise_b burstdist");
+}
 
 /* ── non-reciprocal modes (rot / perm) ──────────────────────────────────────
  * rot and perm are permutations, not symmetric pairings, so the partner graph
@@ -197,6 +202,11 @@ TEST_F(PairwiseNbTest, Burst) {
     check_symmetric(m, "pairwise_nb burst");
     check_all_ok(m, "pairwise_nb burst");
 }
+TEST_F(PairwiseNbTest, Burstdist) {
+    auto m = run_debug("pairwise_nb", N, "-mode offpair -offset 1 -iter 3 -blength 0.0004 -bldist exp -bpause 0.0003 -bpdist exp");
+    check_coverage(m, N, "pairwise_nb burstdist");
+    check_all_ok(m, "pairwise_nb burstdist");
+}
 TEST_F(PairwiseNbTest, Rot_Offset1_DataIntegrity) {
     auto m = run_debug("pairwise_nb", N, "-mode rot -offset 1");
     check_coverage(m, N, "nb rot offset=1");
@@ -236,6 +246,11 @@ TEST_F(PairwiseBsnbrTest, Burst) {
     check_coverage(m, N, "pairwise_bsnbr burst");
     check_symmetric(m, "pairwise_bsnbr burst");
     check_all_ok(m, "pairwise_bsnbr burst");
+}
+TEST_F(PairwiseBsnbrTest, Burstdist) {
+    auto m = run_debug("pairwise_bsnbr", N, "-mode offpair -offset 1 -iter 3 -blength 0.0004 -bldist exp -bpause 0.0003 -bpdist exp");
+    check_coverage(m, N, "pairwise_bsnbr burstdist");
+    check_all_ok(m, "pairwise_bsnbr burstdist");
 }
 TEST_F(PairwiseBsnbrTest, Rot_Offset1_DataIntegrity) {
     auto m = run_debug("pairwise_bsnbr", N, "-mode rot -offset 1");
