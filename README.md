@@ -97,7 +97,8 @@ uploaded to Codecov.  To reproduce a coverage run locally:
 cmake -B build-cov -DBLINK_TESTS=ON -DBLINK_COVERAGE=ON
 cmake --build build-cov -j$(nproc)
 ctest --test-dir build-cov --output-on-failure
-gcovr --root . --filter 'src/' --print-summary
+gcovr --root . --filter 'src/' --exclude-unreachable-branches --exclude-throw-branches \
+      --exclude-lines-by-pattern '.*MPI_Abort.*' --print-summary
 ```
 
 ## Common flags

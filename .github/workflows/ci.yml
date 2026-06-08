@@ -45,6 +45,8 @@ jobs:
         continue-on-error: true
         run: |
           gcovr --root . --filter 'src/' \
+                --exclude-unreachable-branches --exclude-throw-branches \
+                --exclude-lines-by-pattern '.*MPI_Abort.*' \
                 --xml-pretty -o coverage.xml \
                 --print-summary | tee coverage_summary.txt
           {

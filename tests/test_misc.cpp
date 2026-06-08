@@ -288,3 +288,50 @@ TEST(Plot, BinsizeWithLogConflictAborts)
     EXPECT_NE(r.stderr_raw.find("cannot be combined with -plotlog"), std::string::npos)
         << "expected a conflict diagnostic.\nstderr:\n" << r.stderr_raw;
 }
+
+/* ── burst / pause distribution sampling ─────────────────────────────────────
+ * Exercises the randomised inter-arrival path from the benchmark side:
+ * sample_burst_length/sample_pause_length -> rand_duration -> rand_{exp,pareto,
+ * lognormal}, plus dsleep().  barrier_nb is the cheapest benchmark to drive it. */
+TEST(BurstSampling, RandomisedBurstAndPause)
+{
+    for (const char *d : {"exp", "pareto", "lognormal"}) {
+        std::string extra = std::string("-iter 5 -blength 0.0004 -bldist ") + d;
+        if (std::string(d) != "exp") extra += " -blshape 1.6";   /* shape ignored for exp */
+        DebugRun r = run_debug_capture("barrier_nb", 8, extra);
+        EXPECT_TRUE(r.normal_exit && r.exit_code == 0)
+            << "barrier_nb -bldist " << d << " failed.\nstderr:\n" << r.stderr_raw;
+    }
+    /* randomised pause drives dsleep() + sample_pause_length() */
+    DebugRun p = run_debug_capture("barrier_nb", 8, "-iter 4 -bpause 0.0004 -bpdist exp");
+    EXPECT_TRUE(p.normal_exit && p.exit_code == 0)
+        << "barrier_nb -bpdist failed.\nstderr:\n" << p.stderr_raw;
+}
+
+TEST(BurstSampling, InvalidShapeAbortsCleanly)
+{
+    DebugRun r = run_debug_capture("barrier_nb", 8, "-blength 0.001 -bldist pareto -blshape 0.5");
+    EXPECT_FALSE(r.normal_exit && r.exit_code == 0)
+        << "a Pareto shape <= 1 should abort.\nstdout:\n" << r.stdout_raw;
+    EXPECT_NE(r.stderr_raw.find("pareto shape"), std::string::npos)
+        << "expected a pareto-shape diagnostic.\nstderr:\n" << r.stderr_raw;
+}
+
+/* ── auxiliary tools (checker, null_dummy) ──────────────────────────────────── */
+
+TEST(Tools, CheckerRuns)
+{
+    /* checker = all-to-all plus a per-iteration timestamp log; just exercise it. */
+    DebugRun r = run_debug_capture("checker", 8, "-iter 10");
+    EXPECT_TRUE(r.normal_exit) << "stderr:\n" << r.stderr_raw;
+    EXPECT_EQ(r.exit_code, 0)  << "stderr:\n" << r.stderr_raw;
+    EXPECT_NE(r.stdout_raw.find("Measured"), std::string::npos)
+        << "checker produced no results footer.\nstdout:\n" << r.stdout_raw;
+}
+
+TEST(Tools, NullDummyRuns)
+{
+    DebugRun r = run_debug_capture("null_dummy", 1, "");
+    EXPECT_TRUE(r.normal_exit) << "stderr:\n" << r.stderr_raw;
+    EXPECT_EQ(r.exit_code, 0)  << "stderr:\n" << r.stderr_raw;
+}
