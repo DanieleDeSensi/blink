@@ -1,7 +1,23 @@
 cmake_minimum_required(VERSION 3.16)
 project(blink C CXX)
 
-find_package(MPI REQUIRED COMPONENTS C CXX)
+# On HPC systems where CC/CXX are already MPI wrappers (mpicc/mpicxx),
+# FindMPI's link-test often fails because LD_LIBRARY_PATH isn't set up for
+# CMake's subprocess.  Pass -DBLINK_MPI_WRAPPER=ON to skip FindMPI and create
+# stub INTERFACE targets instead — the wrapper already injects all flags.
+option(BLINK_MPI_WRAPPER
+    "Assume CC/CXX are MPI compiler wrappers; skip find_package(MPI)" OFF)
+
+if(BLINK_MPI_WRAPPER)
+    message(STATUS "BLINK_MPI_WRAPPER=ON — skipping FindMPI, assuming MPI is baked into the compiler")
+    foreach(_tgt MPI::MPI_C MPI::MPI_CXX)
+        if(NOT TARGET ${_tgt})
+            add_library(${_tgt} INTERFACE IMPORTED)
+        endif()
+    endforeach()
+else()
+    find_package(MPI REQUIRED COMPONENTS C CXX)
+endif()
 
 # All binaries land in <build>/bin/
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
