@@ -51,6 +51,11 @@ double burst_shape     = 1.5;
 char   pause_dist[16]  = "exp";
 double pause_shape     = 1.5;
 
+/* Weak default — benchmarks that take their own flags override this with a
+ * strong definition at file scope (a one-liner `const char *benchmark_help =
+ * "..."` in the .c file).  Benchmarks with no custom flags need do nothing. */
+__attribute__((weak)) const char *benchmark_help = NULL;
+
 #ifndef BLINK_PLOT_MAX_BINS
 #define BLINK_PLOT_MAX_BINS 64
 #endif
@@ -172,6 +177,55 @@ void validate_burst_dist(const char *what, const char *dist,
     }
 }
 
+/* Print the help block: common options + benchmark_help (if the benchmark
+ * provides one).  Only the master rank prints, to avoid w_size duplicated
+ * copies on stdout.  Callers handle MPI_Finalize + exit afterwards.          */
+void print_help(const char *progname)
+{
+    if (my_rank != 0) return;
+    const char *base = progname ? progname : "benchmark";
+    const char *slash = strrchr(base, '/');
+    if (slash) base = slash + 1;
+    fprintf(stdout,
+"Usage: %s [options]\n"
+"\n"
+"Common options:\n"
+"  -mrank <int>                  master / root rank (default 0)\n"
+"  -mrand                        choose master rank at random (uses -seed)\n"
+"  -msgsize <bytes>              message size in bytes (default 1024)\n"
+"  -iter <int>                   number of measured iterations (default 1)\n"
+"  -warmup <int>                 number of warm-up iterations (default 5)\n"
+"  -endl                         run endlessly until SIGUSR1\n"
+"  -seed <int>                   RNG seed shared across ranks (default 1)\n"
+"  -grty <int>                   ops per timed window (granularity, default 1)\n"
+"  -maxsamples <int>             cap on per-rank samples stored (default 1000)\n"
+"  -debug                        print per-rank DEBUG lines instead of timings\n"
+"  -pretty-print                 human-readable output (default: CSV row)\n"
+"\n"
+"Burst / pause (idle gaps between bursts of communication):\n"
+"  -blength <seconds>            burst length (default 0 = no bursting)\n"
+"  -bpause <seconds>             pause length between bursts (default 0)\n"
+"  -bldist  <exp|pareto|lognormal>   randomise burst length (default: fixed)\n"
+"  -bpdist  <exp|pareto|lognormal>   randomise pause length (default: fixed)\n"
+"  -blshape <double>             shape param for burst dist (pareto alpha / lognormal sigma)\n"
+"  -bpshape <double>             shape param for pause dist\n"
+"\n"
+"Per-iteration latency histogram (rank 0 only, end of run):\n"
+"  -plot                         emit ASCII histogram of per-iteration latencies\n"
+"  -plotstat <max|min|avg|median|mainrank>   cross-rank statistic (default: max)\n"
+"  -plotbins <int>               number of bins (default 10, max 64)\n"
+"  -plotbinsize <duration>       bin width (e.g. 2ms, 500us, 0.001) — overrides -plotbins\n"
+"  -plotlog                      logarithmic bar heights\n"
+"\n"
+"  -h, --help                    show this help and exit\n",
+        base);
+
+    if (benchmark_help && *benchmark_help) {
+        fprintf(stdout, "\nBenchmark-specific options:\n%s", benchmark_help);
+    }
+    fflush(stdout);
+}
+
 /* Parse a duration: a number with an optional unit suffix (s, ms, us, ns).
  * A bare number is interpreted as seconds (consistent with -blength/-bpause).
  * Returns the value in seconds, or NAN on a malformed string / unknown unit. */
@@ -202,7 +256,14 @@ int parse_common_args(int argc, char **argv)
     int i;
 
     for (i = 1; i < argc; i++) {
-        if      (strcmp(argv[i], "-mrank")        == 0) { master_rank         = atoi(arg_value(argc, argv, &i)); }
+        if      (strcmp(argv[i], "-h")            == 0
+              || strcmp(argv[i], "-help")         == 0
+              || strcmp(argv[i], "--help")        == 0) {
+            print_help(argv[0]);
+            MPI_Finalize();
+            exit(0);
+        }
+        else if (strcmp(argv[i], "-mrank")        == 0) { master_rank         = atoi(arg_value(argc, argv, &i)); }
         else if (strcmp(argv[i], "-mrand")        == 0) { do_rand_master      = 1;               }
         else if (strcmp(argv[i], "-msgsize")      == 0) { msg_size            = atoi(arg_value(argc, argv, &i)); }
         else if (strcmp(argv[i], "-endl")         == 0) { endless             = 1;               }

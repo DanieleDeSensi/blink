@@ -10,6 +10,14 @@
 #include <sched.h>
 #include "common.h"
 
+const char *benchmark_help =
+"  -mode <offpair|rpair|rot|perm>   pairing strategy (default: offpair)\n"
+"      offpair   symmetric offset pairs (uses -offset)\n"
+"      rpair     random reciprocal pairing (uses -seed)\n"
+"      rot       rotation: rank r -> (r+offset) mod w_size; non-reciprocal\n"
+"      perm      random permutation; non-reciprocal\n"
+"  -offset <int>                 offset for offpair/rot modes (default 1)\n";
+
 int main(int argc, char** argv){
 
     /*init MPI world*/

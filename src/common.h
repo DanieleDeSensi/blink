@@ -56,6 +56,12 @@ extern double        burst_shape;
 extern char          pause_dist[16];
 extern double        pause_shape;
 
+/* Benchmark-specific help text, printed after the common block by -h/--help.
+ * Weakly defined as NULL in common.c; benchmarks that take their own flags
+ * provide a strong definition at file scope (see e.g. src/pairwise/pairwise_b.c).
+ */
+extern const char   *benchmark_help;
+
 /* ── functions (defined in common.c) ─────────────────────────────────────── */
 double      rand_exp(double mean, double shape);
 double      rand_pareto(double mean, double shape);
@@ -66,6 +72,7 @@ int         compare_doubles(const void *p1, const void *p2);
 const char *arg_value(int argc, char **argv, int *i);
 void        validate_burst_dist(const char *what, const char *dist, double mean, double shape);
 double      parse_duration(const char *s);
+void        print_help(const char *progname);
 int         parse_common_args(int argc, char **argv);
 double      sample_burst_length(double mean);
 double      sample_pause_length(double mean);

@@ -10,6 +10,11 @@
 #include <sched.h>
 #include "common.h"
 
+const char *benchmark_help =
+"  -dimx <int>                   first dim of the 2D Cartesian grid (default 0 = auto via MPI_Dims_create)\n"
+"                                if non-zero, must divide w_size; w_size/dimx becomes the Y dim\n"
+"  -periodic                     enable wrap-around (toroidal) boundaries on both dims\n";
+
 int main(int argc, char** argv){
 
     /*init MPI world*/

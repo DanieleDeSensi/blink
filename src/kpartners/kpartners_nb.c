@@ -10,6 +10,9 @@
 #include <sched.h>
 #include "common.h"
 
+const char *benchmark_help =
+"  -k <int>                      number of random partners per rank (default 1, capped at w_size-1)\n";
+
 int main(int argc, char** argv){
 
     /*init MPI world*/

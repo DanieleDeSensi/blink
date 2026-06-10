@@ -128,6 +128,9 @@ Every benchmark understands the following flags:
 | `-plotbins <N>` | `10` | Number of histogram bins |
 | `-plotbinsize <D>` | — | Fixed bin width with optional unit (e.g. `2ms`, `500us`, `0.001`); overrides `-plotbins`, linear bins only |
 | `-plotlog` | off | Use logarithmic (geometric) bins — good for heavy-tailed latencies |
+| `-h`, `--help`, `-help` | — | Print usage (common flags + benchmark-specific options if any) and exit |
+
+> **Tip:** every benchmark accepts `-h` (or `--help`); benchmarks with extra flags (`pairwise_*`, `kpartners_nb`, `ring_*`, `stencil_2d_nb`) append a `Benchmark-specific options` section listing them.
 
 ### Burst distributions
 

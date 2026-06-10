@@ -317,6 +317,79 @@ TEST(BurstSampling, InvalidShapeAbortsCleanly)
         << "expected a pareto-shape diagnostic.\nstderr:\n" << r.stderr_raw;
 }
 
+/* ── -h / --help / -help ────────────────────────────────────────────────────
+ *
+ * The help system: weak `benchmark_help` symbol in common.c overridden by
+ * benchmarks with custom flags (pairwise, kpartners, ring, stencil).
+ * parse_common_args handles -h/-help/--help by printing on rank 0 and calling
+ * MPI_Finalize + exit(0) on every rank.
+ */
+
+TEST(Help, CommonHelpPrintsAndExitsZero)
+{
+    /* barrier_nb has NO custom args — only the common block should appear */
+    DebugRun r = run_debug_capture("barrier_nb", 2, "-h");
+    ASSERT_TRUE(r.normal_exit) << "stderr:\n" << r.stderr_raw;
+    EXPECT_EQ(r.exit_code, 0) << "stderr:\n" << r.stderr_raw;
+    EXPECT_NE(r.stdout_raw.find("Usage: barrier_nb"), std::string::npos)
+        << "expected 'Usage: barrier_nb'.\nstdout:\n" << r.stdout_raw;
+    EXPECT_NE(r.stdout_raw.find("-mrank"),  std::string::npos)
+        << "common help should list -mrank.\nstdout:\n" << r.stdout_raw;
+    EXPECT_NE(r.stdout_raw.find("-blength"), std::string::npos)
+        << "common help should list burst flags.\nstdout:\n" << r.stdout_raw;
+    EXPECT_NE(r.stdout_raw.find("-plot"),   std::string::npos)
+        << "common help should list plot flags.\nstdout:\n" << r.stdout_raw;
+    /* benchmarks without custom args must NOT show the benchmark-specific section */
+    EXPECT_EQ(r.stdout_raw.find("Benchmark-specific options"), std::string::npos)
+        << "barrier_nb has no custom args — the section should be absent.\nstdout:\n"
+        << r.stdout_raw;
+}
+
+TEST(Help, BenchmarkSpecificSectionAppears)
+{
+    /* pairwise_b defines benchmark_help with -mode and -offset */
+    DebugRun r = run_debug_capture("pairwise_b", 8, "--help");
+    ASSERT_TRUE(r.normal_exit) << "stderr:\n" << r.stderr_raw;
+    EXPECT_EQ(r.exit_code, 0) << "stderr:\n" << r.stderr_raw;
+    EXPECT_NE(r.stdout_raw.find("Benchmark-specific options"), std::string::npos)
+        << "pairwise_b --help should include the benchmark-specific section.\nstdout:\n"
+        << r.stdout_raw;
+    EXPECT_NE(r.stdout_raw.find("-mode"),   std::string::npos)
+        << "pairwise_b --help should mention -mode.\nstdout:\n" << r.stdout_raw;
+    EXPECT_NE(r.stdout_raw.find("-offset"), std::string::npos)
+        << "pairwise_b --help should mention -offset.\nstdout:\n" << r.stdout_raw;
+}
+
+TEST(Help, AllThreeFlagFormsAccepted)
+{
+    for (const char *flag : {"-h", "-help", "--help"}) {
+        DebugRun r = run_debug_capture("barrier_nb", 2, flag);
+        EXPECT_TRUE(r.normal_exit && r.exit_code == 0)
+            << "flag '" << flag << "' should print help and exit 0.\nstderr:\n"
+            << r.stderr_raw;
+        EXPECT_NE(r.stdout_raw.find("Usage:"), std::string::npos)
+            << "flag '" << flag << "' — expected 'Usage:' in stdout.\nstdout:\n"
+            << r.stdout_raw;
+    }
+}
+
+TEST(Help, OnlyMasterRankPrints)
+{
+    /* With -np 4, help must appear exactly once, not 4×.  Catches a regression
+     * where print_help would skip its rank-0 guard.                            */
+    DebugRun r = run_debug_capture("barrier_nb", 4, "-h");
+    EXPECT_EQ(r.exit_code, 0) << "stderr:\n" << r.stderr_raw;
+    int usage_count = 0;
+    size_t p = 0;
+    while ((p = r.stdout_raw.find("Usage:", p)) != std::string::npos) {
+        usage_count++;
+        p += 6;
+    }
+    EXPECT_EQ(usage_count, 1)
+        << "help should print once (rank 0 only), got " << usage_count
+        << " copies.\nstdout:\n" << r.stdout_raw;
+}
+
 /* ── auxiliary tools (checker, null_dummy) ──────────────────────────────────── */
 
 TEST(Tools, CheckerRuns)

@@ -10,6 +10,9 @@
 #include <sched.h>
 #include "common.h"
 
+const char *benchmark_help =
+"  -rring                        randomise the ring topology (default: sequential 0->1->...->N-1)\n";
+
 int main(int argc, char** argv){
 
     /*init MPI world*/
