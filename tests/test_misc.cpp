@@ -317,6 +317,29 @@ TEST(BurstSampling, InvalidShapeAbortsCleanly)
         << "expected a pareto-shape diagnostic.\nstderr:\n" << r.stderr_raw;
 }
 
+/*
+ * Duration unit suffixes (s, ms, us, ns) — previously dropped silently by atof
+ * (so "-blength 1ms" became 1 SECOND, not 1 ms).  parse_duration_arg() now
+ * recognises them; a bare number is still seconds for backwards compatibility.
+ */
+TEST(BurstSampling, DurationSuffixesAccepted)
+{
+    DebugRun r = run_debug_capture("barrier_nb", 4,
+        "-iter 3 -blength 400us -bpause 300us -bldist exp -bpdist exp");
+    EXPECT_TRUE(r.normal_exit && r.exit_code == 0)
+        << "barrier_nb with unit-suffix durations failed.\nstderr:\n" << r.stderr_raw;
+}
+
+TEST(BurstSampling, InvalidDurationAbortsCleanly)
+{
+    /* old atof would have silently returned 0.0; we now abort instead. */
+    DebugRun r = run_debug_capture("barrier_nb", 2, "-blength garbage");
+    EXPECT_FALSE(r.normal_exit && r.exit_code == 0)
+        << "non-numeric -blength should abort.\nstdout:\n" << r.stdout_raw;
+    EXPECT_NE(r.stderr_raw.find("must be a non-negative duration"), std::string::npos)
+        << "expected a duration diagnostic.\nstderr:\n" << r.stderr_raw;
+}
+
 /* ── -h / --help / -help ────────────────────────────────────────────────────
  *
  * The help system: weak `benchmark_help` symbol in common.c overridden by

@@ -116,10 +116,10 @@ Every benchmark understands the following flags:
 | `-mrank <R>` | `0` | Rank that collects and prints results |
 | `-mrand` | off | Pick master rank randomly |
 | `-seed <S>` | `1` | RNG seed (shared across ranks) |
-| `-blength <s>` | `0` | Mean burst length in seconds (0 = single shot per iteration) |
+| `-blength <duration>` | `0` | Mean burst length (0 = single shot per iteration). Bare number = seconds; suffixes `s`, `ms`, `us`, `ns` accepted (e.g. `400us`). |
 | `-bldist <D>` | — | Randomise burst length using distribution `D` (`exp`, `pareto`, `lognormal`) |
 | `-blshape <S>` | `1.5` | Shape parameter for burst distribution (α for Pareto, σ for log-normal) |
-| `-bpause <s>` | `0` | Mean pause between bursts in seconds |
+| `-bpause <duration>`  | `0` | Mean pause between bursts. Same unit conventions as `-blength`. |
 | `-bpdist <D>` | — | Randomise pause length using distribution `D` (`exp`, `pareto`, `lognormal`) |
 | `-bpshape <S>` | `1.5` | Shape parameter for pause distribution (α for Pareto, σ for log-normal) |
 | `-pretty-print` | off | Human-readable table output instead of CSV (see [Output format](#output-format)) |
@@ -145,8 +145,8 @@ When `-bldist` or `-bpdist` is supplied, burst lengths / pauses are drawn indepe
 ```bash
 # Pareto bursts (α=2, heavy tail) with exponential pauses
 mpirun -n 8 build/bin/alltoall_nb -iter 500 \
-    -blength 0.01 -bldist pareto  -blshape 2.0 \
-    -bpause  0.05 -bpdist exp
+    -blength 10ms -bldist pareto  -blshape 2.0 \
+    -bpause  50ms -bpdist exp
 ```
 
 The sampler implementations can be verified independently:

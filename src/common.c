@@ -203,12 +203,13 @@ void print_help(const char *progname)
 "  -pretty-print                 human-readable output (default: CSV row)\n"
 "\n"
 "Burst / pause (idle gaps between bursts of communication):\n"
-"  -blength <seconds>            burst length (default 0 = no bursting)\n"
-"  -bpause <seconds>             pause length between bursts (default 0)\n"
+"  -blength <duration>           burst length (default 0 = no bursting)\n"
+"  -bpause  <duration>           pause length between bursts (default 0)\n"
 "  -bldist  <exp|pareto|lognormal>   randomise burst length (default: fixed)\n"
 "  -bpdist  <exp|pareto|lognormal>   randomise pause length (default: fixed)\n"
 "  -blshape <double>             shape param for burst dist (pareto alpha / lognormal sigma)\n"
 "  -bpshape <double>             shape param for pause dist\n"
+"     (durations: bare number = seconds; suffixes 's', 'ms', 'us', 'ns' accepted)\n"
 "\n"
 "Per-iteration latency histogram (rank 0 only, end of run):\n"
 "  -plot                         emit ASCII histogram of per-iteration latencies\n"
@@ -224,6 +225,22 @@ void print_help(const char *progname)
         fprintf(stdout, "\nBenchmark-specific options:\n%s", benchmark_help);
     }
     fflush(stdout);
+}
+
+/* Wrap parse_duration with diagnostics + validation for CLI args that accept
+ * a duration.  A bare number is seconds; suffixes s/ms/us/ns are recognised.
+ * Aborts with a clear message on malformed input or negative value (0 is OK
+ * because -blength 0 / -bpause 0 mean "no bursting").                       */
+static double parse_duration_arg(const char *flag, const char *s)
+{
+    double v = parse_duration(s);
+    if (isnan(v) || v < 0.0) {
+        if (my_rank == master_rank)
+            fprintf(stderr, "%s must be a non-negative duration "
+                    "(e.g. 0.001, 1ms, 500us, 100ns), got '%s'\n", flag, s);
+        MPI_Abort(MPI_COMM_WORLD, -1);
+    }
+    return v;
 }
 
 /* Parse a duration: a number with an optional unit suffix (s, ms, us, ns).
@@ -269,8 +286,8 @@ int parse_common_args(int argc, char **argv)
         else if (strcmp(argv[i], "-endl")         == 0) { endless             = 1;               }
         else if (strcmp(argv[i], "-iter")         == 0) { max_iters           = atoi(arg_value(argc, argv, &i)); }
         else if (strcmp(argv[i], "-warmup")       == 0) { warm_up_iters       = atoi(arg_value(argc, argv, &i)); }
-        else if (strcmp(argv[i], "-blength")      == 0) { burst_length        = atof(arg_value(argc, argv, &i)); }
-        else if (strcmp(argv[i], "-bpause")       == 0) { burst_pause         = atof(arg_value(argc, argv, &i)); }
+        else if (strcmp(argv[i], "-blength")      == 0) { burst_length        = parse_duration_arg("-blength", arg_value(argc, argv, &i)); }
+        else if (strcmp(argv[i], "-bpause")       == 0) { burst_pause         = parse_duration_arg("-bpause",  arg_value(argc, argv, &i)); }
         else if (strcmp(argv[i], "-bldist")       == 0) { strncpy(burst_dist, arg_value(argc, argv, &i), 15);
                                                           burst_dist[15] = '\0';
                                                           burst_length_rand = 1;                  }
