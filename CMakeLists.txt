@@ -9,11 +9,32 @@ option(BLINK_MPI_WRAPPER
     "Assume CC/CXX are MPI compiler wrappers; skip find_package(MPI)" OFF)
 
 if(BLINK_MPI_WRAPPER)
-    message(STATUS "BLINK_MPI_WRAPPER=ON — skipping FindMPI, assuming MPI is baked into the compiler")
+    message(STATUS "BLINK_MPI_WRAPPER=ON — querying '${CMAKE_C_COMPILER}' for MPI flags")
+    execute_process(COMMAND "${CMAKE_C_COMPILER}" --showme:incdirs
+                    OUTPUT_VARIABLE _mpi_incdirs OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_QUIET)
+    execute_process(COMMAND "${CMAKE_C_COMPILER}" --showme:libdirs
+                    OUTPUT_VARIABLE _mpi_libdirs OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_QUIET)
+    execute_process(COMMAND "${CMAKE_C_COMPILER}" --showme:libs
+                    OUTPUT_VARIABLE _mpi_libs    OUTPUT_STRIP_TRAILING_WHITESPACE ERROR_QUIET)
+    string(REPLACE " " ";" _mpi_incdirs "${_mpi_incdirs}")
+    string(REPLACE " " ";" _mpi_libdirs "${_mpi_libdirs}")
+    string(REPLACE " " ";" _mpi_libs    "${_mpi_libs}")
+    set(_mpi_link_flags "")
+    foreach(_d ${_mpi_libdirs})
+        list(APPEND _mpi_link_flags "-L${_d}")
+    endforeach()
+    foreach(_l ${_mpi_libs})
+        list(APPEND _mpi_link_flags "-l${_l}")
+    endforeach()
+    message(STATUS "  MPI includes : ${_mpi_incdirs}")
+    message(STATUS "  MPI link     : ${_mpi_link_flags}")
     foreach(_tgt MPI::MPI_C MPI::MPI_CXX)
         if(NOT TARGET ${_tgt})
             add_library(${_tgt} INTERFACE IMPORTED)
         endif()
+        set_target_properties(${_tgt} PROPERTIES
+            INTERFACE_INCLUDE_DIRECTORIES "${_mpi_incdirs}"
+            INTERFACE_LINK_LIBRARIES     "${_mpi_link_flags}")
     endforeach()
 else()
     find_package(MPI REQUIRED COMPONENTS C CXX)
