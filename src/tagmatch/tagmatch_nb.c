@@ -1,24 +1,31 @@
 /*
- * tagmatch_nb.c — stress-test MPI tag matching with N messages per iteration.
+ * tagmatch_nb.c — exercises MPI tag matching with N messages per iteration.
  *
- * Two ranks, two queues that the implementation typically scans linearly:
+ * Two ranks exchange N tagged messages.  Conceptually, an MPI implementation
+ * may maintain two queues to bridge the gap between sends and recvs that do
+ * not happen simultaneously:
  *   - UMQ (Unexpected Message Queue): messages that arrived before a matching
  *     recv was posted.  Drained when the receiver issues Recv/Irecv.
  *   - PRQ (Posted Receive Queue): Irecvs posted before the matching message
  *     arrived.  Drained when messages arrive.
  *
- * The pathological worst case is N*(N+1)/2 = O(N^2) scan steps when the order
- * of insertion into a queue is the reverse of the order it is scanned in.
- * This benchmark surfaces that pathology by sending and receiving the same
- * N tags in independently-chosen orders.
+ * If a particular implementation scans either queue in linear time, sending
+ * and receiving N tags in opposite orders could in principle cost N*(N+1)/2
+ * scan steps (O(N^2)) instead of O(N) when the orders match.  Whether any
+ * specific implementation actually exhibits this depends on its data
+ * structures; this benchmark only sets up the conditions under which such a
+ * difference would become visible.
  *
  * Modes:
- *   -prepost off (default) — receiver does Irecv-then-Wait per message; while
- *       it blocks, messages pile up in UMQ.  Stresses UMQ scan.
- *   -prepost on            — receiver pre-posts all N Irecvs (PRQ) then
- *       Waitall; arriving messages walk the PRQ.  Stresses PRQ scan.
+ *   -prepost off (default) — receiver does Irecv-then-Wait per message;
+ *       while it waits for the current tag, other messages may accumulate
+ *       in the UMQ.  Targets the UMQ-matching path.
+ *   -prepost on            — receiver pre-posts all N Irecvs (which may
+ *       end up in the PRQ) and then Waits on them all.  Targets the
+ *       PRQ-matching path.
  *
- * Always uses Irecv (Recv == Irecv+Wait from the matching engine's POV).
+ * Always uses Irecv (Recv is equivalent to Irecv+Wait from the matching
+ * engine's perspective).
  *
  * Requires exactly 2 ranks.
  */
@@ -34,8 +41,8 @@ const char *benchmark_help =
 "  -ntags <N>                    messages per iteration (default 1024, capped at MPI_TAG_UB+1)\n"
 "  -sendorder <inc|dec|random|same>  sender's tag order (default: inc; 'same' = inc)\n"
 "  -recvorder <inc|dec|random|same>  receiver's tag order (default: dec; 'same' = inc)\n"
-"  -prepost                      receiver pre-posts all Irecvs (PRQ stress)\n"
-"                                default off: post-then-Wait per message (UMQ stress)\n"
+"  -prepost                      receiver pre-posts all Irecvs (targets PRQ-matching path)\n"
+"                                default off: post-then-Wait per message (targets UMQ-matching path)\n"
 "  -wildcard                     receiver uses MPI_ANY_TAG (exercises the wildcard match path)\n";
 
 /* Build a tag-order permutation of [0..n-1] into `out`. Aborts on bad name. */
@@ -208,7 +215,7 @@ int main(int argc, char **argv)
             } else {
                 /* Receiver: two scheduling patterns. */
                 if (prepost) {
-                    /* PRQ stress: post all N Irecvs first, then Waitall. */
+                    /* Targets PRQ path: post all N Irecvs first, then Waitall. */
                     for (i = 0; i < ntags; i++) {
                         int t = wildcard ? MPI_ANY_TAG : recv_tags[i];
                         MPI_Irecv(recv_buf + (size_t)i * one_buf, msg_size, MPI_BYTE,
@@ -216,8 +223,9 @@ int main(int argc, char **argv)
                     }
                     MPI_Waitall(ntags, reqs, MPI_STATUSES_IGNORE);
                 } else {
-                    /* UMQ stress: Irecv-then-Wait per message; receiver
-                     * blocks while remaining messages accumulate in UMQ. */
+                    /* Targets UMQ path: Irecv-then-Wait per message; while
+                     * the receiver waits, other messages may accumulate
+                     * in the UMQ. */
                     for (i = 0; i < ntags; i++) {
                         int t = wildcard ? MPI_ANY_TAG : recv_tags[i];
                         MPI_Request req;

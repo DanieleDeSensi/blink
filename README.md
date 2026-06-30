@@ -305,16 +305,16 @@ Each rank simultaneously sends to both its left and right neighbours and receive
 
 Extra flag: `-rring` — randomise the ring order instead of using rank order.
 
-#### Tag-match stress — `tagmatch/`
+#### Tag matching — `tagmatch/`
 
-Two ranks exchange `N` messages per iteration with arbitrary tag orderings, stressing the MPI implementation's tag-matching engine.
+Two ranks exchange `N` messages per iteration with independently chosen tag orderings.  The benchmark is meant to expose differences in how an MPI implementation matches messages to receives.
 
-MPI matches messages against either:
+To bridge sends and receives that do not happen simultaneously, an implementation may conceptually maintain two queues:
 
-- the **Unexpected Message Queue (UMQ)** — messages that arrived before a `Recv` was posted, or
-- the **Posted Receive Queue (PRQ)** — `Irecv`s posted before the matching message arrived.
+- an **Unexpected Message Queue (UMQ)** — messages that arrived before a matching `Recv` was posted, drained when a `Recv` is finally issued;
+- a **Posted Receive Queue (PRQ)** — `Irecv`s posted before the matching message arrived, drained as messages come in.
 
-Most implementations scan these queues linearly. If the sender and receiver use the same tag order, each match is found at the head of the queue — `O(N)` total work. If the orders are **opposite**, each match walks to the tail — `O(N²)` total. This benchmark surfaces that pathology and lets you tell which queue the implementation optimizes.
+If the queues are scanned linearly, sending and receiving `N` tags in the **same** order finds each match near the head — roughly `O(N)` total scan work — whereas using **opposite** orders could in principle force each match to walk to the tail of a growing queue — up to `O(N²)`.  Whether a given implementation actually behaves this way depends on its data structures; this benchmark only sets up the conditions under which such a difference would become visible, and lets you compare the two queues separately.
 
 Binary: `tagmatch_nb` (2 ranks)
 
@@ -325,22 +325,23 @@ Extra flags:
 | `-ntags <N>` | `1024` | Number of messages per iteration (capped at `MPI_TAG_UB+1`) |
 | `-sendorder <inc\|dec\|random\|same>` | `inc` | Order in which the sender issues tags. `same` is an alias for `inc`. |
 | `-recvorder <inc\|dec\|random\|same>` | `dec` | Order in which the receiver matches tags |
-| `-prepost` | off | Receiver pre-posts all `Irecv`s (PRQ stress). Default = post-then-Wait per message (UMQ stress). |
+| `-prepost` | off | Receiver pre-posts all `Irecv`s (targets the PRQ-matching path). Default off = post-then-Wait per message (targets the UMQ-matching path). |
 | `-wildcard` | off | Receiver uses `MPI_ANY_TAG` — exercises the wildcard match code path. |
 
 ```bash
-# Worst-case UMQ scan — sender increments, receiver decrements:
+# Opposite tag orders, no pre-posting — exercises the UMQ-matching path:
 mpirun -n 2 build/bin/tagmatch_nb -ntags 4096 -iter 10
 
-# Same as above but stresses the PRQ instead:
+# Same scenario but with all Irecvs pre-posted — exercises the PRQ path:
 mpirun -n 2 build/bin/tagmatch_nb -ntags 4096 -iter 10 -prepost
 
-# Visualise the scaling: per-iteration latency histogram should fan out
-# dramatically when going inc/dec compared with inc/inc:
+# Visualise per-iteration latencies; compare runs with -recvorder dec
+# vs -recvorder inc to see whether the implementation shows different
+# scaling behaviour between the two orderings:
 mpirun -n 2 build/bin/tagmatch_nb -ntags 16384 -iter 200 -plot -plotlog
 ```
 
-The default settings (`-sendorder inc -recvorder dec`, no prepost) give the **UMQ worst case** out of the box — a single run is enough to tell whether the MPI is vulnerable. Note: `-blength`/`-bpause` are accepted but have no effect (no inner-loop burst structure).
+Note: `-blength` / `-bpause` are accepted but have no effect — the benchmark has no inner-loop burst structure.
 
 ---
 
