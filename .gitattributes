@@ -1,0 +1,12 @@
+# Enforce LF line endings for all text files, on every platform.
+# Without this, editors / tools running on Windows can re-introduce CRLF when
+# the WSL working tree is accessed via \\wsl.localhost passthrough, making the
+# whole tree look "modified" to a Linux-side git.
+
+* text=auto eol=lf
+
+# Known binaries — never touched by EOL normalisation.
+*.svg  binary
+*.png  binary
+*.jpg  binary
+*.pdf  binary
