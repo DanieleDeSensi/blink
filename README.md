@@ -305,6 +305,43 @@ Each rank simultaneously sends to both its left and right neighbours and receive
 
 Extra flag: `-rring` — randomise the ring order instead of using rank order.
 
+#### Tag-match stress — `tagmatch/`
+
+Two ranks exchange `N` messages per iteration with arbitrary tag orderings, stressing the MPI implementation's tag-matching engine.
+
+MPI matches messages against either:
+
+- the **Unexpected Message Queue (UMQ)** — messages that arrived before a `Recv` was posted, or
+- the **Posted Receive Queue (PRQ)** — `Irecv`s posted before the matching message arrived.
+
+Most implementations scan these queues linearly. If the sender and receiver use the same tag order, each match is found at the head of the queue — `O(N)` total work. If the orders are **opposite**, each match walks to the tail — `O(N²)` total. This benchmark surfaces that pathology and lets you tell which queue the implementation optimizes.
+
+Binary: `tagmatch_nb` (2 ranks)
+
+Extra flags:
+
+| Flag | Default | Description |
+|------|---------|-------------|
+| `-ntags <N>` | `1024` | Number of messages per iteration (capped at `MPI_TAG_UB+1`) |
+| `-sendorder <inc\|dec\|random\|same>` | `inc` | Order in which the sender issues tags. `same` is an alias for `inc`. |
+| `-recvorder <inc\|dec\|random\|same>` | `dec` | Order in which the receiver matches tags |
+| `-prepost` | off | Receiver pre-posts all `Irecv`s (PRQ stress). Default = post-then-Wait per message (UMQ stress). |
+| `-wildcard` | off | Receiver uses `MPI_ANY_TAG` — exercises the wildcard match code path. |
+
+```bash
+# Worst-case UMQ scan — sender increments, receiver decrements:
+mpirun -n 2 build/bin/tagmatch_nb -ntags 4096 -iter 10
+
+# Same as above but stresses the PRQ instead:
+mpirun -n 2 build/bin/tagmatch_nb -ntags 4096 -iter 10 -prepost
+
+# Visualise the scaling: per-iteration latency histogram should fan out
+# dramatically when going inc/dec compared with inc/inc:
+mpirun -n 2 build/bin/tagmatch_nb -ntags 16384 -iter 200 -plot -plotlog
+```
+
+The default settings (`-sendorder inc -recvorder dec`, no prepost) give the **UMQ worst case** out of the box — a single run is enough to tell whether the MPI is vulnerable. Note: `-blength`/`-bpause` are accepted but have no effect (no inner-loop burst structure).
+
 ---
 
 ### Synthetic / application-inspired patterns
